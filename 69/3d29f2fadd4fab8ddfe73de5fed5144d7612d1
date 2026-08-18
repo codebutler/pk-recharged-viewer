@@ -1,0 +1,264 @@
+.gitignore
+  s_30c66b9ed26a01::t_12fa99d118b097 1-15
+analysis/README.md
+  s_30c66b9ed26a01::t_361cb7e49b46ba 36-46
+  s_5335a78adb4cf1::t_9d0c8439b557d5 1-35,47-151
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_65a7b64b0b9863 253-263
+  s_30c66b9ed26a01::t_60e6ea78926fc7 250-252
+  s_30c66b9ed26a01::t_13b4a432439f57 264-266
+  s_30c66b9ed26a01::t_b65006f34c9fb0 1-249,267-767
+.gitmodules
+  s_30c66b9ed26a01::t_5a413401b105e3 7-12
+  s_30c66b9ed26a01::t_edc8f7c7d7cf9a 1-6
+CLAUDE.md
+  s_5335a78adb4cf1::t_4f4bbba3f86fdf 1-110
+analysis/dumps/explore-starter/f006000/pointers.txt
+  s_30c66b9ed26a01::t_db743e52a321ca 1-5
+analysis/dumps/inject/injected/pointers.txt
+  s_30c66b9ed26a01::t_afa238b53d086d 1-3
+analysis/dumps/inject/preinject/pointers.txt
+  s_30c66b9ed26a01::t_7ab3c032be8316 1-3
+analysis/dumps/newgame-spam/DONE
+  s_30c66b9ed26a01::t_5f961f526abe93 1
+analysis/dumps/newgame-spam/f003600/pointers.txt
+  s_30c66b9ed26a01::t_98f69b7f51d302 1-5
+analysis/dumps/newgame-spam/f017400/pointers.txt
+  s_30c66b9ed26a01::t_653e3c0c3e268d 1-5
+analysis/dumps/newgame-spam/f018600/pointers.txt
+  s_30c66b9ed26a01::t_8b82323d61f602 1-5
+analysis/dumps/newgame-spam/f019200/pointers.txt
+  s_30c66b9ed26a01::t_aede84c72f8e9b 1-5
+analysis/dumps/newgame-spam/f019800/pointers.txt
+  s_30c66b9ed26a01::t_b088d6638f612f 1-5
+analysis/dumps/newgame-spam/final/pointers.txt
+  s_30c66b9ed26a01::t_cb54a5e92465b3 1-5
+analysis/dumps/newgame-spam/harness.log
+  s_30c66b9ed26a01::t_99b45c0ec0e024 1-36
+analysis/dumps/statepair/DONE
+  s_30c66b9ed26a01::t_9804afc021e462 1
+analysis/dumps/statepair/harness.log
+  s_30c66b9ed26a01::t_8ab3c9f9981fed 1-15
+analysis/firered-structs.json
+  s_30c66b9ed26a01::t_31b625acb90734 1-1742
+analysis/gamedata.json
+  s_30c66b9ed26a01::t_1a831020885b54 1-5192
+analysis/hack-offsets.md
+  s_30c66b9ed26a01::t_cce79a5a634253 1-129
+analysis/real-saves/st0.json
+  s_30c66b9ed26a01::t_2eb79d116cec26 1-3645
+analysis/real-saves/st9.json
+  s_30c66b9ed26a01::t_89c2dac70e2066 1-3645
+analysis/report/index.html
+  s_30c66b9ed26a01::t_ae8cca46e0f0f8 1-191
+analysis/species-mapping.json
+  s_30c66b9ed26a01::t_2bf29f7e191454 1-2066
+analysis/structs.json
+  s_30c66b9ed26a01::t_183ea9dac373a2 1-1931
+analysis/tools/mgba_dump_harness.lua
+  s_5335a78adb4cf1::t_e4f09adf210da8 1-101
+analysis/tools/mgba_state_dump.lua
+  s_30c66b9ed26a01::t_7805baa19cb67d 1-60
+analysis/tools/parse_ram.py
+  s_5335a78adb4cf1::t_1a677431cad7c7 1-1218
+pokeemerald
+  s_30c66b9ed26a01::t_d8c7b2ef4df0a9 1
+vendor/README.md
+  s_30c66b9ed26a01::t_6201440eb70756 1-20
+vendor/pokeapi-data
+  s_30c66b9ed26a01::t_288407ff234193 1
+analysis/dumps/explore-starter/DONE
+  s_30c66b9ed26a01::t_faf63a6b7afa53 1
+analysis/dumps/explore-starter/f001200/pointers.txt
+  s_30c66b9ed26a01::t_baacca26db08bb 1-5
+analysis/dumps/explore-starter/f002400/pointers.txt
+  s_30c66b9ed26a01::t_552e8c0282108e 1-5
+analysis/dumps/explore-starter/f003600/pointers.txt
+  s_30c66b9ed26a01::t_daae731b656b40 1-5
+analysis/dumps/explore-starter/f004800/pointers.txt
+  s_30c66b9ed26a01::t_eb5ac4a59eeab2 1-5
+analysis/dumps/explore-starter/f007200/pointers.txt
+  s_30c66b9ed26a01::t_8e49a9ee56ce82 1-5
+analysis/dumps/explore-starter/f008400/pointers.txt
+  s_30c66b9ed26a01::t_8a16e3c4853222 1-5
+analysis/dumps/explore-starter/f009600/pointers.txt
+  s_30c66b9ed26a01::t_834d6c30547024 1-5
+analysis/dumps/explore-starter/f010800/pointers.txt
+  s_30c66b9ed26a01::t_06a1a174befb41 1-5
+analysis/dumps/explore-starter/f012000/pointers.txt
+  s_30c66b9ed26a01::t_490fd7a7cd3b1e 1-5
+analysis/dumps/explore-starter/f013200/pointers.txt
+  s_30c66b9ed26a01::t_7d0d8364c5b423 1-5
+analysis/dumps/explore-starter/f014400/pointers.txt
+  s_30c66b9ed26a01::t_3f79e87147944d 1-5
+analysis/dumps/explore-starter/f015600/pointers.txt
+  s_30c66b9ed26a01::t_bfedecd46322eb 1-5
+analysis/dumps/explore-starter/f016800/pointers.txt
+  s_30c66b9ed26a01::t_e139fbe761eb4f 1-5
+analysis/dumps/explore-starter/f018000/pointers.txt
+  s_30c66b9ed26a01::t_61d9a00bdcbe11 1-5
+analysis/dumps/explore-starter/f019200/pointers.txt
+  s_30c66b9ed26a01::t_c5d47b0ca46bd7 1-5
+analysis/dumps/explore-starter/f020400/pointers.txt
+  s_30c66b9ed26a01::t_3fd121afb3f26f 1-5
+analysis/dumps/explore-starter/f021600/pointers.txt
+  s_30c66b9ed26a01::t_bec494220b800e 1-5
+analysis/dumps/explore-starter/f022800/pointers.txt
+  s_30c66b9ed26a01::t_574bafb08cdc81 1-5
+analysis/dumps/explore-starter/f024000/pointers.txt
+  s_30c66b9ed26a01::t_26a792115952c7 1-5
+analysis/dumps/explore-starter/f025200/pointers.txt
+  s_30c66b9ed26a01::t_b8a9c0178f33e5 1-5
+analysis/dumps/explore-starter/f026400/pointers.txt
+  s_30c66b9ed26a01::t_bd5a1ecca9867b 1-5
+analysis/dumps/explore-starter/f027600/pointers.txt
+  s_30c66b9ed26a01::t_ad63706f68f53f 1-5
+analysis/dumps/explore-starter/f028800/pointers.txt
+  s_30c66b9ed26a01::t_2b41aa4de22035 1-5
+analysis/dumps/explore-starter/f030000/pointers.txt
+  s_30c66b9ed26a01::t_87dbd2e526a4fb 1-5
+analysis/dumps/explore-starter/f031200/pointers.txt
+  s_30c66b9ed26a01::t_76a0299bdd6880 1-5
+analysis/dumps/explore-starter/f032400/pointers.txt
+  s_30c66b9ed26a01::t_d284a15b728ccb 1-5
+analysis/dumps/explore-starter/f033600/pointers.txt
+  s_30c66b9ed26a01::t_5b531a8d1235f7 1-5
+analysis/dumps/explore-starter/f034800/pointers.txt
+  s_30c66b9ed26a01::t_3a8bbe163ae672 1-5
+analysis/dumps/explore-starter/f036000/pointers.txt
+  s_30c66b9ed26a01::t_21d7e698eba706 1-5
+analysis/dumps/explore-starter/f037200/pointers.txt
+  s_30c66b9ed26a01::t_c4911bc0ba81b4 1-5
+analysis/dumps/explore-starter/f038400/pointers.txt
+  s_30c66b9ed26a01::t_d9135936c16b2e 1-5
+analysis/dumps/explore-starter/f039600/pointers.txt
+  s_30c66b9ed26a01::t_6e7aaec77a05f7 1-5
+analysis/dumps/explore-starter/final/pointers.txt
+  s_30c66b9ed26a01::t_467c72237a2b88 1-5
+analysis/dumps/explore-starter/harness.log
+  s_30c66b9ed26a01::t_4d395af6063fb0 1-37
+analysis/dumps/explore-starter/pre-explore/pointers.txt
+  s_30c66b9ed26a01::t_d74f79656c6741 1-5
+analysis/dumps/inject/DONE
+  s_30c66b9ed26a01::t_d6e1040688ae64 1
+analysis/dumps/inject/final/pointers.txt
+  s_30c66b9ed26a01::t_1fd0de331b5862 1-3
+analysis/dumps/inject/harness.log
+  s_30c66b9ed26a01::t_efc5bf78525c3c 1-17
+analysis/dumps/inject/injected-settled/pointers.txt
+  s_30c66b9ed26a01::t_21d39eee0551e7 1-3
+analysis/dumps/newgame-spam/f000600/pointers.txt
+  s_30c66b9ed26a01::t_0d0592cc6e8127 1-5
+analysis/dumps/newgame-spam/f001200/pointers.txt
+  s_30c66b9ed26a01::t_172f0f1b8f64d6 1-5
+analysis/dumps/newgame-spam/f001800/pointers.txt
+  s_30c66b9ed26a01::t_0a1397a6d7e436 1-5
+analysis/dumps/newgame-spam/f002400/pointers.txt
+  s_30c66b9ed26a01::t_c5c760ae5ecd6e 1-5
+analysis/dumps/newgame-spam/f003000/pointers.txt
+  s_30c66b9ed26a01::t_913c675f7e2409 1-5
+analysis/dumps/newgame-spam/f004200/pointers.txt
+  s_30c66b9ed26a01::t_26e6d3ee489682 1-5
+analysis/dumps/newgame-spam/f004800/pointers.txt
+  s_30c66b9ed26a01::t_2b60b12fa37772 1-5
+analysis/dumps/newgame-spam/f005400/pointers.txt
+  s_30c66b9ed26a01::t_482d5434d5b4a2 1-5
+analysis/dumps/newgame-spam/f006000/pointers.txt
+  s_30c66b9ed26a01::t_44fd8d0d394cb4 1-5
+analysis/dumps/newgame-spam/f006600/pointers.txt
+  s_30c66b9ed26a01::t_c7c2a09df1b4e9 1-5
+analysis/dumps/newgame-spam/f007200/pointers.txt
+  s_30c66b9ed26a01::t_361fac3edeb1d2 1-5
+analysis/dumps/newgame-spam/f007800/pointers.txt
+  s_30c66b9ed26a01::t_5b665e31a67977 1-5
+analysis/dumps/newgame-spam/f008400/pointers.txt
+  s_30c66b9ed26a01::t_fa3abdc9fc8b06 1-5
+analysis/dumps/newgame-spam/f009000/pointers.txt
+  s_30c66b9ed26a01::t_a2156391690333 1-5
+analysis/dumps/newgame-spam/f009600/pointers.txt
+  s_30c66b9ed26a01::t_2e724db8399c13 1-5
+analysis/dumps/newgame-spam/f010200/pointers.txt
+  s_30c66b9ed26a01::t_8eb1cdd8b8ec4c 1-5
+analysis/dumps/newgame-spam/f010800/pointers.txt
+  s_30c66b9ed26a01::t_95ec3dda1de81b 1-5
+analysis/dumps/newgame-spam/f011400/pointers.txt
+  s_30c66b9ed26a01::t_a43e1c75a78972 1-5
+analysis/dumps/newgame-spam/f012000/pointers.txt
+  s_30c66b9ed26a01::t_bff8e80418d461 1-5
+analysis/dumps/newgame-spam/f012600/pointers.txt
+  s_30c66b9ed26a01::t_ccd2b8f915be07 1-5
+analysis/dumps/newgame-spam/f013200/pointers.txt
+  s_30c66b9ed26a01::t_340c346c3e4544 1-5
+analysis/dumps/newgame-spam/f013800/pointers.txt
+  s_30c66b9ed26a01::t_7cf8203d62627e 1-5
+analysis/dumps/newgame-spam/f014400/pointers.txt
+  s_30c66b9ed26a01::t_53a0ce4bd6f183 1-5
+analysis/dumps/newgame-spam/f015000/pointers.txt
+  s_30c66b9ed26a01::t_913d566bb30728 1-5
+analysis/dumps/newgame-spam/f015600/pointers.txt
+  s_30c66b9ed26a01::t_fcacebb634ff43 1-5
+analysis/dumps/newgame-spam/f016200/pointers.txt
+  s_30c66b9ed26a01::t_b7a0d324c5cd6c 1-5
+analysis/dumps/newgame-spam/f016800/pointers.txt
+  s_30c66b9ed26a01::t_2b12052588dba2 1-5
+analysis/dumps/newgame-spam/f018000/pointers.txt
+  s_30c66b9ed26a01::t_f32e088f2cf5f5 1-5
+analysis/empirical-anchors.json
+  s_30c66b9ed26a01::t_d12865fa7e2801 1-72
+analysis/empirical-anchors.md
+  s_30c66b9ed26a01::t_795b42604ada0c 1-95
+analysis/firered-structs-notes.md
+  s_30c66b9ed26a01::t_bf959486ac07dc 1-103
+analysis/hack-offsets.json
+  s_30c66b9ed26a01::t_becb8c60920679 1-161
+analysis/rom-fingerprint.md
+  s_30c66b9ed26a01::t_8dbe0a77f05d77 1-94
+analysis/structs-notes.md
+  s_30c66b9ed26a01::t_ce059f078fdf64 1-197
+analysis/tools/README.md
+  s_30c66b9ed26a01::t_516a5e00f81151 1-210
+analysis/tools/mgba_explore_harness.lua
+  s_30c66b9ed26a01::t_9e2194ebbc3ea7 1-160
+analysis/tools/mgba_inject_harness.lua
+  s_30c66b9ed26a01::t_ce7b3c5550c8b3 1-285
+analysis/tools/mgba_state_probe.lua
+  s_30c66b9ed26a01::t_f107204e606ba4 1-90
+analysis/tools/mgba_walk_harness.lua
+  s_30c66b9ed26a01::t_414f857b609e72 1-128
+analysis/tools/offsets-discovered.json
+  s_30c66b9ed26a01::t_759839ffb36ea4 1-37
+analysis/tools/run_harness.sh
+  s_30c66b9ed26a01::t_04a8be6bb8dafe 1-81
+analysis/tools/state_extract.py
+  s_30c66b9ed26a01::t_f55dac10f79dd8 1-107
+analysis/tools/state_to_dump.sh
+  s_30c66b9ed26a01::t_194bb7563d7897 1-67
+pokefirered
+  s_30c66b9ed26a01::t_365c47d722cd71 1
+vendor/pokeapi-sprites
+  s_30c66b9ed26a01::t_bbad47eb00c797 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "693d29f2fadd4fab8ddfe73de5fed5144d7612d1",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    },
+    "s_5335a78adb4cf1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "26db82e2-b784-45af-a7b4-f0771a3db06b",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
