@@ -38,6 +38,8 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 /* trainer card */
 .tcard{background:linear-gradient(#f8e070,#f0c830);border-color:var(--line)}
 .tcard h2{color:#fff;background:#a06818}
+.tc-namerow{display:flex;align-items:center;gap:12px}
+.tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
 .tc-name{font-size:14px;margin:6px 0 10px;text-shadow:1px 1px 0 #fff}
 .tc-rows{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:12px}
 .tc-row i{font-style:normal;color:#7a5a10;font-size:10px;margin-right:6px}
@@ -68,6 +70,7 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .moves{list-style:none;margin:6px 0;border-top:2px dotted #b8b4a4;padding-top:6px}
 .moves li{display:flex;justify-content:space-between;padding:1px 0}
 .pp{color:#7a766a}
+.mtype{font-size:6px;padding:2px 3px 1px;margin:0 0 0 5px;vertical-align:1px}
 .mon-meta{font-size:11px;color:#5a564e;margin:4px 0}
 .statbars{margin-top:6px}
 .sb{display:flex;align-items:center;gap:6px;margin:2px 0}
@@ -113,7 +116,7 @@ footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:10px;
 <h1>POKEMON RECHARGED YELLOW<small>save state report &middot; A</small></h1>
 <main><section class="panel tcard"><h2>Trainer Card</h2>
   <div class="tc-body">
-    <div class="tc-name">A</div>
+    <div class="tc-namerow"><img class="tc-player" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAABDklEQVR42u2ULRKDMBCFc53IXiESWVlbWYnkCpVcA8kVkJWVvQKyMu2XYWkCmwwzuA7iDWH37duf/Jjm0Zk9MIfAIfCnAjdrfQlFAQiDrfz7claBbymyOTgn8lMyZrMA3KwAGEevQvwrAQzONcHZ90812FR18MGBKyLGni7B8Gprzxpyrnx8cOASw3quACNfEdEQAiLuagaNc3MlGvDByQ4RAvBDO2eSfrGJXxUImCqQTASBpV09SKiGaUetxJDSZ04iMGVjm2SrIMWQLQZSVSIQZxKyDE9EtVaS/iUbAew7AwSssYk/nkN6Nb+n7XrvwqlbthD7stdZyBADOfNfFFAvTMauvkhalqJ975v4AYM0KKMz/S0wAAAAAElFTkSuQmCC" alt="player facing down"><div class="tc-name">A</div></div>
     <div class="tc-rows"><div class="tc-row"><i>MONEY</i><b>&yen;3,000</b></div><div class="tc-row"><i>TIME</i><b>0:00</b></div><div class="tc-row"><i>ID No.</i><b>61056</b></div><div class="tc-row"><i>RIVAL</i><b>A</b></div><div class="tc-row"><i>PLACE</i><b>Pallet Town</b></div> <span class="dn">NIGHT 00:04</span></div>
     <div class="tc-badges"><span class="badge unlit" style="--bc:#9c9c94" title="Boulder Badge">&#9670;</span><span class="badge unlit" style="--bc:#4890e8" title="Cascade Badge">&#9670;</span><span class="badge unlit" style="--bc:#f8a800" title="Thunder Badge">&#9670;</span><span class="badge unlit" style="--bc:#e85890" title="Rainbow Badge">&#9670;</span><span class="badge unlit" style="--bc:#e878a0" title="Soul Badge">&#9670;</span><span class="badge unlit" style="--bc:#c8a838" title="Marsh Badge">&#9670;</span><span class="badge unlit" style="--bc:#e05038" title="Volcano Badge">&#9670;</span><span class="badge unlit" style="--bc:#58b048" title="Earth Badge">&#9670;</span></div>
   </div></section>
@@ -127,5 +130,5 @@ footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:10px;
 <footer>Generated locally by generate_page.py. Sprites and metadata from
 PokeAPI (cached at generate time; page is fully offline). Types and abilities
 are current-generation PokeAPI data and may postdate Gen 3.
-Non-high-confidence sections: party: vacuous; savedParty: vacuous; bag: vacuous; pcItems: vacuous; pokedex: vacuous; mail: medium; berryTrees: rom:high; gameStats: rom:high.</footer>
+Non-high-confidence sections: party: vacuous; savedParty: vacuous; bag: vacuous; pcItems: vacuous; pokedex: vacuous; playerAvatar: rom:high; berryTrees: rom:high; gameStats: rom:high.</footer>
 </body></html>

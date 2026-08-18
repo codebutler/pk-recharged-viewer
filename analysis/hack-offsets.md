@@ -120,6 +120,14 @@ Method: byte-diff of every unmapped SB1/SB2 region between the real save's extra
 - Map data walk works vanilla-style: gMapGroups @0x08B3F134 → group array → header {layout, events, mapScripts, connections, music u16, layoutId u16, mapsec u8…}; events = {counts u8×4; objectEventTemplates(0x18 stride, script @+0x10, visibility-flag u16 @+0x14); warps; coords; bgEvents(12 stride, script @+8)}. Map-script tables are vanilla {type u8, ptr u32} lists (type 2 = ON_FRAME with {var,value,script} entries).
 - Worked example — Celadon Game Corner poster grunt (map (10,14), object 11, script 0x08266562): battles only when **var 0x405D >= 2**. 0x405D=1 is set by the rival battle script in Pokémon Tower (0x08216FA8; trainer 0x1AD); 0x405D=2 by a Lavender Town ON_FRAME Rocket cutscene (0x0822A348); 0x405D=3 later (0x0820E42A). So **var 0x405D = the Lavender/Celadon Rocket story counter** — useful for the parser's story-progress readout.
 
+## Player sprite / avatar round (for the trainer card)
+
+- **gObjectEvents = EWRAM 0x02005CD4** (16 × 0x24, vanilla ObjectEvent layout). Found empirically by searching the real dump for the player's map coords (+7 offset) and verified in 4 dumps (isPlayer bit, localId 0xFF, map/coords match the parsed state). Player is normally entry 0; robust selection: the entry with the isPlayer bit / localId 0xFF. **Facing = low nibble of byte +0x18** (1=S, 2=N, 3=W, 4=E); **graphicsId = byte +5** (already reflects walking/bike/surf state).
+- **gPlayerAvatar = EWRAM 0x02005F14** (vanilla struct, = gObjectEvents+0x240 exactly as in vanilla): flags @+0 (bit0 on-foot, bit1/2 bikes, bit3 surfing, bit7 dash), objectEventId @+5, gender @+7.
+- This **corrects the 0x2005CD4 = gLoadedSaveData.mail label**: the SB1+0x910 ↔ 0x2005CD4 loops are the saved-objectEvents copy (vanilla SB1 0xA30 analogue). The mail ambiguity is resolved — the 0x1D98-region array is the Mail.
+- **Real save answer**: Eric is at Celadon (43,22), **facing EAST, on foot** (avatar flags 0b1, graphicsId 0).
+- **ROM sprite spec** (all verified, frame 0 ASCII-rendered as a capped Red-style hero): gObjectEventGraphicsInfoPointers @ **0x0887EE9C**; gfxId 0 = male walking 16×32 (18 frames × 0x100 from 0x08791708), gfxId 1 = bike 32×32 (9 × 0x200 from 0x087948A8); frames are **uncompressed 4bpp**, row-major 8×8 tiles; standing frames 0/1/2 = face South/North/West (East = h-flip of West), walk frames S 3/4, N 5/6, W 7/8 (verified from anim table 0x088891B4); palette tag 0x1100 → sprite-palette table 0x08890458 → **16×BGR555 @ 0x08792928**, color 0 transparent. Full recipe in hack-offsets.json `player_sprite_rendering`.
+
 ## Explicitly unresolved (for the live-RAM verification pass)
 
 - SB1 0x34–0x3A and 0x3C–0x43 (gaps around partyCount/party), 0x764–0x8A8, 0xB50–0xEFA, 0x1228–0x1397 (0x1C-byte struct @0x1228, 0xC-stride records @0x1244), 0x1D98/0x20D8 structs, 0x2510–0x2743, tail 0x3B92+.

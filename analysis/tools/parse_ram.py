@@ -79,6 +79,10 @@ VANILLA_OFFSETS = {
     # SaveBlock1 party is only a copy-on-save; these are the live state.
     "ewram.partyCount":     {"offset": 0x38559, "status": "vanilla-unverified"},
     "ewram.party":          {"offset": 0x3855C, "status": "vanilla-unverified"},
+    # Live overworld state: gObjectEvents[16] (stride 0x24, vanilla layout) and
+    # gPlayerAvatar (vanilla layout) at fixed EWRAM addresses.
+    "ewram.objectEvents":   {"offset": 0x5CD4, "status": "vanilla-unverified"},
+    "ewram.playerAvatar":   {"offset": 0x5F14, "status": "vanilla-unverified"},
     "sb1.money":            {"offset": 0x490, "status": "vanilla-unverified"},
     "sb1.coins":            {"offset": 0x494, "status": "vanilla-unverified"},
     "sb1.registeredItem":   {"offset": 0x496, "status": "vanilla-unverified"},
@@ -89,13 +93,9 @@ VANILLA_OFFSETS = {
     "sb1.bagPocket_TMHM":     {"offset": 0x690, "status": "vanilla-unverified"},
     "sb1.bagPocket_Berries":  {"offset": 0x790, "status": "vanilla-unverified"},
     "sb1.bagPocket_Medicine": {"offset": None,  "status": "vanilla-unverified"},
-    # Mail: THREE candidate offsets. Live dumps show the exact vanilla ClearMail
-    # 16x36 pattern at SB1+0x1D98 (parsed as primary); static mail-handling code
-    # points at ~0x1DB8; load_save-side code claims 0x910 (all-zero live). Slots
-    # 0-5 are party mail, 6-15 PC mail. A real mail item would settle it.
-    # Deliberately NOT mapped from hack-offsets.json so the contested entries
-    # don't override this.
-    "sb1.mail":             {"offset": 0x1D98, "status": "empirical-medium"},
+    # Mail: RESOLVED at SB1+0x1D98 (rom-fingerprint: the once-contested 0x910 is
+    # the saved objectEvents copy, not mail). Slots 0-5 party, 6-15 PC.
+    "sb1.mail":             {"offset": 0x1D98, "status": "verified"},
     "sb1.berryTrees":       {"offset": 0x1998, "status": "vanilla-unverified"},
     "sb1.flags":            {"offset": 0x1270, "status": "vanilla-unverified"},
     "sb1.vars":             {"offset": 0x139C, "status": "vanilla-unverified"},
@@ -203,6 +203,16 @@ STORY_ROCKET_LABELS = {
     3: "later beat",
 }
 
+# Player avatar decoding (vanilla layouts, live-verified per hack-offsets.json):
+# ObjectEvent stride 0x24 -- graphicsId @+5, localId @+8 (player = 0xFF),
+# currentCoords s16 x,y @+0x10 (map coords + 7), facingDirection = low nibble
+# of byte @+0x18 (1=south 2=north 3=west 4=east). PlayerAvatar.flags @+0:
+# bit0 ON_FOOT, bit1 MACH_BIKE, bit2 ACRO_BIKE, bit3 SURFING.
+FACING_NAMES = {1: "down", 2: "up", 3: "left", 4: "right"}
+AVATAR_BIKE_MASK = 0x06
+AVATAR_SURF_MASK = 0x08
+OBJ_EVENT_STRIDE = 0x24
+
 # Rival name string (SB2+0x6E2, after the challenge-options u16 at 0x6E0).
 # Real save reads "Kennedy" while the player is "Eric".
 RIVAL_NAME_OFF = 0x6E2
@@ -290,9 +300,11 @@ class Config:
         """analysis/hack-offsets.json schema: per-struct sections whose entries carry
         hack_offset (hex string or null), confidence, and a type like ItemSlot[60]."""
         n = 0
-        # Live-party EWRAM symbols (fixed addresses, not ASLR-shifted).
+        # Live EWRAM symbols (fixed addresses, not ASLR-shifted).
         for sym, key in (("gPlayerPartyCount", "ewram.partyCount"),
-                         ("gPlayerParty", "ewram.party")):
+                         ("gPlayerParty", "ewram.party"),
+                         ("gObjectEvents", "ewram.objectEvents"),
+                         ("gPlayerAvatar", "ewram.playerAvatar")):
             entry = data.get("ewram_symbols", {}).get(sym)
             if isinstance(entry, dict) and "addr" in entry:
                 self.entries[key] = {
@@ -1089,6 +1101,46 @@ def parse_state(dump, cfg, gamedata, do_scan=True):
         "high (minute/second progression confirmed at 9x rate across dumps; "
         "day/hour nonzero and coherent on the real save)")
 
+    # --- player avatar (live facing / bike / surf from overworld globals) --
+    obj_off = cfg.off("ewram.objectEvents")
+    av_off = cfg.off("ewram.playerAvatar")
+    if obj_off is not None and av_off is not None:
+        # Pick the player entry robustly: localId 0xFF (player), else isPlayer
+        # bit (byte +2 bit0) on an active entry.
+        player_ent = None
+        for i in range(16):
+            e = obj_off + i * OBJ_EVENT_STRIDE
+            if (ew[e] & 1) and (ew[e + 8] == 0xFF or ew[e + 2] & 1):
+                player_ent = e
+                break
+        if player_ent is not None:
+            facing_raw = ew[player_ent + 0x18]
+            flags_raw = ew[av_off]
+            cx, cy = struct.unpack_from("<hh", ew, player_ent + 0x10)
+            state["playerAvatar"] = {
+                "facing": FACING_NAMES.get(facing_raw & 0xF, "unknown"),
+                "onBike": bool(flags_raw & AVATAR_BIKE_MASK),
+                "surfing": bool(flags_raw & AVATAR_SURF_MASK),
+                "graphicsId": ew[player_ent + 5],
+                "raw": {"facing": facing_raw, "avatarFlags": flags_raw,
+                        "currentCoords": [cx, cy]},
+            }
+            # ObjectEvent coords are map coords + 7; cross-check vs SaveBlock1 pos.
+            px = state["location"]["x"] if "location" in state else None
+            if px is not None:
+                py = state["location"]["y"]
+                anchor("playerAvatar coords == location + 7",
+                       cx == px + 7 and cy == py + 7,
+                       "objectEvent (%d,%d) vs map pos (%d,%d)" % (cx, cy, px, py))
+            # Facing as of the last save lives in the SB1 objectEvents copy at
+            # +0x910 (the address once mistaken for mail).
+            saved_facing = ew[sb1 + 0x910 + 0x18]
+            state["playerAvatar"]["facingAtLastSave"] = FACING_NAMES.get(
+                saved_facing & 0xF, "unknown")
+            meta["confidence"]["playerAvatar"] = (
+                "%s (vanilla struct layouts live-verified by rom-fingerprint)"
+                % cfg.status("ewram.objectEvents"))
+
     # --- rival name (hack-specific) ---------------------------------------
     state["rivalName"] = decode_text(ew[sb2 + RIVAL_NAME_OFF: sb2 + RIVAL_NAME_OFF + 8])
     meta["confidence"]["rivalName"] = ('high (real save reads the rival\'s name, '
@@ -1118,10 +1170,8 @@ def parse_state(dump, cfg, gamedata, do_scan=True):
         })
     state["mail"] = {"entries": mail_entries, "clearedSlots": cleared}
     meta["confidence"]["mail"] = (
-        "medium (offset %s: SB1+0x%X is the best candidate -- the real save shows "
-        "the 16x0x24 ClearMail array stride-aligned from here, while 0x910 holds "
-        "unrelated non-mail-shaped live data there; no attached mail exists yet to "
-        "fully confirm)" % (cfg.status("sb1.mail"), cfg.off("sb1.mail")))
+        "high (SB1+0x%X resolved as Mail; the once-contested 0x910 is the saved "
+        "objectEvents copy)" % cfg.off("sb1.mail"))
 
     # --- berry trees ------------------------------------------------------
     bt_off = sb1 + cfg.off("sb1.berryTrees")

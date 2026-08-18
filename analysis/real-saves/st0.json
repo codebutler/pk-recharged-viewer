@@ -10,7 +10,7 @@
       {
         "file": "/Users/eric/Code/RGSP/yelow-recharged-decomp/analysis/hack-offsets.json",
         "source": "hack-offsets",
-        "entries": 29
+        "entries": 31
       }
     ],
     "gamedata_loaded": true,
@@ -49,6 +49,11 @@
         "anchor": "storage box names decode",
         "ok": true,
         "detail": "Box1, Box2, Box3, ..."
+      },
+      {
+        "anchor": "playerAvatar coords == location + 7",
+        "ok": true,
+        "detail": "objectEvent (50,29) vs map pos (43,22)"
       }
     ],
     "discovered": [],
@@ -65,8 +70,9 @@
       "progressFlags": "high for hasStarterAndDex (0x860+0x861, live-confirmed on the real save) and gameClearChampion; medium for introComplete; 0x87A is set at starter acquisition but cleared later (real-save evidence), meaning unknown. Running-shoes has no flag (0x866 refuted; running appears always-on)",
       "levelCap": "high (mechanism recovered from level-cap fn @0x08168708 + ROM tables)",
       "gameClock": "high (minute/second progression confirmed at 9x rate across dumps; day/hour nonzero and coherent on the real save)",
+      "playerAvatar": "rom:high (vanilla struct layouts live-verified by rom-fingerprint)",
       "rivalName": "high (real save reads the rival's name, distinct from the player name)",
-      "mail": "medium (offset empirical-medium: SB1+0x1D98 is the best candidate -- the real save shows the 16x0x24 ClearMail array stride-aligned from here, while 0x910 holds unrelated non-mail-shaped live data there; no attached mail exists yet to fully confirm)",
+      "mail": "high (SB1+0x1D98 resolved as Mail; the once-contested 0x910 is the saved objectEvents copy)",
       "berryTrees": "rom:high (live dumps show real pre-planted tree data at this offset)",
       "gameStats": "rom:high (live-verified)"
     },
@@ -3434,6 +3440,21 @@
       "minute": 12,
       "second": 40
     }
+  },
+  "playerAvatar": {
+    "facing": "right",
+    "onBike": false,
+    "surfing": false,
+    "graphicsId": 0,
+    "raw": {
+      "facing": 68,
+      "avatarFlags": 1,
+      "currentCoords": [
+        50,
+        29
+      ]
+    },
+    "facingAtLastSave": "right"
   },
   "rivalName": "Kennedy",
   "mail": {

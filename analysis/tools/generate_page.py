@@ -81,6 +81,10 @@ TYPE_COLORS = {
     "dark": "#705848", "steel": "#B8B8D0", "fairy": "#EE99AC",
 }
 
+# PokeAPI serves current-gen move types; these moves were retyped to Fairy
+# after Gen 3, where they were Normal (ids: Sweet Kiss, Charm, Moonlight).
+GEN3_MOVE_TYPE_OVERRIDES = {186: "normal", 204: "normal", 236: "normal"}
+
 BADGE_NAMES = ["Boulder", "Cascade", "Thunder", "Rainbow",
                "Soul", "Marsh", "Volcano", "Earth"]
 BADGE_COLORS = ["#9c9c94", "#4890e8", "#f8a800", "#e85890",
@@ -155,6 +159,7 @@ class PokeApi:
         self.cache = cache
         self._mon = {}
         self._item = {}
+        self._move = {}
         self._item_ids = None  # slug -> numeric id, from the local item index
 
     def _local_json(self, rel):
@@ -219,6 +224,21 @@ class PokeApi:
         stats["species_ok" if info and info["sprite"] else "species_ph"] += 1
         self._mon[national] = info
         return info
+
+    def move_type(self, move_id):
+        """Type name for a move id, or None. Gen 3 internal move IDs equal
+        national/PokeAPI move IDs (unlike species), so no mapping table."""
+        if move_id in self._move:
+            return self._move[move_id]
+        t = GEN3_MOVE_TYPE_OVERRIDES.get(move_id)
+        if t is None:
+            data = self._local_json("api/v2/move/%d/index.json" % move_id) \
+                or self.cache.get("move_%d.json" % move_id,
+                                  "%s/move/%d" % (API, move_id))
+            if data:
+                t = (data.get("type") or {}).get("name")
+        self._move[move_id] = t
+        return t
 
     def item_sprite(self, name):
         """Data URI for an item sprite by display name, or None."""
@@ -320,9 +340,10 @@ def hp_bar(hp, maxhp):
     return bar(pct, color) + '<span class="hpnum">%d/%d</span>' % (hp, maxhp)
 
 
-def type_chips(types):
-    return "".join('<span class="type" style="background:%s">%s</span>'
-                   % (TYPE_COLORS.get(t, "#888"), esc(t.upper())) for t in types)
+def type_chips(types, cls="type"):
+    return "".join('<span class="%s" style="background:%s">%s</span>'
+                   % (cls, TYPE_COLORS.get(t, "#888"), esc(t.upper()))
+                   for t in types)
 
 
 def render_mon_card(mon, api):
@@ -341,9 +362,13 @@ def render_mon_card(mon, api):
     if info and info["abilities"]:
         ability = info["abilities"].get(mon.get("abilityNum", 0) + 1) \
             or next(iter(info["abilities"].values()))
-    moves = "".join('<li>%s <span class="pp">PP %d</span></li>'
-                    % (esc(m.get("name", "move %d" % m["move"])), m.get("pp", 0))
-                    for m in mon.get("moves", []))
+    moves = "".join(
+        '<li><span>%s%s</span> <span class="pp">PP %d</span></li>'
+        % (esc(m.get("name", "move %d" % m["move"])),
+           type_chips([api.move_type(m["move"])], cls="type mtype")
+           if api.move_type(m["move"]) else "",
+           m.get("pp", 0))
+        for m in mon.get("moves", []))
     ivs = mon.get("ivs", {})
     evs = mon.get("evs", {})
     statbars = "".join(
@@ -382,6 +407,50 @@ def render_mon_card(mon, api):
 # sections
 
 
+def player_sprite_uri(state):
+    """Data URI for the player's overworld sprite (saved facing, bike variant),
+    or None. Requires state.playerAvatar plus tools/avatar-sprites.json (frame
+    spec: ROM addresses from the rom-fingerprint avatar work). Any failure --
+    missing spec, missing ROM, decode error -- degrades to None, never breaks
+    the page."""
+    avatar = state.get("playerAvatar")
+    spec_path = os.path.join(TOOLS_DIR, "avatar-sprites.json")
+    if not avatar or not os.path.exists(spec_path):
+        return None
+    try:
+        import gba_gfx
+        spec = json.load(open(spec_path))
+        rom_path = os.path.join(REPO_ROOT, spec.get("rom", "Pokemon Recharged Yellow.gba"))
+        with open(rom_path, "rb") as f:
+            rom = f.read()
+        by_gfx = spec.get("by_graphics_id", {})
+        sheet_name = by_gfx.get(str(avatar.get("graphicsId", -1)))
+        if sheet_name is None:
+            sheet_name = "bike" if avatar.get("onBike") and "bike" in spec else "walking"
+        sheet = spec[sheet_name]
+        facing = avatar.get("facing", "down")
+        frame_key = "side" if facing in ("left", "right") else facing
+        frame = sheet["frames"][frame_key]
+        addr = int(frame["rom_addr"], 0) - 0x08000000
+        wt, ht = sheet["width_tiles"], sheet["height_tiles"]
+        if sheet.get("compressed"):
+            tiles = gba_gfx.lz77_decompress(rom, addr)
+            tiles = tiles[frame.get("tile_offset", 0):]
+        else:
+            tiles = rom[addr:addr + wt * ht * 32]
+        pal_addr = int(sheet["palette_addr"], 0) - 0x08000000
+        pal_bytes = rom[pal_addr:pal_addr + 32]
+        if sheet.get("palette_compressed"):
+            pal_bytes = gba_gfx.lz77_decompress(rom, pal_addr)[:32]
+        palette = gba_gfx.decode_palette(pal_bytes)
+        hflip = facing != sheet.get("side_faces", "left") if frame_key == "side" else False
+        png = gba_gfx.tiles_to_png(tiles, palette, wt, ht, hflip=hflip)
+        return data_uri(png)
+    except Exception as e:
+        sys.stderr.write("player sprite skipped: %s\n" % e)
+        return None
+
+
 def render_trainer_card(state):
     p, err = section_data(state, "player")
     if p is None:
@@ -414,12 +483,20 @@ def render_trainer_card(state):
         rows.append(("PLACE", esc(where)))
     stats_rows = "".join('<div class="tc-row"><i>%s</i><b>%s</b></div>' % r
                          for r in rows)
+    sprite_uri = player_sprite_uri(state)
+    sprite_html = ""
+    if sprite_uri:
+        avatar = state.get("playerAvatar", {})
+        sprite_html = ('<img class="tc-player" src="%s" alt="player facing %s%s">'
+                       % (sprite_uri, esc(avatar.get("facing", "?")),
+                          " on bike" if avatar.get("onBike") else ""))
     return """<section class="panel tcard"><h2>Trainer Card</h2>
   <div class="tc-body">
-    <div class="tc-name">%s</div>
+    <div class="tc-namerow">%s<div class="tc-name">%s</div></div>
     <div class="tc-rows">%s %s</div>
     <div class="tc-badges">%s</div>
-  </div></section>""" % (esc(p.get("name", "?")), stats_rows, daynight, badge_html)
+  </div></section>""" % (sprite_html, esc(p.get("name", "?")), stats_rows,
+                         daynight, badge_html)
 
 
 def render_party(state, api):
@@ -607,6 +684,8 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 /* trainer card */
 .tcard{background:linear-gradient(#f8e070,#f0c830);border-color:var(--line)}
 .tcard h2{color:#fff;background:#a06818}
+.tc-namerow{display:flex;align-items:center;gap:12px}
+.tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
 .tc-name{font-size:14px;margin:6px 0 10px;text-shadow:1px 1px 0 #fff}
 .tc-rows{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:12px}
 .tc-row i{font-style:normal;color:#7a5a10;font-size:10px;margin-right:6px}
@@ -637,6 +716,7 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .moves{list-style:none;margin:6px 0;border-top:2px dotted #b8b4a4;padding-top:6px}
 .moves li{display:flex;justify-content:space-between;padding:1px 0}
 .pp{color:#7a766a}
+.mtype{font-size:6px;padding:2px 3px 1px;margin:0 0 0 5px;vertical-align:1px}
 .mon-meta{font-size:11px;color:#5a564e;margin:4px 0}
 .statbars{margin-top:6px}
 .sb{display:flex;align-items:center;gap:6px;margin:2px 0}

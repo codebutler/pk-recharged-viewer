@@ -1,0 +1,34 @@
+{
+  "_comment": [
+    "Player overworld sprite extraction spec for generate_page.py, filled from",
+    "hack-offsets.json player_sprite_rendering (rom-fingerprint). Frames are",
+    "UNCOMPRESSED 4bpp row-major tiles at sequential addresses; standing frames",
+    "0=South 1=North 2=West (East = West h-flipped). Palette tag 0x1100 ->",
+    "0x08792928, BGR555, color 0 transparent. by_graphics_id maps the live",
+    "ObjectEvent graphicsId (already bike/surf-aware) to a sheet."
+  ],
+  "rom": "Pokemon Recharged Yellow.gba",
+  "by_graphics_id": {"0": "walking", "1": "bike"},
+  "walking": {
+    "width_tiles": 2,
+    "height_tiles": 4,
+    "palette_addr": "0x08792928",
+    "side_faces": "left",
+    "frames": {
+      "down": {"rom_addr": "0x08791708"},
+      "up":   {"rom_addr": "0x08791808"},
+      "side": {"rom_addr": "0x08791908"}
+    }
+  },
+  "bike": {
+    "width_tiles": 4,
+    "height_tiles": 4,
+    "palette_addr": "0x08792928",
+    "side_faces": "left",
+    "frames": {
+      "down": {"rom_addr": "0x087948A8"},
+      "up":   {"rom_addr": "0x08794AA8"},
+      "side": {"rom_addr": "0x08794CA8"}
+    }
+  }
+}
