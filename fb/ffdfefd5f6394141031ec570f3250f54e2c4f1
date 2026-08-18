@@ -1,0 +1,42 @@
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_995de555dc458d 541
+  s_30c66b9ed26a01::t_90ddd29a232ed8 545-546
+  s_30c66b9ed26a01::t_4fbf1304e50e59 495-504
+  s_30c66b9ed26a01::t_601fdd8639f010 530-532,538-540
+  s_30c66b9ed26a01::t_a7c3d447853182 376-441,443-474,477-478,481-487,491-492
+  s_30c66b9ed26a01::t_a9558e55cf5cf8 493-494
+analysis/real-saves/st0.json
+  s_30c66b9ed26a01::t_0d43b15c783b01 3457-3503
+analysis/tools/parse_ram.py
+  s_30c66b9ed26a01::t_0483a80d9049d3 1135-1150
+analysis/tools/templates/report.css
+  s_30c66b9ed26a01::t_a7eb4fd1959a76 40-41
+  s_30c66b9ed26a01::t_5d1d0651aec675 48-54,56
+analysis/tools/templates/report.html.j2
+  s_30c66b9ed26a01::t_f430298eef862f 65
+  s_30c66b9ed26a01::t_b4c990614735b6 69-73
+analysis/real-saves/st9.json
+  s_30c66b9ed26a01::t_0d43b15c783b01 3457-3503
+analysis/report/index.html
+  s_30c66b9ed26a01::t_0d43b15c783b01 43-44
+  s_30c66b9ed26a01::t_fc9a7dd83f20d8 51-57,59,127-128
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_fc9a7dd83f20d8 51-57,59,127-128
+  s_30c66b9ed26a01::t_0d43b15c783b01 43-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "fbffdfefd5f6394141031ec570f3250f54e2c4f1",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
