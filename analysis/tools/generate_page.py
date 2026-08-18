@@ -29,7 +29,6 @@ later-gen changes (e.g. Fairy) and ability slot 2 may postdate Gen 3.
 
 import argparse
 import base64
-import html
 import json
 import os
 import re
@@ -301,31 +300,11 @@ def fetch_font(cache):
 
 
 # ---------------------------------------------------------------------------
-# HTML helpers
-
-
-def esc(x):
-    return html.escape(str(x))
+# context builders (plain data for the Jinja2 template; no HTML in Python)
 
 
 def internal_to_national(internal):
     return SPECIES_NATIONAL.get(internal, 0)
-
-
-def sprite_img(info, cls="spr", title=""):
-    if info and info["sprite"]:
-        return '<img class="%s" src="%s" alt="%s" title="%s">' % (
-            cls, info["sprite"], esc(title or info["name"]), esc(title))
-    return '<span class="%s ph" title="%s">?</span>' % (cls, esc(title))
-
-
-def panel(title, body, cls=""):
-    return ('<section class="panel %s"><h2>%s</h2>%s</section>'
-            % (cls, esc(title), body))
-
-
-def empty_state(msg):
-    return '<p class="empty">%s</p>' % esc(msg)
 
 
 def section_data(state, key):
@@ -338,29 +317,18 @@ def section_data(state, key):
     return v, None
 
 
-def bar(pct, color):
-    return ('<span class="bar"><span class="fill" style="width:%d%%;'
-            'background:%s"></span></span>' % (max(0, min(100, pct)), color))
+def pct(value, maximum):
+    return max(0, min(100, int(100 * value / maximum))) if maximum else 0
 
 
-def hp_bar(hp, maxhp):
-    pct = int(100 * hp / maxhp) if maxhp else 0
-    color = "#58c858" if pct > 50 else ("#f8d030" if pct > 20 else "#f05038")
-    return bar(pct, color) + '<span class="hpnum">%d/%d</span>' % (hp, maxhp)
+def type_info(name):
+    return {"name": name, "color": TYPE_COLORS.get(name, "#888")}
 
 
-def type_chips(types, cls="type"):
-    return "".join('<span class="%s" style="background:%s">%s</span>'
-                   % (cls, TYPE_COLORS.get(t, "#888"), esc(t.upper()))
-                   for t in types)
-
-
-def render_mon_card(mon, api):
+def mon_context(mon, api):
     nat = internal_to_national(mon.get("species", 0))
     info = api.pokemon(nat) if nat else None
-    name = mon.get("nickname") or (info["name"] if info else "?")
     species = mon.get("speciesName") or (info["name"] if info else "#%d" % nat)
-    shiny = '<span class="shiny" title="shiny">&#9733;</span>' if mon.get("shiny") else ""
     status = mon.get("status", {})
     ailment = next((k.upper() for k in
                     ("poison", "burn", "freeze", "paralysis", "badPoison")
@@ -371,57 +339,44 @@ def render_mon_card(mon, api):
     if info and info["abilities"]:
         ability = info["abilities"].get(mon.get("abilityNum", 0) + 1) \
             or next(iter(info["abilities"].values()))
-    moves = "".join(
-        '<li><span>%s%s</span> <span class="pp">PP %d</span></li>'
-        % (esc(m.get("name", "move %d" % m["move"])),
-           type_chips([api.move_type(m["move"])], cls="type mtype")
-           if api.move_type(m["move"]) else "",
-           m.get("pp", 0))
-        for m in mon.get("moves", []))
-    ivs = mon.get("ivs", {})
-    evs = mon.get("evs", {})
-    statbars = "".join(
-        '<div class="sb"><i>%s</i>%s%s</div>' % (
-            lbl,
-            bar(int(100 * ivs.get(k, 0) / 31), "#68a0e8"),
-            bar(int(100 * evs.get(k, 0) / 255), "#e8a068"))
-        for lbl, k in (("HP", "hp"), ("AT", "attack"), ("DF", "defense"),
-                       ("SP", "speed"), ("SA", "spAttack"), ("SD", "spDefense")))
-    held = ""
-    if mon.get("heldItem"):
-        held = '<div class="held">holds %s</div>' % esc(
-            mon.get("heldItemName", "item #%d" % mon["heldItem"]))
-    return """<div class="mon">
-  <div class="mon-head">%s<div>
-    <div class="mon-name">%s%s</div>
-    <div class="mon-sub">%s &middot; Lv%d %s</div>
-    <div class="types">%s</div></div></div>
-  <div class="hp">%s %s</div>
-  <ul class="moves">%s</ul>
-  <div class="mon-meta">%s &middot; %s nature%s</div>
-  <div class="statbars"><span class="legend"><i style="background:#68a0e8"></i>IV
-    <i style="background:#e8a068"></i>EV</span>%s</div>%s
-</div>""" % (
-        sprite_img(info, "spr big", species), esc(name), shiny, esc(species),
-        mon.get("level", 0), '<span class="ail">%s</span>' % ailment if ailment else "",
-        type_chips(info["types"] if info else []),
-        hp_bar(mon.get("hp", 0), mon.get("stats", {}).get("maxHP", 0)),
-        "", moves,
-        esc(ability or "ability ?"), esc(mon.get("nature", "?")),
-        " &middot; FRIEND %d" % mon.get("friendship", 0) if "friendship" in mon else "",
-        statbars, held)
-
-
-# ---------------------------------------------------------------------------
-# sections
+    hp, max_hp = mon.get("hp", 0), mon.get("stats", {}).get("maxHP", 0)
+    hp_pct = pct(hp, max_hp)
+    ivs, evs = mon.get("ivs", {}), mon.get("evs", {})
+    return {
+        "sprite": info["sprite"] if info else None,
+        "name": mon.get("nickname") or (info["name"] if info else "?"),
+        "species": species,
+        "shiny": bool(mon.get("shiny")),
+        "level": mon.get("level", 0),
+        "ailment": ailment,
+        "types": [type_info(t) for t in (info["types"] if info else [])],
+        "hp": hp, "max_hp": max_hp, "hp_pct": hp_pct,
+        "hp_color": ("#58c858" if hp_pct > 50 else
+                     "#f8d030" if hp_pct > 20 else "#f05038"),
+        "moves": [{
+            "name": m.get("name", "move %d" % m["move"]),
+            "type": type_info(api.move_type(m["move"]))
+                    if api.move_type(m["move"]) else None,
+            "pp": m.get("pp", 0),
+        } for m in mon.get("moves", [])],
+        "ability": ability or "ability ?",
+        "nature": mon.get("nature", "?"),
+        "friendship": mon.get("friendship"),
+        "stat_rows": [{
+            "label": lbl,
+            "iv_pct": pct(ivs.get(k, 0), 31),
+            "ev_pct": pct(evs.get(k, 0), 255),
+        } for lbl, k in (("HP", "hp"), ("AT", "attack"), ("DF", "defense"),
+                         ("SP", "speed"), ("SA", "spAttack"), ("SD", "spDefense"))],
+        "held": (mon.get("heldItemName", "item #%d" % mon["heldItem"])
+                 if mon.get("heldItem") else None),
+    }
 
 
 def player_sprite_uri(state):
     """Data URI for the player's overworld sprite (saved facing, bike variant),
-    or None. Requires state.playerAvatar plus tools/avatar-sprites.json (frame
-    spec: ROM addresses from the rom-fingerprint avatar work). Any failure --
-    missing spec, missing ROM, decode error -- degrades to None, never breaks
-    the page."""
+    or None. Requires state.playerAvatar plus tools/avatar-sprites.json. Any
+    failure degrades to None, never breaks the page."""
     avatar = state.get("playerAvatar")
     spec_path = os.path.join(TOOLS_DIR, "avatar-sprites.json")
     if not avatar or not os.path.exists(spec_path):
@@ -460,75 +415,121 @@ def player_sprite_uri(state):
         return None
 
 
-def render_trainer_card(state):
+def trainer_context(state):
     p, err = section_data(state, "player")
     if p is None:
-        return panel("Trainer Card", empty_state(err))
+        return {"error": err}
     badges_sec, _ = section_data(state, "badges")
     badge_map = (badges_sec or {}).get("badges") or {}
-    badge_html = "".join(
-        '<span class="badge %s" style="--bc:%s" title="%s Badge">&#9670;</span>'
-        % ("lit" if badge_map.get(n) else "unlit", BADGE_COLORS[i], n)
-        for i, n in enumerate(BADGE_NAMES))
     loc, _ = section_data(state, "location")
     clock, _ = section_data(state, "gameClock")
-    daynight = ""
+    daynight = None
     if clock:
         hour = clock.get("hour", 0)
-        daynight = ('<span class="dn">%s %02d:%02d</span>'
-                    % ("DAY" if 6 <= hour < 18 else "NIGHT",
-                       hour, clock.get("minute", 0)))
+        daynight = "%s %02d:%02d" % ("DAY" if 6 <= hour < 18 else "NIGHT",
+                                     hour, clock.get("minute", 0))
     pt = p.get("playTime", {})
     rows = [
-        ("MONEY", "&yen;%s" % format(p.get("money") or 0, ",")),
+        ("MONEY", "\u00a5%s" % format(p.get("money") or 0, ",")),
         ("TIME", "%d:%02d" % (pt.get("hours", 0), pt.get("minutes", 0))),
         ("ID No.", "%05d" % p.get("trainerId", 0)),
     ]
     if state.get("rivalName"):
-        rows.append(("RIVAL", esc(state["rivalName"])))
+        rows.append(("RIVAL", state["rivalName"]))
     if loc:
-        where = loc.get("mapName") or "map (%d,%d)" % (loc.get("mapGroup", -1),
-                                                       loc.get("mapNum", -1))
-        rows.append(("PLACE", esc(where)))
-    stats_rows = "".join('<div class="tc-row"><i>%s</i><b>%s</b></div>' % r
-                         for r in rows)
-    sprite_uri = player_sprite_uri(state)
-    sprite_html = ""
-    if sprite_uri:
-        avatar = state.get("playerAvatar", {})
-        sprite_html = ('<img class="tc-player" src="%s" alt="player facing %s%s">'
-                       % (sprite_uri, esc(avatar.get("facing", "?")),
-                          " on bike" if avatar.get("onBike") else ""))
-    return """<section class="panel tcard"><h2>Trainer Card</h2>
-  <div class="tc-body">
-    <div class="tc-namerow">%s<div class="tc-name">%s</div></div>
-    <div class="tc-rows">%s %s</div>
-    <div class="tc-badges">%s</div>
-  </div></section>""" % (sprite_html, esc(p.get("name", "?")), stats_rows,
-                         daynight, badge_html)
+        rows.append(("PLACE", loc.get("mapName") or "map (%d,%d)"
+                     % (loc.get("mapGroup", -1), loc.get("mapNum", -1))))
+    avatar = state.get("playerAvatar", {})
+    return {
+        "name": p.get("name", "?"),
+        "sprite": player_sprite_uri(state),
+        "sprite_alt": "player facing %s%s" % (avatar.get("facing", "?"),
+                                              " on bike" if avatar.get("onBike") else ""),
+        "rows": rows,
+        "daynight": daynight,
+        "badges": [{"name": n, "color": BADGE_COLORS[i],
+                    "lit": bool(badge_map.get(n))}
+                   for i, n in enumerate(BADGE_NAMES)],
+    }
 
 
-def render_party(state, api):
+def party_context(state, api):
     party, err = section_data(state, "party")
     if party is None:
-        return panel("Party", empty_state(err))
+        return {"error": err}
     mons = [m for m in party.get("pokemon", []) if m and "error" not in m]
     if not mons:
-        return panel("Party", empty_state(
-            "No Pokemon in the party yet -- this trainer's journey hasn't started."))
-    return panel("Party", '<div class="party">%s</div>'
-                 % "".join(render_mon_card(m, api) for m in mons))
+        return {"empty": "No Pokemon in the party yet -- this trainer's "
+                         "journey hasn't started."}
+    return {"mons": [mon_context(m, api) for m in mons]}
 
 
-def render_boxes(state, api):
+def bag_context(state, api):
+    bag, err = section_data(state, "bag")
+    if bag is None:
+        return {"error": err}
+    labels = [("items", "ITEMS"), ("medicine", "MEDICINE"),
+              ("pokeBalls", "POKE BALLS"), ("tmHm", "TM / HM"),
+              ("berries", "BERRIES"), ("keyItems", "KEY ITEMS")]
+    pockets = []
+    any_items = False
+    for key, label in labels:
+        slots = bag.get(key)
+        if slots is None:
+            continue
+        items = []
+        for s in slots:
+            any_items = True
+            name = s.get("name", "item #%d" % s["itemId"])
+            items.append({
+                "name": name,
+                "qty": s.get("quantity", 0),
+                "sprite": api.item_sprite(name) if s.get("name") else None,
+            })
+        pockets.append({"label": label, "slots": items})
+    if not any_items:
+        return {"empty": "The bag is empty."}
+    return {
+        "pockets": pockets,
+        "registered": bag.get("registeredItemName",
+                              "item #%d" % bag["registeredItem"])
+                      if bag.get("registeredItem") else None,
+        "warning": bag.get("warning"),
+    }
+
+
+def dex_context(state, api):
+    dex, err = section_data(state, "pokedex")
+    if dex is None:
+        return {"error": err}
+    seen = dex.get("seen", [])
+    owned = set(dex.get("owned", []))
+    ctx = {"seen_count": dex.get("seenCount", 0),
+           "owned_count": dex.get("ownedCount", 0)}
+    if not seen:
+        ctx["empty"] = "No Pokemon seen yet."
+        return ctx
+    cells = []
+    for nat in seen:
+        info = api.pokemon(nat)
+        cells.append({
+            "sprite": info["sprite"] if info else None,
+            "owned": nat in owned,
+            "label": "#%03d %s%s" % (nat, info["name"] if info else "?",
+                                     "" if nat in owned else " (seen)"),
+        })
+    ctx["cells"] = cells
+    return ctx
+
+
+def boxes_context(state, api):
     pc, err = section_data(state, "pcBoxes")
     if pc is None:
-        return panel("Pokemon Storage", empty_state(err))
+        return {"error": err}
     total = pc.get("totalStored", 0)
     if total == 0:
-        return panel("Pokemon Storage",
-                     empty_state("All 14 boxes are empty."))
-    boxes_html = []
+        return {"empty": "All 14 boxes are empty."}
+    shown = []
     for box in pc.get("boxes", []):
         mons = {m["slot"]: m for m in box.get("pokemon", [])}
         if not mons:
@@ -536,277 +537,102 @@ def render_boxes(state, api):
         cells = []
         for s in range(30):
             m = mons.get(s)
-            if m:
-                nat = internal_to_national(m.get("species", 0))
-                info = api.pokemon(nat) if nat else None
-                tip = "%s Lv?" % (m.get("speciesName") or "?")
-                if m.get("nickname") and m["nickname"] != m.get("speciesName"):
-                    tip = "%s (%s)" % (m["nickname"], m.get("speciesName", "?"))
-                cells.append('<span class="cell">%s</span>'
-                             % sprite_img(info, "spr sm", tip))
-            else:
-                cells.append('<span class="cell"></span>')
-        boxes_html.append('<div class="box"><h3>%s</h3><div class="grid">%s</div></div>'
-                          % (esc(box.get("name", "Box")), "".join(cells)))
-    n_empty = sum(1 for b in pc.get("boxes", []) if not b.get("pokemon"))
-    body = ('<p class="note">%d Pokemon stored &middot; current box: %d'
-            '%s</p><div class="boxes">%s</div>'
-            % (total, pc.get("currentBox", 1),
-               " &middot; %d empty boxes not shown" % n_empty if n_empty else "",
-               "".join(boxes_html)))
-    return panel("Pokemon Storage", body)
+            if not m:
+                cells.append(None)
+                continue
+            nat = internal_to_national(m.get("species", 0))
+            info = api.pokemon(nat) if nat else None
+            label = "%s Lv?" % (m.get("speciesName") or "?")
+            if m.get("nickname") and m["nickname"] != m.get("speciesName"):
+                label = "%s (%s)" % (m["nickname"], m.get("speciesName", "?"))
+            cells.append({"sprite": info["sprite"] if info else None,
+                          "label": label})
+        shown.append({"name": box.get("name", "Box"), "cells": cells})
+    return {
+        "total": total,
+        "current": pc.get("currentBox", 1),
+        "n_empty": sum(1 for b in pc.get("boxes", []) if not b.get("pokemon")),
+        "shown": shown,
+    }
 
 
-def render_bag(state, api):
-    bag, err = section_data(state, "bag")
-    if bag is None:
-        return panel("Bag", empty_state(err))
-    pockets = [("items", "ITEMS"), ("medicine", "MEDICINE"),
-               ("pokeBalls", "POKE BALLS"), ("tmHm", "TM / HM"),
-               ("berries", "BERRIES"), ("keyItems", "KEY ITEMS")]
-    any_items = False
-    cols = []
-    for key, label in pockets:
-        slots = bag.get(key)
-        if slots is None:
-            continue
-        rows = []
-        for s in slots:
-            any_items = True
-            name = s.get("name", "item #%d" % s["itemId"])
-            spr = api.item_sprite(name) if s.get("name") else None
-            img = ('<img class="ispr" src="%s" alt="">' % spr if spr
-                   else '<span class="ispr ph">?</span>')
-            rows.append('<li>%s<span class="iname">%s</span>'
-                        '<span class="qty">&times;%d</span></li>'
-                        % (img, esc(name), s.get("quantity", 0)))
-        body = ("<ul class='items'>%s</ul>" % "".join(rows)) if rows else \
-            '<p class="pocket-empty">empty</p>'
-        cols.append('<div class="pocket"><h3>%s</h3>%s</div>' % (label, body))
-    if not any_items:
-        return panel("Bag", empty_state("The bag is empty."))
-    extra = ""
-    if bag.get("registeredItem"):
-        extra = '<p class="note">SELECT registered: %s</p>' % esc(
-            bag.get("registeredItemName", "item #%d" % bag["registeredItem"]))
-    if bag.get("warning"):
-        extra += '<p class="warn">%s</p>' % esc(bag["warning"])
-    return panel("Bag", '<div class="pockets">%s</div>%s' % ("".join(cols), extra))
-
-
-def render_dex(state, api):
-    dex, err = section_data(state, "pokedex")
-    if dex is None:
-        return panel("Pokedex", empty_state(err))
-    seen = dex.get("seen", [])
-    owned = set(dex.get("owned", []))
-    head = ('<div class="dexcount"><div><b>%d</b><i>SEEN</i></div>'
-            '<div><b>%d</b><i>OWNED</i></div></div>'
-            % (dex.get("seenCount", 0), dex.get("ownedCount", 0)))
-    if not seen:
-        return panel("Pokedex", head + empty_state("No Pokemon seen yet."))
-    cells = []
-    for nat in seen:
-        info = api.pokemon(nat)
-        cls = "spr sm" if nat in owned else "spr sm seen"
-        label = "#%03d %s%s" % (nat, info["name"] if info else "?",
-                                "" if nat in owned else " (seen)")
-        cells.append('<span class="cell">%s</span>' % sprite_img(info, cls, label))
-    legend = ('<p class="note">color = owned &middot; silhouette = seen only</p>')
-    return panel("Pokedex", head + legend + '<div class="grid dexgrid">%s</div>'
-                 % "".join(cells))
-
-
-def render_game_stats(state):
+def game_stats_context(state):
     gs, err = section_data(state, "gameStats")
     if gs is None:
-        return panel("Game Stats", empty_state(err))
+        return {"error": err}
     named = gs.get("named") or {}
     if not named:
-        return panel("Game Stats", empty_state("All counters are zero."))
-    rows = "".join('<tr><td>%s</td><td>%s</td></tr>'
-                   % (esc(k.replace("_", " ").title()), format(v, ","))
-                   for k, v in named.items() if not k.startswith("UNKNOWN"))
-    return panel("Game Stats", '<table class="stats">%s</table>' % rows)
+        return {"empty": "All counters are zero."}
+    return {"rows": [(k.replace("_", " ").title(), format(v, ","))
+                     for k, v in named.items() if not k.startswith("UNKNOWN")]}
 
 
-def render_challenge(state):
+def challenge_context(state):
     lc, err = section_data(state, "levelCap")
     if lc is None:
-        return ""
+        return None
     ch = lc.get("challengeOptions", {})
     if not ch.get("levelCapEnabled"):
-        return panel("Challenge", empty_state(
-            "Level cap disabled -- cap is %d." % lc.get("cap", 100)))
-    return panel("Challenge",
-                 '<p class="big">LEVEL CAP <b>%d</b> (mode %d)</p>'
-                 % (lc.get("cap", 100), ch.get("capMode", 0)))
+        return {"empty": "Level cap disabled -- cap is %d." % lc.get("cap", 100)}
+    return {"cap": lc.get("cap", 100), "mode": ch.get("capMode", 0)}
 
 
-def render_mail(state):
+def mail_context(state):
     mail, err = section_data(state, "mail")
     if mail is None:
-        return panel("Mail", empty_state(err))
+        return {"error": err}
     entries = mail.get("entries", [])
     if not entries:
-        return panel("Mail", empty_state("No mail held or stored."))
-    rows = "".join('<li>slot %d (%s): item #%d from %s</li>'
-                   % (e["slot"], e.get("slotKind", "?"), e.get("itemId", 0),
-                      esc(e.get("playerName", "?"))) for e in entries)
-    return panel("Mail", "<ul>%s</ul>" % rows)
+        return {"empty": "No mail held or stored."}
+    return {"entries": [{"slot": e["slot"], "kind": e.get("slotKind", "?"),
+                         "item_id": e.get("itemId", 0),
+                         "sender": e.get("playerName", "?")} for e in entries]}
 
 
-PAGE_CSS = """
-:root{
-  --backdrop:#10281c; --panel:#f8f8ee; --panel2:#e8e8d8; --ink:#33302b;
-  --ink-shadow:#c8c4b0; --line:#141410; --pika:#f8d030; --pika-dk:#c89800;
-  --accent:#c03028; --blue:#4878c8;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--backdrop);color:var(--ink);
-  background-image:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.12) 2px 4px);
-  font-family:'VT323',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
-  font-size:18px;line-height:1.3;padding:24px 12px 64px}
-main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-h1,h2,h3,.tc-name,.dexcount b,.big,.tc-row i,.sb i,.legend,.dexcount i,.ail,
-.qty,.pp{font-family:'Press Start 2P',ui-monospace,monospace}
-h1{color:var(--pika);font-size:16px;text-align:center;line-height:1.6;
-  text-shadow:2px 2px 0 #000;margin-bottom:4px}
-h1 small{display:block;font-size:8px;color:#cfe8d8}
-.panel{background:var(--panel);border:3px solid var(--line);border-radius:2px;
-  box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 4px #b0b0a0,4px 4px 0 rgba(0,0,0,.45);
-  padding:16px 14px 14px}
-.panel h2{font-size:10px;background:var(--line);color:var(--pika);
-  display:inline-block;padding:6px 10px 4px;margin:-16px 0 12px -14px;
-  border-bottom-right-radius:2px}
-.panel h3{font-size:8px;margin-bottom:6px;color:#5a564e}
-img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:middle}
-.spr.big{width:64px;height:64px}
-.spr.sm{width:32px;height:32px}
-.spr.seen{filter:brightness(0);opacity:.55}
-.spr.ph{background:var(--panel2);border:2px dashed #a8a494;color:#a8a494;
-  text-align:center;font-family:'Press Start 2P',monospace;font-size:10px;
-  line-height:28px;width:32px;height:32px}
-.spr.big.ph{width:64px;height:64px;line-height:60px;font-size:16px}
-.empty{color:#7a766a;font-style:normal;padding:6px 2px;font-size:19px}
-.note{color:#7a766a;font-size:16px;margin:4px 0 8px}
-.warn{color:var(--accent);font-size:16px;margin-top:8px}
-/* trainer card */
-.tcard{background:linear-gradient(#f8e070,#f0c830);border-color:var(--line)}
-.tcard h2{color:#fff;background:#a06818}
-.tc-namerow{display:flex;align-items:center;gap:12px}
-.tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
-.tc-name{font-size:14px;margin:6px 0 10px;text-shadow:1px 1px 0 #fff}
-.tc-rows{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:12px}
-.tc-row i{font-style:normal;color:#7a5a10;font-size:8px;margin-right:6px}
-.tc-row b{font-size:20px}
-.dn{font-family:'Press Start 2P',monospace;font-size:8px;background:var(--line);
-  color:#cfe8d8;padding:4px 6px;border-radius:2px;align-self:center}
-.tc-badges{display:flex;gap:10px}
-.badge{font-size:20px;line-height:1;color:var(--bc);
-  text-shadow:1px 1px 0 rgba(0,0,0,.4)}
-.badge.unlit{color:transparent;text-shadow:none;-webkit-text-stroke:2px #b09838}
-/* party */
-.party{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.mon{background:var(--panel2);border:2px solid var(--line);padding:10px;
-  box-shadow:inset 0 0 0 2px #fff}
-.mon-head{display:flex;gap:10px;align-items:center;margin-bottom:6px}
-.mon-name{font-family:'Press Start 2P',monospace;font-size:10px}
-.mon-sub{font-size:16px;color:#5a564e;margin:4px 0}
-.shiny{color:#e8a800;margin-left:4px}
-.ail{background:var(--accent);color:#fff;font-size:7px;padding:3px 4px 2px}
-.type{font-family:'Press Start 2P',monospace;font-size:7px;color:#fff;
-  padding:3px 5px 2px;margin-right:4px;text-shadow:1px 1px 0 rgba(0,0,0,.5);
-  border-radius:2px;display:inline-block}
-.hp{display:flex;align-items:center;gap:8px;margin:6px 0}
-.bar{flex:0 1 140px;height:8px;background:#585850;border:2px solid var(--line);
-  display:inline-block;vertical-align:middle}
-.fill{display:block;height:100%}
-.hpnum{font-size:16px}
-.moves{list-style:none;margin:6px 0;border-top:2px dotted #b8b4a4;padding-top:6px}
-.moves li{display:flex;justify-content:space-between;padding:1px 0}
-.pp{color:#7a766a;font-size:8px;align-self:center}
-.mtype{font-size:6px;padding:2px 3px 1px;margin:0 0 0 5px;vertical-align:1px}
-.mon-meta{font-size:16px;color:#5a564e;margin:4px 0}
-.statbars{margin-top:6px}
-.sb{display:flex;align-items:center;gap:6px;margin:2px 0}
-.sb i{font-style:normal;font-size:7px;width:20px;color:#7a766a}
-.sb .bar{flex:0 1 90px;height:5px}
-.legend{font-size:7px;color:#7a766a;display:block;margin-bottom:4px}
-.legend i{display:inline-block;width:8px;height:8px;margin:0 3px 0 8px}
-.held{font-size:16px;color:#5a564e;margin-top:4px}
-/* storage + dex grids */
-.boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.box{background:var(--panel2);border:2px solid var(--line);padding:8px;
-  box-shadow:inset 0 0 0 2px #fff}
-.grid{display:flex;flex-wrap:wrap;gap:2px}
-.box .grid{display:grid;grid-template-columns:repeat(6,1fr)}
-.cell{width:34px;height:34px;background:#d8d8c4;border:1px solid #b8b4a4;
-  display:flex;align-items:center;justify-content:center}
-.dexgrid .cell{background:var(--panel2)}
-.dexcount{display:flex;gap:28px;margin-bottom:8px}
-.dexcount b{font-size:18px;display:block}
-.dexcount i{font-style:normal;font-size:8px;color:#7a766a}
-/* bag */
-.pockets{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.pocket{background:var(--panel2);border:2px solid var(--line);padding:8px;
-  box-shadow:inset 0 0 0 2px #fff}
-.pocket-empty{color:#a8a494;font-size:16px}
-.items{list-style:none}
-.items li{display:flex;align-items:center;gap:8px;padding:2px 0;
-  border-bottom:1px dotted #c8c4b0}
-.ispr{width:24px;height:24px;image-rendering:pixelated}
-.ispr.ph{display:inline-flex;align-items:center;justify-content:center;
-  background:#d8d8c4;border:1px dashed #a8a494;color:#a8a494;font-size:11px}
-.iname{flex:1;overflow-wrap:anywhere;font-size:17px}
-.qty{color:#5a564e;font-size:8px;align-self:center}
-/* misc */
-.stats{border-collapse:collapse;width:100%}
-.stats td{border-bottom:1px dotted #c8c4b0;padding:4px 2px}
-.stats td:last-child{text-align:right;font-weight:bold}
-.big{font-size:12px}
-footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:16px;
-  line-height:1.5}
-@media(max-width:520px){.tc-rows{gap:4px 14px}.sb .bar{flex-basis:60px}}
-"""
-
-
-def build_page(state, api, font_css):
-    if not state.get("inGame", False):
-        body = ('<section class="panel"><h2>No save loaded</h2>'
-                '<p class="empty">%s</p></section>'
-                % esc(state.get("error", "This memory dump holds no game state.")))
-        sections = [body]
-        player_name = "no save"
-    else:
-        sections = [
-            render_trainer_card(state),
-            render_party(state, api),
-            render_bag(state, api),
-            render_dex(state, api),
-            render_boxes(state, api),
-            render_game_stats(state),
-            render_challenge(state),
-            render_mail(state),
-        ]
-        player_name = (state.get("player") or {}).get("name", "?")
+def build_context(state, api, font_css):
+    from markupsafe import Markup
+    in_game = state.get("inGame", False)
+    player_name = ((state.get("player") or {}).get("name", "?")
+                   if in_game else "no save")
     conf = (state.get("meta") or {}).get("confidence", {})
     caveats = "; ".join("%s: %s" % (k, v.split(" (")[0]) for k, v in conf.items()
                         if not v.startswith("high"))
-    return """<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>%s -- Recharged Yellow</title>
-<style>%s%s</style></head><body>
-<h1>POKEMON RECHARGED YELLOW<small>save state report &middot; %s</small></h1>
-<main>%s</main>
-<footer>Generated locally by generate_page.py. Sprites and metadata from
-PokeAPI (cached at generate time; page is fully offline). Types and abilities
-are current-generation PokeAPI data and may postdate Gen 3.
-%s</footer>
-</body></html>""" % (esc(player_name), font_css, PAGE_CSS, esc(player_name),
-                     "\n".join(s for s in sections if s),
-                     ("Non-high-confidence sections: " + esc(caveats) + ".")
-                     if caveats else "")
+    ctx = {
+        "in_game": in_game,
+        "error": state.get("error", "This memory dump holds no game state."),
+        "title": "%s -- Recharged Yellow" % player_name,
+        "player_name": player_name,
+        "font_css": Markup(font_css),
+        "caveats": caveats,
+    }
+    if in_game:
+        ctx.update(
+            trainer=trainer_context(state),
+            party=party_context(state, api),
+            bag=bag_context(state, api),
+            dex=dex_context(state, api),
+            boxes=boxes_context(state, api),
+            game_stats=game_stats_context(state),
+            challenge=challenge_context(state),
+            mail=mail_context(state),
+        )
+    return ctx
+
+
+def render_page(state, api, font_css):
+    try:
+        from jinja2 import Environment, FileSystemLoader, select_autoescape
+    except ImportError:
+        raise SystemExit(
+            "error: jinja2 is not installed. Run via uv from the repo root:\n"
+            "  uv run analysis/tools/generate_page.py ...\n"
+            "(one-time setup: uv sync)")
+    env = Environment(
+        loader=FileSystemLoader(os.path.join(TOOLS_DIR, "templates")),
+        autoescape=select_autoescape(("html", "j2")),
+        trim_blocks=True, lstrip_blocks=True)
+    template = env.get_template("report.html.j2")
+    return template.render(**build_context(state, api, font_css))
 
 
 # ---------------------------------------------------------------------------
@@ -849,7 +675,7 @@ def main():
     api = PokeApi(cache)
     font_css = fetch_font(cache)
 
-    page = build_page(state, api, font_css)
+    page = render_page(state, api, font_css)
     out_path = os.path.join(args.out, "index.html")
     with open(out_path, "w") as f:
         f.write(page)

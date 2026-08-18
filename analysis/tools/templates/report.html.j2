@@ -1,0 +1,141 @@
+{#- Recharged Yellow save-state report. Rendered by generate_page.py with
+    autoescape on: every value is escaped unless explicitly marked safe
+    (font_css and the data-URI sprite fields, which the generator builds). -#}
+{%- macro sprite(uri, cls, label) -%}
+{%- if uri -%}
+<img class="{{ cls }}" src="{{ uri|safe }}" alt="{{ label }}" title="{{ label }}">
+{%- else -%}
+<span class="{{ cls }} ph" title="{{ label }}">?</span>
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro bar(pct, color) -%}
+<span class="bar"><span class="fill" style="width:{{ pct }}%;background:{{ color }}"></span></span>
+{%- endmacro -%}
+
+{%- macro type_chip(t, cls="type") -%}
+<span class="{{ cls }}" style="background:{{ t.color }}">{{ t.name|upper }}</span>
+{%- endmacro -%}
+
+{%- macro panel(title) -%}
+<section class="panel"><h2>{{ title }}</h2>{{ caller() }}</section>
+{%- endmacro -%}
+
+{#- A section that may carry an error or an empty message renders honestly. -#}
+{%- macro simple_states(sec) -%}
+{%- if sec.error %}<p class="empty">{{ sec.error }}</p>
+{%- elif sec.empty %}<p class="empty">{{ sec.empty }}</p>{% endif -%}
+{%- endmacro -%}
+
+{%- macro mon_card(m) -%}
+<div class="mon">
+  <div class="mon-head">{{ sprite(m.sprite, "spr big", m.species) }}<div>
+    <div class="mon-name">{{ m.name }}{% if m.shiny %}<span class="shiny" title="shiny">&#9733;</span>{% endif %}</div>
+    <div class="mon-sub">{{ m.species }} &middot; Lv{{ m.level }} {% if m.ailment %}<span class="ail">{{ m.ailment }}</span>{% endif %}</div>
+    <div class="types">{% for t in m.types %}{{ type_chip(t) }}{% endfor %}</div></div></div>
+  <div class="hp">{{ bar(m.hp_pct, m.hp_color) }}<span class="hpnum">{{ m.hp }}/{{ m.max_hp }}</span></div>
+  <ul class="moves">{% for mv in m.moves %}
+    <li><span>{{ mv.name }}{% if mv.type %}{{ type_chip(mv.type, "type mtype") }}{% endif %}</span> <span class="pp">PP {{ mv.pp }}</span></li>
+  {%- endfor %}</ul>
+  <div class="mon-meta">{{ m.ability }} &middot; {{ m.nature }} nature{% if m.friendship is not none %} &middot; FRIEND {{ m.friendship }}{% endif %}</div>
+  <div class="statbars"><span class="legend"><i style="background:#68a0e8"></i>IV
+    <i style="background:#e8a068"></i>EV</span>
+  {%- for row in m.stat_rows %}
+    <div class="sb"><i>{{ row.label }}</i>{{ bar(row.iv_pct, "#68a0e8") }}{{ bar(row.ev_pct, "#e8a068") }}</div>
+  {%- endfor %}</div>
+  {%- if m.held %}<div class="held">holds {{ m.held }}</div>{% endif %}
+</div>
+{%- endmacro -%}
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }}</title>
+<style>{{ font_css|safe }}{% include "report.css" %}</style></head><body>
+<h1>POKEMON RECHARGED YELLOW<small>save state report &middot; {{ player_name }}</small></h1>
+<main>
+{%- if not in_game %}
+<section class="panel"><h2>No save loaded</h2><p class="empty">{{ error }}</p></section>
+{%- else %}
+
+<section class="panel tcard"><h2>Trainer Card</h2>
+{%- if trainer.error %}<p class="empty">{{ trainer.error }}</p>
+{%- else %}
+  <div class="tc-body">
+    <div class="tc-namerow">
+      {%- if trainer.sprite %}<img class="tc-player" src="{{ trainer.sprite|safe }}" alt="{{ trainer.sprite_alt }}">{% endif -%}
+      <div class="tc-name">{{ trainer.name }}</div></div>
+    <div class="tc-rows">{% for row in trainer.rows %}<div class="tc-row"><i>{{ row[0] }}</i><b>{{ row[1] }}</b></div>{% endfor %}
+      {%- if trainer.daynight %} <span class="dn">{{ trainer.daynight }}</span>{% endif %}</div>
+    <div class="tc-badges">{% for b in trainer.badges %}<span class="badge {{ 'lit' if b.lit else 'unlit' }}" style="--bc:{{ b.color }}" title="{{ b.name }} Badge">&#9670;</span>{% endfor %}</div>
+  </div>
+{%- endif %}
+</section>
+
+{%- call panel("Party") %}{{ simple_states(party) }}
+{%- if party.mons %}<div class="party">{% for m in party.mons %}{{ mon_card(m) }}{% endfor %}</div>{% endif %}
+{%- endcall %}
+
+{%- call panel("Bag") %}{{ simple_states(bag) }}
+{%- if bag.pockets %}<div class="pockets">
+  {%- for p in bag.pockets %}
+  <div class="pocket"><h3>{{ p.label }}</h3>
+    {%- if p.slots %}<ul class="items">
+      {%- for it in p.slots %}
+      <li>{% if it.sprite %}<img class="ispr" src="{{ it.sprite|safe }}" alt="">{% else %}<span class="ispr ph">?</span>{% endif -%}
+        <span class="iname">{{ it.name }}</span><span class="qty">&times;{{ it.qty }}</span></li>
+      {%- endfor %}</ul>
+    {%- else %}<p class="pocket-empty">empty</p>{% endif %}</div>
+  {%- endfor %}</div>
+  {%- if bag.registered %}<p class="note">SELECT registered: {{ bag.registered }}</p>{% endif %}
+  {%- if bag.warning %}<p class="warn">{{ bag.warning }}</p>{% endif %}
+{%- endif %}
+{%- endcall %}
+
+{%- call panel("Pokedex") %}
+{%- if dex.error %}<p class="empty">{{ dex.error }}</p>
+{%- else %}
+  <div class="dexcount"><div><b>{{ dex.seen_count }}</b><i>SEEN</i></div><div><b>{{ dex.owned_count }}</b><i>OWNED</i></div></div>
+  {%- if dex.empty %}<p class="empty">{{ dex.empty }}</p>
+  {%- else %}
+  <p class="note">color = owned &middot; silhouette = seen only</p>
+  <div class="grid dexgrid">{% for c in dex.cells %}<span class="cell">{{ sprite(c.sprite, "spr sm" if c.owned else "spr sm seen", c.label) }}</span>{% endfor %}</div>
+  {%- endif %}
+{%- endif %}
+{%- endcall %}
+
+{%- call panel("Pokemon Storage") %}{{ simple_states(boxes) }}
+{%- if boxes.shown %}
+  <p class="note">{{ boxes.total }} Pokemon stored &middot; current box: {{ boxes.current }}{% if boxes.n_empty %} &middot; {{ boxes.n_empty }} empty boxes not shown{% endif %}</p>
+  <div class="boxes">
+  {%- for box in boxes.shown %}
+  <div class="box"><h3>{{ box.name }}</h3><div class="grid">
+    {%- for cell in box.cells %}<span class="cell">{% if cell %}{{ sprite(cell.sprite, "spr sm", cell.label) }}{% endif %}</span>{% endfor -%}
+  </div></div>
+  {%- endfor %}</div>
+{%- endif %}
+{%- endcall %}
+
+{%- call panel("Game Stats") %}{{ simple_states(game_stats) }}
+{%- if game_stats.rows %}<table class="stats">
+  {%- for row in game_stats.rows %}<tr><td>{{ row[0] }}</td><td>{{ row[1] }}</td></tr>{% endfor -%}
+</table>{% endif %}
+{%- endcall %}
+
+{%- if challenge %}
+{%- call panel("Challenge") %}{{ simple_states(challenge) }}
+{%- if challenge.cap %}<p class="big">LEVEL CAP <b>{{ challenge.cap }}</b> (mode {{ challenge.mode }})</p>{% endif %}
+{%- endcall %}
+{%- endif %}
+
+{%- call panel("Mail") %}{{ simple_states(mail) }}
+{%- if mail.entries %}<ul>
+  {%- for e in mail.entries %}<li>slot {{ e.slot }} ({{ e.kind }}): item #{{ e.item_id }} from {{ e.sender }}</li>{% endfor -%}
+</ul>{% endif %}
+{%- endcall %}
+
+{%- endif %}
+</main>
+<footer>Generated locally by generate_page.py. Sprites and metadata from
+PokeAPI (cached at generate time; page is fully offline). Types and abilities
+are current-generation PokeAPI data and may postdate Gen 3.
+{% if caveats %}Non-high-confidence sections: {{ caveats }}.{% endif %}</footer>
+</body></html>

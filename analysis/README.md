@@ -36,9 +36,13 @@ python3 tools/parse_ram.py --state save.ss0 --pretty
 Render any parse as a human-friendly, 8-bit styled HTML page (self-contained):
 
 ```sh
-python3 tools/generate_page.py real-saves/st0.json     # -> report/index.html
-python3 tools/generate_page.py --state save.ss0        # any parse_ram input works
+# one-time: uv sync (from the repo root; installs jinja2 into .venv)
+uv run tools/generate_page.py real-saves/st0.json      # -> report/index.html
+uv run tools/generate_page.py --state save.ss0         # any parse_ram input works
 ```
+
+(`parse_ram.py` and `state_extract.py` remain stdlib-only and run with bare
+`python3`; only the page generator needs the uv-managed environment.)
 
 Sprites/metadata resolve from local PokéAPI mirrors under `../vendor/`
 (optional but recommended — see `vendor/README.md` for the two `git clone

@@ -16,3 +16,6 @@ analysis/report*/.cache/
 
 # Python bytecode
 __pycache__/
+
+# uv virtualenv
+.venv/
