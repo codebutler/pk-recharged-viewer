@@ -1,0 +1,5 @@
+frame=4800
+gSaveBlock1Ptr=0x0200EBDC
+gSaveBlock2Ptr=0x0200DBF8
+gPokemonStoragePtr=0x020129F0
+gPlayerPartyCount=0

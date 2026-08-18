@@ -1,0 +1,17 @@
+[f000000] inject harness started: out=/Users/eric/Code/RGSP/yelow-recharged-decomp/analysis/dumps/inject
+[f005641] dumped preinject  SB1=0x0200EBFC SB2=0x0200DC18
+[f005641] write API: write8=function: 0x9eb8cc0f0 write16=function: 0x9eb8cc3f0 write32=function: 0x9eb8cc180
+[f005641] inject: SB1=0x0200EBFC SB2=0x0200DC18
+[f005641] otId=0x9501EE53
+[f005641] set flag 0x860 (byte SB1+0x1007 was 0x00)
+[f005641] set flag 0x828 (byte SB1+0x1000 was 0x00)
+[f005641] injection complete
+[f005641] dumped injected  SB1=0x0200EBFC SB2=0x0200DC18
+[f005941] dumped injected-settled  SB1=0x0200EBFC SB2=0x0200DC18
+[f006043] screenshot menu-open
+[f006205] screenshot menu-entry1
+[f006337] screenshot menu-entry1-A
+[f006511] screenshot back-to-menu
+[f006715] screenshot menu-entry2
+[f006859] dumped final  SB1=0x0200EC04 SB2=0x0200DC20
+[f006859] inject harness complete

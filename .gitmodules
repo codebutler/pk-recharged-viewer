@@ -1,0 +1,12 @@
+[submodule "pokeemerald"]
+	path = pokeemerald
+	url = https://github.com/pret/pokeemerald.git
+[submodule "pokefirered"]
+	path = pokefirered
+	url = https://github.com/pret/pokefirered.git
+[submodule "vendor/pokeapi-sprites"]
+	path = vendor/pokeapi-sprites
+	url = https://github.com/PokeAPI/sprites.git
+[submodule "vendor/pokeapi-data"]
+	path = vendor/pokeapi-data
+	url = https://github.com/PokeAPI/api-data.git

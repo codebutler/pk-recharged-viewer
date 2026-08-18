@@ -1,0 +1,15 @@
+# ROM images are protected — never commit (includes harness work/ copies)
+*.gba
+
+# The BPS patch is kept locally too; uncomment to track it if desired
+# (hack patches are commonly redistributed, but defaulting to cautious)
+recharged-yellow_1.9.7.bps
+
+# Emulator flash saves inside harness work dirs
+*.sav
+
+# Regenerable PokeAPI fetch cache
+analysis/report/.cache/
+
+# macOS noise
+.DS_Store

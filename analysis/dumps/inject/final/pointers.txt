@@ -1,0 +1,3 @@
+frame=6859
+gSaveBlock1Ptr=0x0200EC04
+gSaveBlock2Ptr=0x0200DC20

@@ -1,0 +1,37 @@
+[f000000] explore harness started: out=/Users/eric/Code/RGSP/yelow-recharged-decomp/analysis/dumps/explore-starter max=40000
+[f001200] dumped f001200  SB1=0x0200EBE0 partyCount=0
+[f002400] dumped f002400  SB1=0x0200EBE0 partyCount=0
+[f003600] dumped f003600  SB1=0x0200EC34 partyCount=0
+[f004800] dumped f004800  SB1=0x0200EBDC partyCount=0
+[f005640] dumped pre-explore  SB1=0x0200EBD8 partyCount=0
+[f006000] dumped f006000  SB1=0x0200EBD8 partyCount=0
+[f007200] dumped f007200  SB1=0x0200EBD8 partyCount=0
+[f008400] dumped f008400  SB1=0x0200EBD8 partyCount=0
+[f009600] dumped f009600  SB1=0x0200EBD8 partyCount=0
+[f010800] dumped f010800  SB1=0x0200EBD8 partyCount=0
+[f012000] dumped f012000  SB1=0x0200EBD8 partyCount=0
+[f013200] dumped f013200  SB1=0x0200EBD8 partyCount=0
+[f014400] dumped f014400  SB1=0x0200EBD8 partyCount=0
+[f015600] dumped f015600  SB1=0x0200EBD8 partyCount=0
+[f016800] dumped f016800  SB1=0x0200EBD8 partyCount=0
+[f018000] dumped f018000  SB1=0x0200EBD8 partyCount=0
+[f019200] dumped f019200  SB1=0x0200EBD8 partyCount=0
+[f020400] dumped f020400  SB1=0x0200EBD8 partyCount=0
+[f021600] dumped f021600  SB1=0x0200EBD8 partyCount=0
+[f022800] dumped f022800  SB1=0x0200EBD8 partyCount=0
+[f024000] dumped f024000  SB1=0x0200EBD8 partyCount=0
+[f025200] dumped f025200  SB1=0x0200EBD8 partyCount=0
+[f026400] dumped f026400  SB1=0x0200EBD8 partyCount=0
+[f027600] dumped f027600  SB1=0x0200EBD8 partyCount=0
+[f028800] dumped f028800  SB1=0x0200EBD8 partyCount=0
+[f030000] dumped f030000  SB1=0x0200EBD8 partyCount=0
+[f031200] dumped f031200  SB1=0x0200EBD8 partyCount=0
+[f032400] dumped f032400  SB1=0x0200EBD8 partyCount=0
+[f033600] dumped f033600  SB1=0x0200EBD8 partyCount=0
+[f034800] dumped f034800  SB1=0x0200EBD8 partyCount=0
+[f036000] dumped f036000  SB1=0x0200EBD8 partyCount=0
+[f037200] dumped f037200  SB1=0x0200EBD8 partyCount=0
+[f038400] dumped f038400  SB1=0x0200EBD8 partyCount=0
+[f039600] dumped f039600  SB1=0x0200EBD8 partyCount=0
+[f040000] dumped final  SB1=0x0200EBD8 partyCount=0
+[f040000] explore harness complete

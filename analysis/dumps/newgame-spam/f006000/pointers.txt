@@ -1,0 +1,5 @@
+frame=6000
+gSaveBlock1Ptr=0x0200EBD4
+gSaveBlock2Ptr=0x0200DBF0
+gPokemonStoragePtr=0x020129E8
+valid=true

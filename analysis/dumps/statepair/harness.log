@@ -1,0 +1,15 @@
+[f000000] state probe started: out=/Users/eric/Code/RGSP/yelow-recharged-decomp/analysis/dumps/statepair target_frame=4200
+[f004200] emu.saveStateFile type: function
+[f004200] emu.loadStateFile type: function
+[f004200] C.SAVESTATE.METADATA = 16
+[f004200] C.SAVESTATE.SAVEDATA = 2
+[f004200] C.SAVESTATE.ALL = 31
+[f004200] C.SAVESTATE.CHEATS = 4
+[f004200] C.SAVESTATE.SCREENSHOT = 1
+[f004200] C.SAVESTATE.RTC = 8
+[f004200] RAM dumped
+[f004200] saveStateFile(/Users/eric/Code/RGSP/yelow-recharged-decomp/analysis/dumps/statepair/state_default.ss, nil) -> ok=true err=true
+[f004200] saveStateFile(/Users/eric/Code/RGSP/yelow-recharged-decomp/analysis/dumps/statepair/state_flags0.ss, 0) -> ok=true err=false
+[f004200] saveStateFile(/Users/eric/Code/RGSP/yelow-recharged-decomp/analysis/dumps/statepair/state_all.ss, 31) -> ok=true err=true
+[f004200] saveStateFile(/Users/eric/Code/RGSP/yelow-recharged-decomp/analysis/dumps/statepair/state_screenshot.ss, 1) -> ok=true err=true
+[f004200] state probe complete
