@@ -17,8 +17,9 @@ requests when viewed.
 PokeAPI (pokeapi.co) is queried at GENERATE time only, sequentially, with a disk
 cache under <out>/.cache/ so re-runs are offline (pass --offline to forbid any
 network use). Species IDs in the save are Gen 3 INTERNAL numbers; they are
-mapped to national dex numbers via species_national.json (extracted from
-pokeemerald's sSpeciesToNationalPokedexNum). Items resolve by slugified name
+mapped to national dex numbers via analysis/species-mapping.json (extracted
+from pokeemerald, verified byte-identical in the hack ROM). Items resolve by
+slugified name
 with an alias map for Gen-3 spellings; unresolvable entries degrade to a styled
 placeholder.
 
@@ -265,16 +266,24 @@ class PokeApi:
 
 
 def fetch_font(cache):
-    """Embed OFL Press Start 2P: prefer the vendored TTF next to this script,
-    else fetch via Google Fonts (generate time only). Returns @font-face or ''."""
-    local = os.path.join(TOOLS_DIR, "PressStart2P.ttf")
-    if os.path.exists(local):
-        with open(local, "rb") as f:
-            blob = f.read()
-        stats["font"] = "embedded (Press Start 2P ttf, OFL, vendored)"
-        return ("@font-face{font-family:'Press Start 2P';"
-                "src:url(data:font/ttf;base64,%s) format('truetype');}"
-                % base64.b64encode(blob).decode())
+    """Embed the pixel faces (both OFL): Press Start 2P for display text and
+    VT323 for body text -- everything on the page is 8-bit type, but the body
+    face stays readable at data densities Press Start 2P can't handle. Prefers
+    the vendored TTFs next to this script, else fetches Press Start 2P via
+    Google Fonts (generate time only). Returns @font-face CSS or ''."""
+    css = []
+    for fam, fname in (("Press Start 2P", "PressStart2P.ttf"),
+                       ("VT323", "VT323.ttf")):
+        local = os.path.join(TOOLS_DIR, fname)
+        if os.path.exists(local):
+            with open(local, "rb") as f:
+                blob = f.read()
+            css.append("@font-face{font-family:'%s';"
+                       "src:url(data:font/ttf;base64,%s) format('truetype');}"
+                       % (fam, base64.b64encode(blob).decode()))
+    if css:
+        stats["font"] = "embedded (Press Start 2P + VT323, OFL, vendored)"
+        return "".join(css)
     css = cache.get("pressstart2p.css", FONT_CSS_URL, binary=True)
     if css:
         # Google serves woff2 to browser UAs but plain TTF to ours; accept both.
@@ -656,10 +665,11 @@ PAGE_CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--backdrop);color:var(--ink);
   background-image:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.12) 2px 4px);
-  font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:13px;
-  padding:24px 12px 64px}
+  font-family:'VT323',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  font-size:18px;line-height:1.3;padding:24px 12px 64px}
 main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-h1,h2,h3,.tc-name,.dexcount b,.big{font-family:'Press Start 2P',ui-monospace,monospace}
+h1,h2,h3,.tc-name,.dexcount b,.big,.tc-row i,.sb i,.legend,.dexcount i,.ail,
+.qty,.pp{font-family:'Press Start 2P',ui-monospace,monospace}
 h1{color:var(--pika);font-size:16px;text-align:center;line-height:1.6;
   text-shadow:2px 2px 0 #000;margin-bottom:4px}
 h1 small{display:block;font-size:8px;color:#cfe8d8}
@@ -678,9 +688,9 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   text-align:center;font-family:'Press Start 2P',monospace;font-size:10px;
   line-height:28px;width:32px;height:32px}
 .spr.big.ph{width:64px;height:64px;line-height:60px;font-size:16px}
-.empty{color:#7a766a;font-style:normal;padding:6px 2px}
-.note{color:#7a766a;font-size:11px;margin:4px 0 8px}
-.warn{color:var(--accent);font-size:11px;margin-top:8px}
+.empty{color:#7a766a;font-style:normal;padding:6px 2px;font-size:19px}
+.note{color:#7a766a;font-size:16px;margin:4px 0 8px}
+.warn{color:var(--accent);font-size:16px;margin-top:8px}
 /* trainer card */
 .tcard{background:linear-gradient(#f8e070,#f0c830);border-color:var(--line)}
 .tcard h2{color:#fff;background:#a06818}
@@ -688,8 +698,8 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
 .tc-name{font-size:14px;margin:6px 0 10px;text-shadow:1px 1px 0 #fff}
 .tc-rows{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:12px}
-.tc-row i{font-style:normal;color:#7a5a10;font-size:10px;margin-right:6px}
-.tc-row b{font-size:13px}
+.tc-row i{font-style:normal;color:#7a5a10;font-size:8px;margin-right:6px}
+.tc-row b{font-size:20px}
 .dn{font-family:'Press Start 2P',monospace;font-size:8px;background:var(--line);
   color:#cfe8d8;padding:4px 6px;border-radius:2px;align-self:center}
 .tc-badges{display:flex;gap:10px}
@@ -702,9 +712,9 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   box-shadow:inset 0 0 0 2px #fff}
 .mon-head{display:flex;gap:10px;align-items:center;margin-bottom:6px}
 .mon-name{font-family:'Press Start 2P',monospace;font-size:10px}
-.mon-sub{font-size:11px;color:#5a564e;margin:4px 0}
+.mon-sub{font-size:16px;color:#5a564e;margin:4px 0}
 .shiny{color:#e8a800;margin-left:4px}
-.ail{background:var(--accent);color:#fff;font-size:9px;padding:1px 4px}
+.ail{background:var(--accent);color:#fff;font-size:7px;padding:3px 4px 2px}
 .type{font-family:'Press Start 2P',monospace;font-size:7px;color:#fff;
   padding:3px 5px 2px;margin-right:4px;text-shadow:1px 1px 0 rgba(0,0,0,.5);
   border-radius:2px;display:inline-block}
@@ -712,19 +722,19 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .bar{flex:0 1 140px;height:8px;background:#585850;border:2px solid var(--line);
   display:inline-block;vertical-align:middle}
 .fill{display:block;height:100%}
-.hpnum{font-size:11px}
+.hpnum{font-size:16px}
 .moves{list-style:none;margin:6px 0;border-top:2px dotted #b8b4a4;padding-top:6px}
 .moves li{display:flex;justify-content:space-between;padding:1px 0}
-.pp{color:#7a766a}
+.pp{color:#7a766a;font-size:8px;align-self:center}
 .mtype{font-size:6px;padding:2px 3px 1px;margin:0 0 0 5px;vertical-align:1px}
-.mon-meta{font-size:11px;color:#5a564e;margin:4px 0}
+.mon-meta{font-size:16px;color:#5a564e;margin:4px 0}
 .statbars{margin-top:6px}
 .sb{display:flex;align-items:center;gap:6px;margin:2px 0}
-.sb i{font-style:normal;font-size:9px;width:18px;color:#7a766a}
+.sb i{font-style:normal;font-size:7px;width:20px;color:#7a766a}
 .sb .bar{flex:0 1 90px;height:5px}
-.legend{font-size:9px;color:#7a766a;display:block;margin-bottom:4px}
+.legend{font-size:7px;color:#7a766a;display:block;margin-bottom:4px}
 .legend i{display:inline-block;width:8px;height:8px;margin:0 3px 0 8px}
-.held{font-size:11px;color:#5a564e;margin-top:4px}
+.held{font-size:16px;color:#5a564e;margin-top:4px}
 /* storage + dex grids */
 .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
 .box{background:var(--panel2);border:2px solid var(--line);padding:8px;
@@ -736,27 +746,27 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .dexgrid .cell{background:var(--panel2)}
 .dexcount{display:flex;gap:28px;margin-bottom:8px}
 .dexcount b{font-size:18px;display:block}
-.dexcount i{font-style:normal;font-size:9px;color:#7a766a}
+.dexcount i{font-style:normal;font-size:8px;color:#7a766a}
 /* bag */
 .pockets{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
 .pocket{background:var(--panel2);border:2px solid var(--line);padding:8px;
   box-shadow:inset 0 0 0 2px #fff}
-.pocket-empty{color:#a8a494;font-size:11px}
+.pocket-empty{color:#a8a494;font-size:16px}
 .items{list-style:none}
 .items li{display:flex;align-items:center;gap:8px;padding:2px 0;
   border-bottom:1px dotted #c8c4b0}
 .ispr{width:24px;height:24px;image-rendering:pixelated}
 .ispr.ph{display:inline-flex;align-items:center;justify-content:center;
   background:#d8d8c4;border:1px dashed #a8a494;color:#a8a494;font-size:11px}
-.iname{flex:1}
-.qty{color:#5a564e}
+.iname{flex:1;overflow-wrap:anywhere;font-size:17px}
+.qty{color:#5a564e;font-size:8px;align-self:center}
 /* misc */
 .stats{border-collapse:collapse;width:100%}
 .stats td{border-bottom:1px dotted #c8c4b0;padding:4px 2px}
 .stats td:last-child{text-align:right;font-weight:bold}
 .big{font-size:12px}
-footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:10px;
-  line-height:1.7}
+footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:16px;
+  line-height:1.5}
 @media(max-width:520px){.tc-rows{gap:4px 14px}.sb .bar{flex-basis:60px}}
 """
 
