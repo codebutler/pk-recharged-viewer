@@ -949,6 +949,10 @@ def parse_state(dump, cfg, gamedata, do_scan=True):
     state["bag"] = bag
     reg_item = u16(ew, sb1 + cfg.off("sb1.registeredItem"))
     state["bag"]["registeredItem"] = reg_item or None
+    if reg_item:
+        reg_name = gamedata.item(reg_item)
+        if reg_name:
+            state["bag"]["registeredItemName"] = reg_name
 
     pc_slots, pc_ok, pc_reason = parse_item_slots(ew, sb1 + cfg.off("sb1.pcItems"),
                                                   cfg.capacity("sb1.pcItems", PC_ITEMS_COUNT),

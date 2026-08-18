@@ -63,7 +63,6 @@ ITEM_ALIASES = {
     "thunderstone": "thunder-stone",
     "x defend": "x-defense",
     "x special": "x-sp-atk",
-    "up-grade": "upgrade",
     "s.s. ticket": "ss-ticket",
     "guard spec.": "guard-spec",
     "exp. share": "exp-share",
@@ -246,8 +245,16 @@ class PokeApi:
 
 
 def fetch_font(cache):
-    """Embed OFL Press Start 2P: fetch the Google Fonts CSS (generate time only),
-    pull the woff2 it names, return an @font-face rule or ''."""
+    """Embed OFL Press Start 2P: prefer the vendored TTF next to this script,
+    else fetch via Google Fonts (generate time only). Returns @font-face or ''."""
+    local = os.path.join(TOOLS_DIR, "PressStart2P.ttf")
+    if os.path.exists(local):
+        with open(local, "rb") as f:
+            blob = f.read()
+        stats["font"] = "embedded (Press Start 2P ttf, OFL, vendored)"
+        return ("@font-face{font-family:'Press Start 2P';"
+                "src:url(data:font/ttf;base64,%s) format('truetype');}"
+                % base64.b64encode(blob).decode())
     css = cache.get("pressstart2p.css", FONT_CSS_URL, binary=True)
     if css:
         # Google serves woff2 to browser UAs but plain TTF to ours; accept both.
@@ -455,9 +462,12 @@ def render_boxes(state, api):
                 cells.append('<span class="cell"></span>')
         boxes_html.append('<div class="box"><h3>%s</h3><div class="grid">%s</div></div>'
                           % (esc(box.get("name", "Box")), "".join(cells)))
-    body = ('<p class="note">%d Pokemon stored &middot; current box: %d</p>'
-            '<div class="boxes">%s</div>' % (total, pc.get("currentBox", 1),
-                                             "".join(boxes_html)))
+    n_empty = sum(1 for b in pc.get("boxes", []) if not b.get("pokemon"))
+    body = ('<p class="note">%d Pokemon stored &middot; current box: %d'
+            '%s</p><div class="boxes">%s</div>'
+            % (total, pc.get("currentBox", 1),
+               " &middot; %d empty boxes not shown" % n_empty if n_empty else "",
+               "".join(boxes_html)))
     return panel("Pokemon Storage", body)
 
 
@@ -491,7 +501,8 @@ def render_bag(state, api):
         return panel("Bag", empty_state("The bag is empty."))
     extra = ""
     if bag.get("registeredItem"):
-        extra = '<p class="note">SELECT registered: item #%d</p>' % bag["registeredItem"]
+        extra = '<p class="note">SELECT registered: %s</p>' % esc(
+            bag.get("registeredItemName", "item #%d" % bag["registeredItem"]))
     if bag.get("warning"):
         extra += '<p class="warn">%s</p>' % esc(bag["warning"])
     return panel("Bag", '<div class="pockets">%s</div>%s' % ("".join(cols), extra))

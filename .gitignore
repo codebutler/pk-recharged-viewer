@@ -8,8 +8,8 @@ recharged-yellow_1.9.7.bps
 # Emulator flash saves inside harness work dirs
 *.sav
 
-# Regenerable PokeAPI fetch cache
-analysis/report/.cache/
+# Regenerable PokeAPI fetch caches (any report out-dir)
+analysis/report*/.cache/
 
 # macOS noise
 .DS_Store
