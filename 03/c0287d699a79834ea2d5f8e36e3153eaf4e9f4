@@ -1,0 +1,19 @@
+.gitignore
+  s_30c66b9ed26a01::t_3c9dca48863101 16-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "03c0287d699a79834ea2d5f8e36e3153eaf4e9f4",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
