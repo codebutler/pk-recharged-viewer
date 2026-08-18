@@ -36,10 +36,17 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tcard{background:linear-gradient(#f8e070,#f0c830);border-color:var(--line)}
 .tcard h2{color:#fff;background:#a06818}
 .tc-namerow{display:flex;align-items:center;gap:12px}
-.tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
-.tc-follower{image-rendering:pixelated;width:28px;margin:2px 0 0 -6px;
-  filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
-.tc-follower.ghost{opacity:.45}
+.tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3));
+  grid-area:p}
+.tc-follower{image-rendering:pixelated;width:28px;align-self:center;justify-self:center;
+  filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3));grid-area:f}
+/* 2D placement: the follower sits on the side it actually stands on */
+.tc-sprites{display:grid;gap:0;align-items:end}
+.tc-sprites.side-left{grid-template-areas:"f p"}
+.tc-sprites.side-right{grid-template-areas:"p f"}
+.tc-sprites.side-above{grid-template-areas:"f" "p"}
+.tc-sprites.side-below{grid-template-areas:"p" "f"}
+.tc-sprites.side-none{grid-template-areas:"p"}
 .tc-name{font-size:14px;margin:6px 0 10px;text-shadow:1px 1px 0 #fff}
 .tc-rows{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:12px}
 .tc-row i{font-style:normal;color:#7a5a10;font-size:8px;margin-right:6px}
@@ -109,6 +116,19 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
   background:#d8d8c4;border:1px dashed #a8a494;color:#a8a494;font-size:11px}
 .iname{flex:1;overflow-wrap:anywhere;font-size:17px}
 .qty{color:#5a564e;font-size:8px;align-self:center}
+/* tab bar (GBA menu style) */
+#tabbar{display:flex;flex-wrap:wrap;gap:6px}
+#tabbar button{font-family:'Press Start 2P',ui-monospace,monospace;font-size:9px;
+  color:var(--pika);background:var(--line);border:3px solid var(--line);
+  box-shadow:inset 0 0 0 2px #3a3a30,3px 3px 0 rgba(0,0,0,.45);
+  padding:9px 12px 7px;cursor:pointer;border-radius:2px}
+#tabbar button:hover{color:#fff}
+#tabbar button[aria-selected="true"]{background:var(--panel);color:var(--ink);
+  box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 4px #b0b0a0;
+  transform:translate(2px,2px)}
+#tabbar button:focus-visible{outline:3px solid var(--pika);outline-offset:2px}
+#tabbar button.tab-empty{opacity:.55}
+.pane[hidden]{display:none}
 /* misc */
 .stats{border-collapse:collapse;width:100%}
 .stats td{border-bottom:1px dotted #c8c4b0;padding:4px 2px}

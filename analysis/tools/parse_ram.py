@@ -203,14 +203,20 @@ STORY_ROCKET_LABELS = {
     3: "later beat",
 }
 
-# Player avatar decoding (vanilla layouts, live-verified per hack-offsets.json):
-# ObjectEvent stride 0x24 -- graphicsId is a U16 at +4 in this hack (bits 0-10
-# id, bits 11-15 variant/shiny; ids >= 0x200 are mon overworld sprites, species
-# = id - 0x200), localId @+8 (player = 0xFF, follower = 0xFE), hidden/in-ball =
-# byte +1 bit5, currentCoords s16 x,y @+0x10 (map coords + 7), facingDirection
-# = low nibble of byte @+0x18 (1=south 2=north 3=west 4=east).
-# PlayerAvatar.flags @+0: bit0 ON_FOOT, bit1 MACH_BIKE, bit2 ACRO_BIKE,
-# bit3 SURFING.
+# Player avatar decoding (FULLY VANILLA ObjectEvent layout, re-verified by
+# rom-fingerprint v2): spriteId @+4, graphicsId @+5, localId @+8 (player =
+# 0xFF; 0xFE = the Yellow-style FOLLOWER object -- vanilla's camera is localId
+# 127), hidden/in-ball = byte +1 bit5, currentCoords s16 x,y @+0x10 (map
+# coords + 7), facingDirection = low nibble of byte @+0x18 (1=south 2=north
+# 3=west 4=east). PlayerAvatar.flags @+0: bit0 ON_FOOT, bit1 MACH_BIKE,
+# bit2 ACRO_BIKE, bit3 SURFING.
+# The follower object does NOT carry its species; that comes from replicating
+# GetFollowerMon (@0x080D516C): mode = (SB2+0x91 >> 5) & 3; mode 0 -> the
+# actual starter (first party mon with species 25, metLevel 5, metLocation
+# 0x58); mode 1 -> first alive non-egg party mon; mode 2/3 -> disabled.
+# (Follower toggle lives in the language byte's high bits; mode 0 is default.)
+FOLLOWER_STARTER_SPECIES = 25
+FOLLOWER_STARTER_MET = (5, 0x58)  # metLevel, metLocation
 FACING_NAMES = {1: "down", 2: "up", 3: "left", 4: "right"}
 AVATAR_BIKE_MASK = 0x06
 AVATAR_SURF_MASK = 0x08
@@ -1120,14 +1126,12 @@ def parse_state(dump, cfg, gamedata, do_scan=True):
             facing_raw = ew[player_ent + 0x18]
             flags_raw = ew[av_off]
             cx, cy = struct.unpack_from("<hh", ew, player_ent + 0x10)
-            player_gfx = u16(ew, player_ent + 4)
             state["playerAvatar"] = {
                 "facing": FACING_NAMES.get(facing_raw & 0xF, "unknown"),
                 "onBike": bool(flags_raw & AVATAR_BIKE_MASK),
                 "surfing": bool(flags_raw & AVATAR_SURF_MASK),
-                "graphicsId": player_gfx & 0x7FF,
+                "graphicsId": ew[player_ent + 5],
                 "raw": {"facing": facing_raw, "avatarFlags": flags_raw,
-                        "graphicsId16": player_gfx,
                         "currentCoords": [cx, cy]},
             }
             # ObjectEvent coords are map coords + 7; cross-check vs SaveBlock1 pos.
@@ -1141,35 +1145,60 @@ def parse_state(dump, cfg, gamedata, do_scan=True):
             # player, 0xFE = camera per vanilla convention) -- groundwork for
             # follower rendering and general overworld inspection.
             actives = []
+            follower_obj = None
             for i in range(16):
                 e = obj_off + i * OBJ_EVENT_STRIDE
                 if not (ew[e] & 1):
                     continue
                 ax, ay = struct.unpack_from("<hh", ew, e + 0x10)
-                gfx16 = u16(ew, e + 4)
                 ent = {
                     "localId": ew[e + 8],
-                    "graphicsId": gfx16 & 0x7FF,
+                    "graphicsId": ew[e + 5],
                     "facing": FACING_NAMES.get(ew[e + 0x18] & 0xF, "unknown"),
                     "coords": [ax, ay],
                 }
-                if (gfx16 & 0x7FF) >= 0x200:
-                    ent["monSpecies"] = (gfx16 & 0x7FF) - 0x200
                 actives.append(ent)
-                # Yellow-style follower (bound to the starter): localId 0xFE
-                # carries a mon overworld sprite; hidden bit = in its Poke Ball.
-                if ew[e + 8] == 0xFE and (gfx16 & 0x7FF) >= 0x200:
-                    species = (gfx16 & 0x7FF) - 0x200
+                if ew[e + 8] == 0xFE:
+                    follower_obj = dict(ent, hidden=bool(ew[e + 1] & 0x20))
+            state["playerAvatar"]["objectEvents"] = actives
+            # Follower species via the GetFollowerMon replication (see the
+            # comment block above): the 0xFE object gives facing/hidden only.
+            if follower_obj is not None:
+                mode = (ew[sb2 + 0x91] >> 5) & 3
+                party_mons = (state.get("party") or {}).get("pokemon") or []
+                slot = None
+                if mode == 0:
+                    for i, m in enumerate(party_mons):
+                        if (m and m.get("species") == FOLLOWER_STARTER_SPECIES
+                                and m.get("metLevel") == FOLLOWER_STARTER_MET[0]
+                                and m.get("metLocation") == FOLLOWER_STARTER_MET[1]):
+                            slot = i
+                            break
+                elif mode == 1:
+                    for i, m in enumerate(party_mons):
+                        if m and not m.get("isEgg") and m.get("hp", 0) > 0:
+                            slot = i
+                            break
+                if slot is not None:
+                    m = party_mons[slot]
                     state["playerAvatar"]["follower"] = {
                         "present": True,
-                        "species": species,
-                        "speciesName": gamedata.species(species),
-                        "facing": FACING_NAMES.get(ew[e + 0x18] & 0xF, "unknown"),
-                        "coords": [ax, ay],
-                        "hidden": bool(ew[e + 1] & 0x20),
-                        "graphicsId": gfx16 & 0x7FF,
+                        "mode": mode,
+                        "slot": slot,
+                        "species": m.get("species"),
+                        "speciesName": m.get("speciesName"),
+                        "nickname": m.get("nickname"),
+                        "facing": follower_obj["facing"],
+                        "coords": follower_obj["coords"],
+                        "hidden": follower_obj["hidden"],
                     }
-            state["playerAvatar"]["objectEvents"] = actives
+                else:
+                    state["playerAvatar"]["follower"] = {
+                        "present": False,
+                        "mode": mode,
+                        "note": ("follower disabled (mode %d)" % mode if mode >= 2
+                                 else "no party mon satisfies mode-%d criteria" % mode),
+                    }
             # Facing as of the last save lives in the SB1 objectEvents copy at
             # +0x910 (the address once mistaken for mail).
             saved_facing = ew[sb1 + 0x910 + 0x18]

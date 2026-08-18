@@ -564,16 +564,34 @@ def trainer_context(state):
     # Follower rendering: lights up once parse_ram emits playerAvatar.follower
     # ({graphicsId, facing, ...} -- identification rule pending rom-fingerprint).
     follower = avatar.get("follower")
+    # Render only a VISIBLE, resolved follower: hidden (in its Poke Ball) means
+    # the card shows nothing, though the JSON still reports present+hidden.
+    if follower and not (follower.get("present") and follower.get("species")
+                         and not follower.get("hidden")):
+        follower = None
+    follower_side = None
+    if follower:
+        # Place the follower on the side it actually stands on: compare object
+        # coords (both map coords + 7, so the offset cancels). Same-tile or
+        # non-adjacent -> trailing side = opposite of the player's facing.
+        px, py = (avatar.get("raw") or {}).get("currentCoords", [None, None])
+        fx, fy = follower.get("coords", [None, None])
+        delta = (fx - px, fy - py) if None not in (px, py, fx, fy) else None
+        follower_side = {(-1, 0): "left", (1, 0): "right",
+                         (0, -1): "above", (0, 1): "below"}.get(delta)
+        if follower_side is None:
+            follower_side = {"right": "left", "left": "right",
+                             "up": "below", "down": "above"}.get(
+                                 avatar.get("facing", "right"), "left")
     return {
         "name": p.get("name", "?"),
         "sprite": player_sprite_uri(state),
         "sprite_alt": "player facing %s%s" % (avatar.get("facing", "?"),
                                               " on bike" if avatar.get("onBike") else ""),
         "follower_sprite": avatar_sprite_uri(follower) if follower else None,
-        "follower_hidden": bool(follower and follower.get("hidden")),
-        "follower_title": ((follower.get("speciesName") or "follower")
-                           + (" (in Poke Ball)" if follower.get("hidden") else "")
-                           if follower else ""),
+        "follower_side": follower_side,
+        "follower_title": (follower.get("speciesName") or "follower")
+                          if follower else "",
         "follower_alt": ("%s follower facing %s" % (
                              follower.get("speciesName") or "?",
                              follower.get("facing", "?"))
@@ -751,6 +769,22 @@ def build_context(state, api, font_css):
             challenge=challenge_context(state),
             mail=mail_context(state),
         )
+
+        # Tab bar: sections other than the always-visible trainer card. A tab
+        # is "empty" (dimmed label) when its section(s) carry only an
+        # empty/error state.
+        def is_empty(sec):
+            return sec is None or bool(sec.get("empty") or sec.get("error"))
+        ctx["tabs"] = [
+            {"id": "party", "label": "PARTY", "empty": is_empty(ctx["party"])},
+            {"id": "bag", "label": "BAG", "empty": is_empty(ctx["bag"])},
+            {"id": "pokedex", "label": "POKEDEX",
+             "empty": is_empty(ctx["dex"]) or bool(ctx["dex"].get("empty"))},
+            {"id": "storage", "label": "STORAGE", "empty": is_empty(ctx["boxes"])},
+            {"id": "stats", "label": "STATS", "empty": is_empty(ctx["game_stats"])},
+            {"id": "more", "label": "MORE",
+             "empty": is_empty(ctx["challenge"]) and is_empty(ctx["mail"])},
+        ]
     return ctx
 
 

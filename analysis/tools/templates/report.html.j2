@@ -61,8 +61,12 @@
 {%- else %}
   <div class="tc-body">
     <div class="tc-namerow">
-      {%- if trainer.sprite %}<img class="tc-player" src="{{ trainer.sprite|safe }}" alt="{{ trainer.sprite_alt }}">{% endif -%}
-      {%- if trainer.follower_sprite %}<img class="tc-follower{{ ' ghost' if trainer.follower_hidden }}" src="{{ trainer.follower_sprite|safe }}" alt="{{ trainer.follower_alt }}" title="{{ trainer.follower_title }}">{% endif -%}
+      {%- if trainer.sprite %}
+      <div class="tc-sprites side-{{ trainer.follower_side or 'none' }}">
+        <img class="tc-player" src="{{ trainer.sprite|safe }}" alt="{{ trainer.sprite_alt }}">
+        {%- if trainer.follower_sprite %}<img class="tc-follower" src="{{ trainer.follower_sprite|safe }}" alt="{{ trainer.follower_alt }}" title="{{ trainer.follower_title }}">{% endif -%}
+      </div>
+      {%- endif -%}
       <div class="tc-name">{{ trainer.name }}</div></div>
     <div class="tc-rows">{% for row in trainer.rows %}<div class="tc-row"><i>{{ row[0] }}</i><b>{{ row[1] }}</b></div>{% endfor %}
       {%- if trainer.daynight %} <span class="dn">{{ trainer.daynight }}</span>{% endif %}</div>
@@ -75,10 +79,23 @@
 {%- endif %}
 </section>
 
+{#- Tab bar (progressive enhancement: hidden until the inline script enables
+    it; without JS every pane below stays visible). -#}
+<div id="tabbar" role="tablist" aria-label="Sections" hidden>
+{%- for t in tabs %}
+  <button role="tab" data-tab="{{ t.id }}" id="tab-{{ t.id }}"
+          aria-controls="pane-{{ t.id }}" aria-selected="false"
+          class="{{ 'tab-empty' if t.empty }}">{{ t.label }}</button>
+{%- endfor %}
+</div>
+
+<div class="pane" id="pane-party" role="tabpanel" aria-labelledby="tab-party">
 {%- call panel("Party") %}{{ simple_states(party) }}
 {%- if party.mons %}<div class="party">{% for m in party.mons %}{{ mon_card(m) }}{% endfor %}</div>{% endif %}
 {%- endcall %}
+</div>
 
+<div class="pane" id="pane-bag" role="tabpanel" aria-labelledby="tab-bag">
 {%- call panel("Bag") %}{{ simple_states(bag) }}
 {%- if bag.pockets %}<div class="pockets">
   {%- for p in bag.pockets %}
@@ -94,7 +111,9 @@
   {%- if bag.warning %}<p class="warn">{{ bag.warning }}</p>{% endif %}
 {%- endif %}
 {%- endcall %}
+</div>
 
+<div class="pane" id="pane-pokedex" role="tabpanel" aria-labelledby="tab-pokedex">
 {%- call panel("Pokedex") %}
 {%- if dex.error %}<p class="empty">{{ dex.error }}</p>
 {%- else %}
@@ -106,7 +125,9 @@
   {%- endif %}
 {%- endif %}
 {%- endcall %}
+</div>
 
+<div class="pane" id="pane-storage" role="tabpanel" aria-labelledby="tab-storage">
 {%- call panel("Pokemon Storage") %}{{ simple_states(boxes) }}
 {%- if boxes.shown %}
   <p class="note">{{ boxes.total }} Pokemon stored &middot; current box: {{ boxes.current }}{% if boxes.n_empty %} &middot; {{ boxes.n_empty }} empty boxes not shown{% endif %}</p>
@@ -118,13 +139,17 @@
   {%- endfor %}</div>
 {%- endif %}
 {%- endcall %}
+</div>
 
+<div class="pane" id="pane-stats" role="tabpanel" aria-labelledby="tab-stats">
 {%- call panel("Game Stats") %}{{ simple_states(game_stats) }}
 {%- if game_stats.rows %}<table class="stats">
   {%- for row in game_stats.rows %}<tr><td>{{ row[0] }}</td><td>{{ row[1] }}</td></tr>{% endfor -%}
 </table>{% endif %}
 {%- endcall %}
+</div>
 
+<div class="pane" id="pane-more" role="tabpanel" aria-labelledby="tab-more">
 {%- if challenge %}
 {%- call panel("Challenge") %}{{ simple_states(challenge) }}
 {%- if challenge.cap %}<p class="big">LEVEL CAP <b>{{ challenge.cap }}</b> (mode {{ challenge.mode }})</p>{% endif %}
@@ -136,6 +161,49 @@
   {%- for e in mail.entries %}<li>slot {{ e.slot }} ({{ e.kind }}): item #{{ e.item_id }} from {{ e.sender }}</li>{% endfor -%}
 </ul>{% endif %}
 {%- endcall %}
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var bar = document.getElementById("tabbar");
+  if (!bar) return;
+  var tabs = [].slice.call(bar.querySelectorAll("button"));
+  if (!tabs.length) return;
+  bar.hidden = false;
+  function select(id, pushHash) {
+    tabs.forEach(function (b) {
+      var on = b.dataset.tab === id;
+      b.setAttribute("aria-selected", String(on));
+      b.tabIndex = on ? 0 : -1;
+      document.getElementById("pane-" + b.dataset.tab).hidden = !on;
+    });
+    if (pushHash && "#" + id !== location.hash)
+      history.replaceState(null, "", "#" + id);
+  }
+  function valid(id) {
+    return tabs.some(function (b) { return b.dataset.tab === id; });
+  }
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (b) select(b.dataset.tab, true);
+  });
+  bar.addEventListener("keydown", function (e) {
+    var i = tabs.indexOf(document.activeElement);
+    if (i < 0 || (e.key !== "ArrowRight" && e.key !== "ArrowLeft")) return;
+    var j = (i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length;
+    tabs[j].focus();
+    select(tabs[j].dataset.tab, true);
+    e.preventDefault();
+  });
+  window.addEventListener("hashchange", function () {
+    var id = location.hash.slice(1);
+    if (valid(id)) select(id, false);
+  });
+  var initial = location.hash.slice(1);
+  select(valid(initial) ? initial : tabs[0].dataset.tab, false);
+})();
+</script>
 
 {%- endif %}
 </main>
