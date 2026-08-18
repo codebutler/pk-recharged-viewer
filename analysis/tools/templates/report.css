@@ -37,16 +37,23 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tcard h2{color:#fff;background:#a06818}
 .tc-namerow{display:flex;align-items:center;gap:12px}
 .tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
+.tc-follower{image-rendering:pixelated;width:28px;margin:2px 0 0 -6px;
+  filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
 .tc-name{font-size:14px;margin:6px 0 10px;text-shadow:1px 1px 0 #fff}
 .tc-rows{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:12px}
 .tc-row i{font-style:normal;color:#7a5a10;font-size:8px;margin-right:6px}
 .tc-row b{font-size:20px}
 .dn{font-family:'Press Start 2P',monospace;font-size:8px;background:var(--line);
   color:#cfe8d8;padding:4px 6px;border-radius:2px;align-self:center}
-.tc-badges{display:flex;gap:10px}
-.badge{font-size:20px;line-height:1;color:var(--bc);
+.tc-badgelabel{font-family:'Press Start 2P',monospace;font-size:8px;
+  color:#7a5a10;margin-bottom:6px}
+.tc-badges{display:flex;gap:10px;align-items:center}
+img.badge{width:24px;height:24px;image-rendering:pixelated;
+  filter:drop-shadow(1px 1px 0 rgba(0,0,0,.25))}
+img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
+.badge-glyph{font-size:20px;line-height:1;color:var(--bc);
   text-shadow:1px 1px 0 rgba(0,0,0,.4)}
-.badge.unlit{color:transparent;text-shadow:none;-webkit-text-stroke:2px #b09838}
+.badge-glyph.unlit{color:transparent;text-shadow:none;-webkit-text-stroke:2px #b09838}
 /* party */
 .party{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
 .mon{background:var(--panel2);border:2px solid var(--line);padding:10px;

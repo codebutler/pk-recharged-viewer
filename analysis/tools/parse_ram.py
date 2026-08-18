@@ -1132,6 +1132,22 @@ def parse_state(dump, cfg, gamedata, do_scan=True):
                 anchor("playerAvatar coords == location + 7",
                        cx == px + 7 and cy == py + 7,
                        "objectEvent (%d,%d) vs map pos (%d,%d)" % (cx, cy, px, py))
+            # Compact summary of all active object events (localId 0xFF =
+            # player, 0xFE = camera per vanilla convention) -- groundwork for
+            # follower rendering and general overworld inspection.
+            actives = []
+            for i in range(16):
+                e = obj_off + i * OBJ_EVENT_STRIDE
+                if not (ew[e] & 1):
+                    continue
+                ax, ay = struct.unpack_from("<hh", ew, e + 0x10)
+                actives.append({
+                    "localId": ew[e + 8],
+                    "graphicsId": ew[e + 5],
+                    "facing": FACING_NAMES.get(ew[e + 0x18] & 0xF, "unknown"),
+                    "coords": [ax, ay],
+                })
+            state["playerAvatar"]["objectEvents"] = actives
             # Facing as of the last save lives in the SB1 objectEvents copy at
             # +0x910 (the address once mistaken for mail).
             saved_facing = ew[sb1 + 0x910 + 0x18]

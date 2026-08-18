@@ -62,10 +62,15 @@
   <div class="tc-body">
     <div class="tc-namerow">
       {%- if trainer.sprite %}<img class="tc-player" src="{{ trainer.sprite|safe }}" alt="{{ trainer.sprite_alt }}">{% endif -%}
+      {%- if trainer.follower_sprite %}<img class="tc-follower" src="{{ trainer.follower_sprite|safe }}" alt="{{ trainer.follower_alt }}">{% endif -%}
       <div class="tc-name">{{ trainer.name }}</div></div>
     <div class="tc-rows">{% for row in trainer.rows %}<div class="tc-row"><i>{{ row[0] }}</i><b>{{ row[1] }}</b></div>{% endfor %}
       {%- if trainer.daynight %} <span class="dn">{{ trainer.daynight }}</span>{% endif %}</div>
-    <div class="tc-badges">{% for b in trainer.badges %}<span class="badge {{ 'lit' if b.lit else 'unlit' }}" style="--bc:{{ b.color }}" title="{{ b.name }} Badge">&#9670;</span>{% endfor %}</div>
+    <div class="tc-badgelabel">{{ trainer.badge_header }}</div>
+    <div class="tc-badges">{% for b in trainer.badges %}
+      {%- if b.sprite %}<img class="badge {{ 'lit' if b.lit else 'unlit' }}" src="{{ b.sprite|safe }}" alt="{{ b.name }} Badge{{ '' if b.lit else ' (not earned)' }}" title="{{ b.name }} Badge">
+      {%- else %}<span class="badge-glyph {{ 'lit' if b.lit else 'unlit' }}" style="--bc:{{ b.color }}" title="{{ b.name }} Badge">&#9670;</span>{% endif -%}
+    {% endfor %}</div>
   </div>
 {%- endif %}
 </section>

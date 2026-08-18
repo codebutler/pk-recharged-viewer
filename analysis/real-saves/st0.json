@@ -3454,6 +3454,53 @@
         29
       ]
     },
+    "objectEvents": [
+      {
+        "localId": 255,
+        "graphicsId": 0,
+        "facing": "right",
+        "coords": [
+          50,
+          29
+        ]
+      },
+      {
+        "localId": 13,
+        "graphicsId": 1,
+        "facing": "left",
+        "coords": [
+          54,
+          31
+        ]
+      },
+      {
+        "localId": 1,
+        "graphicsId": 1,
+        "facing": "right",
+        "coords": [
+          59,
+          22
+        ]
+      },
+      {
+        "localId": 254,
+        "graphicsId": 2,
+        "facing": "right",
+        "coords": [
+          50,
+          29
+        ]
+      },
+      {
+        "localId": 7,
+        "graphicsId": 1,
+        "facing": "left",
+        "coords": [
+          43,
+          38
+        ]
+      }
+    ],
     "facingAtLastSave": "right"
   },
   "rivalName": "Kennedy",

@@ -373,46 +373,133 @@ def mon_context(mon, api):
     }
 
 
-def player_sprite_uri(state):
-    """Data URI for the player's overworld sprite (saved facing, bike variant),
-    or None. Requires state.playerAvatar plus tools/avatar-sprites.json. Any
-    failure degrades to None, never breaks the page."""
-    avatar = state.get("playerAvatar")
+# Overworld sprite extraction. Primary path reads the ObjectEventGraphicsInfo
+# structs straight from the ROM (addresses from hack-offsets.json
+# player_sprite_rendering), so ANY object event renders by graphicsId; the
+# hand-written avatar-sprites.json remains an override/fallback for the player.
+OBJ_GFX_INFO_PTRS = 0x0887EE9C   # gObjectEventGraphicsInfoPointers
+SPRITE_PAL_TABLE = 0x08890458    # {u32 palettePtr, u16 tag} stride 8, ends 0x11FF
+ROM_BASE = 0x08000000
+# Standing-frame convention (uniform across the anim tables): 0=South, 1=North,
+# 2=West; East is the West frame h-flipped.
+FRAME_BY_FACING = {"down": 0, "up": 1, "left": 2, "right": 2}
+
+_rom_cache = {}
+
+
+def load_rom(name="Pokemon Recharged Yellow.gba"):
+    if name not in _rom_cache:
+        with open(os.path.join(REPO_ROOT, name), "rb") as f:
+            _rom_cache[name] = f.read()
+    return _rom_cache[name]
+
+
+def _rom_off(rom, ptr):
+    off = ptr - ROM_BASE
+    if not (0 <= off < len(rom)):
+        raise ValueError("pointer 0x%08X outside ROM" % ptr)
+    return off
+
+
+def object_sprite_png(rom, gfx_id, facing):
+    """Render any object event's standing frame by graphicsId, straight from
+    the ROM's graphics-info structs. Returns PNG bytes; raises on bad data."""
+    import gba_gfx
+    import struct as _s
+    u32 = lambda off: _s.unpack_from("<I", rom, off)[0]
+    u16 = lambda off: _s.unpack_from("<H", rom, off)[0]
+    info = _rom_off(rom, u32(_rom_off(rom, OBJ_GFX_INFO_PTRS) + gfx_id * 4))
+    pal_tag = u16(info + 2)
+    width, height = u16(info + 8), u16(info + 0xA)
+    wt, ht = width // 8, height // 8
+    if not (1 <= wt <= 16 and 1 <= ht <= 16):
+        raise ValueError("implausible sprite dims %dx%d" % (width, height))
+    images = _rom_off(rom, u32(info + 0x1C))
+    frame = FRAME_BY_FACING.get(facing, 0)
+    data = _rom_off(rom, u32(images + frame * 8))
+    tiles = rom[data:data + wt * ht * 32]
+    # find the palette by tag
+    p = _rom_off(rom, SPRITE_PAL_TABLE)
+    pal_bytes = None
+    for _ in range(256):
+        tag = u16(p + 4)
+        if tag == pal_tag:
+            pal_bytes = rom[_rom_off(rom, u32(p)):][:32]
+            break
+        if tag == 0x11FF:
+            break
+        p += 8
+    if pal_bytes is None:
+        raise ValueError("palette tag 0x%04X not found" % pal_tag)
+    palette = gba_gfx.decode_palette(pal_bytes)
+    return gba_gfx.tiles_to_png(tiles, palette, wt, ht,
+                                hflip=(facing == "right"))
+
+
+def _json_spec_sprite(avatar):
+    """Fallback: the hand-written avatar-sprites.json frame spec."""
+    import gba_gfx
     spec_path = os.path.join(TOOLS_DIR, "avatar-sprites.json")
-    if not avatar or not os.path.exists(spec_path):
+    if not os.path.exists(spec_path):
+        return None
+    spec = json.load(open(spec_path))
+    rom = load_rom(spec.get("rom", "Pokemon Recharged Yellow.gba"))
+    by_gfx = spec.get("by_graphics_id", {})
+    sheet_name = by_gfx.get(str(avatar.get("graphicsId", -1)))
+    if sheet_name is None:
+        sheet_name = "bike" if avatar.get("onBike") and "bike" in spec else "walking"
+    sheet = spec[sheet_name]
+    facing = avatar.get("facing", "down")
+    frame_key = "side" if facing in ("left", "right") else facing
+    frame = sheet["frames"][frame_key]
+    addr = int(frame["rom_addr"], 0) - ROM_BASE
+    wt, ht = sheet["width_tiles"], sheet["height_tiles"]
+    if sheet.get("compressed"):
+        tiles = gba_gfx.lz77_decompress(rom, addr)
+        tiles = tiles[frame.get("tile_offset", 0):]
+    else:
+        tiles = rom[addr:addr + wt * ht * 32]
+    pal_addr = int(sheet["palette_addr"], 0) - ROM_BASE
+    pal_bytes = rom[pal_addr:pal_addr + 32]
+    if sheet.get("palette_compressed"):
+        pal_bytes = gba_gfx.lz77_decompress(rom, pal_addr)[:32]
+    palette = gba_gfx.decode_palette(pal_bytes)
+    hflip = facing != sheet.get("side_faces", "left") if frame_key == "side" else False
+    return gba_gfx.tiles_to_png(tiles, palette, wt, ht, hflip=hflip)
+
+
+def avatar_sprite_uri(avatar):
+    """Data URI for an object event's sprite given {graphicsId, facing, ...}.
+    ROM-driven first, json spec fallback, None on any failure."""
+    if not avatar:
         return None
     try:
-        import gba_gfx
-        spec = json.load(open(spec_path))
-        rom_path = os.path.join(REPO_ROOT, spec.get("rom", "Pokemon Recharged Yellow.gba"))
-        with open(rom_path, "rb") as f:
-            rom = f.read()
-        by_gfx = spec.get("by_graphics_id", {})
-        sheet_name = by_gfx.get(str(avatar.get("graphicsId", -1)))
-        if sheet_name is None:
-            sheet_name = "bike" if avatar.get("onBike") and "bike" in spec else "walking"
-        sheet = spec[sheet_name]
-        facing = avatar.get("facing", "down")
-        frame_key = "side" if facing in ("left", "right") else facing
-        frame = sheet["frames"][frame_key]
-        addr = int(frame["rom_addr"], 0) - 0x08000000
-        wt, ht = sheet["width_tiles"], sheet["height_tiles"]
-        if sheet.get("compressed"):
-            tiles = gba_gfx.lz77_decompress(rom, addr)
-            tiles = tiles[frame.get("tile_offset", 0):]
-        else:
-            tiles = rom[addr:addr + wt * ht * 32]
-        pal_addr = int(sheet["palette_addr"], 0) - 0x08000000
-        pal_bytes = rom[pal_addr:pal_addr + 32]
-        if sheet.get("palette_compressed"):
-            pal_bytes = gba_gfx.lz77_decompress(rom, pal_addr)[:32]
-        palette = gba_gfx.decode_palette(pal_bytes)
-        hflip = facing != sheet.get("side_faces", "left") if frame_key == "side" else False
-        png = gba_gfx.tiles_to_png(tiles, palette, wt, ht, hflip=hflip)
+        png = object_sprite_png(load_rom(), avatar.get("graphicsId", 0),
+                                avatar.get("facing", "down"))
         return data_uri(png)
     except Exception as e:
-        sys.stderr.write("player sprite skipped: %s\n" % e)
+        sys.stderr.write("rom-driven sprite failed (gfx %s): %s\n"
+                         % (avatar.get("graphicsId"), e))
+    try:
+        png = _json_spec_sprite(avatar)
+        return data_uri(png) if png else None
+    except Exception as e:
+        sys.stderr.write("sprite fallback failed: %s\n" % e)
         return None
+
+
+def player_sprite_uri(state):
+    return avatar_sprite_uri(state.get("playerAvatar"))
+
+
+def badge_sprite_uri(n):
+    """Data URI for Kanto badge n (1=Boulder .. 8=Earth) from the sprites clone
+    (numbering eyeball-verified against the badge designs). None if absent."""
+    p = os.path.join(LOCAL_SPRITES, "sprites", "badges", "%d.png" % n)
+    if os.path.exists(p):
+        with open(p, "rb") as f:
+            return data_uri(f.read())
+    return None
 
 
 def trainer_context(state):
@@ -440,15 +527,23 @@ def trainer_context(state):
         rows.append(("PLACE", loc.get("mapName") or "map (%d,%d)"
                      % (loc.get("mapGroup", -1), loc.get("mapNum", -1))))
     avatar = state.get("playerAvatar", {})
+    # Follower rendering: lights up once parse_ram emits playerAvatar.follower
+    # ({graphicsId, facing, ...} -- identification rule pending rom-fingerprint).
+    follower = avatar.get("follower")
     return {
         "name": p.get("name", "?"),
         "sprite": player_sprite_uri(state),
         "sprite_alt": "player facing %s%s" % (avatar.get("facing", "?"),
                                               " on bike" if avatar.get("onBike") else ""),
+        "follower_sprite": avatar_sprite_uri(follower) if follower else None,
+        "follower_alt": ("follower facing %s" % follower.get("facing", "?")
+                         if follower else ""),
+        "badge_header": "BADGES",
         "rows": rows,
         "daynight": daynight,
         "badges": [{"name": n, "color": BADGE_COLORS[i],
-                    "lit": bool(badge_map.get(n))}
+                    "lit": bool(badge_map.get(n)),
+                    "sprite": badge_sprite_uri(i + 1)}
                    for i, n in enumerate(BADGE_NAMES)],
     }
 
