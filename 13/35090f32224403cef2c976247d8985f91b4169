@@ -1,0 +1,39 @@
+.gitignore
+  s_30c66b9ed26a01::t_185e13b8ad5ded 19-21
+analysis/README.md
+  s_30c66b9ed26a01::t_0edd51e97c1ccd 39-41,44-45
+  s_30c66b9ed26a01::t_217cdebca7b549 46
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_6295f51ccfa35f 4,114,116-117,119,121
+analysis/report/index.html
+  s_30c66b9ed26a01::t_1ba58a58ac782f 4,114,116-117,119,121,126-127,130,135-136,139,144-145,148,153-154,157,162-163,166,171-172,175-177
+pyproject.toml
+  s_30c66b9ed26a01::t_185e13b8ad5ded 1-6
+analysis/tools/templates/report.html.j2
+  s_30c66b9ed26a01::t_4f2cfc8057528c 1-80,83-130,132-141
+  s_30c66b9ed26a01::t_1ba58a58ac782f 81-82,131
+analysis/tools/templates/report.css
+  s_30c66b9ed26a01::t_064b8573647074 1-111
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_1ba58a58ac782f 489,589
+  s_30c66b9ed26a01::t_ece995c38452ec 678
+  s_30c66b9ed26a01::t_099683eec0b738 303,320-321,324-325,328,342-373,378-379,418,421,426,429-430,433,438,440-456,459,462-464,467,470-474,476,480,484-488,491-498,501,504,507-508,510-511,515-522,525-559,562,565-567,570,573,576-577,580,583,586-588,592-596,600-635
+uv.lock
+  s_30c66b9ed26a01::t_fd540f20bbc3a6 1-111
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1335090f32224403cef2c976247d8985f91b4169",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
