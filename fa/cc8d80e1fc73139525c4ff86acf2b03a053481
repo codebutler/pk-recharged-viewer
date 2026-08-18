@@ -1,0 +1,53 @@
+analysis/real-saves/st9.json
+  s_30c66b9ed26a01::t_0fe8f3303ab8f9 3469,3478,3487,3492,3496,3504-3517
+analysis/hack-offsets.md
+  s_30c66b9ed26a01::t_be7ca73629ce5c 151
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_e6e4267a327ec3 122-134,151-217
+  s_30c66b9ed26a01::t_f397c7e8be0dc6 42-52,146-147
+analysis/dumps/trainer-card/harness.log
+  s_30c66b9ed26a01::t_5b50141db0f6ec 1504-1672
+  s_30c66b9ed26a01::t_e254737ff16d70 1-1503,1673-3315
+analysis/tools/templates/report.html.j2
+  s_30c66b9ed26a01::t_19114363b55ca7 82-92,96,98
+  s_30c66b9ed26a01::t_f9af671e57e02c 114,116
+  s_30c66b9ed26a01::t_988a73d6649fb0 128,130
+  s_30c66b9ed26a01::t_9407759a2fea57 64-69
+  s_30c66b9ed26a01::t_de3b7649bccedd 142,144,150,152,164-206
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_827c8f2221ad28 571
+  s_30c66b9ed26a01::t_2bfd1624f3f587 567-570,572-585,592-594
+  s_30c66b9ed26a01::t_41feea0af80454 772-787
+analysis/tools/mgba_card_harness.lua
+  s_30c66b9ed26a01::t_45e4cd4f1e1448 1-97
+analysis/tools/parse_ram.py
+  s_30c66b9ed26a01::t_55b2313dbdb8d7 206-219
+  s_30c66b9ed26a01::t_94cf71253cf390 1148,1156,1161-1183,1186-1200
+  s_30c66b9ed26a01::t_2883e31d90cc76 1133
+analysis/tools/templates/report.css
+  s_30c66b9ed26a01::t_7816eff352fff8 119-131
+  s_30c66b9ed26a01::t_7619e8db0a74f2 39-49
+analysis/real-saves/st0.json
+  s_30c66b9ed26a01::t_0fe8f3303ab8f9 3469,3478,3487,3492,3496,3504-3517
+analysis/report/index.html
+  s_30c66b9ed26a01::t_f397c7e8be0dc6 42-52,146-147
+  s_30c66b9ed26a01::t_e6e4267a327ec3 122-134,151-165,219-273
+analysis/dumps/trainer-card/DONE
+  s_30c66b9ed26a01::t_43c23f42bbb302 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "facc8d80e1fc73139525c4ff86acf2b03a053481",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
