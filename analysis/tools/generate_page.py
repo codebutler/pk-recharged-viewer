@@ -468,14 +468,48 @@ def _json_spec_sprite(avatar):
     return gba_gfx.tiles_to_png(tiles, palette, wt, ht, hflip=hflip)
 
 
+# Mon overworld sprites (follower etc.): graphics-info structs are an inline
+# ARRAY (stride 36) indexed by INTERNAL species; the first images-table entry
+# points at an LZ77 sheet of 6 32x32 frames (0/1/2 = stand S/N/W, 3-5 walk);
+# the remaining image-table entries hold bogus in-stream pointers -- ignore
+# them and slice the decompressed sheet. Species-indexed LZ77 palettes.
+MON_GFX_INFO_ARRAY = 0x0888C430
+MON_PAL_TABLE = 0x08751738       # {u32 lzPalPtr, u32 tag} stride 8
+
+
+def mon_sprite_png(rom, species, facing):
+    """Render a mon overworld standing frame by INTERNAL species id."""
+    import gba_gfx
+    import struct as _s
+    u32 = lambda off: _s.unpack_from("<I", rom, off)[0]
+    info = _rom_off(rom, MON_GFX_INFO_ARRAY) + species * 36
+    images = _rom_off(rom, u32(info + 0x1C))
+    sheet = gba_gfx.lz77_decompress(rom, _rom_off(rom, u32(images)))
+    if len(sheet) < 6 * 0x200:
+        raise ValueError("mon sheet too small (%#x bytes)" % len(sheet))
+    frame = FRAME_BY_FACING.get(facing, 0)
+    tiles = sheet[frame * 0x200:(frame + 1) * 0x200]
+    pal_lz = _rom_off(rom, u32(_rom_off(rom, MON_PAL_TABLE) + species * 8))
+    pal_bytes = gba_gfx.lz77_decompress(rom, pal_lz)[:32]
+    palette = gba_gfx.decode_palette(pal_bytes)
+    return gba_gfx.tiles_to_png(tiles, palette, 4, 4,
+                                hflip=(facing == "right"))
+
+
 def avatar_sprite_uri(avatar):
     """Data URI for an object event's sprite given {graphicsId, facing, ...}.
-    ROM-driven first, json spec fallback, None on any failure."""
+    Mon overworld sprites (dicts carrying "species") use the species-indexed
+    tables; others use the main graphics-info chain; json spec is the player
+    fallback. None on any failure."""
     if not avatar:
         return None
     try:
-        png = object_sprite_png(load_rom(), avatar.get("graphicsId", 0),
-                                avatar.get("facing", "down"))
+        if avatar.get("species") is not None:
+            png = mon_sprite_png(load_rom(), avatar["species"],
+                                 avatar.get("facing", "down"))
+        else:
+            png = object_sprite_png(load_rom(), avatar.get("graphicsId", 0),
+                                    avatar.get("facing", "down"))
         return data_uri(png)
     except Exception as e:
         sys.stderr.write("rom-driven sprite failed (gfx %s): %s\n"
@@ -536,7 +570,13 @@ def trainer_context(state):
         "sprite_alt": "player facing %s%s" % (avatar.get("facing", "?"),
                                               " on bike" if avatar.get("onBike") else ""),
         "follower_sprite": avatar_sprite_uri(follower) if follower else None,
-        "follower_alt": ("follower facing %s" % follower.get("facing", "?")
+        "follower_hidden": bool(follower and follower.get("hidden")),
+        "follower_title": ((follower.get("speciesName") or "follower")
+                           + (" (in Poke Ball)" if follower.get("hidden") else "")
+                           if follower else ""),
+        "follower_alt": ("%s follower facing %s" % (
+                             follower.get("speciesName") or "?",
+                             follower.get("facing", "?"))
                          if follower else ""),
         "badge_header": "BADGES",
         "rows": rows,

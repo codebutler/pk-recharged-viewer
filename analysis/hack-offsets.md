@@ -128,6 +128,29 @@ Method: byte-diff of every unmapped SB1/SB2 region between the real save's extra
 - **Real save answer**: Eric is at Celadon (43,22), **facing EAST, on foot** (avatar flags 0b1, graphicsId 0).
 - **ROM sprite spec** (all verified, frame 0 ASCII-rendered as a capped Red-style hero): gObjectEventGraphicsInfoPointers @ **0x0887EE9C**; gfxId 0 = male walking 16×32 (18 frames × 0x100 from 0x08791708), gfxId 1 = bike 32×32 (9 × 0x200 from 0x087948A8); frames are **uncompressed 4bpp**, row-major 8×8 tiles; standing frames 0/1/2 = face South/North/West (East = h-flip of West), walk frames S 3/4, N 5/6, W 7/8 (verified from anim table 0x088891B4); palette tag 0x1100 → sprite-palette table 0x08890458 → **16×BGR555 @ 0x08792928**, color 0 transparent. Full recipe in hack-offsets.json `player_sprite_rendering`.
 
+## Follower-mon round v2 — corrections after parser-builder's live pushback
+
+Two retractions from the first pass, then the verified mechanism:
+
+- **RETRACTED: "graphicsId widened to u16 @+4".** The 0x219 was vanilla `spriteId(25) | graphicsId(2)<<8`. ObjectEvent layout is fully vanilla. The follower object's graphicsId byte does not encode the mon; its sheet is loaded dynamically into its sprite.
+- **The 0xFE object IS the follower, not the camera** (parser-builder's camera hypothesis checked and rejected): vanilla LOCALID_CAMERA is 127, and the hack hardwires localId 0xFE to interaction script 0x082F5D83, whose natives buffer a party-mon nickname via GetFollowerMon — cameras aren't interactable. The despawn routine (0x080D5994) also scans for localId 0xFE. The object rides the player's tile invisibly when the mon is "in its ball" — which is why st0 shows no visible Pikachu.
+- **GetFollowerMon @0x080D516C (disassembled end-to-end) — which mon follows + the on/off toggle:**
+  - mode = **(SB2+0x91 >> 5) & 3** (same byte as the language bits!):
+  - **mode 0**: the ORIGINAL STARTER PIKACHU — first party mon with `SPECIES_OR_EGG == 25` AND `metLevel == 5` AND `metLocation == 0x58` (the field ids resolve via VarGet's return-constant behavior);
+  - **mode 1**: first party mon with HP > 0 and not an egg (lead-based follower);
+  - **mode 2/3**: follower DISABLED (returns none).
+  - Identity never persists — recomputed from party data; the object respawns on map load.
+- st0: mode 0, so the follower is the slot-6 Pikachu; object active, facing East, invisible (in-ball). A dump taken outdoors right after exiting a building would show it visible with its LZ77 mon sheet loaded (useful if we ever want to confirm the dynamic gfx path live).
+- The mon OW sprite render spec (0x0888C430 array, LZ77 sheets, palette table 0x08751738) is unaffected — it was verified by rendering Pikachu directly from ROM.
+
+## Follower-mon round (Yellow-style follower for the trainer card)
+
+- ~~Struct correction: u16 graphicsId @+4~~ — RETRACTED, see v2 section above (vanilla layout; 0x219 was spriteId|gfx<<8). The 16-bit gfx ids ≥0x200 do exist, but internally (resolver 0x080D7080), not in the ObjectEvent struct.
+- **Follower detection**: gObjectEvents entry with **localId 0xFE** (byte +8); active = byte+0 bit0; hidden/in-ball = invisible bit (byte+1 bit5); facing = low nibble @+0x18. The follower interaction script is hardwired (0x082F5D83) for localId 0xFE; the despawn code scans for 0xFE too. Which mon: see v2 section (GetFollowerMon).
+- **Mon OW sprite rendering**: graphics-info **array** (not pointers) at **0x0888C430**, 36 bytes/entry, indexed by internal species (412 entries). Frame sheet = LZ77 blob at the first images-entry pointer → 0xC00 = **6 frames of 32×32 4bpp** (0/1/2 = stand S/N/W, East = h-flip; 3/4/5 = walk). Palette = LZ77 blob from species-indexed table **0x08751738** (stride 8) → 16×BGR555. Verified end-to-end for Pikachu (recognizable sprite + yellow/red-cheek palette).
+- **st0 answer**: the follower is the **starter Pikachu** (u16 gfx 0x219; note Pikachu sits in party slot 6, so the follower is Yellow-style, not lead-based), standing on the player's tile at Celadon (43,22), **facing East, currently invisible** (in-ball/hidden state — common right after menus/warps). For the card: render Pikachu beside/behind Eric facing East; optionally grey it out or omit when the invisible bit is set.
+- (Retracted: an earlier probe suggested IWRAM 0x3000E8C caches follower species — its live values don't match; not published.)
+
 ## Explicitly unresolved (for the live-RAM verification pass)
 
 - SB1 0x34–0x3A and 0x3C–0x43 (gaps around partyCount/party), 0x764–0x8A8, 0xB50–0xEFA, 0x1228–0x1397 (0x1C-byte struct @0x1228, 0xC-stride records @0x1244), 0x1D98/0x20D8 structs, 0x2510–0x2743, tail 0x3B92+.

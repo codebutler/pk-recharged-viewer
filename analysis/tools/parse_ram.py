@@ -204,10 +204,13 @@ STORY_ROCKET_LABELS = {
 }
 
 # Player avatar decoding (vanilla layouts, live-verified per hack-offsets.json):
-# ObjectEvent stride 0x24 -- graphicsId @+5, localId @+8 (player = 0xFF),
-# currentCoords s16 x,y @+0x10 (map coords + 7), facingDirection = low nibble
-# of byte @+0x18 (1=south 2=north 3=west 4=east). PlayerAvatar.flags @+0:
-# bit0 ON_FOOT, bit1 MACH_BIKE, bit2 ACRO_BIKE, bit3 SURFING.
+# ObjectEvent stride 0x24 -- graphicsId is a U16 at +4 in this hack (bits 0-10
+# id, bits 11-15 variant/shiny; ids >= 0x200 are mon overworld sprites, species
+# = id - 0x200), localId @+8 (player = 0xFF, follower = 0xFE), hidden/in-ball =
+# byte +1 bit5, currentCoords s16 x,y @+0x10 (map coords + 7), facingDirection
+# = low nibble of byte @+0x18 (1=south 2=north 3=west 4=east).
+# PlayerAvatar.flags @+0: bit0 ON_FOOT, bit1 MACH_BIKE, bit2 ACRO_BIKE,
+# bit3 SURFING.
 FACING_NAMES = {1: "down", 2: "up", 3: "left", 4: "right"}
 AVATAR_BIKE_MASK = 0x06
 AVATAR_SURF_MASK = 0x08
@@ -1117,12 +1120,14 @@ def parse_state(dump, cfg, gamedata, do_scan=True):
             facing_raw = ew[player_ent + 0x18]
             flags_raw = ew[av_off]
             cx, cy = struct.unpack_from("<hh", ew, player_ent + 0x10)
+            player_gfx = u16(ew, player_ent + 4)
             state["playerAvatar"] = {
                 "facing": FACING_NAMES.get(facing_raw & 0xF, "unknown"),
                 "onBike": bool(flags_raw & AVATAR_BIKE_MASK),
                 "surfing": bool(flags_raw & AVATAR_SURF_MASK),
-                "graphicsId": ew[player_ent + 5],
+                "graphicsId": player_gfx & 0x7FF,
                 "raw": {"facing": facing_raw, "avatarFlags": flags_raw,
+                        "graphicsId16": player_gfx,
                         "currentCoords": [cx, cy]},
             }
             # ObjectEvent coords are map coords + 7; cross-check vs SaveBlock1 pos.
@@ -1141,12 +1146,29 @@ def parse_state(dump, cfg, gamedata, do_scan=True):
                 if not (ew[e] & 1):
                     continue
                 ax, ay = struct.unpack_from("<hh", ew, e + 0x10)
-                actives.append({
+                gfx16 = u16(ew, e + 4)
+                ent = {
                     "localId": ew[e + 8],
-                    "graphicsId": ew[e + 5],
+                    "graphicsId": gfx16 & 0x7FF,
                     "facing": FACING_NAMES.get(ew[e + 0x18] & 0xF, "unknown"),
                     "coords": [ax, ay],
-                })
+                }
+                if (gfx16 & 0x7FF) >= 0x200:
+                    ent["monSpecies"] = (gfx16 & 0x7FF) - 0x200
+                actives.append(ent)
+                # Yellow-style follower (bound to the starter): localId 0xFE
+                # carries a mon overworld sprite; hidden bit = in its Poke Ball.
+                if ew[e + 8] == 0xFE and (gfx16 & 0x7FF) >= 0x200:
+                    species = (gfx16 & 0x7FF) - 0x200
+                    state["playerAvatar"]["follower"] = {
+                        "present": True,
+                        "species": species,
+                        "speciesName": gamedata.species(species),
+                        "facing": FACING_NAMES.get(ew[e + 0x18] & 0xF, "unknown"),
+                        "coords": [ax, ay],
+                        "hidden": bool(ew[e + 1] & 0x20),
+                        "graphicsId": gfx16 & 0x7FF,
+                    }
             state["playerAvatar"]["objectEvents"] = actives
             # Facing as of the last save lives in the SB1 objectEvents copy at
             # +0x910 (the address once mistaken for mail).

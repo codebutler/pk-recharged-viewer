@@ -3449,10 +3449,23 @@
     "raw": {
       "facing": 68,
       "avatarFlags": 1,
+      "graphicsId16": 0,
       "currentCoords": [
         50,
         29
       ]
+    },
+    "follower": {
+      "present": true,
+      "species": 25,
+      "speciesName": "PIKACHU",
+      "facing": "right",
+      "coords": [
+        50,
+        29
+      ],
+      "hidden": true,
+      "graphicsId": 537
     },
     "objectEvents": [
       {
@@ -3466,7 +3479,7 @@
       },
       {
         "localId": 13,
-        "graphicsId": 1,
+        "graphicsId": 264,
         "facing": "left",
         "coords": [
           54,
@@ -3475,7 +3488,7 @@
       },
       {
         "localId": 1,
-        "graphicsId": 1,
+        "graphicsId": 258,
         "facing": "right",
         "coords": [
           59,
@@ -3484,16 +3497,17 @@
       },
       {
         "localId": 254,
-        "graphicsId": 2,
+        "graphicsId": 537,
         "facing": "right",
         "coords": [
           50,
           29
-        ]
+        ],
+        "monSpecies": 25
       },
       {
         "localId": 7,
-        "graphicsId": 1,
+        "graphicsId": 258,
         "facing": "left",
         "coords": [
           43,

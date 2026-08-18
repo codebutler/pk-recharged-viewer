@@ -39,6 +39,7 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
 .tc-follower{image-rendering:pixelated;width:28px;margin:2px 0 0 -6px;
   filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3))}
+.tc-follower.ghost{opacity:.45}
 .tc-name{font-size:14px;margin:6px 0 10px;text-shadow:1px 1px 0 #fff}
 .tc-rows{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:12px}
 .tc-row i{font-style:normal;color:#7a5a10;font-size:8px;margin-right:6px}
