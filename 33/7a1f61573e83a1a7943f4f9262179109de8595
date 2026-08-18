@@ -1,0 +1,26 @@
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_14ebfbbab0cc9a 20-22
+  s_30c66b9ed26a01::t_6693b164de7933 691-693,701-702,715,717,725,728,730,733,735,737,749,754,761-762,768-769
+  s_30c66b9ed26a01::t_db29cf3c7598c6 269-286
+  s_30c66b9ed26a01::t_7fd8319086d24f 668-669,671-672
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_aa5778e302bf70 4,13-14,16-17,36-38,46-47,60,62,70,73,75,78,80,82,94,99,106-107,113-114
+analysis/report/index.html
+  s_30c66b9ed26a01::t_aa5778e302bf70 4,13-14,16-17,36-38,46-47,60,62,70,73,75,78,80,82,94,99,106-107,113-114
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "337a1f61573e83a1a7943f4f9262179109de8595",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
