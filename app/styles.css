@@ -147,17 +147,17 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   border-radius:50%}
 .tc-frow b{margin-left:auto;font-weight:normal}
 .tc-namev{font-weight:normal;margin-left:calc(2 * var(--u))}
-/* Trainer art. The game's card sprite is a 58x60u figure; the art we have
-   extracted is a slimmer 26x55 figure inside a 64x80 canvas, so this sizes and
-   anchors the FIGURE (not the canvas) to land where the game's does -- it
-   cannot match its bulk without the card sprite itself. */
-.tc-pic{position:absolute;right:calc(8 * var(--u));bottom:0;
-  height:calc(78 * var(--u));width:auto;image-rendering:pixelated;margin:0}
-/* The card's own sprite is tightly cropped, so it needs no padding
-   compensation: the figure IS 58x60u, 22u in from the body's right edge and
-   8u up from its bottom, exactly as measured in the capture. */
-.tc-pic-card{height:calc(60 * var(--u));right:calc(22 * var(--u));
-  bottom:calc(8 * var(--u))}
+/* Trainer art, drawn 1:1 with the game: the figure is 26x55 GBA pixels, its
+   bottom 13u above the body's bottom edge and its right edge 21u in from the
+   body's right. Two assets can supply it and they are anchored differently.
+   This one is the 64x80 canvas with the figure at (24,12): render the whole
+   canvas at 1:1 and the padding puts the figure exactly where it belongs. */
+.tc-pic{position:absolute;right:calc(7 * var(--u));bottom:0;
+  height:calc(80 * var(--u));width:auto;image-rendering:pixelated;margin:0}
+/* The card sprite is cropped to the figure, so it carries no padding to
+   compensate for: 26x55 at 1:1, placed directly. */
+.tc-pic-card{height:calc(55 * var(--u));right:calc(21 * var(--u));
+  bottom:calc(13 * var(--u))}
 .tc-pic-ow{height:calc(52 * var(--u));right:calc(21 * var(--u));
   bottom:calc(8 * var(--u))}
 /* badge band */
