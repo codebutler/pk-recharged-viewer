@@ -52,6 +52,27 @@ For "what's my current state" questions, ask the user for a **fresh** backup/sav
 — the dated snapshot goes stale as they play. On the device the state file is
 `shared/MGBA-mgba/Pokemon Recharged Yellow.gba.st0`.
 
+## The report page: state → 8-bit HTML
+
+```sh
+uv sync   # once; installs jinja2 (the project's only third-party dep)
+uv run analysis/tools/generate_page.py analysis/real-saves/st0.json --out analysis/report
+uv run analysis/tools/generate_page.py --state <savestate> --out analysis/report
+```
+
+`generate_page.py` renders the parsed state as a self-contained GBA-styled page
+(`analysis/report/index.html`): in-game-style trainer card (real card layout, extracted
+full-body trainer art, authentic ROM badge pixel art), tabbed sections (party with EXP
+bars / bag / dex / storage / stats), overworld player + follower sprites decoded from the
+ROM. Templates in `analysis/tools/templates/` (Jinja2, autoescape); sprite decoding in
+`analysis/tools/gba_gfx.py`; assets resolve from the `vendor/` PokeAPI submodules first
+(898 item sprites, Gen-3 mon sprites), HTTP fallback, styled placeholder last. Only the
+page generator needs `uv` — **parse_ram.py and state_extract.py stay stdlib-only**.
+
+Repo is a git repository; `pokeemerald`, `pokefirered`, `vendor/pokeapi-data`,
+`vendor/pokeapi-sprites` are submodules. ROMs/`.sav`/`.cache` are gitignored (ROMs are
+copyrighted — never commit them). The user directs commits; sub-agents should not commit.
+
 ## Answering "what should I do next in the game?"
 
 Recipe that worked well:
