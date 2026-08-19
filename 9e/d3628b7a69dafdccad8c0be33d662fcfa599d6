@@ -1,0 +1,37 @@
+analysis/hack-offsets.json
+  s_30c66b9ed26a01::t_883976b7464b23 185
+  s_30c66b9ed26a01::t_75ce510a71ab9c 186,188
+analysis/report/index.html
+  s_30c66b9ed26a01::t_b3d51f8531440b 214-217,229,285
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_b3d51f8531440b 214-216,228,240
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_57c8b052ee509f 460,462,491-497,541-543,557-563
+  s_30c66b9ed26a01::t_b3d51f8531440b 958,974-975
+  s_30c66b9ed26a01::t_13aa4dcec6ce00 638-647,650-652,654-674
+  s_30c66b9ed26a01::t_2753591a95497d 770-772
+  s_30c66b9ed26a01::t_26759f8718b683 690-692,694-695,698-723,727-730,739-741,745
+  s_30c66b9ed26a01::t_e633ce7037d335 787
+analysis/hack-offsets.md
+  s_30c66b9ed26a01::t_b7529e59c42bcc 168
+analysis/tools/gba_gfx.py
+  s_30c66b9ed26a01::t_a7f1dbca302552 97-98,103,118-124,126-139
+analysis/tools/templates/report.html.j2
+  s_30c66b9ed26a01::t_620100c56c470a 170-172
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "9ed3628b7a69dafdccad8c0be33d662fcfa599d6",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
