@@ -8,6 +8,8 @@ Underneath it is a reverse-engineering project: the hack's memory layout was
 mapped from scratch (the offsets database in [`research/`](research/) is the real
 artifact), and the parser that reads it runs entirely in your browser.
 
+![The viewer showing a parsed save: trainer card, live map, and party](public/screenshot.png)
+
 ## What is Recharged Yellow?
 
 **Pokémon Recharged Yellow is a fan-made ROM hack by [Jaizu](https://x.com/JaizuFangaming)**
