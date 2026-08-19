@@ -250,6 +250,7 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 /* Filled pills have no border to omit, so their corners are clipped instead --
    a 2px staircase, all cuts axis-aligned so nothing gets anti-aliased. */
 .type,.ail,.tc-idno,.tc-badgelabel,.badge-slot,.panel h2,.tcard h2,
+.slot-tag,.slot-name,.slot-field,
 .dn{--q:2px;clip-path:polygon(
   var(--q) 0, calc(100% - var(--q)) 0,
   calc(100% - var(--q)) var(--q), 100% var(--q),
@@ -281,18 +282,44 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .gbabtn:active{transform:translate(2px,2px)}
 .gbabtn:focus-visible{outline:3px solid var(--pika);outline-offset:-4px}
 .gbabtn[disabled]{opacity:.5}
-.topbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;
-  justify-content:center;margin:-8px 0 0}
-.filechip{font-size:15px;color:#9fe0bd;background:rgba(0,0,0,.35);
-  padding:5px 10px 4px;text-shadow:1px 1px 0 #000}
-.filechip b{font-weight:normal;color:var(--pika)}
-/* "this came from a flash save" strip: informative, not an error, so it reads
-   as a note on the header rather than a warning box. */
-.savnote{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;
-  background:rgba(0,0,0,.35);color:#9fe0bd;font-size:15px;line-height:1.35;
-  padding:8px 12px;margin:-8px 0 -4px;text-shadow:1px 1px 0 #000;
-  box-shadow:inset 0 0 0 2px rgba(159,224,189,.25)}
-.savnote b{color:var(--pika);font-weight:normal;white-space:nowrap}
+/* --- the loaded save: a GBA window, not a toolbar --------------------------
+   Built entirely from idioms already on the page so it reads as part of the
+   same UI: the frame and body come from the summary-screen tab strip (navy
+   #004890 on #0078c0), the tag plate is the trainer card's BADGES label, and
+   the field is the card's white face. The bar sits above the trainer card and
+   the tab strip sits below it, so the header ends up bracketed by the same
+   blue. Frame = four offset box-shadows (a drawn border would fight the notch);
+   the filled plates inside take the clip-path staircase instead. */
+.slotbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;
+  background:#0078c0;padding:7px 9px;margin:-6px 0 0;
+  box-shadow:0 -3px 0 0 #004890,0 3px 0 0 #004890,-3px 0 0 0 #004890,
+    3px 0 0 0 #004890,5px 5px 0 rgba(0,0,0,.4)}
+.slot-tag{font-family:'Pokemon Emerald','VT323',monospace;font-size:15px;
+  color:#eaf2fc;background:#48699c;padding:4px 7px 3px;flex:none}
+/* The filename is the useful fact here, so it gets the body size and the
+   highest contrast on the bar. It truncates rather than wrapping: a long name
+   must not push the actions onto a second row. */
+.slot-name{flex:0 1 auto;min-width:0;background:#f0f5fc;color:#2c3c5c;
+  font-size:19px;line-height:1.2;padding:5px 10px 4px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  text-shadow:1px 1px 0 #d8d8d0}
+.slot-actions{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+.slotbar .gbabtn{margin:0;font-size:16px;padding:6px 12px 5px}
+/* Primary action wears the tab strip's selected-page plate; the secondary one
+   stays in the teal of a page you could switch to. */
+.gbabtn-primary{background:#e0d898;color:#f8f8f8;text-shadow:1px 1px 0 #606878}
+/* "this came from a flash save": the same window, second plate, tucked up
+   against the first so the pair reads as one unit rather than two bars. */
+.slotbar-note{margin-top:-14px;align-items:flex-start}
+.slotbar-note .slot-tag{margin-top:2px}
+/* The caveat sits straight on the bar rather than on a plate of its own: a
+   second white field would out-weigh the filename, and this text is the
+   footnote, not the headline. */
+.slot-field{flex:1 1 20ch;min-width:0;color:#cfe4f6;
+  font-size:15px;line-height:1.4;padding:4px 2px 3px;
+  text-shadow:1px 1px 0 rgba(0,0,0,.45)}
+.slot-field b{color:#f8f8f8;font-weight:normal;white-space:nowrap;
+  margin-right:10px}
 .errbox{background:var(--panel);color:var(--accent);padding:14px;font-size:18px;
   box-shadow:0 -3px 0 0 var(--accent),0 3px 0 0 var(--accent),
     -3px 0 0 0 var(--accent),3px 0 0 0 var(--accent),7px 7px 0 rgba(0,0,0,.45)}
