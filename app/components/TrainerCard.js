@@ -11,8 +11,11 @@ export function TrainerCard({ trainer, artwork }) {
     return html`<div class="tcard-slot"><section class="panel tcard"><h2>Trainer Card</h2>
       <p class="empty">${trainer.error}</p></section></div>`;
   }
-  // Only the male trainer's full-body art was extracted from the ROM capture;
-  // with a ROM loaded the overworld sprite stands in for anyone else.
+  // Trainer art, best first: the card's own 58x60 sprite if it has been
+  // extracted, else the slimmer full-body art (male only), else the overworld
+  // sprite. Each step down is a real drop in fidelity, so the class changes
+  // with it -- the geometries are not interchangeable.
+  const cardPic = artwork?.trainerCardPic || null;
   const pic = trainer.gender === "male" ? assetUrl("trainer-pic-male.png") : null;
   const ow = artwork?.playerSprite || null;
   return html`
@@ -25,7 +28,9 @@ export function TrainerCard({ trainer, artwork }) {
       ${trainer.fields.map(([label, value]) => html`
       <div class="tc-frow"><i></i><span>${label}</span><b>${value}</b></div>`)}
     </div>
-    ${pic
+    ${cardPic
+      ? html`<img class="tc-pic tc-pic-card" src=${cardPic} alt="trainer" />`
+      : pic
       ? html`<img class="tc-pic" src=${pic} alt="trainer" />`
       : ow
       ? html`<img class="tc-pic tc-pic-ow" src=${ow} alt="player overworld sprite"

@@ -129,6 +129,12 @@ export async function buildAssetArtwork(state) {
   const out = {
     badges: (manifest.badges || []).map((b) => repoUrl(b.file)),
     playerSprite: null,
+    // The card's OWN trainer sprite (58x60, tightly cropped), when it has been
+    // extracted. It is not the same art as public/trainer-pic-male.png, which
+    // is a slimmer figure; the card falls back to that one, then to the
+    // overworld sprite, so a missing entry here changes nothing.
+    trainerCardPic: manifest.trainer?.maleCard
+      ? repoUrl(manifest.trainer.maleCard.file) : null,
     map: null,
   };
   const avatar = state.playerAvatar || {};

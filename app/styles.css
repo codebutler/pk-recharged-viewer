@@ -153,6 +153,11 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
    cannot match its bulk without the card sprite itself. */
 .tc-pic{position:absolute;right:calc(8 * var(--u));bottom:0;
   height:calc(78 * var(--u));width:auto;image-rendering:pixelated;margin:0}
+/* The card's own sprite is tightly cropped, so it needs no padding
+   compensation: the figure IS 58x60u, 22u in from the body's right edge and
+   8u up from its bottom, exactly as measured in the capture. */
+.tc-pic-card{height:calc(60 * var(--u));right:calc(22 * var(--u));
+  bottom:calc(8 * var(--u))}
 .tc-pic-ow{height:calc(52 * var(--u));right:calc(21 * var(--u));
   bottom:calc(8 * var(--u))}
 /* badge band */
