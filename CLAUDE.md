@@ -61,6 +61,32 @@ scenes and byte-compares them against the JS output and the exported PNGs
 the parser oracle. (`rom_gfx.py` holds the ROM-graphics helpers extracted from
 the retired Jinja2 page generator the browser app replaced.)
 
+## Matching the game's UI: measure, don't eyeball
+
+The page imitates the game's own screens, and every disagreement about them was
+settled the same way: by measuring a capture, never by arguing from memory.
+
+- Ground truth is `research/dumps/trainer-card/card-front/screen.png` (and the
+  sibling captures) — real frames from the user's own save, 240x160, one pixel
+  per GBA pixel.
+- The trainer card's CSS defines `--u` as **one GBA pixel** (a container-query
+  fraction of the card's width), so every coordinate in that block is directly
+  comparable to the capture and the whole card scales as one model. Add to it in
+  those units, not in px.
+- When a shape looks wrong, render a colour mask of the capture rather than
+  guessing. That is how the card's background "swoosh" turned out to be a **Poké
+  Ball** drawn huge with its centre one unit past the body's bottom-right corner
+  (ring r 49u..80u, white gap, button r 32u) rather than the two filled arcs we
+  had been drawing.
+- Some oddities are the game's, and reproducing them is the point: the ball's
+  ring stops dead at body row 77 because the card's tiled background runs out of
+  art there. It is commented in `app/styles.css` so nobody "fixes" it.
+- Two known traps: a corner-notch `clip-path` cuts into glyphs, so it belongs on
+  plates without text; and an inset `box-shadow` frame paints UNDER child
+  content, so children need padding or they cover the frame.
+- Deliberate departures from the game, keep them: money carries thousands
+  separators, and the Time row keeps its colon.
+
 ## Game facts that affect analysis
 
 - The engine is **Emerald**, not FireRed, despite the `BPRE` header — structs and
