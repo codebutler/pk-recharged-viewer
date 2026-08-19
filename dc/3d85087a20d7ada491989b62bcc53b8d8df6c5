@@ -1,0 +1,301 @@
+lib/parser/data.js
+  s_30c66b9ed26a01::t_fe58e08f563f65 4
+  s_30c66b9ed26a01::t_70f84c222e18a1 1-3,5-107
+public/fonts/license.txt
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-5
+research/hack-offsets.md
+  s_30c66b9ed26a01::t_20937d43abfcb2 8
+  s_30c66b9ed26a01::t_58edcc25e13518 1-7,9-34,36-65,88-209
+  s_30c66b9ed26a01::t_827fd93508468d 66-87
+  s_30c66b9ed26a01::t_51ccace144c67a 35
+lib/gfx/rom-assets.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-130
+research/rom-fingerprint.md
+  s_30c66b9ed26a01::t_58edcc25e13518 1-94
+public/data/README.md
+  s_30c66b9ed26a01::t_55029994582073 1,3,5-7,14,22,25-34
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 2,4,8-13,15-21,23-24
+research/real-saves/st0.json
+  s_30c66b9ed26a01::t_c4713d436ef2b9 1-3732
+tools/prepare-assets.js
+  s_30c66b9ed26a01::t_5ea0a650bb9737 1-4,6-168,170-181,183-191
+  s_30c66b9ed26a01::t_55a810dd7e3d77 5,169,182
+lib/parser/util.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-57
+.gitignore
+  s_30c66b9ed26a01::t_a9aa565a88e778 13,23-31
+  s_ba32a1946f4fa8::t_2ef02d3ff89034 32-37
+  s_30c66b9ed26a01::t_5944078dc8c7e9 1-4,6-8,10,38-43
+lib/gfx/rom-offsets.js
+  s_30c66b9ed26a01::t_70f84c222e18a1 1-84
+tests/flash-save.test.js
+  s_30c66b9ed26a01::t_d79d8e362b5a00 1-11,13-18,20-226,237-244
+  s_30c66b9ed26a01::t_9e2f1d26a6b784 12,19
+  s_30c66b9ed26a01::t_abb50c2c8b650a 227-236
+app/viewmodel.js
+  s_30c66b9ed26a01::t_32dc4c3fb57be4 1-10,12-15,17-18,21-337,341-355
+  s_30c66b9ed26a01::t_7d4e23a44f62a2 338-340
+  s_30c66b9ed26a01::t_23e63af937df90 11,16,19-20
+lib/parser/sync-data.js
+  s_30c66b9ed26a01::t_70f84c222e18a1 1-27
+app/components/TrainerCard.js
+  s_30c66b9ed26a01::t_79617fed6c2669 28,31,38
+  s_30c66b9ed26a01::t_a08a0d13fa09d6 9,17,36
+  s_30c66b9ed26a01::t_56d065799fe4fc 1-2,4-8,10-16,18-27,29-30,32-35,37,39-43
+  s_30c66b9ed26a01::t_23e63af937df90 3
+package.json
+  s_30c66b9ed26a01::t_65fa93c9cb43bf 1,3-6,13-14
+  s_30c66b9ed26a01::t_6f16125a4b95c7 9
+  s_30c66b9ed26a01::t_ceba2e84bb6109 2,7
+  s_30c66b9ed26a01::t_ea641cbaf1586c 10-11
+  s_30c66b9ed26a01::t_599f56abbb82ef 8,12
+research/tools/offsets-discovered.json
+  s_30c66b9ed26a01::t_58edcc25e13518 1-37
+research/empirical-anchors.json
+  s_30c66b9ed26a01::t_58edcc25e13518 1-72
+CLAUDE.md
+  s_30c66b9ed26a01::t_6f8c90c9304a5f 115,117-128,177-178
+  s_30c66b9ed26a01::t_2de2fa250c7cee 39,62,77-78,81,90,162,172,185
+  s_30c66b9ed26a01::t_608add4dc5f9b8 1,3-5,65-69
+  s_30c66b9ed26a01::t_58663a03b69d70 7-9,13-38,40-49,52-53,56-60,63,71,74-76,79-80,82-83,100-112,133,137-146,151-161,163,167-171,175-176,182-184,187-192,196-199,201-203
+  s_30c66b9ed26a01::t_52662f3423f312 86-89,91-99
+  s_30c66b9ed26a01::t_5d727ae3219f1a 113-114
+lib/gfx/verify.js
+  s_30c66b9ed26a01::t_70f84c222e18a1 1-5,7-82
+  s_30c66b9ed26a01::t_55a810dd7e3d77 6
+research/tools/run_harness.sh
+  s_30c66b9ed26a01::t_58edcc25e13518 1-81
+research/tools/state_extract.py
+  s_30c66b9ed26a01::t_58edcc25e13518 1-107
+lib/gfx/gba-gfx.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-217
+tools/extract-rom-assets.js
+  s_30c66b9ed26a01::t_5ea0a650bb9737 1-4,6-17,19-23,27-187
+  s_30c66b9ed26a01::t_55a810dd7e3d77 5,18,24-26
+README.md
+  s_30c66b9ed26a01::t_8b239f3ff43805 60,63-68
+  s_30c66b9ed26a01::t_1dd2d9e181b437 2-3,6-14,43-59,61-62,69,73-79,81,84-85,93-96,98-105,112-113,117-120,124-128,134-136,153-155
+  s_30c66b9ed26a01::t_2de2fa250c7cee 71,82-83,107
+  s_30c66b9ed26a01::t_699b3fb8e81ae0 80
+  s_30c66b9ed26a01::t_5d06ba7f4a216f 110-111,114-116
+  s_30c66b9ed26a01::t_e67249498bf552 1,4-5,15-42,70,72,86-92,97,106,108-109,121-123,129-133,137-152,156-157,159-163
+  s_30c66b9ed26a01::t_083f58b1a2414a 158
+lib/parser/config.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-196
+lib/gfx/client.js
+  s_30c66b9ed26a01::t_55a810dd7e3d77 1-148
+lib/gfx/gba-map.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-278
+research/real-saves/st9.json
+  s_30c66b9ed26a01::t_c4713d436ef2b9 1-3732
+app/html.js
+  s_30c66b9ed26a01::t_a4946c19968f12 1-7
+public/data/species-mapping.json
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-2066
+public/data/offsets-discovered.json
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-37
+lib/gfx/browser-check.html
+  s_30c66b9ed26a01::t_70f84c222e18a1 1-5,8-123
+  s_30c66b9ed26a01::t_55a810dd7e3d77 6-7
+research/tools/mgba_inject_harness.lua
+  s_30c66b9ed26a01::t_58edcc25e13518 1-285
+tests/errors.test.js
+  s_30c66b9ed26a01::t_a8449102a19f6c 57-58
+  s_30c66b9ed26a01::t_9e2f1d26a6b784 4-5,78-79,91
+  s_30c66b9ed26a01::t_69e74705372f17 75-77,80-90,92-101
+  s_30c66b9ed26a01::t_2884a525a6eb8e 53-55
+  s_30c66b9ed26a01::t_27cd5a93307503 1-3,6-52,56,59-74
+index.html
+  s_30c66b9ed26a01::t_8f4e1a8d7f0977 1-7,9-28
+  s_30c66b9ed26a01::t_ea641cbaf1586c 8
+lib/parser/state-extract.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-123
+app/components/Tabs.js
+  s_30c66b9ed26a01::t_b34f1f72801970 1-51
+lib/parser/cli.js
+  s_30c66b9ed26a01::t_55a810dd7e3d77 1-95
+public/data/gamedata-view.json
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1
+.gitmodules
+  s_30c66b9ed26a01::t_98a4f2ad93b123 1-2,4-5
+public/data/manifest.json
+  s_30c66b9ed26a01::t_f3f9f65b018353 1-16003
+app/components/common.js
+  s_30c66b9ed26a01::t_04ac7bdd83e09b 1-7,9-26
+  s_30c66b9ed26a01::t_79617fed6c2669 8
+research/script-opcodes.json
+  s_ba32a1946f4fa8::t_4b035990123e05 1-11,14-20,28-1725,1727-2232,2234-2964,2972-2981,2989-3023,3031-3071,3079-3344
+  s_ba32a1946f4fa8::t_6221548b2e8722 12-13,21-27,1726,2233,2965-2971,2982-2988,3024-3030,3072-3078
+lib/parser/parse-ram.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-771
+lib/parser/constants.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-204
+research/tools/parse_ram.py
+  s_30c66b9ed26a01::t_58edcc25e13518 1-1339
+research/tools/mgba_explore_harness.lua
+  s_30c66b9ed26a01::t_58edcc25e13518 1-160
+tests/data-loading.test.js
+  s_30c66b9ed26a01::t_c917ba976beefb 1-10,12-27,29-31,33-40,42-51,53-63,65-71
+  s_30c66b9ed26a01::t_9e2f1d26a6b784 11,28,32,41,52,64
+public/fonts/PROVENANCE.md
+  s_30c66b9ed26a01::t_b875f587116f57 3
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-2,4-16
+lib/parser/parse-blocks.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-170
+public/cursors/LICENSE.md
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-11,13
+  s_30c66b9ed26a01::t_b875f587116f57 12
+research/tools/rom_gfx.py
+  s_30c66b9ed26a01::t_f7c9c2db72366b 1-159
+public/fonts/readme.txt
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-16
+tests/parser.test.js
+  s_30c66b9ed26a01::t_20b616fb8825c6 1-3,7-90,92-259
+  s_30c66b9ed26a01::t_9e2f1d26a6b784 4-6,91
+app/io.js
+  s_30c66b9ed26a01::t_c23f86e2d212fd 81,83-84,86-88
+  s_30c66b9ed26a01::t_4a2c55d6686788 91,96-100,102,104-116,118-119,121-135,139-150,153,157,164,173,179-213
+  s_30c66b9ed26a01::t_6a531a476829ca 154-155,158-163,165,167-172
+  s_30c66b9ed26a01::t_68ccb0057e808f 4-7,32,34-35,38,40,55,69,72,82
+  s_30c66b9ed26a01::t_1957ec25a1a3e1 61-62,66-67
+  s_30c66b9ed26a01::t_a61216d4122145 92,95
+  s_30c66b9ed26a01::t_200259c1d39255 156
+  s_30c66b9ed26a01::t_23e63af937df90 3,33,68,93,103,120,151-152
+  s_30c66b9ed26a01::t_d60d3b95be9533 24
+  s_30c66b9ed26a01::t_8cc4bbb34c7411 136-138
+  s_30c66b9ed26a01::t_6b789110f307a4 1-2,8-15,17-23,25-26,30-31,36-37,39,41-54,56-59,70-71,73-80,85,89-90,117,214-227
+  s_30c66b9ed26a01::t_f3f9f65b018353 94,101
+  s_30c66b9ed26a01::t_b81d696bf06b8b 27-29
+  s_30c66b9ed26a01::t_e399579eff74fa 60,63-65
+  s_30c66b9ed26a01::t_94f36d26cb485c 16
+  s_30c66b9ed26a01::t_1791c00d1f1e51 166,174-178
+app/components/panes.js
+  s_30c66b9ed26a01::t_642d1d14fed4f2 3,113
+  s_30c66b9ed26a01::t_79617fed6c2669 52
+  s_30c66b9ed26a01::t_0ae142f8da1c1f 1-2,4-51,53-97,100,102-112
+  s_30c66b9ed26a01::t_77188941063785 98-99,101
+lib/gfx/verify_python.py
+  s_30c66b9ed26a01::t_ea641cbaf1586c 1-3,5-25,27-157,159-244
+  s_30c66b9ed26a01::t_11bba28a004bf6 4,26,158
+tests/compare-python.js
+  s_30c66b9ed26a01::t_82f86599c48193 1-12,14-132,135-164
+  s_30c66b9ed26a01::t_9e2f1d26a6b784 13,134
+  s_30c66b9ed26a01::t_e833d9ac21e1f5 133
+app/components/DropZone.js
+  s_30c66b9ed26a01::t_f8b994dc57aa12 1-5,7-8,11-15,19-20,38-39,41-47
+  s_30c66b9ed26a01::t_884d64dc00b7c3 9-10
+  s_30c66b9ed26a01::t_ccc006c7ad9b75 6,40
+  s_30c66b9ed26a01::t_d58f026361ce89 16-18,21-37
+research/hack-offsets.json
+  s_30c66b9ed26a01::t_58edcc25e13518 1-218
+app/components/Report.js
+  s_30c66b9ed26a01::t_a08a0d13fa09d6 13,18-19
+  s_30c66b9ed26a01::t_c1f28113a551af 1-12,14-15,17,20-29
+  s_30c66b9ed26a01::t_b2d27430576114 16
+app/components/MapPanel.js
+  s_30c66b9ed26a01::t_4ff6b7238a3c11 1-5,9-12,14,16,18-19,21-23,28-45,47,49-54
+  s_30c66b9ed26a01::t_c4aa92304cba45 7-8,13
+  s_30c66b9ed26a01::t_a08a0d13fa09d6 15,17
+  s_30c66b9ed26a01::t_79617fed6c2669 46,48
+  s_30c66b9ed26a01::t_fdda96daf4a41c 24-26
+  s_30c66b9ed26a01::t_23e63af937df90 6
+  s_30c66b9ed26a01::t_d0d6bd84b5550d 20,27
+research/tools/assets/cursors/LICENSE.md
+  s_30c66b9ed26a01::t_1b31a1ef4242c0 1-13
+research/tools/extract_opcodes.py
+  s_ba32a1946f4fa8::t_de949be99974be 315-317
+  s_ba32a1946f4fa8::t_db524302b2f441 245,249,251-267
+  s_ba32a1946f4fa8::t_62a79e72e40629 191-204,207
+  s_ba32a1946f4fa8::t_01ff719248668d 1-190,205-206,208-230,233-244,246-248,250,268-294,296-314,318-322
+  s_ba32a1946f4fa8::t_299ecff1969239 231-232
+  s_ba32a1946f4fa8::t_e4c249188d32b7 295
+app/styles.css
+  s_30c66b9ed26a01::t_501f5ef574554d 312,314-318,320,325-327,332
+  s_30c66b9ed26a01::t_b2d27430576114 23-24
+  s_30c66b9ed26a01::t_23e63af937df90 3,7-10,313,319,321-324,328-331
+  s_30c66b9ed26a01::t_e6615ca186faa2 289-295
+  s_30c66b9ed26a01::t_b88e5c6c91b916 1-2,4-6,11-22,25-288,296-311
+public/data/hack-offsets.json
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-218
+research/README.md
+  s_30c66b9ed26a01::t_0069aeb7c373ab 45-119
+  s_30c66b9ed26a01::t_90dde784515d31 9-10,12-15,17
+  s_30c66b9ed26a01::t_09d9489003f61f 39
+  s_30c66b9ed26a01::t_2de2fa250c7cee 11,16,23
+lib/parser/sav-extract.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-207
+app/main.js
+  s_30c66b9ed26a01::t_ec41f340cd99b6 10
+  s_30c66b9ed26a01::t_ddbb5832118d3a 19,68,70-71,73-75,77,103,105,112
+  s_30c66b9ed26a01::t_e207be6ce9666e 35,38-39
+  s_30c66b9ed26a01::t_2bc6d9eca69d2d 12
+  s_30c66b9ed26a01::t_11d0e59b1626b2 11
+  s_30c66b9ed26a01::t_47a75c24218daa 72
+  s_30c66b9ed26a01::t_bc56444fe2b81d 107
+  s_30c66b9ed26a01::t_11692960d97e65 3,5-9,13-17,20-26,29-34,36-37,40,43-65,67,69,76,78-81,86-102,104,106,108-111,113-120
+  s_30c66b9ed26a01::t_23e63af937df90 4,18,27-28,66
+  s_30c66b9ed26a01::t_8c0f7d1854d18f 1-2
+  s_30c66b9ed26a01::t_33774178ddb0ed 41-42,82-85
+research/tools/README.md
+  s_30c66b9ed26a01::t_88f2c9378ab585 3,51,92
+  s_30c66b9ed26a01::t_58edcc25e13518 1-2,4-50,52-91,93-210
+research/gamedata.json
+  s_30c66b9ed26a01::t_58edcc25e13518 1-5192
+lib/parser/index.js
+  s_30c66b9ed26a01::t_55a810dd7e3d77 1-109
+public/data/structs.json
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-1931
+lib/parser/pokemon.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-204
+tests/state-extract.test.js
+  s_30c66b9ed26a01::t_e60d7573e4e5d4 1-10,12-64,69,71-74,76-79,81-92
+  s_30c66b9ed26a01::t_a8449102a19f6c 70,75,80
+  s_30c66b9ed26a01::t_8dd5c8287007ec 65-68
+  s_30c66b9ed26a01::t_9e2f1d26a6b784 11
+research/empirical-anchors.md
+  s_30c66b9ed26a01::t_58edcc25e13518 1-95
+lib/gfx/png-node.js
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-109
+public/data/gamedata.json
+  s_ba32a1946f4fa8::t_26c3d2a4a6a39e 1-5192
+research/species-mapping.json
+  s_30c66b9ed26a01::t_e24e3d56d62f69 1-2066
+research/structs.json
+  s_30c66b9ed26a01::t_30a6117542bd8c 1-1931
+research/tools/assets/fonts/license.txt
+  s_30c66b9ed26a01::t_78f0a4dd59870c 1-5
+research/tools/assets/fonts/readme.txt
+  s_30c66b9ed26a01::t_41053c16639e16 1-16
+vendor/README.md
+  s_30c66b9ed26a01::t_bcffbb15a0cb31 1,3-8,21-22
+vendor/preact/hooks.module.js
+  s_30c66b9ed26a01::t_f7e962cbb7095d 1-2
+vendor/preact/htm.module.js
+  s_30c66b9ed26a01::t_ad67a4dfa0bef0 1
+vendor/preact/preact.module.js
+  s_30c66b9ed26a01::t_f4896689e3cbb5 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "dc3d85087a20d7ada491989b62bcc53b8d8df6c5",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    },
+    "s_ba32a1946f4fa8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "38a7f5f4-dd91-4e7b-8247-afa4b10fe736",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
