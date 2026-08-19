@@ -140,26 +140,38 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .iname{flex:1;overflow-wrap:anywhere;font-size:18px;font-family:'Pokemon Emerald','VT323',monospace}
 .qty{color:#5a564e;font-size:15px;align-self:center}
 /* tab bar (GBA menu style) */
-/* Tab strip styled after the in-game summary-screen tabs: one continuous
-   pale bar with a blue frame; the active tab is a cream plate with dark text,
-   the others are blue plates. (The game shows inactive tabs as bare dots --
-   there is room here for their labels.) */
-#tabbar{display:flex;flex-wrap:wrap;gap:4px;background:#dfeaf6;padding:4px;
-  align-items:center;
-  box-shadow:0 -3px 0 0 #2c3c5c,0 3px 0 0 #2c3c5c,-3px 0 0 0 #2c3c5c,
-    3px 0 0 0 #2c3c5c,5px 5px 0 rgba(0,0,0,.4)}
+/* Tab strip copied from the in-game summary-screen bar: one continuous pill
+   with a dark-blue frame -- the selected page is a khaki plate with white
+   outlined text and a white dot, the others sit on the teal strip with navy
+   dots, and the bar ends in a solid blue cap. Palette sampled from the game:
+   khaki #e0d898, teal #68c0c8, navy #004890, cap #0078c0, text #f8f8f8 on
+   #606878. The game shows the other pages as bare dots; here each dot keeps
+   its label, since the page has the width. */
+#tabbar{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;background:#68c0c8;
+  padding:0;overflow:hidden;
+  box-shadow:0 -3px 0 0 #004890,0 3px 0 0 #004890,-3px 0 0 0 #004890,
+    3px 0 0 0 #004890,5px 5px 0 rgba(0,0,0,.4)}
 #tabbar button{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;
-  font-size:15px;color:#eef4fc;background:#5f8ecb;border:0;padding:7px 13px 5px;
-  text-shadow:1px 1px 0 rgba(20,32,56,.65);
-  box-shadow:0 -2px 0 0 #46689c,0 2px 0 0 #46689c,-2px 0 0 0 #46689c,
-    2px 0 0 0 #46689c,inset 0 2px 0 rgba(255,255,255,.28)}
-#tabbar button:hover{background:#6f9edb;color:#fff}
-#tabbar button[aria-selected="true"]{background:#f8f4d8;color:#2c3c5c;
-  text-shadow:1px 1px 0 #fff;
-  box-shadow:0 -2px 0 0 #2c3c5c,0 2px 0 0 #2c3c5c,-2px 0 0 0 #2c3c5c,
-    2px 0 0 0 #2c3c5c,inset 0 2px 0 rgba(255,255,255,.9)}
-#tabbar button:focus-visible{outline:3px solid var(--pika);outline-offset:3px}
-#tabbar button.tab-empty{opacity:.6}
+  font-size:18px;color:#00407f;background:transparent;border:0;
+  padding:9px 16px 7px;display:flex;align-items:center;gap:9px;line-height:1}
+#tabbar button::before{content:"";width:10px;height:10px;flex:none;
+  background:#004890;--q:2px;clip-path:polygon(
+    var(--q) 0, calc(100% - var(--q)) 0, calc(100% - var(--q)) var(--q),
+    100% var(--q), 100% calc(100% - var(--q)),
+    calc(100% - var(--q)) calc(100% - var(--q)), calc(100% - var(--q)) 100%,
+    var(--q) 100%, var(--q) calc(100% - var(--q)), 0 calc(100% - var(--q)),
+    0 var(--q), var(--q) var(--q))}
+#tabbar button:hover{background:rgba(255,255,255,.28)}
+#tabbar button[aria-selected="true"]{background:#e0d898;color:#f8f8f8;
+  text-shadow:1px 1px 0 #606878;box-shadow:3px 0 0 0 #004890}
+#tabbar button[aria-selected="true"]::before{background:#f8f8f8;
+  box-shadow:1px 1px 0 rgba(96,104,120,.55)}
+#tabbar button[aria-selected="true"]:hover{background:#e6dfa6}
+/* the blue cap that closes the bar in-game */
+#tabbar::after{content:"";flex:0 0 18px;margin-left:auto;background:#0078c0;
+  align-self:stretch}
+#tabbar button:focus-visible{outline:3px solid var(--pika);outline-offset:-4px}
+#tabbar button.tab-empty{opacity:.62}
 .pane[hidden]{display:none}
 /* With tabs active the tab label already names the section -- drop the
    redundant in-pane title. The MORE pane keeps titles: it holds two
@@ -239,3 +251,4 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
   0 var(--q), var(--q) var(--q))}
 /* the map popups keep their drawn border, so give them a wider step */
 .map-popup{--q:3px}
+#tabbar{--q:5px}
