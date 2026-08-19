@@ -1,0 +1,21 @@
+app/styles.css
+  s_30c66b9ed26a01::t_4b3e6b31bfde77 10-12,61,64-69,258
+public/fonts/PROVENANCE.md
+  s_30c66b9ed26a01::t_52adf2c608e6c4 17-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "068f184ec68eb85076af7de6c200b21d626db178",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
