@@ -25,7 +25,7 @@ main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
 h1,h2,h3,.dexcount b,.big,.dexcount i,.ail,
 .qty,.pp{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace}
 h1{color:var(--pika);font-size:52px;text-align:center;line-height:1.2;
-  text-shadow:3px 3px 0 #000;margin-bottom:10px}
+  text-shadow:3px 3px 0 #000;margin-bottom:24px}
 h1 small{display:block;font-size:20px;color:#9fe0bd;letter-spacing:3px;
   text-shadow:2px 2px 0 #000;margin-top:6px}
 .panel{background:var(--panel);--px:3px;--pxc:var(--line);border:0;
