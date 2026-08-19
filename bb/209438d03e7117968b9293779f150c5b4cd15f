@@ -1,0 +1,20 @@
+app/styles.css
+  s_30c66b9ed26a01::t_2f2d302ec5169c 111-112,114-119,122-129
+  s_30c66b9ed26a01::t_30c48bb73052d5 94,105,132,154,156,161,165
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "bb209438d03e7117968b9293779f150c5b4cd15f",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
