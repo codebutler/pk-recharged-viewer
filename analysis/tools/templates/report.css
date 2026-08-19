@@ -89,10 +89,15 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .mon-name{font-family:'Pokemon Emerald','VT323',monospace;font-size:15px}
 .mon-sub{font-size:16px;color:#5a564e;margin:4px 0}
 .shiny{color:#e8a800;margin-left:4px}
-.ail{background:var(--accent);color:#fff;font-size:15px;padding:3px 4px 2px}
-.type{font-family:'Pokemon Emerald','VT323',monospace;font-size:15px;color:#fff;
-  padding:3px 5px 2px;margin-right:4px;text-shadow:1px 1px 0 rgba(0,0,0,.5);
-  display:inline-block}
+.ail{background:var(--accent);color:#fff}
+.type{margin-right:4px}
+/* Every pill shares one box model. They used to differ: .type was
+   inline-block (box height from line-height) while .ail was plain inline
+   (box height from the font's em box), so PARALYSIS never matched NORMAL.
+   inline-block + line-height:1 + one padding makes them identical. */
+.type,.ail,.mtype{font-family:'Pokemon Emerald','VT323',monospace;font-size:15px;
+  color:#fff;display:inline-block;line-height:1;padding:3px 3px 2px;
+  vertical-align:middle;text-shadow:1px 1px 0 rgba(0,0,0,.5)}
 .hp{display:flex;align-items:center;gap:8px;margin:6px 0}
 .bar{flex:0 1 140px;height:8px;background:#585850;border:2px solid var(--line);
   display:inline-block;vertical-align:middle}
@@ -107,7 +112,7 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .moves{list-style:none;margin:6px 0;border-top:2px dotted #b8b4a4;padding-top:6px}
 .moves li{display:flex;justify-content:space-between;padding:1px 0}
 .pp{color:#7a766a;font-size:15px;align-self:center}
-.mtype{font-size:15px;padding:2px 3px 1px;margin:0 0 0 5px;vertical-align:1px}
+.mtype{margin:0 0 0 5px}
 .held{font-size:16px;color:#5a564e;margin-top:4px}
 /* storage + dex grids */
 .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
