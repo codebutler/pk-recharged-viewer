@@ -1,0 +1,62 @@
+Safari Zone  (group 1, map 64)  header 0x08B3B918
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x0182) -> 0x082D5808
+  script 0x082D5808  [ok]
+    082D5808  setorcopyvar         destination=VAR_0x8000 source=20
+    082D580D  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5812  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Max Potion
+    082D5814  end                  
+
+  object 2 (gfx 0x35, flag 0x0183) -> 0x082D5815
+  script 0x082D5815  [ok]
+    082D5815  setorcopyvar         destination=VAR_0x8000 source=19
+    082D581A  setorcopyvar         destination=VAR_0x8001 source=1
+    082D581F  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Full Restore
+    082D5821  end                  
+
+  object 3 (gfx 0x55, flag 0x0184) -> 0x082D5822
+  script 0x082D5822  [ok]
+    082D5822  setorcopyvar         destination=VAR_0x8000 source=299
+    082D5827  setorcopyvar         destination=VAR_0x8001 source=1
+    082D582C  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM11
+    082D582E  end                  
+
+  object 4 (gfx 0x35, flag 0x0185) -> 0x082D582F
+  script 0x082D582F  [ok]
+    082D582F  setorcopyvar         destination=VAR_0x8000 source=98
+    082D5834  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5839  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Leaf Stone
+    082D583B  end                  
+
+  sign 0 at (18,27) -> 0x08212689
+  script 0x08212689  [ok]
+    08212689  msgbox_multilang     type=0 text_0="Area 1\nWest: Center Area" text_1="Area 1\nWest: Center Area" text_2="Area 1\nWest: Center Area" text_3="Area 1\nWest: Center Area" text_4="Area 1\nWest: Center Area" text_5="Area 1\nWest: Center Area" text_6="Area 1\nWest: Center Area"
+    082126A7  callstd              function=MSGBOX_SIGN(3)
+    082126A9  end                  
+
+  sign 1 at (43,15) -> 0x08212647
+  script 0x08212647  [ok]
+    08212647  msgbox_multilang     type=0 text_0="Rest House" text_1="Rest House" text_2="Rest House" text_3="Rest House" text_4="Rest House" text_5="Rest House" text_6="Rest House"
+    08212665  callstd              function=MSGBOX_SIGN(3)
+    08212667  end                  
+
+  sign 2 at (17,8) -> 0x08212668
+  script 0x08212668  [ok]
+    08212668  msgbox_multilang     type=0 text_0="Trainer Tips\pThe remaining time declines only\nwhile you walk." text_1="Trainer Tips\pThe remaining time declines only\nwhile you walk." text_2="Trainer Tips\pThe remaining time declines only\nwhile you walk." text_3="Trainer Tips\pThe remaining time declines only\nwhile you walk." text_4="Trainer Tips\pThe remaining time declines only\nwhile you walk." text_5="Trainer Tips\pThe remaining time declines only\nwhile you walk." text_6="Trainer Tips\pThe remaining time declines only\nwhile you walk."
+    08212686  callstd              function=MSGBOX_SIGN(3)
+    08212688  end                  
+

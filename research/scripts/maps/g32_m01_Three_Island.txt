@@ -1,0 +1,63 @@
+Three Island  (group 32, map 1)  header 0x08B3DD4C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0827CEAE
+  script 0x0827CEAE  [ok]
+    0827CEAE  lock                 
+    0827CEAF  faceplayer           
+    0827CEB0  call                 destination=0x082BB336
+    0827CEB5  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0xF3, flag 0x0000) -> 0x0827CEF9
+  script 0x0827CEF9  [ok]
+    0827CEF9  msgbox_multilang     type=0 text_0="Hey, did you hear the news?\pThe PC network here can now link\nwith PCs in Kanto.\pI don’t know how that came about,\nbut it’s fantastic!" text_1="Hey, did you hear the news?\pThe PC network here can now link\nwith PCs in Kanto.\pI don’t know how that came about,\nbut it’s fantastic!" text_2="Hey, did you hear the news?\pThe PC network here can now link\nwith PCs in Kanto.\pI don’t know how that came about,\nbut it’s fantastic!" text_3="Hey, did you hear the news?\pThe PC network here can now link\nwith PCs in Kanto.\pI don’t know how that came about,\nbut it’s fantastic!" text_4="Hey, did you hear the news?\pThe PC network here can now link\nwith PCs in Kanto.\pI don’t know how that came about,\nbut it’s fantastic!" text_5="Hey, did you hear the news?\pThe PC network here can now link\nwith PCs in Kanto.\pI don’t know how that came about,\nbut it’s fantastic!" text_6="Hey, did you hear the news?\pThe PC network here can now link\nwith PCs in Kanto.\pI don’t know how that came about,\nbut it’s fantastic!"
+    0827CF17  callstd              function=MSGBOX_NPC(2)
+    0827CF19  end                  
+
+  object 3 (gfx 0x2F, flag 0x0000) -> 0x0827CED8
+  script 0x0827CED8  [ok]
+    0827CED8  msgbox_multilang     type=0 text_0="Let’s crush Berries!\n…That’d be wasting Berries?\pYou can always find some Berries\non the ground in Berry Forest." text_1="Let’s crush Berries!\n…That’d be wasting Berries?\pYou can always find some Berries\non the ground in Berry Forest." text_2="Let’s crush Berries!\n…That’d be wasting Berries?\pYou can always find some Berries\non the ground in Berry Forest." text_3="Let’s crush Berries!\n…That’d be wasting Berries?\pYou can always find some Berries\non the ground in Berry Forest." text_4="Let’s crush Berries!\n…That’d be wasting Berries?\pYou can always find some Berries\non the ground in Berry Forest." text_5="Let’s crush Berries!\n…That’d be wasting Berries?\pYou can always find some Berries\non the ground in Berry Forest." text_6="Let’s crush Berries!\n…That’d be wasting Berries?\pYou can always find some Berries\non the ground in Berry Forest."
+    0827CEF6  callstd              function=MSGBOX_NPC(2)
+    0827CEF8  end                  
+
+  object 4 (gfx 0x31, flag 0x0000) -> 0x0827CEB7
+  script 0x0827CEB7  [ok]
+    0827CEB7  msgbox_multilang     type=0 text_0="It’s impossible to Surf between the\nislands around these parts.\pThe tides are too fast and\ntreacherous." text_1="It’s impossible to Surf between the\nislands around these parts.\pThe tides are too fast and\ntreacherous." text_2="It’s impossible to Surf between the\nislands around these parts.\pThe tides are too fast and\ntreacherous." text_3="It’s impossible to Surf between the\nislands around these parts.\pThe tides are too fast and\ntreacherous." text_4="It’s impossible to Surf between the\nislands around these parts.\pThe tides are too fast and\ntreacherous." text_5="It’s impossible to Surf between the\nislands around these parts.\pThe tides are too fast and\ntreacherous." text_6="It’s impossible to Surf between the\nislands around these parts.\pThe tides are too fast and\ntreacherous."
+    0827CED5  callstd              function=MSGBOX_NPC(2)
+    0827CED7  end                  
+
+  object 5 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0827CEAA
+  script 0x0827CEAA  [ok]
+    0827CEAA  setrespawn           heallocation=16
+    0827CEAD  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

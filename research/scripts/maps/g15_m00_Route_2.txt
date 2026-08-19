@@ -1,0 +1,24 @@
+Route 2  (group 15, map 0)  header 0x08B3D828
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x14, flag 0x0000) -> 0x0827343A
+  script 0x0827343A  [ok]
+    0827343A  msgbox_multilang     type=0 text_0="Are you going to Viridian Forest?\nIt’s a natural maze in there.\pBe careful you don’t get lost." text_1="Are you going to Viridian Forest?\nIt’s a natural maze in there.\pBe careful you don’t get lost." text_2="Are you going to Viridian Forest?\nIt’s a natural maze in there.\pBe careful you don’t get lost." text_3="Are you going to Viridian Forest?\nIt’s a natural maze in there.\pBe careful you don’t get lost." text_4="Are you going to Viridian Forest?\nIt’s a natural maze in there.\pBe careful you don’t get lost." text_5="Are you going to Viridian Forest?\nIt’s a natural maze in there.\pBe careful you don’t get lost." text_6="Are you going to Viridian Forest?\nIt’s a natural maze in there.\pBe careful you don’t get lost."
+    08273458  callstd              function=MSGBOX_NPC(2)
+    0827345A  end                  
+
+  object 2 (gfx 0x10, flag 0x0000) -> 0x0827345B
+  script 0x0827345B  [ok]
+    0827345B  msgbox_multilang     type=0 text_0="Rattata may be small, but don’t\nunderestimate its wicked bite.\pHave you caught one already?" text_1="Rattata may be small, but don’t\nunderestimate its wicked bite.\pHave you caught one already?" text_2="Rattata may be small, but don’t\nunderestimate its wicked bite.\pHave you caught one already?" text_3="Rattata may be small, but don’t\nunderestimate its wicked bite.\pHave you caught one already?" text_4="Rattata may be small, but don’t\nunderestimate its wicked bite.\pHave you caught one already?" text_5="Rattata may be small, but don’t\nunderestimate its wicked bite.\pHave you caught one already?" text_6="Rattata may be small, but don’t\nunderestimate its wicked bite.\pHave you caught one already?"
+    08273479  callstd              function=MSGBOX_NPC(2)
+    0827347B  end                  
+

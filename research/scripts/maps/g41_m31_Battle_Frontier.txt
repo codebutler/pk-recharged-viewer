@@ -1,0 +1,121 @@
+Battle Frontier  (group 41, map 31)  header 0x08B3E414
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x082ACB33
+  script 0x082ACB33  [ok]
+    082ACB33  msgbox_multilang     type=0 text_0="This is the RANKING HALL.\pThis is where we recognize the immortal\nTRAINERS who left great records in\pBATTLE FRONTIER events." text_1="This is the RANKING HALL.\pThis is where we recognize the immortal\nTRAINERS who left great records in\pBATTLE FRONTIER events." text_2="This is the RANKING HALL.\pThis is where we recognize the immortal\nTRAINERS who left great records in\pBATTLE FRONTIER events." text_3="This is the RANKING HALL.\pThis is where we recognize the immortal\nTRAINERS who left great records in\pBATTLE FRONTIER events." text_4="This is the RANKING HALL.\pThis is where we recognize the immortal\nTRAINERS who left great records in\pBATTLE FRONTIER events." text_5="This is the RANKING HALL.\pThis is where we recognize the immortal\nTRAINERS who left great records in\pBATTLE FRONTIER events." text_6="This is the RANKING HALL.\pThis is where we recognize the immortal\nTRAINERS who left great records in\pBATTLE FRONTIER events."
+    082ACB51  callstd              function=MSGBOX_NPC(2)
+    082ACB53  end                  
+
+  object 2 (gfx 0x05, flag 0x0000) -> 0x082ACB96
+  script 0x082ACB96  [ok]
+    082ACB96  lock                 
+    082ACB97  faceplayer           
+    082ACB98  msgbox_multilang     type=0 text_0="Hi, is your name on this list?" text_1="Hi, is your name on this list?" text_2="Hi, is your name on this list?" text_3="Hi, is your name on this list?" text_4="Hi, is your name on this list?" text_5="Hi, is your name on this list?" text_6="Hi, is your name on this list?"
+    082ACBB6  callstd              function=MSGBOX_YESNO(5)
+    082ACBB8  compare_var_to_value var=0x800D value=1
+    082ACBBD  goto_if              condition=1 destination=0x082ACBE5
+    082ACBC3  msgbox_multilang     type=0 text_0="Oh, is that right?\pIf you saw your friend’s name up here,\nI bet it would make you work harder!" text_1="Oh, is that right?\pIf you saw your friend’s name up here,\nI bet it would make you work harder!" text_2="Oh, is that right?\pIf you saw your friend’s name up here,\nI bet it would make you work harder!" text_3="Oh, is that right?\pIf you saw your friend’s name up here,\nI bet it would make you work harder!" text_4="Oh, is that right?\pIf you saw your friend’s name up here,\nI bet it would make you work harder!" text_5="Oh, is that right?\pIf you saw your friend’s name up here,\nI bet it would make you work harder!" text_6="Oh, is that right?\pIf you saw your friend’s name up here,\nI bet it would make you work harder!"
+    082ACBE1  callstd              function=MSGBOX_DEFAULT(4)
+    082ACBE3  release              
+
+  script 0x082ACBE5  [ok]
+    082ACBE5  msgbox_multilang     type=0 text_0="Wow, that’s super!\nI’ll have to try harder, too!" text_1="Wow, that’s super!\nI’ll have to try harder, too!" text_2="Wow, that’s super!\nI’ll have to try harder, too!" text_3="Wow, that’s super!\nI’ll have to try harder, too!" text_4="Wow, that’s super!\nI’ll have to try harder, too!" text_5="Wow, that’s super!\nI’ll have to try harder, too!" text_6="Wow, that’s super!\nI’ll have to try harder, too!"
+    082ACC03  callstd              function=MSGBOX_DEFAULT(4)
+    082ACC05  release              
+
+  object 3 (gfx 0x0D, flag 0x0000) -> 0x082ACC07
+  script 0x082ACC07  [ok]
+    082ACC07  msgbox_multilang     type=0 text_0="Hmm…\nMy name’s not up there…\pWell, it’s only natural since I haven’t\ntaken any challenges yet." text_1="Hmm…\nMy name’s not up there…\pWell, it’s only natural since I haven’t\ntaken any challenges yet." text_2="Hmm…\nMy name’s not up there…\pWell, it’s only natural since I haven’t\ntaken any challenges yet." text_3="Hmm…\nMy name’s not up there…\pWell, it’s only natural since I haven’t\ntaken any challenges yet." text_4="Hmm…\nMy name’s not up there…\pWell, it’s only natural since I haven’t\ntaken any challenges yet." text_5="Hmm…\nMy name’s not up there…\pWell, it’s only natural since I haven’t\ntaken any challenges yet." text_6="Hmm…\nMy name’s not up there…\pWell, it’s only natural since I haven’t\ntaken any challenges yet."
+    082ACC25  callstd              function=MSGBOX_NPC(2)
+    082ACC27  end                  
+
+  sign 0 at (26,9) -> 0x082ACAAE
+  script 0x082ACAAE  [ok]
+    082ACAAE  lockall              
+    082ACAAF  setvar               destination=VAR_0x8005 value=0
+    082ACAB4  goto                 destination=0x082ACB26
+
+  script 0x082ACB26  [ok]
+    082ACB26  special              SPECIAL_\function=278
+    082ACB29  waitbuttonpress      
+    082ACB2A  special              SPECIAL_\function=279
+    082ACB2D  waitbuttonpress      
+    082ACB2E  special              SPECIAL_\function=342
+    082ACB31  releaseall           
+
+  sign 1 at (23,8) -> 0x082ACABA
+  script 0x082ACABA  [ok]
+    082ACABA  lockall              
+    082ACABB  setvar               destination=VAR_0x8005 value=1
+    082ACAC0  goto                 destination=0x082ACB26
+
+  sign 2 at (26,5) -> 0x082ACAC6
+  script 0x082ACAC6  [ok]
+    082ACAC6  lockall              
+    082ACAC7  setvar               destination=VAR_0x8005 value=2
+    082ACACC  goto                 destination=0x082ACB26
+
+  sign 3 at (29,8) -> 0x082ACAD2
+  script 0x082ACAD2  [ok]
+    082ACAD2  lockall              
+    082ACAD3  setvar               destination=VAR_0x8005 value=9
+    082ACAD8  goto                 destination=0x082ACB26
+
+  sign 4 at (42,9) -> 0x082ACADE
+  script 0x082ACADE  [ok]
+    082ACADE  lockall              
+    082ACADF  setvar               destination=VAR_0x8005 value=5
+    082ACAE4  goto                 destination=0x082ACB26
+
+  sign 5 at (46,9) -> 0x082ACAEA
+  script 0x082ACAEA  [ok]
+    082ACAEA  lockall              
+    082ACAEB  setvar               destination=VAR_0x8005 value=4
+    082ACAF0  goto                 destination=0x082ACB26
+
+  sign 6 at (10,9) -> 0x082ACAF6
+  script 0x082ACAF6  [ok]
+    082ACAF6  lockall              
+    082ACAF7  setvar               destination=VAR_0x8005 value=6
+    082ACAFC  goto                 destination=0x082ACB26
+
+  sign 7 at (8,7) -> 0x082ACB02
+  script 0x082ACB02  [ok]
+    082ACB02  lockall              
+    082ACB03  setvar               destination=VAR_0x8005 value=3
+    082ACB08  goto                 destination=0x082ACB26
+
+  sign 8 at (6,9) -> 0x082ACB0E
+  script 0x082ACB0E  [ok]
+    082ACB0E  lockall              
+    082ACB0F  setvar               destination=VAR_0x8005 value=7
+    082ACB14  goto                 destination=0x082ACB26
+
+  sign 9 at (44,7) -> 0x082ACB1A
+  script 0x082ACB1A  [ok]
+    082ACB1A  lockall              
+    082ACB1B  setvar               destination=VAR_0x8005 value=8
+    082ACB20  goto                 destination=0x082ACB26
+
+  sign 10 at (16,8) -> 0x082ACB54
+  script 0x082ACB54  [ok]
+    082ACB54  msgbox_multilang     type=0 text_0="BATTLE DOME, BATTLE PIKE,\nand BATTLE FACTORY Records" text_1="BATTLE DOME, BATTLE PIKE,\nand BATTLE FACTORY Records" text_2="BATTLE DOME, BATTLE PIKE,\nand BATTLE FACTORY Records" text_3="BATTLE DOME, BATTLE PIKE,\nand BATTLE FACTORY Records" text_4="BATTLE DOME, BATTLE PIKE,\nand BATTLE FACTORY Records" text_5="BATTLE DOME, BATTLE PIKE,\nand BATTLE FACTORY Records" text_6="BATTLE DOME, BATTLE PIKE,\nand BATTLE FACTORY Records"
+    082ACB72  callstd              function=MSGBOX_SIGN(3)
+    082ACB74  end                  
+
+  sign 11 at (36,8) -> 0x082ACB75
+  script 0x082ACB75  [ok]
+    082ACB75  msgbox_multilang     type=0 text_0="BATTLE PALACE, BATTLE ARENA,\nand BATTLE PYRAMID Records" text_1="BATTLE PALACE, BATTLE ARENA,\nand BATTLE PYRAMID Records" text_2="BATTLE PALACE, BATTLE ARENA,\nand BATTLE PYRAMID Records" text_3="BATTLE PALACE, BATTLE ARENA,\nand BATTLE PYRAMID Records" text_4="BATTLE PALACE, BATTLE ARENA,\nand BATTLE PYRAMID Records" text_5="BATTLE PALACE, BATTLE ARENA,\nand BATTLE PYRAMID Records" text_6="BATTLE PALACE, BATTLE ARENA,\nand BATTLE PYRAMID Records"
+    082ACB93  callstd              function=MSGBOX_SIGN(3)
+    082ACB95  end                  
+

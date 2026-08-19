@@ -1,0 +1,87 @@
+S.S. Anne  (group 1, map 4)  header 0x08B3B288
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2A, flag 0x0087) -> 0x00000000
+  object 2 (gfx 0x97, flag 0x02E8) -> 0x082B7A4E
+  script 0x082B7A4E  [ok]
+    082B7A4E  bufferspeciesname    stringVarId=0 species=MEW(151)
+    082B7A52  return               
+
+  object 3 (gfx 0x31, flag 0x02E7) -> 0x0820A9A6
+  script 0x0820A9A6  [ok]
+    0820A9A6  lock                 
+    0820A9A7  msgbox_multilang     type=0 text_0="Sorry! The S.S. Anne has departed!" text_1="Sorry! The S.S. Anne has departed!" text_2="Sorry! The S.S. Anne has departed!" text_3="Sorry! The S.S. Anne has departed!" text_4="Sorry! The S.S. Anne has departed!" text_5="Sorry! The S.S. Anne has departed!" text_6="Sorry! The S.S. Anne has departed!"
+    0820A9C5  callstd              function=MSGBOX_NPC(2)
+    0820A9C7  release              
+
+  hidden item at (58,29): Lava Cookie
+
+  map script type 1 -> 0x0820A886
+  script 0x0820A886  [ok]
+    0820A886  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0820A889  goto_if              condition=0 destination=0x0820A899
+    0820A88F  checkflag            flag=0x128
+    0820A892  goto_if              condition=1 destination=0x0820A899
+    0820A898  return               
+
+  script 0x0820A899  [ok]
+    0820A899  setmetatile          x=55 y=4 metatileId=449 impassable=0
+    0820A8A2  setmetatile          x=56 y=4 metatileId=449 impassable=0
+    0820A8AB  setmetatile          x=57 y=4 metatileId=449 impassable=0
+    0820A8B4  setmetatile          x=55 y=3 metatileId=795 impassable=0
+    0820A8BD  setmetatile          x=56 y=3 metatileId=795 impassable=0
+    0820A8C6  setmetatile          x=57 y=3 metatileId=795 impassable=0
+    0820A8CF  setmetatile          x=55 y=2 metatileId=299 impassable=1
+    0820A8D8  setmetatile          x=56 y=2 metatileId=299 impassable=1
+    0820A8E1  setmetatile          x=57 y=2 metatileId=299 impassable=1
+    0820A8EA  setmetatile          x=55 y=1 metatileId=473 impassable=1
+    0820A8F3  setmetatile          x=56 y=1 metatileId=473 impassable=1
+    0820A8FC  setmetatile          x=57 y=1 metatileId=473 impassable=1
+    0820A905  setmetatile          x=55 y=0 metatileId=473 impassable=1
+    0820A90E  setmetatile          x=56 y=0 metatileId=473 impassable=1
+    0820A917  setmetatile          x=57 y=0 metatileId=473 impassable=1
+    0820A920  return               
+
+  map script type 3 -> 0x0820A921
+  script 0x0820A921  [ok]
+    0820A921  setworldmapflag      flag=0x906
+    0820A924  end                  
+
+  map script type 2 (var 0x407E == 1) -> 0x0820A92F
+  script 0x0820A92F  [ok]
+    0820A92F  lockall              
+    0820A930  getplayerxy          x=32772 y=32773
+    0820A935  compare_var_to_value var=0x8005 value=6
+    0820A93A  goto_if              condition=3 destination=0x0820A97A
+    0820A940  compare_var_to_value var=0x8005 value=7
+    0820A945  goto_if              condition=4 destination=0x0820A986
+    0820A94B  waitmovement         localId=0
+    0820A94E  fadenewbgm           song=517
+    0820A951  delay                frames=50
+    0820A954  special              SPECIAL_\function=361
+    0820A957  waitstate            
+
+  script 0x0820A97A  [ok]
+    0820A97A  applymovement        localId=255 movements=[walk_down walk_down walk_down walk_down walk_down walk_down walk_down walk_down walk_down]
+    0820A981  goto                 destination=0x0820A94B
+
+  script 0x0820A986  [ok]
+    0820A986  applymovement        localId=255 movements=[walk_in_place_faster_down]
+    0820A98D  goto                 destination=0x0820A94B
+
+  script 0x0820A94B  [ok]
+    0820A94B  waitmovement         localId=0
+    0820A94E  fadenewbgm           song=517
+    0820A951  delay                frames=50
+    0820A954  special              SPECIAL_\function=361
+    0820A957  waitstate            
+

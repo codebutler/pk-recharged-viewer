@@ -1,0 +1,163 @@
+Berry Forest  (group 1, map 109)  header 0x08B3BE04
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x06, flag 0x007A) -> 0x08218D8E
+  script 0x08218D8E  [unknown-opcode:0xE9]
+    08218D8E  lock                 
+    08218D8F  faceplayer           
+    08218D90  msgbox_multilang     type=0 text_0="Lostelle: Whimper… Sniff…\nOh! Please, help!\pA scary Pokémon appeared there\na little while ago.\pIt kept scaring.\nIt made Lostelle scared.\pI’m too scared to move!\nBut I want to go home…" text_1="Lostelle: Whimper… Sniff…\nOh! Please, help!\pA scary Pokémon appeared there\na little while ago.\pIt kept scaring.\nIt made Lostelle scared.\pI’m too scared to move!\nBut I want to go home…" text_2="Lostelle: Whimper… Sniff…\nOh! Please, help!\pA scary Pokémon appeared there\na little while ago.\pIt kept scaring.\nIt made Lostelle scared.\pI’m too scared to move!\nBut I want to go home…" text_3="Lostelle: Whimper… Sniff…\nOh! Please, help!\pA scary Pokémon appeared there\na little while ago.\pIt kept scaring.\nIt made Lostelle scared.\pI’m too scared to move!\nBut I want to go home…" text_4="Lostelle: Whimper… Sniff…\nOh! Please, help!\pA scary Pokémon appeared there\na little while ago.\pIt kept scaring.\nIt made Lostelle scared.\pI’m too scared to move!\nBut I want to go home…" text_5="Lostelle: Whimper… Sniff…\nOh! Please, help!\pA scary Pokémon appeared there\na little while ago.\pIt kept scaring.\nIt made Lostelle scared.\pI’m too scared to move!\nBut I want to go home…" text_6="Lostelle: Whimper… Sniff…\nOh! Please, help!\pA scary Pokémon appeared there\na little while ago.\pIt kept scaring.\nIt made Lostelle scared.\pI’m too scared to move!\nBut I want to go home…"
+    08218DAE  callstd              function=MSGBOX_DEFAULT(4)
+    08218DB0  playse               song=21
+    08218DB3  applymovement        localId=1 movements=[emote_exclamation_mark]
+    08218DBA  waitmovement         localId=0
+    08218DBD  applymovement        localId=1 movements=[walk_in_place_faster_left delay_16 walk_in_place_faster_right delay_8 walk_in_place_faster_left]
+    08218DC4  waitmovement         localId=0
+    08218DC7  msgbox_multilang     type=0 text_0="Oh! Here it comes again!\nNo! Go away! It’s scaring me!\pWaaaaaaah!\nI want my daddy!" text_1="Oh! Here it comes again!\nNo! Go away! It’s scaring me!\pWaaaaaaah!\nI want my daddy!" text_2="Oh! Here it comes again!\nNo! Go away! It’s scaring me!\pWaaaaaaah!\nI want my daddy!" text_3="Oh! Here it comes again!\nNo! Go away! It’s scaring me!\pWaaaaaaah!\nI want my daddy!" text_4="Oh! Here it comes again!\nNo! Go away! It’s scaring me!\pWaaaaaaah!\nI want my daddy!" text_5="Oh! Here it comes again!\nNo! Go away! It’s scaring me!\pWaaaaaaah!\nI want my daddy!" text_6="Oh! Here it comes again!\nNo! Go away! It’s scaring me!\pWaaaaaaah!\nI want my daddy!"
+    08218DE5  callstd              function=MSGBOX_DEFAULT(4)
+    08218DE7  waitse               
+    08218DE8  playmoncry           species=HYPNO(97) mode=2
+    08218DED  waitmoncry           
+    08218DEE  setwildbattle        species=HYPNO(97) level=30 item=0
+    08218DF4  dowildbattle         
+    08218DF5  applymovement        localId=1 movements=[face_player]
+    08218DFC  waitmovement         localId=0
+    08218DFF  msgbox_multilang     type=0 text_0="Ohh! That was so scary!\nThank you!\pLostelle came to pick some\nBerries.\pYou can have this!" text_1="Ohh! That was so scary!\nThank you!\pLostelle came to pick some\nBerries.\pYou can have this!" text_2="Ohh! That was so scary!\nThank you!\pLostelle came to pick some\nBerries.\pYou can have this!" text_3="Ohh! That was so scary!\nThank you!\pLostelle came to pick some\nBerries.\pYou can have this!" text_4="Ohh! That was so scary!\nThank you!\pLostelle came to pick some\nBerries.\pYou can have this!" text_5="Ohh! That was so scary!\nThank you!\pLostelle came to pick some\nBerries.\pYou can have this!" text_6="Ohh! That was so scary!\nThank you!\pLostelle came to pick some\nBerries.\pYou can have this!"
+    08218E1D  callstd              function=MSGBOX_DEFAULT(4)
+
+  object 2 (gfx 0x52, flag 0x0323) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 3 (gfx 0x52, flag 0x0324) -> 0x082050CF
+  object 4 (gfx 0x52, flag 0x0325) -> 0x082050CF
+  object 5 (gfx 0x52, flag 0x0326) -> 0x082050CF
+  object 6 (gfx 0x52, flag 0x0327) -> 0x082050CF
+  object 7 (gfx 0x52, flag 0x0328) -> 0x082050CF
+  object 8 (gfx 0x52, flag 0x0329) -> 0x082050CF
+  object 9 (gfx 0x52, flag 0x032A) -> 0x082050CF
+  object 10 (gfx 0x52, flag 0x032B) -> 0x082050CF
+  object 11 (gfx 0x52, flag 0x032C) -> 0x082050CF
+  object 12 (gfx 0x35, flag 0x01EA) -> 0x082D5D29
+  script 0x082D5D29  [ok]
+    082D5D29  setorcopyvar         destination=VAR_0x8000 source=35
+    082D5D2E  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5D33  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Max Ether
+    082D5D35  end                  
+
+  object 13 (gfx 0x35, flag 0x01EB) -> 0x082D5D36
+  script 0x082D5D36  [ok]
+    082D5D36  setorcopyvar         destination=VAR_0x8000 source=23
+    082D5D3B  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5D40  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Full Heal
+    082D5D42  end                  
+
+  object 14 (gfx 0x35, flag 0x01EC) -> 0x082D5D43
+  script 0x082D5D43  [ok]
+    082D5D43  setorcopyvar         destination=VAR_0x8000 source=37
+    082D5D48  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5D4D  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Max Elixir
+    082D5D4F  end                  
+
+  sign 0 at (7,27) -> 0x08218EBC
+  script 0x08218EBC  [ok]
+    08218EBC  msgbox_multilang     type=0 text_0="Beware of wild, Berry-loving\nPokémon!" text_1="Beware of wild, Berry-loving\nPokémon!" text_2="Beware of wild, Berry-loving\nPokémon!" text_3="Beware of wild, Berry-loving\nPokémon!" text_4="Beware of wild, Berry-loving\nPokémon!" text_5="Beware of wild, Berry-loving\nPokémon!" text_6="Beware of wild, Berry-loving\nPokémon!"
+    08218EDA  callstd              function=MSGBOX_SIGN(3)
+    08218EDC  end                  
+
+  sign 1 at (39,35) -> 0x08218E9B
+  script 0x08218E9B  [ok]
+    08218E9B  msgbox_multilang     type=0 text_0="Welcome to the Berry Forest\pBe friendly and share Berries with\nothers and Pokémon." text_1="Welcome to the Berry Forest\pBe friendly and share Berries with\nothers and Pokémon." text_2="Welcome to the Berry Forest\pBe friendly and share Berries with\nothers and Pokémon." text_3="Welcome to the Berry Forest\pBe friendly and share Berries with\nothers and Pokémon." text_4="Welcome to the Berry Forest\pBe friendly and share Berries with\nothers and Pokémon." text_5="Welcome to the Berry Forest\pBe friendly and share Berries with\nothers and Pokémon." text_6="Welcome to the Berry Forest\pBe friendly and share Berries with\nothers and Pokémon."
+    08218EB9  callstd              function=MSGBOX_SIGN(3)
+    08218EBB  end                  
+
+  hidden item at (31,25): Razz Berry
+
+  hidden item at (15,15): Bluk Berry
+
+  hidden item at (25,24): Nanab Berry
+
+  hidden item at (11,24): Wepear Berry
+
+  hidden item at (37,18): Oran Berry
+
+  hidden item at (14,23): Cheri Berry
+
+  hidden item at (47,5): Chesto Berry
+
+  hidden item at (7,30): Pecha Berry
+
+  hidden item at (16,5): Rawst Berry
+
+  hidden item at (25,6): Aspear Berry
+
+  hidden item at (46,32): Persim Berry
+
+  hidden item at (43,16): Pinap Berry
+
+  hidden item at (8,5): Lum Berry
+
+  map script type 3 -> 0x08218D82
+  script 0x08218D82  [ok]
+    08218D82  setworldmapflag      flag=0x917
+    08218D85  setescapewarp        mapGroup=3 mapNum=48 WARP_ID_NONE=255 -1=12 -1=6
+    08218D8D  end                  
+

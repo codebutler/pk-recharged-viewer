@@ -1,0 +1,57 @@
+Two Island  (group 31, map 2)  header 0x08B3DCDC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0827CC5C
+  script 0x0827CC5C  [ok]
+    0827CC5C  lock                 
+    0827CC5D  faceplayer           
+    0827CC5E  call                 destination=0x082BB336
+    0827CC63  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x04, flag 0x0000) -> 0x0827CC65
+  script 0x0827CC65  [ok]
+    0827CC65  msgbox_multilang     type=0 text_0="Have you visited the Game Corner\nalready?\pIt’s no good to go alone.\nYou have to take a friend along." text_1="Have you visited the Game Corner\nalready?\pIt’s no good to go alone.\nYou have to take a friend along." text_2="Have you visited the Game Corner\nalready?\pIt’s no good to go alone.\nYou have to take a friend along." text_3="Have you visited the Game Corner\nalready?\pIt’s no good to go alone.\nYou have to take a friend along." text_4="Have you visited the Game Corner\nalready?\pIt’s no good to go alone.\nYou have to take a friend along." text_5="Have you visited the Game Corner\nalready?\pIt’s no good to go alone.\nYou have to take a friend along." text_6="Have you visited the Game Corner\nalready?\pIt’s no good to go alone.\nYou have to take a friend along."
+    0827CC83  callstd              function=MSGBOX_NPC(2)
+    0827CC85  end                  
+
+  object 3 (gfx 0x24, flag 0x0000) -> 0x0827CC86
+  script 0x0827CC86  [ok]
+    0827CC86  msgbox_multilang     type=0 text_0="Not many people live on Two\nIsland.\pThere is this old lady who lives out\non the cape.\pShe’s been there since I don’t know\nwhen." text_1="Not many people live on Two\nIsland.\pThere is this old lady who lives out\non the cape.\pShe’s been there since I don’t know\nwhen." text_2="Not many people live on Two\nIsland.\pThere is this old lady who lives out\non the cape.\pShe’s been there since I don’t know\nwhen." text_3="Not many people live on Two\nIsland.\pThere is this old lady who lives out\non the cape.\pShe’s been there since I don’t know\nwhen." text_4="Not many people live on Two\nIsland.\pThere is this old lady who lives out\non the cape.\pShe’s been there since I don’t know\nwhen." text_5="Not many people live on Two\nIsland.\pThere is this old lady who lives out\non the cape.\pShe’s been there since I don’t know\nwhen." text_6="Not many people live on Two\nIsland.\pThere is this old lady who lives out\non the cape.\pShe’s been there since I don’t know\nwhen."
+    0827CCA4  callstd              function=MSGBOX_NPC(2)
+    0827CCA6  end                  
+
+  object 4 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0827CC58
+  script 0x0827CC58  [ok]
+    0827CC58  setrespawn           heallocation=15
+    0827CC5B  return               
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

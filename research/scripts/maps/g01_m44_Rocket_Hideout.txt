@@ -1,0 +1,52 @@
+Rocket Hideout  (group 1, map 44)  header 0x08B3B6E8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x00AD) -> 0x0820DF25
+  script 0x0820DF25  [ok]
+    0820DF25  trainerbattle        type=0 trainer=0x16D localId=0 ptr1=0x0820DFD8 ptr2=0x0820E008
+    0820DF33  msgbox_multilang     type=0 text_0="Go ahead and go!\pBut you can’t run the elevator\nwithout the Lift Key." text_1="Go ahead and go!\pBut you can’t run the elevator\nwithout the Lift Key." text_2="Go ahead and go!\pBut you can’t run the elevator\nwithout the Lift Key." text_3="Go ahead and go!\pBut you can’t run the elevator\nwithout the Lift Key." text_4="Go ahead and go!\pBut you can’t run the elevator\nwithout the Lift Key." text_5="Go ahead and go!\pBut you can’t run the elevator\nwithout the Lift Key." text_6="Go ahead and go!\pBut you can’t run the elevator\nwithout the Lift Key."
+    0820DF51  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820DF53  end                  
+
+  object 2 (gfx 0x02, flag 0x00AD) -> 0x0820DEF6
+  script 0x0820DEF6  [ok]
+    0820DEF6  trainerbattle        type=0 trainer=0x16C localId=0 ptr1=0x0820DF54 ptr2=0x0820DF84
+    0820DF04  msgbox_multilang     type=0 text_0="Silph Scope?\nOh, that machine the Boss stole.\pIt’s here somewhere." text_1="Silph Scope?\nOh, that machine the Boss stole.\pIt’s here somewhere." text_2="Silph Scope?\nOh, that machine the Boss stole.\pIt’s here somewhere." text_3="Silph Scope?\nOh, that machine the Boss stole.\pIt’s here somewhere." text_4="Silph Scope?\nOh, that machine the Boss stole.\pIt’s here somewhere." text_5="Silph Scope?\nOh, that machine the Boss stole.\pIt’s here somewhere." text_6="Silph Scope?\nOh, that machine the Boss stole.\pIt’s here somewhere."
+    0820DF22  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820DF24  end                  
+
+  object 3 (gfx 0x35, flag 0x0172) -> 0x082D5738
+  script 0x082D5738  [ok]
+    082D5738  setorcopyvar         destination=VAR_0x8000 source=68
+    082D573D  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5742  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Rare Candy
+    082D5744  end                  
+
+  object 4 (gfx 0x55, flag 0x0173) -> 0x082D5745
+  script 0x082D5745  [ok]
+    082D5745  setorcopyvar         destination=VAR_0x8000 source=309
+    082D574A  setorcopyvar         destination=VAR_0x8001 source=1
+    082D574F  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM21
+    082D5751  end                  
+
+  object 5 (gfx 0x35, flag 0x01D2) -> 0x082D5BF1
+  script 0x082D5BF1  [ok]
+    082D5BF1  setorcopyvar         destination=VAR_0x8000 source=206
+    082D5BF6  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5BFB  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: BlackGlasses
+    082D5BFD  end                  
+
+  hidden item at (1,3): Nugget
+

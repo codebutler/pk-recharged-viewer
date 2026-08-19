@@ -1,0 +1,63 @@
+Fuchsia City  (group 11, map 5)  header 0x08B3D56C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0826A323
+  script 0x0826A323  [ok]
+    0826A323  lock                 
+    0826A324  faceplayer           
+    0826A325  call                 destination=0x082BB336
+    0826A32A  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0xF2, flag 0x0000) -> 0x0826A32C
+  script 0x0826A32C  [ok]
+    0826A32C  msgbox_multilang     type=0 text_0="You can’t become a good Trainer\nwith just one strong Pokémon.\pBut raising many Pokémon evenly\nis no easy task, either." text_1="You can’t become a good Trainer\nwith just one strong Pokémon.\pBut raising many Pokémon evenly\nis no easy task, either." text_2="You can’t become a good Trainer\nwith just one strong Pokémon.\pBut raising many Pokémon evenly\nis no easy task, either." text_3="You can’t become a good Trainer\nwith just one strong Pokémon.\pBut raising many Pokémon evenly\nis no easy task, either." text_4="You can’t become a good Trainer\nwith just one strong Pokémon.\pBut raising many Pokémon evenly\nis no easy task, either." text_5="You can’t become a good Trainer\nwith just one strong Pokémon.\pBut raising many Pokémon evenly\nis no easy task, either." text_6="You can’t become a good Trainer\nwith just one strong Pokémon.\pBut raising many Pokémon evenly\nis no easy task, either."
+    0826A34A  callstd              function=MSGBOX_NPC(2)
+    0826A34C  end                  
+
+  object 3 (gfx 0xFB, flag 0x0000) -> 0x0826A34D
+  script 0x0826A34D  [ok]
+    0826A34D  msgbox_multilang     type=0 text_0="There’s a narrow trail west of\nViridian City.\pIt goes to the Pokémon League HQ.\nThe HQ governs all Trainers." text_1="There’s a narrow trail west of\nViridian City.\pIt goes to the Pokémon League HQ.\nThe HQ governs all Trainers." text_2="There’s a narrow trail west of\nViridian City.\pIt goes to the Pokémon League HQ.\nThe HQ governs all Trainers." text_3="There’s a narrow trail west of\nViridian City.\pIt goes to the Pokémon League HQ.\nThe HQ governs all Trainers." text_4="There’s a narrow trail west of\nViridian City.\pIt goes to the Pokémon League HQ.\nThe HQ governs all Trainers." text_5="There’s a narrow trail west of\nViridian City.\pIt goes to the Pokémon League HQ.\nThe HQ governs all Trainers." text_6="There’s a narrow trail west of\nViridian City.\pIt goes to the Pokémon League HQ.\nThe HQ governs all Trainers."
+    0826A36B  callstd              function=MSGBOX_NPC(2)
+    0826A36D  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0826A36E
+  script 0x0826A36E  [ok]
+    0826A36E  msgbox_multilang     type=0 text_0="If you’re working on a Pokédex,\nvisit the Safari Zone.\pAll sorts of rare Pokémon breed\nthere." text_1="If you’re working on a Pokédex,\nvisit the Safari Zone.\pAll sorts of rare Pokémon breed\nthere." text_2="If you’re working on a Pokédex,\nvisit the Safari Zone.\pAll sorts of rare Pokémon breed\nthere." text_3="If you’re working on a Pokédex,\nvisit the Safari Zone.\pAll sorts of rare Pokémon breed\nthere." text_4="If you’re working on a Pokédex,\nvisit the Safari Zone.\pAll sorts of rare Pokémon breed\nthere." text_5="If you’re working on a Pokédex,\nvisit the Safari Zone.\pAll sorts of rare Pokémon breed\nthere." text_6="If you’re working on a Pokédex,\nvisit the Safari Zone.\pAll sorts of rare Pokémon breed\nthere."
+    0826A38C  callstd              function=MSGBOX_NPC(2)
+    0826A38E  end                  
+
+  object 5 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0826A31F
+  script 0x0826A31F  [ok]
+    0826A31F  setrespawn           heallocation=8
+    0826A322  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

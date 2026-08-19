@@ -1,0 +1,36 @@
+Cerulean City  (group 7, map 7)  header 0x08B3D0B8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0825B421
+  script 0x0825B421  [opcode-out-of-range:0xFE]
+    0825B421  lock                 
+    0825B422  faceplayer           
+    0825B423  call                 destination=0x082BB330
+    0825B428  message              text="Hi, there!\nMay I help you?"
+    0825B42D  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x10, flag 0x0000) -> 0x0825B400
+  script 0x0825B400  [ok]
+    0825B400  msgbox_multilang     type=0 text_0="Do you know about Rare Candy?\nThey don’t sell it in shops.\pI think it makes Pokémon grow very\nquickly all of a sudden." text_1="Do you know about Rare Candy?\nThey don’t sell it in shops.\pI think it makes Pokémon grow very\nquickly all of a sudden." text_2="Do you know about Rare Candy?\nThey don’t sell it in shops.\pI think it makes Pokémon grow very\nquickly all of a sudden." text_3="Do you know about Rare Candy?\nThey don’t sell it in shops.\pI think it makes Pokémon grow very\nquickly all of a sudden." text_4="Do you know about Rare Candy?\nThey don’t sell it in shops.\pI think it makes Pokémon grow very\nquickly all of a sudden." text_5="Do you know about Rare Candy?\nThey don’t sell it in shops.\pI think it makes Pokémon grow very\nquickly all of a sudden." text_6="Do you know about Rare Candy?\nThey don’t sell it in shops.\pI think it makes Pokémon grow very\nquickly all of a sudden."
+    0825B41E  callstd              function=MSGBOX_NPC(2)
+    0825B420  end                  
+
+  object 3 (gfx 0x23, flag 0x0000) -> 0x0825B3DF
+  script 0x0825B3DF  [ok]
+    0825B3DF  msgbox_multilang     type=0 text_0="Repel not only keeps bugs away, it\nalso works on weak Pokémon.\pPut your strongest Pokémon at the\nleft of the Pokémon List.\pIf your first Pokémon is strong,\nRepel’s effect is boosted." text_1="Repel not only keeps bugs away, it\nalso works on weak Pokémon.\pPut your strongest Pokémon at the\nleft of the Pokémon List.\pIf your first Pokémon is strong,\nRepel’s effect is boosted." text_2="Repel not only keeps bugs away, it\nalso works on weak Pokémon.\pPut your strongest Pokémon at the\nleft of the Pokémon List.\pIf your first Pokémon is strong,\nRepel’s effect is boosted." text_3="Repel not only keeps bugs away, it\nalso works on weak Pokémon.\pPut your strongest Pokémon at the\nleft of the Pokémon List.\pIf your first Pokémon is strong,\nRepel’s effect is boosted." text_4="Repel not only keeps bugs away, it\nalso works on weak Pokémon.\pPut your strongest Pokémon at the\nleft of the Pokémon List.\pIf your first Pokémon is strong,\nRepel’s effect is boosted." text_5="Repel not only keeps bugs away, it\nalso works on weak Pokémon.\pPut your strongest Pokémon at the\nleft of the Pokémon List.\pIf your first Pokémon is strong,\nRepel’s effect is boosted." text_6="Repel not only keeps bugs away, it\nalso works on weak Pokémon.\pPut your strongest Pokémon at the\nleft of the Pokémon List.\pIf your first Pokémon is strong,\nRepel’s effect is boosted."
+    0825B3FD  callstd              function=MSGBOX_NPC(2)
+    0825B3FF  end                  
+

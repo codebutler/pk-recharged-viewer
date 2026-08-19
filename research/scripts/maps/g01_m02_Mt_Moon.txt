@@ -1,0 +1,55 @@
+Mt. Moon  (group 1, map 2)  header 0x08B3B250
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x40, flag 0x0121) -> 0x00000000
+  coord trigger 0 (var 0x40E1 == 3) -> 0x082078E3
+  script 0x082078E3  [ok]
+    082078E3  lockall              
+    082078E4  setflag              flag=0x4005 (temp)
+    082078E7  special              SPECIAL_\function=190
+    082078EA  applymovement        localId=127 movements=[walk_down walk_down walk_down]
+    082078F1  waitmovement         localId=127
+    082078F4  applymovement        localId=1 movements=[face_left delay_16 delay_16 delay_16 delay_16 face_right delay_16 delay_16 delay_16 delay_16 face_down delay_16 delay_16 delay_16 delay_16 face_up delay_16 delay_16 delay_16 delay_16]
+    082078FB  waitmovement         localId=1
+    082078FE  playse               song=21
+    08207901  applymovement        localId=1 movements=[emote_exclamation_mark]
+    08207908  waitmovement         localId=1
+    0820790B  waitse               
+    0820790C  playmoncry           species=MEOWTH(52) mode=0
+    08207911  speakername          name="Meowth"
+    08207916  msgbox_multilang     type=0 text_0="Mrowr?!" text_1="¿¡Miau?!" text_2="Miaou ?!" text_3="Miao?!" text_4="Miau?!" text_5="Miau?!" text_6="Mrowr?!"
+    08207934  callstd              function=MSGBOX_DEFAULT(4)
+    08207936  closemessage         
+    08207937  applymovement        localId=1 movements=[walk_fast_right walk_fast_right walk_fast_right walk_fast_right walk_fast_right walk_fast_right walk_fast_right walk_fast_right walk_fast_right walk_fast_right]
+    0820793E  waitmovement         localId=1
+    08207941  removeobject         localId=1
+    08207944  applymovement        localId=127 movements=[walk_up walk_up walk_up]
+    0820794B  waitmovement         localId=127
+    0820794E  special              SPECIAL_\function=191
+    08207951  clearflag            flag=0x4005 (temp)
+    08207954  addvar               destination=VAR_0x40E1 value=1
+    08207959  releaseall           
+
+  coord trigger 1 (var 0x40E1 == 3) -> 0x082078E3
+  coord trigger 2 (var 0x40E1 == 3) -> 0x082078E3
+  hidden item at (46,2): TinyMushroom
+
+  hidden item at (26,2): TinyMushroom
+
+  hidden item at (39,34): TinyMushroom
+
+  hidden item at (24,35): Big Mushroom
+
+  hidden item at (6,12): Big Mushroom
+
+  hidden item at (25,34): Big Mushroom
+

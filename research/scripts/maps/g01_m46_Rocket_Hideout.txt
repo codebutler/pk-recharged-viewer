@@ -1,0 +1,171 @@
+Rocket Hideout  (group 1, map 46)  header 0x08B3B720
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  sign 0 at (0,2) -> 0x0820E9B2
+  script 0x0820E9B2  [ok]
+    0820E9B2  lockall              
+    0820E9B3  checkflag            flag=0x2A5
+    0820E9B6  goto_if              condition=0 destination=0x0820EA5D
+    0820E9BC  setvar               destination=VAR_0x8004 value=2
+    0820E9C1  checkflag            flag=0x002
+    0820E9C4  goto_if              condition=0 destination=0x0820EA7F
+    0820E9CA  copyvar              destination=VAR_0x8005 source=VAR_0x403A
+    0820E9CF  special              SPECIAL_\function=352
+    0820E9D2  message              text="Which floor do you want?"
+    0820E9D7  turnobject           localId=12161 direction=8
+    0820E9DB  turnobject           localId=12161 direction=8
+    0820E9DF  turnobject           localId=12161 direction=8
+    0820E9E3  turnobject           localId=12161 direction=8
+    0820E9E7  turnobject           localId=12161 direction=8
+    0820E9EB  turnobject           localId=12161 direction=8
+    0820E9EF  waitmessage          
+    0820E9F0  setvar               destination=VAR_0x8004 value=2
+    0820E9F5  specialvar           output=32781 SPECIAL_\function=353
+    0820E9FA  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0820E9FF  compare_var_to_value var=0x8000 value=0
+    0820EA04  goto_if              condition=1 destination=0x0820EA89
+    0820EA0A  compare_var_to_value var=0x8000 value=1
+    0820EA0F  goto_if              condition=1 destination=0x0820EA94
+    0820EA15  compare_var_to_value var=0x8000 value=2
+    0820EA1A  goto_if              condition=1 destination=0x0820EA9F
+    0820EA20  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0820EA25  compare_var_to_value var=0x8000 value=0
+    0820EA2A  goto_if              condition=1 destination=0x0820EAAA
+    0820EA30  compare_var_to_value var=0x8000 value=1
+    0820EA35  goto_if              condition=1 destination=0x0820EAD2
+    0820EA3B  compare_var_to_value var=0x8000 value=2
+    0820EA40  goto_if              condition=1 destination=0x0820EAFA
+    0820EA46  compare_var_to_value var=0x8000 value=3
+    0820EA4B  goto_if              condition=1 destination=0x0820EB22
+    0820EA51  compare_var_to_value var=0x8000 value=127
+    0820EA56  goto_if              condition=1 destination=0x0820EB22
+    0820EA5C  end                  
+
+  script 0x0820EA5D  [ok]
+    0820EA5D  msgbox_multilang     type=0 text_0="It appears to need a key." text_1="It appears to need a key." text_2="It appears to need a key." text_3="It appears to need a key." text_4="It appears to need a key." text_5="It appears to need a key." text_6="It appears to need a key."
+    0820EA7B  callstd              function=MSGBOX_DEFAULT(4)
+    0820EA7D  releaseall           
+
+  script 0x0820EA7F  [ok]
+    0820EA7F  call                 destination=0x082F8187
+    0820EA84  goto                 destination=0x0820E9CA
+
+  script 0x0820EA89  [ok]
+    0820EA89  multichoicedefault   x=0 y=0 multichoiceId=42 default=0 ignoreBPress=0
+    0820EA8F  goto                 destination=0x0820EA20
+
+  script 0x0820EA94  [ok]
+    0820EA94  multichoicedefault   x=0 y=0 multichoiceId=42 default=1 ignoreBPress=0
+    0820EA9A  goto                 destination=0x0820EA20
+
+  script 0x0820EA9F  [ok]
+    0820EA9F  multichoicedefault   x=0 y=0 multichoiceId=42 default=2 ignoreBPress=0
+    0820EAA5  goto                 destination=0x0820EA20
+
+  script 0x0820EAAA  [ok]
+    0820EAAA  setvar               destination=VAR_0x8006 value=3
+    0820EAAF  setdynamicwarp       mapGroup=1 mapNum=42 WARP_ID_NONE=255 -1=24 -1=25
+    0820EAB7  compare_var_to_value var=0x403A value=3
+    0820EABC  goto_if              condition=1 destination=0x0820EB27
+    0820EAC2  call                 destination=0x0820EB45
+    0820EAC7  setvar               destination=VAR_0x403A value=3
+    0820EACC  goto                 destination=0x0820EB22
+
+  script 0x0820EAD2  [ok]
+    0820EAD2  setvar               destination=VAR_0x8006 value=2
+    0820EAD7  setdynamicwarp       mapGroup=1 mapNum=43 WARP_ID_NONE=255 -1=28 -1=16
+    0820EADF  compare_var_to_value var=0x403A value=2
+    0820EAE4  goto_if              condition=1 destination=0x0820EB31
+    0820EAEA  call                 destination=0x0820EB45
+    0820EAEF  setvar               destination=VAR_0x403A value=2
+    0820EAF4  goto                 destination=0x0820EB22
+
+  script 0x0820EAFA  [ok]
+    0820EAFA  setvar               destination=VAR_0x8006 value=0
+    0820EAFF  setdynamicwarp       mapGroup=1 mapNum=45 WARP_ID_NONE=255 -1=20 -1=23
+    0820EB07  compare_var_to_value var=0x403A value=0
+    0820EB0C  goto_if              condition=1 destination=0x0820EB3B
+    0820EB12  call                 destination=0x0820EB45
+    0820EB17  setvar               destination=VAR_0x403A value=0
+    0820EB1C  goto                 destination=0x0820EB22
+
+  script 0x0820EB22  [ok]
+    0820EB22  special              SPECIAL_\function=354
+    0820EB25  releaseall           
+
+  script 0x082F8187  [ok]
+    082F8187  special              SPECIAL_\function=385
+    082F818A  return               
+
+  script 0x0820E9CA  [ok]
+    0820E9CA  copyvar              destination=VAR_0x8005 source=VAR_0x403A
+    0820E9CF  special              SPECIAL_\function=352
+    0820E9D2  message              text="Which floor do you want?"
+    0820E9D7  turnobject           localId=12161 direction=8
+    0820E9DB  turnobject           localId=12161 direction=8
+    0820E9DF  turnobject           localId=12161 direction=8
+    0820E9E3  turnobject           localId=12161 direction=8
+    0820E9E7  turnobject           localId=12161 direction=8
+    0820E9EB  turnobject           localId=12161 direction=8
+    0820E9EF  waitmessage          
+    0820E9F0  setvar               destination=VAR_0x8004 value=2
+    0820E9F5  specialvar           output=32781 SPECIAL_\function=353
+    0820E9FA  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0820E9FF  compare_var_to_value var=0x8000 value=0
+    0820EA04  goto_if              condition=1 destination=0x0820EA89
+    0820EA0A  compare_var_to_value var=0x8000 value=1
+    0820EA0F  goto_if              condition=1 destination=0x0820EA94
+    0820EA15  compare_var_to_value var=0x8000 value=2
+    0820EA1A  goto_if              condition=1 destination=0x0820EA9F
+    0820EA20  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0820EA25  compare_var_to_value var=0x8000 value=0
+    0820EA2A  goto_if              condition=1 destination=0x0820EAAA
+    0820EA30  compare_var_to_value var=0x8000 value=1
+    0820EA35  goto_if              condition=1 destination=0x0820EAD2
+    0820EA3B  compare_var_to_value var=0x8000 value=2
+    0820EA40  goto_if              condition=1 destination=0x0820EAFA
+    0820EA46  compare_var_to_value var=0x8000 value=3
+    0820EA4B  goto_if              condition=1 destination=0x0820EB22
+    0820EA51  compare_var_to_value var=0x8000 value=127
+    0820EA56  goto_if              condition=1 destination=0x0820EB22
+    0820EA5C  end                  
+
+  script 0x0820EA20  [ok]
+    0820EA20  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0820EA25  compare_var_to_value var=0x8000 value=0
+    0820EA2A  goto_if              condition=1 destination=0x0820EAAA
+    0820EA30  compare_var_to_value var=0x8000 value=1
+    0820EA35  goto_if              condition=1 destination=0x0820EAD2
+    0820EA3B  compare_var_to_value var=0x8000 value=2
+    0820EA40  goto_if              condition=1 destination=0x0820EAFA
+    0820EA46  compare_var_to_value var=0x8000 value=3
+    0820EA4B  goto_if              condition=1 destination=0x0820EB22
+    0820EA51  compare_var_to_value var=0x8000 value=127
+    0820EA56  goto_if              condition=1 destination=0x0820EB22
+    0820EA5C  end                  
+
+  script 0x0820EB27  [ok]
+    0820EB27  goto                 destination=0x0820EB22
+
+  script 0x0820EB45  [ok]
+    0820EB45  special              SPECIAL_\function=354
+    0820EB48  closemessage         
+    0820EB49  waitse               
+    0820EB4A  special              SPECIAL_\function=355
+    0820EB4D  waitstate            
+
+  script 0x0820EB31  [ok]
+    0820EB31  goto                 destination=0x0820EB22
+
+  script 0x0820EB3B  [ok]
+    0820EB3B  goto                 destination=0x0820EB22
+

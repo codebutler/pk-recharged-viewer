@@ -1,0 +1,35 @@
+Lavender Town  (group 8, map 4)  header 0x08B3D17C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x30, flag 0x0000) -> 0x0825CD6D
+  script 0x0825CD6D  [ok]
+    0825CD6D  lock                 
+    0825CD6E  faceplayer           
+    0825CD6F  msgbox_multilang     type=0 text_0="Hello, hello!\nI am the official Name Rater!\pWant me to rate the nicknames of\nyour Pokémon?" text_1="Hello, hello!\nI am the official Name Rater!\pWant me to rate the nicknames of\nyour Pokémon?" text_2="Hello, hello!\nI am the official Name Rater!\pWant me to rate the nicknames of\nyour Pokémon?" text_3="Hello, hello!\nI am the official Name Rater!\pWant me to rate the nicknames of\nyour Pokémon?" text_4="Hello, hello!\nI am the official Name Rater!\pWant me to rate the nicknames of\nyour Pokémon?" text_5="Hello, hello!\nI am the official Name Rater!\pWant me to rate the nicknames of\nyour Pokémon?" text_6="Hello, hello!\nI am the official Name Rater!\pWant me to rate the nicknames of\nyour Pokémon?"
+    0825CD8D  callstd              function=MSGBOX_YESNO(5)
+    0825CD8F  compare_var_to_value var=0x800D value=1
+    0825CD94  goto_if              condition=1 destination=0x0825CDA6
+    0825CD9A  compare_var_to_value var=0x800D value=0
+    0825CD9F  goto_if              condition=1 destination=0x0825CDE1
+    0825CDA5  end                  
+
+  script 0x0825CDA6  [ok]
+    0825CDA6  msgbox_multilang     type=0 text_0="Which Pokémon’s nickname should\nI critique?" text_1="Which Pokémon’s nickname should\nI critique?" text_2="Which Pokémon’s nickname should\nI critique?" text_3="Which Pokémon’s nickname should\nI critique?" text_4="Which Pokémon’s nickname should\nI critique?" text_5="Which Pokémon’s nickname should\nI critique?" text_6="Which Pokémon’s nickname should\nI critique?"
+    0825CDC4  callstd              function=MSGBOX_DEFAULT(4)
+    0825CDC6  special              SPECIAL_\function=96
+    0825CDC9  waitstate            
+
+  script 0x0825CDE1  [ok]
+    0825CDE1  msgbox_multilang     type=0 text_0="I see.\nDo come visit again." text_1="I see.\nDo come visit again." text_2="I see.\nDo come visit again." text_3="I see.\nDo come visit again." text_4="I see.\nDo come visit again." text_5="I see.\nDo come visit again." text_6="I see.\nDo come visit again."
+    0825CDFF  callstd              function=MSGBOX_DEFAULT(4)
+    0825CE01  release              
+

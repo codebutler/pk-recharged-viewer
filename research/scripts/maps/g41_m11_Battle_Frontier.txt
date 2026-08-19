@@ -1,0 +1,549 @@
+Battle Frontier  (group 41, map 11)  header 0x08B3E1E4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x08296A1F
+  script 0x08296A1F  [ok]
+    08296A1F  compare_var_to_value var=0x8006 value=1
+    08296A24  goto_if              condition=1 destination=0x08296F8C
+    08296A2A  setvar               destination=VAR_0x8004 value=2
+    08296A2F  setvar               destination=VAR_0x8005 value=6
+    08296A34  setvar               destination=VAR_0x8006 value=1
+    08296A39  special              SPECIAL_\function=148
+    08296A3C  setvar               destination=VAR_0x4000 value=1
+    08296A41  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up]
+    08296A48  waitmovement         localId=0
+    08296A4B  lockall              
+    08296A4C  call                 destination=0x08296E00
+    08296A51  waitmessage          
+    08296A52  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296A57  call                 destination=0x0828900D
+    08296A5C  compare_var_to_value var=0x800D value=1
+    08296A61  goto_if              condition=1 destination=0x08296ABE
+    08296A67  multichoice          x=16 y=0 multichoiceId=75 ignoreBPress=1
+    08296A6C  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296A71  compare_var_to_value var=0x8000 value=0
+    08296A76  goto_if              condition=1 destination=0x08296C3A
+    08296A7C  compare_var_to_value var=0x8000 value=1
+    08296A81  goto_if              condition=1 destination=0x08296C6A
+    08296A87  compare_var_to_value var=0x8000 value=2
+    08296A8C  goto_if              condition=1 destination=0x08296D42
+    08296A92  compare_var_to_value var=0x8000 value=3
+    08296A97  goto_if              condition=1 destination=0x08296B0A
+    08296A9D  compare_var_to_value var=0x8000 value=4
+    08296AA2  goto_if              condition=1 destination=0x08296B5E
+    08296AA8  compare_var_to_value var=0x8000 value=5
+    08296AAD  goto_if              condition=1 destination=0x08296BA4
+    08296AB3  compare_var_to_value var=0x8000 value=127
+    08296AB8  goto_if              condition=1 destination=0x08296A4C
+    08296ABE  multichoice          x=16 y=2 multichoiceId=107 ignoreBPress=1
+    08296AC3  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296AC8  compare_var_to_value var=0x8000 value=0
+    08296ACD  goto_if              condition=1 destination=0x08296C3A
+    08296AD3  compare_var_to_value var=0x8000 value=1
+    08296AD8  goto_if              condition=1 destination=0x08296C6A
+    08296ADE  compare_var_to_value var=0x8000 value=2
+    08296AE3  goto_if              condition=1 destination=0x08296D42
+    08296AE9  compare_var_to_value var=0x8000 value=3
+    08296AEE  goto_if              condition=1 destination=0x08296B5E
+    08296AF4  compare_var_to_value var=0x8000 value=4
+    08296AF9  goto_if              condition=1 destination=0x08296BA4
+    08296AFF  compare_var_to_value var=0x8000 value=127
+    08296B04  goto_if              condition=1 destination=0x08296A4C
+    08296B0A  message              text="Should I record your last match\non your FRONTIER PASS?"
+    08296B0F  compare_local_to_value local=117 value=41
+    08296B12  gotostd              function=28
+    08296B14  showmonpic           species=?(2089) x=28 y=117
+    08296B19  setflag              flag=0x1C08
+    08296B1C  showmonpic           species=?(2089) x=28 y=117
+    08296B21  setflag              flag=0x1C08
+    08296B24  showmonpic           species=?(2089) x=102 y=112
+    08296B29  copylocal            destIndex=8 srcIndex=94
+    08296B2C  nop1                 
+    08296B2D  nop                  
+    08296B2E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296B33  compare_var_to_value var=0x8000 value=1
+    08296B38  goto_if              condition=1 destination=0x08296A4C
+    08296B3E  compare_var_to_value var=0x8000 value=0
+    08296B43  goto_if              condition=1 destination=0x08296B54
+    08296B49  compare_var_to_value var=0x8000 value=127
+    08296B4E  goto_if              condition=1 destination=0x08296A4C
+    08296B54  call                 destination=0x08288FB1
+    08296B59  goto                 destination=0x08296A4C
+
+  script 0x08296F8C  [ok]
+    08296F8C  setvar               destination=VAR_0x4000 value=1
+    08296F91  msgbox_multilang     type=0 text_0="Thank you for competing!\pI’ll restore your POKéMON to\nfull health." text_1="Thank you for competing!\pI’ll restore your POKéMON to\nfull health." text_2="Thank you for competing!\pI’ll restore your POKéMON to\nfull health." text_3="Thank you for competing!\pI’ll restore your POKéMON to\nfull health." text_4="Thank you for competing!\pI’ll restore your POKéMON to\nfull health." text_5="Thank you for competing!\pI’ll restore your POKéMON to\nfull health." text_6="Thank you for competing!\pI’ll restore your POKéMON to\nfull health."
+    08296FAF  callstd              function=MSGBOX_DEFAULT(4)
+    08296FB1  special              SPECIAL_\function=19
+    08296FB4  setvar               destination=VAR_0x8004 value=3
+    08296FB9  setvar               destination=VAR_0x8005 value=3
+    08296FBE  special              SPECIAL_\function=148
+    08296FC1  playfanfare          song=368
+    08296FC4  waitfanfare          
+    08296FC5  special              SPECIAL_\function=0
+    08296FC8  call                 destination=0x08296FDD
+    08296FCD  fadescreen           mode=1
+    08296FCF  setvar               destination=VAR_0x8004 value=11
+    08296FD4  special              SPECIAL_\function=150
+    08296FD7  waitstate            
+
+  script 0x08296E00  [ok]
+    08296E00  setvar               destination=VAR_0x8004 value=1
+    08296E05  setvar               destination=VAR_0x8005 value=2
+    08296E0A  special              SPECIAL_\function=148
+    08296E0D  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296E12  compare_var_to_value var=0x8000 value=0
+    08296E17  goto_if              condition=1 destination=0x08296E3F
+    08296E1D  compare_var_to_value var=0x8000 value=1
+    08296E22  goto_if              condition=1 destination=0x08296E5D
+    08296E28  compare_var_to_value var=0x8000 value=2
+    08296E2D  goto_if              condition=1 destination=0x08296E7B
+    08296E33  compare_var_to_value var=0x8000 value=3
+    08296E38  goto_if              condition=1 destination=0x08296E99
+    08296E3E  return               
+
+  script 0x0828900D  [ok]
+    0828900D  setvar               destination=VAR_0x8004 value=1
+    08289012  setvar               destination=VAR_0x8005 value=6
+    08289017  special              SPECIAL_\function=148
+    0828901A  return               
+
+  script 0x08296ABE  [ok]
+    08296ABE  multichoice          x=16 y=2 multichoiceId=107 ignoreBPress=1
+    08296AC3  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296AC8  compare_var_to_value var=0x8000 value=0
+    08296ACD  goto_if              condition=1 destination=0x08296C3A
+    08296AD3  compare_var_to_value var=0x8000 value=1
+    08296AD8  goto_if              condition=1 destination=0x08296C6A
+    08296ADE  compare_var_to_value var=0x8000 value=2
+    08296AE3  goto_if              condition=1 destination=0x08296D42
+    08296AE9  compare_var_to_value var=0x8000 value=3
+    08296AEE  goto_if              condition=1 destination=0x08296B5E
+    08296AF4  compare_var_to_value var=0x8000 value=4
+    08296AF9  goto_if              condition=1 destination=0x08296BA4
+    08296AFF  compare_var_to_value var=0x8000 value=127
+    08296B04  goto_if              condition=1 destination=0x08296A4C
+    08296B0A  message              text="Should I record your last match\non your FRONTIER PASS?"
+    08296B0F  compare_local_to_value local=117 value=41
+    08296B12  gotostd              function=28
+    08296B14  showmonpic           species=?(2089) x=28 y=117
+    08296B19  setflag              flag=0x1C08
+    08296B1C  showmonpic           species=?(2089) x=28 y=117
+    08296B21  setflag              flag=0x1C08
+    08296B24  showmonpic           species=?(2089) x=102 y=112
+    08296B29  copylocal            destIndex=8 srcIndex=94
+    08296B2C  nop1                 
+    08296B2D  nop                  
+    08296B2E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296B33  compare_var_to_value var=0x8000 value=1
+    08296B38  goto_if              condition=1 destination=0x08296A4C
+    08296B3E  compare_var_to_value var=0x8000 value=0
+    08296B43  goto_if              condition=1 destination=0x08296B54
+    08296B49  compare_var_to_value var=0x8000 value=127
+    08296B4E  goto_if              condition=1 destination=0x08296A4C
+    08296B54  call                 destination=0x08288FB1
+    08296B59  goto                 destination=0x08296A4C
+
+  script 0x08296C3A  [ok]
+    08296C3A  msgbox_multilang     type=0 text_0="{PLAYER}’s next opponent\nis this TRAINER." text_1="{PLAYER}’s next opponent\nis this TRAINER." text_2="{PLAYER}’s next opponent\nis this TRAINER." text_3="{PLAYER}’s next opponent\nis this TRAINER." text_4="{PLAYER}’s next opponent\nis this TRAINER." text_5="{PLAYER}’s next opponent\nis this TRAINER." text_6="{PLAYER}’s next opponent\nis this TRAINER."
+    08296C58  callstd              function=MSGBOX_DEFAULT(4)
+    08296C5A  fadescreen           mode=1
+    08296C5C  setvar               destination=VAR_0x8004 value=6
+    08296C61  special              SPECIAL_\function=150
+    08296C64  waitstate            
+
+  script 0x08296C6A  [ok]
+    08296C6A  call                 destination=0x08296C7F
+    08296C6F  fadescreen           mode=1
+    08296C71  setvar               destination=VAR_0x8004 value=7
+    08296C76  special              SPECIAL_\function=150
+    08296C79  waitstate            
+
+  script 0x08296D42  [ok]
+    08296D42  message              text="Please choose the two POKéMON\nthat are to appear in battle."
+    08296D47  playfanfare          song=10609
+    08296D4A  gotostd              function=49
+    08296D4C  multichoicegrid      x=41 y=8 multichoiceId=49 per_row=113 ignoreBPress=41
+    08296D52  gotostd              function=49
+    08296D54  multichoicegrid      x=41 y=8 multichoiceId=49 per_row=113 ignoreBPress=41
+    08296D5A  gotostd              function=49
+    08296D5C  multichoicegrid      x=41 y=8 multichoiceId=102 per_row=109 ignoreBPress=151
+    08296D62  nop1                 
+    08296D63  call                 destination=0x08289DDE
+    08296D68  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    08296D6D  setvar               destination=VAR_0x8005 value=2
+    08296D72  special              SPECIAL_\function=161
+    08296D75  waitstate            
+
+  script 0x08296B0A  [ok]
+    08296B0A  message              text="Should I record your last match\non your FRONTIER PASS?"
+    08296B0F  compare_local_to_value local=117 value=41
+    08296B12  gotostd              function=28
+    08296B14  showmonpic           species=?(2089) x=28 y=117
+    08296B19  setflag              flag=0x1C08
+    08296B1C  showmonpic           species=?(2089) x=28 y=117
+    08296B21  setflag              flag=0x1C08
+    08296B24  showmonpic           species=?(2089) x=102 y=112
+    08296B29  copylocal            destIndex=8 srcIndex=94
+    08296B2C  nop1                 
+    08296B2D  nop                  
+    08296B2E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296B33  compare_var_to_value var=0x8000 value=1
+    08296B38  goto_if              condition=1 destination=0x08296A4C
+    08296B3E  compare_var_to_value var=0x8000 value=0
+    08296B43  goto_if              condition=1 destination=0x08296B54
+    08296B49  compare_var_to_value var=0x8000 value=127
+    08296B4E  goto_if              condition=1 destination=0x08296A4C
+    08296B54  call                 destination=0x08288FB1
+    08296B59  goto                 destination=0x08296A4C
+
+  script 0x08296B5E  [ok]
+    08296B5E  msgbox_multilang     type=0 text_0="Would you like to save and\nquit the game?" text_1="Would you like to save and\nquit the game?" text_2="Would you like to save and\nquit the game?" text_3="Would you like to save and\nquit the game?" text_4="Would you like to save and\nquit the game?" text_5="Would you like to save and\nquit the game?" text_6="Would you like to save and\nquit the game?"
+    08296B7C  callstd              function=MSGBOX_YESNO(5)
+    08296B7E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296B83  compare_var_to_value var=0x8000 value=0
+    08296B88  goto_if              condition=1 destination=0x08296A4C
+    08296B8E  compare_var_to_value var=0x8000 value=1
+    08296B93  goto_if              condition=1 destination=0x08296C00
+    08296B99  compare_var_to_value var=0x8000 value=127
+    08296B9E  goto_if              condition=1 destination=0x08296A4C
+    08296BA4  message              text="Would you like to retire from your\nBattle Tournament challenge?"
+    08296BA9  setvaddress          pointer=3087542644
+    08296BAE  drawboxtext          left=41 top=8 multichoiceId=184 ignoreBPress=116
+    08296BB3  setflag              flag=0xB808 (temp)
+    08296BB6  drawboxtext          left=41 top=8 multichoiceId=184 ignoreBPress=116
+    08296BBB  setflag              flag=0xB808 (temp)
+    08296BBE  drawboxtext          left=41 top=8 multichoiceId=102 ignoreBPress=112
+    08296BC3  copylocal            destIndex=8 srcIndex=94
+    08296BC6  nop1                 
+    08296BC7  nop                  
+    08296BC8  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296BCD  compare_var_to_value var=0x8000 value=1
+    08296BD2  goto_if              condition=1 destination=0x08296A4C
+    08296BD8  compare_var_to_value var=0x8000 value=0
+    08296BDD  goto_if              condition=1 destination=0x08296BEE
+    08296BE3  compare_var_to_value var=0x8000 value=127
+    08296BE8  goto_if              condition=1 destination=0x08296A4C
+    08296BEE  setvar               destination=VAR_0x8004 value=12
+    08296BF3  setvar               destination=VAR_0x8005 value=9
+    08296BF8  special              SPECIAL_\function=150
+    08296BFB  goto                 destination=0x08297922
+
+  script 0x08296BA4  [ok]
+    08296BA4  message              text="Would you like to retire from your\nBattle Tournament challenge?"
+    08296BA9  setvaddress          pointer=3087542644
+    08296BAE  drawboxtext          left=41 top=8 multichoiceId=184 ignoreBPress=116
+    08296BB3  setflag              flag=0xB808 (temp)
+    08296BB6  drawboxtext          left=41 top=8 multichoiceId=184 ignoreBPress=116
+    08296BBB  setflag              flag=0xB808 (temp)
+    08296BBE  drawboxtext          left=41 top=8 multichoiceId=102 ignoreBPress=112
+    08296BC3  copylocal            destIndex=8 srcIndex=94
+    08296BC6  nop1                 
+    08296BC7  nop                  
+    08296BC8  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296BCD  compare_var_to_value var=0x8000 value=1
+    08296BD2  goto_if              condition=1 destination=0x08296A4C
+    08296BD8  compare_var_to_value var=0x8000 value=0
+    08296BDD  goto_if              condition=1 destination=0x08296BEE
+    08296BE3  compare_var_to_value var=0x8000 value=127
+    08296BE8  goto_if              condition=1 destination=0x08296A4C
+    08296BEE  setvar               destination=VAR_0x8004 value=12
+    08296BF3  setvar               destination=VAR_0x8005 value=9
+    08296BF8  special              SPECIAL_\function=150
+    08296BFB  goto                 destination=0x08297922
+
+  script 0x08296A4C  [ok]
+    08296A4C  call                 destination=0x08296E00
+    08296A51  waitmessage          
+    08296A52  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296A57  call                 destination=0x0828900D
+    08296A5C  compare_var_to_value var=0x800D value=1
+    08296A61  goto_if              condition=1 destination=0x08296ABE
+    08296A67  multichoice          x=16 y=0 multichoiceId=75 ignoreBPress=1
+    08296A6C  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296A71  compare_var_to_value var=0x8000 value=0
+    08296A76  goto_if              condition=1 destination=0x08296C3A
+    08296A7C  compare_var_to_value var=0x8000 value=1
+    08296A81  goto_if              condition=1 destination=0x08296C6A
+    08296A87  compare_var_to_value var=0x8000 value=2
+    08296A8C  goto_if              condition=1 destination=0x08296D42
+    08296A92  compare_var_to_value var=0x8000 value=3
+    08296A97  goto_if              condition=1 destination=0x08296B0A
+    08296A9D  compare_var_to_value var=0x8000 value=4
+    08296AA2  goto_if              condition=1 destination=0x08296B5E
+    08296AA8  compare_var_to_value var=0x8000 value=5
+    08296AAD  goto_if              condition=1 destination=0x08296BA4
+    08296AB3  compare_var_to_value var=0x8000 value=127
+    08296AB8  goto_if              condition=1 destination=0x08296A4C
+    08296ABE  multichoice          x=16 y=2 multichoiceId=107 ignoreBPress=1
+    08296AC3  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296AC8  compare_var_to_value var=0x8000 value=0
+    08296ACD  goto_if              condition=1 destination=0x08296C3A
+    08296AD3  compare_var_to_value var=0x8000 value=1
+    08296AD8  goto_if              condition=1 destination=0x08296C6A
+    08296ADE  compare_var_to_value var=0x8000 value=2
+    08296AE3  goto_if              condition=1 destination=0x08296D42
+    08296AE9  compare_var_to_value var=0x8000 value=3
+    08296AEE  goto_if              condition=1 destination=0x08296B5E
+    08296AF4  compare_var_to_value var=0x8000 value=4
+    08296AF9  goto_if              condition=1 destination=0x08296BA4
+    08296AFF  compare_var_to_value var=0x8000 value=127
+    08296B04  goto_if              condition=1 destination=0x08296A4C
+    08296B0A  message              text="Should I record your last match\non your FRONTIER PASS?"
+    08296B0F  compare_local_to_value local=117 value=41
+    08296B12  gotostd              function=28
+    08296B14  showmonpic           species=?(2089) x=28 y=117
+    08296B19  setflag              flag=0x1C08
+    08296B1C  showmonpic           species=?(2089) x=28 y=117
+    08296B21  setflag              flag=0x1C08
+    08296B24  showmonpic           species=?(2089) x=102 y=112
+    08296B29  copylocal            destIndex=8 srcIndex=94
+    08296B2C  nop1                 
+    08296B2D  nop                  
+    08296B2E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296B33  compare_var_to_value var=0x8000 value=1
+    08296B38  goto_if              condition=1 destination=0x08296A4C
+    08296B3E  compare_var_to_value var=0x8000 value=0
+    08296B43  goto_if              condition=1 destination=0x08296B54
+    08296B49  compare_var_to_value var=0x8000 value=127
+    08296B4E  goto_if              condition=1 destination=0x08296A4C
+    08296B54  call                 destination=0x08288FB1
+    08296B59  goto                 destination=0x08296A4C
+
+  script 0x08296B54  [ok]
+    08296B54  call                 destination=0x08288FB1
+    08296B59  goto                 destination=0x08296A4C
+
+  script 0x08288FB1  [ok]
+    08288FB1  setvar               destination=VAR_0x8004 value=19
+    08288FB6  special              SPECIAL_\function=148
+    08288FB9  compare_var_to_value var=0x800D value=0
+    08288FBE  goto_if              condition=1 destination=0x08288FEC
+    08288FC4  playse               song=55
+    08288FC7  msgbox_multilang     type=0 text_0="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_1="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_2="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_3="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_4="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_5="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_6="{PLAYER}’s battle was recorded\non the FRONTIER PASS."
+    08288FE5  callstd              function=MSGBOX_DEFAULT(4)
+    08288FE7  goto                 destination=0x0828900C
+
+  script 0x08296FDD  [ok]
+    08296FDD  setvar               destination=VAR_0x8004 value=1
+    08296FE2  setvar               destination=VAR_0x8005 value=2
+    08296FE7  special              SPECIAL_\function=148
+    08296FEA  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296FEF  compare_var_to_value var=0x8000 value=1
+    08296FF4  goto_if              condition=1 destination=0x08297011
+    08296FFA  compare_var_to_value var=0x8000 value=2
+    08296FFF  goto_if              condition=1 destination=0x08297032
+    08297005  compare_var_to_value var=0x8000 value=3
+    0829700A  goto_if              condition=1 destination=0x08297053
+    08297010  return               
+
+  script 0x08296E3F  [ok]
+    08296E3F  message              text="Your 1st-round match is next.\nAre you ready?"
+    08296E44  bufferdecorationname stringVarId=112 decoration=2089
+    08296E48  bufferdecorationname stringVarId=112 decoration=2089
+    08296E4C  bufferdecorationname stringVarId=112 decoration=2089
+    08296E50  bufferdecorationname stringVarId=112 decoration=2089
+    08296E54  bufferdecorationname stringVarId=112 decoration=2089
+    08296E58  bufferdecorationname stringVarId=112 decoration=2089
+    08296E5C  return               
+
+  script 0x08296E5D  [opcode-out-of-range:0xF0]
+    08296E5D  message              text="Your 2nd-round match is next.\nAre you ready?"
+    08296E62  waitdooranim         
+    08296E63  multichoicedefault   x=41 y=8 multichoiceId=174 default=112 ignoreBPress=41
+    08296E69  gotostd              function=174
+    08296E6B  multichoicedefault   x=41 y=8 multichoiceId=174 default=112 ignoreBPress=41
+    08296E71  gotostd              function=174
+    08296E73  multichoicedefault   x=41 y=8 multichoiceId=174 default=112 ignoreBPress=41
+    08296E79  gotostd              function=MSGBOX_SIGN(3)
+    08296E7B  message              text="Your semifinal match is next.\nAre you ready?"
+    08296E80  messageinstant       text=3674745200
+    08296E85  multichoicedefault   x=41 y=8 multichoiceId=219 default=112 ignoreBPress=41
+    08296E8B  gotostd              function=219
+    08296E8D  multichoicedefault   x=41 y=8 multichoiceId=219 default=112 ignoreBPress=41
+    08296E93  gotostd              function=219
+    08296E95  multichoicedefault   x=41 y=8 multichoiceId=3 default=22 ignoreBPress=4
+    08296E9B  bufferitemname       stringVarId=9 item=9472
+    08296E9F  hidemoneybox         0=0 0=25
+    08296EA2  nop                  
+    08296EA3  bufferitemname       stringVarId=13 item=8576
+    08296EA7  nop                  
+    08296EA8  bufferitemname       stringVarId=1 item=1536
+    08296EAC  nop1                 
+
+  script 0x08296E7B  [opcode-out-of-range:0xF0]
+    08296E7B  message              text="Your semifinal match is next.\nAre you ready?"
+    08296E80  messageinstant       text=3674745200
+    08296E85  multichoicedefault   x=41 y=8 multichoiceId=219 default=112 ignoreBPress=41
+    08296E8B  gotostd              function=219
+    08296E8D  multichoicedefault   x=41 y=8 multichoiceId=219 default=112 ignoreBPress=41
+    08296E93  gotostd              function=219
+    08296E95  multichoicedefault   x=41 y=8 multichoiceId=3 default=22 ignoreBPress=4
+    08296E9B  bufferitemname       stringVarId=9 item=9472
+    08296E9F  hidemoneybox         0=0 0=25
+    08296EA2  nop                  
+    08296EA3  bufferitemname       stringVarId=13 item=8576
+    08296EA7  nop                  
+    08296EA8  bufferitemname       stringVarId=1 item=1536
+    08296EAC  nop1                 
+
+  script 0x08296E99  [ok]
+    08296E99  setvar               destination=VAR_0x8004 value=9
+    08296E9E  special              SPECIAL_\function=148
+    08296EA1  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296EA6  compare_var_to_value var=0x8000 value=1
+    08296EAB  goto_if              condition=1 destination=0x08296EF0
+    08296EB1  compare_var_to_value var=0x8000 value=2
+    08296EB6  goto_if              condition=1 destination=0x08296F1D
+    08296EBC  compare_var_to_value var=0x8000 value=3
+    08296EC1  goto_if              condition=1 destination=0x08296EF0
+    08296EC7  compare_var_to_value var=0x8000 value=4
+    08296ECC  goto_if              condition=1 destination=0x08296F1D
+    08296ED2  message              text="Your final match is next.\nAre you ready?"
+    08296ED7  gotostd              function=113
+    08296ED9  setflag              flag=0x808
+    08296EDC  multichoicegrid      x=41 y=8 multichoiceId=8 per_row=113 ignoreBPress=41
+    08296EE2  gotostd              function=STD_REGISTER_MATCH_CALL(8)
+    08296EE4  multichoicegrid      x=41 y=8 multichoiceId=8 per_row=113 ignoreBPress=41
+    08296EEA  gotostd              function=STD_REGISTER_MATCH_CALL(8)
+    08296EEC  multichoicegrid      x=41 y=8 multichoiceId=3 per_row=43 ignoreBPress=1
+    08296EF2  nop                  
+    08296EF3  goto_if              condition=1 destination=0x08296F4A
+    08296EF9  msgbox_multilang     type=0 text_0="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_1="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_2="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_3="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_4="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_5="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_6="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?"
+    08296F17  callstd              function=MSGBOX_DEFAULT(4)
+    08296F19  setflag              flag=0x001
+    08296F1C  return               
+
+  script 0x08296C7F  [ok]
+    08296C7F  setvar               destination=VAR_0x8004 value=1
+    08296C84  setvar               destination=VAR_0x8005 value=2
+    08296C89  special              SPECIAL_\function=148
+    08296C8C  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08296C91  compare_var_to_value var=0x8000 value=0
+    08296C96  goto_if              condition=1 destination=0x08296CBE
+    08296C9C  compare_var_to_value var=0x8000 value=1
+    08296CA1  goto_if              condition=1 destination=0x08296CDF
+    08296CA7  compare_var_to_value var=0x8000 value=2
+    08296CAC  goto_if              condition=1 destination=0x08296D00
+    08296CB2  compare_var_to_value var=0x8000 value=3
+    08296CB7  goto_if              condition=1 destination=0x08296D21
+    08296CBD  return               
+
+  script 0x08289DDE  [ok]
+    08289DDE  setvar               destination=VAR_0x8004 value=1
+    08289DE3  setvar               destination=VAR_0x8005 value=1
+    08289DE8  special              SPECIAL_\function=148
+    08289DEB  return               
+
+  script 0x08296C00  [opcode-out-of-range:0xF8]
+    08296C00  message              text="I am saving your data.\nPlease wait."
+
+  script 0x08296BEE  [ok]
+    08296BEE  setvar               destination=VAR_0x8004 value=12
+    08296BF3  setvar               destination=VAR_0x8005 value=9
+    08296BF8  special              SPECIAL_\function=150
+    08296BFB  goto                 destination=0x08297922
+
+  script 0x08297922  [ok]
+    08297922  setvar               destination=VAR_0x8004 value=2
+    08297927  setvar               destination=VAR_0x8005 value=0
+    0829792C  setvar               destination=VAR_0x8006 value=4
+    08297931  special              SPECIAL_\function=148
+    08297934  goto                 destination=0x082987B0
+
+  script 0x08288FEC  [ok]
+    08288FEC  msgbox_multilang     type=0 text_0="There was an error of some sort.\nYour record could not be saved." text_1="There was an error of some sort.\nYour record could not be saved." text_2="There was an error of some sort.\nYour record could not be saved." text_3="There was an error of some sort.\nYour record could not be saved." text_4="There was an error of some sort.\nYour record could not be saved." text_5="There was an error of some sort.\nYour record could not be saved." text_6="There was an error of some sort.\nYour record could not be saved."
+    0828900A  callstd              function=MSGBOX_DEFAULT(4)
+    0828900C  return               
+
+  script 0x0828900C  [ok]
+    0828900C  return               
+
+  script 0x08297011  [ok]
+    08297011  msgbox_multilang     type=0 text_0="All 1st-round matches have been\ncompleted.\pThese are the teams that advanced!" text_1="All 1st-round matches have been\ncompleted.\pThese are the teams that advanced!" text_2="All 1st-round matches have been\ncompleted.\pThese are the teams that advanced!" text_3="All 1st-round matches have been\ncompleted.\pThese are the teams that advanced!" text_4="All 1st-round matches have been\ncompleted.\pThese are the teams that advanced!" text_5="All 1st-round matches have been\ncompleted.\pThese are the teams that advanced!" text_6="All 1st-round matches have been\ncompleted.\pThese are the teams that advanced!"
+    0829702F  callstd              function=MSGBOX_DEFAULT(4)
+    08297031  return               
+
+  script 0x08297032  [ok]
+    08297032  msgbox_multilang     type=0 text_0="All 2nd-round matches have been\ncompleted.\pThese are the teams that advanced!" text_1="All 2nd-round matches have been\ncompleted.\pThese are the teams that advanced!" text_2="All 2nd-round matches have been\ncompleted.\pThese are the teams that advanced!" text_3="All 2nd-round matches have been\ncompleted.\pThese are the teams that advanced!" text_4="All 2nd-round matches have been\ncompleted.\pThese are the teams that advanced!" text_5="All 2nd-round matches have been\ncompleted.\pThese are the teams that advanced!" text_6="All 2nd-round matches have been\ncompleted.\pThese are the teams that advanced!"
+    08297050  callstd              function=MSGBOX_DEFAULT(4)
+    08297052  return               
+
+  script 0x08297053  [ok]
+    08297053  msgbox_multilang     type=0 text_0="All semifinal matches have been\ncompleted.\pThese are the teams that advanced!" text_1="All semifinal matches have been\ncompleted.\pThese are the teams that advanced!" text_2="All semifinal matches have been\ncompleted.\pThese are the teams that advanced!" text_3="All semifinal matches have been\ncompleted.\pThese are the teams that advanced!" text_4="All semifinal matches have been\ncompleted.\pThese are the teams that advanced!" text_5="All semifinal matches have been\ncompleted.\pThese are the teams that advanced!" text_6="All semifinal matches have been\ncompleted.\pThese are the teams that advanced!"
+    08297071  callstd              function=MSGBOX_DEFAULT(4)
+    08297073  return               
+
+  script 0x08296EF0  [ok]
+    08296EF0  checkflag            flag=0x001
+    08296EF3  goto_if              condition=1 destination=0x08296F4A
+    08296EF9  msgbox_multilang     type=0 text_0="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_1="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_2="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_3="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_4="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_5="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_6="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?"
+    08296F17  callstd              function=MSGBOX_DEFAULT(4)
+    08296F19  setflag              flag=0x001
+    08296F1C  return               
+
+  script 0x08296F1D  [ok]
+    08296F1D  checkflag            flag=0x001
+    08296F20  goto_if              condition=1 destination=0x08296F6B
+    08296F26  msgbox_multilang     type=0 text_0="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_1="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_2="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_3="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_4="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_5="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?" text_6="Congratulations for advancing\nto the final match.\pFor the final match, you will challenge\nthe DOME ACE TUCKER.\pAre you ready?"
+    08296F44  callstd              function=MSGBOX_DEFAULT(4)
+    08296F46  setflag              flag=0x001
+    08296F49  return               
+
+  script 0x08296F4A  [ok]
+    08296F4A  msgbox_multilang     type=0 text_0="Your final battle against TUCKER is\nnext. Are you ready?" text_1="Your final battle against TUCKER is\nnext. Are you ready?" text_2="Your final battle against TUCKER is\nnext. Are you ready?" text_3="Your final battle against TUCKER is\nnext. Are you ready?" text_4="Your final battle against TUCKER is\nnext. Are you ready?" text_5="Your final battle against TUCKER is\nnext. Are you ready?" text_6="Your final battle against TUCKER is\nnext. Are you ready?"
+    08296F68  callstd              function=MSGBOX_DEFAULT(4)
+    08296F6A  return               
+
+  script 0x08296CBE  [ok]
+    08296CBE  msgbox_multilang     type=0 text_0="The tournament is in the 1st round." text_1="The tournament is in the 1st round." text_2="The tournament is in the 1st round." text_3="The tournament is in the 1st round." text_4="The tournament is in the 1st round." text_5="The tournament is in the 1st round." text_6="The tournament is in the 1st round."
+    08296CDC  callstd              function=MSGBOX_DEFAULT(4)
+    08296CDE  return               
+
+  script 0x08296CDF  [ok]
+    08296CDF  msgbox_multilang     type=0 text_0="The tournament is in the 2nd round." text_1="The tournament is in the 2nd round." text_2="The tournament is in the 2nd round." text_3="The tournament is in the 2nd round." text_4="The tournament is in the 2nd round." text_5="The tournament is in the 2nd round." text_6="The tournament is in the 2nd round."
+    08296CFD  callstd              function=MSGBOX_DEFAULT(4)
+    08296CFF  return               
+
+  script 0x08296D00  [ok]
+    08296D00  msgbox_multilang     type=0 text_0="The tournament is in the semifinals." text_1="The tournament is in the semifinals." text_2="The tournament is in the semifinals." text_3="The tournament is in the semifinals." text_4="The tournament is in the semifinals." text_5="The tournament is in the semifinals." text_6="The tournament is in the semifinals."
+    08296D1E  callstd              function=MSGBOX_DEFAULT(4)
+    08296D20  return               
+
+  script 0x08296D21  [ok]
+    08296D21  msgbox_multilang     type=0 text_0="The tournament is up to the final." text_1="The tournament is up to the final." text_2="The tournament is up to the final." text_3="The tournament is up to the final." text_4="The tournament is up to the final." text_5="The tournament is up to the final." text_6="The tournament is up to the final."
+    08296D3F  callstd              function=MSGBOX_DEFAULT(4)
+    08296D41  return               
+
+  script 0x082987B0  [ok]
+    082987B0  copyvar              destination=VAR_0x800D source=VAR_0x408C
+    082987B5  compare_var_to_value var=0x800D value=1
+    082987BA  goto_if              condition=1 destination=0x082987CA
+    082987C0  warp                 mapGroup=41 mapNum=9 WARP_ID_NONE=255 -1=5 -1=11
+    082987C8  waitstate            
+
+  script 0x08296F6B  [ok]
+    08296F6B  msgbox_multilang     type=0 text_0="Your final battle against TUCKER is\nnext. Are you ready?" text_1="Your final battle against TUCKER is\nnext. Are you ready?" text_2="Your final battle against TUCKER is\nnext. Are you ready?" text_3="Your final battle against TUCKER is\nnext. Are you ready?" text_4="Your final battle against TUCKER is\nnext. Are you ready?" text_5="Your final battle against TUCKER is\nnext. Are you ready?" text_6="Your final battle against TUCKER is\nnext. Are you ready?"
+    08296F89  callstd              function=MSGBOX_DEFAULT(4)
+    08296F8B  return               
+
+  script 0x082987CA  [ok]
+    082987CA  warp                 mapGroup=41 mapNum=9 WARP_ID_NONE=255 -1=17 -1=11
+    082987D2  waitstate            
+
+  map script type 4 (var 0x4001 == 0) -> 0x08296A0B
+  script 0x08296A0B  [ok]
+    08296A0B  setvar               destination=VAR_0x4001 value=1
+    08296A10  turnobject           localId=255 direction=2
+    08296A14  end                  
+

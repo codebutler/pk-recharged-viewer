@@ -1,0 +1,465 @@
+Slateport City  (group 43, map 6)  header 0x08B3E83C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x082864C7
+  script 0x082864C7  [ok]
+    082864C7  lock                 
+    082864C8  faceplayer           
+    082864C9  setvar               destination=VAR_0x8004 value=1
+    082864CE  special              SPECIAL_\function=160
+    082864D1  compare_var_to_value var=0x800D value=0
+    082864D6  goto_if              condition=5 destination=0x08286376
+    082864DC  special              SPECIAL_\function=18
+    082864DF  msgbox_multilang     type=0 text_0="Welcome to the BATTLE TENT\nSLATEPORT SITE!\pI am your guide to the Battle Swap\nTournament." text_1="Welcome to the BATTLE TENT\nSLATEPORT SITE!\pI am your guide to the Battle Swap\nTournament." text_2="Welcome to the BATTLE TENT\nSLATEPORT SITE!\pI am your guide to the Battle Swap\nTournament." text_3="Welcome to the BATTLE TENT\nSLATEPORT SITE!\pI am your guide to the Battle Swap\nTournament." text_4="Welcome to the BATTLE TENT\nSLATEPORT SITE!\pI am your guide to the Battle Swap\nTournament." text_5="Welcome to the BATTLE TENT\nSLATEPORT SITE!\pI am your guide to the Battle Swap\nTournament." text_6="Welcome to the BATTLE TENT\nSLATEPORT SITE!\pI am your guide to the Battle Swap\nTournament."
+    082864FD  callstd              function=MSGBOX_DEFAULT(4)
+    082864FF  message              text="Would you like to take the Battle\nSwap challenge?"
+    08286504  setdooropen          x=12109 y=44808
+    08286509  checkdecor           decoration=2095
+    0828650C  setdooropen          x=12109 y=44808
+    08286511  checkdecor           decoration=2095
+    08286514  setdooropen          x=12109 y=44808
+    08286519  checkdecor           decoration=2095
+    0828651C  waitmessage          
+    0828651D  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    08286522  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286527  compare_var_to_value var=0x8000 value=0
+    0828652C  goto_if              condition=1 destination=0x08286553
+    08286532  compare_var_to_value var=0x8000 value=1
+    08286537  goto_if              condition=1 destination=0x08286684
+    0828653D  compare_var_to_value var=0x8000 value=2
+    08286542  goto_if              condition=1 destination=0x082866C3
+    08286548  compare_var_to_value var=0x8000 value=127
+    0828654D  goto_if              condition=1 destination=0x082866C3
+    08286553  setvar               destination=VAR_0x40CF value=4
+    08286558  setvar               destination=VAR_0x408C value=0
+    0828655D  setvar               destination=VAR_0x8004 value=2
+    08286562  setvar               destination=VAR_0x8005 value=1
+    08286567  setvar               destination=VAR_0x8006 value=2
+    0828656C  special              SPECIAL_\function=148
+    0828656F  msgbox_multilang     type=0 text_0="Before you begin your challenge,\nI need to save data. Is that okay?" text_1="Before you begin your challenge,\nI need to save data. Is that okay?" text_2="Before you begin your challenge,\nI need to save data. Is that okay?" text_3="Before you begin your challenge,\nI need to save data. Is that okay?" text_4="Before you begin your challenge,\nI need to save data. Is that okay?" text_5="Before you begin your challenge,\nI need to save data. Is that okay?" text_6="Before you begin your challenge,\nI need to save data. Is that okay?"
+    0828658D  callstd              function=MSGBOX_YESNO(5)
+    0828658F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286594  compare_var_to_value var=0x8000 value=0
+    08286599  goto_if              condition=1 destination=0x082866C0
+    0828659F  compare_var_to_value var=0x8000 value=1
+    082865A4  goto_if              condition=1 destination=0x082865B5
+    082865AA  compare_var_to_value var=0x8000 value=127
+    082865AF  goto_if              condition=1 destination=0x082866C0
+    082865B5  setvar               destination=VAR_0x4000 value=0
+    082865BA  setvar               destination=VAR_0x8004 value=2
+    082865BF  setvar               destination=VAR_0x8005 value=4
+    082865C4  special              SPECIAL_\function=148
+    082865C7  setvar               destination=VAR_0x8004 value=0
+    082865CC  special              SPECIAL_\function=160
+    082865CF  setvar               destination=VAR_0x8004 value=2
+    082865D4  setvar               destination=VAR_0x8005 value=0
+    082865D9  setvar               destination=VAR_0x8006 value=1
+    082865DE  special              SPECIAL_\function=148
+    082865E1  setvar               destination=VAR_0x8004 value=2
+    082865E6  setvar               destination=VAR_0x8005 value=3
+    082865EB  setvar               destination=VAR_0x8006 value=0
+    082865F0  special              SPECIAL_\function=148
+    082865F3  closemessage         
+    082865F4  delay                frames=2
+    082865F7  call                 destination=0x082B7563
+    082865FC  setvar               destination=VAR_0x4000 value=255
+    08286601  compare_var_to_value var=0x800D value=0
+    08286606  goto_if              condition=1 destination=0x082866A9
+    0828660C  setvar               destination=VAR_0x8006 value=0
+    08286611  msgbox_multilang     type=0 text_0="Please step this way." text_1="Please step this way." text_2="Please step this way." text_3="Please step this way." text_4="Please step this way." text_5="Please step this way." text_6="Please step this way."
+    0828662F  callstd              function=MSGBOX_DEFAULT(4)
+    08286631  closemessage         
+    08286632  call                 destination=0x08286646
+    08286637  warp                 mapGroup=43 mapNum=7 WARP_ID_NONE=255 -1=2 -1=7
+    0828663F  setvar               destination=VAR_0x4000 value=0
+    08286644  waitstate            
+
+  script 0x08286376  [ok]
+    08286376  msgbox_multilang     type=0 text_0="In recognition of your 3-win streak,\nwe award you this prize." text_1="In recognition of your 3-win streak,\nwe award you this prize." text_2="In recognition of your 3-win streak,\nwe award you this prize." text_3="In recognition of your 3-win streak,\nwe award you this prize." text_4="In recognition of your 3-win streak,\nwe award you this prize." text_5="In recognition of your 3-win streak,\nwe award you this prize." text_6="In recognition of your 3-win streak,\nwe award you this prize."
+    08286394  callstd              function=MSGBOX_DEFAULT(4)
+    08286396  setvar               destination=VAR_0x8004 value=5
+    0828639B  special              SPECIAL_\function=160
+    0828639E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082863A3  compare_var_to_value var=0x8000 value=0
+    082863A8  goto_if              condition=1 destination=0x082863E7
+    082863AE  setvar               destination=VAR_0x8004 value=2
+    082863B3  setvar               destination=VAR_0x8005 value=0
+    082863B8  setvar               destination=VAR_0x8006 value=0
+    082863BD  special              SPECIAL_\function=148
+    082863C0  message              text="{PLAYER} received the prize\n{STR_VAR_1}."
+    082863C5  showmoneybox         x=163 y=40 disable=8
+    082863C9  showmoneybox         x=163 y=40 disable=8
+    082863CD  showmoneybox         x=163 y=40 disable=8
+    082863D1  showmoneybox         x=163 y=40 disable=8
+    082863D5  showmoneybox         x=163 y=40 disable=8
+    082863D9  showmoneybox         x=163 y=40 disable=8
+    082863DD  waitmessage          
+    082863DE  playfanfare          song=370
+    082863E1  waitfanfare          
+    082863E2  goto                 destination=0x0828644E
+
+  script 0x08286553  [ok]
+    08286553  setvar               destination=VAR_0x40CF value=4
+    08286558  setvar               destination=VAR_0x408C value=0
+    0828655D  setvar               destination=VAR_0x8004 value=2
+    08286562  setvar               destination=VAR_0x8005 value=1
+    08286567  setvar               destination=VAR_0x8006 value=2
+    0828656C  special              SPECIAL_\function=148
+    0828656F  msgbox_multilang     type=0 text_0="Before you begin your challenge,\nI need to save data. Is that okay?" text_1="Before you begin your challenge,\nI need to save data. Is that okay?" text_2="Before you begin your challenge,\nI need to save data. Is that okay?" text_3="Before you begin your challenge,\nI need to save data. Is that okay?" text_4="Before you begin your challenge,\nI need to save data. Is that okay?" text_5="Before you begin your challenge,\nI need to save data. Is that okay?" text_6="Before you begin your challenge,\nI need to save data. Is that okay?"
+    0828658D  callstd              function=MSGBOX_YESNO(5)
+    0828658F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286594  compare_var_to_value var=0x8000 value=0
+    08286599  goto_if              condition=1 destination=0x082866C0
+    0828659F  compare_var_to_value var=0x8000 value=1
+    082865A4  goto_if              condition=1 destination=0x082865B5
+    082865AA  compare_var_to_value var=0x8000 value=127
+    082865AF  goto_if              condition=1 destination=0x082866C0
+    082865B5  setvar               destination=VAR_0x4000 value=0
+    082865BA  setvar               destination=VAR_0x8004 value=2
+    082865BF  setvar               destination=VAR_0x8005 value=4
+    082865C4  special              SPECIAL_\function=148
+    082865C7  setvar               destination=VAR_0x8004 value=0
+    082865CC  special              SPECIAL_\function=160
+    082865CF  setvar               destination=VAR_0x8004 value=2
+    082865D4  setvar               destination=VAR_0x8005 value=0
+    082865D9  setvar               destination=VAR_0x8006 value=1
+    082865DE  special              SPECIAL_\function=148
+    082865E1  setvar               destination=VAR_0x8004 value=2
+    082865E6  setvar               destination=VAR_0x8005 value=3
+    082865EB  setvar               destination=VAR_0x8006 value=0
+    082865F0  special              SPECIAL_\function=148
+    082865F3  closemessage         
+    082865F4  delay                frames=2
+    082865F7  call                 destination=0x082B7563
+    082865FC  setvar               destination=VAR_0x4000 value=255
+    08286601  compare_var_to_value var=0x800D value=0
+    08286606  goto_if              condition=1 destination=0x082866A9
+    0828660C  setvar               destination=VAR_0x8006 value=0
+    08286611  msgbox_multilang     type=0 text_0="Please step this way." text_1="Please step this way." text_2="Please step this way." text_3="Please step this way." text_4="Please step this way." text_5="Please step this way." text_6="Please step this way."
+    0828662F  callstd              function=MSGBOX_DEFAULT(4)
+    08286631  closemessage         
+    08286632  call                 destination=0x08286646
+    08286637  warp                 mapGroup=43 mapNum=7 WARP_ID_NONE=255 -1=2 -1=7
+    0828663F  setvar               destination=VAR_0x4000 value=0
+    08286644  waitstate            
+
+  script 0x08286684  [ok]
+    08286684  msgbox_multilang     type=0 text_0="Here at the SLATEPORT BATTLE TENT,\nwe hold Battle Swap events\pusing rental POKéMON.\pFirst, you will be loaned three\nPOKéMON specifically for this event.\pUsing the supplied rental POKéMON,\nyou must conduct a SINGLE BATTLE.\pIf you win, you are permitted to trade\none of your rental POKéMON.\pRepeat this cycle of battling and\ntrading--if you win three times in\pa row, you will earn a fine prize.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_1="Here at the SLATEPORT BATTLE TENT,\nwe hold Battle Swap events\pusing rental POKéMON.\pFirst, you will be loaned three\nPOKéMON specifically for this event.\pUsing the supplied rental POKéMON,\nyou must conduct a SINGLE BATTLE.\pIf you win, you are permitted to trade\none of your rental POKéMON.\pRepeat this cycle of battling and\ntrading--if you win three times in\pa row, you will earn a fine prize.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_2="Here at the SLATEPORT BATTLE TENT,\nwe hold Battle Swap events\pusing rental POKéMON.\pFirst, you will be loaned three\nPOKéMON specifically for this event.\pUsing the supplied rental POKéMON,\nyou must conduct a SINGLE BATTLE.\pIf you win, you are permitted to trade\none of your rental POKéMON.\pRepeat this cycle of battling and\ntrading--if you win three times in\pa row, you will earn a fine prize.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_3="Here at the SLATEPORT BATTLE TENT,\nwe hold Battle Swap events\pusing rental POKéMON.\pFirst, you will be loaned three\nPOKéMON specifically for this event.\pUsing the supplied rental POKéMON,\nyou must conduct a SINGLE BATTLE.\pIf you win, you are permitted to trade\none of your rental POKéMON.\pRepeat this cycle of battling and\ntrading--if you win three times in\pa row, you will earn a fine prize.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_4="Here at the SLATEPORT BATTLE TENT,\nwe hold Battle Swap events\pusing rental POKéMON.\pFirst, you will be loaned three\nPOKéMON specifically for this event.\pUsing the supplied rental POKéMON,\nyou must conduct a SINGLE BATTLE.\pIf you win, you are permitted to trade\none of your rental POKéMON.\pRepeat this cycle of battling and\ntrading--if you win three times in\pa row, you will earn a fine prize.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_5="Here at the SLATEPORT BATTLE TENT,\nwe hold Battle Swap events\pusing rental POKéMON.\pFirst, you will be loaned three\nPOKéMON specifically for this event.\pUsing the supplied rental POKéMON,\nyou must conduct a SINGLE BATTLE.\pIf you win, you are permitted to trade\none of your rental POKéMON.\pRepeat this cycle of battling and\ntrading--if you win three times in\pa row, you will earn a fine prize.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_6="Here at the SLATEPORT BATTLE TENT,\nwe hold Battle Swap events\pusing rental POKéMON.\pFirst, you will be loaned three\nPOKéMON specifically for this event.\pUsing the supplied rental POKéMON,\nyou must conduct a SINGLE BATTLE.\pIf you win, you are permitted to trade\none of your rental POKéMON.\pRepeat this cycle of battling and\ntrading--if you win three times in\pa row, you will earn a fine prize.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified."
+    082866A2  callstd              function=MSGBOX_DEFAULT(4)
+    082866A4  goto                 destination=0x082864FF
+
+  script 0x082866C3  [ok]
+    082866C3  msgbox_multilang     type=0 text_0="We look forward to your next visit." text_1="We look forward to your next visit." text_2="We look forward to your next visit." text_3="We look forward to your next visit." text_4="We look forward to your next visit." text_5="We look forward to your next visit." text_6="We look forward to your next visit."
+    082866E1  callstd              function=MSGBOX_DEFAULT(4)
+    082866E3  release              
+
+  script 0x082866C0  [ok]
+    082866C0  special              SPECIAL_\function=19
+    082866C3  msgbox_multilang     type=0 text_0="We look forward to your next visit." text_1="We look forward to your next visit." text_2="We look forward to your next visit." text_3="We look forward to your next visit." text_4="We look forward to your next visit." text_5="We look forward to your next visit." text_6="We look forward to your next visit."
+    082866E1  callstd              function=MSGBOX_DEFAULT(4)
+    082866E3  release              
+
+  script 0x082865B5  [ok]
+    082865B5  setvar               destination=VAR_0x4000 value=0
+    082865BA  setvar               destination=VAR_0x8004 value=2
+    082865BF  setvar               destination=VAR_0x8005 value=4
+    082865C4  special              SPECIAL_\function=148
+    082865C7  setvar               destination=VAR_0x8004 value=0
+    082865CC  special              SPECIAL_\function=160
+    082865CF  setvar               destination=VAR_0x8004 value=2
+    082865D4  setvar               destination=VAR_0x8005 value=0
+    082865D9  setvar               destination=VAR_0x8006 value=1
+    082865DE  special              SPECIAL_\function=148
+    082865E1  setvar               destination=VAR_0x8004 value=2
+    082865E6  setvar               destination=VAR_0x8005 value=3
+    082865EB  setvar               destination=VAR_0x8006 value=0
+    082865F0  special              SPECIAL_\function=148
+    082865F3  closemessage         
+    082865F4  delay                frames=2
+    082865F7  call                 destination=0x082B7563
+    082865FC  setvar               destination=VAR_0x4000 value=255
+    08286601  compare_var_to_value var=0x800D value=0
+    08286606  goto_if              condition=1 destination=0x082866A9
+    0828660C  setvar               destination=VAR_0x8006 value=0
+    08286611  msgbox_multilang     type=0 text_0="Please step this way." text_1="Please step this way." text_2="Please step this way." text_3="Please step this way." text_4="Please step this way." text_5="Please step this way." text_6="Please step this way."
+    0828662F  callstd              function=MSGBOX_DEFAULT(4)
+    08286631  closemessage         
+    08286632  call                 destination=0x08286646
+    08286637  warp                 mapGroup=43 mapNum=7 WARP_ID_NONE=255 -1=2 -1=7
+    0828663F  setvar               destination=VAR_0x4000 value=0
+    08286644  waitstate            
+
+  script 0x082B7563  [ok]
+    082B7563  special              SPECIAL_\function=58
+    082B7566  waitstate            
+
+  script 0x082866A9  [ok]
+    082866A9  setvar               destination=VAR_0x8004 value=2
+    082866AE  setvar               destination=VAR_0x8005 value=0
+    082866B3  setvar               destination=VAR_0x8006 value=0
+    082866B8  special              SPECIAL_\function=148
+    082866BB  goto                 destination=0x082866C3
+
+  script 0x08286646  [ok]
+    08286646  applymovement        localId=1 movements=[walk_up walk_up walk_up]
+    0828664D  applymovement        localId=255 movements=[walk_up walk_up walk_up]
+    08286654  waitmovement         localId=0
+    08286657  opendoor             x=6 y=1
+    0828665C  waitdooranim         
+    0828665D  applymovement        localId=1 movements=[walk_up set_invisible]
+    08286664  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    0828666B  waitmovement         localId=0
+    0828666E  closedoor            x=6 y=1
+    08286673  waitdooranim         
+    08286674  return               
+
+  script 0x082863E7  [ok]
+    082863E7  msgbox_multilang     type=0 text_0="Oh?\nYou seem to have no room for this.\pPlease make room in your BAG and\nlet me know." text_1="Oh?\nYou seem to have no room for this.\pPlease make room in your BAG and\nlet me know." text_2="Oh?\nYou seem to have no room for this.\pPlease make room in your BAG and\nlet me know." text_3="Oh?\nYou seem to have no room for this.\pPlease make room in your BAG and\nlet me know." text_4="Oh?\nYou seem to have no room for this.\pPlease make room in your BAG and\nlet me know." text_5="Oh?\nYou seem to have no room for this.\pPlease make room in your BAG and\nlet me know." text_6="Oh?\nYou seem to have no room for this.\pPlease make room in your BAG and\nlet me know."
+    08286405  callstd              function=MSGBOX_DEFAULT(4)
+    08286407  goto                 destination=0x0828644E
+
+  script 0x0828644E  [ok]
+    0828644E  msgbox_multilang     type=0 text_0="We look forward to your next visit." text_1="We look forward to your next visit." text_2="We look forward to your next visit." text_3="We look forward to your next visit." text_4="We look forward to your next visit." text_5="We look forward to your next visit." text_6="We look forward to your next visit."
+    0828646C  callstd              function=MSGBOX_DEFAULT(4)
+    0828646E  closemessage         
+    0828646F  setvar               destination=VAR_0x4000 value=255
+    08286474  releaseall           
+
+  script 0x082864FF  [ok]
+    082864FF  message              text="Would you like to take the Battle\nSwap challenge?"
+    08286504  setdooropen          x=12109 y=44808
+    08286509  checkdecor           decoration=2095
+    0828650C  setdooropen          x=12109 y=44808
+    08286511  checkdecor           decoration=2095
+    08286514  setdooropen          x=12109 y=44808
+    08286519  checkdecor           decoration=2095
+    0828651C  waitmessage          
+    0828651D  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    08286522  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286527  compare_var_to_value var=0x8000 value=0
+    0828652C  goto_if              condition=1 destination=0x08286553
+    08286532  compare_var_to_value var=0x8000 value=1
+    08286537  goto_if              condition=1 destination=0x08286684
+    0828653D  compare_var_to_value var=0x8000 value=2
+    08286542  goto_if              condition=1 destination=0x082866C3
+    08286548  compare_var_to_value var=0x8000 value=127
+    0828654D  goto_if              condition=1 destination=0x082866C3
+    08286553  setvar               destination=VAR_0x40CF value=4
+    08286558  setvar               destination=VAR_0x408C value=0
+    0828655D  setvar               destination=VAR_0x8004 value=2
+    08286562  setvar               destination=VAR_0x8005 value=1
+    08286567  setvar               destination=VAR_0x8006 value=2
+    0828656C  special              SPECIAL_\function=148
+    0828656F  msgbox_multilang     type=0 text_0="Before you begin your challenge,\nI need to save data. Is that okay?" text_1="Before you begin your challenge,\nI need to save data. Is that okay?" text_2="Before you begin your challenge,\nI need to save data. Is that okay?" text_3="Before you begin your challenge,\nI need to save data. Is that okay?" text_4="Before you begin your challenge,\nI need to save data. Is that okay?" text_5="Before you begin your challenge,\nI need to save data. Is that okay?" text_6="Before you begin your challenge,\nI need to save data. Is that okay?"
+    0828658D  callstd              function=MSGBOX_YESNO(5)
+    0828658F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286594  compare_var_to_value var=0x8000 value=0
+    08286599  goto_if              condition=1 destination=0x082866C0
+    0828659F  compare_var_to_value var=0x8000 value=1
+    082865A4  goto_if              condition=1 destination=0x082865B5
+    082865AA  compare_var_to_value var=0x8000 value=127
+    082865AF  goto_if              condition=1 destination=0x082866C0
+    082865B5  setvar               destination=VAR_0x4000 value=0
+    082865BA  setvar               destination=VAR_0x8004 value=2
+    082865BF  setvar               destination=VAR_0x8005 value=4
+    082865C4  special              SPECIAL_\function=148
+    082865C7  setvar               destination=VAR_0x8004 value=0
+    082865CC  special              SPECIAL_\function=160
+    082865CF  setvar               destination=VAR_0x8004 value=2
+    082865D4  setvar               destination=VAR_0x8005 value=0
+    082865D9  setvar               destination=VAR_0x8006 value=1
+    082865DE  special              SPECIAL_\function=148
+    082865E1  setvar               destination=VAR_0x8004 value=2
+    082865E6  setvar               destination=VAR_0x8005 value=3
+    082865EB  setvar               destination=VAR_0x8006 value=0
+    082865F0  special              SPECIAL_\function=148
+    082865F3  closemessage         
+    082865F4  delay                frames=2
+    082865F7  call                 destination=0x082B7563
+    082865FC  setvar               destination=VAR_0x4000 value=255
+    08286601  compare_var_to_value var=0x800D value=0
+    08286606  goto_if              condition=1 destination=0x082866A9
+    0828660C  setvar               destination=VAR_0x8006 value=0
+    08286611  msgbox_multilang     type=0 text_0="Please step this way." text_1="Please step this way." text_2="Please step this way." text_3="Please step this way." text_4="Please step this way." text_5="Please step this way." text_6="Please step this way."
+    0828662F  callstd              function=MSGBOX_DEFAULT(4)
+    08286631  closemessage         
+    08286632  call                 destination=0x08286646
+    08286637  warp                 mapGroup=43 mapNum=7 WARP_ID_NONE=255 -1=2 -1=7
+    0828663F  setvar               destination=VAR_0x4000 value=0
+    08286644  waitstate            
+
+  object 2 (gfx 0x31, flag 0x0000) -> 0x082866EA
+  script 0x082866EA  [ok]
+    082866EA  end                  
+
+  object 3 (gfx 0xFA, flag 0x0000) -> 0x0828670D
+  script 0x0828670D  [ok]
+    0828670D  msgbox_multilang     type=0 text_0="I don’t really like BUG POKéMON,\nbut maybe I’ll try using some for\pa change of pace.\pWho knows, I might even get to like\nthem!" text_1="I don’t really like BUG POKéMON,\nbut maybe I’ll try using some for\pa change of pace.\pWho knows, I might even get to like\nthem!" text_2="I don’t really like BUG POKéMON,\nbut maybe I’ll try using some for\pa change of pace.\pWho knows, I might even get to like\nthem!" text_3="I don’t really like BUG POKéMON,\nbut maybe I’ll try using some for\pa change of pace.\pWho knows, I might even get to like\nthem!" text_4="I don’t really like BUG POKéMON,\nbut maybe I’ll try using some for\pa change of pace.\pWho knows, I might even get to like\nthem!" text_5="I don’t really like BUG POKéMON,\nbut maybe I’ll try using some for\pa change of pace.\pWho knows, I might even get to like\nthem!" text_6="I don’t really like BUG POKéMON,\nbut maybe I’ll try using some for\pa change of pace.\pWho knows, I might even get to like\nthem!"
+    0828672B  callstd              function=MSGBOX_NPC(2)
+    0828672D  end                  
+
+  object 4 (gfx 0x08, flag 0x0000) -> 0x0828672E
+  script 0x0828672E  [ok]
+    0828672E  msgbox_multilang     type=0 text_0="You can battle all you want here even\nif you don’t have any tough POKéMON." text_1="You can battle all you want here even\nif you don’t have any tough POKéMON." text_2="You can battle all you want here even\nif you don’t have any tough POKéMON." text_3="You can battle all you want here even\nif you don’t have any tough POKéMON." text_4="You can battle all you want here even\nif you don’t have any tough POKéMON." text_5="You can battle all you want here even\nif you don’t have any tough POKéMON." text_6="You can battle all you want here even\nif you don’t have any tough POKéMON."
+    0828674C  callstd              function=MSGBOX_NPC(2)
+    0828674E  end                  
+
+  object 5 (gfx 0x14, flag 0x0000) -> 0x0828674F
+  script 0x0828674F  [ok]
+    0828674F  msgbox_multilang     type=0 text_0="Wouldn’t it be nice if they had more of\na selection?" text_1="Wouldn’t it be nice if they had more of\na selection?" text_2="Wouldn’t it be nice if they had more of\na selection?" text_3="Wouldn’t it be nice if they had more of\na selection?" text_4="Wouldn’t it be nice if they had more of\na selection?" text_5="Wouldn’t it be nice if they had more of\na selection?" text_6="Wouldn’t it be nice if they had more of\na selection?"
+    0828676D  callstd              function=MSGBOX_NPC(2)
+    0828676F  end                  
+
+  sign 0 at (4,5) -> 0x08286770
+  script 0x08286770  [ok]
+    08286770  lockall              
+    08286771  goto                 destination=0x08286777
+
+  script 0x08286777  [ok]
+    08286777  waitmessage          
+    08286778  multichoice          x=17 y=0 multichoiceId=111 ignoreBPress=0
+    0828677D  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286782  compare_var_to_value var=0x8000 value=0
+    08286787  goto_if              condition=1 destination=0x082867D0
+    0828678D  compare_var_to_value var=0x8000 value=1
+    08286792  goto_if              condition=1 destination=0x082867F6
+    08286798  compare_var_to_value var=0x8000 value=2
+    0828679D  goto_if              condition=1 destination=0x0828681C
+    082867A3  compare_var_to_value var=0x8000 value=3
+    082867A8  goto_if              condition=1 destination=0x08286842
+    082867AE  compare_var_to_value var=0x8000 value=4
+    082867B3  goto_if              condition=1 destination=0x08286868
+    082867B9  compare_var_to_value var=0x8000 value=5
+    082867BE  goto_if              condition=1 destination=0x0828688E
+    082867C4  compare_var_to_value var=0x8000 value=127
+    082867C9  goto_if              condition=1 destination=0x0828688E
+    082867CF  end                  
+
+  script 0x082867D0  [ok]
+    082867D0  msgbox_multilang     type=0 text_0="In a Battle Swap event, you may use\nonly three POKéMON.\pWhether you are renting or swapping,\nyour team may not have two or more\pof the same POKéMON." text_1="In a Battle Swap event, you may use\nonly three POKéMON.\pWhether you are renting or swapping,\nyour team may not have two or more\pof the same POKéMON." text_2="In a Battle Swap event, you may use\nonly three POKéMON.\pWhether you are renting or swapping,\nyour team may not have two or more\pof the same POKéMON." text_3="In a Battle Swap event, you may use\nonly three POKéMON.\pWhether you are renting or swapping,\nyour team may not have two or more\pof the same POKéMON." text_4="In a Battle Swap event, you may use\nonly three POKéMON.\pWhether you are renting or swapping,\nyour team may not have two or more\pof the same POKéMON." text_5="In a Battle Swap event, you may use\nonly three POKéMON.\pWhether you are renting or swapping,\nyour team may not have two or more\pof the same POKéMON." text_6="In a Battle Swap event, you may use\nonly three POKéMON.\pWhether you are renting or swapping,\nyour team may not have two or more\pof the same POKéMON."
+    082867EE  callstd              function=MSGBOX_DEFAULT(4)
+    082867F0  goto                 destination=0x08286777
+
+  script 0x082867F6  [ok]
+    082867F6  msgbox_multilang     type=0 text_0="You may swap POKéMON only with\nthe TRAINER you have just defeated.\pYou may swap for only those POKéMON\nused by the beaten TRAINER." text_1="You may swap POKéMON only with\nthe TRAINER you have just defeated.\pYou may swap for only those POKéMON\nused by the beaten TRAINER." text_2="You may swap POKéMON only with\nthe TRAINER you have just defeated.\pYou may swap for only those POKéMON\nused by the beaten TRAINER." text_3="You may swap POKéMON only with\nthe TRAINER you have just defeated.\pYou may swap for only those POKéMON\nused by the beaten TRAINER." text_4="You may swap POKéMON only with\nthe TRAINER you have just defeated.\pYou may swap for only those POKéMON\nused by the beaten TRAINER." text_5="You may swap POKéMON only with\nthe TRAINER you have just defeated.\pYou may swap for only those POKéMON\nused by the beaten TRAINER." text_6="You may swap POKéMON only with\nthe TRAINER you have just defeated.\pYou may swap for only those POKéMON\nused by the beaten TRAINER."
+    08286814  callstd              function=MSGBOX_DEFAULT(4)
+    08286816  goto                 destination=0x08286777
+
+  script 0x0828681C  [ok]
+    0828681C  msgbox_multilang     type=0 text_0="After every battle you win, you may\nswap for one of your defeated\popponent’s POKéMON.\pYou will not be able to swap POKéMON\nwith the third TRAINER in the event." text_1="After every battle you win, you may\nswap for one of your defeated\popponent’s POKéMON.\pYou will not be able to swap POKéMON\nwith the third TRAINER in the event." text_2="After every battle you win, you may\nswap for one of your defeated\popponent’s POKéMON.\pYou will not be able to swap POKéMON\nwith the third TRAINER in the event." text_3="After every battle you win, you may\nswap for one of your defeated\popponent’s POKéMON.\pYou will not be able to swap POKéMON\nwith the third TRAINER in the event." text_4="After every battle you win, you may\nswap for one of your defeated\popponent’s POKéMON.\pYou will not be able to swap POKéMON\nwith the third TRAINER in the event." text_5="After every battle you win, you may\nswap for one of your defeated\popponent’s POKéMON.\pYou will not be able to swap POKéMON\nwith the third TRAINER in the event." text_6="After every battle you win, you may\nswap for one of your defeated\popponent’s POKéMON.\pYou will not be able to swap POKéMON\nwith the third TRAINER in the event."
+    0828683A  callstd              function=MSGBOX_DEFAULT(4)
+    0828683C  goto                 destination=0x08286777
+
+  script 0x08286842  [ok]
+    08286842  msgbox_multilang     type=0 text_0="There are two key points to be aware\nof when swapping POKéMON.\pFirst, when swapping, you can’t check\nthe stats of the POKéMON you are\pabout to receive.\pSecond, the POKéMON on your team\nare lined up in sequence, depending on\pthe order in which you rented them.\pThis sequence remains unchanged\neven when swaps are made." text_1="There are two key points to be aware\nof when swapping POKéMON.\pFirst, when swapping, you can’t check\nthe stats of the POKéMON you are\pabout to receive.\pSecond, the POKéMON on your team\nare lined up in sequence, depending on\pthe order in which you rented them.\pThis sequence remains unchanged\neven when swaps are made." text_2="There are two key points to be aware\nof when swapping POKéMON.\pFirst, when swapping, you can’t check\nthe stats of the POKéMON you are\pabout to receive.\pSecond, the POKéMON on your team\nare lined up in sequence, depending on\pthe order in which you rented them.\pThis sequence remains unchanged\neven when swaps are made." text_3="There are two key points to be aware\nof when swapping POKéMON.\pFirst, when swapping, you can’t check\nthe stats of the POKéMON you are\pabout to receive.\pSecond, the POKéMON on your team\nare lined up in sequence, depending on\pthe order in which you rented them.\pThis sequence remains unchanged\neven when swaps are made." text_4="There are two key points to be aware\nof when swapping POKéMON.\pFirst, when swapping, you can’t check\nthe stats of the POKéMON you are\pabout to receive.\pSecond, the POKéMON on your team\nare lined up in sequence, depending on\pthe order in which you rented them.\pThis sequence remains unchanged\neven when swaps are made." text_5="There are two key points to be aware\nof when swapping POKéMON.\pFirst, when swapping, you can’t check\nthe stats of the POKéMON you are\pabout to receive.\pSecond, the POKéMON on your team\nare lined up in sequence, depending on\pthe order in which you rented them.\pThis sequence remains unchanged\neven when swaps are made." text_6="There are two key points to be aware\nof when swapping POKéMON.\pFirst, when swapping, you can’t check\nthe stats of the POKéMON you are\pabout to receive.\pSecond, the POKéMON on your team\nare lined up in sequence, depending on\pthe order in which you rented them.\pThis sequence remains unchanged\neven when swaps are made."
+    08286860  callstd              function=MSGBOX_DEFAULT(4)
+    08286862  goto                 destination=0x08286777
+
+  script 0x08286868  [ok]
+    08286868  msgbox_multilang     type=0 text_0="The POKéMON of the SLATEPORT\nBATTLE TENT are all rentals.\pAll rental POKéMON are kept at\nLevel 30." text_1="The POKéMON of the SLATEPORT\nBATTLE TENT are all rentals.\pAll rental POKéMON are kept at\nLevel 30." text_2="The POKéMON of the SLATEPORT\nBATTLE TENT are all rentals.\pAll rental POKéMON are kept at\nLevel 30." text_3="The POKéMON of the SLATEPORT\nBATTLE TENT are all rentals.\pAll rental POKéMON are kept at\nLevel 30." text_4="The POKéMON of the SLATEPORT\nBATTLE TENT are all rentals.\pAll rental POKéMON are kept at\nLevel 30." text_5="The POKéMON of the SLATEPORT\nBATTLE TENT are all rentals.\pAll rental POKéMON are kept at\nLevel 30." text_6="The POKéMON of the SLATEPORT\nBATTLE TENT are all rentals.\pAll rental POKéMON are kept at\nLevel 30."
+    08286886  callstd              function=MSGBOX_DEFAULT(4)
+    08286888  goto                 destination=0x08286777
+
+  script 0x0828688E  [ok]
+    0828688E  releaseall           
+
+  map script type 2 (var 0x4000 == 0) -> 0x082862D6
+  script 0x082862D6  [ok]
+    082862D6  setvar               destination=VAR_0x8004 value=0
+    082862DB  special              SPECIAL_\function=148
+    082862DE  end                  
+
+  map script type 2 (var 0x4000 == 1) -> 0x082862DF
+  script 0x082862DF  [ok]
+    082862DF  lockall              
+    082862E0  msgbox_multilang     type=0 text_0="I’m sorry to say this, but you didn’t\nsave before you quit playing last time.\pAs a result, you have been disqualified\nfrom your challenge." text_1="I’m sorry to say this, but you didn’t\nsave before you quit playing last time.\pAs a result, you have been disqualified\nfrom your challenge." text_2="I’m sorry to say this, but you didn’t\nsave before you quit playing last time.\pAs a result, you have been disqualified\nfrom your challenge." text_3="I’m sorry to say this, but you didn’t\nsave before you quit playing last time.\pAs a result, you have been disqualified\nfrom your challenge." text_4="I’m sorry to say this, but you didn’t\nsave before you quit playing last time.\pAs a result, you have been disqualified\nfrom your challenge." text_5="I’m sorry to say this, but you didn’t\nsave before you quit playing last time.\pAs a result, you have been disqualified\nfrom your challenge." text_6="I’m sorry to say this, but you didn’t\nsave before you quit playing last time.\pAs a result, you have been disqualified\nfrom your challenge."
+    082862FE  callstd              function=MSGBOX_DEFAULT(4)
+    08286300  closemessage         
+    08286301  setvar               destination=VAR_0x8004 value=2
+    08286306  setvar               destination=VAR_0x8005 value=0
+    0828630B  setvar               destination=VAR_0x8006 value=0
+    08286310  special              SPECIAL_\function=148
+    08286313  setvar               destination=VAR_0x4000 value=255
+    08286318  setvar               destination=VAR_0x8004 value=2
+    0828631D  setvar               destination=VAR_0x8005 value=1
+    08286322  setvar               destination=VAR_0x8006 value=0
+    08286327  special              SPECIAL_\function=148
+    0828632A  releaseall           
+
+  map script type 2 (var 0x4000 == 2) -> 0x08286476
+  script 0x08286476  [ok]
+    08286476  lockall              
+    08286477  message              text="We’ve been waiting for you!\pBefore we resume your challenge,\nI must save the game."
+    0828647C  gettime              
+    0828647D  waitmovement         localId=2095 mapGroup=46 mapNum=82
+    08286482  playse               song=11784
+    08286485  waitmovement         localId=2095 mapGroup=46 mapNum=82
+    0828648A  playse               song=11784
+    0828648D  waitmovement         localId=2095 mapGroup=46 mapNum=82
+    08286492  playse               song=26120
+    08286495  setvar               destination=VAR_0x8004 value=3
+    0828649A  setvar               destination=VAR_0x8005 value=1
+    0828649F  special              SPECIAL_\function=160
+    082864A2  playse               song=55
+    082864A5  waitse               
+    082864A6  setvar               destination=VAR_0x8004 value=2
+    082864AB  setvar               destination=VAR_0x8005 value=3
+    082864B0  setvar               destination=VAR_0x8006 value=0
+    082864B5  special              SPECIAL_\function=148
+    082864B8  setvar               destination=VAR_0x4000 value=255
+    082864BD  setvar               destination=VAR_0x8006 value=2
+    082864C2  goto                 destination=0x08286611
+
+  script 0x08286611  [ok]
+    08286611  msgbox_multilang     type=0 text_0="Please step this way." text_1="Please step this way." text_2="Please step this way." text_3="Please step this way." text_4="Please step this way." text_5="Please step this way." text_6="Please step this way."
+    0828662F  callstd              function=MSGBOX_DEFAULT(4)
+    08286631  closemessage         
+    08286632  call                 destination=0x08286646
+    08286637  warp                 mapGroup=43 mapNum=7 WARP_ID_NONE=255 -1=2 -1=7
+    0828663F  setvar               destination=VAR_0x4000 value=0
+    08286644  waitstate            
+
+  map script type 2 (var 0x4000 == 3) -> 0x0828632C
+  script 0x0828632C  [opcode-out-of-range:0xF6]
+    0828632C  lockall              
+    0828632D  message              text="Congratulations!\nYou’ve won three straight matches!\pI will return your POKéMON in exchange\nfor our rental POKéMON.\pI must also save your event results.\nPlease wait."
+
+  map script type 2 (var 0x4000 == 4) -> 0x0828640C
+  script 0x0828640C  [ok]
+    0828640C  lockall              
+    0828640D  message              text="Thank you for participating!\pI will return your POKéMON in exchange\nfor our rental POKéMON.\pI must also save your event results.\nPlease wait."
+    08286412  closemessage         
+    08286413  applymovement        localId=2095 movements=[action_0xCE action_0xDC action_0xD5 action_0xE2 action_0xDF face_down action_0xED action_0xE3 action_0xE9 face_down action_0xDA action_0xE3 action_0xE6 face_down action_0xE4 action_0xD5 action_0xE6 action_0xE8 action_0xDD action_0xD7 action_0xDD action_0xE4 action_0xD5 action_0xE8 action_0xDD action_0xE2 action_0xDB action_0xAB action_0xFB action_0xC3 face_down action_0xEB ...] mapGroup=104 mapNum=80
+    0828641C  playse               song=26632
+    0828641F  applymovement        localId=2095 movements=[action_0xCE action_0xDC action_0xD5 action_0xE2 action_0xDF face_down action_0xED action_0xE3 action_0xE9 face_down action_0xDA action_0xE3 action_0xE6 face_down action_0xE4 action_0xD5 action_0xE6 action_0xE8 action_0xDD action_0xD7 action_0xDD action_0xE4 action_0xD5 action_0xE8 action_0xDD action_0xE2 action_0xDB action_0xAB action_0xFB action_0xC3 face_down action_0xEB ...] mapGroup=104 mapNum=80
+    08286428  playse               song=26120
+    0828642B  setvar               destination=VAR_0x8004 value=2
+    08286430  setvar               destination=VAR_0x8005 value=1
+    08286435  setvar               destination=VAR_0x8006 value=0
+    0828643A  special              SPECIAL_\function=148
+    0828643D  setvar               destination=VAR_0x8004 value=3
+    08286442  setvar               destination=VAR_0x8005 value=0
+    08286447  special              SPECIAL_\function=160
+    0828644A  playse               song=55
+    0828644D  waitse               
+    0828644E  msgbox_multilang     type=0 text_0="We look forward to your next visit." text_1="We look forward to your next visit." text_2="We look forward to your next visit." text_3="We look forward to your next visit." text_4="We look forward to your next visit." text_5="We look forward to your next visit." text_6="We look forward to your next visit."
+    0828646C  callstd              function=MSGBOX_DEFAULT(4)
+    0828646E  closemessage         
+    0828646F  setvar               destination=VAR_0x4000 value=255
+    08286474  releaseall           
+
+  map script type 4 (var 0x4001 == 0) -> 0x082862A2
+  script 0x082862A2  [ok]
+    082862A2  setvar               destination=VAR_0x4001 value=1
+    082862A7  turnobject           localId=255 direction=2
+    082862AB  end                  
+

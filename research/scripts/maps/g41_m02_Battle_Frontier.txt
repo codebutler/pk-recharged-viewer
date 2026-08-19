@@ -1,0 +1,1542 @@
+Battle Frontier  (group 41, map 2)  header 0x08B3E0E8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x08289093
+  script 0x08289093  [ok]
+    08289093  lock                 
+    08289094  faceplayer           
+    08289095  setvar               destination=VAR_0x40CF value=0
+    0828909A  special              SPECIAL_\function=18
+    0828909D  msgbox_multilang     type=0 text_0="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the SINGLE\nBATTLE ROOMS." text_1="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the SINGLE\nBATTLE ROOMS." text_2="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the SINGLE\nBATTLE ROOMS." text_3="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the SINGLE\nBATTLE ROOMS." text_4="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the SINGLE\nBATTLE ROOMS." text_5="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the SINGLE\nBATTLE ROOMS." text_6="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the SINGLE\nBATTLE ROOMS."
+    082890BB  callstd              function=MSGBOX_DEFAULT(4)
+    082890BD  message              text="Would you like to take the SINGLE\nBATTLE ROOM challenge?"
+    082890C2  vcall                destination=3121096882
+    082890C7  showelevmenu         
+    082890C8  delay                frames=47624
+    082890CB  showelevmenu         
+    082890CC  delay                frames=47624
+    082890CF  showelevmenu         
+    082890D0  delay                frames=47624
+    082890D3  showelevmenu         
+    082890D4  delay                frames=47624
+    082890D7  showelevmenu         
+    082890D8  delay                frames=26120
+    082890DB  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    082890E0  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082890E5  compare_var_to_value var=0x8000 value=0
+    082890EA  goto_if              condition=1 destination=0x08289111
+    082890F0  compare_var_to_value var=0x8000 value=1
+    082890F5  goto_if              condition=1 destination=0x0828926B
+    082890FB  compare_var_to_value var=0x8000 value=2
+    08289100  goto_if              condition=1 destination=0x08289BDD
+    08289106  compare_var_to_value var=0x8000 value=127
+    0828910B  goto_if              condition=1 destination=0x08289BDD
+    08289111  setvar               destination=VAR_0x408C value=0
+    08289116  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    0828911B  getplayerxy          x=10410 y=16904
+    08289120  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289129  delay                frames=16904
+    0828912C  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289135  setptr               value=6 ptr=1638471
+    0828913B  bufferitemname       stringVarId=13 item=8576
+    0828913F  nop                  
+    08289140  bufferitemname       stringVarId=2 item=1536
+    08289144  nop1                 
+    08289145  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289149  compare_var_to_value var=0x8000 value=127
+    0828914E  goto_if              condition=1 destination=0x08289BDD
+    08289154  setvar               destination=VAR_0x8004 value=15
+    08289159  special              SPECIAL_\function=148
+    0828915C  compare_var_to_value var=0x8004 value=1
+    08289161  goto_if              condition=1 destination=0x08289A8D
+    08289167  setvar               destination=VAR_0x8004 value=2
+    0828916C  setvar               destination=VAR_0x8005 value=1
+    08289171  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289176  special              SPECIAL_\function=148
+    08289179  msgbox_multilang     type=0 text_0="Now please select the three POKéMON\nthat are to be entered." text_1="Now please select the three POKéMON\nthat are to be entered." text_2="Now please select the three POKéMON\nthat are to be entered." text_3="Now please select the three POKéMON\nthat are to be entered." text_4="Now please select the three POKéMON\nthat are to be entered." text_5="Now please select the three POKéMON\nthat are to be entered." text_6="Now please select the three POKéMON\nthat are to be entered."
+    08289197  callstd              function=MSGBOX_DEFAULT(4)
+    08289199  fadescreen           mode=1
+    0828919B  callnative           func=0x080D5995
+    082891A0  call                 destination=0x08289DDE
+    082891A5  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082891AA  setvar               destination=VAR_0x8005 value=3
+    082891AF  special              SPECIAL_\function=161
+    082891B2  waitstate            
+
+  script 0x08289111  [ok]
+    08289111  setvar               destination=VAR_0x408C value=0
+    08289116  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    0828911B  getplayerxy          x=10410 y=16904
+    08289120  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289129  delay                frames=16904
+    0828912C  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289135  setptr               value=6 ptr=1638471
+    0828913B  bufferitemname       stringVarId=13 item=8576
+    0828913F  nop                  
+    08289140  bufferitemname       stringVarId=2 item=1536
+    08289144  nop1                 
+    08289145  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289149  compare_var_to_value var=0x8000 value=127
+    0828914E  goto_if              condition=1 destination=0x08289BDD
+    08289154  setvar               destination=VAR_0x8004 value=15
+    08289159  special              SPECIAL_\function=148
+    0828915C  compare_var_to_value var=0x8004 value=1
+    08289161  goto_if              condition=1 destination=0x08289A8D
+    08289167  setvar               destination=VAR_0x8004 value=2
+    0828916C  setvar               destination=VAR_0x8005 value=1
+    08289171  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289176  special              SPECIAL_\function=148
+    08289179  msgbox_multilang     type=0 text_0="Now please select the three POKéMON\nthat are to be entered." text_1="Now please select the three POKéMON\nthat are to be entered." text_2="Now please select the three POKéMON\nthat are to be entered." text_3="Now please select the three POKéMON\nthat are to be entered." text_4="Now please select the three POKéMON\nthat are to be entered." text_5="Now please select the three POKéMON\nthat are to be entered." text_6="Now please select the three POKéMON\nthat are to be entered."
+    08289197  callstd              function=MSGBOX_DEFAULT(4)
+    08289199  fadescreen           mode=1
+    0828919B  callnative           func=0x080D5995
+    082891A0  call                 destination=0x08289DDE
+    082891A5  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082891AA  setvar               destination=VAR_0x8005 value=3
+    082891AF  special              SPECIAL_\function=161
+    082891B2  waitstate            
+
+  script 0x0828926B  [ok]
+    0828926B  msgbox_multilang     type=0 text_0="The BATTLE TOWER’s SINGLE BATTLE\nROOMS are facilities for conducting\pSINGLE BATTLES with three POKéMON.\pThere are many SINGLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the SINGLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_1="The BATTLE TOWER’s SINGLE BATTLE\nROOMS are facilities for conducting\pSINGLE BATTLES with three POKéMON.\pThere are many SINGLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the SINGLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_2="The BATTLE TOWER’s SINGLE BATTLE\nROOMS are facilities for conducting\pSINGLE BATTLES with three POKéMON.\pThere are many SINGLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the SINGLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_3="The BATTLE TOWER’s SINGLE BATTLE\nROOMS are facilities for conducting\pSINGLE BATTLES with three POKéMON.\pThere are many SINGLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the SINGLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_4="The BATTLE TOWER’s SINGLE BATTLE\nROOMS are facilities for conducting\pSINGLE BATTLES with three POKéMON.\pThere are many SINGLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the SINGLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_5="The BATTLE TOWER’s SINGLE BATTLE\nROOMS are facilities for conducting\pSINGLE BATTLES with three POKéMON.\pThere are many SINGLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the SINGLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_6="The BATTLE TOWER’s SINGLE BATTLE\nROOMS are facilities for conducting\pSINGLE BATTLES with three POKéMON.\pThere are many SINGLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the SINGLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified."
+    08289289  callstd              function=MSGBOX_DEFAULT(4)
+    0828928B  goto                 destination=0x082890BD
+
+  script 0x08289BDD  [ok]
+    08289BDD  special              SPECIAL_\function=10
+    08289BE0  msgbox_multilang     type=0 text_0="We look forward to seeing you on\nanother challenge!" text_1="We look forward to seeing you on\nanother challenge!" text_2="We look forward to seeing you on\nanother challenge!" text_3="We look forward to seeing you on\nanother challenge!" text_4="We look forward to seeing you on\nanother challenge!" text_5="We look forward to seeing you on\nanother challenge!" text_6="We look forward to seeing you on\nanother challenge!"
+    08289BFE  callstd              function=MSGBOX_DEFAULT(4)
+    08289C00  release              
+
+  script 0x08289A8D  [ok]
+    08289A8D  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08289A92  compare_var_to_value var=0x8000 value=0
+    08289A97  goto_if              condition=1 destination=0x08289AA8
+    08289A9D  compare_var_to_value var=0x8000 value=1
+    08289AA2  goto_if              condition=1 destination=0x08289B35
+    08289AA8  copyvar              destination=VAR_0x8000 source=VAR_0x408C
+    08289AAD  compare_var_to_value var=0x8000 value=0
+    08289AB2  goto_if              condition=1 destination=0x08289AE9
+    08289AB8  compare_var_to_value var=0x8000 value=1
+    08289ABD  goto_if              condition=1 destination=0x08289B0F
+    08289AC3  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    08289AE1  callstd              function=MSGBOX_DEFAULT(4)
+    08289AE3  goto                 destination=0x08289C00
+
+  script 0x08289DDE  [ok]
+    08289DDE  setvar               destination=VAR_0x8004 value=1
+    08289DE3  setvar               destination=VAR_0x8005 value=1
+    08289DE8  special              SPECIAL_\function=148
+    08289DEB  return               
+
+  script 0x082890BD  [ok]
+    082890BD  message              text="Would you like to take the SINGLE\nBATTLE ROOM challenge?"
+    082890C2  vcall                destination=3121096882
+    082890C7  showelevmenu         
+    082890C8  delay                frames=47624
+    082890CB  showelevmenu         
+    082890CC  delay                frames=47624
+    082890CF  showelevmenu         
+    082890D0  delay                frames=47624
+    082890D3  showelevmenu         
+    082890D4  delay                frames=47624
+    082890D7  showelevmenu         
+    082890D8  delay                frames=26120
+    082890DB  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    082890E0  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082890E5  compare_var_to_value var=0x8000 value=0
+    082890EA  goto_if              condition=1 destination=0x08289111
+    082890F0  compare_var_to_value var=0x8000 value=1
+    082890F5  goto_if              condition=1 destination=0x0828926B
+    082890FB  compare_var_to_value var=0x8000 value=2
+    08289100  goto_if              condition=1 destination=0x08289BDD
+    08289106  compare_var_to_value var=0x8000 value=127
+    0828910B  goto_if              condition=1 destination=0x08289BDD
+    08289111  setvar               destination=VAR_0x408C value=0
+    08289116  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    0828911B  getplayerxy          x=10410 y=16904
+    08289120  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289129  delay                frames=16904
+    0828912C  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289135  setptr               value=6 ptr=1638471
+    0828913B  bufferitemname       stringVarId=13 item=8576
+    0828913F  nop                  
+    08289140  bufferitemname       stringVarId=2 item=1536
+    08289144  nop1                 
+    08289145  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289149  compare_var_to_value var=0x8000 value=127
+    0828914E  goto_if              condition=1 destination=0x08289BDD
+    08289154  setvar               destination=VAR_0x8004 value=15
+    08289159  special              SPECIAL_\function=148
+    0828915C  compare_var_to_value var=0x8004 value=1
+    08289161  goto_if              condition=1 destination=0x08289A8D
+    08289167  setvar               destination=VAR_0x8004 value=2
+    0828916C  setvar               destination=VAR_0x8005 value=1
+    08289171  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289176  special              SPECIAL_\function=148
+    08289179  msgbox_multilang     type=0 text_0="Now please select the three POKéMON\nthat are to be entered." text_1="Now please select the three POKéMON\nthat are to be entered." text_2="Now please select the three POKéMON\nthat are to be entered." text_3="Now please select the three POKéMON\nthat are to be entered." text_4="Now please select the three POKéMON\nthat are to be entered." text_5="Now please select the three POKéMON\nthat are to be entered." text_6="Now please select the three POKéMON\nthat are to be entered."
+    08289197  callstd              function=MSGBOX_DEFAULT(4)
+    08289199  fadescreen           mode=1
+    0828919B  callnative           func=0x080D5995
+    082891A0  call                 destination=0x08289DDE
+    082891A5  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082891AA  setvar               destination=VAR_0x8005 value=3
+    082891AF  special              SPECIAL_\function=161
+    082891B2  waitstate            
+
+  script 0x08289AA8  [ok]
+    08289AA8  copyvar              destination=VAR_0x8000 source=VAR_0x408C
+    08289AAD  compare_var_to_value var=0x8000 value=0
+    08289AB2  goto_if              condition=1 destination=0x08289AE9
+    08289AB8  compare_var_to_value var=0x8000 value=1
+    08289ABD  goto_if              condition=1 destination=0x08289B0F
+    08289AC3  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    08289AE1  callstd              function=MSGBOX_DEFAULT(4)
+    08289AE3  goto                 destination=0x08289C00
+
+  script 0x08289B35  [ok]
+    08289B35  copyvar              destination=VAR_0x8000 source=VAR_0x408C
+    08289B3A  compare_var_to_value var=0x8000 value=0
+    08289B3F  goto_if              condition=1 destination=0x08289B76
+    08289B45  compare_var_to_value var=0x8000 value=1
+    08289B4A  goto_if              condition=1 destination=0x08289B9C
+    08289B50  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have two eligible POKéMON.\pYou must have two different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    08289B6E  callstd              function=MSGBOX_DEFAULT(4)
+    08289B70  goto                 destination=0x08289C00
+
+  script 0x08289AE9  [ok]
+    08289AE9  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    08289B07  callstd              function=MSGBOX_DEFAULT(4)
+    08289B09  goto                 destination=0x08289C00
+
+  script 0x08289B0F  [ok]
+    08289B0F  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    08289B2D  callstd              function=MSGBOX_DEFAULT(4)
+    08289B2F  goto                 destination=0x08289C00
+
+  script 0x08289C00  [ok]
+    08289C00  release              
+
+  script 0x08289B76  [ok]
+    08289B76  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    08289B94  callstd              function=MSGBOX_DEFAULT(4)
+    08289B96  goto                 destination=0x08289C00
+
+  script 0x08289B9C  [ok]
+    08289B9C  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have four eligible POKéMON.\pYou must have four different POKéMON\nto enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    08289BBA  callstd              function=MSGBOX_DEFAULT(4)
+    08289BBC  goto                 destination=0x08289C00
+
+  object 2 (gfx 0x41, flag 0x0000) -> 0x08289871
+  script 0x08289871  [ok]
+    08289871  lock                 
+    08289872  faceplayer           
+    08289873  message              text="Excuse me, do you have a moment?\pCan you describe your feelings when\nyou’re about to begin a BATTLE TOWER\pmatch, or when you’ve either won or\plost a match?"
+    08289878  turnrotatingtileobjects 
+    08289879  doweather            
+    0828987A  delay                frames=54280
+    0828987D  doweather            
+    0828987E  delay                frames=54280
+    08289881  doweather            
+    08289882  delay                frames=54280
+    08289885  doweather            
+    08289886  delay                frames=54280
+    08289889  doweather            
+    0828988A  delay                frames=54280
+    0828988D  doweather            
+    0828988E  delay                frames=26120
+    08289891  multichoice          x=16 y=4 multichoiceId=109 ignoreBPress=0
+    08289896  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828989B  compare_var_to_value var=0x8000 value=0
+    082898A0  goto_if              condition=1 destination=0x082898D4
+    082898A6  compare_var_to_value var=0x8000 value=1
+    082898AB  goto_if              condition=1 destination=0x08289906
+    082898B1  compare_var_to_value var=0x8000 value=2
+    082898B6  goto_if              condition=1 destination=0x08289938
+    082898BC  compare_var_to_value var=0x8000 value=3
+    082898C1  goto_if              condition=1 destination=0x0828996A
+    082898C7  compare_var_to_value var=0x8000 value=127
+    082898CC  goto_if              condition=1 destination=0x0828996A
+    082898D2  release              
+
+  script 0x082898D4  [ok]
+    082898D4  msgbox_multilang     type=0 text_0="Okay, what are your feelings when\nyou’re about to begin a match?" text_1="Okay, what are your feelings when\nyou’re about to begin a match?" text_2="Okay, what are your feelings when\nyou’re about to begin a match?" text_3="Okay, what are your feelings when\nyou’re about to begin a match?" text_4="Okay, what are your feelings when\nyou’re about to begin a match?" text_5="Okay, what are your feelings when\nyou’re about to begin a match?" text_6="Okay, what are your feelings when\nyou’re about to begin a match?"
+    082898F2  callstd              function=MSGBOX_DEFAULT(4)
+    082898F4  setvar               destination=VAR_0x8004 value=1
+    082898F9  call                 destination=0x082BBC58
+    082898FE  lock                 
+    082898FF  faceplayer           
+    08289900  goto                 destination=0x0828998C
+
+  script 0x08289906  [ok]
+    08289906  msgbox_multilang     type=0 text_0="What do you feel when you’ve won\na match?" text_1="What do you feel when you’ve won\na match?" text_2="What do you feel when you’ve won\na match?" text_3="What do you feel when you’ve won\na match?" text_4="What do you feel when you’ve won\na match?" text_5="What do you feel when you’ve won\na match?" text_6="What do you feel when you’ve won\na match?"
+    08289924  callstd              function=MSGBOX_DEFAULT(4)
+    08289926  setvar               destination=VAR_0x8004 value=2
+    0828992B  call                 destination=0x082BBC58
+    08289930  lock                 
+    08289931  faceplayer           
+    08289932  goto                 destination=0x0828998C
+
+  script 0x08289938  [ok]
+    08289938  msgbox_multilang     type=0 text_0="Can I hear about your feelings when\nyou have lost a match?" text_1="Can I hear about your feelings when\nyou have lost a match?" text_2="Can I hear about your feelings when\nyou have lost a match?" text_3="Can I hear about your feelings when\nyou have lost a match?" text_4="Can I hear about your feelings when\nyou have lost a match?" text_5="Can I hear about your feelings when\nyou have lost a match?" text_6="Can I hear about your feelings when\nyou have lost a match?"
+    08289956  callstd              function=MSGBOX_DEFAULT(4)
+    08289958  setvar               destination=VAR_0x8004 value=3
+    0828995D  call                 destination=0x082BBC58
+    08289962  lock                 
+    08289963  faceplayer           
+    08289964  goto                 destination=0x0828998C
+
+  script 0x0828996A  [ok]
+    0828996A  msgbox_multilang     type=0 text_0="Oh, so you don’t think much about it?\nYou’re one cool customer." text_1="Oh, so you don’t think much about it?\nYou’re one cool customer." text_2="Oh, so you don’t think much about it?\nYou’re one cool customer." text_3="Oh, so you don’t think much about it?\nYou’re one cool customer." text_4="Oh, so you don’t think much about it?\nYou’re one cool customer." text_5="Oh, so you don’t think much about it?\nYou’re one cool customer." text_6="Oh, so you don’t think much about it?\nYou’re one cool customer."
+    08289988  callstd              function=MSGBOX_DEFAULT(4)
+    0828998A  release              
+
+  script 0x082BBC58  [ok]
+    082BBC58  fadescreen           mode=1
+    082BBC5A  special              SPECIAL_\function=60
+    082BBC5D  fadescreen           mode=0
+    082BBC5F  return               
+
+  script 0x0828998C  [ok]
+    0828998C  compare_var_to_value var=0x800D value=0
+    08289991  goto_if              condition=1 destination=0x082899A3
+    08289997  compare_var_to_value var=0x800D value=1
+    0828999C  goto_if              condition=1 destination=0x082899C5
+    082899A2  end                  
+
+  script 0x082899A3  [ok]
+    082899A3  msgbox_multilang     type=0 text_0="Hunh? You changed your mind?\nI guess you’re fickle." text_1="Hunh? You changed your mind?\nI guess you’re fickle." text_2="Hunh? You changed your mind?\nI guess you’re fickle." text_3="Hunh? You changed your mind?\nI guess you’re fickle." text_4="Hunh? You changed your mind?\nI guess you’re fickle." text_5="Hunh? You changed your mind?\nI guess you’re fickle." text_6="Hunh? You changed your mind?\nI guess you’re fickle."
+    082899C1  callstd              function=MSGBOX_DEFAULT(4)
+    082899C3  release              
+
+  script 0x082899C5  [ok]
+    082899C5  msgbox_multilang     type=0 text_0="Okay, so that’s how you feel?\nThat’s quite original.\pThanks!" text_1="Okay, so that’s how you feel?\nThat’s quite original.\pThanks!" text_2="Okay, so that’s how you feel?\nThat’s quite original.\pThanks!" text_3="Okay, so that’s how you feel?\nThat’s quite original.\pThanks!" text_4="Okay, so that’s how you feel?\nThat’s quite original.\pThanks!" text_5="Okay, so that’s how you feel?\nThat’s quite original.\pThanks!" text_6="Okay, so that’s how you feel?\nThat’s quite original.\pThanks!"
+    082899E3  callstd              function=MSGBOX_DEFAULT(4)
+    082899E5  release              
+
+  object 3 (gfx 0x22, flag 0x0000) -> 0x082899E7
+  script 0x082899E7  [ok]
+    082899E7  msgbox_multilang     type=0 text_0="The number of matches you win in a row\nis recorded.\pI’d better not get beaten in\nan embarrassing way!" text_1="The number of matches you win in a row\nis recorded.\pI’d better not get beaten in\nan embarrassing way!" text_2="The number of matches you win in a row\nis recorded.\pI’d better not get beaten in\nan embarrassing way!" text_3="The number of matches you win in a row\nis recorded.\pI’d better not get beaten in\nan embarrassing way!" text_4="The number of matches you win in a row\nis recorded.\pI’d better not get beaten in\nan embarrassing way!" text_5="The number of matches you win in a row\nis recorded.\pI’d better not get beaten in\nan embarrassing way!" text_6="The number of matches you win in a row\nis recorded.\pI’d better not get beaten in\nan embarrassing way!"
+    08289A05  callstd              function=MSGBOX_NPC(2)
+    08289A07  end                  
+
+  object 4 (gfx 0x07, flag 0x0000) -> 0x08289A08
+  script 0x08289A08  [ok]
+    08289A08  msgbox_multilang     type=0 text_0="Once you’ve entered the BATTLE TOWER,\nyou can’t leave until you either lose\por you beat seven TRAINERS in a row.\pYou’d best be certain that you’re up\nto the challenge." text_1="Once you’ve entered the BATTLE TOWER,\nyou can’t leave until you either lose\por you beat seven TRAINERS in a row.\pYou’d best be certain that you’re up\nto the challenge." text_2="Once you’ve entered the BATTLE TOWER,\nyou can’t leave until you either lose\por you beat seven TRAINERS in a row.\pYou’d best be certain that you’re up\nto the challenge." text_3="Once you’ve entered the BATTLE TOWER,\nyou can’t leave until you either lose\por you beat seven TRAINERS in a row.\pYou’d best be certain that you’re up\nto the challenge." text_4="Once you’ve entered the BATTLE TOWER,\nyou can’t leave until you either lose\por you beat seven TRAINERS in a row.\pYou’d best be certain that you’re up\nto the challenge." text_5="Once you’ve entered the BATTLE TOWER,\nyou can’t leave until you either lose\por you beat seven TRAINERS in a row.\pYou’d best be certain that you’re up\nto the challenge." text_6="Once you’ve entered the BATTLE TOWER,\nyou can’t leave until you either lose\por you beat seven TRAINERS in a row.\pYou’d best be certain that you’re up\nto the challenge."
+    08289A26  callstd              function=MSGBOX_NPC(2)
+    08289A28  end                  
+
+  object 5 (gfx 0x44, flag 0x04C1) -> 0x00000000
+  object 6 (gfx 0x5A, flag 0x00F2) -> 0x082E5D78
+  script 0x082E5D78  [ok]
+    082E5D78  lock                 
+    082E5D79  faceplayer           
+    082E5D7A  setvar               destination=VAR_0x8004 value=0
+    082E5D7F  special              SPECIAL_\function=252
+    082E5D82  compare_var_to_value var=0x800D value=0
+    082E5D87  goto_if              condition=1 destination=0x082E5DEB
+    082E5D8D  setvar               destination=VAR_0x8004 value=10
+    082E5D92  special              SPECIAL_\function=252
+    082E5D95  compare_var_to_value var=0x8004 value=0
+    082E5D9A  goto_if              condition=1 destination=0x082E5DA9
+    082E5DA0  checkflag            flag=0x93C
+    082E5DA3  goto_if              condition=1 destination=0x082E637B
+    082E5DA9  setvar               destination=VAR_0x8004 value=11
+    082E5DAE  special              SPECIAL_\function=252
+    082E5DB1  compare_var_to_value var=0x800D value=2
+    082E5DB6  goto_if              condition=1 destination=0x082E5EBE
+    082E5DBC  compare_var_to_value var=0x800D value=4
+    082E5DC1  goto_if              condition=1 destination=0x082E5FBA
+    082E5DC7  compare_var_to_value var=0x800D value=3
+    082E5DCC  goto_if              condition=1 destination=0x082E6162
+    082E5DD2  compare_var_to_value var=0x800D value=1
+    082E5DD7  goto_if              condition=1 destination=0x082E6247
+    082E5DDD  compare_var_to_value var=0x800D value=5
+    082E5DE2  goto_if              condition=1 destination=0x082E62BF
+    082E5DE8  release              
+
+  script 0x082E5DEB  [ok]
+    082E5DEB  setvar               destination=VAR_0x8004 value=16
+    082E5DF0  setvar               destination=VAR_0x8005 value=0
+    082E5DF5  setvar               destination=VAR_0x8006 value=6
+    082E5DFA  special              SPECIAL_\function=252
+    082E5DFD  setvar               destination=VAR_0x8004 value=8
+    082E5E02  setvar               destination=VAR_0x8005 value=0
+    082E5E07  setvar               destination=VAR_0x8006 value=0
+    082E5E0C  special              SPECIAL_\function=252
+    082E5E0F  waitstate            
+
+  script 0x082E5DA9  [ok]
+    082E5DA9  setvar               destination=VAR_0x8004 value=11
+    082E5DAE  special              SPECIAL_\function=252
+    082E5DB1  compare_var_to_value var=0x800D value=2
+    082E5DB6  goto_if              condition=1 destination=0x082E5EBE
+    082E5DBC  compare_var_to_value var=0x800D value=4
+    082E5DC1  goto_if              condition=1 destination=0x082E5FBA
+    082E5DC7  compare_var_to_value var=0x800D value=3
+    082E5DCC  goto_if              condition=1 destination=0x082E6162
+    082E5DD2  compare_var_to_value var=0x800D value=1
+    082E5DD7  goto_if              condition=1 destination=0x082E6247
+    082E5DDD  compare_var_to_value var=0x800D value=5
+    082E5DE2  goto_if              condition=1 destination=0x082E62BF
+    082E5DE8  release              
+
+  script 0x082E637B  [ok]
+    082E637B  release              
+
+  script 0x082E5EBE  [ok]
+    082E5EBE  setvar               destination=VAR_0x8004 value=14
+    082E5EC3  setvar               destination=VAR_0x8005 value=2
+    082E5EC8  special              SPECIAL_\function=252
+    082E5ECB  setvar               destination=VAR_0x8004 value=16
+    082E5ED0  setvar               destination=VAR_0x8005 value=0
+    082E5ED5  setvar               destination=VAR_0x8006 value=0
+    082E5EDA  special              SPECIAL_\function=252
+    082E5EDD  setvar               destination=VAR_0x8004 value=16
+    082E5EE2  setvar               destination=VAR_0x8005 value=1
+    082E5EE7  setvar               destination=VAR_0x8006 value=1
+    082E5EEC  special              SPECIAL_\function=252
+    082E5EEF  setvar               destination=VAR_0x8004 value=8
+    082E5EF4  setvar               destination=VAR_0x8005 value=0
+    082E5EF9  setvar               destination=VAR_0x8006 value=6
+    082E5EFE  special              SPECIAL_\function=252
+    082E5F01  waitstate            
+
+  script 0x082E5FBA  [ok]
+    082E5FBA  setvar               destination=VAR_0x8004 value=14
+    082E5FBF  setvar               destination=VAR_0x8005 value=4
+    082E5FC4  special              SPECIAL_\function=252
+    082E5FC7  setvar               destination=VAR_0x8004 value=16
+    082E5FCC  setvar               destination=VAR_0x8005 value=0
+    082E5FD1  setvar               destination=VAR_0x8006 value=2
+    082E5FD6  special              SPECIAL_\function=252
+    082E5FD9  setvar               destination=VAR_0x8004 value=8
+    082E5FDE  setvar               destination=VAR_0x8005 value=1
+    082E5FE3  setvar               destination=VAR_0x8006 value=10
+    082E5FE8  special              SPECIAL_\function=252
+    082E5FEB  waitstate            
+
+  script 0x082E6162  [ok]
+    082E6162  setvar               destination=VAR_0x8004 value=14
+    082E6167  setvar               destination=VAR_0x8005 value=3
+    082E616C  special              SPECIAL_\function=252
+    082E616F  setvar               destination=VAR_0x8004 value=16
+    082E6174  setvar               destination=VAR_0x8005 value=0
+    082E6179  setvar               destination=VAR_0x8006 value=2
+    082E617E  special              SPECIAL_\function=252
+    082E6181  setvar               destination=VAR_0x8004 value=16
+    082E6186  setvar               destination=VAR_0x8005 value=1
+    082E618B  setvar               destination=VAR_0x8006 value=3
+    082E6190  special              SPECIAL_\function=252
+    082E6193  setvar               destination=VAR_0x8004 value=16
+    082E6198  setvar               destination=VAR_0x8005 value=2
+    082E619D  setvar               destination=VAR_0x8006 value=4
+    082E61A2  special              SPECIAL_\function=252
+    082E61A5  setvar               destination=VAR_0x8004 value=8
+    082E61AA  setvar               destination=VAR_0x8005 value=0
+    082E61AF  setvar               destination=VAR_0x8006 value=8
+    082E61B4  special              SPECIAL_\function=252
+    082E61B7  waitstate            
+
+  script 0x082E6247  [ok]
+    082E6247  setvar               destination=VAR_0x8004 value=8
+    082E624C  setvar               destination=VAR_0x8005 value=0
+    082E6251  setvar               destination=VAR_0x8006 value=4
+    082E6256  special              SPECIAL_\function=252
+    082E6259  waitstate            
+
+  script 0x082E62BF  [ok]
+    082E62BF  setvar               destination=VAR_0x8004 value=8
+    082E62C4  setvar               destination=VAR_0x8005 value=1
+    082E62C9  setvar               destination=VAR_0x8006 value=11
+    082E62CE  special              SPECIAL_\function=252
+    082E62D1  waitstate            
+
+  object 7 (gfx 0x55, flag 0x0000) -> 0x08289291
+  script 0x08289291  [ok]
+    08289291  lock                 
+    08289292  faceplayer           
+    08289293  setvar               destination=VAR_0x40CF value=0
+    08289298  special              SPECIAL_\function=18
+    0828929B  msgbox_multilang     type=0 text_0="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the DOUBLE\nBATTLE ROOMS." text_1="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the DOUBLE\nBATTLE ROOMS." text_2="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the DOUBLE\nBATTLE ROOMS." text_3="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the DOUBLE\nBATTLE ROOMS." text_4="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the DOUBLE\nBATTLE ROOMS." text_5="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the DOUBLE\nBATTLE ROOMS." text_6="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the DOUBLE\nBATTLE ROOMS."
+    082892B9  callstd              function=MSGBOX_DEFAULT(4)
+    082892BB  message              text="Would you like to take the DOUBLE\nBATTLE ROOM challenge?"
+    082892C0  setobjectmovementtype localId=10421 movementType=8
+    082892C4  setobjectmovementtype localId=10421 movementType=8
+    082892C8  setobjectmovementtype localId=10421 movementType=8
+    082892CC  setobjectmovementtype localId=10421 movementType=8
+    082892D0  setobjectmovementtype localId=10421 movementType=8
+    082892D4  setobjectmovementtype localId=10421 movementType=8
+    082892D8  waitmessage          
+    082892D9  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    082892DE  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082892E3  compare_var_to_value var=0x8000 value=0
+    082892E8  goto_if              condition=1 destination=0x0828930F
+    082892EE  compare_var_to_value var=0x8000 value=1
+    082892F3  goto_if              condition=1 destination=0x08289469
+    082892F9  compare_var_to_value var=0x8000 value=2
+    082892FE  goto_if              condition=1 destination=0x08289BDD
+    08289304  compare_var_to_value var=0x8000 value=127
+    08289309  goto_if              condition=1 destination=0x08289BDD
+    0828930F  setvar               destination=VAR_0x408C value=1
+    08289314  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    08289319  getplayerxy          x=10410 y=16904
+    0828931E  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289327  delay                frames=16904
+    0828932A  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289333  setptr               value=6 ptr=1638471
+    08289339  bufferitemname       stringVarId=13 item=8576
+    0828933D  nop                  
+    0828933E  bufferitemname       stringVarId=2 item=1536
+    08289342  nop1                 
+    08289343  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289347  compare_var_to_value var=0x8000 value=127
+    0828934C  goto_if              condition=1 destination=0x08289BDD
+    08289352  setvar               destination=VAR_0x8004 value=15
+    08289357  special              SPECIAL_\function=148
+    0828935A  compare_var_to_value var=0x8004 value=1
+    0828935F  goto_if              condition=1 destination=0x08289A8D
+    08289365  setvar               destination=VAR_0x8004 value=2
+    0828936A  setvar               destination=VAR_0x8005 value=1
+    0828936F  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289374  special              SPECIAL_\function=148
+    08289377  msgbox_multilang     type=0 text_0="Now please select the four POKéMON\nthat are to be entered." text_1="Now please select the four POKéMON\nthat are to be entered." text_2="Now please select the four POKéMON\nthat are to be entered." text_3="Now please select the four POKéMON\nthat are to be entered." text_4="Now please select the four POKéMON\nthat are to be entered." text_5="Now please select the four POKéMON\nthat are to be entered." text_6="Now please select the four POKéMON\nthat are to be entered."
+    08289395  callstd              function=MSGBOX_DEFAULT(4)
+    08289397  fadescreen           mode=1
+    08289399  callnative           func=0x080D5995
+    0828939E  call                 destination=0x08289DDE
+    082893A3  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082893A8  setvar               destination=VAR_0x8005 value=4
+    082893AD  special              SPECIAL_\function=161
+    082893B0  waitstate            
+
+  script 0x0828930F  [ok]
+    0828930F  setvar               destination=VAR_0x408C value=1
+    08289314  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    08289319  getplayerxy          x=10410 y=16904
+    0828931E  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289327  delay                frames=16904
+    0828932A  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289333  setptr               value=6 ptr=1638471
+    08289339  bufferitemname       stringVarId=13 item=8576
+    0828933D  nop                  
+    0828933E  bufferitemname       stringVarId=2 item=1536
+    08289342  nop1                 
+    08289343  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289347  compare_var_to_value var=0x8000 value=127
+    0828934C  goto_if              condition=1 destination=0x08289BDD
+    08289352  setvar               destination=VAR_0x8004 value=15
+    08289357  special              SPECIAL_\function=148
+    0828935A  compare_var_to_value var=0x8004 value=1
+    0828935F  goto_if              condition=1 destination=0x08289A8D
+    08289365  setvar               destination=VAR_0x8004 value=2
+    0828936A  setvar               destination=VAR_0x8005 value=1
+    0828936F  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289374  special              SPECIAL_\function=148
+    08289377  msgbox_multilang     type=0 text_0="Now please select the four POKéMON\nthat are to be entered." text_1="Now please select the four POKéMON\nthat are to be entered." text_2="Now please select the four POKéMON\nthat are to be entered." text_3="Now please select the four POKéMON\nthat are to be entered." text_4="Now please select the four POKéMON\nthat are to be entered." text_5="Now please select the four POKéMON\nthat are to be entered." text_6="Now please select the four POKéMON\nthat are to be entered."
+    08289395  callstd              function=MSGBOX_DEFAULT(4)
+    08289397  fadescreen           mode=1
+    08289399  callnative           func=0x080D5995
+    0828939E  call                 destination=0x08289DDE
+    082893A3  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082893A8  setvar               destination=VAR_0x8005 value=4
+    082893AD  special              SPECIAL_\function=161
+    082893B0  waitstate            
+
+  script 0x08289469  [ok]
+    08289469  msgbox_multilang     type=0 text_0="The BATTLE TOWER’s DOUBLE BATTLE\nROOMS are facilities for conducting\pDOUBLE BATTLES with four POKéMON.\pThere are many DOUBLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the DOUBLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_1="The BATTLE TOWER’s DOUBLE BATTLE\nROOMS are facilities for conducting\pDOUBLE BATTLES with four POKéMON.\pThere are many DOUBLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the DOUBLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_2="The BATTLE TOWER’s DOUBLE BATTLE\nROOMS are facilities for conducting\pDOUBLE BATTLES with four POKéMON.\pThere are many DOUBLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the DOUBLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_3="The BATTLE TOWER’s DOUBLE BATTLE\nROOMS are facilities for conducting\pDOUBLE BATTLES with four POKéMON.\pThere are many DOUBLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the DOUBLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_4="The BATTLE TOWER’s DOUBLE BATTLE\nROOMS are facilities for conducting\pDOUBLE BATTLES with four POKéMON.\pThere are many DOUBLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the DOUBLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_5="The BATTLE TOWER’s DOUBLE BATTLE\nROOMS are facilities for conducting\pDOUBLE BATTLES with four POKéMON.\pThere are many DOUBLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the DOUBLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_6="The BATTLE TOWER’s DOUBLE BATTLE\nROOMS are facilities for conducting\pDOUBLE BATTLES with four POKéMON.\pThere are many DOUBLE BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn each of the DOUBLE BATTLE ROOMS,\nseven TRAINERS await your challenge.\pIf you manage to defeat all seven,\nyou will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified."
+    08289487  callstd              function=MSGBOX_DEFAULT(4)
+    08289489  goto                 destination=0x082892BB
+
+  script 0x082892BB  [ok]
+    082892BB  message              text="Would you like to take the DOUBLE\nBATTLE ROOM challenge?"
+    082892C0  setobjectmovementtype localId=10421 movementType=8
+    082892C4  setobjectmovementtype localId=10421 movementType=8
+    082892C8  setobjectmovementtype localId=10421 movementType=8
+    082892CC  setobjectmovementtype localId=10421 movementType=8
+    082892D0  setobjectmovementtype localId=10421 movementType=8
+    082892D4  setobjectmovementtype localId=10421 movementType=8
+    082892D8  waitmessage          
+    082892D9  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    082892DE  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082892E3  compare_var_to_value var=0x8000 value=0
+    082892E8  goto_if              condition=1 destination=0x0828930F
+    082892EE  compare_var_to_value var=0x8000 value=1
+    082892F3  goto_if              condition=1 destination=0x08289469
+    082892F9  compare_var_to_value var=0x8000 value=2
+    082892FE  goto_if              condition=1 destination=0x08289BDD
+    08289304  compare_var_to_value var=0x8000 value=127
+    08289309  goto_if              condition=1 destination=0x08289BDD
+    0828930F  setvar               destination=VAR_0x408C value=1
+    08289314  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    08289319  getplayerxy          x=10410 y=16904
+    0828931E  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289327  delay                frames=16904
+    0828932A  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289333  setptr               value=6 ptr=1638471
+    08289339  bufferitemname       stringVarId=13 item=8576
+    0828933D  nop                  
+    0828933E  bufferitemname       stringVarId=2 item=1536
+    08289342  nop1                 
+    08289343  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289347  compare_var_to_value var=0x8000 value=127
+    0828934C  goto_if              condition=1 destination=0x08289BDD
+    08289352  setvar               destination=VAR_0x8004 value=15
+    08289357  special              SPECIAL_\function=148
+    0828935A  compare_var_to_value var=0x8004 value=1
+    0828935F  goto_if              condition=1 destination=0x08289A8D
+    08289365  setvar               destination=VAR_0x8004 value=2
+    0828936A  setvar               destination=VAR_0x8005 value=1
+    0828936F  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289374  special              SPECIAL_\function=148
+    08289377  msgbox_multilang     type=0 text_0="Now please select the four POKéMON\nthat are to be entered." text_1="Now please select the four POKéMON\nthat are to be entered." text_2="Now please select the four POKéMON\nthat are to be entered." text_3="Now please select the four POKéMON\nthat are to be entered." text_4="Now please select the four POKéMON\nthat are to be entered." text_5="Now please select the four POKéMON\nthat are to be entered." text_6="Now please select the four POKéMON\nthat are to be entered."
+    08289395  callstd              function=MSGBOX_DEFAULT(4)
+    08289397  fadescreen           mode=1
+    08289399  callnative           func=0x080D5995
+    0828939E  call                 destination=0x08289DDE
+    082893A3  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082893A8  setvar               destination=VAR_0x8005 value=4
+    082893AD  special              SPECIAL_\function=161
+    082893B0  waitstate            
+
+  object 8 (gfx 0x55, flag 0x0000) -> 0x0828948F
+  script 0x0828948F  [ok]
+    0828948F  lock                 
+    08289490  faceplayer           
+    08289491  setvar               destination=VAR_0x40CF value=0
+    08289496  clearflag            flag=0x0C4
+    08289499  special              SPECIAL_\function=18
+    0828949C  msgbox_multilang     type=0 text_0="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the MULTI\nBATTLE ROOMS." text_1="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the MULTI\nBATTLE ROOMS." text_2="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the MULTI\nBATTLE ROOMS." text_3="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the MULTI\nBATTLE ROOMS." text_4="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the MULTI\nBATTLE ROOMS." text_5="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the MULTI\nBATTLE ROOMS." text_6="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the MULTI\nBATTLE ROOMS."
+    082894BA  callstd              function=MSGBOX_DEFAULT(4)
+    082894BC  message              text="Would you like to take the MULTI\nBATTLE ROOM challenge?"
+    082894C1  endram               
+    082894C2  setvaddress          pointer=3087861800
+    082894C7  delay                frames=3336
+    082894CA  setvaddress          pointer=3087861800
+    082894CF  delay                frames=3336
+    082894D2  setvaddress          pointer=3087861800
+    082894D7  delay                frames=26120
+    082894DA  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    082894DF  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082894E4  compare_var_to_value var=0x8000 value=0
+    082894E9  goto_if              condition=1 destination=0x08289510
+    082894EF  compare_var_to_value var=0x8000 value=1
+    082894F4  goto_if              condition=1 destination=0x0828966A
+    082894FA  compare_var_to_value var=0x8000 value=2
+    082894FF  goto_if              condition=1 destination=0x08289BDD
+    08289505  compare_var_to_value var=0x8000 value=127
+    0828950A  goto_if              condition=1 destination=0x08289BDD
+    08289510  setvar               destination=VAR_0x408C value=2
+    08289515  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    0828951A  getplayerxy          x=10410 y=16904
+    0828951F  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289528  delay                frames=16904
+    0828952B  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289534  setptr               value=6 ptr=1638471
+    0828953A  bufferitemname       stringVarId=13 item=8576
+    0828953E  nop                  
+    0828953F  bufferitemname       stringVarId=2 item=1536
+    08289543  nop1                 
+    08289544  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289548  compare_var_to_value var=0x8000 value=127
+    0828954D  goto_if              condition=1 destination=0x08289BDD
+    08289553  setvar               destination=VAR_0x8004 value=15
+    08289558  special              SPECIAL_\function=148
+    0828955B  compare_var_to_value var=0x8004 value=1
+    08289560  goto_if              condition=1 destination=0x08289A8D
+    08289566  setvar               destination=VAR_0x8004 value=2
+    0828956B  setvar               destination=VAR_0x8005 value=1
+    08289570  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289575  special              SPECIAL_\function=148
+    08289578  msgbox_multilang     type=0 text_0="Now please select the two POKéMON\nthat are to be entered." text_1="Now please select the two POKéMON\nthat are to be entered." text_2="Now please select the two POKéMON\nthat are to be entered." text_3="Now please select the two POKéMON\nthat are to be entered." text_4="Now please select the two POKéMON\nthat are to be entered." text_5="Now please select the two POKéMON\nthat are to be entered." text_6="Now please select the two POKéMON\nthat are to be entered."
+    08289596  callstd              function=MSGBOX_DEFAULT(4)
+    08289598  fadescreen           mode=1
+    0828959A  callnative           func=0x080D5995
+    0828959F  call                 destination=0x08289DDE
+    082895A4  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082895A9  setvar               destination=VAR_0x8005 value=2
+    082895AE  special              SPECIAL_\function=161
+    082895B1  waitstate            
+
+  script 0x08289510  [ok]
+    08289510  setvar               destination=VAR_0x408C value=2
+    08289515  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    0828951A  getplayerxy          x=10410 y=16904
+    0828951F  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289528  delay                frames=16904
+    0828952B  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289534  setptr               value=6 ptr=1638471
+    0828953A  bufferitemname       stringVarId=13 item=8576
+    0828953E  nop                  
+    0828953F  bufferitemname       stringVarId=2 item=1536
+    08289543  nop1                 
+    08289544  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289548  compare_var_to_value var=0x8000 value=127
+    0828954D  goto_if              condition=1 destination=0x08289BDD
+    08289553  setvar               destination=VAR_0x8004 value=15
+    08289558  special              SPECIAL_\function=148
+    0828955B  compare_var_to_value var=0x8004 value=1
+    08289560  goto_if              condition=1 destination=0x08289A8D
+    08289566  setvar               destination=VAR_0x8004 value=2
+    0828956B  setvar               destination=VAR_0x8005 value=1
+    08289570  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289575  special              SPECIAL_\function=148
+    08289578  msgbox_multilang     type=0 text_0="Now please select the two POKéMON\nthat are to be entered." text_1="Now please select the two POKéMON\nthat are to be entered." text_2="Now please select the two POKéMON\nthat are to be entered." text_3="Now please select the two POKéMON\nthat are to be entered." text_4="Now please select the two POKéMON\nthat are to be entered." text_5="Now please select the two POKéMON\nthat are to be entered." text_6="Now please select the two POKéMON\nthat are to be entered."
+    08289596  callstd              function=MSGBOX_DEFAULT(4)
+    08289598  fadescreen           mode=1
+    0828959A  callnative           func=0x080D5995
+    0828959F  call                 destination=0x08289DDE
+    082895A4  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082895A9  setvar               destination=VAR_0x8005 value=2
+    082895AE  special              SPECIAL_\function=161
+    082895B1  waitstate            
+
+  script 0x0828966A  [ok]
+    0828966A  msgbox_multilang     type=0 text_0="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES.\pFor MULTI BATTLES, you must partner\nwith a TRAINER in the TOWER and enter\pwith two POKéMON each.\pInside the TOWER is a room named\nthe BATTLE SALON where you may meet\pother TRAINERS.\pThere, you must find a TRAINER to act\nas your partner in MULTI BATTLES.\pOnce you have partnered up, you will\nbe shown to a MULTI BATTLE ROOM.\pIn the MULTI BATTLE ROOM, seven\ntag teams await your challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_1="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES.\pFor MULTI BATTLES, you must partner\nwith a TRAINER in the TOWER and enter\pwith two POKéMON each.\pInside the TOWER is a room named\nthe BATTLE SALON where you may meet\pother TRAINERS.\pThere, you must find a TRAINER to act\nas your partner in MULTI BATTLES.\pOnce you have partnered up, you will\nbe shown to a MULTI BATTLE ROOM.\pIn the MULTI BATTLE ROOM, seven\ntag teams await your challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_2="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES.\pFor MULTI BATTLES, you must partner\nwith a TRAINER in the TOWER and enter\pwith two POKéMON each.\pInside the TOWER is a room named\nthe BATTLE SALON where you may meet\pother TRAINERS.\pThere, you must find a TRAINER to act\nas your partner in MULTI BATTLES.\pOnce you have partnered up, you will\nbe shown to a MULTI BATTLE ROOM.\pIn the MULTI BATTLE ROOM, seven\ntag teams await your challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_3="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES.\pFor MULTI BATTLES, you must partner\nwith a TRAINER in the TOWER and enter\pwith two POKéMON each.\pInside the TOWER is a room named\nthe BATTLE SALON where you may meet\pother TRAINERS.\pThere, you must find a TRAINER to act\nas your partner in MULTI BATTLES.\pOnce you have partnered up, you will\nbe shown to a MULTI BATTLE ROOM.\pIn the MULTI BATTLE ROOM, seven\ntag teams await your challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_4="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES.\pFor MULTI BATTLES, you must partner\nwith a TRAINER in the TOWER and enter\pwith two POKéMON each.\pInside the TOWER is a room named\nthe BATTLE SALON where you may meet\pother TRAINERS.\pThere, you must find a TRAINER to act\nas your partner in MULTI BATTLES.\pOnce you have partnered up, you will\nbe shown to a MULTI BATTLE ROOM.\pIn the MULTI BATTLE ROOM, seven\ntag teams await your challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_5="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES.\pFor MULTI BATTLES, you must partner\nwith a TRAINER in the TOWER and enter\pwith two POKéMON each.\pInside the TOWER is a room named\nthe BATTLE SALON where you may meet\pother TRAINERS.\pThere, you must find a TRAINER to act\nas your partner in MULTI BATTLES.\pOnce you have partnered up, you will\nbe shown to a MULTI BATTLE ROOM.\pIn the MULTI BATTLE ROOM, seven\ntag teams await your challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_6="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES.\pFor MULTI BATTLES, you must partner\nwith a TRAINER in the TOWER and enter\pwith two POKéMON each.\pInside the TOWER is a room named\nthe BATTLE SALON where you may meet\pother TRAINERS.\pThere, you must find a TRAINER to act\nas your partner in MULTI BATTLES.\pOnce you have partnered up, you will\nbe shown to a MULTI BATTLE ROOM.\pIn the MULTI BATTLE ROOM, seven\ntag teams await your challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified."
+    08289688  callstd              function=MSGBOX_DEFAULT(4)
+    0828968A  goto                 destination=0x082894BC
+
+  script 0x082894BC  [ok]
+    082894BC  message              text="Would you like to take the MULTI\nBATTLE ROOM challenge?"
+    082894C1  endram               
+    082894C2  setvaddress          pointer=3087861800
+    082894C7  delay                frames=3336
+    082894CA  setvaddress          pointer=3087861800
+    082894CF  delay                frames=3336
+    082894D2  setvaddress          pointer=3087861800
+    082894D7  delay                frames=26120
+    082894DA  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    082894DF  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082894E4  compare_var_to_value var=0x8000 value=0
+    082894E9  goto_if              condition=1 destination=0x08289510
+    082894EF  compare_var_to_value var=0x8000 value=1
+    082894F4  goto_if              condition=1 destination=0x0828966A
+    082894FA  compare_var_to_value var=0x8000 value=2
+    082894FF  goto_if              condition=1 destination=0x08289BDD
+    08289505  compare_var_to_value var=0x8000 value=127
+    0828950A  goto_if              condition=1 destination=0x08289BDD
+    08289510  setvar               destination=VAR_0x408C value=2
+    08289515  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    0828951A  getplayerxy          x=10410 y=16904
+    0828951F  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289528  delay                frames=16904
+    0828952B  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289534  setptr               value=6 ptr=1638471
+    0828953A  bufferitemname       stringVarId=13 item=8576
+    0828953E  nop                  
+    0828953F  bufferitemname       stringVarId=2 item=1536
+    08289543  nop1                 
+    08289544  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289548  compare_var_to_value var=0x8000 value=127
+    0828954D  goto_if              condition=1 destination=0x08289BDD
+    08289553  setvar               destination=VAR_0x8004 value=15
+    08289558  special              SPECIAL_\function=148
+    0828955B  compare_var_to_value var=0x8004 value=1
+    08289560  goto_if              condition=1 destination=0x08289A8D
+    08289566  setvar               destination=VAR_0x8004 value=2
+    0828956B  setvar               destination=VAR_0x8005 value=1
+    08289570  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289575  special              SPECIAL_\function=148
+    08289578  msgbox_multilang     type=0 text_0="Now please select the two POKéMON\nthat are to be entered." text_1="Now please select the two POKéMON\nthat are to be entered." text_2="Now please select the two POKéMON\nthat are to be entered." text_3="Now please select the two POKéMON\nthat are to be entered." text_4="Now please select the two POKéMON\nthat are to be entered." text_5="Now please select the two POKéMON\nthat are to be entered." text_6="Now please select the two POKéMON\nthat are to be entered."
+    08289596  callstd              function=MSGBOX_DEFAULT(4)
+    08289598  fadescreen           mode=1
+    0828959A  callnative           func=0x080D5995
+    0828959F  call                 destination=0x08289DDE
+    082895A4  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082895A9  setvar               destination=VAR_0x8005 value=2
+    082895AE  special              SPECIAL_\function=161
+    082895B1  waitstate            
+
+  object 9 (gfx 0x55, flag 0x0000) -> 0x08289690
+  script 0x08289690  [ok]
+    08289690  lock                 
+    08289691  faceplayer           
+    08289692  setvar               destination=VAR_0x40CF value=0
+    08289697  special              SPECIAL_\function=18
+    0828969A  msgbox_multilang     type=0 text_0="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the LINK MULTI\nBATTLE ROOMS." text_1="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the LINK MULTI\nBATTLE ROOMS." text_2="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the LINK MULTI\nBATTLE ROOMS." text_3="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the LINK MULTI\nBATTLE ROOMS." text_4="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the LINK MULTI\nBATTLE ROOMS." text_5="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the LINK MULTI\nBATTLE ROOMS." text_6="Where the talents of TRAINERS\nare put to the test!\pWelcome to the BATTLE TOWER!\pI am your guide to the LINK MULTI\nBATTLE ROOMS."
+    082896B8  callstd              function=MSGBOX_DEFAULT(4)
+    082896BA  message              text="Would you like to take the LINK MULTI\nBATTLE ROOM challenge?"
+    082896BF  dofieldeffect        animation=10427
+    082896C2  gotostd              function=156
+    082896C4  vgoto_if             condition=40 destination=683383816
+    082896CA  gotostd              function=156
+    082896CC  vgoto_if             condition=40 destination=683383816
+    082896D2  gotostd              function=156
+    082896D4  vgoto_if             condition=40 destination=292513288
+    082896DA  goto_if              condition=65 destination=2147490048
+    082896E0  endram               
+    082896E1  bufferitemname       stringVarId=33 item=32768
+    082896E5  nop                  
+    082896E6  nop                  
+    082896E7  goto_if              condition=1 destination=0x0828970E
+    082896ED  compare_var_to_value var=0x8000 value=1
+    082896F2  goto_if              condition=1 destination=0x0828A009
+    082896F8  compare_var_to_value var=0x8000 value=2
+    082896FD  goto_if              condition=1 destination=0x08289BDD
+    08289703  compare_var_to_value var=0x8000 value=127
+    08289708  goto_if              condition=1 destination=0x08289BDD
+    0828970E  setvar               destination=VAR_0x408C value=3
+    08289713  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    08289718  getplayerxy          x=10410 y=16904
+    0828971D  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289726  delay                frames=16904
+    08289729  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289732  setptr               value=6 ptr=1638471
+    08289738  bufferitemname       stringVarId=13 item=8576
+    0828973C  nop                  
+    0828973D  bufferitemname       stringVarId=2 item=1536
+    08289741  nop1                 
+    08289742  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289746  compare_var_to_value var=0x8000 value=127
+    0828974B  goto_if              condition=1 destination=0x08289BDD
+    08289751  setvar               destination=VAR_0x8004 value=15
+    08289756  special              SPECIAL_\function=148
+    08289759  compare_var_to_value var=0x8004 value=1
+    0828975E  goto_if              condition=1 destination=0x08289A8D
+    08289764  setvar               destination=VAR_0x8004 value=2
+    08289769  setvar               destination=VAR_0x8005 value=1
+    0828976E  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289773  special              SPECIAL_\function=148
+    08289776  msgbox_multilang     type=0 text_0="Now please select the two POKéMON\nthat are to be entered." text_1="Now please select the two POKéMON\nthat are to be entered." text_2="Now please select the two POKéMON\nthat are to be entered." text_3="Now please select the two POKéMON\nthat are to be entered." text_4="Now please select the two POKéMON\nthat are to be entered." text_5="Now please select the two POKéMON\nthat are to be entered." text_6="Now please select the two POKéMON\nthat are to be entered."
+    08289794  callstd              function=MSGBOX_DEFAULT(4)
+    08289796  fadescreen           mode=1
+    08289798  callnative           func=0x080D5995
+    0828979D  call                 destination=0x08289DDE
+    082897A2  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082897A7  setvar               destination=VAR_0x8005 value=2
+    082897AC  special              SPECIAL_\function=161
+    082897AF  waitstate            
+
+  script 0x0828970E  [ok]
+    0828970E  setvar               destination=VAR_0x408C value=3
+    08289713  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    08289718  getplayerxy          x=10410 y=16904
+    0828971D  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289726  delay                frames=16904
+    08289729  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289732  setptr               value=6 ptr=1638471
+    08289738  bufferitemname       stringVarId=13 item=8576
+    0828973C  nop                  
+    0828973D  bufferitemname       stringVarId=2 item=1536
+    08289741  nop1                 
+    08289742  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289746  compare_var_to_value var=0x8000 value=127
+    0828974B  goto_if              condition=1 destination=0x08289BDD
+    08289751  setvar               destination=VAR_0x8004 value=15
+    08289756  special              SPECIAL_\function=148
+    08289759  compare_var_to_value var=0x8004 value=1
+    0828975E  goto_if              condition=1 destination=0x08289A8D
+    08289764  setvar               destination=VAR_0x8004 value=2
+    08289769  setvar               destination=VAR_0x8005 value=1
+    0828976E  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289773  special              SPECIAL_\function=148
+    08289776  msgbox_multilang     type=0 text_0="Now please select the two POKéMON\nthat are to be entered." text_1="Now please select the two POKéMON\nthat are to be entered." text_2="Now please select the two POKéMON\nthat are to be entered." text_3="Now please select the two POKéMON\nthat are to be entered." text_4="Now please select the two POKéMON\nthat are to be entered." text_5="Now please select the two POKéMON\nthat are to be entered." text_6="Now please select the two POKéMON\nthat are to be entered."
+    08289794  callstd              function=MSGBOX_DEFAULT(4)
+    08289796  fadescreen           mode=1
+    08289798  callnative           func=0x080D5995
+    0828979D  call                 destination=0x08289DDE
+    082897A2  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082897A7  setvar               destination=VAR_0x8005 value=2
+    082897AC  special              SPECIAL_\function=161
+    082897AF  waitstate            
+
+  script 0x0828A009  [ok]
+    0828A009  msgbox_multilang     type=0 text_0="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES with a friend.\pYou must link with your friend using\nWireless Adapters or a Game Boy\pAdvance Game Link cable.\pYou must partner with your friend and\nenter two different kinds of POKéMON.\pThere are many MULTI BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn a MULTI BATTLE ROOM, seven\ntag teams await you and your friend\pto make a tag-team challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pPlease beware that unlike other ROOMS,\nyou may not interrupt your challenge.\pOnce you start, you must battle seven\nMULTI BATTLES in a row nonstop." text_1="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES with a friend.\pYou must link with your friend using\nWireless Adapters or a Game Boy\pAdvance Game Link cable.\pYou must partner with your friend and\nenter two different kinds of POKéMON.\pThere are many MULTI BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn a MULTI BATTLE ROOM, seven\ntag teams await you and your friend\pto make a tag-team challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pPlease beware that unlike other ROOMS,\nyou may not interrupt your challenge.\pOnce you start, you must battle seven\nMULTI BATTLES in a row nonstop." text_2="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES with a friend.\pYou must link with your friend using\nWireless Adapters or a Game Boy\pAdvance Game Link cable.\pYou must partner with your friend and\nenter two different kinds of POKéMON.\pThere are many MULTI BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn a MULTI BATTLE ROOM, seven\ntag teams await you and your friend\pto make a tag-team challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pPlease beware that unlike other ROOMS,\nyou may not interrupt your challenge.\pOnce you start, you must battle seven\nMULTI BATTLES in a row nonstop." text_3="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES with a friend.\pYou must link with your friend using\nWireless Adapters or a Game Boy\pAdvance Game Link cable.\pYou must partner with your friend and\nenter two different kinds of POKéMON.\pThere are many MULTI BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn a MULTI BATTLE ROOM, seven\ntag teams await you and your friend\pto make a tag-team challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pPlease beware that unlike other ROOMS,\nyou may not interrupt your challenge.\pOnce you start, you must battle seven\nMULTI BATTLES in a row nonstop." text_4="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES with a friend.\pYou must link with your friend using\nWireless Adapters or a Game Boy\pAdvance Game Link cable.\pYou must partner with your friend and\nenter two different kinds of POKéMON.\pThere are many MULTI BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn a MULTI BATTLE ROOM, seven\ntag teams await you and your friend\pto make a tag-team challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pPlease beware that unlike other ROOMS,\nyou may not interrupt your challenge.\pOnce you start, you must battle seven\nMULTI BATTLES in a row nonstop." text_5="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES with a friend.\pYou must link with your friend using\nWireless Adapters or a Game Boy\pAdvance Game Link cable.\pYou must partner with your friend and\nenter two different kinds of POKéMON.\pThere are many MULTI BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn a MULTI BATTLE ROOM, seven\ntag teams await you and your friend\pto make a tag-team challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pPlease beware that unlike other ROOMS,\nyou may not interrupt your challenge.\pOnce you start, you must battle seven\nMULTI BATTLES in a row nonstop." text_6="The BATTLE TOWER’s MULTI BATTLE\nROOMS are facilities for conducting\pMULTI BATTLES with a friend.\pYou must link with your friend using\nWireless Adapters or a Game Boy\pAdvance Game Link cable.\pYou must partner with your friend and\nenter two different kinds of POKéMON.\pThere are many MULTI BATTLE ROOMS\nin the BATTLE TOWER for team battles.\pIn a MULTI BATTLE ROOM, seven\ntag teams await you and your friend\pto make a tag-team challenge.\pIf you manage to defeat all seven\nteams, you will earn Battle Points.\pPlease beware that unlike other ROOMS,\nyou may not interrupt your challenge.\pOnce you start, you must battle seven\nMULTI BATTLES in a row nonstop."
+    0828A027  callstd              function=MSGBOX_DEFAULT(4)
+    0828A029  goto                 destination=0x082896BA
+
+  script 0x082896BA  [ok]
+    082896BA  message              text="Would you like to take the LINK MULTI\nBATTLE ROOM challenge?"
+    082896BF  dofieldeffect        animation=10427
+    082896C2  gotostd              function=156
+    082896C4  vgoto_if             condition=40 destination=683383816
+    082896CA  gotostd              function=156
+    082896CC  vgoto_if             condition=40 destination=683383816
+    082896D2  gotostd              function=156
+    082896D4  vgoto_if             condition=40 destination=292513288
+    082896DA  goto_if              condition=65 destination=2147490048
+    082896E0  endram               
+    082896E1  bufferitemname       stringVarId=33 item=32768
+    082896E5  nop                  
+    082896E6  nop                  
+    082896E7  goto_if              condition=1 destination=0x0828970E
+    082896ED  compare_var_to_value var=0x8000 value=1
+    082896F2  goto_if              condition=1 destination=0x0828A009
+    082896F8  compare_var_to_value var=0x8000 value=2
+    082896FD  goto_if              condition=1 destination=0x08289BDD
+    08289703  compare_var_to_value var=0x8000 value=127
+    08289708  goto_if              condition=1 destination=0x08289BDD
+    0828970E  setvar               destination=VAR_0x408C value=3
+    08289713  message              text="The BATTLE ROOM offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    08289718  getplayerxy          x=10410 y=16904
+    0828971D  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=66 direction=170
+    08289726  delay                frames=16904
+    08289729  createvobject        graphicsId=40 id=8 x=43586 y=2088 elevation=102 direction=111
+    08289732  setptr               value=6 ptr=1638471
+    08289738  bufferitemname       stringVarId=13 item=8576
+    0828973C  nop                  
+    0828973D  bufferitemname       stringVarId=2 item=1536
+    08289741  nop1                 
+    08289742  buffertrainerclassname stringVarId=155 trainerId=2088
+    08289746  compare_var_to_value var=0x8000 value=127
+    0828974B  goto_if              condition=1 destination=0x08289BDD
+    08289751  setvar               destination=VAR_0x8004 value=15
+    08289756  special              SPECIAL_\function=148
+    08289759  compare_var_to_value var=0x8004 value=1
+    0828975E  goto_if              condition=1 destination=0x08289A8D
+    08289764  setvar               destination=VAR_0x8004 value=2
+    08289769  setvar               destination=VAR_0x8005 value=1
+    0828976E  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08289773  special              SPECIAL_\function=148
+    08289776  msgbox_multilang     type=0 text_0="Now please select the two POKéMON\nthat are to be entered." text_1="Now please select the two POKéMON\nthat are to be entered." text_2="Now please select the two POKéMON\nthat are to be entered." text_3="Now please select the two POKéMON\nthat are to be entered." text_4="Now please select the two POKéMON\nthat are to be entered." text_5="Now please select the two POKéMON\nthat are to be entered." text_6="Now please select the two POKéMON\nthat are to be entered."
+    08289794  callstd              function=MSGBOX_DEFAULT(4)
+    08289796  fadescreen           mode=1
+    08289798  callnative           func=0x080D5995
+    0828979D  call                 destination=0x08289DDE
+    082897A2  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082897A7  setvar               destination=VAR_0x8005 value=2
+    082897AC  special              SPECIAL_\function=161
+    082897AF  waitstate            
+
+  sign 0 at (4,5) -> 0x08289A29
+  script 0x08289A29  [ok]
+    08289A29  lockall              
+    08289A2A  setvar               destination=VAR_0x8004 value=7
+    08289A2F  setvar               destination=VAR_0x8005 value=0
+    08289A34  setvar               destination=VAR_0x8006 value=0
+    08289A39  special              SPECIAL_\function=148
+    08289A3C  waitbuttonpress      
+    08289A3D  special              SPECIAL_\function=342
+    08289A40  releaseall           
+
+  sign 1 at (8,5) -> 0x08289A42
+  script 0x08289A42  [ok]
+    08289A42  lockall              
+    08289A43  setvar               destination=VAR_0x8004 value=7
+    08289A48  setvar               destination=VAR_0x8005 value=0
+    08289A4D  setvar               destination=VAR_0x8006 value=1
+    08289A52  special              SPECIAL_\function=148
+    08289A55  waitbuttonpress      
+    08289A56  special              SPECIAL_\function=342
+    08289A59  releaseall           
+
+  sign 2 at (12,5) -> 0x08289A5B
+  script 0x08289A5B  [ok]
+    08289A5B  lockall              
+    08289A5C  setvar               destination=VAR_0x8004 value=7
+    08289A61  setvar               destination=VAR_0x8005 value=0
+    08289A66  setvar               destination=VAR_0x8006 value=2
+    08289A6B  special              SPECIAL_\function=148
+    08289A6E  waitbuttonpress      
+    08289A6F  special              SPECIAL_\function=342
+    08289A72  releaseall           
+
+  sign 3 at (16,5) -> 0x08289A74
+  script 0x08289A74  [ok]
+    08289A74  lockall              
+    08289A75  setvar               destination=VAR_0x8004 value=7
+    08289A7A  setvar               destination=VAR_0x8005 value=0
+    08289A7F  setvar               destination=VAR_0x8006 value=3
+    08289A84  special              SPECIAL_\function=148
+    08289A87  waitbuttonpress      
+    08289A88  special              SPECIAL_\function=342
+    08289A8B  releaseall           
+
+  sign 4 at (2,1) -> 0x0828A135
+  script 0x0828A135  [ok]
+    0828A135  lockall              
+    0828A136  msgbox_multilang     type=0 text_0="The BATTLE TOWER rules are listed." text_1="The BATTLE TOWER rules are listed." text_2="The BATTLE TOWER rules are listed." text_3="The BATTLE TOWER rules are listed." text_4="The BATTLE TOWER rules are listed." text_5="The BATTLE TOWER rules are listed." text_6="The BATTLE TOWER rules are listed."
+    0828A154  callstd              function=MSGBOX_DEFAULT(4)
+    0828A156  goto                 destination=0x0828A15C
+
+  script 0x0828A15C  [ok]
+    0828A15C  message              text="Which heading do you want to read?"
+    0828A161  lock                 
+    0828A162  updatecoinsbox       x=40 y=8
+    0828A165  lock                 
+    0828A166  updatecoinsbox       x=40 y=8
+    0828A169  lock                 
+    0828A16A  updatecoinsbox       x=40 y=8
+    0828A16D  lock                 
+    0828A16E  updatecoinsbox       x=40 y=8
+    0828A171  lock                 
+    0828A172  updatecoinsbox       x=40 y=8
+    0828A175  lock                 
+    0828A176  updatecoinsbox       x=40 y=8
+    0828A179  waitmessage          
+    0828A17A  multichoice          x=17 y=2 multichoiceId=97 ignoreBPress=0
+    0828A17F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828A184  compare_var_to_value var=0x8000 value=0
+    0828A189  goto_if              condition=1 destination=0x0828A1C7
+    0828A18F  compare_var_to_value var=0x8000 value=1
+    0828A194  goto_if              condition=1 destination=0x0828A1ED
+    0828A19A  compare_var_to_value var=0x8000 value=2
+    0828A19F  goto_if              condition=1 destination=0x0828A213
+    0828A1A5  compare_var_to_value var=0x8000 value=3
+    0828A1AA  goto_if              condition=1 destination=0x0828A239
+    0828A1B0  compare_var_to_value var=0x8000 value=4
+    0828A1B5  goto_if              condition=1 destination=0x0828A25F
+    0828A1BB  compare_var_to_value var=0x8000 value=127
+    0828A1C0  goto_if              condition=1 destination=0x0828A25F
+    0828A1C6  end                  
+
+  script 0x0828A1C7  [ok]
+    0828A1C7  msgbox_multilang     type=0 text_0="The BATTLE TOWER is a facility where\nfour types of battles are waged--\pSINGLE BATTLE, DOUBLE BATTLE, MULTI\pBATTLE, and LINK MULTI BATTLE.\pFor each of these types, there are\nseparate BATTLE ROOMS.\pPlease speak with a guide offering\nthe type of battle you wish to enter." text_1="The BATTLE TOWER is a facility where\nfour types of battles are waged--\pSINGLE BATTLE, DOUBLE BATTLE, MULTI\pBATTLE, and LINK MULTI BATTLE.\pFor each of these types, there are\nseparate BATTLE ROOMS.\pPlease speak with a guide offering\nthe type of battle you wish to enter." text_2="The BATTLE TOWER is a facility where\nfour types of battles are waged--\pSINGLE BATTLE, DOUBLE BATTLE, MULTI\pBATTLE, and LINK MULTI BATTLE.\pFor each of these types, there are\nseparate BATTLE ROOMS.\pPlease speak with a guide offering\nthe type of battle you wish to enter." text_3="The BATTLE TOWER is a facility where\nfour types of battles are waged--\pSINGLE BATTLE, DOUBLE BATTLE, MULTI\pBATTLE, and LINK MULTI BATTLE.\pFor each of these types, there are\nseparate BATTLE ROOMS.\pPlease speak with a guide offering\nthe type of battle you wish to enter." text_4="The BATTLE TOWER is a facility where\nfour types of battles are waged--\pSINGLE BATTLE, DOUBLE BATTLE, MULTI\pBATTLE, and LINK MULTI BATTLE.\pFor each of these types, there are\nseparate BATTLE ROOMS.\pPlease speak with a guide offering\nthe type of battle you wish to enter." text_5="The BATTLE TOWER is a facility where\nfour types of battles are waged--\pSINGLE BATTLE, DOUBLE BATTLE, MULTI\pBATTLE, and LINK MULTI BATTLE.\pFor each of these types, there are\nseparate BATTLE ROOMS.\pPlease speak with a guide offering\nthe type of battle you wish to enter." text_6="The BATTLE TOWER is a facility where\nfour types of battles are waged--\pSINGLE BATTLE, DOUBLE BATTLE, MULTI\pBATTLE, and LINK MULTI BATTLE.\pFor each of these types, there are\nseparate BATTLE ROOMS.\pPlease speak with a guide offering\nthe type of battle you wish to enter."
+    0828A1E5  callstd              function=MSGBOX_DEFAULT(4)
+    0828A1E7  goto                 destination=0x0828A15C
+
+  script 0x0828A1ED  [ok]
+    0828A1ED  msgbox_multilang     type=0 text_0="Depending on the BATTLE ROOM you are\nentering, you will be required to take\pa certain number of POKéMON.\pThe SINGLE BATTLE mode requires\nthree POKéMON.\pThe DOUBLE BATTLE mode requires four,\nand the MULTI modes both require two." text_1="Depending on the BATTLE ROOM you are\nentering, you will be required to take\pa certain number of POKéMON.\pThe SINGLE BATTLE mode requires\nthree POKéMON.\pThe DOUBLE BATTLE mode requires four,\nand the MULTI modes both require two." text_2="Depending on the BATTLE ROOM you are\nentering, you will be required to take\pa certain number of POKéMON.\pThe SINGLE BATTLE mode requires\nthree POKéMON.\pThe DOUBLE BATTLE mode requires four,\nand the MULTI modes both require two." text_3="Depending on the BATTLE ROOM you are\nentering, you will be required to take\pa certain number of POKéMON.\pThe SINGLE BATTLE mode requires\nthree POKéMON.\pThe DOUBLE BATTLE mode requires four,\nand the MULTI modes both require two." text_4="Depending on the BATTLE ROOM you are\nentering, you will be required to take\pa certain number of POKéMON.\pThe SINGLE BATTLE mode requires\nthree POKéMON.\pThe DOUBLE BATTLE mode requires four,\nand the MULTI modes both require two." text_5="Depending on the BATTLE ROOM you are\nentering, you will be required to take\pa certain number of POKéMON.\pThe SINGLE BATTLE mode requires\nthree POKéMON.\pThe DOUBLE BATTLE mode requires four,\nand the MULTI modes both require two." text_6="Depending on the BATTLE ROOM you are\nentering, you will be required to take\pa certain number of POKéMON.\pThe SINGLE BATTLE mode requires\nthree POKéMON.\pThe DOUBLE BATTLE mode requires four,\nand the MULTI modes both require two."
+    0828A20B  callstd              function=MSGBOX_DEFAULT(4)
+    0828A20D  goto                 destination=0x0828A15C
+
+  script 0x0828A213  [ok]
+    0828A213  msgbox_multilang     type=0 text_0="The BATTLE SALON is where you must\nfind a partner to form a tag team for\pthe MULTI BATTLE ROOM challenge.\pChoose the best partner for you by\nexamining other TRAINERS’\pPOKéMON and their moves.\pYou may choose a new tag partner\nafter winning seven straight matches." text_1="The BATTLE SALON is where you must\nfind a partner to form a tag team for\pthe MULTI BATTLE ROOM challenge.\pChoose the best partner for you by\nexamining other TRAINERS’\pPOKéMON and their moves.\pYou may choose a new tag partner\nafter winning seven straight matches." text_2="The BATTLE SALON is where you must\nfind a partner to form a tag team for\pthe MULTI BATTLE ROOM challenge.\pChoose the best partner for you by\nexamining other TRAINERS’\pPOKéMON and their moves.\pYou may choose a new tag partner\nafter winning seven straight matches." text_3="The BATTLE SALON is where you must\nfind a partner to form a tag team for\pthe MULTI BATTLE ROOM challenge.\pChoose the best partner for you by\nexamining other TRAINERS’\pPOKéMON and their moves.\pYou may choose a new tag partner\nafter winning seven straight matches." text_4="The BATTLE SALON is where you must\nfind a partner to form a tag team for\pthe MULTI BATTLE ROOM challenge.\pChoose the best partner for you by\nexamining other TRAINERS’\pPOKéMON and their moves.\pYou may choose a new tag partner\nafter winning seven straight matches." text_5="The BATTLE SALON is where you must\nfind a partner to form a tag team for\pthe MULTI BATTLE ROOM challenge.\pChoose the best partner for you by\nexamining other TRAINERS’\pPOKéMON and their moves.\pYou may choose a new tag partner\nafter winning seven straight matches." text_6="The BATTLE SALON is where you must\nfind a partner to form a tag team for\pthe MULTI BATTLE ROOM challenge.\pChoose the best partner for you by\nexamining other TRAINERS’\pPOKéMON and their moves.\pYou may choose a new tag partner\nafter winning seven straight matches."
+    0828A231  callstd              function=MSGBOX_DEFAULT(4)
+    0828A233  goto                 destination=0x0828A15C
+
+  script 0x0828A239  [ok]
+    0828A239  msgbox_multilang     type=0 text_0="The LINK MULTI BATTLE Mode is for two\nfriends to mount a challenge together.\pYou and your friend must be linked with\nWireless Adapters or a GBA Game Link\pcable.\pYou must choose two POKéMON at\nthe registration counter.\pThese POKéMON must be different\nfrom those of your friend.\pYou may not interrupt this challenge\nin the middle, unlike other modes." text_1="The LINK MULTI BATTLE Mode is for two\nfriends to mount a challenge together.\pYou and your friend must be linked with\nWireless Adapters or a GBA Game Link\pcable.\pYou must choose two POKéMON at\nthe registration counter.\pThese POKéMON must be different\nfrom those of your friend.\pYou may not interrupt this challenge\nin the middle, unlike other modes." text_2="The LINK MULTI BATTLE Mode is for two\nfriends to mount a challenge together.\pYou and your friend must be linked with\nWireless Adapters or a GBA Game Link\pcable.\pYou must choose two POKéMON at\nthe registration counter.\pThese POKéMON must be different\nfrom those of your friend.\pYou may not interrupt this challenge\nin the middle, unlike other modes." text_3="The LINK MULTI BATTLE Mode is for two\nfriends to mount a challenge together.\pYou and your friend must be linked with\nWireless Adapters or a GBA Game Link\pcable.\pYou must choose two POKéMON at\nthe registration counter.\pThese POKéMON must be different\nfrom those of your friend.\pYou may not interrupt this challenge\nin the middle, unlike other modes." text_4="The LINK MULTI BATTLE Mode is for two\nfriends to mount a challenge together.\pYou and your friend must be linked with\nWireless Adapters or a GBA Game Link\pcable.\pYou must choose two POKéMON at\nthe registration counter.\pThese POKéMON must be different\nfrom those of your friend.\pYou may not interrupt this challenge\nin the middle, unlike other modes." text_5="The LINK MULTI BATTLE Mode is for two\nfriends to mount a challenge together.\pYou and your friend must be linked with\nWireless Adapters or a GBA Game Link\pcable.\pYou must choose two POKéMON at\nthe registration counter.\pThese POKéMON must be different\nfrom those of your friend.\pYou may not interrupt this challenge\nin the middle, unlike other modes." text_6="The LINK MULTI BATTLE Mode is for two\nfriends to mount a challenge together.\pYou and your friend must be linked with\nWireless Adapters or a GBA Game Link\pcable.\pYou must choose two POKéMON at\nthe registration counter.\pThese POKéMON must be different\nfrom those of your friend.\pYou may not interrupt this challenge\nin the middle, unlike other modes."
+    0828A257  callstd              function=MSGBOX_DEFAULT(4)
+    0828A259  goto                 destination=0x0828A15C
+
+  script 0x0828A25F  [ok]
+    0828A25F  releaseall           
+
+  map script type 5 -> 0x08288C50
+  script 0x08288C50  [ok]
+    08288C50  special              SPECIAL_\function=246
+    08288C53  end                  
+
+  map script type 3 -> 0x08288C54
+  script 0x08288C54  [ok]
+    08288C54  setvar               destination=VAR_0x8004 value=10
+    08288C59  special              SPECIAL_\function=252
+    08288C5C  compare_var_to_value var=0x8004 value=0
+    08288C61  goto_if              condition=1 destination=0x08288C70
+    08288C67  checkflag            flag=0x93C
+    08288C6A  goto_if              condition=1 destination=0x08288C7C
+    08288C70  clearflag            flag=0x0F2
+    08288C73  setvar               destination=VAR_0x8004 value=23
+    08288C78  special              SPECIAL_\function=252
+    08288C7B  end                  
+
+  script 0x08288C70  [ok]
+    08288C70  clearflag            flag=0x0F2
+    08288C73  setvar               destination=VAR_0x8004 value=23
+    08288C78  special              SPECIAL_\function=252
+    08288C7B  end                  
+
+  script 0x08288C7C  [ok]
+    08288C7C  setflag              flag=0x0F2
+    08288C7F  goto                 destination=0x08288C7B
+
+  script 0x08288C7B  [ok]
+    08288C7B  end                  
+
+  map script type 2 (var 0x4000 == 0) -> 0x08288CC2
+  script 0x08288CC2  [ok]
+    08288CC2  setvar               destination=VAR_0x8004 value=0
+    08288CC7  special              SPECIAL_\function=148
+    08288CCA  end                  
+
+  map script type 2 (var 0x4000 == 1) -> 0x08288CCB
+  script 0x08288CCB  [ok]
+    08288CCB  lock                 
+    08288CCC  faceplayer           
+    08288CCD  msgbox_multilang     type=0 text_0="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_1="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_2="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_3="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_4="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_5="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_6="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!"
+    08288CEB  callstd              function=MSGBOX_DEFAULT(4)
+    08288CED  closemessage         
+    08288CEE  setvar               destination=VAR_0x8004 value=2
+    08288CF3  setvar               destination=VAR_0x8005 value=1
+    08288CF8  setvar               destination=VAR_0x8006 value=0
+    08288CFD  special              SPECIAL_\function=149
+    08288D00  setvar               destination=VAR_0x8004 value=2
+    08288D05  setvar               destination=VAR_0x8005 value=2
+    08288D0A  setvar               destination=VAR_0x8006 value=0
+    08288D0F  special              SPECIAL_\function=149
+    08288D12  setvar               destination=VAR_0x8004 value=2
+    08288D17  setvar               destination=VAR_0x8005 value=0
+    08288D1C  setvar               destination=VAR_0x8006 value=0
+    08288D21  special              SPECIAL_\function=148
+    08288D24  setvar               destination=VAR_0x4000 value=255
+    08288D29  release              
+
+  map script type 2 (var 0x4000 == 2) -> 0x0828901B
+  script 0x0828901B  [ok]
+    0828901B  lock                 
+    0828901C  faceplayer           
+    0828901D  compare_var_to_value var=0x408C value=0
+    08289022  call_if              condition=1 destination=0x0828908D
+    08289028  message              text="We’ve been waiting for you!\p"
+    0828902D  setwarp              mapGroup=164 mapNum=40 WARP_ID_NONE=8 -1=42046 -1=2088
+    08289035  setwarp              mapGroup=164 mapNum=40 WARP_ID_NONE=8 -1=42046 -1=2088
+    0828903D  setwarp              mapGroup=164 mapNum=40 WARP_ID_NONE=8 -1=42046 -1=2088
+    08289045  waitmessage          
+    08289046  message              text="Before entering a BATTLE ROOM, your\nprogress will be saved. Please wait."
+    0828904B  turnobject           localId=10404 direction=8
+    0828904F  turnobject           localId=10404 direction=8
+    08289053  turnobject           localId=10404 direction=8
+    08289057  turnobject           localId=10404 direction=8
+    0828905B  turnobject           localId=10404 direction=8
+    0828905F  turnobject           localId=10404 direction=8
+    08289063  waitmessage          
+    08289064  setvar               destination=VAR_0x8004 value=6
+    08289069  setvar               destination=VAR_0x8005 value=1
+    0828906E  special              SPECIAL_\function=149
+    08289071  playse               song=55
+    08289074  waitse               
+    08289075  setvar               destination=VAR_0x8004 value=2
+    0828907A  setvar               destination=VAR_0x8005 value=3
+    0828907F  setvar               destination=VAR_0x8006 value=0
+    08289084  special              SPECIAL_\function=148
+    08289087  goto                 destination=0x08289C02
+
+  script 0x0828908D  [ok]
+    0828908D  setvar               destination=VAR_0x40CB value=1
+    08289092  return               
+
+  script 0x08289C02  [ok]
+    08289C02  special              SPECIAL_\function=18
+    08289C05  setvar               destination=VAR_0x8004 value=3
+    08289C0A  call                 destination=0x08289D99
+    08289C0F  special              SPECIAL_\function=148
+    08289C12  setvar               destination=VAR_0x800D value=0
+    08289C17  setvar               destination=VAR_0x8004 value=12
+    08289C1C  special              SPECIAL_\function=149
+    08289C1F  delay                frames=1
+    08289C22  compare_var_to_value var=0x800D value=6
+    08289C27  goto_if              condition=5 destination=0x08289C17
+    08289C2D  call                 destination=0x08289C44
+    08289C32  clearflag            flag=0x0AF
+    08289C35  warp                 mapGroup=41 mapNum=3 WARP_ID_NONE=255 -1=1 -1=6
+    08289C3D  setvar               destination=VAR_0x4000 value=0
+    08289C42  waitstate            
+
+  script 0x08289D99  [ok]
+    08289D99  compare_var_to_value var=0x408C value=0
+    08289D9E  call_if              condition=1 destination=0x08289DC6
+    08289DA4  compare_var_to_value var=0x408C value=1
+    08289DA9  call_if              condition=1 destination=0x08289DCC
+    08289DAF  compare_var_to_value var=0x408C value=2
+    08289DB4  call_if              condition=1 destination=0x08289DD2
+    08289DBA  compare_var_to_value var=0x408C value=3
+    08289DBF  call_if              condition=1 destination=0x08289DD8
+    08289DC5  return               
+
+  script 0x08289C17  [ok]
+    08289C17  setvar               destination=VAR_0x8004 value=12
+    08289C1C  special              SPECIAL_\function=149
+    08289C1F  delay                frames=1
+    08289C22  compare_var_to_value var=0x800D value=6
+    08289C27  goto_if              condition=5 destination=0x08289C17
+    08289C2D  call                 destination=0x08289C44
+    08289C32  clearflag            flag=0x0AF
+    08289C35  warp                 mapGroup=41 mapNum=3 WARP_ID_NONE=255 -1=1 -1=6
+    08289C3D  setvar               destination=VAR_0x4000 value=0
+    08289C42  waitstate            
+
+  script 0x08289C44  [ok]
+    08289C44  call                 destination=0x08289CCE
+    08289C49  compare_var_to_value var=0x408C value=3
+    08289C4E  goto_if              condition=1 destination=0x08289C79
+    08289C54  msgbox_multilang     type=0 text_0="I will now show you to the\n{STR_VAR_1} BATTLE ROOM." text_1="I will now show you to the\n{STR_VAR_1} BATTLE ROOM." text_2="I will now show you to the\n{STR_VAR_1} BATTLE ROOM." text_3="I will now show you to the\n{STR_VAR_1} BATTLE ROOM." text_4="I will now show you to the\n{STR_VAR_1} BATTLE ROOM." text_5="I will now show you to the\n{STR_VAR_1} BATTLE ROOM." text_6="I will now show you to the\n{STR_VAR_1} BATTLE ROOM."
+    08289C72  callstd              function=MSGBOX_DEFAULT(4)
+    08289C74  goto                 destination=0x08289C82
+
+  script 0x08289DC6  [ok]
+    08289DC6  setvar               destination=VAR_0x8005 value=3
+    08289DCB  return               
+
+  script 0x08289DCC  [ok]
+    08289DCC  setvar               destination=VAR_0x8005 value=4
+    08289DD1  return               
+
+  script 0x08289DD2  [ok]
+    08289DD2  setvar               destination=VAR_0x8005 value=2
+    08289DD7  return               
+
+  script 0x08289DD8  [ok]
+    08289DD8  setvar               destination=VAR_0x8005 value=2
+    08289DDD  return               
+
+  script 0x08289CCE  [ok]
+    08289CCE  compare_var_to_value var=0x408C value=0
+    08289CD3  call_if              condition=1 destination=0x08289CFB
+    08289CD9  compare_var_to_value var=0x408C value=1
+    08289CDE  call_if              condition=1 destination=0x08289D00
+    08289CE4  compare_var_to_value var=0x408C value=2
+    08289CE9  call_if              condition=1 destination=0x08289D05
+    08289CEF  compare_var_to_value var=0x408C value=3
+    08289CF4  call_if              condition=1 destination=0x08289D0A
+    08289CFA  return               
+
+  script 0x08289C79  [ok]
+    08289C79  messageautoscroll    text="I will now show you to the\n{STR_VAR_1} BATTLE ROOM."
+    08289C7E  waitmessage          
+    08289C7F  delay                frames=48
+    08289C82  closemessage         
+    08289C83  call                 destination=0x08289D0F
+    08289C88  call                 destination=0x08289D54
+    08289C8D  applymovement        localId=32783 movements=[walk_up walk_up walk_up]
+    08289C94  applymovement        localId=255 movements=[walk_up walk_up walk_up]
+    08289C9B  waitmovement         localId=0
+    08289C9E  opendoor             x=32772 y=1
+    08289CA3  waitdooranim         
+    08289CA4  applymovement        localId=32783 movements=[walk_up set_invisible]
+    08289CAB  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08289CB2  waitmovement         localId=0
+    08289CB5  closedoor            x=32772 y=1
+    08289CBA  waitdooranim         
+    08289CBB  return               
+
+  script 0x08289C82  [ok]
+    08289C82  closemessage         
+    08289C83  call                 destination=0x08289D0F
+    08289C88  call                 destination=0x08289D54
+    08289C8D  applymovement        localId=32783 movements=[walk_up walk_up walk_up]
+    08289C94  applymovement        localId=255 movements=[walk_up walk_up walk_up]
+    08289C9B  waitmovement         localId=0
+    08289C9E  opendoor             x=32772 y=1
+    08289CA3  waitdooranim         
+    08289CA4  applymovement        localId=32783 movements=[walk_up set_invisible]
+    08289CAB  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08289CB2  waitmovement         localId=0
+    08289CB5  closedoor            x=32772 y=1
+    08289CBA  waitdooranim         
+    08289CBB  return               
+
+  script 0x08289CFB  [ok]
+    08289CFB  bufferstdstring      stringVarId=0 index=19
+    08289CFF  return               
+
+  script 0x08289D00  [ok]
+    08289D00  bufferstdstring      stringVarId=0 index=20
+    08289D04  return               
+
+  script 0x08289D05  [ok]
+    08289D05  bufferstdstring      stringVarId=0 index=21
+    08289D09  return               
+
+  script 0x08289D0A  [ok]
+    08289D0A  bufferstdstring      stringVarId=0 index=22
+    08289D0E  return               
+
+  script 0x08289D0F  [ok]
+    08289D0F  compare_var_to_value var=0x408C value=0
+    08289D14  call_if              condition=1 destination=0x08289D3C
+    08289D1A  compare_var_to_value var=0x408C value=1
+    08289D1F  call_if              condition=1 destination=0x08289D42
+    08289D25  compare_var_to_value var=0x408C value=2
+    08289D2A  call_if              condition=1 destination=0x08289D48
+    08289D30  compare_var_to_value var=0x408C value=3
+    08289D35  call_if              condition=1 destination=0x08289D4E
+    08289D3B  return               
+
+  script 0x08289D54  [ok]
+    08289D54  compare_var_to_value var=0x408C value=0
+    08289D59  call_if              condition=1 destination=0x08289D81
+    08289D5F  compare_var_to_value var=0x408C value=1
+    08289D64  call_if              condition=1 destination=0x08289D87
+    08289D6A  compare_var_to_value var=0x408C value=2
+    08289D6F  call_if              condition=1 destination=0x08289D8D
+    08289D75  compare_var_to_value var=0x408C value=3
+    08289D7A  call_if              condition=1 destination=0x08289D93
+    08289D80  return               
+
+  script 0x08289D3C  [ok]
+    08289D3C  setvar               destination=VAR_0x800F value=1
+    08289D41  return               
+
+  script 0x08289D42  [ok]
+    08289D42  setvar               destination=VAR_0x800F value=7
+    08289D47  return               
+
+  script 0x08289D48  [ok]
+    08289D48  setvar               destination=VAR_0x800F value=8
+    08289D4D  return               
+
+  script 0x08289D4E  [ok]
+    08289D4E  setvar               destination=VAR_0x800F value=9
+    08289D53  return               
+
+  script 0x08289D81  [ok]
+    08289D81  setvar               destination=VAR_0x8004 value=6
+    08289D86  return               
+
+  script 0x08289D87  [ok]
+    08289D87  setvar               destination=VAR_0x8004 value=10
+    08289D8C  return               
+
+  script 0x08289D8D  [ok]
+    08289D8D  setvar               destination=VAR_0x8004 value=14
+    08289D92  return               
+
+  script 0x08289D93  [ok]
+    08289D93  setvar               destination=VAR_0x8004 value=18
+    08289D98  return               
+
+  map script type 2 (var 0x4000 == 3) -> 0x08288D2B
+  script 0x08288D2B  [ok]
+    08288D2B  lock                 
+    08288D2C  faceplayer           
+    08288D2D  setvar               destination=VAR_0x8004 value=10
+    08288D32  special              SPECIAL_\function=148
+    08288D35  compare_var_to_value var=0x800D value=1
+    08288D3A  goto_if              condition=1 destination=0x08288D63
+    08288D40  message              text="Congratulations!\nYou’ve beaten all seven TRAINERS!\p"
+    08288D45  copylocal            destIndex=163 srcIndex=40
+    08288D48  gotostd              function=20
+    08288D4A  resetweather         
+    08288D4B  delay                frames=5128
+    08288D4E  resetweather         
+    08288D4F  delay                frames=5128
+    08288D52  resetweather         
+    08288D53  delay                frames=5128
+    08288D56  resetweather         
+    08288D57  delay                frames=5128
+    08288D5A  resetweather         
+    08288D5B  delay                frames=26120
+    08288D5E  goto                 destination=0x08288D83
+
+  script 0x08288D63  [ok]
+    08288D63  msgbox_multilang     type=0 text_0="Congratulations!\nYou have defeated the SALON MAIDEN\pand swept seven TRAINERS!" text_1="Congratulations!\nYou have defeated the SALON MAIDEN\pand swept seven TRAINERS!" text_2="Congratulations!\nYou have defeated the SALON MAIDEN\pand swept seven TRAINERS!" text_3="Congratulations!\nYou have defeated the SALON MAIDEN\pand swept seven TRAINERS!" text_4="Congratulations!\nYou have defeated the SALON MAIDEN\pand swept seven TRAINERS!" text_5="Congratulations!\nYou have defeated the SALON MAIDEN\pand swept seven TRAINERS!" text_6="Congratulations!\nYou have defeated the SALON MAIDEN\pand swept seven TRAINERS!"
+    08288D81  callstd              function=MSGBOX_DEFAULT(4)
+    08288D83  setvar               destination=VAR_0x8004 value=5
+    08288D88  special              SPECIAL_\function=149
+    08288D8B  compare_var_to_value var=0x800D value=0
+    08288D90  goto_if              condition=1 destination=0x08288DD8
+    08288D96  message              text="Here are some RIBBONS for beating\nseven tough TRAINERS in a row.\p{PLAYER} received some RIBBONS!"
+    08288D9B  adddecoration        decoration=10405
+    08288D9E  gotostd              function=75
+    08288DA0  doweather            
+    08288DA1  delay                frames=19208
+    08288DA4  doweather            
+    08288DA5  delay                frames=19208
+    08288DA8  doweather            
+    08288DA9  delay                frames=19208
+    08288DAC  doweather            
+    08288DAD  delay                frames=19208
+    08288DB0  doweather            
+    08288DB1  delay                frames=26120
+    08288DB4  playfanfare          song=370
+    08288DB7  waitfanfare          
+    08288DB8  msgbox_multilang     type=0 text_0="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_1="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_2="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_3="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_4="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_5="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_6="{PLAYER} put the RIBBONS on\nthe challenger POKéMON."
+    08288DD6  callstd              function=MSGBOX_DEFAULT(4)
+    08288DD8  msgbox_multilang     type=0 text_0="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_1="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_2="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_3="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_4="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_5="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_6="In recognition of your infinite talent,\nwe award you these Battle Point(s)."
+    08288DF6  callstd              function=MSGBOX_DEFAULT(4)
+    08288DF8  setvar               destination=VAR_0x8004 value=11
+    08288DFD  special              SPECIAL_\function=148
+    08288E00  msgbox_multilang     type=0 text_0="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained {STR_VAR_1} Battle Point(s)."
+    08288E1E  callstd              function=11
+    08288E20  call                 destination=0x08288F1A
+    08288E25  setvar               destination=VAR_0x8004 value=1
+    08288E2A  setvar               destination=VAR_0x8005 value=1
+    08288E2F  special              SPECIAL_\function=149
+    08288E32  compare_var_to_value var=0x800D value=49
+    08288E37  goto_if              condition=5 destination=0x08288E5D
+    08288E3D  msgbox_multilang     type=0 text_0="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_1="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_2="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_3="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_4="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_5="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_6="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!"
+    08288E5B  callstd              function=MSGBOX_DEFAULT(4)
+    08288E5D  msgbox_multilang     type=0 text_0="We look forward to seeing you on\nanother challenge!" text_1="We look forward to seeing you on\nanother challenge!" text_2="We look forward to seeing you on\nanother challenge!" text_3="We look forward to seeing you on\nanother challenge!" text_4="We look forward to seeing you on\nanother challenge!" text_5="We look forward to seeing you on\nanother challenge!" text_6="We look forward to seeing you on\nanother challenge!"
+    08288E7B  callstd              function=MSGBOX_DEFAULT(4)
+    08288E7D  closemessage         
+    08288E7E  setvar               destination=VAR_0x4000 value=255
+    08288E83  callnative           func=0x080D5785
+    08288E88  release              
+
+  script 0x08288D83  [ok]
+    08288D83  setvar               destination=VAR_0x8004 value=5
+    08288D88  special              SPECIAL_\function=149
+    08288D8B  compare_var_to_value var=0x800D value=0
+    08288D90  goto_if              condition=1 destination=0x08288DD8
+    08288D96  message              text="Here are some RIBBONS for beating\nseven tough TRAINERS in a row.\p{PLAYER} received some RIBBONS!"
+    08288D9B  adddecoration        decoration=10405
+    08288D9E  gotostd              function=75
+    08288DA0  doweather            
+    08288DA1  delay                frames=19208
+    08288DA4  doweather            
+    08288DA5  delay                frames=19208
+    08288DA8  doweather            
+    08288DA9  delay                frames=19208
+    08288DAC  doweather            
+    08288DAD  delay                frames=19208
+    08288DB0  doweather            
+    08288DB1  delay                frames=26120
+    08288DB4  playfanfare          song=370
+    08288DB7  waitfanfare          
+    08288DB8  msgbox_multilang     type=0 text_0="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_1="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_2="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_3="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_4="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_5="{PLAYER} put the RIBBONS on\nthe challenger POKéMON." text_6="{PLAYER} put the RIBBONS on\nthe challenger POKéMON."
+    08288DD6  callstd              function=MSGBOX_DEFAULT(4)
+    08288DD8  msgbox_multilang     type=0 text_0="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_1="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_2="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_3="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_4="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_5="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_6="In recognition of your infinite talent,\nwe award you these Battle Point(s)."
+    08288DF6  callstd              function=MSGBOX_DEFAULT(4)
+    08288DF8  setvar               destination=VAR_0x8004 value=11
+    08288DFD  special              SPECIAL_\function=148
+    08288E00  msgbox_multilang     type=0 text_0="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained {STR_VAR_1} Battle Point(s)."
+    08288E1E  callstd              function=11
+    08288E20  call                 destination=0x08288F1A
+    08288E25  setvar               destination=VAR_0x8004 value=1
+    08288E2A  setvar               destination=VAR_0x8005 value=1
+    08288E2F  special              SPECIAL_\function=149
+    08288E32  compare_var_to_value var=0x800D value=49
+    08288E37  goto_if              condition=5 destination=0x08288E5D
+    08288E3D  msgbox_multilang     type=0 text_0="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_1="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_2="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_3="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_4="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_5="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_6="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!"
+    08288E5B  callstd              function=MSGBOX_DEFAULT(4)
+    08288E5D  msgbox_multilang     type=0 text_0="We look forward to seeing you on\nanother challenge!" text_1="We look forward to seeing you on\nanother challenge!" text_2="We look forward to seeing you on\nanother challenge!" text_3="We look forward to seeing you on\nanother challenge!" text_4="We look forward to seeing you on\nanother challenge!" text_5="We look forward to seeing you on\nanother challenge!" text_6="We look forward to seeing you on\nanother challenge!"
+    08288E7B  callstd              function=MSGBOX_DEFAULT(4)
+    08288E7D  closemessage         
+    08288E7E  setvar               destination=VAR_0x4000 value=255
+    08288E83  callnative           func=0x080D5785
+    08288E88  release              
+
+  script 0x08288DD8  [ok]
+    08288DD8  msgbox_multilang     type=0 text_0="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_1="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_2="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_3="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_4="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_5="In recognition of your infinite talent,\nwe award you these Battle Point(s)." text_6="In recognition of your infinite talent,\nwe award you these Battle Point(s)."
+    08288DF6  callstd              function=MSGBOX_DEFAULT(4)
+    08288DF8  setvar               destination=VAR_0x8004 value=11
+    08288DFD  special              SPECIAL_\function=148
+    08288E00  msgbox_multilang     type=0 text_0="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained {STR_VAR_1} Battle Point(s)."
+    08288E1E  callstd              function=11
+    08288E20  call                 destination=0x08288F1A
+    08288E25  setvar               destination=VAR_0x8004 value=1
+    08288E2A  setvar               destination=VAR_0x8005 value=1
+    08288E2F  special              SPECIAL_\function=149
+    08288E32  compare_var_to_value var=0x800D value=49
+    08288E37  goto_if              condition=5 destination=0x08288E5D
+    08288E3D  msgbox_multilang     type=0 text_0="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_1="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_2="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_3="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_4="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_5="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!" text_6="You’re finally about to face the\n50th TRAINER.\pFrom here on, every time you beat seven\nTRAINERS in a row, your POKéMON will\preceive a commemorative RIBBON.\pGood luck!"
+    08288E5B  callstd              function=MSGBOX_DEFAULT(4)
+    08288E5D  msgbox_multilang     type=0 text_0="We look forward to seeing you on\nanother challenge!" text_1="We look forward to seeing you on\nanother challenge!" text_2="We look forward to seeing you on\nanother challenge!" text_3="We look forward to seeing you on\nanother challenge!" text_4="We look forward to seeing you on\nanother challenge!" text_5="We look forward to seeing you on\nanother challenge!" text_6="We look forward to seeing you on\nanother challenge!"
+    08288E7B  callstd              function=MSGBOX_DEFAULT(4)
+    08288E7D  closemessage         
+    08288E7E  setvar               destination=VAR_0x4000 value=255
+    08288E83  callnative           func=0x080D5785
+    08288E88  release              
+
+  script 0x08288F1A  [ok]
+    08288F1A  message              text="Your record will be saved.\nPlease wait."
+    08288F1F  setvar               destination=10404 value=5640
+    08288F24  setweather           type=2088
+    08288F27  setvar               destination=10404 value=5640
+    08288F2C  setweather           type=2088
+    08288F2F  setvar               destination=10404 value=5640
+    08288F34  setweather           type=2088
+    08288F37  waitmessage          
+    08288F38  setvar               destination=VAR_0x8004 value=8
+    08288F3D  special              SPECIAL_\function=148
+    08288F40  special              SPECIAL_\function=19
+    08288F43  special              SPECIAL_\function=0
+    08288F46  setvar               destination=VAR_0x8004 value=6
+    08288F4B  setvar               destination=VAR_0x8005 value=0
+    08288F50  special              SPECIAL_\function=149
+    08288F53  playse               song=55
+    08288F56  waitse               
+    08288F57  call                 destination=0x0828900D
+    08288F5C  compare_var_to_value var=0x800D value=1
+    08288F61  goto_if              condition=1 destination=0x0828900C
+    08288F67  message              text="Shall I record your last BATTLE TOWER\nmatch on your FRONTIER PASS?"
+    08288F6C  getpartysize         
+    08288F6D  turnvobject          id=40 direction=8
+    08288F70  getpartysize         
+    08288F71  turnvobject          id=40 direction=8
+    08288F74  getpartysize         
+    08288F75  turnvobject          id=40 direction=8
+    08288F78  getpartysize         
+    08288F79  turnvobject          id=40 direction=8
+    08288F7C  getpartysize         
+    08288F7D  turnvobject          id=40 direction=8
+    08288F80  getpartysize         
+    08288F81  turnvobject          id=40 direction=8
+    08288F84  waitmessage          
+    08288F85  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    08288F8B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08288F90  compare_var_to_value var=0x8000 value=1
+    08288F95  goto_if              condition=1 destination=0x0828900C
+    08288F9B  compare_var_to_value var=0x8000 value=0
+    08288FA0  goto_if              condition=1 destination=0x08288FB1
+    08288FA6  compare_var_to_value var=0x8000 value=127
+    08288FAB  goto_if              condition=1 destination=0x0828900C
+    08288FB1  setvar               destination=VAR_0x8004 value=19
+    08288FB6  special              SPECIAL_\function=148
+    08288FB9  compare_var_to_value var=0x800D value=0
+    08288FBE  goto_if              condition=1 destination=0x08288FEC
+    08288FC4  playse               song=55
+    08288FC7  msgbox_multilang     type=0 text_0="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_1="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_2="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_3="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_4="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_5="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_6="{PLAYER}’s battle was recorded\non the FRONTIER PASS."
+    08288FE5  callstd              function=MSGBOX_DEFAULT(4)
+    08288FE7  goto                 destination=0x0828900C
+
+  script 0x08288E5D  [ok]
+    08288E5D  msgbox_multilang     type=0 text_0="We look forward to seeing you on\nanother challenge!" text_1="We look forward to seeing you on\nanother challenge!" text_2="We look forward to seeing you on\nanother challenge!" text_3="We look forward to seeing you on\nanother challenge!" text_4="We look forward to seeing you on\nanother challenge!" text_5="We look forward to seeing you on\nanother challenge!" text_6="We look forward to seeing you on\nanother challenge!"
+    08288E7B  callstd              function=MSGBOX_DEFAULT(4)
+    08288E7D  closemessage         
+    08288E7E  setvar               destination=VAR_0x4000 value=255
+    08288E83  callnative           func=0x080D5785
+    08288E88  release              
+
+  script 0x0828900D  [ok]
+    0828900D  setvar               destination=VAR_0x8004 value=1
+    08289012  setvar               destination=VAR_0x8005 value=6
+    08289017  special              SPECIAL_\function=148
+    0828901A  return               
+
+  script 0x0828900C  [ok]
+    0828900C  return               
+
+  script 0x08288FB1  [ok]
+    08288FB1  setvar               destination=VAR_0x8004 value=19
+    08288FB6  special              SPECIAL_\function=148
+    08288FB9  compare_var_to_value var=0x800D value=0
+    08288FBE  goto_if              condition=1 destination=0x08288FEC
+    08288FC4  playse               song=55
+    08288FC7  msgbox_multilang     type=0 text_0="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_1="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_2="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_3="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_4="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_5="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_6="{PLAYER}’s battle was recorded\non the FRONTIER PASS."
+    08288FE5  callstd              function=MSGBOX_DEFAULT(4)
+    08288FE7  goto                 destination=0x0828900C
+
+  script 0x08288FEC  [ok]
+    08288FEC  msgbox_multilang     type=0 text_0="There was an error of some sort.\nYour record could not be saved." text_1="There was an error of some sort.\nYour record could not be saved." text_2="There was an error of some sort.\nYour record could not be saved." text_3="There was an error of some sort.\nYour record could not be saved." text_4="There was an error of some sort.\nYour record could not be saved." text_5="There was an error of some sort.\nYour record could not be saved." text_6="There was an error of some sort.\nYour record could not be saved."
+    0828900A  callstd              function=MSGBOX_DEFAULT(4)
+    0828900C  return               
+
+  map script type 2 (var 0x4000 == 4) -> 0x08288E8A
+  script 0x08288E8A  [opcode-out-of-range:0xFE]
+    08288E8A  compare_var_to_value var=0x408C value=2
+    08288E8F  goto_if              condition=5 destination=0x08288EB6
+    08288E95  checkflag            flag=0x0C4
+    08288E98  goto_if              condition=1 destination=0x08288EB6
+    08288E9E  setvar               destination=VAR_0x8004 value=1
+    08288EA3  setvar               destination=VAR_0x8005 value=1
+    08288EA8  special              SPECIAL_\function=149
+    08288EAB  compare_var_to_value var=0x800D value=0
+    08288EB0  goto_if              condition=5 destination=0x08288EC8
+    08288EB6  setvar               destination=VAR_0x8004 value=2
+    08288EBB  setvar               destination=VAR_0x8005 value=2
+    08288EC0  setvar               destination=VAR_0x8006 value=0
+    08288EC5  special              SPECIAL_\function=149
+    08288EC8  lock                 
+    08288EC9  faceplayer           
+    08288ECA  message              text="Thank you for playing!\p"
+
+  script 0x08288EB6  [opcode-out-of-range:0xFE]
+    08288EB6  setvar               destination=VAR_0x8004 value=2
+    08288EBB  setvar               destination=VAR_0x8005 value=2
+    08288EC0  setvar               destination=VAR_0x8006 value=0
+    08288EC5  special              SPECIAL_\function=149
+    08288EC8  lock                 
+    08288EC9  faceplayer           
+    08288ECA  message              text="Thank you for playing!\p"
+
+  script 0x08288EC8  [opcode-out-of-range:0xFE]
+    08288EC8  lock                 
+    08288EC9  faceplayer           
+    08288ECA  message              text="Thank you for playing!\p"
+
+  map script type 4 (var 0x4001 == 0) -> 0x08288C8E
+  script 0x08288C8E  [ok]
+    08288C8E  setvar               destination=VAR_0x4001 value=1
+    08288C93  turnobject           localId=255 direction=2
+    08288C97  end                  
+

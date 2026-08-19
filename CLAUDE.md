@@ -113,11 +113,55 @@ Recipe that worked well:
    0=not started, 1=tower rival beaten, 2=Lavender cutscene seen).
 2. Map that onto original-Yellow progression (not FRLG's) to propose the next
    objective.
-3. If an NPC/event seems stuck, don't guess — **decompile the gating script from
-   the ROM**: map headers via `gMapGroups` @ROM 0x08B3F134, object events → script
-   pointers, standard pokeemerald script opcodes (plus custom 0xE6 = multi-language
-   msgbox, 0xE8 = speaker name). Then compare required flags/vars against the
-   parsed save. Method details and worked example in `research/hack-offsets.md`.
+3. If an NPC/event seems stuck, or the question is "where do I get X" — **do not
+   answer from vanilla Yellow/FRLG/Emerald knowledge, and do not re-derive it
+   from the ROM by hand.** Every event script in the game is already dumped to
+   `research/scripts/`; grep it. See the next section.
+
+### The dumped scripts: `research/scripts/` — grep this first
+
+`research/tools/dump_scripts.py` disassembles every event script in the ROM into
+a readable, greppable tree. **Read `research/scripts/README.md` before relying on
+a negative result** — it lists the real gaps. Headlines:
+
+- `research/scripts/maps/gNN_mMM_<Name>.txt` — one file per map: every object
+  event, sign, coord trigger and map-script table, disassembled with dialogue
+  inlined and items, species, moves, movement sequences, `callstd` ids and known
+  flags/vars resolved to names. Each file opens with a legend for the hex that
+  remains on purpose (ROM pointers, sprite ids, trainer ids).
+- `research/scripts/index/item-sources.json` — item name → every place it can be
+  obtained (mart stock, ground item balls, hidden items, scripted gives).
+- `research/scripts/index/marts.json`, `index/stats.json`.
+- `research/script-opcodes.json` — the opcode table, derived from pokeemerald's
+  macros *and* its C handlers (they agree on 223/227), overlaid with this ROM's
+  own command table at 0x081F1630 (235 entries), plus `callstd`/movement-action
+  constant tables. Research-only: **not** part of `bun run sync-data`, since the
+  browser app does not read it.
+
+**Coverage numbers live in `research/scripts/index/stats.json`** — read them
+there rather than trusting a figure copied into prose. As of the initial dump:
+~95.6% of scripts reach a clean terminator across 491 maps (the other 35 of 526
+have no scripts, only warps — verified).
+
+Five hack-custom opcodes (0xE3, 0xE4, 0xE5, 0xE7, 0xE9) are deliberately
+**unresolved** and stop their script rather than desynchronize it. Also **not**
+covered: the shared `gStdScripts` table (so `callstd` targets are unrendered),
+trainer parties, wild encounters, Game Corner prizes, battle scripts, and the
+Smsh achievement VM — so "no mart sells it" does not rule out the Game Corner.
+
+Regenerate after any ROM change with `python3 research/tools/dump_scripts.py`
+(stdlib-only; needs the ROM in `local/`). `research/tools/extract_opcodes.py`
+regenerates the opcode and constant tables from the pokeemerald submodule.
+
+`research/scripts/` is ~7 MB across ~490 files and is **not** gitignored, so it
+commits by default. That is intentional — it is the artifact that makes future
+sessions cheap — but decide deliberately, and never commit the ROM itself.
+
+This tooling exists because of a real failure mode: answering gameplay questions
+from vanilla-Pokémon recall. In one session that produced advice to teach an HM
+(this hack allows field moves straight from the bag) and a wrong claim about a
+move's type. Grep the dump for script/event facts, and `research/gamedata.json`
+for species/move/item facts. Do not answer either from memory.
 
 **The user's real progression lives on a handheld** (MinUI device, libretro mGBA
 core). A backup from 2026-08-18 is at `/Users/eric/rgsp-saves-backup-2026-08-18/`
@@ -135,7 +179,13 @@ they play. On the device the state file is
   Lua under `research/tools/`). mGBA silently ignores `--script` when the ROM sits
   under `/var/folders/...`.
 - pret decomp clones live at `vendor/pokeemerald` (authoritative) and
-  `vendor/pokefirered` (historical dead end — ignore).
+  `vendor/pokefirered`. pokefirered was long dismissed here as a dead end, but
+  that is **wrong for script commands**: the hack is FRLG content on the Emerald
+  engine, so commands Emerald stubs out but FRLG implements (0xC7 `textcolor`,
+  0xD0 `setworldmapflag`) are documented correctly only in pokefirered, which
+  confirmed both. Check it before calling an opcode unknowable. Its command
+  table has 214 entries vs Emerald's 227, so neither decomp explains the hack's
+  own customs at 0xE3-0xEA.
 - RAM-injection round-trips are a proven verification technique here (see
   `research/dumps/inject/`); if injecting mons, use a personality with
   `pid % 24 != 0`.

@@ -1,0 +1,42 @@
+Three Island  (group 32, map 3)  header 0x08B3DD84
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0827D0A1
+  script 0x0827D0A1  [opcode-out-of-range:0xFE]
+    0827D0A1  lock                 
+    0827D0A2  faceplayer           
+    0827D0A3  call                 destination=0x082BB330
+    0827D0A8  message              text="Hi, there!\nMay I help you?"
+    0827D0AD  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x20, flag 0x0000) -> 0x0827D106
+  script 0x0827D106  [ok]
+    0827D106  msgbox_multilang     type=0 text_0="Is it true?\pCeladon Dept. Store is several\ntimes bigger than this shop?" text_1="Is it true?\pCeladon Dept. Store is several\ntimes bigger than this shop?" text_2="Is it true?\pCeladon Dept. Store is several\ntimes bigger than this shop?" text_3="Is it true?\pCeladon Dept. Store is several\ntimes bigger than this shop?" text_4="Is it true?\pCeladon Dept. Store is several\ntimes bigger than this shop?" text_5="Is it true?\pCeladon Dept. Store is several\ntimes bigger than this shop?" text_6="Is it true?\pCeladon Dept. Store is several\ntimes bigger than this shop?"
+    0827D124  callstd              function=MSGBOX_NPC(2)
+    0827D126  end                  
+
+  object 3 (gfx 0x24, flag 0x0000) -> 0x0827D127
+  script 0x0827D127  [ok]
+    0827D127  msgbox_multilang     type=0 text_0="I sometimes buy medicine here.\pBut a lot of people heal Pokémon\nwith Berries from Berry Forest.\pAfter all, Berries are free and\nthey never run out." text_1="I sometimes buy medicine here.\pBut a lot of people heal Pokémon\nwith Berries from Berry Forest.\pAfter all, Berries are free and\nthey never run out." text_2="I sometimes buy medicine here.\pBut a lot of people heal Pokémon\nwith Berries from Berry Forest.\pAfter all, Berries are free and\nthey never run out." text_3="I sometimes buy medicine here.\pBut a lot of people heal Pokémon\nwith Berries from Berry Forest.\pAfter all, Berries are free and\nthey never run out." text_4="I sometimes buy medicine here.\pBut a lot of people heal Pokémon\nwith Berries from Berry Forest.\pAfter all, Berries are free and\nthey never run out." text_5="I sometimes buy medicine here.\pBut a lot of people heal Pokémon\nwith Berries from Berry Forest.\pAfter all, Berries are free and\nthey never run out." text_6="I sometimes buy medicine here.\pBut a lot of people heal Pokémon\nwith Berries from Berry Forest.\pAfter all, Berries are free and\nthey never run out."
+    0827D145  callstd              function=MSGBOX_NPC(2)
+    0827D147  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0827D148
+  script 0x0827D148  [ok]
+    0827D148  msgbox_multilang     type=0 text_0="Those Bikers were about to trash\nthis Pokémon Mart.\pAm I glad they decided to leave!" text_1="Those Bikers were about to trash\nthis Pokémon Mart.\pAm I glad they decided to leave!" text_2="Those Bikers were about to trash\nthis Pokémon Mart.\pAm I glad they decided to leave!" text_3="Those Bikers were about to trash\nthis Pokémon Mart.\pAm I glad they decided to leave!" text_4="Those Bikers were about to trash\nthis Pokémon Mart.\pAm I glad they decided to leave!" text_5="Those Bikers were about to trash\nthis Pokémon Mart.\pAm I glad they decided to leave!" text_6="Those Bikers were about to trash\nthis Pokémon Mart.\pAm I glad they decided to leave!"
+    0827D166  callstd              function=MSGBOX_NPC(2)
+    0827D168  end                  
+

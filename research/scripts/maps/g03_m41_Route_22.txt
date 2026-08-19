@@ -1,0 +1,377 @@
+Route 22  (group 3, map 41)  header 0x08B3CB40
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x15, flag 0x004F) -> 0x00000000
+  object 2 (gfx 0x3C, flag 0x0000) -> 0x082BD179
+  script 0x082BD179  [ok]
+    082BD179  textcolor            color=3
+    082BD17B  special              SPECIAL_\function=22
+    082BD17E  copyvar              destination=VAR_0x8000 source=VAR_0x8004
+    082BD183  compare_var_to_value var=0x8000 value=255
+    082BD188  goto_if              condition=1 destination=0x082BD1D1
+    082BD18E  compare_var_to_value var=0x8000 value=0
+    082BD193  goto_if              condition=1 destination=0x082BD1F3
+    082BD199  compare_var_to_value var=0x8000 value=1
+    082BD19E  goto_if              condition=1 destination=0x082BD27B
+    082BD1A4  compare_var_to_value var=0x8000 value=2
+    082BD1A9  goto_if              condition=1 destination=0x082BD2A3
+    082BD1AF  compare_var_to_value var=0x8000 value=3
+    082BD1B4  goto_if              condition=1 destination=0x082BD2CB
+    082BD1BA  compare_var_to_value var=0x8000 value=4
+    082BD1BF  goto_if              condition=1 destination=0x082BD2F3
+    082BD1C5  compare_var_to_value var=0x8000 value=5
+    082BD1CA  goto_if              condition=1 destination=0x082BD34B
+    082BD1D0  end                  
+
+  script 0x082BD1D1  [ok]
+    082BD1D1  lockall              
+    082BD1D2  message              text="!"
+    082BD1D7  goto_if              condition=215 destination=3607496747
+    082BD1DD  checkflag            flag=0x608
+    082BD1E0  warpmossdeepgym      mapGroup=43 mapNum=8 WARP_ID_NONE=6 -1=11223 -1=1544
+    082BD1E8  warpmossdeepgym      mapGroup=43 mapNum=8 WARP_ID_NONE=6 -1=11223 -1=26120
+    082BD1F0  waitbuttonpress      
+    082BD1F1  releaseall           
+
+  script 0x082BD1F3  [ok]
+    082BD1F3  lock                 
+    082BD1F4  faceplayer           
+    082BD1F5  specialvar           output=32781 SPECIAL_\function=30
+    082BD1FA  compare_var_to_value var=0x800D value=1
+    082BD1FF  goto_if              condition=1 destination=0x082BD226
+    082BD205  message              text="It’s soft, loamy soil."
+    082BD20A  setescapewarp        mapGroup=212 mapNum=43 WARP_ID_NONE=8 -1=54468 -1=2091
+    082BD212  setescapewarp        mapGroup=212 mapNum=43 WARP_ID_NONE=8 -1=54468 -1=2091
+    082BD21A  setescapewarp        mapGroup=212 mapNum=43 WARP_ID_NONE=8 -1=54468 -1=2091
+    082BD222  waitmessage          
+    082BD223  waitbuttonpress      
+    082BD224  release              
+
+  script 0x082BD27B  [ok]
+    082BD27B  lockall              
+    082BD27C  special              SPECIAL_\function=24
+    082BD27F  message              text="One {STR_VAR_1} was planted here."
+    082BD284  savebgm              song=11221
+    082BD287  gotostd              function=52
+    082BD289  initrotatingtilepuzzle isTrickHouse=2091
+    082BD28C  savebgm              song=11221
+    082BD28F  gotostd              function=52
+    082BD291  initrotatingtilepuzzle isTrickHouse=2091
+    082BD294  savebgm              song=11221
+    082BD297  gotostd              function=52
+    082BD299  initrotatingtilepuzzle isTrickHouse=2091
+    082BD29C  waitmessage          
+    082BD29D  waitbuttonpress      
+    082BD29E  goto                 destination=0x082BD42C
+
+  script 0x082BD2A3  [ok]
+    082BD2A3  lockall              
+    082BD2A4  special              SPECIAL_\function=23
+    082BD2A7  message              text="{STR_VAR_1} has sprouted."
+    082BD2AC  checkdecor           decoration=11221
+    082BD2AF  gotostd              function=77
+    082BD2B1  initrotatingtilepuzzle isTrickHouse=2091
+    082BD2B4  checkdecor           decoration=11221
+    082BD2B7  gotostd              function=77
+    082BD2B9  initrotatingtilepuzzle isTrickHouse=2091
+    082BD2BC  checkdecor           decoration=11221
+    082BD2BF  gotostd              function=77
+    082BD2C1  initrotatingtilepuzzle isTrickHouse=2091
+    082BD2C4  waitmessage          
+    082BD2C5  waitbuttonpress      
+    082BD2C6  goto                 destination=0x082BD42C
+
+  script 0x082BD2CB  [ok]
+    082BD2CB  lockall              
+    082BD2CC  special              SPECIAL_\function=23
+    082BD2CF  message              text="This {STR_VAR_1} plant is growing taller."
+    082BD2D4  gotopostbattlescript 
+    082BD2D5  initrotatingtilepuzzle isTrickHouse=2091
+    082BD2D8  gotopostbattlescript 
+    082BD2D9  initrotatingtilepuzzle isTrickHouse=2091
+    082BD2DC  gotopostbattlescript 
+    082BD2DD  initrotatingtilepuzzle isTrickHouse=2091
+    082BD2E0  gotopostbattlescript 
+    082BD2E1  initrotatingtilepuzzle isTrickHouse=2091
+    082BD2E4  gotopostbattlescript 
+    082BD2E5  initrotatingtilepuzzle isTrickHouse=2091
+    082BD2E8  gotopostbattlescript 
+    082BD2E9  initrotatingtilepuzzle isTrickHouse=2091
+    082BD2EC  waitmessage          
+    082BD2ED  waitbuttonpress      
+    082BD2EE  goto                 destination=0x082BD42C
+
+  script 0x082BD2F3  [ok]
+    082BD2F3  call                 destination=0x082BD320
+    082BD2F8  lockall              
+    082BD2F9  special              SPECIAL_\function=23
+    082BD2FC  message              text="These {STR_VAR_1} flowers are blooming\n{STR_VAR_2}."
+    082BD301  bufferpartymonnick   stringVarId=213 slot=2091
+    082BD305  bufferpartymonnick   stringVarId=213 slot=2091
+    082BD309  bufferpartymonnick   stringVarId=213 slot=2091
+    082BD30D  bufferpartymonnick   stringVarId=213 slot=2091
+    082BD311  bufferpartymonnick   stringVarId=213 slot=2091
+    082BD315  bufferpartymonnick   stringVarId=213 slot=2091
+    082BD319  waitmessage          
+    082BD31A  waitbuttonpress      
+    082BD31B  goto                 destination=0x082BD42C
+
+  script 0x082BD34B  [opcode-out-of-range:0xEF]
+    082BD34B  buffernumberstring   stringVarId=1 input=32774
+    082BD34F  lock                 
+    082BD350  faceplayer           
+    082BD351  special              SPECIAL_\function=24
+    082BD354  msgbox_multilang     type=0 text_0="You found {STR_VAR_2} {STR_VAR_1}!\pDo you want to pick the\n{STR_VAR_1}?" text_1="You found {STR_VAR_2} {STR_VAR_1}!\pDo you want to pick the\n{STR_VAR_1}?" text_2="You found {STR_VAR_2} {STR_VAR_1}!\pDo you want to pick the\n{STR_VAR_1}?" text_3="You found {STR_VAR_2} {STR_VAR_1}!\pDo you want to pick the\n{STR_VAR_1}?" text_4="You found {STR_VAR_2} {STR_VAR_1}!\pDo you want to pick the\n{STR_VAR_1}?" text_5="You found {STR_VAR_2} {STR_VAR_1}!\pDo you want to pick the\n{STR_VAR_1}?" text_6="You found {STR_VAR_2} {STR_VAR_1}!\pDo you want to pick the\n{STR_VAR_1}?"
+    082BD372  callstd              function=MSGBOX_YESNO(5)
+    082BD374  compare_var_to_value var=0x800D value=1
+    082BD379  goto_if              condition=1 destination=0x082BD38A
+    082BD37F  compare_var_to_value var=0x800D value=0
+    082BD384  goto_if              condition=1 destination=0x082BD400
+    082BD38A  special              SPECIAL_\function=27
+    082BD38D  compare_var_to_value var=0x8004 value=0
+    082BD392  goto_if              condition=1 destination=0x082BD3DF
+    082BD398  special              SPECIAL_\function=28
+    082BD39B  message              text="{PLAYER} picked the {STR_VAR_2} {STR_VAR_1}."
+
+  script 0x082BD226  [ok]
+    082BD226  msgbox_multilang     type=0 text_0="It’s soft, loamy soil.\nWant to plant a Berry?" text_1="It’s soft, loamy soil.\nWant to plant a Berry?" text_2="It’s soft, loamy soil.\nWant to plant a Berry?" text_3="It’s soft, loamy soil.\nWant to plant a Berry?" text_4="It’s soft, loamy soil.\nWant to plant a Berry?" text_5="It’s soft, loamy soil.\nWant to plant a Berry?" text_6="It’s soft, loamy soil.\nWant to plant a Berry?"
+    082BD244  callstd              function=MSGBOX_YESNO(5)
+    082BD246  compare_var_to_value var=0x800D value=1
+    082BD24B  goto_if              condition=1 destination=0x082BD25D
+    082BD251  compare_var_to_value var=0x800D value=0
+    082BD256  goto_if              condition=1 destination=0x082BD279
+    082BD25C  end                  
+
+  script 0x082BD42C  [ok]
+    082BD42C  checkitem            itemId=Watering Can(268) quantity=1
+    082BD431  compare_var_to_value var=0x800D value=0
+    082BD436  goto_if              condition=1 destination=0x082BD475
+    082BD43C  special              SPECIAL_\function=23
+    082BD43F  msgbox_multilang     type=0 text_0="Want to water the {STR_VAR_1} with the\nWatering Can?" text_1="Want to water the {STR_VAR_1} with the\nWatering Can?" text_2="Want to water the {STR_VAR_1} with the\nWatering Can?" text_3="Want to water the {STR_VAR_1} with the\nWatering Can?" text_4="Want to water the {STR_VAR_1} with the\nWatering Can?" text_5="Want to water the {STR_VAR_1} with the\nWatering Can?" text_6="Want to water the {STR_VAR_1} with the\nWatering Can?"
+    082BD45D  callstd              function=MSGBOX_YESNO(5)
+    082BD45F  compare_var_to_value var=0x800D value=1
+    082BD464  goto_if              condition=1 destination=0x082BD47B
+    082BD46A  compare_var_to_value var=0x800D value=0
+    082BD46F  goto_if              condition=1 destination=0x082BD475
+    082BD475  releaseall           
+
+  script 0x082BD320  [ok]
+    082BD320  compare_var_to_value var=0x8005 value=0
+    082BD325  goto_if              condition=1 destination=0x082BD344
+    082BD32B  compare_var_to_value var=0x8005 value=4
+    082BD330  goto_if              condition=1 destination=0x082BD33D
+    082BD336  bufferstring         stringVarId=1 text="prettily"
+    082BD33C  return               
+
+  script 0x082BD38A  [opcode-out-of-range:0xEF]
+    082BD38A  special              SPECIAL_\function=27
+    082BD38D  compare_var_to_value var=0x8004 value=0
+    082BD392  goto_if              condition=1 destination=0x082BD3DF
+    082BD398  special              SPECIAL_\function=28
+    082BD39B  message              text="{PLAYER} picked the {STR_VAR_2} {STR_VAR_1}."
+
+  script 0x082BD400  [ok]
+    082BD400  message              text="{PLAYER} left the {STR_VAR_1}\nunpicked."
+    082BD405  showcontestresults   
+    082BD406  freerotatingtilepuzzle 
+    082BD407  checkflag            flag=0x8D08 (temp)
+    082BD40A  freerotatingtilepuzzle 
+    082BD40B  checkflag            flag=0x8D08 (temp)
+    082BD40E  freerotatingtilepuzzle 
+    082BD40F  checkflag            flag=0x8D08 (temp)
+    082BD412  freerotatingtilepuzzle 
+    082BD413  checkflag            flag=0x8D08 (temp)
+    082BD416  freerotatingtilepuzzle 
+    082BD417  checkflag            flag=0x8D08 (temp)
+    082BD41A  freerotatingtilepuzzle 
+    082BD41B  checkflag            flag=0x6608 (temp)
+    082BD41E  waitbuttonpress      
+    082BD41F  release              
+
+  script 0x082BD3DF  [ok]
+    082BD3DF  message              text="The Berry Pouch is full.\pThe {STR_VAR_1} couldn’t be taken."
+    082BD3E4  faceplayer           
+    082BD3E5  freerotatingtilepuzzle 
+    082BD3E6  checkflag            flag=0x5A08 (temp)
+    082BD3E9  freerotatingtilepuzzle 
+    082BD3EA  checkflag            flag=0x5A08 (temp)
+    082BD3ED  freerotatingtilepuzzle 
+    082BD3EE  checkflag            flag=0x5A08 (temp)
+    082BD3F1  freerotatingtilepuzzle 
+    082BD3F2  checkflag            flag=0x5A08 (temp)
+    082BD3F5  freerotatingtilepuzzle 
+    082BD3F6  checkflag            flag=0x5A08 (temp)
+    082BD3F9  freerotatingtilepuzzle 
+    082BD3FA  checkflag            flag=0x6608 (temp)
+    082BD3FD  waitbuttonpress      
+    082BD3FE  release              
+
+  script 0x082BD25D  [ok]
+    082BD25D  fadescreen           mode=1
+    082BD25F  closemessage         
+    082BD260  special              SPECIAL_\function=25
+    082BD263  waitstate            
+
+  script 0x082BD279  [ok]
+    082BD279  release              
+
+  script 0x082BD475  [ok]
+    082BD475  releaseall           
+
+  script 0x082BD47B  [ok]
+    082BD47B  special              SPECIAL_\function=23
+    082BD47E  message              text="{PLAYER} watered the {STR_VAR_1}."
+    082BD483  setmonmetlocation    slot=11222 location=8
+    082BD487  setmonmetlocation    slot=11222 location=8
+    082BD48B  setmonmetlocation    slot=11222 location=8
+    082BD48F  setmonmetlocation    slot=11222 location=8
+    082BD493  setmonmetlocation    slot=11222 location=8
+    082BD497  setmonmetlocation    slot=11222 location=8
+    082BD49B  waitmessage          
+    082BD49C  special              SPECIAL_\function=29
+    082BD49F  special              SPECIAL_\function=59
+    082BD4A2  waitstate            
+
+  script 0x082BD344  [ok]
+    082BD344  bufferstring         stringVarId=1 text="cutely"
+    082BD34A  return               
+
+  script 0x082BD33D  [ok]
+    082BD33D  bufferstring         stringVarId=1 text="very beautifully"
+    082BD343  return               
+
+  object 3 (gfx 0x3C, flag 0x0000) -> 0x082BD179
+  coord trigger 0 (var 0x4054 == 1) -> 0x08238C36
+  script 0x08238C36  [ok]
+    08238C36  lockall              
+    08238C37  setvar               destination=VAR_0x4001 value=0
+    08238C3C  goto                 destination=0x08238B0B
+
+  script 0x08238B0B  [bad-trainerbattle]
+    08238B0B  textcolor            color=0
+    08238B0D  playbgm              song=527 save_song=0
+    08238B11  addobject            localId=1
+    08238B14  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    08238B19  compare_var_to_value var=0x8000 value=2
+    08238B1E  goto_if              condition=1 destination=0x08238BC9
+    08238B24  applymovement        localId=1 movements=[walk_right walk_right walk_right walk_right walk_right walk_right walk_right]
+    08238B2B  waitmovement         localId=0
+    08238B2E  delay                frames=6
+    08238B31  speakername          name="{RIVAL}"
+    08238B36  msgbox_multilang     type=0 text_0="Hey! {PLAYER}!\pYou’re off to the Pokémon League?\nForget about it!\pYou probably don’t have any\nBadges, do you?\pThe guard won’t let you through\nwithout them.\pBy the way, did your Pokémon get\nany stronger?" text_1="¡Eh! ¡{PLAYER}!\p¿Vas a la LIGA POKéMON?\p¡Olvídalo! ¡Seguro que no tienes\nninguna MEDALLA!\p¡El guardia no te dejará pasar!\pDime, ¿ya son más fuertes tus\nPOKéMON?" text_2="Hé! {PLAYER}!\pTu vas à la LIGUE POKéMON?\nLaisse tomber!\pT’es bien trop minable. En plus il\nte faut des BADGES!\pLes gardes ne te laisseront\njamais passer!\pAu fait, ça se passe comment\nl’entraînement de tes POKéMON?" text_3="Ehi! {PLAYER}!\pStai andando alla LEGA POKéMON?\nFiguriamoci!\pScommetto che non hai neanche una\nMEDAGLIA!\pSe non hai tutte le MEDAGLIE, la\nguardia non ti farà mai passare!\pA proposito, sono più forti i tuoi\nPOKéMON, ora?" text_4="Heh! {PLAYER}!\pBist du auf dem Weg zur POKéMON\nLIGA? Vergiss es!\pWahrscheinlich besitzt du nicht\neinmal einen ORDEN!\pDie Wache wird dich gar nicht erst\ndurchlassen!\pAch, sind deine POKéMON\neigentlich stärker geworden?" text_5="Ei! {PLAYER}!\pVais para a LIGA POKéMON?\nEsquece!\pProvavelmente nぇo tens nenhum\nCRACHÁ, tens?\pO guarda nぇo te vai deixar passar\nsem eles.\pA propósito, os teus POKéMON já\nficaram mais fortes?" text_6="Hey! {PLAYER}!\pYou’re off to the Pokémon League?\nForget about it!\pYou probably don’t have any\nBadges, do you?\pThe guard won’t let you through\nwithout them.\pBy the way, did your Pokémon get\nany stronger?"
+    08238B54  callstd              function=MSGBOX_DEFAULT(4)
+
+  script 0x08238BC9  [ok]
+    08238BC9  applymovement        localId=1 movements=[walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_in_place_faster_down]
+    08238BD0  applymovement        localId=255 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_8 walk_in_place_faster_up]
+    08238BD7  goto                 destination=0x08238B2B
+
+  script 0x08238B2B  [bad-trainerbattle]
+    08238B2B  waitmovement         localId=0
+    08238B2E  delay                frames=6
+    08238B31  speakername          name="{RIVAL}"
+    08238B36  msgbox_multilang     type=0 text_0="Hey! {PLAYER}!\pYou’re off to the Pokémon League?\nForget about it!\pYou probably don’t have any\nBadges, do you?\pThe guard won’t let you through\nwithout them.\pBy the way, did your Pokémon get\nany stronger?" text_1="¡Eh! ¡{PLAYER}!\p¿Vas a la LIGA POKéMON?\p¡Olvídalo! ¡Seguro que no tienes\nninguna MEDALLA!\p¡El guardia no te dejará pasar!\pDime, ¿ya son más fuertes tus\nPOKéMON?" text_2="Hé! {PLAYER}!\pTu vas à la LIGUE POKéMON?\nLaisse tomber!\pT’es bien trop minable. En plus il\nte faut des BADGES!\pLes gardes ne te laisseront\njamais passer!\pAu fait, ça se passe comment\nl’entraînement de tes POKéMON?" text_3="Ehi! {PLAYER}!\pStai andando alla LEGA POKéMON?\nFiguriamoci!\pScommetto che non hai neanche una\nMEDAGLIA!\pSe non hai tutte le MEDAGLIE, la\nguardia non ti farà mai passare!\pA proposito, sono più forti i tuoi\nPOKéMON, ora?" text_4="Heh! {PLAYER}!\pBist du auf dem Weg zur POKéMON\nLIGA? Vergiss es!\pWahrscheinlich besitzt du nicht\neinmal einen ORDEN!\pDie Wache wird dich gar nicht erst\ndurchlassen!\pAch, sind deine POKéMON\neigentlich stärker geworden?" text_5="Ei! {PLAYER}!\pVais para a LIGA POKéMON?\nEsquece!\pProvavelmente nぇo tens nenhum\nCRACHÁ, tens?\pO guarda nぇo te vai deixar passar\nsem eles.\pA propósito, os teus POKéMON já\nficaram mais fortes?" text_6="Hey! {PLAYER}!\pYou’re off to the Pokémon League?\nForget about it!\pYou probably don’t have any\nBadges, do you?\pThe guard won’t let you through\nwithout them.\pBy the way, did your Pokémon get\nany stronger?"
+    08238B54  callstd              function=MSGBOX_DEFAULT(4)
+
+  coord trigger 1 (var 0x4054 == 1) -> 0x08238C42
+  script 0x08238C42  [ok]
+    08238C42  lockall              
+    08238C43  setvar               destination=VAR_0x4001 value=1
+    08238C48  setobjectxyperm      localId=1 x=25 y=5
+    08238C4F  goto                 destination=0x08238B0B
+
+  coord trigger 2 (var 0x4054 == 1) -> 0x08238C55
+  script 0x08238C55  [ok]
+    08238C55  lockall              
+    08238C56  setvar               destination=VAR_0x4001 value=2
+    08238C5B  setobjectxyperm      localId=1 x=25 y=5
+    08238C62  goto                 destination=0x08238B0B
+
+  coord trigger 3 (var 0x4054 == 3) -> 0x08238D49
+  script 0x08238D49  [ok]
+    08238D49  lockall              
+    08238D4A  setvar               destination=VAR_0x4001 value=0
+    08238D4F  goto                 destination=0x08238C81
+
+  script 0x08238C81  [ok]
+    08238C81  textcolor            color=0
+    08238C83  playbgm              song=527 save_song=0
+    08238C87  addobject            localId=1
+    08238C8A  compare_var_to_value var=0x4001 value=2
+    08238C8F  goto_if              condition=1 destination=0x08238D1A
+    08238C95  applymovement        localId=1 movements=[walk_right walk_right walk_right walk_right walk_right walk_right walk_right]
+    08238C9C  waitmovement         localId=0
+    08238C9F  speakername          name="{RIVAL}"
+    08238CA4  msgbox_multilang     type=0 text_0="What? {PLAYER}!\nWhat a surprise to see you here!\pSo you’re going to the Pokémon\nLeague?\pYou collected all the Badges, too?\nThat’s cool!\pThen I’ll whip you, {PLAYER}, as a\nwarm-up for the Pokémon League!\pCome on!" text_1="¿Qué? ¡{PLAYER}!\n¡Qué sorpresa verte aquí!\p¿Vas a ir a la LIGA POKéMON?\p¿Y tienes todas las MEDALLAS?\n¡Genial!\p¡Lucharé contra ti, {PLAYER}, como\npreparación para la LIGA POKéMON!\p¡Vamos allá!" text_2="Tiens? {PLAYER}! Quelle\nsurprise, tu es là aussi?!\pAlors comme ça tu vas à la LIGUE?\nTu as tous les BADGES aussi?\pC’est bien!\pBon, je vais m’occuper vite\nfait de toi!\pÇa me fera un échauffement\navant la LIGUE POKéMON!\pAllez, viens te battre!" text_3="Cosa? {PLAYER}!\nChe sorpresa vederti qui!\pE così vai alla LEGA POKéMON?!\pE hai anche tutte le MEDAGLIE?!\nFantastico!\pAllora ti sfido, {PLAYER}, in\npreparazione alla LEGA POKéMON!\pCominciamo!" text_4="Was?! {PLAYER}!\nWas für eine Überraschung!\pDu bist also auch auf dem Weg zur\nPOKéMON LIGA, oder?\pDu besitzt auch alle ORDEN?\nDas ist cool!\p{PLAYER}, ich werde mich für die\nPOKéMON LIGA aufwärmen, indem\pich dich besiege!\pAlso, los geht es!" text_5="O quê? {PLAYER}!\nQue surpresa ver-te aqui!\pVais para a LIGA POKéMON?\pE já tens todos os CRACHÁS?\nQue fixe!\pEntぇo vou lutar contigo, {PLAYER},\npara me preparar para a LIGA\pPOKéMON!\pVamos!" text_6="What? {PLAYER}!\nWhat a surprise to see you here!\pSo you’re going to the Pokémon\nLeague?\pYou collected all the Badges, too?\nThat’s cool!\pThen I’ll whip you, {PLAYER}, as a\nwarm-up for the Pokémon League!\pCome on!"
+    08238CC2  callstd              function=MSGBOX_DEFAULT(4)
+    08238CC4  setvar               destination=VAR_0x800F value=1
+    08238CC9  trainerbattle        type=3 trainer=0x1B3 localId=0 ptr1=0x08239C42
+    08238CD3  callnative           func=0x080D5785
+    08238CD8  speakername          name="{RIVAL}"
+    08238CDD  msgbox_multilang     type=0 text_0="That loosened me up.\nI’m ready for the Pokémon League!\p{PLAYER}, you need more practice.\pBut hey, you know that!\nI’m out of here. Smell ya!" text_1="¡Qué buen calentamiento!\n¡Listo para la LIGA POKéMON!\p¡{PLAYER}, necesitas más práctica!\p¡Ya lo sabes! ¡Yo me largo!\n¡Hasta luego!" text_2="C’était un bon échauffement!\nJ’suis prêt pour la LIGUE POKéMON!\p{PLAYER}, faut vraiment que tu\nt’entraînes plus!\pMais je crois que tu commences à\nle savoir. Tchao!" text_3="Perdere mi ha fatto bene!\nOra sono pronto per la LEGA\pPOKéMON!\p{PLAYER}, devi fare più\nallenamento!\pMa questo lo sai!\nMe ne vado ora!\pCi becchiamo in giro!" text_4="Das war ein gutes Aufwärmtraining!\nIch bin gut auf die POKéMON LIGA\pvorbereitet!\p{PLAYER}, auch wenn du gewonnen\nhast, musst du mehr trainieren!\pIch glaube, du bist dir dessen\nbewusst! Bis dann!" text_5="Isso aqueceu-me.\nEstou pronto para a LIGA POKéMON!\p{PLAYER}, precisas de mais prática.\pMas hey, tu sabes disso!\nVou-me embora. Até logo!" text_6="That loosened me up.\nI’m ready for the Pokémon League!\p{PLAYER}, you need more practice.\pBut hey, you know that!\nI’m out of here. Smell ya!"
+    08238CFB  callstd              function=MSGBOX_DEFAULT(4)
+    08238CFD  closemessage         
+    08238CFE  delay                frames=10
+    08238D01  playbgm              song=528 save_song=0
+    08238D05  applymovement        localId=1 movements=[walk_left walk_left walk_left walk_left walk_left walk_left walk_left]
+    08238D0C  waitmovement         localId=0
+    08238D0F  fadedefaultbgm       
+    08238D10  removeobject         localId=1
+    08238D13  setvar               destination=VAR_0x4054 value=4
+    08238D18  releaseall           
+
+  script 0x08238D1A  [ok]
+    08238D1A  applymovement        localId=1 movements=[walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_in_place_faster_down]
+    08238D21  applymovement        localId=255 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_8 walk_in_place_faster_up]
+    08238D28  goto                 destination=0x08238C9C
+
+  script 0x08238C9C  [ok]
+    08238C9C  waitmovement         localId=0
+    08238C9F  speakername          name="{RIVAL}"
+    08238CA4  msgbox_multilang     type=0 text_0="What? {PLAYER}!\nWhat a surprise to see you here!\pSo you’re going to the Pokémon\nLeague?\pYou collected all the Badges, too?\nThat’s cool!\pThen I’ll whip you, {PLAYER}, as a\nwarm-up for the Pokémon League!\pCome on!" text_1="¿Qué? ¡{PLAYER}!\n¡Qué sorpresa verte aquí!\p¿Vas a ir a la LIGA POKéMON?\p¿Y tienes todas las MEDALLAS?\n¡Genial!\p¡Lucharé contra ti, {PLAYER}, como\npreparación para la LIGA POKéMON!\p¡Vamos allá!" text_2="Tiens? {PLAYER}! Quelle\nsurprise, tu es là aussi?!\pAlors comme ça tu vas à la LIGUE?\nTu as tous les BADGES aussi?\pC’est bien!\pBon, je vais m’occuper vite\nfait de toi!\pÇa me fera un échauffement\navant la LIGUE POKéMON!\pAllez, viens te battre!" text_3="Cosa? {PLAYER}!\nChe sorpresa vederti qui!\pE così vai alla LEGA POKéMON?!\pE hai anche tutte le MEDAGLIE?!\nFantastico!\pAllora ti sfido, {PLAYER}, in\npreparazione alla LEGA POKéMON!\pCominciamo!" text_4="Was?! {PLAYER}!\nWas für eine Überraschung!\pDu bist also auch auf dem Weg zur\nPOKéMON LIGA, oder?\pDu besitzt auch alle ORDEN?\nDas ist cool!\p{PLAYER}, ich werde mich für die\nPOKéMON LIGA aufwärmen, indem\pich dich besiege!\pAlso, los geht es!" text_5="O quê? {PLAYER}!\nQue surpresa ver-te aqui!\pVais para a LIGA POKéMON?\pE já tens todos os CRACHÁS?\nQue fixe!\pEntぇo vou lutar contigo, {PLAYER},\npara me preparar para a LIGA\pPOKéMON!\pVamos!" text_6="What? {PLAYER}!\nWhat a surprise to see you here!\pSo you’re going to the Pokémon\nLeague?\pYou collected all the Badges, too?\nThat’s cool!\pThen I’ll whip you, {PLAYER}, as a\nwarm-up for the Pokémon League!\pCome on!"
+    08238CC2  callstd              function=MSGBOX_DEFAULT(4)
+    08238CC4  setvar               destination=VAR_0x800F value=1
+    08238CC9  trainerbattle        type=3 trainer=0x1B3 localId=0 ptr1=0x08239C42
+    08238CD3  callnative           func=0x080D5785
+    08238CD8  speakername          name="{RIVAL}"
+    08238CDD  msgbox_multilang     type=0 text_0="That loosened me up.\nI’m ready for the Pokémon League!\p{PLAYER}, you need more practice.\pBut hey, you know that!\nI’m out of here. Smell ya!" text_1="¡Qué buen calentamiento!\n¡Listo para la LIGA POKéMON!\p¡{PLAYER}, necesitas más práctica!\p¡Ya lo sabes! ¡Yo me largo!\n¡Hasta luego!" text_2="C’était un bon échauffement!\nJ’suis prêt pour la LIGUE POKéMON!\p{PLAYER}, faut vraiment que tu\nt’entraînes plus!\pMais je crois que tu commences à\nle savoir. Tchao!" text_3="Perdere mi ha fatto bene!\nOra sono pronto per la LEGA\pPOKéMON!\p{PLAYER}, devi fare più\nallenamento!\pMa questo lo sai!\nMe ne vado ora!\pCi becchiamo in giro!" text_4="Das war ein gutes Aufwärmtraining!\nIch bin gut auf die POKéMON LIGA\pvorbereitet!\p{PLAYER}, auch wenn du gewonnen\nhast, musst du mehr trainieren!\pIch glaube, du bist dir dessen\nbewusst! Bis dann!" text_5="Isso aqueceu-me.\nEstou pronto para a LIGA POKéMON!\p{PLAYER}, precisas de mais prática.\pMas hey, tu sabes disso!\nVou-me embora. Até logo!" text_6="That loosened me up.\nI’m ready for the Pokémon League!\p{PLAYER}, you need more practice.\pBut hey, you know that!\nI’m out of here. Smell ya!"
+    08238CFB  callstd              function=MSGBOX_DEFAULT(4)
+    08238CFD  closemessage         
+    08238CFE  delay                frames=10
+    08238D01  playbgm              song=528 save_song=0
+    08238D05  applymovement        localId=1 movements=[walk_left walk_left walk_left walk_left walk_left walk_left walk_left]
+    08238D0C  waitmovement         localId=0
+    08238D0F  fadedefaultbgm       
+    08238D10  removeobject         localId=1
+    08238D13  setvar               destination=VAR_0x4054 value=4
+    08238D18  releaseall           
+
+  coord trigger 4 (var 0x4054 == 3) -> 0x08238D55
+  script 0x08238D55  [ok]
+    08238D55  lockall              
+    08238D56  setvar               destination=VAR_0x4001 value=1
+    08238D5B  setobjectxyperm      localId=1 x=25 y=5
+    08238D62  goto                 destination=0x08238C81
+
+  coord trigger 5 (var 0x4054 == 3) -> 0x08238D68
+  script 0x08238D68  [ok]
+    08238D68  lockall              
+    08238D69  setvar               destination=VAR_0x4001 value=2
+    08238D6E  setobjectxyperm      localId=1 x=25 y=5
+    08238D75  goto                 destination=0x08238C81
+
+  sign 0 at (7,12) -> 0x08238AEA
+  script 0x08238AEA  [ok]
+    08238AEA  msgbox_multilang     type=0 text_0="Pokémon League\nFront Gate" text_1="Pokémon League\nFront Gate" text_2="Pokémon League\nFront Gate" text_3="Pokémon League\nFront Gate" text_4="Pokémon League\nFront Gate" text_5="Pokémon League\nFront Gate" text_6="Pokémon League\nFront Gate"
+    08238B08  callstd              function=MSGBOX_SIGN(3)
+    08238B0A  end                  
+

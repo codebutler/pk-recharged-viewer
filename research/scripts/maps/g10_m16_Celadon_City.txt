@@ -1,0 +1,282 @@
+Celadon City  (group 10, map 16)  header 0x08B3D470
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2F, flag 0x0000) -> 0x0826787D
+  script 0x0826787D  [ok]
+    0826787D  trainerbattle        type=0 trainer=0x84 localId=0 ptr1=0x08267C4C ptr2=0x08267C94
+    0826788B  msgbox_multilang     type=0 text_0="Bleaah!\nI hope Erika wipes you out!" text_1="Bleaah!\nI hope Erika wipes you out!" text_2="Bleaah!\nI hope Erika wipes you out!" text_3="Bleaah!\nI hope Erika wipes you out!" text_4="Bleaah!\nI hope Erika wipes you out!" text_5="Bleaah!\nI hope Erika wipes you out!" text_6="Bleaah!\nI hope Erika wipes you out!"
+    082678A9  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082678AB  end                  
+
+  object 2 (gfx 0x2D, flag 0x0000) -> 0x08267917
+  script 0x08267917  [ok]
+    08267917  trainerbattle        type=0 trainer=0x109 localId=0 ptr1=0x08267CCA ptr2=0x08267CEC
+    08267925  msgbox_multilang     type=0 text_0="Grass-type Pokémon are tough\nagainst the Water type.\pThey also have an edge on Rock-\nand Ground-type Pokémon." text_1="Grass-type Pokémon are tough\nagainst the Water type.\pThey also have an edge on Rock-\nand Ground-type Pokémon." text_2="Grass-type Pokémon are tough\nagainst the Water type.\pThey also have an edge on Rock-\nand Ground-type Pokémon." text_3="Grass-type Pokémon are tough\nagainst the Water type.\pThey also have an edge on Rock-\nand Ground-type Pokémon." text_4="Grass-type Pokémon are tough\nagainst the Water type.\pThey also have an edge on Rock-\nand Ground-type Pokémon." text_5="Grass-type Pokémon are tough\nagainst the Water type.\pThey also have an edge on Rock-\nand Ground-type Pokémon." text_6="Grass-type Pokémon are tough\nagainst the Water type.\pThey also have an edge on Rock-\nand Ground-type Pokémon."
+    08267943  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08267945  end                  
+
+  object 3 (gfx 0x20, flag 0x0000) -> 0x082678E8
+  script 0x082678E8  [ok]
+    082678E8  trainerbattle        type=0 trainer=0xA0 localId=0 ptr1=0x08267D65 ptr2=0x08267D8B
+    082678F6  msgbox_multilang     type=0 text_0="Oh, you were looking at Erika…\nYou weren’t looking at me…" text_1="Oh, you were looking at Erika…\nYou weren’t looking at me…" text_2="Oh, you were looking at Erika…\nYou weren’t looking at me…" text_3="Oh, you were looking at Erika…\nYou weren’t looking at me…" text_4="Oh, you were looking at Erika…\nYou weren’t looking at me…" text_5="Oh, you were looking at Erika…\nYou weren’t looking at me…" text_6="Oh, you were looking at Erika…\nYou weren’t looking at me…"
+    08267914  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08267916  end                  
+
+  object 4 (gfx 0x2D, flag 0x0000) -> 0x08267946
+  script 0x08267946  [ok]
+    08267946  trainerbattle        type=0 trainer=0x10A localId=0 ptr1=0x08267DDB ptr2=0x08267E30
+    08267954  setvar               destination=VAR_0x8004 value=5
+    08267959  setvar               destination=VAR_0x8005 value=3
+    0826795E  special              SPECIAL_\function=347
+    08267961  msgbox_multilang     type=0 text_0="We only use Grass-type Pokémon at\nour Gym.\pWhy? We also use them for making\nflower arrangements!" text_1="We only use Grass-type Pokémon at\nour Gym.\pWhy? We also use them for making\nflower arrangements!" text_2="We only use Grass-type Pokémon at\nour Gym.\pWhy? We also use them for making\nflower arrangements!" text_3="We only use Grass-type Pokémon at\nour Gym.\pWhy? We also use them for making\nflower arrangements!" text_4="We only use Grass-type Pokémon at\nour Gym.\pWhy? We also use them for making\nflower arrangements!" text_5="We only use Grass-type Pokémon at\nour Gym.\pWhy? We also use them for making\nflower arrangements!" text_6="We only use Grass-type Pokémon at\nour Gym.\pWhy? We also use them for making\nflower arrangements!"
+    0826797F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08267981  end                  
+
+  object 5 (gfx 0x2D, flag 0x0000) -> 0x08267982
+  script 0x08267982  [ok]
+    08267982  trainerbattle        type=0 trainer=0x10B localId=0 ptr1=0x08267F17 ptr2=0x08267F4A
+    08267990  msgbox_multilang     type=0 text_0="I have a blind date coming up.\nI have to learn to be polite,\pespecially if I have to battle." text_1="I have a blind date coming up.\nI have to learn to be polite,\pespecially if I have to battle." text_2="I have a blind date coming up.\nI have to learn to be polite,\pespecially if I have to battle." text_3="I have a blind date coming up.\nI have to learn to be polite,\pespecially if I have to battle." text_4="I have a blind date coming up.\nI have to learn to be polite,\pespecially if I have to battle." text_5="I have a blind date coming up.\nI have to learn to be polite,\pespecially if I have to battle." text_6="I have a blind date coming up.\nI have to learn to be polite,\pespecially if I have to battle."
+    082679AE  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082679B0  end                  
+
+  object 6 (gfx 0x2F, flag 0x0000) -> 0x082678AC
+  script 0x082678AC  [ok]
+    082678AC  trainerbattle        type=0 trainer=0x85 localId=0 ptr1=0x08267E95 ptr2=0x08267ECF
+    082678BA  setvar               destination=VAR_0x8004 value=5
+    082678BF  setvar               destination=VAR_0x8005 value=2
+    082678C4  special              SPECIAL_\function=347
+    082678C7  msgbox_multilang     type=0 text_0="Our Leader Erika might be quiet,\nbut she’s famous around here." text_1="Our Leader Erika might be quiet,\nbut she’s famous around here." text_2="Our Leader Erika might be quiet,\nbut she’s famous around here." text_3="Our Leader Erika might be quiet,\nbut she’s famous around here." text_4="Our Leader Erika might be quiet,\nbut she’s famous around here." text_5="Our Leader Erika might be quiet,\nbut she’s famous around here." text_6="Our Leader Erika might be quiet,\nbut she’s famous around here."
+    082678E5  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082678E7  end                  
+
+  object 7 (gfx 0x20, flag 0x0000) -> 0x082676E2
+  script 0x082676E2  [ok]
+    082676E2  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    082676E5  goto_if              condition=1 destination=0x08267742
+    082676EB  setvar               destination=VAR_0x8004 value=5
+    082676F0  setvar               destination=VAR_0x8005 value=2
+    082676F5  special              SPECIAL_\function=348
+    082676F8  trainerbattle        type=1 trainer=0x1A1 localId=0 ptr1=0x08268185 ptr2=0x08267A2E ptr3=0x08267832
+    0826770A  checkflag            flag=0x293
+    0826770D  goto_if              condition=0 destination=0x0826777B
+    08267713  setvar               destination=VAR_0x8004 value=5
+    08267718  setvar               destination=VAR_0x8005 value=4
+    0826771D  special              SPECIAL_\function=347
+    08267720  msgbox_multilang     type=0 text_0="You are cataloging Pokémon?\nI must say I’m impressed.\pI would never collect Pokémon if\nthey were unattractive." text_1="You are cataloging Pokémon?\nI must say I’m impressed.\pI would never collect Pokémon if\nthey were unattractive." text_2="You are cataloging Pokémon?\nI must say I’m impressed.\pI would never collect Pokémon if\nthey were unattractive." text_3="You are cataloging Pokémon?\nI must say I’m impressed.\pI would never collect Pokémon if\nthey were unattractive." text_4="You are cataloging Pokémon?\nI must say I’m impressed.\pI would never collect Pokémon if\nthey were unattractive." text_5="You are cataloging Pokémon?\nI must say I’m impressed.\pI would never collect Pokémon if\nthey were unattractive." text_6="You are cataloging Pokémon?\nI must say I’m impressed.\pI would never collect Pokémon if\nthey were unattractive."
+    0826773E  callstd              function=MSGBOX_DEFAULT(4)
+    08267740  release              
+
+  script 0x08267742  [ok]
+    08267742  trainerbattle        type=1 trainer=0x2F2 localId=0 ptr1=0x082680B6 ptr2=0x08268113 ptr3=0x08267785
+    08267754  speakername          name="Erika"
+    08267759  msgbox_multilang     type=0 text_0="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_1="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_2="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_3="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_4="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_5="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_6="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges."
+    08267777  callstd              function=MSGBOX_DEFAULT(4)
+    08267779  release              
+
+  script 0x08267832  [ok]
+    08267832  addelevmenuitem      a=4 b=5632 c=32772 d=5
+    0826783A  setvar               destination=VAR_0x8005 value=1
+    0826783F  special              SPECIAL_\function=347
+    08267842  clearflag            flag=0x09E
+    08267845  setflag              flag=0x4B3
+    08267848  setflag              flag=0x883:BADGE4_RAINBOW
+    0826784B  setvar               destination=VAR_0x8008 value=4
+    08267850  call                 destination=0x082BBD1A
+    08267855  goto                 destination=0x082677AC
+
+  script 0x0826777B  [ok]
+    0826777B  goto                 destination=0x082677AC
+
+  script 0x08267785  [ok]
+    08267785  speakername          name="Erika"
+    0826778A  msgbox_multilang     type=0 text_0="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_1="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_2="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_3="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_4="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_5="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges." text_6="Simply marvelous.\nThat was an effort worthy at least\p10 Rainbow Badges."
+    082677A8  callstd              function=MSGBOX_DEFAULT(4)
+    082677AA  release              
+
+  script 0x082BBD1A  [ok]
+    082BBD1A  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    082BBD1F  compare_var_to_value var=0x8000 value=1
+    082BBD24  goto_if              condition=1 destination=0x082BBD78
+    082BBD2A  compare_var_to_value var=0x8000 value=2
+    082BBD2F  goto_if              condition=1 destination=0x082BBD7F
+    082BBD35  compare_var_to_value var=0x8000 value=3
+    082BBD3A  goto_if              condition=1 destination=0x082BBD86
+    082BBD40  compare_var_to_value var=0x8000 value=4
+    082BBD45  goto_if              condition=1 destination=0x082BBD90
+    082BBD4B  compare_var_to_value var=0x8000 value=5
+    082BBD50  goto_if              condition=1 destination=0x082BBDA6
+    082BBD56  compare_var_to_value var=0x8000 value=6
+    082BBD5B  goto_if              condition=1 destination=0x082BBDB9
+    082BBD61  compare_var_to_value var=0x8000 value=7
+    082BBD66  goto_if              condition=1 destination=0x082BBDCF
+    082BBD6C  compare_var_to_value var=0x8000 value=8
+    082BBD71  goto_if              condition=1 destination=0x082BBDE5
+    082BBD77  end                  
+
+  script 0x082677AC  [unknown-opcode:0xE9]
+    082677AC  speakername          name="Erika"
+    082677B1  msgbox_multilang     type=0 text_0="The Rainbow Badge will make\nPokémon up to Lv. 50 obey.\pIt also allows Pokémon to use\nStrength in and out of battle.\pPlease also take this with you." text_1="The Rainbow Badge will make\nPokémon up to Lv. 50 obey.\pIt also allows Pokémon to use\nStrength in and out of battle.\pPlease also take this with you." text_2="The Rainbow Badge will make\nPokémon up to Lv. 50 obey.\pIt also allows Pokémon to use\nStrength in and out of battle.\pPlease also take this with you." text_3="The Rainbow Badge will make\nPokémon up to Lv. 50 obey.\pIt also allows Pokémon to use\nStrength in and out of battle.\pPlease also take this with you." text_4="The Rainbow Badge will make\nPokémon up to Lv. 50 obey.\pIt also allows Pokémon to use\nStrength in and out of battle.\pPlease also take this with you." text_5="The Rainbow Badge will make\nPokémon up to Lv. 50 obey.\pIt also allows Pokémon to use\nStrength in and out of battle.\pPlease also take this with you." text_6="The Rainbow Badge will make\nPokémon up to Lv. 50 obey.\pIt also allows Pokémon to use\nStrength in and out of battle.\pPlease also take this with you."
+    082677CF  callstd              function=MSGBOX_DEFAULT(4)
+    082677D1  checkitemspace       itemId=TM19(307) quantity=1
+    082677D6  compare_var_to_value var=0x800D value=0
+    082677DB  goto_if              condition=1 destination=0x08267828
+    082677E1  additem              itemId=TM19(307) quantity=1
+
+  script 0x082BBD78  [ok]
+    082BBD78  settrainerflag       trainer=0x8E
+    082BBD7B  settrainerflag       trainer=0x147
+    082BBD7E  return               
+
+  script 0x082BBD7F  [ok]
+    082BBD7F  settrainerflag       trainer=0x96
+    082BBD82  settrainerflag       trainer=0xEA
+    082BBD85  return               
+
+  script 0x082BBD86  [ok]
+    082BBD86  settrainerflag       trainer=0x8D
+    082BBD89  settrainerflag       trainer=0xDC
+    082BBD8C  settrainerflag       trainer=0x1A7
+    082BBD8F  return               
+
+  script 0x082BBD90  [ok]
+    082BBD90  settrainerflag       trainer=0x84
+    082BBD93  settrainerflag       trainer=0x85
+    082BBD96  settrainerflag       trainer=0xA0
+    082BBD99  settrainerflag       trainer=0x109
+    082BBD9C  settrainerflag       trainer=0x10A
+    082BBD9F  settrainerflag       trainer=0x10B
+    082BBDA2  settrainerflag       trainer=0x192
+    082BBDA5  return               
+
+  script 0x082BBDA6  [ok]
+    082BBDA6  settrainerflag       trainer=0x126
+    082BBDA9  settrainerflag       trainer=0x127
+    082BBDAC  settrainerflag       trainer=0x120
+    082BBDAF  settrainerflag       trainer=0x121
+    082BBDB2  settrainerflag       trainer=0x124
+    082BBDB5  settrainerflag       trainer=0x125
+    082BBDB8  return               
+
+  script 0x082BBDB9  [ok]
+    082BBDB9  settrainerflag       trainer=0x118
+    082BBDBC  settrainerflag       trainer=0x119
+    082BBDBF  settrainerflag       trainer=0x11A
+    082BBDC2  settrainerflag       trainer=0x11B
+    082BBDC5  settrainerflag       trainer=0x1CE
+    082BBDC8  settrainerflag       trainer=0x1CF
+    082BBDCB  settrainerflag       trainer=0x1D0
+    082BBDCE  return               
+
+  script 0x082BBDCF  [ok]
+    082BBDCF  settrainerflag       trainer=0xB1
+    082BBDD2  settrainerflag       trainer=0xB2
+    082BBDD5  settrainerflag       trainer=0xB3
+    082BBDD8  settrainerflag       trainer=0xB4
+    082BBDDB  settrainerflag       trainer=0xD5
+    082BBDDE  settrainerflag       trainer=0xD6
+    082BBDE1  settrainerflag       trainer=0xD7
+    082BBDE4  return               
+
+  script 0x082BBDE5  [ok]
+    082BBDE5  settrainerflag       trainer=0x128
+    082BBDE8  settrainerflag       trainer=0x129
+    082BBDEB  settrainerflag       trainer=0x142
+    082BBDEE  settrainerflag       trainer=0x143
+    082BBDF1  settrainerflag       trainer=0x144
+    082BBDF4  settrainerflag       trainer=0x188
+    082BBDF7  settrainerflag       trainer=0x190
+    082BBDFA  settrainerflag       trainer=0x191
+    082BBDFD  return               
+
+  script 0x08267828  [ok]
+    08267828  goto                 destination=0x0826785B
+
+  script 0x0826785B  [ok]
+    0826785B  msgbox_multilang     type=0 text_0="You should make room for this." text_1="You should make room for this." text_2="You should make room for this." text_3="You should make room for this." text_4="You should make room for this." text_5="You should make room for this." text_6="You should make room for this."
+    08267879  callstd              function=MSGBOX_DEFAULT(4)
+    0826787B  release              
+
+  object 8 (gfx 0xFB, flag 0x0000) -> 0x082679B1
+  script 0x082679B1  [ok]
+    082679B1  trainerbattle        type=0 trainer=0x192 localId=0 ptr1=0x08267FB5 ptr2=0x08268002
+    082679BF  msgbox_multilang     type=0 text_0="I didn’t bring my best Pokémon.\nWait until next time!" text_1="I didn’t bring my best Pokémon.\nWait until next time!" text_2="I didn’t bring my best Pokémon.\nWait until next time!" text_3="I didn’t bring my best Pokémon.\nWait until next time!" text_4="I didn’t bring my best Pokémon.\nWait until next time!" text_5="I didn’t bring my best Pokémon.\nWait until next time!" text_6="I didn’t bring my best Pokémon.\nWait until next time!"
+    082679DD  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082679DF  end                  
+
+  object 9 (gfx 0x52, flag 0x0012) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 10 (gfx 0x52, flag 0x0013) -> 0x082050CF
+  object 11 (gfx 0x52, flag 0x0014) -> 0x082050CF
+  sign 0 at (4,16) -> 0x082679E0
+  script 0x082679E0  [ok]
+    082679E0  lockall              
+    082679E1  checkflag            flag=0x883:BADGE4_RAINBOW
+    082679E4  goto_if              condition=1 destination=0x08267A0C
+    082679EA  msgbox_multilang     type=0 text_0="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}" text_1="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}" text_2="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}" text_3="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}" text_4="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}" text_5="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}" text_6="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}"
+    08267A08  callstd              function=MSGBOX_DEFAULT(4)
+    08267A0A  releaseall           
+
+  script 0x08267A0C  [ok]
+    08267A0C  msgbox_multilang     type=0 text_0="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_1="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_2="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_3="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_4="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_5="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_6="Celadon Pokémon Gym\nLeader: Erika\pWinning Trainers:\n{RIVAL}, {PLAYER}"
+    08267A2A  callstd              function=MSGBOX_DEFAULT(4)
+    08267A2C  releaseall           
+
+  sign 1 at (8,16) -> 0x082679E0

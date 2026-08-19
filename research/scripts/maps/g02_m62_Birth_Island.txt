@@ -1,0 +1,65 @@
+Birth Island  (group 2, map 62)  header 0x08B3C654
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x32, flag 0x009A) -> 0x0821CDF7
+  script 0x0821CDF7  [ok]
+    0821CDF7  lock                 
+    0821CDF8  faceplayer           
+    0821CDF9  special              SPECIAL_\function=315
+    0821CDFC  waitstate            
+
+  object 2 (gfx 0x5A, flag 0x0099) -> 0x00000000
+  map script type 3 -> 0x0821CD9D
+  script 0x0821CD9D  [ok]
+    0821CD9D  setworldmapflag      flag=0x922
+    0821CDA0  setvar               destination=VAR_0x4010 value=922
+    0821CDA5  setvar               destination=VAR_0x4026 value=0
+    0821CDAA  setvar               destination=VAR_0x403E value=0
+    0821CDAF  checkflag            flag=0x2E4
+    0821CDB2  call_if              condition=1 destination=0x0821CDC2
+    0821CDB8  checkflag            flag=0x2E4
+    0821CDBB  call_if              condition=0 destination=0x0821CDC9
+    0821CDC1  end                  
+
+  script 0x0821CDC2  [ok]
+    0821CDC2  setflag              flag=0x099
+    0821CDC5  setflag              flag=0x09A
+    0821CDC8  return               
+
+  script 0x0821CDC9  [ok]
+    0821CDC9  checkflag            flag=0x2F7
+    0821CDCC  goto_if              condition=1 destination=0x082F80A2
+    0821CDD2  clearflag            flag=0x09A
+    0821CDD5  clearflag            flag=0x8A8
+    0821CDD8  return               
+
+  script 0x082F80A2  [ok]
+    082F80A2  return               
+
+  map script type 5 -> 0x0821CDD9
+  script 0x0821CDD9  [ok]
+    0821CDD9  checkflag            flag=0x867
+    0821CDDC  call_if              condition=1 destination=0x0821CDE3
+    0821CDE2  end                  
+
+  script 0x0821CDE3  [ok]
+    0821CDE3  specialvar           output=32781 SPECIAL_\function=102
+    0821CDE8  compare_var_to_value var=0x800D value=7
+    0821CDED  goto_if              condition=5 destination=0x082F80A2
+    0821CDF3  removeobject         localId=2
+    0821CDF6  return               
+
+  map script type 7 -> 0x0821CD99
+  script 0x0821CD99  [ok]
+    0821CD99  special              SPECIAL_\function=316
+    0821CD9C  end                  
+

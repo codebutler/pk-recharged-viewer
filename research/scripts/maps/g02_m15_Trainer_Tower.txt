@@ -1,0 +1,184 @@
+Trainer Tower  (group 2, map 15)  header 0x08B3C130
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x13, flag 0x0006) -> 0x0821B4BD
+  script 0x0821B4BD  [ok]
+    0821B4BD  call                 destination=0x081FFB7D
+    0821B4C2  end                  
+
+  script 0x081FFB7D  [ok]
+    081FFB7D  lock                 
+    081FFB7E  faceplayer           
+    081FFB7F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFB84  compare_var_to_value var=0x8000 value=0
+    081FFB89  goto_if              condition=1 destination=0x081FFBA5
+    081FFB8F  compare_var_to_value var=0x8000 value=1
+    081FFB94  goto_if              condition=1 destination=0x081FFBC5
+    081FFB9A  compare_var_to_value var=0x8000 value=2
+    081FFB9F  goto_if              condition=1 destination=0x081FFD0D
+    081FFBA5  msgbox_multilang     type=0 text_0="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_1="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_2="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_3="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_4="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_5="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_6="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…"
+    081FFBC3  callstd              function=MSGBOX_DEFAULT(4)
+    081FFBC5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFBCA  compare_var_to_value var=0x8000 value=0
+    081FFBCF  goto_if              condition=1 destination=0x081FFBEB
+    081FFBD5  compare_var_to_value var=0x8000 value=1
+    081FFBDA  goto_if              condition=1 destination=0x081FFC5D
+    081FFBE0  compare_var_to_value var=0x8000 value=2
+    081FFBE5  goto_if              condition=1 destination=0x081FFCA2
+    081FFBEB  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC09  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC0B  textcolor            color=3
+    081FFC0D  playfanfare          song=367
+    081FFC10  message              text="Obtained the {STR_VAR_2}!"
+    081FFC15  special              SPECIAL_\function=11204
+    081FFC18  gotostd              function=37
+    081FFC1A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC22  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC2A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=50 -1=33894 -1=7682
+    081FFC32  nop                  
+    081FFC33  msgbox_multilang     type=0 text_0="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_1="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_2="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_3="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_4="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_5="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_6="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}."
+    081FFC51  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC53  call                 destination=0x082BB551
+    081FFC58  goto                 destination=0x081FFCA2
+
+  script 0x081FFBA5  [ok]
+    081FFBA5  msgbox_multilang     type=0 text_0="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_1="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_2="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_3="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_4="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_5="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_6="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…"
+    081FFBC3  callstd              function=MSGBOX_DEFAULT(4)
+    081FFBC5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFBCA  compare_var_to_value var=0x8000 value=0
+    081FFBCF  goto_if              condition=1 destination=0x081FFBEB
+    081FFBD5  compare_var_to_value var=0x8000 value=1
+    081FFBDA  goto_if              condition=1 destination=0x081FFC5D
+    081FFBE0  compare_var_to_value var=0x8000 value=2
+    081FFBE5  goto_if              condition=1 destination=0x081FFCA2
+    081FFBEB  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC09  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC0B  textcolor            color=3
+    081FFC0D  playfanfare          song=367
+    081FFC10  message              text="Obtained the {STR_VAR_2}!"
+    081FFC15  special              SPECIAL_\function=11204
+    081FFC18  gotostd              function=37
+    081FFC1A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC22  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC2A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=50 -1=33894 -1=7682
+    081FFC32  nop                  
+    081FFC33  msgbox_multilang     type=0 text_0="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_1="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_2="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_3="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_4="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_5="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_6="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}."
+    081FFC51  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC53  call                 destination=0x082BB551
+    081FFC58  goto                 destination=0x081FFCA2
+
+  script 0x081FFBC5  [ok]
+    081FFBC5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFBCA  compare_var_to_value var=0x8000 value=0
+    081FFBCF  goto_if              condition=1 destination=0x081FFBEB
+    081FFBD5  compare_var_to_value var=0x8000 value=1
+    081FFBDA  goto_if              condition=1 destination=0x081FFC5D
+    081FFBE0  compare_var_to_value var=0x8000 value=2
+    081FFBE5  goto_if              condition=1 destination=0x081FFCA2
+    081FFBEB  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC09  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC0B  textcolor            color=3
+    081FFC0D  playfanfare          song=367
+    081FFC10  message              text="Obtained the {STR_VAR_2}!"
+    081FFC15  special              SPECIAL_\function=11204
+    081FFC18  gotostd              function=37
+    081FFC1A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC22  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC2A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=50 -1=33894 -1=7682
+    081FFC32  nop                  
+    081FFC33  msgbox_multilang     type=0 text_0="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_1="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_2="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_3="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_4="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_5="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_6="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}."
+    081FFC51  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC53  call                 destination=0x082BB551
+    081FFC58  goto                 destination=0x081FFCA2
+
+  script 0x081FFD0D  [ok]
+    081FFD0D  msgbox_multilang     type=0 text_0="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_1="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_2="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_3="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_4="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_5="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_6="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…"
+    081FFD2B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFD2D  release              
+
+  script 0x081FFBEB  [ok]
+    081FFBEB  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC09  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC0B  textcolor            color=3
+    081FFC0D  playfanfare          song=367
+    081FFC10  message              text="Obtained the {STR_VAR_2}!"
+    081FFC15  special              SPECIAL_\function=11204
+    081FFC18  gotostd              function=37
+    081FFC1A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC22  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC2A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=50 -1=33894 -1=7682
+    081FFC32  nop                  
+    081FFC33  msgbox_multilang     type=0 text_0="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_1="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_2="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_3="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_4="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_5="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_6="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}."
+    081FFC51  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC53  call                 destination=0x082BB551
+    081FFC58  goto                 destination=0x081FFCA2
+
+  script 0x081FFC5D  [ok]
+    081FFC5D  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC7B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC7D  msgbox_multilang     type=0 text_0="The BAG is full…" text_1="The BAG is full…" text_2="The BAG is full…" text_3="The BAG is full…" text_4="The BAG is full…" text_5="The BAG is full…" text_6="The BAG is full…"
+    081FFC9B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC9D  goto                 destination=0x081FFCA2
+
+  script 0x081FFCA2  [ok]
+    081FFCA2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFCA7  compare_var_to_value var=0x8000 value=0
+    081FFCAC  goto_if              condition=1 destination=0x081FFCC8
+    081FFCB2  compare_var_to_value var=0x8000 value=1
+    081FFCB7  goto_if              condition=1 destination=0x081FFCED
+    081FFCBD  compare_var_to_value var=0x8000 value=2
+    081FFCC2  goto_if              condition=1 destination=0x081FFD0D
+    081FFCC8  msgbox_multilang     type=0 text_0="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_1="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_2="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_3="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_4="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_5="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_6="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter."
+    081FFCE6  callstd              function=MSGBOX_DEFAULT(4)
+    081FFCE8  goto                 destination=0x081FFD0D
+
+  script 0x082BB551  [ok]
+    082BB551  copyvar              destination=VAR_0x8012 source=VAR_0x8013
+    082BB556  return               
+
+  script 0x081FFCC8  [ok]
+    081FFCC8  msgbox_multilang     type=0 text_0="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_1="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_2="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_3="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_4="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_5="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_6="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter."
+    081FFCE6  callstd              function=MSGBOX_DEFAULT(4)
+    081FFCE8  goto                 destination=0x081FFD0D
+
+  script 0x081FFCED  [ok]
+    081FFCED  msgbox_multilang     type=0 text_0="You seem to have taken your sweet\ntime getting here…" text_1="You seem to have taken your sweet\ntime getting here…" text_2="You seem to have taken your sweet\ntime getting here…" text_3="You seem to have taken your sweet\ntime getting here…" text_4="You seem to have taken your sweet\ntime getting here…" text_5="You seem to have taken your sweet\ntime getting here…" text_6="You seem to have taken your sweet\ntime getting here…"
+    081FFD0B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFD0D  msgbox_multilang     type=0 text_0="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_1="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_2="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_3="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_4="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_5="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_6="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…"
+    081FFD2B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFD2D  release              
+
+  map script type 5 -> 0x081FF793
+  script 0x081FF793  [ok]
+    081FF793  setvar               destination=VAR_0x4002 value=0
+    081FF798  end                  
+
+  map script type 2 (var 0x4002 == 0) -> 0x081FF877
+  script 0x081FF877  [ok]
+    081FF877  setvar               destination=VAR_0x4002 value=1
+    081FF87C  compare_var_to_value var=0x800D value=0
+    081FF881  goto_if              condition=1 destination=0x081FF891
+    081FF887  setvar               destination=VAR_0x400E value=1
+    081FF88C  setvar               destination=VAR_0x400F value=1
+    081FF891  compare_var_to_value var=0x800D value=1
+    081FF896  goto_if              condition=1 destination=0x081FF89D
+    081FF89C  end                  
+
+  script 0x081FF891  [ok]
+    081FF891  compare_var_to_value var=0x800D value=1
+    081FF896  goto_if              condition=1 destination=0x081FF89D
+    081FF89C  end                  
+
+  script 0x081FF89D  [ok]
+    081FF89D  warp                 mapGroup=2 mapNum=16 WARP_ID_NONE=255 -1=9 -1=7
+    081FF8A5  waitstate            
+

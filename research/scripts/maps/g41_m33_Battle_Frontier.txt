@@ -1,0 +1,105 @@
+Battle Frontier  (group 41, map 33)  header 0x08B3E44C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x082ADA57
+  script 0x082ADA57  [ok]
+    082ADA57  lock                 
+    082ADA58  faceplayer           
+    082ADA59  setvar               destination=VAR_0x4002 value=0
+    082ADA5E  call                 destination=0x082AD8AD
+    082ADA63  goto                 destination=0x082ADA69
+
+  script 0x082AD8AD  [ok]
+    082AD8AD  msgbox_multilang     type=0 text_0="Hello, this is the EXCHANGE SERVICE\nCORNER.\pWe exchange the Battle Points you\nhave collected for lovely prizes.\pPlease choose a prize from this list." text_1="Hello, this is the EXCHANGE SERVICE\nCORNER.\pWe exchange the Battle Points you\nhave collected for lovely prizes.\pPlease choose a prize from this list." text_2="Hello, this is the EXCHANGE SERVICE\nCORNER.\pWe exchange the Battle Points you\nhave collected for lovely prizes.\pPlease choose a prize from this list." text_3="Hello, this is the EXCHANGE SERVICE\nCORNER.\pWe exchange the Battle Points you\nhave collected for lovely prizes.\pPlease choose a prize from this list." text_4="Hello, this is the EXCHANGE SERVICE\nCORNER.\pWe exchange the Battle Points you\nhave collected for lovely prizes.\pPlease choose a prize from this list." text_5="Hello, this is the EXCHANGE SERVICE\nCORNER.\pWe exchange the Battle Points you\nhave collected for lovely prizes.\pPlease choose a prize from this list." text_6="Hello, this is the EXCHANGE SERVICE\nCORNER.\pWe exchange the Battle Points you\nhave collected for lovely prizes.\pPlease choose a prize from this list."
+    082AD8CB  callstd              function=MSGBOX_DEFAULT(4)
+    082AD8CD  special              SPECIAL_\function=293
+    082AD8D0  return               
+
+  script 0x082ADA69  [ok]
+    082ADA69  setvar               destination=VAR_0x8004 value=3
+    082ADA6E  special              SPECIAL_\function=299
+    082ADA71  special              SPECIAL_\function=284
+    082ADA74  waitstate            
+
+  object 2 (gfx 0xEF, flag 0x0000) -> 0x082AE3E4
+  script 0x082AE3E4  [ok]
+    082AE3E4  msgbox_multilang     type=0 text_0="Oh, they’re so nice!\nI wish I had them!\pCute cushions!\pBig plush DOLLS!\pLittle plush DOLLS!\pI wish I had them all!" text_1="Oh, they’re so nice!\nI wish I had them!\pCute cushions!\pBig plush DOLLS!\pLittle plush DOLLS!\pI wish I had them all!" text_2="Oh, they’re so nice!\nI wish I had them!\pCute cushions!\pBig plush DOLLS!\pLittle plush DOLLS!\pI wish I had them all!" text_3="Oh, they’re so nice!\nI wish I had them!\pCute cushions!\pBig plush DOLLS!\pLittle plush DOLLS!\pI wish I had them all!" text_4="Oh, they’re so nice!\nI wish I had them!\pCute cushions!\pBig plush DOLLS!\pLittle plush DOLLS!\pI wish I had them all!" text_5="Oh, they’re so nice!\nI wish I had them!\pCute cushions!\pBig plush DOLLS!\pLittle plush DOLLS!\pI wish I had them all!" text_6="Oh, they’re so nice!\nI wish I had them!\pCute cushions!\pBig plush DOLLS!\pLittle plush DOLLS!\pI wish I had them all!"
+    082AE402  callstd              function=MSGBOX_NPC(2)
+    082AE404  end                  
+
+  object 3 (gfx 0x12, flag 0x0000) -> 0x082AE3C1
+  script 0x082AE3C1  [ok]
+    082AE3C1  lock                 
+    082AE3C2  msgbox_multilang     type=0 text_0="Leave it to your mommy!\pIf it’s anything you want, I’ll go\nthrough anything to get it, honey!" text_1="Leave it to your mommy!\pIf it’s anything you want, I’ll go\nthrough anything to get it, honey!" text_2="Leave it to your mommy!\pIf it’s anything you want, I’ll go\nthrough anything to get it, honey!" text_3="Leave it to your mommy!\pIf it’s anything you want, I’ll go\nthrough anything to get it, honey!" text_4="Leave it to your mommy!\pIf it’s anything you want, I’ll go\nthrough anything to get it, honey!" text_5="Leave it to your mommy!\pIf it’s anything you want, I’ll go\nthrough anything to get it, honey!" text_6="Leave it to your mommy!\pIf it’s anything you want, I’ll go\nthrough anything to get it, honey!"
+    082AE3E0  callstd              function=MSGBOX_DEFAULT(4)
+    082AE3E2  release              
+
+  object 4 (gfx 0x31, flag 0x0000) -> 0x082AE3A0
+  script 0x082AE3A0  [ok]
+    082AE3A0  msgbox_multilang     type=0 text_0="If I can get hold of the items here,\nmy POKéMON will get tougher.\pYou bet they will!\nNo question about it!" text_1="If I can get hold of the items here,\nmy POKéMON will get tougher.\pYou bet they will!\nNo question about it!" text_2="If I can get hold of the items here,\nmy POKéMON will get tougher.\pYou bet they will!\nNo question about it!" text_3="If I can get hold of the items here,\nmy POKéMON will get tougher.\pYou bet they will!\nNo question about it!" text_4="If I can get hold of the items here,\nmy POKéMON will get tougher.\pYou bet they will!\nNo question about it!" text_5="If I can get hold of the items here,\nmy POKéMON will get tougher.\pYou bet they will!\nNo question about it!" text_6="If I can get hold of the items here,\nmy POKéMON will get tougher.\pYou bet they will!\nNo question about it!"
+    082AE3BE  callstd              function=MSGBOX_NPC(2)
+    082AE3C0  end                  
+
+  object 5 (gfx 0xF3, flag 0x0000) -> 0x082AE37F
+  script 0x082AE37F  [ok]
+    082AE37F  msgbox_multilang     type=0 text_0="Hah?\nWhat are you gawking at?\pI don’t like you staring at my plush\ndoll like that.\pIf you want it, go get one yourself!\nIsn’t that right, SMOOCHUM?" text_1="Hah?\nWhat are you gawking at?\pI don’t like you staring at my plush\ndoll like that.\pIf you want it, go get one yourself!\nIsn’t that right, SMOOCHUM?" text_2="Hah?\nWhat are you gawking at?\pI don’t like you staring at my plush\ndoll like that.\pIf you want it, go get one yourself!\nIsn’t that right, SMOOCHUM?" text_3="Hah?\nWhat are you gawking at?\pI don’t like you staring at my plush\ndoll like that.\pIf you want it, go get one yourself!\nIsn’t that right, SMOOCHUM?" text_4="Hah?\nWhat are you gawking at?\pI don’t like you staring at my plush\ndoll like that.\pIf you want it, go get one yourself!\nIsn’t that right, SMOOCHUM?" text_5="Hah?\nWhat are you gawking at?\pI don’t like you staring at my plush\ndoll like that.\pIf you want it, go get one yourself!\nIsn’t that right, SMOOCHUM?" text_6="Hah?\nWhat are you gawking at?\pI don’t like you staring at my plush\ndoll like that.\pIf you want it, go get one yourself!\nIsn’t that right, SMOOCHUM?"
+    082AE39D  callstd              function=MSGBOX_NPC(2)
+    082AE39F  end                  
+
+  object 6 (gfx 0x55, flag 0x0000) -> 0x082ADD50
+  script 0x082ADD50  [ok]
+    082ADD50  lock                 
+    082ADD51  faceplayer           
+    082ADD52  setvar               destination=VAR_0x4002 value=1
+    082ADD57  call                 destination=0x082AD8AD
+    082ADD5C  goto                 destination=0x082ADD62
+
+  script 0x082ADD62  [ok]
+    082ADD62  setvar               destination=VAR_0x8004 value=4
+    082ADD67  special              SPECIAL_\function=299
+    082ADD6A  special              SPECIAL_\function=284
+    082ADD6D  waitstate            
+
+  object 7 (gfx 0x55, flag 0x0000) -> 0x082ADEEB
+  script 0x082ADEEB  [ok]
+    082ADEEB  lock                 
+    082ADEEC  faceplayer           
+    082ADEED  setvar               destination=VAR_0x4002 value=2
+    082ADEF2  call                 destination=0x082AD8AD
+    082ADEF7  goto                 destination=0x082ADEFD
+
+  script 0x082ADEFD  [ok]
+    082ADEFD  setvar               destination=VAR_0x8004 value=5
+    082ADF02  special              SPECIAL_\function=299
+    082ADF05  special              SPECIAL_\function=284
+    082ADF08  waitstate            
+
+  object 8 (gfx 0x55, flag 0x0000) -> 0x082AE0CC
+  script 0x082AE0CC  [ok]
+    082AE0CC  lock                 
+    082AE0CD  faceplayer           
+    082AE0CE  setvar               destination=VAR_0x4002 value=3
+    082AE0D3  call                 destination=0x082AD8AD
+    082AE0D8  goto                 destination=0x082AE0DE
+
+  script 0x082AE0DE  [ok]
+    082AE0DE  setvar               destination=VAR_0x8004 value=6
+    082AE0E3  special              SPECIAL_\function=299
+    082AE0E6  special              SPECIAL_\function=284
+    082AE0E9  waitstate            
+
+  object 9 (gfx 0x08, flag 0x0000) -> 0x082AE405
+  script 0x082AE405  [ok]
+    082AE405  msgbox_multilang     type=0 text_0="Did you know?\pIf you stretch your record at any of\nthe BATTLE facilities, they start\pgiving you more and more Battle Points." text_1="Did you know?\pIf you stretch your record at any of\nthe BATTLE facilities, they start\pgiving you more and more Battle Points." text_2="Did you know?\pIf you stretch your record at any of\nthe BATTLE facilities, they start\pgiving you more and more Battle Points." text_3="Did you know?\pIf you stretch your record at any of\nthe BATTLE facilities, they start\pgiving you more and more Battle Points." text_4="Did you know?\pIf you stretch your record at any of\nthe BATTLE facilities, they start\pgiving you more and more Battle Points." text_5="Did you know?\pIf you stretch your record at any of\nthe BATTLE facilities, they start\pgiving you more and more Battle Points." text_6="Did you know?\pIf you stretch your record at any of\nthe BATTLE facilities, they start\pgiving you more and more Battle Points."
+    082AE423  callstd              function=MSGBOX_NPC(2)
+    082AE425  end                  
+

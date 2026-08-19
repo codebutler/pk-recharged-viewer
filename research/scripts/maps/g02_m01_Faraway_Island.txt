@@ -1,0 +1,92 @@
+Faraway Island  (group 2, map 1)  header 0x08B3BFA8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xE5, flag 0x00C2) -> 0x082B7320
+  script 0x082B7320  [bad-trainerbattle]
+    082B7320  lock                 
+    082B7321  faceplayer           
+    082B7322  applymovement        localId=1 movements=[set_visible]
+    082B7329  waitmovement         localId=0
+    082B732C  setvar               destination=VAR_0x8004 value=0
+    082B7331  special              SPECIAL_\function=329
+    082B7334  message              text="Myuu…"
+    082B7339  fadescreen           mode=92
+    082B733B  playse               song=38664
+
+  map script type 5 -> 0x082B7282
+  script 0x082B7282  [ok]
+    082B7282  checkflag            flag=0x8C1
+    082B7285  call_if              condition=1 destination=0x082B728C
+    082B728B  end                  
+
+  script 0x082B728C  [ok]
+    082B728C  specialvar           output=32781 SPECIAL_\function=102
+    082B7291  compare_var_to_value var=0x800D value=7
+    082B7296  goto_if              condition=5 destination=0x082BCF3E
+    082B729C  removeobject         localId=32783
+    082B729F  return               
+
+  script 0x082BCF3E  [ok]
+    082BCF3E  return               
+
+  map script type 3 -> 0x082B72A0
+  script 0x082B72A0  [ok]
+    082B72A0  setvar               destination=VAR_0x4098 value=0
+    082B72A5  setvar               destination=VAR_0x4001 value=1
+    082B72AA  checkflag            flag=0x0C1
+    082B72AD  call_if              condition=0 destination=0x082B72B4
+    082B72B3  end                  
+
+  script 0x082B72B4  [ok]
+    082B72B4  checkflag            flag=0x116
+    082B72B7  goto_if              condition=1 destination=0x082BCF3E
+    082B72BD  clearflag            flag=0x0C2
+    082B72C0  setvar               destination=VAR_0x4001 value=0
+    082B72C5  return               
+
+  map script type 2 (var 0x4001 == 0) -> 0x082B72D0
+  script 0x082B72D0  [ok]
+    082B72D0  lockall              
+    082B72D1  playse               song=21
+    082B72D4  applymovement        localId=1 movements=[emote_exclamation_mark]
+    082B72DB  waitmovement         localId=0
+    082B72DE  applymovement        localId=1 movements=[delay_16 delay_16 delay_16]
+    082B72E5  waitmovement         localId=0
+    082B72E8  applymovement        localId=1 movements=[walk_up walk_up walk_up walk_in_place_faster_down set_invisible]
+    082B72EF  waitmovement         localId=0
+    082B72F2  copyobjectxytoperm   localId=1
+    082B72F5  setvar               destination=VAR_0x4001 value=1
+    082B72FA  releaseall           
+
+  map script type 7 -> 0x082B723D
+  script 0x082B723D  [ok]
+    082B723D  checkflag            flag=0x8C1
+    082B7240  call_if              condition=1 destination=0x082B7247
+    082B7246  end                  
+
+  script 0x082B7247  [ok]
+    082B7247  specialvar           output=32781 SPECIAL_\function=102
+    082B724C  compare_var_to_value var=0x800D value=1
+    082B7251  goto_if              condition=1 destination=0x082B7279
+    082B7257  compare_var_to_value var=0x800D value=4
+    082B725C  goto_if              condition=1 destination=0x082B7279
+    082B7262  compare_var_to_value var=0x800D value=5
+    082B7267  goto_if              condition=1 destination=0x082B7279
+    082B726D  compare_var_to_value var=0x800D value=10
+    082B7272  goto_if              condition=1 destination=0x082B7279
+    082B7278  return               
+
+  script 0x082B7279  [ok]
+    082B7279  setvar               destination=VAR_0x8004 value=1
+    082B727E  special              SPECIAL_\function=329
+    082B7281  return               
+

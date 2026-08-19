@@ -1,0 +1,55 @@
+Pokémon Tower  (group 1, map 93)  header 0x08B3BC44
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0A, flag 0x0000) -> 0x082177BF
+  script 0x082177BF  [ok]
+    082177BF  trainerbattle        type=0 trainer=0x1C3 localId=0 ptr1=0x0821784C ptr2=0x0821785C
+    082177CD  msgbox_multilang     type=0 text_0="I feel anemic and weak…" text_1="I feel anemic and weak…" text_2="I feel anemic and weak…" text_3="I feel anemic and weak…" text_4="I feel anemic and weak…" text_5="I feel anemic and weak…" text_6="I feel anemic and weak…"
+    082177EB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082177ED  end                  
+
+  object 2 (gfx 0x0A, flag 0x0000) -> 0x0821781D
+  script 0x0821781D  [ok]
+    0821781D  trainerbattle        type=0 trainer=0x1C5 localId=0 ptr1=0x082178D1 ptr2=0x082178E5
+    0821782B  msgbox_multilang     type=0 text_0="What’s going on here?" text_1="What’s going on here?" text_2="What’s going on here?" text_3="What’s going on here?" text_4="What’s going on here?" text_5="What’s going on here?" text_6="What’s going on here?"
+    08217849  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821784B  end                  
+
+  object 3 (gfx 0x0A, flag 0x0000) -> 0x082177EE
+  script 0x082177EE  [ok]
+    082177EE  trainerbattle        type=0 trainer=0x1C4 localId=0 ptr1=0x0821787B ptr2=0x08217888
+    082177FC  msgbox_multilang     type=0 text_0="My hair didn’t fall out!\nIt was a malevolent spirit!" text_1="My hair didn’t fall out!\nIt was a malevolent spirit!" text_2="My hair didn’t fall out!\nIt was a malevolent spirit!" text_3="My hair didn’t fall out!\nIt was a malevolent spirit!" text_4="My hair didn’t fall out!\nIt was a malevolent spirit!" text_5="My hair didn’t fall out!\nIt was a malevolent spirit!" text_6="My hair didn’t fall out!\nIt was a malevolent spirit!"
+    0821781A  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821781C  end                  
+
+  object 4 (gfx 0x35, flag 0x017C) -> 0x082D57BA
+  script 0x082D57BA  [ok]
+    082D57BA  setorcopyvar         destination=VAR_0x8000 source=68
+    082D57BF  setorcopyvar         destination=VAR_0x8001 source=1
+    082D57C4  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Rare Candy
+    082D57C6  end                  
+
+  object 5 (gfx 0x35, flag 0x017D) -> 0x082D57C7
+  script 0x082D57C7  [ok]
+    082D57C7  setorcopyvar         destination=VAR_0x8000 source=78
+    082D57CC  setorcopyvar         destination=VAR_0x8001 source=1
+    082D57D1  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: X Accuracy
+    082D57D3  end                  
+
+  coord trigger 0 (var 0x4059 == 0) -> 0x08217725
+  script 0x08217725  [unknown-opcode:0xE7]
+    08217725  lockall              
+    08217726  textcolor            color=2
+
+  coord trigger 1 (var 0x4059 == 0) -> 0x08217725

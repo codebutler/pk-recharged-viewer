@@ -1,0 +1,121 @@
+Seafoam Islands  (group 1, map 86)  header 0x08B3BB80
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x57, flag 0x0046) -> 0x00000000
+  object 2 (gfx 0x57, flag 0x0047) -> 0x00000000
+  object 3 (gfx 0x57, flag 0x004A) -> 0x0820540E
+  script 0x0820540E  [ok]
+    0820540E  lockall              
+    0820540F  checkflag            flag=0x883:BADGE4_RAINBOW
+    08205412  goto_if              condition=0 destination=0x082054BA
+    08205418  checkflag            flag=0x23A
+    0820541B  goto_if              condition=0 destination=0x082054BA
+    08205421  checkflag            flag=0x865
+    08205424  goto_if              condition=1 destination=0x082054DB
+    0820542A  checkpartymove       move=Strength(70)
+    0820542D  compare_var_to_value var=0x800D value=6
+    08205432  goto_if              condition=1 destination=0x082054AC
+    08205438  compare_var_to_value var=0x800D value=6
+    0820543D  goto_if              condition=1 destination=0x082054BA
+    08205443  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205447  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?"
+    08205465  callstd              function=MSGBOX_YESNO(5)
+    08205467  compare_var_to_value var=0x800D value=0
+    0820546C  goto_if              condition=1 destination=0x082054FC
+    08205472  closemessage         
+    08205473  dofieldeffect        animation=40
+    08205476  waitstate            
+
+  script 0x082054BA  [ok]
+    082054BA  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside."
+    082054D8  callstd              function=MSGBOX_SIGN(3)
+    082054DA  end                  
+
+  script 0x082054DB  [ok]
+    082054DB  msgbox_multilang     type=0 text_0="Strength made it possible to move\nboulders around." text_1="Strength made it possible to move\nboulders around." text_2="Strength made it possible to move\nboulders around." text_3="Strength made it possible to move\nboulders around." text_4="Strength made it possible to move\nboulders around." text_5="Strength made it possible to move\nboulders around." text_6="Strength made it possible to move\nboulders around."
+    082054F9  callstd              function=MSGBOX_SIGN(3)
+    082054FB  end                  
+
+  script 0x082054AC  [unknown-opcode:0xE5]
+
+  script 0x082054FC  [ok]
+    082054FC  closemessage         
+    082054FD  releaseall           
+
+  object 4 (gfx 0x57, flag 0x004B) -> 0x0820540E
+  object 5 (gfx 0x57, flag 0x0049) -> 0x0820540E
+  object 6 (gfx 0x57, flag 0x0048) -> 0x0820540E
+  hidden item at (5,12): Nugget
+
+  map script type 3 -> 0x08216648
+  script 0x08216648  [ok]
+    08216648  checkflag            flag=0x2D2
+    0821664B  call_if              condition=0 destination=0x0821665B
+    08216651  checkflag            flag=0x2D2
+    08216654  call_if              condition=1 destination=0x08216682
+    0821665A  end                  
+
+  script 0x0821665B  [ok]
+    0821665B  setvar               destination=VAR_0x4002 value=0
+    08216660  checkflag            flag=0x046
+    08216663  call_if              condition=0 destination=0x082166DE
+    08216669  checkflag            flag=0x047
+    0821666C  call_if              condition=0 destination=0x082166DE
+    08216672  compare_var_to_value var=0x4002 value=2
+    08216677  call_if              condition=1 destination=0x0821667E
+    0821667D  return               
+
+  script 0x08216682  [ok]
+    08216682  setmaplayoutindex    index=331
+    08216685  return               
+
+  script 0x082166DE  [ok]
+    082166DE  addvar               destination=VAR_0x4002 value=1
+    082166E3  return               
+
+  script 0x0821667E  [ok]
+    0821667E  setflag              flag=0x2D2
+    08216681  return               
+
+  map script type 2 (var 0x4001 == 1) -> 0x08216690
+  script 0x08216690  [ok]
+    08216690  lockall              
+    08216691  setvar               destination=VAR_0x4002 value=0
+    08216696  checkflag            flag=0x046
+    08216699  call_if              condition=0 destination=0x082166DE
+    0821669F  checkflag            flag=0x047
+    082166A2  call_if              condition=0 destination=0x082166DE
+    082166A8  compare_var_to_value var=0x4002 value=2
+    082166AD  goto_if              condition=1 destination=0x082166FA
+    082166B3  getplayerxy          x=32776 y=32777
+    082166B8  compare_var_to_value var=0x8008 value=24
+    082166BD  call_if              condition=0 destination=0x082166E4
+    082166C3  compare_var_to_value var=0x8008 value=24
+    082166C8  call_if              condition=4 destination=0x082166EF
+    082166CE  setvar               destination=VAR_0x4063 value=1
+    082166D3  warp                 mapGroup=1 mapNum=87 WARP_ID_NONE=255 -1=27 -1=21
+    082166DB  waitstate            
+
+  script 0x082166FA  [ok]
+    082166FA  setvar               destination=VAR_0x4001 value=0
+    082166FF  releaseall           
+
+  script 0x082166E4  [ok]
+    082166E4  applymovement        localId=255 movements=[walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_right walk_fast_right walk_fast_right walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down]
+    082166EB  waitmovement         localId=0
+    082166EE  return               
+
+  script 0x082166EF  [ok]
+    082166EF  applymovement        localId=255 movements=[walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_right walk_fast_right walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down]
+    082166F6  waitmovement         localId=0
+    082166F9  return               
+

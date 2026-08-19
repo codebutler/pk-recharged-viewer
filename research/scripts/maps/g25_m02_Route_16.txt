@@ -1,0 +1,85 @@
+Route 16  (group 25, map 2)  header 0x08B3DAAC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0B, flag 0x0000) -> 0x08279F07
+  script 0x08279F07  [ok]
+    08279F07  msgbox_multilang     type=0 text_0="I’m on a relaxing ride on my new\nbike with my girlfriend." text_1="I’m on a relaxing ride on my new\nbike with my girlfriend." text_2="I’m on a relaxing ride on my new\nbike with my girlfriend." text_3="I’m on a relaxing ride on my new\nbike with my girlfriend." text_4="I’m on a relaxing ride on my new\nbike with my girlfriend." text_5="I’m on a relaxing ride on my new\nbike with my girlfriend." text_6="I’m on a relaxing ride on my new\nbike with my girlfriend."
+    08279F25  callstd              function=MSGBOX_NPC(2)
+    08279F27  end                  
+
+  object 2 (gfx 0x0C, flag 0x0000) -> 0x08279F28
+  script 0x08279F28  [ok]
+    08279F28  msgbox_multilang     type=0 text_0="We’re going riding together on our\nnew bikes." text_1="We’re going riding together on our\nnew bikes." text_2="We’re going riding together on our\nnew bikes." text_3="We’re going riding together on our\nnew bikes." text_4="We’re going riding together on our\nnew bikes." text_5="We’re going riding together on our\nnew bikes." text_6="We’re going riding together on our\nnew bikes."
+    08279F46  callstd              function=MSGBOX_NPC(2)
+    08279F48  end                  
+
+  object 3 (gfx 0x08, flag 0x0000) -> 0x08279F8B
+  script 0x08279F8B  [unknown-opcode:0xE9]
+    08279F8B  lock                 
+    08279F8C  faceplayer           
+    08279F8D  call                 destination=0x0827A078
+    08279F92  checkflag            flag=0x2FD
+    08279F95  goto_if              condition=1 destination=0x0827A056
+    08279F9B  msgbox_multilang     type=0 text_0="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non 40 species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with an\nAmulet Coin for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n40 kinds of Pokémon?" text_1="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non 40 species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with an\nAmulet Coin for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n40 kinds of Pokémon?" text_2="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non 40 species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with an\nAmulet Coin for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n40 kinds of Pokémon?" text_3="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non 40 species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with an\nAmulet Coin for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n40 kinds of Pokémon?" text_4="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non 40 species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with an\nAmulet Coin for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n40 kinds of Pokémon?" text_5="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non 40 species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with an\nAmulet Coin for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n40 kinds of Pokémon?" text_6="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non 40 species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with an\nAmulet Coin for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n40 kinds of Pokémon?"
+    08279FB9  callstd              function=MSGBOX_YESNO(5)
+    08279FBB  compare_var_to_value var=0x800D value=0
+    08279FC0  goto_if              condition=1 destination=0x081FF771
+    08279FC6  setvar               destination=VAR_0x8004 value=0
+    08279FCB  specialvar           output=32781 SPECIAL_\function=133
+    08279FD0  buffernumberstring   stringVarId=2 input=32774
+    08279FD4  call                 destination=0x0827A078
+    08279FD9  compare_var_to_value var=0x8006 value=40
+    08279FDE  goto_if              condition=0 destination=0x081FF72D
+    08279FE4  msgbox_multilang     type=0 text_0="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_1="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_2="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_3="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_4="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_5="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_6="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!"
+    0827A002  callstd              function=MSGBOX_DEFAULT(4)
+    0827A004  checkitemspace       itemId=Amulet Coin(189) quantity=1
+    0827A009  compare_var_to_value var=0x800D value=0
+    0827A00E  goto_if              condition=1 destination=0x081FF74F
+    0827A014  additem              itemId=Amulet Coin(189) quantity=1
+
+  script 0x0827A078  [ok]
+    0827A078  buffernumberstring   stringVarId=0 input=40
+    0827A07C  bufferitemname       stringVarId=1 item=189
+    0827A080  return               
+
+  script 0x0827A056  [ok]
+    0827A056  msgbox_multilang     type=0 text_0="An Amulet Coin is an item to be\nheld by a Pokémon.\pIf the Pokémon appears in a winning\nbattle, you will earn more money." text_1="An Amulet Coin is an item to be\nheld by a Pokémon.\pIf the Pokémon appears in a winning\nbattle, you will earn more money." text_2="An Amulet Coin is an item to be\nheld by a Pokémon.\pIf the Pokémon appears in a winning\nbattle, you will earn more money." text_3="An Amulet Coin is an item to be\nheld by a Pokémon.\pIf the Pokémon appears in a winning\nbattle, you will earn more money." text_4="An Amulet Coin is an item to be\nheld by a Pokémon.\pIf the Pokémon appears in a winning\nbattle, you will earn more money." text_5="An Amulet Coin is an item to be\nheld by a Pokémon.\pIf the Pokémon appears in a winning\nbattle, you will earn more money." text_6="An Amulet Coin is an item to be\nheld by a Pokémon.\pIf the Pokémon appears in a winning\nbattle, you will earn more money."
+    0827A074  callstd              function=MSGBOX_DEFAULT(4)
+    0827A076  release              
+
+  script 0x081FF771  [ok]
+    081FF771  msgbox_multilang     type=0 text_0="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_1="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_2="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_3="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_4="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_5="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_6="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}."
+    081FF78F  callstd              function=MSGBOX_DEFAULT(4)
+    081FF791  release              
+
+  script 0x081FF72D  [ok]
+    081FF72D  msgbox_multilang     type=0 text_0="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_1="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_2="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_3="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_4="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_5="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_6="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}."
+    081FF74B  callstd              function=MSGBOX_DEFAULT(4)
+    081FF74D  release              
+
+  script 0x081FF74F  [ok]
+    081FF74F  msgbox_multilang     type=0 text_0="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_1="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_2="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_3="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_4="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_5="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_6="Oh! I see you don’t have any\nroom for the {STR_VAR_2}."
+    081FF76D  callstd              function=MSGBOX_DEFAULT(4)
+    081FF76F  release              
+
+  sign 0 at (4,1) -> 0x08279F49
+  script 0x08279F49  [ok]
+    08279F49  msgbox_multilang     type=0 text_0="Let’s see what the binoculars have\nto show…\pIt’s the Celadon Dept. Store!" text_1="Let’s see what the binoculars have\nto show…\pIt’s the Celadon Dept. Store!" text_2="Let’s see what the binoculars have\nto show…\pIt’s the Celadon Dept. Store!" text_3="Let’s see what the binoculars have\nto show…\pIt’s the Celadon Dept. Store!" text_4="Let’s see what the binoculars have\nto show…\pIt’s the Celadon Dept. Store!" text_5="Let’s see what the binoculars have\nto show…\pIt’s the Celadon Dept. Store!" text_6="Let’s see what the binoculars have\nto show…\pIt’s the Celadon Dept. Store!"
+    08279F67  callstd              function=MSGBOX_SIGN(3)
+    08279F69  end                  
+
+  sign 1 at (8,1) -> 0x08279F6A
+  script 0x08279F6A  [ok]
+    08279F6A  msgbox_multilang     type=0 text_0="Let’s see what the binoculars have\nto show…\pThere’s a long path over water far\naway." text_1="Let’s see what the binoculars have\nto show…\pThere’s a long path over water far\naway." text_2="Let’s see what the binoculars have\nto show…\pThere’s a long path over water far\naway." text_3="Let’s see what the binoculars have\nto show…\pThere’s a long path over water far\naway." text_4="Let’s see what the binoculars have\nto show…\pThere’s a long path over water far\naway." text_5="Let’s see what the binoculars have\nto show…\pThere’s a long path over water far\naway." text_6="Let’s see what the binoculars have\nto show…\pThere’s a long path over water far\naway."
+    08279F88  callstd              function=MSGBOX_SIGN(3)
+    08279F8A  end                  
+

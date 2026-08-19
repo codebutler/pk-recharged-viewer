@@ -1,0 +1,231 @@
+Route 25  (group 28, map 0)  header 0x08B3DB1C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x16, flag 0x0033) -> 0x0827A73B
+  script 0x0827A73B  [ok]
+    0827A73B  bufferspeciesname    stringVarId=0 species=CLEFAIRY(35)
+    0827A73F  lock                 
+    0827A740  faceplayer           
+    0827A741  checkflag            flag=0x003
+    0827A744  goto_if              condition=1 destination=0x0827A80C
+    0827A74A  checkflag            flag=0x234
+    0827A74D  goto_if              condition=1 destination=0x0827A833
+    0827A753  checkflag            flag=0x233
+    0827A756  goto_if              condition=1 destination=0x0827A83D
+    0827A75C  speakername          name="A Pokémon?"
+    0827A761  msgbox_multilang     type=0 text_0="Hiya! I’m a Pokémon…\n…No I’m not!\pCall me Bill!" text_1="Hiya! I’m a Pokémon…\n…No I’m not!\pCall me Bill!" text_2="Hiya! I’m a Pokémon…\n…No I’m not!\pCall me Bill!" text_3="Hiya! I’m a Pokémon…\n…No I’m not!\pCall me Bill!" text_4="Hiya! I’m a Pokémon…\n…No I’m not!\pCall me Bill!" text_5="Hiya! I’m a Pokémon…\n…No I’m not!\pCall me Bill!" text_6="Hiya! I’m a Pokémon…\n…No I’m not!\pCall me Bill!"
+    0827A77F  callstd              function=MSGBOX_DEFAULT(4)
+    0827A781  closemessage         
+    0827A782  speakername          name="Bill"
+    0827A787  msgbox_multilang     type=0 text_0="I’m a true-blue Pokémaniac!\pHey!\nWhat’s with that skeptical look?\pI’m not joshing you, pal.\pI screwed up an experiment and got\ncombined with a Pokémon!\pSo, how about it?\nHelp me out here!" text_1="I’m a true-blue Pokémaniac!\pHey!\nWhat’s with that skeptical look?\pI’m not joshing you, pal.\pI screwed up an experiment and got\ncombined with a Pokémon!\pSo, how about it?\nHelp me out here!" text_2="I’m a true-blue Pokémaniac!\pHey!\nWhat’s with that skeptical look?\pI’m not joshing you, pal.\pI screwed up an experiment and got\ncombined with a Pokémon!\pSo, how about it?\nHelp me out here!" text_3="I’m a true-blue Pokémaniac!\pHey!\nWhat’s with that skeptical look?\pI’m not joshing you, pal.\pI screwed up an experiment and got\ncombined with a Pokémon!\pSo, how about it?\nHelp me out here!" text_4="I’m a true-blue Pokémaniac!\pHey!\nWhat’s with that skeptical look?\pI’m not joshing you, pal.\pI screwed up an experiment and got\ncombined with a Pokémon!\pSo, how about it?\nHelp me out here!" text_5="I’m a true-blue Pokémaniac!\pHey!\nWhat’s with that skeptical look?\pI’m not joshing you, pal.\pI screwed up an experiment and got\ncombined with a Pokémon!\pSo, how about it?\nHelp me out here!" text_6="I’m a true-blue Pokémaniac!\pHey!\nWhat’s with that skeptical look?\pI’m not joshing you, pal.\pI screwed up an experiment and got\ncombined with a Pokémon!\pSo, how about it?\nHelp me out here!"
+    0827A7A5  callstd              function=MSGBOX_YESNO(5)
+    0827A7A7  compare_var_to_value var=0x800D value=0
+    0827A7AC  goto_if              condition=1 destination=0x0827A8AE
+    0827A7B2  msgbox_multilang     type=0 text_0="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_1="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_2="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_3="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_4="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_5="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_6="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System."
+    0827A7D0  callstd              function=MSGBOX_DEFAULT(4)
+    0827A7D2  closemessage         
+    0827A7D3  delay                frames=10
+    0827A7D6  compare_var_to_value var=0x800C value=1
+    0827A7DB  goto_if              condition=1 destination=0x0827A8F5
+    0827A7E1  applymovement        localId=2 movements=[walk_up walk_up]
+    0827A7E8  waitmovement         localId=0
+    0827A7EB  opendoor             x=10 y=3
+    0827A7F0  waitdooranim         
+    0827A7F1  applymovement        localId=2 movements=[walk_up]
+    0827A7F8  waitmovement         localId=0
+    0827A7FB  removeobject         localId=2
+    0827A7FE  playse               song=98
+    0827A801  closedoor            x=10 y=3
+    0827A806  waitdooranim         
+    0827A807  setflag              flag=0x002
+    0827A80A  release              
+
+  script 0x0827A80C  [ok]
+    0827A80C  speakername          name="Bill"
+    0827A811  msgbox_multilang     type=0 text_0="Feel like checking out some of my\nrare Pokémon on my PC?\pGo on, check out my PC." text_1="Feel like checking out some of my\nrare Pokémon on my PC?\pGo on, check out my PC." text_2="Feel like checking out some of my\nrare Pokémon on my PC?\pGo on, check out my PC." text_3="Feel like checking out some of my\nrare Pokémon on my PC?\pGo on, check out my PC." text_4="Feel like checking out some of my\nrare Pokémon on my PC?\pGo on, check out my PC." text_5="Feel like checking out some of my\nrare Pokémon on my PC?\pGo on, check out my PC." text_6="Feel like checking out some of my\nrare Pokémon on my PC?\pGo on, check out my PC."
+    0827A82F  callstd              function=MSGBOX_DEFAULT(4)
+    0827A831  release              
+
+  script 0x0827A833  [ok]
+    0827A833  goto                 destination=0x0827A901
+
+  script 0x0827A83D  [unknown-opcode:0xE9]
+    0827A83D  setvar               destination=VAR_0x8004 value=13
+    0827A842  setvar               destination=VAR_0x8005 value=2
+    0827A847  special              SPECIAL_\function=348
+    0827A84A  speakername          name="Bill"
+    0827A84F  msgbox_multilang     type=0 text_0="Yeehah!\nThanks! I owe you one!\pSo, did you come to see my\nPokémon collection?\pYou didn’t?\nThat’s a bummer.\pI’ve got to thank you…\nOh, here, maybe this’ll do." text_1="Yeehah!\nThanks! I owe you one!\pSo, did you come to see my\nPokémon collection?\pYou didn’t?\nThat’s a bummer.\pI’ve got to thank you…\nOh, here, maybe this’ll do." text_2="Yeehah!\nThanks! I owe you one!\pSo, did you come to see my\nPokémon collection?\pYou didn’t?\nThat’s a bummer.\pI’ve got to thank you…\nOh, here, maybe this’ll do." text_3="Yeehah!\nThanks! I owe you one!\pSo, did you come to see my\nPokémon collection?\pYou didn’t?\nThat’s a bummer.\pI’ve got to thank you…\nOh, here, maybe this’ll do." text_4="Yeehah!\nThanks! I owe you one!\pSo, did you come to see my\nPokémon collection?\pYou didn’t?\nThat’s a bummer.\pI’ve got to thank you…\nOh, here, maybe this’ll do." text_5="Yeehah!\nThanks! I owe you one!\pSo, did you come to see my\nPokémon collection?\pYou didn’t?\nThat’s a bummer.\pI’ve got to thank you…\nOh, here, maybe this’ll do." text_6="Yeehah!\nThanks! I owe you one!\pSo, did you come to see my\nPokémon collection?\pYou didn’t?\nThat’s a bummer.\pI’ve got to thank you…\nOh, here, maybe this’ll do."
+    0827A86D  callstd              function=MSGBOX_DEFAULT(4)
+    0827A86F  checkitemspace       itemId=S.S. Ticket(265) quantity=1
+    0827A874  compare_var_to_value var=0x800D value=0
+    0827A879  goto_if              condition=1 destination=0x0827A8D3
+    0827A87F  additem              itemId=S.S. Ticket(265) quantity=1
+
+  script 0x0827A8AE  [ok]
+    0827A8AE  msgbox_multilang     type=0 text_0="No!?\nNow don’t be so cold!\pCome on, you gotta help a guy in\ndeep, deep trouble!\pWhat do you say, friend?\nPlease?\pOkay?\pAll right!" text_1="No!?\nNow don’t be so cold!\pCome on, you gotta help a guy in\ndeep, deep trouble!\pWhat do you say, friend?\nPlease?\pOkay?\pAll right!" text_2="No!?\nNow don’t be so cold!\pCome on, you gotta help a guy in\ndeep, deep trouble!\pWhat do you say, friend?\nPlease?\pOkay?\pAll right!" text_3="No!?\nNow don’t be so cold!\pCome on, you gotta help a guy in\ndeep, deep trouble!\pWhat do you say, friend?\nPlease?\pOkay?\pAll right!" text_4="No!?\nNow don’t be so cold!\pCome on, you gotta help a guy in\ndeep, deep trouble!\pWhat do you say, friend?\nPlease?\pOkay?\pAll right!" text_5="No!?\nNow don’t be so cold!\pCome on, you gotta help a guy in\ndeep, deep trouble!\pWhat do you say, friend?\nPlease?\pOkay?\pAll right!" text_6="No!?\nNow don’t be so cold!\pCome on, you gotta help a guy in\ndeep, deep trouble!\pWhat do you say, friend?\nPlease?\pOkay?\pAll right!"
+    0827A8CC  callstd              function=MSGBOX_DEFAULT(4)
+    0827A8CE  goto                 destination=0x0827A7B2
+
+  script 0x0827A8F5  [ok]
+    0827A8F5  applymovement        localId=2 movements=[walk_right walk_up walk_up walk_left face_up]
+    0827A8FC  goto                 destination=0x0827A7E8
+
+  script 0x0827A901  [ok]
+    0827A901  speakername          name="Bill"
+    0827A906  msgbox_multilang     type=0 text_0="That cruise ship S.S. Anne is in\nVermilion City.\pI hear there are lots of Trainers on\nboard, too.\pThey invited me to their party, but I\ncan’t stand fancy do’s.\pWhy don’t you go instead of me?\nGo on and have a good time." text_1="That cruise ship S.S. Anne is in\nVermilion City.\pI hear there are lots of Trainers on\nboard, too.\pThey invited me to their party, but I\ncan’t stand fancy do’s.\pWhy don’t you go instead of me?\nGo on and have a good time." text_2="That cruise ship S.S. Anne is in\nVermilion City.\pI hear there are lots of Trainers on\nboard, too.\pThey invited me to their party, but I\ncan’t stand fancy do’s.\pWhy don’t you go instead of me?\nGo on and have a good time." text_3="That cruise ship S.S. Anne is in\nVermilion City.\pI hear there are lots of Trainers on\nboard, too.\pThey invited me to their party, but I\ncan’t stand fancy do’s.\pWhy don’t you go instead of me?\nGo on and have a good time." text_4="That cruise ship S.S. Anne is in\nVermilion City.\pI hear there are lots of Trainers on\nboard, too.\pThey invited me to their party, but I\ncan’t stand fancy do’s.\pWhy don’t you go instead of me?\nGo on and have a good time." text_5="That cruise ship S.S. Anne is in\nVermilion City.\pI hear there are lots of Trainers on\nboard, too.\pThey invited me to their party, but I\ncan’t stand fancy do’s.\pWhy don’t you go instead of me?\nGo on and have a good time." text_6="That cruise ship S.S. Anne is in\nVermilion City.\pI hear there are lots of Trainers on\nboard, too.\pThey invited me to their party, but I\ncan’t stand fancy do’s.\pWhy don’t you go instead of me?\nGo on and have a good time."
+    0827A924  callstd              function=MSGBOX_DEFAULT(4)
+    0827A926  release              
+
+  script 0x0827A8D3  [ok]
+    0827A8D3  msgbox_multilang     type=0 text_0="You’ve got too much stuff!" text_1="You’ve got too much stuff!" text_2="You’ve got too much stuff!" text_3="You’ve got too much stuff!" text_4="You’ve got too much stuff!" text_5="You’ve got too much stuff!" text_6="You’ve got too much stuff!"
+    0827A8F1  callstd              function=MSGBOX_DEFAULT(4)
+    0827A8F3  release              
+
+  script 0x0827A7B2  [ok]
+    0827A7B2  msgbox_multilang     type=0 text_0="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_1="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_2="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_3="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_4="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_5="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System." text_6="Wait till I get inside the\nTeleporter.\pWhen I do, go to my PC and run the\nCell Separation System."
+    0827A7D0  callstd              function=MSGBOX_DEFAULT(4)
+    0827A7D2  closemessage         
+    0827A7D3  delay                frames=10
+    0827A7D6  compare_var_to_value var=0x800C value=1
+    0827A7DB  goto_if              condition=1 destination=0x0827A8F5
+    0827A7E1  applymovement        localId=2 movements=[walk_up walk_up]
+    0827A7E8  waitmovement         localId=0
+    0827A7EB  opendoor             x=10 y=3
+    0827A7F0  waitdooranim         
+    0827A7F1  applymovement        localId=2 movements=[walk_up]
+    0827A7F8  waitmovement         localId=0
+    0827A7FB  removeobject         localId=2
+    0827A7FE  playse               song=98
+    0827A801  closedoor            x=10 y=3
+    0827A806  waitdooranim         
+    0827A807  setflag              flag=0x002
+    0827A80A  release              
+
+  script 0x0827A7E8  [ok]
+    0827A7E8  waitmovement         localId=0
+    0827A7EB  opendoor             x=10 y=3
+    0827A7F0  waitdooranim         
+    0827A7F1  applymovement        localId=2 movements=[walk_up]
+    0827A7F8  waitmovement         localId=0
+    0827A7FB  removeobject         localId=2
+    0827A7FE  playse               song=98
+    0827A801  closedoor            x=10 y=3
+    0827A806  waitdooranim         
+    0827A807  setflag              flag=0x002
+    0827A80A  release              
+
+  object 2 (gfx 0x23, flag 0x0032) -> 0x0827A73B
+  sign 0 at (4,5) -> 0x0827A933
+  script 0x0827A933  [ok]
+    0827A933  lockall              
+    0827A934  checkflag            flag=0x003
+    0827A937  goto_if              condition=1 destination=0x0827A968
+    0827A93D  checkflag            flag=0x002
+    0827A940  goto_if              condition=1 destination=0x0827A98E
+    0827A946  msgbox_multilang     type=0 text_0="Teleporter is displayed on the PC\nmonitor." text_1="Teleporter is displayed on the PC\nmonitor." text_2="Teleporter is displayed on the PC\nmonitor." text_3="Teleporter is displayed on the PC\nmonitor." text_4="Teleporter is displayed on the PC\nmonitor." text_5="Teleporter is displayed on the PC\nmonitor." text_6="Teleporter is displayed on the PC\nmonitor."
+    0827A964  callstd              function=MSGBOX_DEFAULT(4)
+    0827A966  releaseall           
+
+  script 0x0827A968  [ok]
+    0827A968  msgbox_multilang     type=0 text_0="Bill’s favorite Pokémon list!" text_1="Bill’s favorite Pokémon list!" text_2="Bill’s favorite Pokémon list!" text_3="Bill’s favorite Pokémon list!" text_4="Bill’s favorite Pokémon list!" text_5="Bill’s favorite Pokémon list!" text_6="Bill’s favorite Pokémon list!"
+    0827A986  callstd              function=MSGBOX_DEFAULT(4)
+    0827A988  goto                 destination=0x0827AA7C
+
+  script 0x0827A98E  [ok]
+    0827A98E  fadeoutbgm           speed=0
+    0827A990  setflag              flag=0x4005 (temp)
+    0827A993  msgbox_multilang     type=0 text_0="{PLAYER} initiated the Teleporter’s\nCell Separator." text_1="{PLAYER} initiated the Teleporter’s\nCell Separator." text_2="{PLAYER} initiated the Teleporter’s\nCell Separator." text_3="{PLAYER} initiated the Teleporter’s\nCell Separator." text_4="{PLAYER} initiated the Teleporter’s\nCell Separator." text_5="{PLAYER} initiated the Teleporter’s\nCell Separator." text_6="{PLAYER} initiated the Teleporter’s\nCell Separator."
+    0827A9B1  callstd              function=MSGBOX_DEFAULT(4)
+    0827A9B3  closemessage         
+    0827A9B4  clearflag            flag=0x002
+    0827A9B7  setflag              flag=0x233
+    0827A9BA  special              SPECIAL_\function=190
+    0827A9BD  applymovement        localId=127 movements=[walk_up walk_up walk_right walk_right]
+    0827A9C4  waitmovement         localId=0
+    0827A9C7  delay                frames=35
+    0827A9CA  playse               song=21
+    0827A9CD  waitse               
+    0827A9CE  setvar               destination=VAR_0x8004 value=0
+    0827A9D3  special              SPECIAL_\function=380
+    0827A9D6  delay                frames=10
+    0827A9D9  call                 destination=0x0827AA68
+    0827A9DE  call                 destination=0x0827AA68
+    0827A9E3  call                 destination=0x0827AA68
+    0827A9E8  call                 destination=0x0827AA68
+    0827A9ED  call                 destination=0x0827AA68
+    0827A9F2  call                 destination=0x0827AA68
+    0827A9F7  call                 destination=0x0827AA68
+    0827A9FC  setvar               destination=VAR_0x8004 value=1
+    0827AA01  special              SPECIAL_\function=380
+    0827AA04  playse               song=45
+    0827AA07  special              SPECIAL_\function=381
+    0827AA0A  waitse               
+    0827AA0B  call                 destination=0x0827AA68
+    0827AA10  call                 destination=0x0827AA68
+    0827AA15  call                 destination=0x0827AA68
+    0827AA1A  call                 destination=0x0827AA68
+    0827AA1F  call                 destination=0x0827AA68
+    0827AA24  opendoor             x=3 y=3
+    0827AA29  waitdooranim         
+    0827AA2A  fadeinbgm            speed=0
+    0827AA2C  addobject            localId=1
+    0827AA2F  clearflag            flag=0x033
+    0827AA32  delay                frames=50
+    0827AA35  playfanfare          song=367
+    0827AA38  applymovement        localId=1 movements=[walk_down]
+    0827AA3F  waitmovement         localId=0
+    0827AA42  waitfanfare          
+    0827AA43  applymovement        localId=127 movements=[delay_16 delay_16 walk_down walk_down walk_left walk_left]
+    0827AA4A  waitmovement         localId=0
+    0827AA4D  playse               song=98
+    0827AA50  closedoor            x=3 y=3
+    0827AA55  waitdooranim         
+    0827AA56  applymovement        localId=1 movements=[walk_right walk_right walk_right walk_right walk_down walk_down]
+    0827AA5D  waitmovement         localId=0
+    0827AA60  special              SPECIAL_\function=191
+    0827AA63  clearflag            flag=0x4005 (temp)
+    0827AA66  releaseall           
+
+  script 0x0827AA7C  [ok]
+    0827AA7C  message              text="Which Pokémon do you want to see?"
+    0827AA81  callnative           func=587737008
+    0827AA86  setdoorclosed        x=2087 y=45091
+    0827AA8B  waitstate            
+
+  script 0x0827AA68  [ok]
+    0827AA68  playse               song=23
+    0827AA6B  waitse               
+    0827AA6C  delay                frames=20
+    0827AA6F  return               
+
+  map script type 3 -> 0x0827A715
+  script 0x0827A715  [ok]
+    0827A715  checkflag            flag=0x233
+    0827A718  goto_if              condition=0 destination=0x0827A728
+    0827A71E  checkflag            flag=0x234
+    0827A721  goto_if              condition=1 destination=0x0827A737
+    0827A727  return               
+
+  script 0x0827A728  [ok]
+    0827A728  clearflag            flag=0x032
+    0827A72B  setobjectxyperm      localId=1 x=3 y=3
+    0827A732  goto                 destination=0x0827A71E
+
+  script 0x0827A737  [ok]
+    0827A737  setflag              flag=0x003
+    0827A73A  return               
+
+  script 0x0827A71E  [ok]
+    0827A71E  checkflag            flag=0x234
+    0827A721  goto_if              condition=1 destination=0x0827A737
+    0827A727  return               
+

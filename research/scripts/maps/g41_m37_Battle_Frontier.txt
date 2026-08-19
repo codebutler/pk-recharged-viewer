@@ -1,0 +1,259 @@
+Battle Frontier  (group 41, map 37)  header 0x08B3E4BC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xDB, flag 0x0000) -> 0x082B258C
+  script 0x082B258C  [ok]
+    082B258C  lock                 
+    082B258D  faceplayer           
+    082B258E  checkflag            flag=0x004
+    082B2591  goto_if              condition=1 destination=0x082B2708
+    082B2597  checkflag            flag=0x003
+    082B259A  goto_if              condition=1 destination=0x082B2868
+    082B25A0  checkflag            flag=0x002
+    082B25A3  goto_if              condition=1 destination=0x082B2927
+    082B25A9  goto                 destination=0x082B25AF
+
+  script 0x082B2708  [ok]
+    082B2708  msgbox_multilang     type=0 text_0="I must say I have the gift of knowing\na good TRAINER when I see one.\pI’m so glad I had the foresight to\nbring you here!" text_1="I must say I have the gift of knowing\na good TRAINER when I see one.\pI’m so glad I had the foresight to\nbring you here!" text_2="I must say I have the gift of knowing\na good TRAINER when I see one.\pI’m so glad I had the foresight to\nbring you here!" text_3="I must say I have the gift of knowing\na good TRAINER when I see one.\pI’m so glad I had the foresight to\nbring you here!" text_4="I must say I have the gift of knowing\na good TRAINER when I see one.\pI’m so glad I had the foresight to\nbring you here!" text_5="I must say I have the gift of knowing\na good TRAINER when I see one.\pI’m so glad I had the foresight to\nbring you here!" text_6="I must say I have the gift of knowing\na good TRAINER when I see one.\pI’m so glad I had the foresight to\nbring you here!"
+    082B2726  callstd              function=MSGBOX_DEFAULT(4)
+    082B2728  release              
+
+  script 0x082B2868  [ok]
+    082B2868  msgbox_multilang     type=0 text_0="I’ll be expecting to hear even greater\nthings about you now!" text_1="I’ll be expecting to hear even greater\nthings about you now!" text_2="I’ll be expecting to hear even greater\nthings about you now!" text_3="I’ll be expecting to hear even greater\nthings about you now!" text_4="I’ll be expecting to hear even greater\nthings about you now!" text_5="I’ll be expecting to hear even greater\nthings about you now!" text_6="I’ll be expecting to hear even greater\nthings about you now!"
+    082B2886  callstd              function=MSGBOX_DEFAULT(4)
+    082B2888  release              
+
+  script 0x082B2927  [ok]
+    082B2927  msgbox_multilang     type=0 text_0="I’m expecting great things from you!" text_1="I’m expecting great things from you!" text_2="I’m expecting great things from you!" text_3="I’m expecting great things from you!" text_4="I’m expecting great things from you!" text_5="I’m expecting great things from you!" text_6="I’m expecting great things from you!"
+    082B2945  callstd              function=MSGBOX_DEFAULT(4)
+    082B2947  release              
+
+  script 0x082B25AF  [ok]
+    082B25AF  checkflag            flag=0x0FD
+    082B25B2  goto_if              condition=0 destination=0x082B2949
+    082B25B8  checkflag            flag=0x114
+    082B25BB  goto_if              condition=0 destination=0x082B25E8
+    082B25C1  checkflag            flag=0x111
+    082B25C4  goto_if              condition=0 destination=0x082B2667
+    082B25CA  goto                 destination=0x082B25D0
+
+  script 0x082B2949  [ok]
+    082B2949  msgbox_multilang     type=0 text_0="Scott: Well, hello and welcome!\nHeheh… Sorry about the cramped space.\pAnyway, {PLAYER}{KUN}, let me formally\nwelcome you to the BATTLE FRONTIER.\pThis is my dream come true.\nIt took me years and years, but I’ve\pfinally given shape to my dream." text_1="Scott: Well, hello and welcome!\nHeheh… Sorry about the cramped space.\pAnyway, {PLAYER}{KUN}, let me formally\nwelcome you to the BATTLE FRONTIER.\pThis is my dream come true.\nIt took me years and years, but I’ve\pfinally given shape to my dream." text_2="Scott: Well, hello and welcome!\nHeheh… Sorry about the cramped space.\pAnyway, {PLAYER}{KUN}, let me formally\nwelcome you to the BATTLE FRONTIER.\pThis is my dream come true.\nIt took me years and years, but I’ve\pfinally given shape to my dream." text_3="Scott: Well, hello and welcome!\nHeheh… Sorry about the cramped space.\pAnyway, {PLAYER}{KUN}, let me formally\nwelcome you to the BATTLE FRONTIER.\pThis is my dream come true.\nIt took me years and years, but I’ve\pfinally given shape to my dream." text_4="Scott: Well, hello and welcome!\nHeheh… Sorry about the cramped space.\pAnyway, {PLAYER}{KUN}, let me formally\nwelcome you to the BATTLE FRONTIER.\pThis is my dream come true.\nIt took me years and years, but I’ve\pfinally given shape to my dream." text_5="Scott: Well, hello and welcome!\nHeheh… Sorry about the cramped space.\pAnyway, {PLAYER}{KUN}, let me formally\nwelcome you to the BATTLE FRONTIER.\pThis is my dream come true.\nIt took me years and years, but I’ve\pfinally given shape to my dream." text_6="Scott: Well, hello and welcome!\nHeheh… Sorry about the cramped space.\pAnyway, {PLAYER}{KUN}, let me formally\nwelcome you to the BATTLE FRONTIER.\pThis is my dream come true.\nIt took me years and years, but I’ve\pfinally given shape to my dream."
+    082B2967  callstd              function=MSGBOX_DEFAULT(4)
+    082B2969  closemessage         
+    082B296A  delay                frames=30
+    082B296D  compare_var_to_value var=0x800C value=2
+    082B2972  call_if              condition=1 destination=0x082B2A91
+    082B2978  compare_var_to_value var=0x800C value=1
+    082B297D  call_if              condition=1 destination=0x082B2A9C
+    082B2983  compare_var_to_value var=0x800C value=4
+    082B2988  call_if              condition=1 destination=0x082B2AA7
+    082B298E  compare_var_to_value var=0x800C value=3
+    082B2993  call_if              condition=1 destination=0x082B2AB2
+    082B2999  msgbox_multilang     type=0 text_0="On reflection, it was a terribly long\njourney…\pI left home alone on a quest to find\nstrong TRAINERS.\pNo one can imagine how much effort\nor time it took to make this real." text_1="On reflection, it was a terribly long\njourney…\pI left home alone on a quest to find\nstrong TRAINERS.\pNo one can imagine how much effort\nor time it took to make this real." text_2="On reflection, it was a terribly long\njourney…\pI left home alone on a quest to find\nstrong TRAINERS.\pNo one can imagine how much effort\nor time it took to make this real." text_3="On reflection, it was a terribly long\njourney…\pI left home alone on a quest to find\nstrong TRAINERS.\pNo one can imagine how much effort\nor time it took to make this real." text_4="On reflection, it was a terribly long\njourney…\pI left home alone on a quest to find\nstrong TRAINERS.\pNo one can imagine how much effort\nor time it took to make this real." text_5="On reflection, it was a terribly long\njourney…\pI left home alone on a quest to find\nstrong TRAINERS.\pNo one can imagine how much effort\nor time it took to make this real." text_6="On reflection, it was a terribly long\njourney…\pI left home alone on a quest to find\nstrong TRAINERS.\pNo one can imagine how much effort\nor time it took to make this real."
+    082B29B7  callstd              function=MSGBOX_DEFAULT(4)
+    082B29B9  applymovement        localId=1 movements=[face_player]
+    082B29C0  waitmovement         localId=0
+    082B29C3  msgbox_multilang     type=0 text_0="But that’s all in the past.\nNo point dwelling on that!\pAll I want for you is to enjoy battling\nto your heart’s content here.\p{PLAYER}{KUN}, I want you to have this\nas a memento for all the time our\ppaths crossed on our journeys." text_1="But that’s all in the past.\nNo point dwelling on that!\pAll I want for you is to enjoy battling\nto your heart’s content here.\p{PLAYER}{KUN}, I want you to have this\nas a memento for all the time our\ppaths crossed on our journeys." text_2="But that’s all in the past.\nNo point dwelling on that!\pAll I want for you is to enjoy battling\nto your heart’s content here.\p{PLAYER}{KUN}, I want you to have this\nas a memento for all the time our\ppaths crossed on our journeys." text_3="But that’s all in the past.\nNo point dwelling on that!\pAll I want for you is to enjoy battling\nto your heart’s content here.\p{PLAYER}{KUN}, I want you to have this\nas a memento for all the time our\ppaths crossed on our journeys." text_4="But that’s all in the past.\nNo point dwelling on that!\pAll I want for you is to enjoy battling\nto your heart’s content here.\p{PLAYER}{KUN}, I want you to have this\nas a memento for all the time our\ppaths crossed on our journeys." text_5="But that’s all in the past.\nNo point dwelling on that!\pAll I want for you is to enjoy battling\nto your heart’s content here.\p{PLAYER}{KUN}, I want you to have this\nas a memento for all the time our\ppaths crossed on our journeys." text_6="But that’s all in the past.\nNo point dwelling on that!\pAll I want for you is to enjoy battling\nto your heart’s content here.\p{PLAYER}{KUN}, I want you to have this\nas a memento for all the time our\ppaths crossed on our journeys."
+    082B29E1  callstd              function=MSGBOX_DEFAULT(4)
+    082B29E3  compare_var_to_value var=0x40DA value=13
+    082B29E8  goto_if              condition=1 destination=0x082B2A0A
+    082B29EE  compare_var_to_value var=0x40DA value=9
+    082B29F3  goto_if              condition=4 destination=0x082B2A19
+    082B29F9  compare_var_to_value var=0x40DA value=6
+    082B29FE  goto_if              condition=4 destination=0x082B2A28
+    082B2A04  goto                 destination=0x082B2A37
+
+  script 0x082B25E8  [unknown-opcode:0xE9]
+    082B25E8  checkflag            flag=0x8C4
+    082B25EB  goto_if              condition=0 destination=0x082B25D0
+    082B25F1  checkflag            flag=0x8C6
+    082B25F4  goto_if              condition=0 destination=0x082B25D0
+    082B25FA  checkflag            flag=0x8C8
+    082B25FD  goto_if              condition=0 destination=0x082B25D0
+    082B2603  checkflag            flag=0x8CA
+    082B2606  goto_if              condition=0 destination=0x082B25D0
+    082B260C  checkflag            flag=0x8CC
+    082B260F  goto_if              condition=0 destination=0x082B25D0
+    082B2615  checkflag            flag=0x8CE
+    082B2618  goto_if              condition=0 destination=0x082B25D0
+    082B261E  checkflag            flag=0x8D0
+    082B2621  goto_if              condition=0 destination=0x082B25D0
+    082B2627  msgbox_multilang     type=0 text_0="Scott: Are you enjoying things in\nthe BATTLE FRONTIER?\p…Wait a second…\nOh!\pYour FRONTIER PASS!\nYou’ve collected the full set\pof silver symbols!\pThat’s more than impressive!\nYou are tough, just as I suspected!\pNormally, I wouldn’t do something\nlike this, but this is a special time!\pI want you to have this.\nI’m sure you can put it to proper use." text_1="Scott: Are you enjoying things in\nthe BATTLE FRONTIER?\p…Wait a second…\nOh!\pYour FRONTIER PASS!\nYou’ve collected the full set\pof silver symbols!\pThat’s more than impressive!\nYou are tough, just as I suspected!\pNormally, I wouldn’t do something\nlike this, but this is a special time!\pI want you to have this.\nI’m sure you can put it to proper use." text_2="Scott: Are you enjoying things in\nthe BATTLE FRONTIER?\p…Wait a second…\nOh!\pYour FRONTIER PASS!\nYou’ve collected the full set\pof silver symbols!\pThat’s more than impressive!\nYou are tough, just as I suspected!\pNormally, I wouldn’t do something\nlike this, but this is a special time!\pI want you to have this.\nI’m sure you can put it to proper use." text_3="Scott: Are you enjoying things in\nthe BATTLE FRONTIER?\p…Wait a second…\nOh!\pYour FRONTIER PASS!\nYou’ve collected the full set\pof silver symbols!\pThat’s more than impressive!\nYou are tough, just as I suspected!\pNormally, I wouldn’t do something\nlike this, but this is a special time!\pI want you to have this.\nI’m sure you can put it to proper use." text_4="Scott: Are you enjoying things in\nthe BATTLE FRONTIER?\p…Wait a second…\nOh!\pYour FRONTIER PASS!\nYou’ve collected the full set\pof silver symbols!\pThat’s more than impressive!\nYou are tough, just as I suspected!\pNormally, I wouldn’t do something\nlike this, but this is a special time!\pI want you to have this.\nI’m sure you can put it to proper use." text_5="Scott: Are you enjoying things in\nthe BATTLE FRONTIER?\p…Wait a second…\nOh!\pYour FRONTIER PASS!\nYou’ve collected the full set\pof silver symbols!\pThat’s more than impressive!\nYou are tough, just as I suspected!\pNormally, I wouldn’t do something\nlike this, but this is a special time!\pI want you to have this.\nI’m sure you can put it to proper use." text_6="Scott: Are you enjoying things in\nthe BATTLE FRONTIER?\p…Wait a second…\nOh!\pYour FRONTIER PASS!\nYou’ve collected the full set\pof silver symbols!\pThat’s more than impressive!\nYou are tough, just as I suspected!\pNormally, I wouldn’t do something\nlike this, but this is a special time!\pI want you to have this.\nI’m sure you can put it to proper use."
+    082B2645  callstd              function=MSGBOX_DEFAULT(4)
+
+  script 0x082B2667  [unknown-opcode:0xE9]
+    082B2667  checkflag            flag=0x8C5
+    082B266A  goto_if              condition=0 destination=0x082B25D0
+    082B2670  checkflag            flag=0x8C7
+    082B2673  goto_if              condition=0 destination=0x082B25D0
+    082B2679  checkflag            flag=0x8C9
+    082B267C  goto_if              condition=0 destination=0x082B25D0
+    082B2682  checkflag            flag=0x8CB
+    082B2685  goto_if              condition=0 destination=0x082B25D0
+    082B268B  checkflag            flag=0x8CD
+    082B268E  goto_if              condition=0 destination=0x082B25D0
+    082B2694  checkflag            flag=0x8CF
+    082B2697  goto_if              condition=0 destination=0x082B25D0
+    082B269D  checkflag            flag=0x8D1
+    082B26A0  goto_if              condition=0 destination=0x082B25D0
+    082B26A6  msgbox_multilang     type=0 text_0="Scott: I hope you’re enjoying\neverything in the BATTLE FRONTIER.\p…Wait a second…\nOh, my disbelieving eyes!\pYour FRONTIER PASS!\nYou’ve gathered up the full set\pof gold symbols!\pThat’s more than stupendous!\nYou’re incredible, just as I suspected!\p… … … … … …\p{PLAYER}, you’ve got to accept this!\pI think you will be able to\nappreciate the value of my gift!" text_1="Scott: I hope you’re enjoying\neverything in the BATTLE FRONTIER.\p…Wait a second…\nOh, my disbelieving eyes!\pYour FRONTIER PASS!\nYou’ve gathered up the full set\pof gold symbols!\pThat’s more than stupendous!\nYou’re incredible, just as I suspected!\p… … … … … …\p{PLAYER}, you’ve got to accept this!\pI think you will be able to\nappreciate the value of my gift!" text_2="Scott: I hope you’re enjoying\neverything in the BATTLE FRONTIER.\p…Wait a second…\nOh, my disbelieving eyes!\pYour FRONTIER PASS!\nYou’ve gathered up the full set\pof gold symbols!\pThat’s more than stupendous!\nYou’re incredible, just as I suspected!\p… … … … … …\p{PLAYER}, you’ve got to accept this!\pI think you will be able to\nappreciate the value of my gift!" text_3="Scott: I hope you’re enjoying\neverything in the BATTLE FRONTIER.\p…Wait a second…\nOh, my disbelieving eyes!\pYour FRONTIER PASS!\nYou’ve gathered up the full set\pof gold symbols!\pThat’s more than stupendous!\nYou’re incredible, just as I suspected!\p… … … … … …\p{PLAYER}, you’ve got to accept this!\pI think you will be able to\nappreciate the value of my gift!" text_4="Scott: I hope you’re enjoying\neverything in the BATTLE FRONTIER.\p…Wait a second…\nOh, my disbelieving eyes!\pYour FRONTIER PASS!\nYou’ve gathered up the full set\pof gold symbols!\pThat’s more than stupendous!\nYou’re incredible, just as I suspected!\p… … … … … …\p{PLAYER}, you’ve got to accept this!\pI think you will be able to\nappreciate the value of my gift!" text_5="Scott: I hope you’re enjoying\neverything in the BATTLE FRONTIER.\p…Wait a second…\nOh, my disbelieving eyes!\pYour FRONTIER PASS!\nYou’ve gathered up the full set\pof gold symbols!\pThat’s more than stupendous!\nYou’re incredible, just as I suspected!\p… … … … … …\p{PLAYER}, you’ve got to accept this!\pI think you will be able to\nappreciate the value of my gift!" text_6="Scott: I hope you’re enjoying\neverything in the BATTLE FRONTIER.\p…Wait a second…\nOh, my disbelieving eyes!\pYour FRONTIER PASS!\nYou’ve gathered up the full set\pof gold symbols!\pThat’s more than stupendous!\nYou’re incredible, just as I suspected!\p… … … … … …\p{PLAYER}, you’ve got to accept this!\pI think you will be able to\nappreciate the value of my gift!"
+    082B26C4  callstd              function=MSGBOX_DEFAULT(4)
+
+  script 0x082B25D0  [ok]
+    082B25D0  checkflag            flag=0x112
+    082B25D3  goto_if              condition=0 destination=0x082B27A9
+    082B25D9  checkflag            flag=0x113
+    082B25DC  goto_if              condition=0 destination=0x082B288A
+    082B25E2  goto                 destination=0x082B272A
+
+  script 0x082B2A91  [ok]
+    082B2A91  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    082B2A98  waitmovement         localId=0
+    082B2A9B  return               
+
+  script 0x082B2A9C  [ok]
+    082B2A9C  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    082B2AA3  waitmovement         localId=0
+    082B2AA6  return               
+
+  script 0x082B2AA7  [ok]
+    082B2AA7  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    082B2AAE  waitmovement         localId=0
+    082B2AB1  return               
+
+  script 0x082B2AB2  [ok]
+    082B2AB2  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    082B2AB9  waitmovement         localId=0
+    082B2ABC  return               
+
+  script 0x082B2A0A  [ok]
+    082B2A0A  buffernumberstring   stringVarId=0 input=4
+    082B2A0E  setvar               destination=VAR_0x8004 value=4
+    082B2A13  goto                 destination=0x082B2A46
+
+  script 0x082B2A19  [ok]
+    082B2A19  buffernumberstring   stringVarId=0 input=3
+    082B2A1D  setvar               destination=VAR_0x8004 value=3
+    082B2A22  goto                 destination=0x082B2A46
+
+  script 0x082B2A28  [ok]
+    082B2A28  buffernumberstring   stringVarId=0 input=2
+    082B2A2C  setvar               destination=VAR_0x8004 value=2
+    082B2A31  goto                 destination=0x082B2A46
+
+  script 0x082B2A37  [ok]
+    082B2A37  buffernumberstring   stringVarId=0 input=1
+    082B2A3B  setvar               destination=VAR_0x8004 value=1
+    082B2A40  goto                 destination=0x082B2A46
+
+  script 0x082B27A9  [ok]
+    082B27A9  setvar               destination=VAR_0x408C value=0
+    082B27AE  setvar               destination=VAR_0x8004 value=2
+    082B27B3  setvar               destination=VAR_0x8005 value=1
+    082B27B8  setvar               destination=VAR_0x8006 value=0
+    082B27BD  special              SPECIAL_\function=148
+    082B27C0  setvar               destination=VAR_0x8004 value=1
+    082B27C5  setvar               destination=VAR_0x8005 value=1
+    082B27CA  special              SPECIAL_\function=149
+    082B27CD  compare_var_to_value var=0x800D value=50
+    082B27D2  goto_if              condition=4 destination=0x082B2808
+    082B27D8  setvar               destination=VAR_0x8004 value=2
+    082B27DD  setvar               destination=VAR_0x8005 value=1
+    082B27E2  setvar               destination=VAR_0x8006 value=1
+    082B27E7  special              SPECIAL_\function=148
+    082B27EA  setvar               destination=VAR_0x8004 value=1
+    082B27EF  setvar               destination=VAR_0x8005 value=1
+    082B27F4  special              SPECIAL_\function=149
+    082B27F7  compare_var_to_value var=0x800D value=50
+    082B27FC  goto_if              condition=4 destination=0x082B2808
+    082B2802  goto                 destination=0x082B272A
+
+  script 0x082B288A  [ok]
+    082B288A  setvar               destination=VAR_0x408C value=0
+    082B288F  setvar               destination=VAR_0x8004 value=2
+    082B2894  setvar               destination=VAR_0x8005 value=1
+    082B2899  setvar               destination=VAR_0x8006 value=0
+    082B289E  special              SPECIAL_\function=148
+    082B28A1  setvar               destination=VAR_0x8004 value=1
+    082B28A6  setvar               destination=VAR_0x8005 value=1
+    082B28AB  special              SPECIAL_\function=149
+    082B28AE  compare_var_to_value var=0x800D value=100
+    082B28B3  goto_if              condition=4 destination=0x082B28E9
+    082B28B9  setvar               destination=VAR_0x8004 value=2
+    082B28BE  setvar               destination=VAR_0x8005 value=1
+    082B28C3  setvar               destination=VAR_0x8006 value=1
+    082B28C8  special              SPECIAL_\function=148
+    082B28CB  setvar               destination=VAR_0x8004 value=1
+    082B28D0  setvar               destination=VAR_0x8005 value=1
+    082B28D5  special              SPECIAL_\function=149
+    082B28D8  compare_var_to_value var=0x800D value=100
+    082B28DD  goto_if              condition=4 destination=0x082B28E9
+    082B28E3  goto                 destination=0x082B272A
+
+  script 0x082B272A  [ok]
+    082B272A  random               limit=3
+    082B272D  compare_var_to_value var=0x800D value=1
+    082B2732  goto_if              condition=1 destination=0x082B2765
+    082B2738  compare_var_to_value var=0x800D value=2
+    082B273D  goto_if              condition=1 destination=0x082B2787
+    082B2743  msgbox_multilang     type=0 text_0="Scott: Every TRAINER is an individual.\nThey all lead lives of their own.\pBut when they’re in a battle,\nit doesn’t matter who they are.\pThey’re all the same!\pI love the purity of battle,\nwhere everyone is equal.\pThat’s why I go everywhere seeking\nTRAINERS who are serious about\pbattling, and invite them here." text_1="Scott: Every TRAINER is an individual.\nThey all lead lives of their own.\pBut when they’re in a battle,\nit doesn’t matter who they are.\pThey’re all the same!\pI love the purity of battle,\nwhere everyone is equal.\pThat’s why I go everywhere seeking\nTRAINERS who are serious about\pbattling, and invite them here." text_2="Scott: Every TRAINER is an individual.\nThey all lead lives of their own.\pBut when they’re in a battle,\nit doesn’t matter who they are.\pThey’re all the same!\pI love the purity of battle,\nwhere everyone is equal.\pThat’s why I go everywhere seeking\nTRAINERS who are serious about\pbattling, and invite them here." text_3="Scott: Every TRAINER is an individual.\nThey all lead lives of their own.\pBut when they’re in a battle,\nit doesn’t matter who they are.\pThey’re all the same!\pI love the purity of battle,\nwhere everyone is equal.\pThat’s why I go everywhere seeking\nTRAINERS who are serious about\pbattling, and invite them here." text_4="Scott: Every TRAINER is an individual.\nThey all lead lives of their own.\pBut when they’re in a battle,\nit doesn’t matter who they are.\pThey’re all the same!\pI love the purity of battle,\nwhere everyone is equal.\pThat’s why I go everywhere seeking\nTRAINERS who are serious about\pbattling, and invite them here." text_5="Scott: Every TRAINER is an individual.\nThey all lead lives of their own.\pBut when they’re in a battle,\nit doesn’t matter who they are.\pThey’re all the same!\pI love the purity of battle,\nwhere everyone is equal.\pThat’s why I go everywhere seeking\nTRAINERS who are serious about\pbattling, and invite them here." text_6="Scott: Every TRAINER is an individual.\nThey all lead lives of their own.\pBut when they’re in a battle,\nit doesn’t matter who they are.\pThey’re all the same!\pI love the purity of battle,\nwhere everyone is equal.\pThat’s why I go everywhere seeking\nTRAINERS who are serious about\pbattling, and invite them here."
+    082B2761  callstd              function=MSGBOX_DEFAULT(4)
+    082B2763  release              
+
+  script 0x082B2A46  [ok]
+    082B2A46  special              SPECIAL_\function=296
+    082B2A49  msgbox_multilang     type=0 text_0="{PLAYER} obtained\n{STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained\n{STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained\n{STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained\n{STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained\n{STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained\n{STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained\n{STR_VAR_1} Battle Point(s)."
+    082B2A67  callstd              function=11
+    082B2A69  msgbox_multilang     type=0 text_0="Scott: You can check your Battle\nPoints on your FRONTIER PASS.\pThe more success you have here at\nthe BATTLE FRONTIER, the more Battle\pPoints you will collect.\pUse your Battle Points the way you\nsee fit, like trading them for items." text_1="Scott: You can check your Battle\nPoints on your FRONTIER PASS.\pThe more success you have here at\nthe BATTLE FRONTIER, the more Battle\pPoints you will collect.\pUse your Battle Points the way you\nsee fit, like trading them for items." text_2="Scott: You can check your Battle\nPoints on your FRONTIER PASS.\pThe more success you have here at\nthe BATTLE FRONTIER, the more Battle\pPoints you will collect.\pUse your Battle Points the way you\nsee fit, like trading them for items." text_3="Scott: You can check your Battle\nPoints on your FRONTIER PASS.\pThe more success you have here at\nthe BATTLE FRONTIER, the more Battle\pPoints you will collect.\pUse your Battle Points the way you\nsee fit, like trading them for items." text_4="Scott: You can check your Battle\nPoints on your FRONTIER PASS.\pThe more success you have here at\nthe BATTLE FRONTIER, the more Battle\pPoints you will collect.\pUse your Battle Points the way you\nsee fit, like trading them for items." text_5="Scott: You can check your Battle\nPoints on your FRONTIER PASS.\pThe more success you have here at\nthe BATTLE FRONTIER, the more Battle\pPoints you will collect.\pUse your Battle Points the way you\nsee fit, like trading them for items." text_6="Scott: You can check your Battle\nPoints on your FRONTIER PASS.\pThe more success you have here at\nthe BATTLE FRONTIER, the more Battle\pPoints you will collect.\pUse your Battle Points the way you\nsee fit, like trading them for items."
+    082B2A87  callstd              function=MSGBOX_DEFAULT(4)
+    082B2A89  setflag              flag=0x0FD
+    082B2A8C  setflag              flag=0x002
+    082B2A8F  release              
+
+  script 0x082B2808  [ok]
+    082B2808  msgbox_multilang     type=0 text_0="Scott: Oh, I heard about you!\nHow you ruled the BATTLE TOWER!\pYou beat over 50 TRAINERS in a row?\pThat’s fantastic!\nI want you to have this!" text_1="Scott: Oh, I heard about you!\nHow you ruled the BATTLE TOWER!\pYou beat over 50 TRAINERS in a row?\pThat’s fantastic!\nI want you to have this!" text_2="Scott: Oh, I heard about you!\nHow you ruled the BATTLE TOWER!\pYou beat over 50 TRAINERS in a row?\pThat’s fantastic!\nI want you to have this!" text_3="Scott: Oh, I heard about you!\nHow you ruled the BATTLE TOWER!\pYou beat over 50 TRAINERS in a row?\pThat’s fantastic!\nI want you to have this!" text_4="Scott: Oh, I heard about you!\nHow you ruled the BATTLE TOWER!\pYou beat over 50 TRAINERS in a row?\pThat’s fantastic!\nI want you to have this!" text_5="Scott: Oh, I heard about you!\nHow you ruled the BATTLE TOWER!\pYou beat over 50 TRAINERS in a row?\pThat’s fantastic!\nI want you to have this!" text_6="Scott: Oh, I heard about you!\nHow you ruled the BATTLE TOWER!\pYou beat over 50 TRAINERS in a row?\pThat’s fantastic!\nI want you to have this!"
+    082B2826  callstd              function=MSGBOX_DEFAULT(4)
+    082B2828  setorcopyvar         destination=VAR_0x8000 source=42
+    082B282D  callstd              function=STD_OBTAIN_DECORATION(7)
+    082B282F  compare_var_to_value var=0x800D value=0
+    082B2834  goto_if              condition=1 destination=0x082B2846
+    082B283A  setflag              flag=0x112
+    082B283D  setflag              flag=0x003
+    082B2840  goto                 destination=0x082B2868
+
+  script 0x082B28E9  [ok]
+    082B28E9  msgbox_multilang     type=0 text_0="Scott: Oh, my! I heard about you!\nHow you overwhelmed the BATTLE TOWER!\pYou beat over 100 TRAINERS in a row?\pThat’s ridiculously spectacular!\nYou’ve got to have this!" text_1="Scott: Oh, my! I heard about you!\nHow you overwhelmed the BATTLE TOWER!\pYou beat over 100 TRAINERS in a row?\pThat’s ridiculously spectacular!\nYou’ve got to have this!" text_2="Scott: Oh, my! I heard about you!\nHow you overwhelmed the BATTLE TOWER!\pYou beat over 100 TRAINERS in a row?\pThat’s ridiculously spectacular!\nYou’ve got to have this!" text_3="Scott: Oh, my! I heard about you!\nHow you overwhelmed the BATTLE TOWER!\pYou beat over 100 TRAINERS in a row?\pThat’s ridiculously spectacular!\nYou’ve got to have this!" text_4="Scott: Oh, my! I heard about you!\nHow you overwhelmed the BATTLE TOWER!\pYou beat over 100 TRAINERS in a row?\pThat’s ridiculously spectacular!\nYou’ve got to have this!" text_5="Scott: Oh, my! I heard about you!\nHow you overwhelmed the BATTLE TOWER!\pYou beat over 100 TRAINERS in a row?\pThat’s ridiculously spectacular!\nYou’ve got to have this!" text_6="Scott: Oh, my! I heard about you!\nHow you overwhelmed the BATTLE TOWER!\pYou beat over 100 TRAINERS in a row?\pThat’s ridiculously spectacular!\nYou’ve got to have this!"
+    082B2907  callstd              function=MSGBOX_DEFAULT(4)
+    082B2909  setorcopyvar         destination=VAR_0x8000 source=43
+    082B290E  callstd              function=STD_OBTAIN_DECORATION(7)
+    082B2910  compare_var_to_value var=0x800D value=0
+    082B2915  goto_if              condition=1 destination=0x082B2846
+    082B291B  setflag              flag=0x113
+    082B291E  setflag              flag=0x003
+    082B2921  goto                 destination=0x082B2868
+
+  script 0x082B2765  [ok]
+    082B2765  msgbox_multilang     type=0 text_0="Scott: Have you met any of\nthe FRONTIER BRAINS?\pBetter yet, have you obtained any\nsymbols from them?\pI handpicked the FRONTIER BRAINS\nas the toughest TRAINERS anywhere.\pBut I’m sure that seeing how tough\nyou are will startle even them!" text_1="Scott: Have you met any of\nthe FRONTIER BRAINS?\pBetter yet, have you obtained any\nsymbols from them?\pI handpicked the FRONTIER BRAINS\nas the toughest TRAINERS anywhere.\pBut I’m sure that seeing how tough\nyou are will startle even them!" text_2="Scott: Have you met any of\nthe FRONTIER BRAINS?\pBetter yet, have you obtained any\nsymbols from them?\pI handpicked the FRONTIER BRAINS\nas the toughest TRAINERS anywhere.\pBut I’m sure that seeing how tough\nyou are will startle even them!" text_3="Scott: Have you met any of\nthe FRONTIER BRAINS?\pBetter yet, have you obtained any\nsymbols from them?\pI handpicked the FRONTIER BRAINS\nas the toughest TRAINERS anywhere.\pBut I’m sure that seeing how tough\nyou are will startle even them!" text_4="Scott: Have you met any of\nthe FRONTIER BRAINS?\pBetter yet, have you obtained any\nsymbols from them?\pI handpicked the FRONTIER BRAINS\nas the toughest TRAINERS anywhere.\pBut I’m sure that seeing how tough\nyou are will startle even them!" text_5="Scott: Have you met any of\nthe FRONTIER BRAINS?\pBetter yet, have you obtained any\nsymbols from them?\pI handpicked the FRONTIER BRAINS\nas the toughest TRAINERS anywhere.\pBut I’m sure that seeing how tough\nyou are will startle even them!" text_6="Scott: Have you met any of\nthe FRONTIER BRAINS?\pBetter yet, have you obtained any\nsymbols from them?\pI handpicked the FRONTIER BRAINS\nas the toughest TRAINERS anywhere.\pBut I’m sure that seeing how tough\nyou are will startle even them!"
+    082B2783  callstd              function=MSGBOX_DEFAULT(4)
+    082B2785  release              
+
+  script 0x082B2787  [ok]
+    082B2787  msgbox_multilang     type=0 text_0="Scott: You don’t just train for battle,\nright?\pI think I remember you working on\na POKéDEX as well.\pWell, guess what?\pYou may run into wild POKéMON in\nthe BATTLE FRONTIER somewhere…\pFufufu!" text_1="Scott: You don’t just train for battle,\nright?\pI think I remember you working on\na POKéDEX as well.\pWell, guess what?\pYou may run into wild POKéMON in\nthe BATTLE FRONTIER somewhere…\pFufufu!" text_2="Scott: You don’t just train for battle,\nright?\pI think I remember you working on\na POKéDEX as well.\pWell, guess what?\pYou may run into wild POKéMON in\nthe BATTLE FRONTIER somewhere…\pFufufu!" text_3="Scott: You don’t just train for battle,\nright?\pI think I remember you working on\na POKéDEX as well.\pWell, guess what?\pYou may run into wild POKéMON in\nthe BATTLE FRONTIER somewhere…\pFufufu!" text_4="Scott: You don’t just train for battle,\nright?\pI think I remember you working on\na POKéDEX as well.\pWell, guess what?\pYou may run into wild POKéMON in\nthe BATTLE FRONTIER somewhere…\pFufufu!" text_5="Scott: You don’t just train for battle,\nright?\pI think I remember you working on\na POKéDEX as well.\pWell, guess what?\pYou may run into wild POKéMON in\nthe BATTLE FRONTIER somewhere…\pFufufu!" text_6="Scott: You don’t just train for battle,\nright?\pI think I remember you working on\na POKéDEX as well.\pWell, guess what?\pYou may run into wild POKéMON in\nthe BATTLE FRONTIER somewhere…\pFufufu!"
+    082B27A5  callstd              function=MSGBOX_DEFAULT(4)
+    082B27A7  release              
+
+  script 0x082B2846  [ok]
+    082B2846  msgbox_multilang     type=0 text_0="Oops, well, if you have too much\nstuff, come back for this later." text_1="Oops, well, if you have too much\nstuff, come back for this later." text_2="Oops, well, if you have too much\nstuff, come back for this later." text_3="Oops, well, if you have too much\nstuff, come back for this later." text_4="Oops, well, if you have too much\nstuff, come back for this later." text_5="Oops, well, if you have too much\nstuff, come back for this later." text_6="Oops, well, if you have too much\nstuff, come back for this later."
+    082B2864  callstd              function=MSGBOX_DEFAULT(4)
+    082B2866  release              
+

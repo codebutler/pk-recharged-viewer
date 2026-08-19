@@ -1,0 +1,572 @@
+Route 24  (group 3, map 43)  header 0x08B3CB78
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF2, flag 0x0031) -> 0x0823A8F4
+  script 0x0823A8F4  [ok]
+    0823A8F4  lock                 
+    0823A8F5  faceplayer           
+    0823A8F6  compare_var_to_value var=0x406B value=1
+    0823A8FB  goto_if              condition=1 destination=0x0823A938
+    0823A901  msgbox_multilang     type=0 text_0="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_1="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_2="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_3="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_4="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_5="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_6="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!"
+    0823A91F  callstd              function=MSGBOX_DEFAULT(4)
+    0823A921  checkitemspace       itemId=Nugget(110) quantity=1
+    0823A926  compare_var_to_value var=0x800D value=0
+    0823A92B  goto_if              condition=1 destination=0x0823A942
+    0823A931  call                 destination=0x0823AA60
+    0823A936  release              
+
+  script 0x0823A938  [ok]
+    0823A938  goto                 destination=0x0823A96E
+
+  script 0x0823A942  [ok]
+    0823A942  goto                 destination=0x0823A94C
+
+  script 0x0823AA60  [unknown-opcode:0xE9]
+    0823AA60  additem              itemId=Nugget(110) quantity=1
+
+  script 0x0823A96E  [ok]
+    0823A96E  speakername          name="Suspicious Man"
+    0823A973  msgbox_multilang     type=0 text_0="With your ability, you’d become a top\nleader in Team Rocket.\pCome on, think of the opportunity!\nDon’t let this chance go to waste." text_1="With your ability, you’d become a top\nleader in Team Rocket.\pCome on, think of the opportunity!\nDon’t let this chance go to waste." text_2="With your ability, you’d become a top\nleader in Team Rocket.\pCome on, think of the opportunity!\nDon’t let this chance go to waste." text_3="With your ability, you’d become a top\nleader in Team Rocket.\pCome on, think of the opportunity!\nDon’t let this chance go to waste." text_4="With your ability, you’d become a top\nleader in Team Rocket.\pCome on, think of the opportunity!\nDon’t let this chance go to waste." text_5="With your ability, you’d become a top\nleader in Team Rocket.\pCome on, think of the opportunity!\nDon’t let this chance go to waste." text_6="With your ability, you’d become a top\nleader in Team Rocket.\pCome on, think of the opportunity!\nDon’t let this chance go to waste."
+    0823A991  callstd              function=MSGBOX_DEFAULT(4)
+    0823A993  release              
+
+  script 0x0823A94C  [ok]
+    0823A94C  msgbox_multilang     type=0 text_0="You don’t have any room!" text_1="You don’t have any room!" text_2="You don’t have any room!" text_3="You don’t have any room!" text_4="You don’t have any room!" text_5="You don’t have any room!" text_6="You don’t have any room!"
+    0823A96A  callstd              function=MSGBOX_DEFAULT(4)
+    0823A96C  release              
+
+  object 2 (gfx 0x1F, flag 0x0000) -> 0x081F8F37
+  script 0x081F8F37  [ok]
+    081F8F37  trainerbattle        type=0 trainer=0x90 localId=0 ptr1=0x0823AF87 ptr2=0x0823AFA8
+    081F8F45  specialvar           output=32781 SPECIAL_\function=37
+    081F8F4A  compare_var_to_value var=0x800D value=1
+    081F8F4F  goto_if              condition=1 destination=0x081F8F76
+    081F8F55  msgbox_multilang     type=0 text_0="I did my best. I have no regrets!" text_1="I did my best. I have no regrets!" text_2="I did my best. I have no regrets!" text_3="I did my best. I have no regrets!" text_4="I did my best. I have no regrets!" text_5="I did my best. I have no regrets!" text_6="I did my best. I have no regrets!"
+    081F8F73  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8F75  end                  
+
+  script 0x081F8F76  [ok]
+    081F8F76  goto                 destination=0x081F8F80
+
+  script 0x081F8F80  [ok]
+    081F8F80  trainerbattle        type=5 trainer=0x90 localId=0 ptr1=0x082BA108 ptr2=0x0823AFA8
+    081F8F8E  msgbox_multilang     type=0 text_0="I did my best. I have no regrets!" text_1="I did my best. I have no regrets!" text_2="I did my best. I have no regrets!" text_3="I did my best. I have no regrets!" text_4="I did my best. I have no regrets!" text_5="I did my best. I have no regrets!" text_6="I did my best. I have no regrets!"
+    081F8FAC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8FAE  end                  
+
+  object 3 (gfx 0x2F, flag 0x0000) -> 0x081F8DCF
+  script 0x081F8DCF  [ok]
+    081F8DCF  trainerbattle        type=0 trainer=0x7A localId=0 ptr1=0x0823AFDA ptr2=0x0823AFF4
+    081F8DDD  specialvar           output=32781 SPECIAL_\function=37
+    081F8DE2  compare_var_to_value var=0x800D value=1
+    081F8DE7  goto_if              condition=1 destination=0x081F8E0E
+    081F8DED  msgbox_multilang     type=0 text_0="I did my best, so I’ve no regrets!" text_1="I did my best, so I’ve no regrets!" text_2="I did my best, so I’ve no regrets!" text_3="I did my best, so I’ve no regrets!" text_4="I did my best, so I’ve no regrets!" text_5="I did my best, so I’ve no regrets!" text_6="I did my best, so I’ve no regrets!"
+    081F8E0B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8E0D  end                  
+
+  script 0x081F8E0E  [ok]
+    081F8E0E  goto                 destination=0x081F8E18
+
+  script 0x081F8E18  [ok]
+    081F8E18  trainerbattle        type=5 trainer=0x7A localId=0 ptr1=0x082BA11E ptr2=0x0823AFF4
+    081F8E26  msgbox_multilang     type=0 text_0="I did my best, so I’ve no regrets!" text_1="I did my best, so I’ve no regrets!" text_2="I did my best, so I’ve no regrets!" text_3="I did my best, so I’ve no regrets!" text_4="I did my best, so I’ve no regrets!" text_5="I did my best, so I’ve no regrets!" text_6="I did my best, so I’ve no regrets!"
+    081F8E44  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8E46  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x081F8CDF
+  script 0x081F8CDF  [ok]
+    081F8CDF  trainerbattle        type=0 trainer=0x5C localId=0 ptr1=0x0823B024 ptr2=0x0823B043
+    081F8CED  specialvar           output=32781 SPECIAL_\function=37
+    081F8CF2  compare_var_to_value var=0x800D value=1
+    081F8CF7  goto_if              condition=1 destination=0x081F8D1E
+    081F8CFD  msgbox_multilang     type=0 text_0="I did my best. I have no regrets!" text_1="I did my best. I have no regrets!" text_2="I did my best. I have no regrets!" text_3="I did my best. I have no regrets!" text_4="I did my best. I have no regrets!" text_5="I did my best. I have no regrets!" text_6="I did my best. I have no regrets!"
+    081F8D1B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8D1D  end                  
+
+  script 0x081F8D1E  [ok]
+    081F8D1E  goto                 destination=0x081F8D28
+
+  script 0x081F8D28  [ok]
+    081F8D28  trainerbattle        type=5 trainer=0x5C localId=0 ptr1=0x082BA151 ptr2=0x0823B043
+    081F8D36  msgbox_multilang     type=0 text_0="I did my best. I have no regrets!" text_1="I did my best. I have no regrets!" text_2="I did my best. I have no regrets!" text_3="I did my best. I have no regrets!" text_4="I did my best. I have no regrets!" text_5="I did my best. I have no regrets!" text_6="I did my best. I have no regrets!"
+    081F8D54  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8D56  end                  
+
+  object 5 (gfx 0x2F, flag 0x0000) -> 0x081F8E47
+  script 0x081F8E47  [ok]
+    081F8E47  trainerbattle        type=0 trainer=0x7B localId=0 ptr1=0x0823B077 ptr2=0x0823B095
+    081F8E55  specialvar           output=32781 SPECIAL_\function=37
+    081F8E5A  compare_var_to_value var=0x800D value=1
+    081F8E5F  goto_if              condition=1 destination=0x081F8E86
+    081F8E65  msgbox_multilang     type=0 text_0="I did my best. I have no regrets!" text_1="I did my best. I have no regrets!" text_2="I did my best. I have no regrets!" text_3="I did my best. I have no regrets!" text_4="I did my best. I have no regrets!" text_5="I did my best. I have no regrets!" text_6="I did my best. I have no regrets!"
+    081F8E83  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8E85  end                  
+
+  script 0x081F8E86  [ok]
+    081F8E86  goto                 destination=0x081F8E90
+
+  script 0x081F8E90  [ok]
+    081F8E90  trainerbattle        type=5 trainer=0x7B localId=0 ptr1=0x082BA17F ptr2=0x0823B095
+    081F8E9E  msgbox_multilang     type=0 text_0="I did my best. I have no regrets!" text_1="I did my best. I have no regrets!" text_2="I did my best. I have no regrets!" text_3="I did my best. I have no regrets!" text_4="I did my best. I have no regrets!" text_5="I did my best. I have no regrets!" text_6="I did my best. I have no regrets!"
+    081F8EBC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8EBE  end                  
+
+  object 6 (gfx 0x24, flag 0x0000) -> 0x081F8D57
+  script 0x081F8D57  [ok]
+    081F8D57  trainerbattle        type=0 trainer=0x6E localId=0 ptr1=0x0823B0C9 ptr2=0x0823B13A
+    081F8D65  specialvar           output=32781 SPECIAL_\function=37
+    081F8D6A  compare_var_to_value var=0x800D value=1
+    081F8D6F  goto_if              condition=1 destination=0x081F8D96
+    081F8D75  msgbox_multilang     type=0 text_0="I did my best. I have no regrets!" text_1="I did my best. I have no regrets!" text_2="I did my best. I have no regrets!" text_3="I did my best. I have no regrets!" text_4="I did my best. I have no regrets!" text_5="I did my best. I have no regrets!" text_6="I did my best. I have no regrets!"
+    081F8D93  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8D95  end                  
+
+  script 0x081F8D96  [ok]
+    081F8D96  goto                 destination=0x081F8DA0
+
+  script 0x081F8DA0  [ok]
+    081F8DA0  trainerbattle        type=5 trainer=0x6E localId=0 ptr1=0x082BA1D4 ptr2=0x0823B13A
+    081F8DAE  msgbox_multilang     type=0 text_0="I did my best. I have no regrets!" text_1="I did my best. I have no regrets!" text_2="I did my best. I have no regrets!" text_3="I did my best. I have no regrets!" text_4="I did my best. I have no regrets!" text_5="I did my best. I have no regrets!" text_6="I did my best. I have no regrets!"
+    081F8DCC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8DCE  end                  
+
+  object 7 (gfx 0x1F, flag 0x0000) -> 0x081F8EBF
+  script 0x081F8EBF  [ok]
+    081F8EBF  trainerbattle        type=0 trainer=0x8F localId=0 ptr1=0x0823AF22 ptr2=0x0823AF42
+    081F8ECD  specialvar           output=32781 SPECIAL_\function=37
+    081F8ED2  compare_var_to_value var=0x800D value=1
+    081F8ED7  goto_if              condition=1 destination=0x081F8EFE
+    081F8EDD  msgbox_multilang     type=0 text_0="I hid because the people on the\nbridge frightened me." text_1="I hid because the people on the\nbridge frightened me." text_2="I hid because the people on the\nbridge frightened me." text_3="I hid because the people on the\nbridge frightened me." text_4="I hid because the people on the\nbridge frightened me." text_5="I hid because the people on the\nbridge frightened me." text_6="I hid because the people on the\nbridge frightened me."
+    081F8EFB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8EFD  end                  
+
+  script 0x081F8EFE  [ok]
+    081F8EFE  goto                 destination=0x081F8F08
+
+  script 0x081F8F08  [ok]
+    081F8F08  trainerbattle        type=5 trainer=0x8F localId=0 ptr1=0x082BA0E8 ptr2=0x0823AF42
+    081F8F16  msgbox_multilang     type=0 text_0="I hid because the people on the\nbridge frightened me." text_1="I hid because the people on the\nbridge frightened me." text_2="I hid because the people on the\nbridge frightened me." text_3="I hid because the people on the\nbridge frightened me." text_4="I hid because the people on the\nbridge frightened me." text_5="I hid because the people on the\nbridge frightened me." text_6="I hid because the people on the\nbridge frightened me."
+    081F8F34  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081F8F36  end                  
+
+  object 8 (gfx 0x55, flag 0x0162) -> 0x082D5668
+  script 0x082D5668  [ok]
+    082D5668  setorcopyvar         destination=VAR_0x8000 source=333
+    082D566D  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5672  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM45
+    082D5674  end                  
+
+  object 9 (gfx 0xEF, flag 0x0000) -> 0x0823A6D7
+  script 0x0823A6D7  [ok]
+    0823A6D7  lock                 
+    0823A6D8  checkflag            flag=0x12D
+    0823A6DB  goto_if              condition=1 destination=0x0823A72C
+    0823A6E1  msgbox_multilang     type=0 text_0="When it comes to raising Pokémon, I’m\njust no good at all." text_1="When it comes to raising Pokémon, I’m\njust no good at all." text_2="When it comes to raising Pokémon, I’m\njust no good at all." text_3="When it comes to raising Pokémon, I’m\njust no good at all." text_4="When it comes to raising Pokémon, I’m\njust no good at all." text_5="When it comes to raising Pokémon, I’m\njust no good at all." text_6="When it comes to raising Pokémon, I’m\njust no good at all."
+    0823A6FF  callstd              function=MSGBOX_NPC(2)
+    0823A701  checktrainerflag     trainer=0xB6
+    0823A704  goto_if              condition=1 destination=0x0823A7A9
+    0823A70A  msgbox_multilang     type=0 text_0="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_1="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_2="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_3="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_4="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_5="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_6="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?"
+    0823A728  callstd              function=MSGBOX_NPC(2)
+    0823A72A  release              
+
+  script 0x0823A72C  [ok]
+    0823A72C  msgbox_multilang     type=0 text_0="So… how’s Charmander doing?\pYou’re taking good care of it, I\nhope.\pIt has a strong heart--it just needs\nsomeone who believes in it." text_1="So… how’s Charmander doing?\pYou’re taking good care of it, I\nhope.\pIt has a strong heart--it just needs\nsomeone who believes in it." text_2="So… how’s Charmander doing?\pYou’re taking good care of it, I\nhope.\pIt has a strong heart--it just needs\nsomeone who believes in it." text_3="So… how’s Charmander doing?\pYou’re taking good care of it, I\nhope.\pIt has a strong heart--it just needs\nsomeone who believes in it." text_4="So… how’s Charmander doing?\pYou’re taking good care of it, I\nhope.\pIt has a strong heart--it just needs\nsomeone who believes in it." text_5="So… how’s Charmander doing?\pYou’re taking good care of it, I\nhope.\pIt has a strong heart--it just needs\nsomeone who believes in it." text_6="So… how’s Charmander doing?\pYou’re taking good care of it, I\nhope.\pIt has a strong heart--it just needs\nsomeone who believes in it."
+    0823A74A  callstd              function=MSGBOX_NPC(2)
+    0823A74C  release              
+
+  script 0x0823A7A9  [ok]
+    0823A7A9  checktrainerflag     trainer=0xB8
+    0823A7AC  goto_if              condition=1 destination=0x0823A79B
+    0823A7B2  goto                 destination=0x0823A70A
+
+  script 0x0823A79B  [ok]
+    0823A79B  checktrainerflag     trainer=0x5D
+    0823A79E  goto_if              condition=1 destination=0x0823A7C5
+    0823A7A4  goto                 destination=0x0823A70A
+
+  script 0x0823A70A  [ok]
+    0823A70A  msgbox_multilang     type=0 text_0="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_1="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_2="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_3="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_4="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_5="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?" text_6="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers on Route 25?"
+    0823A728  callstd              function=MSGBOX_NPC(2)
+    0823A72A  release              
+
+  script 0x0823A7C5  [ok]
+    0823A7C5  checktrainerflag     trainer=0x5E
+    0823A7C8  goto_if              condition=1 destination=0x0823A7B7
+    0823A7CE  goto                 destination=0x0823A70A
+
+  script 0x0823A7B7  [ok]
+    0823A7B7  checktrainerflag     trainer=0x99
+    0823A7BA  goto_if              condition=1 destination=0x0823A7E1
+    0823A7C0  goto                 destination=0x0823A70A
+
+  script 0x0823A7E1  [ok]
+    0823A7E1  checktrainerflag     trainer=0xB7
+    0823A7E4  goto_if              condition=1 destination=0x0823A7D3
+    0823A7EA  goto                 destination=0x0823A70A
+
+  script 0x0823A7D3  [ok]
+    0823A7D3  checktrainerflag     trainer=0x1D7
+    0823A7D6  goto_if              condition=1 destination=0x0823A7FD
+    0823A7DC  goto                 destination=0x0823A70A
+
+  script 0x0823A7FD  [ok]
+    0823A7FD  checktrainerflag     trainer=0x5F
+    0823A800  goto_if              condition=1 destination=0x0823A7EF
+    0823A806  goto                 destination=0x0823A70A
+
+  script 0x0823A7EF  [ok]
+    0823A7EF  checktrainerflag     trainer=0x7D
+    0823A7F2  goto_if              condition=1 destination=0x0823A74E
+    0823A7F8  goto                 destination=0x0823A70A
+
+  script 0x0823A74E  [ok]
+    0823A74E  msgbox_multilang     type=0 text_0="You defeated every Trainer in Route\n25!\pCharmander deserves a greater\nTrainer, like you.\pAre you interested into taking care\nof this Charmander?" text_1="You defeated every Trainer in Route\n25!\pCharmander deserves a greater\nTrainer, like you.\pAre you interested into taking care\nof this Charmander?" text_2="You defeated every Trainer in Route\n25!\pCharmander deserves a greater\nTrainer, like you.\pAre you interested into taking care\nof this Charmander?" text_3="You defeated every Trainer in Route\n25!\pCharmander deserves a greater\nTrainer, like you.\pAre you interested into taking care\nof this Charmander?" text_4="You defeated every Trainer in Route\n25!\pCharmander deserves a greater\nTrainer, like you.\pAre you interested into taking care\nof this Charmander?" text_5="You defeated every Trainer in Route\n25!\pCharmander deserves a greater\nTrainer, like you.\pAre you interested into taking care\nof this Charmander?" text_6="You defeated every Trainer in Route\n25!\pCharmander deserves a greater\nTrainer, like you.\pAre you interested into taking care\nof this Charmander?"
+    0823A76C  callstd              function=MSGBOX_YESNO(5)
+    0823A76E  compare_var_to_value var=0x800D value=1
+    0823A773  goto_if              condition=1 destination=0x0823A80B
+    0823A779  msgbox_multilang     type=0 text_0="That’s fine, you don’t have to." text_1="That’s fine, you don’t have to." text_2="That’s fine, you don’t have to." text_3="That’s fine, you don’t have to." text_4="That’s fine, you don’t have to." text_5="That’s fine, you don’t have to." text_6="That’s fine, you don’t have to."
+    0823A797  callstd              function=MSGBOX_NPC(2)
+    0823A799  release              
+
+  script 0x0823A80B  [ok]
+    0823A80B  setvar               destination=VAR_0x4001 value=4
+    0823A810  givemon              species=CHARMANDER(4) level=15 item=0 0=0 0=0 0=0
+    0823A81F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0823A824  compare_var_to_value var=0x8000 value=0
+    0823A829  goto_if              condition=1 destination=0x0823A84A
+    0823A82F  compare_var_to_value var=0x8000 value=1
+    0823A834  goto_if              condition=1 destination=0x0823A86C
+    0823A83A  compare_var_to_value var=0x8000 value=2
+    0823A83F  goto_if              condition=1 destination=0x0823A88E
+    0823A845  goto                 destination=0x0823A72A
+
+  script 0x0823A84A  [ok]
+    0823A84A  call                 destination=0x0823A8AD
+    0823A84F  compare_var_to_value var=0x800D value=0
+    0823A854  goto_if              condition=1 destination=0x0823A898
+    0823A85A  call                 destination=0x082BCF8B
+    0823A85F  call                 destination=0x082F80EB
+    0823A864  setflag              flag=0x12D
+    0823A867  addelevmenuitem      a=12 b=27648 c=1026 d=43181
+    0823A86F  callnative           func=2148344072
+    0823A874  nop                  
+    0823A875  nop                  
+    0823A876  goto_if              condition=1 destination=0x0823A8A0
+    0823A87C  call                 destination=0x082BCF97
+    0823A881  call                 destination=0x082BCFA0
+    0823A886  setflag              flag=0x12D
+    0823A889  addelevmenuitem      a=12 b=27648 c=1282 d=33026
+    0823A891  playse               song=1288
+    0823A894  clearflag            flag=0x23A7
+    0823A897  gotostd              function=41
+    0823A899  dotimebasedevents    
+    0823A89A  nop1                 
+    0823A89B  addelevmenuitem      a=12 b=27648 c=1026 d=53152
+    0823A8A3  checkflag            flag=0x2908
+    0823A8A6  dotimebasedevents    
+    0823A8A7  nop1                 
+    0823A8A8  addelevmenuitem      a=12 b=27648 c=12546 d=367
+    0823A8B0  message              text="{PLAYER} obtained a Charmander!"
+    0823A8B5  hidecoinsbox         x=172 y=35
+    0823A8B8  gotostd              function=193
+    0823A8BA  opendoor             x=2083 y=44225
+    0823A8BF  callnative           func=598524168
+    0823A8C4  gotostd              function=193
+    0823A8C6  opendoor             x=2083 y=44225
+    0823A8CB  callnative           func=2100454920
+    0823A8D0  nop                  
+    0823A8D1  call                 destination=1241572864
+    0823A8D6  bufferleadmonspeciesname stringVarId=43
+    0823A8D8  gotostd              function=74
+    0823A8DA  bufferleadmonspeciesname stringVarId=43
+    0823A8DC  gotostd              function=74
+    0823A8DE  bufferleadmonspeciesname stringVarId=43
+    0823A8E0  gotostd              function=74
+    0823A8E2  bufferleadmonspeciesname stringVarId=43
+    0823A8E4  gotostd              function=74
+    0823A8E6  bufferleadmonspeciesname stringVarId=43
+    0823A8E8  gotostd              function=74
+    0823A8EA  bufferleadmonspeciesname stringVarId=43
+    0823A8EC  gotostd              function=74
+    0823A8EE  bufferleadmonspeciesname stringVarId=43
+    0823A8F0  gotostd              function=MSGBOX_GETPOINTS(9)
+    0823A8F2  goto                 destination=559573507
+
+  script 0x0823A86C  [ok]
+    0823A86C  call                 destination=0x0823A8AD
+    0823A871  compare_var_to_value var=0x800D value=0
+    0823A876  goto_if              condition=1 destination=0x0823A8A0
+    0823A87C  call                 destination=0x082BCF97
+    0823A881  call                 destination=0x082BCFA0
+    0823A886  setflag              flag=0x12D
+    0823A889  addelevmenuitem      a=12 b=27648 c=1282 d=33026
+    0823A891  playse               song=1288
+    0823A894  clearflag            flag=0x23A7
+    0823A897  gotostd              function=41
+    0823A899  dotimebasedevents    
+    0823A89A  nop1                 
+    0823A89B  addelevmenuitem      a=12 b=27648 c=1026 d=53152
+    0823A8A3  checkflag            flag=0x2908
+    0823A8A6  dotimebasedevents    
+    0823A8A7  nop1                 
+    0823A8A8  addelevmenuitem      a=12 b=27648 c=12546 d=367
+    0823A8B0  message              text="{PLAYER} obtained a Charmander!"
+    0823A8B5  hidecoinsbox         x=172 y=35
+    0823A8B8  gotostd              function=193
+    0823A8BA  opendoor             x=2083 y=44225
+    0823A8BF  callnative           func=598524168
+    0823A8C4  gotostd              function=193
+    0823A8C6  opendoor             x=2083 y=44225
+    0823A8CB  callnative           func=2100454920
+    0823A8D0  nop                  
+    0823A8D1  call                 destination=1241572864
+    0823A8D6  bufferleadmonspeciesname stringVarId=43
+    0823A8D8  gotostd              function=74
+    0823A8DA  bufferleadmonspeciesname stringVarId=43
+    0823A8DC  gotostd              function=74
+    0823A8DE  bufferleadmonspeciesname stringVarId=43
+    0823A8E0  gotostd              function=74
+    0823A8E2  bufferleadmonspeciesname stringVarId=43
+    0823A8E4  gotostd              function=74
+    0823A8E6  bufferleadmonspeciesname stringVarId=43
+    0823A8E8  gotostd              function=74
+    0823A8EA  bufferleadmonspeciesname stringVarId=43
+    0823A8EC  gotostd              function=74
+    0823A8EE  bufferleadmonspeciesname stringVarId=43
+    0823A8F0  gotostd              function=MSGBOX_GETPOINTS(9)
+    0823A8F2  goto                 destination=559573507
+
+  script 0x0823A88E  [ok]
+    0823A88E  goto                 destination=0x082F8102
+
+  script 0x0823A72A  [ok]
+    0823A72A  release              
+
+  script 0x0823A8AD  [ok]
+    0823A8AD  playfanfare          song=367
+    0823A8B0  message              text="{PLAYER} obtained a Charmander!"
+    0823A8B5  hidecoinsbox         x=172 y=35
+    0823A8B8  gotostd              function=193
+    0823A8BA  opendoor             x=2083 y=44225
+    0823A8BF  callnative           func=598524168
+    0823A8C4  gotostd              function=193
+    0823A8C6  opendoor             x=2083 y=44225
+    0823A8CB  callnative           func=2100454920
+    0823A8D0  nop                  
+    0823A8D1  call                 destination=1241572864
+    0823A8D6  bufferleadmonspeciesname stringVarId=43
+    0823A8D8  gotostd              function=74
+    0823A8DA  bufferleadmonspeciesname stringVarId=43
+    0823A8DC  gotostd              function=74
+    0823A8DE  bufferleadmonspeciesname stringVarId=43
+    0823A8E0  gotostd              function=74
+    0823A8E2  bufferleadmonspeciesname stringVarId=43
+    0823A8E4  gotostd              function=74
+    0823A8E6  bufferleadmonspeciesname stringVarId=43
+    0823A8E8  gotostd              function=74
+    0823A8EA  bufferleadmonspeciesname stringVarId=43
+    0823A8EC  gotostd              function=74
+    0823A8EE  bufferleadmonspeciesname stringVarId=43
+    0823A8F0  gotostd              function=MSGBOX_GETPOINTS(9)
+    0823A8F2  goto                 destination=559573507
+
+  script 0x0823A898  [ok]
+    0823A898  setflag              flag=0x12D
+    0823A89B  addelevmenuitem      a=12 b=27648 c=1026 d=53152
+    0823A8A3  checkflag            flag=0x2908
+    0823A8A6  dotimebasedevents    
+    0823A8A7  nop1                 
+    0823A8A8  addelevmenuitem      a=12 b=27648 c=12546 d=367
+    0823A8B0  message              text="{PLAYER} obtained a Charmander!"
+    0823A8B5  hidecoinsbox         x=172 y=35
+    0823A8B8  gotostd              function=193
+    0823A8BA  opendoor             x=2083 y=44225
+    0823A8BF  callnative           func=598524168
+    0823A8C4  gotostd              function=193
+    0823A8C6  opendoor             x=2083 y=44225
+    0823A8CB  callnative           func=2100454920
+    0823A8D0  nop                  
+    0823A8D1  call                 destination=1241572864
+    0823A8D6  bufferleadmonspeciesname stringVarId=43
+    0823A8D8  gotostd              function=74
+    0823A8DA  bufferleadmonspeciesname stringVarId=43
+    0823A8DC  gotostd              function=74
+    0823A8DE  bufferleadmonspeciesname stringVarId=43
+    0823A8E0  gotostd              function=74
+    0823A8E2  bufferleadmonspeciesname stringVarId=43
+    0823A8E4  gotostd              function=74
+    0823A8E6  bufferleadmonspeciesname stringVarId=43
+    0823A8E8  gotostd              function=74
+    0823A8EA  bufferleadmonspeciesname stringVarId=43
+    0823A8EC  gotostd              function=74
+    0823A8EE  bufferleadmonspeciesname stringVarId=43
+    0823A8F0  gotostd              function=MSGBOX_GETPOINTS(9)
+    0823A8F2  goto                 destination=559573507
+
+  script 0x082BCF8B  [ok]
+    082BCF8B  getpartysize         
+    082BCF8C  subvar               destination=VAR_0x800D value=1
+    082BCF91  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082BCF96  return               
+
+  script 0x082F80EB  [ok]
+    082F80EB  fadescreen           mode=1
+    082F80ED  special              SPECIAL_\function=95
+    082F80F0  waitstate            
+
+  script 0x0823A8A0  [ok]
+    0823A8A0  call                 destination=0x082BCFA0
+    0823A8A5  setflag              flag=0x12D
+    0823A8A8  addelevmenuitem      a=12 b=27648 c=12546 d=367
+    0823A8B0  message              text="{PLAYER} obtained a Charmander!"
+    0823A8B5  hidecoinsbox         x=172 y=35
+    0823A8B8  gotostd              function=193
+    0823A8BA  opendoor             x=2083 y=44225
+    0823A8BF  callnative           func=598524168
+    0823A8C4  gotostd              function=193
+    0823A8C6  opendoor             x=2083 y=44225
+    0823A8CB  callnative           func=2100454920
+    0823A8D0  nop                  
+    0823A8D1  call                 destination=1241572864
+    0823A8D6  bufferleadmonspeciesname stringVarId=43
+    0823A8D8  gotostd              function=74
+    0823A8DA  bufferleadmonspeciesname stringVarId=43
+    0823A8DC  gotostd              function=74
+    0823A8DE  bufferleadmonspeciesname stringVarId=43
+    0823A8E0  gotostd              function=74
+    0823A8E2  bufferleadmonspeciesname stringVarId=43
+    0823A8E4  gotostd              function=74
+    0823A8E6  bufferleadmonspeciesname stringVarId=43
+    0823A8E8  gotostd              function=74
+    0823A8EA  bufferleadmonspeciesname stringVarId=43
+    0823A8EC  gotostd              function=74
+    0823A8EE  bufferleadmonspeciesname stringVarId=43
+    0823A8F0  gotostd              function=MSGBOX_GETPOINTS(9)
+    0823A8F2  goto                 destination=559573507
+
+  script 0x082BCF97  [ok]
+    082BCF97  fadescreen           mode=1
+    082BCF99  special              SPECIAL_\function=318
+    082BCF9C  waitstate            
+
+  script 0x082BCFA0  [ok]
+    082BCFA0  bufferboxname        stringVarId=0 box=16439
+    082BCFA4  bufferspeciesname    stringVarId=1 species=?(16385)
+    082BCFA8  checkflag            flag=0x894
+    082BCFAB  call_if              condition=0 destination=0x082BCFBB
+    082BCFB1  checkflag            flag=0x894
+    082BCFB4  call_if              condition=1 destination=0x082BD016
+    082BCFBA  return               
+
+  script 0x082F8102  [ok]
+    082F8102  textcolor            color=3
+    082F8104  msgbox_multilang     type=0 text_0="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_1="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_2="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_3="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_4="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_5="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_6="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!"
+    082F8122  callstd              function=MSGBOX_DEFAULT(4)
+    082F8124  release              
+
+  script 0x082BCFBB  [ok]
+    082BCFBB  specialvar           output=32781 SPECIAL_\function=320
+    082BCFC0  compare_var_to_value var=0x800D value=1
+    082BCFC5  goto_if              condition=1 destination=0x082BCFEC
+    082BCFCB  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BCFE9  callstd              function=MSGBOX_DEFAULT(4)
+    082BCFEB  return               
+
+  script 0x082BD016  [ok]
+    082BD016  specialvar           output=32781 SPECIAL_\function=320
+    082BD01B  compare_var_to_value var=0x800D value=1
+    082BD020  goto_if              condition=1 destination=0x082BD047
+    082BD026  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BD044  callstd              function=MSGBOX_DEFAULT(4)
+    082BD046  return               
+
+  script 0x082BCFEC  [ok]
+    082BCFEC  specialvar           output=32781 SPECIAL_\function=319
+    082BCFF1  bufferboxname        stringVarId=2 box=32781
+    082BCFF5  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD013  callstd              function=MSGBOX_DEFAULT(4)
+    082BD015  return               
+
+  script 0x082BD047  [ok]
+    082BD047  specialvar           output=32781 SPECIAL_\function=319
+    082BD04C  bufferboxname        stringVarId=2 box=32781
+    082BD050  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD06E  callstd              function=MSGBOX_DEFAULT(4)
+    082BD070  return               
+
+  coord trigger 0 (var 0x406B == 0) -> 0x0823A995
+  script 0x0823A995  [ok]
+    0823A995  lockall              
+    0823A996  setvar               destination=VAR_0x4001 value=0
+    0823A99B  goto                 destination=0x0823A9AD
+
+  script 0x0823A9AD  [ok]
+    0823A9AD  textcolor            color=0
+    0823A9AF  compare_var_to_value var=0x4001 value=0
+    0823A9B4  goto_if              condition=1 destination=0x0823AA0A
+    0823A9BA  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    0823A9C1  waitmovement         localId=0
+    0823A9C4  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0823A9CB  waitmovement         localId=0
+    0823A9CE  speakername          name="Suspicious Man"
+    0823A9D3  msgbox_multilang     type=0 text_0="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_1="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_2="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_3="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_4="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_5="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_6="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!"
+    0823A9F1  callstd              function=MSGBOX_DEFAULT(4)
+    0823A9F3  checkitemspace       itemId=Nugget(110) quantity=1
+    0823A9F8  compare_var_to_value var=0x800D value=0
+    0823A9FD  goto_if              condition=1 destination=0x0823AA19
+    0823AA03  call                 destination=0x0823AA60
+    0823AA08  releaseall           
+
+  script 0x0823AA0A  [ok]
+    0823AA0A  applymovement        localId=1 movements=[walk_left walk_left walk_left]
+    0823AA11  waitmovement         localId=0
+    0823AA14  goto                 destination=0x0823A9C4
+
+  script 0x0823AA19  [ok]
+    0823AA19  msgbox_multilang     type=0 text_0="You don’t have any room!" text_1="You don’t have any room!" text_2="You don’t have any room!" text_3="You don’t have any room!" text_4="You don’t have any room!" text_5="You don’t have any room!" text_6="You don’t have any room!"
+    0823AA37  callstd              function=MSGBOX_DEFAULT(4)
+    0823AA39  closemessage         
+    0823AA3A  applymovement        localId=255 movements=[walk_down]
+    0823AA41  waitmovement         localId=255
+    0823AA44  compare_var_to_value var=0x4001 value=0
+    0823AA49  goto_if              condition=1 destination=0x0823AA51
+    0823AA4F  release              
+
+  script 0x0823A9C4  [ok]
+    0823A9C4  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0823A9CB  waitmovement         localId=0
+    0823A9CE  speakername          name="Suspicious Man"
+    0823A9D3  msgbox_multilang     type=0 text_0="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_1="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_2="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_3="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_4="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_5="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!" text_6="Congratulations! You beat our five\ncontest Trainers!\pYou just earned a fabulous prize!"
+    0823A9F1  callstd              function=MSGBOX_DEFAULT(4)
+    0823A9F3  checkitemspace       itemId=Nugget(110) quantity=1
+    0823A9F8  compare_var_to_value var=0x800D value=0
+    0823A9FD  goto_if              condition=1 destination=0x0823AA19
+    0823AA03  call                 destination=0x0823AA60
+    0823AA08  releaseall           
+
+  script 0x0823AA51  [ok]
+    0823AA51  applymovement        localId=1 movements=[walk_right walk_in_place_faster_left]
+    0823AA58  waitmovement         localId=1
+    0823AA5B  goto                 destination=0x0823AA4F
+
+  script 0x0823AA4F  [ok]
+    0823AA4F  release              
+
+  coord trigger 1 (var 0x406B == 0) -> 0x0823A9A1
+  script 0x0823A9A1  [ok]
+    0823A9A1  lockall              
+    0823A9A2  setvar               destination=VAR_0x4001 value=1
+    0823A9A7  goto                 destination=0x0823A9AD
+
+  hidden item at (7,3): Pecha Berry
+

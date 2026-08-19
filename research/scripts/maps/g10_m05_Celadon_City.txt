@@ -1,0 +1,704 @@
+Celadon City  (group 10, map 5)  header 0x08B3D33C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xFA, flag 0x0000) -> 0x08260E93
+  script 0x08260E93  [ok]
+    08260E93  msgbox_multilang     type=0 text_0="My sister is a Trainer, believe it or\nnot.\pBut, she’s so immature, she drives me\nnuts!" text_1="My sister is a Trainer, believe it or\nnot.\pBut, she’s so immature, she drives me\nnuts!" text_2="My sister is a Trainer, believe it or\nnot.\pBut, she’s so immature, she drives me\nnuts!" text_3="My sister is a Trainer, believe it or\nnot.\pBut, she’s so immature, she drives me\nnuts!" text_4="My sister is a Trainer, believe it or\nnot.\pBut, she’s so immature, she drives me\nnuts!" text_5="My sister is a Trainer, believe it or\nnot.\pBut, she’s so immature, she drives me\nnuts!" text_6="My sister is a Trainer, believe it or\nnot.\pBut, she’s so immature, she drives me\nnuts!"
+    08260EB1  callstd              function=MSGBOX_NPC(2)
+    08260EB3  end                  
+
+  object 2 (gfx 0x0C, flag 0x0000) -> 0x082608BB
+  script 0x082608BB  [ok]
+    082608BB  lock                 
+    082608BC  faceplayer           
+    082608BD  setvar               destination=VAR_0x4001 value=0
+    082608C2  checkitem            itemId=Fresh Water(26) quantity=1
+    082608C7  compare_var_to_value var=0x800D value=1
+    082608CC  goto_if              condition=1 destination=0x0826099D
+    082608D2  checkitem            itemId=Soda Pop(27) quantity=1
+    082608D7  compare_var_to_value var=0x800D value=1
+    082608DC  goto_if              condition=1 destination=0x082609A7
+    082608E2  checkitem            itemId=Lemonade(28) quantity=1
+    082608E7  compare_var_to_value var=0x800D value=1
+    082608EC  goto_if              condition=1 destination=0x082609B1
+    082608F2  compare_var_to_value var=0x4001 value=0
+    082608F7  goto_if              condition=1 destination=0x082609BB
+    082608FD  msgbox_multilang     type=0 text_0="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_1="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_2="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_3="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_4="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_5="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_6="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?"
+    0826091B  callstd              function=MSGBOX_YESNO(5)
+    0826091D  compare_var_to_value var=0x800D value=0
+    08260922  goto_if              condition=1 destination=0x082609DD
+    08260928  textcolor            color=3
+    0826092A  message              text="Give her which drink?"
+    0826092F  addvar               destination=9751 value=5896
+    08260934  addvar               destination=2086 value=5911
+    08260939  specialvar           output=5896 SPECIAL_\function=9751
+    0826093E  gotostd              function=23
+    08260940  addvar               destination=2086 value=5911
+    08260945  specialvar           output=26120 SPECIAL_\function=455
+    0826094A  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0826094F  compare_var_to_value var=0x8000 value=1
+    08260954  goto_if              condition=1 destination=0x082609E7
+    0826095A  compare_var_to_value var=0x8000 value=2
+    0826095F  goto_if              condition=1 destination=0x08260A13
+    08260965  compare_var_to_value var=0x8000 value=3
+    0826096A  goto_if              condition=1 destination=0x08260A1D
+    08260970  compare_var_to_value var=0x8000 value=4
+    08260975  goto_if              condition=1 destination=0x08260A27
+    0826097B  compare_var_to_value var=0x8000 value=5
+    08260980  goto_if              condition=1 destination=0x08260A31
+    08260986  compare_var_to_value var=0x8000 value=6
+    0826098B  goto_if              condition=1 destination=0x08260A3B
+    08260991  compare_var_to_value var=0x8000 value=7
+    08260996  goto_if              condition=1 destination=0x08260A45
+    0826099C  end                  
+
+  script 0x0826099D  [ok]
+    0826099D  addvar               destination=VAR_0x4001 value=1
+    082609A2  goto                 destination=0x082608D2
+
+  script 0x082609A7  [ok]
+    082609A7  addvar               destination=VAR_0x4001 value=2
+    082609AC  goto                 destination=0x082608E2
+
+  script 0x082609B1  [ok]
+    082609B1  addvar               destination=VAR_0x4001 value=4
+    082609B6  goto                 destination=0x082608F2
+
+  script 0x082609BB  [ok]
+    082609BB  msgbox_multilang     type=0 text_0="I’m thirsty!\nI want something to drink!" text_1="I’m thirsty!\nI want something to drink!" text_2="I’m thirsty!\nI want something to drink!" text_3="I’m thirsty!\nI want something to drink!" text_4="I’m thirsty!\nI want something to drink!" text_5="I’m thirsty!\nI want something to drink!" text_6="I’m thirsty!\nI want something to drink!"
+    082609D9  callstd              function=MSGBOX_DEFAULT(4)
+    082609DB  release              
+
+  script 0x082609DD  [ok]
+    082609DD  goto                 destination=0x08260E6F
+
+  script 0x082609E7  [ok]
+    082609E7  multichoice          x=0 y=0 multichoiceId=32 ignoreBPress=0
+    082609EC  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082609F1  compare_var_to_value var=0x8000 value=0
+    082609F6  goto_if              condition=1 destination=0x08260A4F
+    082609FC  compare_var_to_value var=0x8000 value=1
+    08260A01  goto_if              condition=1 destination=0x08260A59
+    08260A07  compare_var_to_value var=0x8000 value=127
+    08260A0C  goto_if              condition=1 destination=0x08260A63
+    08260A12  end                  
+
+  script 0x08260A13  [ok]
+    08260A13  call                 destination=0x08260A6D
+    08260A18  goto                 destination=0x0826099C
+
+  script 0x08260A1D  [ok]
+    08260A1D  call                 destination=0x08260AB7
+    08260A22  goto                 destination=0x0826099C
+
+  script 0x08260A27  [ok]
+    08260A27  call                 destination=0x08260B16
+    08260A2C  goto                 destination=0x0826099C
+
+  script 0x08260A31  [ok]
+    08260A31  call                 destination=0x08260B60
+    08260A36  goto                 destination=0x0826099C
+
+  script 0x08260A3B  [ok]
+    08260A3B  call                 destination=0x08260BBF
+    08260A40  goto                 destination=0x0826099C
+
+  script 0x08260A45  [ok]
+    08260A45  call                 destination=0x08260C1E
+    08260A4A  goto                 destination=0x0826099C
+
+  script 0x082608D2  [ok]
+    082608D2  checkitem            itemId=Soda Pop(27) quantity=1
+    082608D7  compare_var_to_value var=0x800D value=1
+    082608DC  goto_if              condition=1 destination=0x082609A7
+    082608E2  checkitem            itemId=Lemonade(28) quantity=1
+    082608E7  compare_var_to_value var=0x800D value=1
+    082608EC  goto_if              condition=1 destination=0x082609B1
+    082608F2  compare_var_to_value var=0x4001 value=0
+    082608F7  goto_if              condition=1 destination=0x082609BB
+    082608FD  msgbox_multilang     type=0 text_0="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_1="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_2="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_3="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_4="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_5="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_6="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?"
+    0826091B  callstd              function=MSGBOX_YESNO(5)
+    0826091D  compare_var_to_value var=0x800D value=0
+    08260922  goto_if              condition=1 destination=0x082609DD
+    08260928  textcolor            color=3
+    0826092A  message              text="Give her which drink?"
+    0826092F  addvar               destination=9751 value=5896
+    08260934  addvar               destination=2086 value=5911
+    08260939  specialvar           output=5896 SPECIAL_\function=9751
+    0826093E  gotostd              function=23
+    08260940  addvar               destination=2086 value=5911
+    08260945  specialvar           output=26120 SPECIAL_\function=455
+    0826094A  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0826094F  compare_var_to_value var=0x8000 value=1
+    08260954  goto_if              condition=1 destination=0x082609E7
+    0826095A  compare_var_to_value var=0x8000 value=2
+    0826095F  goto_if              condition=1 destination=0x08260A13
+    08260965  compare_var_to_value var=0x8000 value=3
+    0826096A  goto_if              condition=1 destination=0x08260A1D
+    08260970  compare_var_to_value var=0x8000 value=4
+    08260975  goto_if              condition=1 destination=0x08260A27
+    0826097B  compare_var_to_value var=0x8000 value=5
+    08260980  goto_if              condition=1 destination=0x08260A31
+    08260986  compare_var_to_value var=0x8000 value=6
+    0826098B  goto_if              condition=1 destination=0x08260A3B
+    08260991  compare_var_to_value var=0x8000 value=7
+    08260996  goto_if              condition=1 destination=0x08260A45
+    0826099C  end                  
+
+  script 0x082608E2  [ok]
+    082608E2  checkitem            itemId=Lemonade(28) quantity=1
+    082608E7  compare_var_to_value var=0x800D value=1
+    082608EC  goto_if              condition=1 destination=0x082609B1
+    082608F2  compare_var_to_value var=0x4001 value=0
+    082608F7  goto_if              condition=1 destination=0x082609BB
+    082608FD  msgbox_multilang     type=0 text_0="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_1="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_2="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_3="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_4="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_5="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_6="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?"
+    0826091B  callstd              function=MSGBOX_YESNO(5)
+    0826091D  compare_var_to_value var=0x800D value=0
+    08260922  goto_if              condition=1 destination=0x082609DD
+    08260928  textcolor            color=3
+    0826092A  message              text="Give her which drink?"
+    0826092F  addvar               destination=9751 value=5896
+    08260934  addvar               destination=2086 value=5911
+    08260939  specialvar           output=5896 SPECIAL_\function=9751
+    0826093E  gotostd              function=23
+    08260940  addvar               destination=2086 value=5911
+    08260945  specialvar           output=26120 SPECIAL_\function=455
+    0826094A  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0826094F  compare_var_to_value var=0x8000 value=1
+    08260954  goto_if              condition=1 destination=0x082609E7
+    0826095A  compare_var_to_value var=0x8000 value=2
+    0826095F  goto_if              condition=1 destination=0x08260A13
+    08260965  compare_var_to_value var=0x8000 value=3
+    0826096A  goto_if              condition=1 destination=0x08260A1D
+    08260970  compare_var_to_value var=0x8000 value=4
+    08260975  goto_if              condition=1 destination=0x08260A27
+    0826097B  compare_var_to_value var=0x8000 value=5
+    08260980  goto_if              condition=1 destination=0x08260A31
+    08260986  compare_var_to_value var=0x8000 value=6
+    0826098B  goto_if              condition=1 destination=0x08260A3B
+    08260991  compare_var_to_value var=0x8000 value=7
+    08260996  goto_if              condition=1 destination=0x08260A45
+    0826099C  end                  
+
+  script 0x082608F2  [ok]
+    082608F2  compare_var_to_value var=0x4001 value=0
+    082608F7  goto_if              condition=1 destination=0x082609BB
+    082608FD  msgbox_multilang     type=0 text_0="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_1="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_2="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_3="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_4="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_5="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?" text_6="I’m thirsty!\nI want something to drink!\p{CTRL_06}Give her a drink?"
+    0826091B  callstd              function=MSGBOX_YESNO(5)
+    0826091D  compare_var_to_value var=0x800D value=0
+    08260922  goto_if              condition=1 destination=0x082609DD
+    08260928  textcolor            color=3
+    0826092A  message              text="Give her which drink?"
+    0826092F  addvar               destination=9751 value=5896
+    08260934  addvar               destination=2086 value=5911
+    08260939  specialvar           output=5896 SPECIAL_\function=9751
+    0826093E  gotostd              function=23
+    08260940  addvar               destination=2086 value=5911
+    08260945  specialvar           output=26120 SPECIAL_\function=455
+    0826094A  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0826094F  compare_var_to_value var=0x8000 value=1
+    08260954  goto_if              condition=1 destination=0x082609E7
+    0826095A  compare_var_to_value var=0x8000 value=2
+    0826095F  goto_if              condition=1 destination=0x08260A13
+    08260965  compare_var_to_value var=0x8000 value=3
+    0826096A  goto_if              condition=1 destination=0x08260A1D
+    08260970  compare_var_to_value var=0x8000 value=4
+    08260975  goto_if              condition=1 destination=0x08260A27
+    0826097B  compare_var_to_value var=0x8000 value=5
+    08260980  goto_if              condition=1 destination=0x08260A31
+    08260986  compare_var_to_value var=0x8000 value=6
+    0826098B  goto_if              condition=1 destination=0x08260A3B
+    08260991  compare_var_to_value var=0x8000 value=7
+    08260996  goto_if              condition=1 destination=0x08260A45
+    0826099C  end                  
+
+  script 0x08260E6F  [ok]
+    08260E6F  release              
+
+  script 0x08260A4F  [ok]
+    08260A4F  call                 destination=0x08260C92
+    08260A54  goto                 destination=0x08260A12
+
+  script 0x08260A59  [ok]
+    08260A59  call                 destination=0x08260E6F
+    08260A5E  goto                 destination=0x08260A12
+
+  script 0x08260A63  [ok]
+    08260A63  call                 destination=0x08260E6F
+    08260A68  goto                 destination=0x08260A12
+
+  script 0x08260A6D  [ok]
+    08260A6D  multichoice          x=0 y=0 multichoiceId=33 ignoreBPress=0
+    08260A72  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08260A77  compare_var_to_value var=0x8000 value=0
+    08260A7C  goto_if              condition=1 destination=0x08260A99
+    08260A82  compare_var_to_value var=0x8000 value=1
+    08260A87  goto_if              condition=1 destination=0x08260AA3
+    08260A8D  compare_var_to_value var=0x8000 value=127
+    08260A92  goto_if              condition=1 destination=0x08260AAD
+    08260A98  end                  
+
+  script 0x0826099C  [ok]
+    0826099C  end                  
+
+  script 0x08260AB7  [ok]
+    08260AB7  multichoice          x=0 y=0 multichoiceId=34 ignoreBPress=0
+    08260ABC  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08260AC1  compare_var_to_value var=0x8000 value=0
+    08260AC6  goto_if              condition=1 destination=0x08260AEE
+    08260ACC  compare_var_to_value var=0x8000 value=1
+    08260AD1  goto_if              condition=1 destination=0x08260AF8
+    08260AD7  compare_var_to_value var=0x8000 value=2
+    08260ADC  goto_if              condition=1 destination=0x08260B02
+    08260AE2  compare_var_to_value var=0x8000 value=127
+    08260AE7  goto_if              condition=1 destination=0x08260B0C
+    08260AED  end                  
+
+  script 0x08260B16  [ok]
+    08260B16  multichoice          x=0 y=0 multichoiceId=35 ignoreBPress=0
+    08260B1B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08260B20  compare_var_to_value var=0x8000 value=0
+    08260B25  goto_if              condition=1 destination=0x08260B42
+    08260B2B  compare_var_to_value var=0x8000 value=1
+    08260B30  goto_if              condition=1 destination=0x08260B4C
+    08260B36  compare_var_to_value var=0x8000 value=127
+    08260B3B  goto_if              condition=1 destination=0x08260B56
+    08260B41  end                  
+
+  script 0x08260B60  [ok]
+    08260B60  multichoice          x=0 y=0 multichoiceId=36 ignoreBPress=0
+    08260B65  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08260B6A  compare_var_to_value var=0x8000 value=0
+    08260B6F  goto_if              condition=1 destination=0x08260B97
+    08260B75  compare_var_to_value var=0x8000 value=1
+    08260B7A  goto_if              condition=1 destination=0x08260BA1
+    08260B80  compare_var_to_value var=0x8000 value=2
+    08260B85  goto_if              condition=1 destination=0x08260BAB
+    08260B8B  compare_var_to_value var=0x8000 value=127
+    08260B90  goto_if              condition=1 destination=0x08260BB5
+    08260B96  end                  
+
+  script 0x08260BBF  [ok]
+    08260BBF  multichoice          x=0 y=0 multichoiceId=37 ignoreBPress=0
+    08260BC4  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08260BC9  compare_var_to_value var=0x8000 value=0
+    08260BCE  goto_if              condition=1 destination=0x08260BF6
+    08260BD4  compare_var_to_value var=0x8000 value=1
+    08260BD9  goto_if              condition=1 destination=0x08260C00
+    08260BDF  compare_var_to_value var=0x8000 value=2
+    08260BE4  goto_if              condition=1 destination=0x08260C0A
+    08260BEA  compare_var_to_value var=0x8000 value=127
+    08260BEF  goto_if              condition=1 destination=0x08260C14
+    08260BF5  end                  
+
+  script 0x08260C1E  [ok]
+    08260C1E  multichoice          x=0 y=0 multichoiceId=38 ignoreBPress=0
+    08260C23  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08260C28  compare_var_to_value var=0x8000 value=0
+    08260C2D  goto_if              condition=1 destination=0x08260C60
+    08260C33  compare_var_to_value var=0x8000 value=1
+    08260C38  goto_if              condition=1 destination=0x08260C6A
+    08260C3E  compare_var_to_value var=0x8000 value=2
+    08260C43  goto_if              condition=1 destination=0x08260C74
+    08260C49  compare_var_to_value var=0x8000 value=3
+    08260C4E  goto_if              condition=1 destination=0x08260C7E
+    08260C54  compare_var_to_value var=0x8000 value=127
+    08260C59  goto_if              condition=1 destination=0x08260C88
+    08260C5F  end                  
+
+  script 0x08260C92  [ok]
+    08260C92  setvar               destination=VAR_0x8008 value=26
+    08260C97  setvar               destination=VAR_0x8009 value=304
+    08260C9C  checkflag            flag=0x296
+    08260C9F  goto_if              condition=1 destination=0x08260CCB
+    08260CA5  msgbox_multilang     type=0 text_0="Yay!\pFresh Water!\pThank you!\nYou can have this from me!" text_1="Yay!\pFresh Water!\pThank you!\nYou can have this from me!" text_2="Yay!\pFresh Water!\pThank you!\nYou can have this from me!" text_3="Yay!\pFresh Water!\pThank you!\nYou can have this from me!" text_4="Yay!\pFresh Water!\pThank you!\nYou can have this from me!" text_5="Yay!\pFresh Water!\pThank you!\nYou can have this from me!" text_6="Yay!\pFresh Water!\pThank you!\nYou can have this from me!"
+    08260CC3  callstd              function=MSGBOX_DEFAULT(4)
+    08260CC5  goto                 destination=0x08260D5B
+
+  script 0x08260A12  [ok]
+    08260A12  end                  
+
+  script 0x08260A99  [ok]
+    08260A99  call                 destination=0x08260CD5
+    08260A9E  goto                 destination=0x08260A98
+
+  script 0x08260AA3  [ok]
+    08260AA3  call                 destination=0x08260E6F
+    08260AA8  goto                 destination=0x08260A98
+
+  script 0x08260AAD  [ok]
+    08260AAD  call                 destination=0x08260E6F
+    08260AB2  goto                 destination=0x08260A98
+
+  script 0x08260AEE  [ok]
+    08260AEE  call                 destination=0x08260C92
+    08260AF3  goto                 destination=0x08260AED
+
+  script 0x08260AF8  [ok]
+    08260AF8  call                 destination=0x08260CD5
+    08260AFD  goto                 destination=0x08260AED
+
+  script 0x08260B02  [ok]
+    08260B02  call                 destination=0x08260E6F
+    08260B07  goto                 destination=0x08260AED
+
+  script 0x08260B0C  [ok]
+    08260B0C  call                 destination=0x08260E6F
+    08260B11  goto                 destination=0x08260AED
+
+  script 0x08260B42  [ok]
+    08260B42  call                 destination=0x08260D18
+    08260B47  goto                 destination=0x08260B41
+
+  script 0x08260B4C  [ok]
+    08260B4C  call                 destination=0x08260E6F
+    08260B51  goto                 destination=0x08260B41
+
+  script 0x08260B56  [ok]
+    08260B56  call                 destination=0x08260E6F
+    08260B5B  goto                 destination=0x08260B41
+
+  script 0x08260B97  [ok]
+    08260B97  call                 destination=0x08260C92
+    08260B9C  goto                 destination=0x08260B96
+
+  script 0x08260BA1  [ok]
+    08260BA1  call                 destination=0x08260D18
+    08260BA6  goto                 destination=0x08260B96
+
+  script 0x08260BAB  [ok]
+    08260BAB  call                 destination=0x08260E6F
+    08260BB0  goto                 destination=0x08260B96
+
+  script 0x08260BB5  [ok]
+    08260BB5  call                 destination=0x08260E6F
+    08260BBA  goto                 destination=0x08260B96
+
+  script 0x08260BF6  [ok]
+    08260BF6  call                 destination=0x08260CD5
+    08260BFB  goto                 destination=0x08260BF5
+
+  script 0x08260C00  [ok]
+    08260C00  call                 destination=0x08260D18
+    08260C05  goto                 destination=0x08260BF5
+
+  script 0x08260C0A  [ok]
+    08260C0A  call                 destination=0x08260E6F
+    08260C0F  goto                 destination=0x08260BF5
+
+  script 0x08260C14  [ok]
+    08260C14  call                 destination=0x08260E6F
+    08260C19  goto                 destination=0x08260BF5
+
+  script 0x08260C60  [ok]
+    08260C60  call                 destination=0x08260C92
+    08260C65  goto                 destination=0x08260C5F
+
+  script 0x08260C6A  [ok]
+    08260C6A  call                 destination=0x08260CD5
+    08260C6F  goto                 destination=0x08260C5F
+
+  script 0x08260C74  [ok]
+    08260C74  call                 destination=0x08260D18
+    08260C79  goto                 destination=0x08260C5F
+
+  script 0x08260C7E  [ok]
+    08260C7E  call                 destination=0x08260E6F
+    08260C83  goto                 destination=0x08260C5F
+
+  script 0x08260C88  [ok]
+    08260C88  call                 destination=0x08260E6F
+    08260C8D  goto                 destination=0x08260C5F
+
+  script 0x08260CCB  [ok]
+    08260CCB  goto                 destination=0x08260E71
+
+  script 0x08260D5B  [opcode-out-of-range:0xEE]
+    08260D5B  bufferitemname       stringVarId=0 item=32776
+    08260D5F  bufferitemname       stringVarId=1 item=32777
+    08260D63  removeitem           itemId=item_32776(32776) quantity=1
+    08260D68  checkitemspace       itemId=item_32777(32777) quantity=1
+    08260D6D  compare_var_to_value var=0x800D value=0
+    08260D72  goto_if              condition=1 destination=0x08260DD5
+    08260D78  additem              itemId=item_32777(32777) quantity=1
+    08260D7D  textcolor            color=3
+    08260D7F  playfanfare          song=367
+    08260D82  message              text="{PLAYER} received a {STR_VAR_2}\nfrom the little girl."
+
+  script 0x08260CD5  [ok]
+    08260CD5  setvar               destination=VAR_0x8008 value=27
+    08260CDA  setvar               destination=VAR_0x8009 value=308
+    08260CDF  checkflag            flag=0x295
+    08260CE2  goto_if              condition=1 destination=0x08260D0E
+    08260CE8  msgbox_multilang     type=0 text_0="Yay!\pSoda Pop!\pThank you!\nYou can have this from me!" text_1="Yay!\pSoda Pop!\pThank you!\nYou can have this from me!" text_2="Yay!\pSoda Pop!\pThank you!\nYou can have this from me!" text_3="Yay!\pSoda Pop!\pThank you!\nYou can have this from me!" text_4="Yay!\pSoda Pop!\pThank you!\nYou can have this from me!" text_5="Yay!\pSoda Pop!\pThank you!\nYou can have this from me!" text_6="Yay!\pSoda Pop!\pThank you!\nYou can have this from me!"
+    08260D06  callstd              function=MSGBOX_DEFAULT(4)
+    08260D08  goto                 destination=0x08260D5B
+
+  script 0x08260A98  [ok]
+    08260A98  end                  
+
+  script 0x08260AED  [ok]
+    08260AED  end                  
+
+  script 0x08260D18  [ok]
+    08260D18  setvar               destination=VAR_0x8008 value=28
+    08260D1D  setvar               destination=VAR_0x8009 value=321
+    08260D22  checkflag            flag=0x294
+    08260D25  goto_if              condition=1 destination=0x08260D51
+    08260D2B  msgbox_multilang     type=0 text_0="Yay!\pLemonade!\pThank you!\nYou can have this from me!" text_1="Yay!\pLemonade!\pThank you!\nYou can have this from me!" text_2="Yay!\pLemonade!\pThank you!\nYou can have this from me!" text_3="Yay!\pLemonade!\pThank you!\nYou can have this from me!" text_4="Yay!\pLemonade!\pThank you!\nYou can have this from me!" text_5="Yay!\pLemonade!\pThank you!\nYou can have this from me!" text_6="Yay!\pLemonade!\pThank you!\nYou can have this from me!"
+    08260D49  callstd              function=MSGBOX_DEFAULT(4)
+    08260D4B  goto                 destination=0x08260D5B
+
+  script 0x08260B41  [ok]
+    08260B41  end                  
+
+  script 0x08260B96  [ok]
+    08260B96  end                  
+
+  script 0x08260BF5  [ok]
+    08260BF5  end                  
+
+  script 0x08260C5F  [ok]
+    08260C5F  end                  
+
+  script 0x08260E71  [ok]
+    08260E71  msgbox_multilang     type=0 text_0="No, thank you!\nI’m not thirsty after all!" text_1="No, thank you!\nI’m not thirsty after all!" text_2="No, thank you!\nI’m not thirsty after all!" text_3="No, thank you!\nI’m not thirsty after all!" text_4="No, thank you!\nI’m not thirsty after all!" text_5="No, thank you!\nI’m not thirsty after all!" text_6="No, thank you!\nI’m not thirsty after all!"
+    08260E8F  callstd              function=MSGBOX_DEFAULT(4)
+    08260E91  release              
+
+  script 0x08260DD5  [ok]
+    08260DD5  msgbox_multilang     type=0 text_0="You don’t have space for this!" text_1="You don’t have space for this!" text_2="You don’t have space for this!" text_3="You don’t have space for this!" text_4="You don’t have space for this!" text_5="You don’t have space for this!" text_6="You don’t have space for this!"
+    08260DF3  callstd              function=MSGBOX_DEFAULT(4)
+    08260DF5  release              
+
+  script 0x08260D0E  [ok]
+    08260D0E  goto                 destination=0x08260E71
+
+  script 0x08260D51  [ok]
+    08260D51  goto                 destination=0x08260E71
+
+  sign 0 at (14,3) -> 0x08260EB4
+  script 0x08260EB4  [ok]
+    08260EB4  msgbox_multilang     type=0 text_0="Rooftop Square:\nVending Machines" text_1="Rooftop Square:\nVending Machines" text_2="Rooftop Square:\nVending Machines" text_3="Rooftop Square:\nVending Machines" text_4="Rooftop Square:\nVending Machines" text_5="Rooftop Square:\nVending Machines" text_6="Rooftop Square:\nVending Machines"
+    08260ED2  callstd              function=MSGBOX_SIGN(3)
+    08260ED4  end                  
+
+  sign 1 at (10,3) -> 0x08260ED5
+  script 0x08260ED5  [ok]
+    08260ED5  lockall              
+    08260ED6  message              text="A vending machine!\nWhat does it have?"
+    08260EDB  drawbox              
+    08260EDC  compare_ptr_to_value ptr=527566886 value=38
+    08260EE2  gotostd              function=114
+    08260EE4  compare_ptr_to_value ptr=527566886 value=38
+    08260EEA  gotostd              function=114
+    08260EEC  compare_ptr_to_value ptr=527566886 value=38
+    08260EF2  gotostd              function=102
+    08260EF4  showmoneybox         x=0 y=0 disable=0
+    08260EF8  goto                 destination=0x08260EFE
+
+  script 0x08260EFE  [ok]
+    08260EFE  multichoice          x=12 y=0 multichoiceId=26 ignoreBPress=0
+    08260F03  copyvar              destination=VAR_0x4001 source=VAR_0x800D
+    08260F08  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    08260F0D  compare_var_to_value var=0x8000 value=127
+    08260F12  goto_if              condition=1 destination=0x08260FD4
+    08260F18  compare_var_to_value var=0x8000 value=3
+    08260F1D  goto_if              condition=1 destination=0x08260FD4
+    08260F23  compare_var_to_value var=0x8000 value=0
+    08260F28  goto_if              condition=1 destination=0x08260FF9
+    08260F2E  compare_var_to_value var=0x8000 value=1
+    08260F33  goto_if              condition=1 destination=0x08261009
+    08260F39  compare_var_to_value var=0x8000 value=2
+    08260F3E  goto_if              condition=1 destination=0x08261019
+    08260F44  compare_var_to_value var=0x800D value=0
+    08260F49  goto_if              condition=1 destination=0x08261029
+    08260F4F  checkitemspace       itemId=item_16384(16384) quantity=1
+    08260F54  compare_var_to_value var=0x800D value=0
+    08260F59  goto_if              condition=1 destination=0x0826104E
+    08260F5F  compare_var_to_value var=0x4001 value=0
+    08260F64  goto_if              condition=1 destination=0x08261073
+    08260F6A  compare_var_to_value var=0x4001 value=1
+    08260F6F  goto_if              condition=1 destination=0x0826107E
+    08260F75  compare_var_to_value var=0x4001 value=2
+    08260F7A  goto_if              condition=1 destination=0x08261089
+    08260F80  updatemoneybox       0=0 0=0 disable=0
+    08260F84  bufferitemname       stringVarId=0 item=16384
+    08260F88  playse               song=106
+    08260F8B  msgbox_multilang     type=0 text_0="A can of {STR_VAR_1} popped out!" text_1="A can of {STR_VAR_1} popped out!" text_2="A can of {STR_VAR_1} popped out!" text_3="A can of {STR_VAR_1} popped out!" text_4="A can of {STR_VAR_1} popped out!" text_5="A can of {STR_VAR_1} popped out!" text_6="A can of {STR_VAR_1} popped out!"
+    08260FA9  callstd              function=MSGBOX_DEFAULT(4)
+    08260FAB  additem              itemId=item_16384(16384) quantity=1
+    08260FB0  message              text="A vending machine!\nWhat does it have?"
+    08260FB5  drawbox              
+    08260FB6  compare_ptr_to_value ptr=527566886 value=38
+    08260FBC  gotostd              function=114
+    08260FBE  compare_ptr_to_value ptr=527566886 value=38
+    08260FC4  gotostd              function=114
+    08260FC6  compare_ptr_to_value ptr=527566886 value=38
+    08260FCC  gotostd              function=102
+    08260FCE  goto                 destination=0x08260EFE
+
+  script 0x08260FD4  [ok]
+    08260FD4  msgbox_multilang     type=0 text_0="Not thirsty!" text_1="Not thirsty!" text_2="Not thirsty!" text_3="Not thirsty!" text_4="Not thirsty!" text_5="Not thirsty!" text_6="Not thirsty!"
+    08260FF2  callstd              function=MSGBOX_DEFAULT(4)
+    08260FF4  hidemoneybox         0=0 0=0
+    08260FF7  releaseall           
+
+  script 0x08260FF9  [ok]
+    08260FF9  setvar               destination=VAR_0x4000 value=26
+    08260FFE  checkmoney           value=200 disable=0
+    08261004  goto                 destination=0x08260F44
+
+  script 0x08261009  [ok]
+    08261009  setvar               destination=VAR_0x4000 value=27
+    0826100E  checkmoney           value=300 disable=0
+    08261014  goto                 destination=0x08260F44
+
+  script 0x08261019  [ok]
+    08261019  setvar               destination=VAR_0x4000 value=28
+    0826101E  checkmoney           value=350 disable=0
+    08261024  goto                 destination=0x08260F44
+
+  script 0x08261029  [ok]
+    08261029  msgbox_multilang     type=0 text_0="Oops, not enough money!" text_1="Oops, not enough money!" text_2="Oops, not enough money!" text_3="Oops, not enough money!" text_4="Oops, not enough money!" text_5="Oops, not enough money!" text_6="Oops, not enough money!"
+    08261047  callstd              function=MSGBOX_DEFAULT(4)
+    08261049  hidemoneybox         0=0 0=0
+    0826104C  releaseall           
+
+  script 0x0826104E  [ok]
+    0826104E  msgbox_multilang     type=0 text_0="There’s no more room for stuff!" text_1="There’s no more room for stuff!" text_2="There’s no more room for stuff!" text_3="There’s no more room for stuff!" text_4="There’s no more room for stuff!" text_5="There’s no more room for stuff!" text_6="There’s no more room for stuff!"
+    0826106C  callstd              function=MSGBOX_DEFAULT(4)
+    0826106E  hidemoneybox         0=0 0=0
+    08261071  releaseall           
+
+  script 0x08261073  [ok]
+    08261073  removemoney          value=200 disable=0
+    08261079  goto                 destination=0x08260F80
+
+  script 0x0826107E  [ok]
+    0826107E  removemoney          value=300 disable=0
+    08261084  goto                 destination=0x08260F80
+
+  script 0x08261089  [ok]
+    08261089  removemoney          value=350 disable=0
+    0826108F  goto                 destination=0x08260F80
+
+  script 0x08260F44  [ok]
+    08260F44  compare_var_to_value var=0x800D value=0
+    08260F49  goto_if              condition=1 destination=0x08261029
+    08260F4F  checkitemspace       itemId=item_16384(16384) quantity=1
+    08260F54  compare_var_to_value var=0x800D value=0
+    08260F59  goto_if              condition=1 destination=0x0826104E
+    08260F5F  compare_var_to_value var=0x4001 value=0
+    08260F64  goto_if              condition=1 destination=0x08261073
+    08260F6A  compare_var_to_value var=0x4001 value=1
+    08260F6F  goto_if              condition=1 destination=0x0826107E
+    08260F75  compare_var_to_value var=0x4001 value=2
+    08260F7A  goto_if              condition=1 destination=0x08261089
+    08260F80  updatemoneybox       0=0 0=0 disable=0
+    08260F84  bufferitemname       stringVarId=0 item=16384
+    08260F88  playse               song=106
+    08260F8B  msgbox_multilang     type=0 text_0="A can of {STR_VAR_1} popped out!" text_1="A can of {STR_VAR_1} popped out!" text_2="A can of {STR_VAR_1} popped out!" text_3="A can of {STR_VAR_1} popped out!" text_4="A can of {STR_VAR_1} popped out!" text_5="A can of {STR_VAR_1} popped out!" text_6="A can of {STR_VAR_1} popped out!"
+    08260FA9  callstd              function=MSGBOX_DEFAULT(4)
+    08260FAB  additem              itemId=item_16384(16384) quantity=1
+    08260FB0  message              text="A vending machine!\nWhat does it have?"
+    08260FB5  drawbox              
+    08260FB6  compare_ptr_to_value ptr=527566886 value=38
+    08260FBC  gotostd              function=114
+    08260FBE  compare_ptr_to_value ptr=527566886 value=38
+    08260FC4  gotostd              function=114
+    08260FC6  compare_ptr_to_value ptr=527566886 value=38
+    08260FCC  gotostd              function=102
+    08260FCE  goto                 destination=0x08260EFE
+
+  script 0x08260F80  [ok]
+    08260F80  updatemoneybox       0=0 0=0 disable=0
+    08260F84  bufferitemname       stringVarId=0 item=16384
+    08260F88  playse               song=106
+    08260F8B  msgbox_multilang     type=0 text_0="A can of {STR_VAR_1} popped out!" text_1="A can of {STR_VAR_1} popped out!" text_2="A can of {STR_VAR_1} popped out!" text_3="A can of {STR_VAR_1} popped out!" text_4="A can of {STR_VAR_1} popped out!" text_5="A can of {STR_VAR_1} popped out!" text_6="A can of {STR_VAR_1} popped out!"
+    08260FA9  callstd              function=MSGBOX_DEFAULT(4)
+    08260FAB  additem              itemId=item_16384(16384) quantity=1
+    08260FB0  message              text="A vending machine!\nWhat does it have?"
+    08260FB5  drawbox              
+    08260FB6  compare_ptr_to_value ptr=527566886 value=38
+    08260FBC  gotostd              function=114
+    08260FBE  compare_ptr_to_value ptr=527566886 value=38
+    08260FC4  gotostd              function=114
+    08260FC6  compare_ptr_to_value ptr=527566886 value=38
+    08260FCC  gotostd              function=102
+    08260FCE  goto                 destination=0x08260EFE
+
+  sign 2 at (11,3) -> 0x08260ED5
+  sign 3 at (12,3) -> 0x08260ED5
+  sign 4 at (9,3) -> 0x08261094
+  script 0x08261094  [unknown-opcode:0xE4]
+    08261094  lock                 
+    08261095  showmoneybox         x=0 y=0 disable=0
+    08261099  message              text="It’s TM vendor machine.\nWhich one? Each one costs ¥5000!"
+    0826109E  special              SPECIAL_\function=9754
+    082610A1  gotostd              function=37
+    082610A3  setorcopyvar         destination=2086 source=6693
+    082610A8  specialvar           output=9480 SPECIAL_\function=9754
+    082610AD  gotostd              function=37
+    082610AF  setorcopyvar         destination=2086 source=6693
+    082610B4  specialvar           output=26120 SPECIAL_\function=24292
+    082610B9  setorcopyvar         destination=2086 source=289
+
+  sign 5 at (8,3) -> 0x082612EF
+  script 0x082612EF  [unknown-opcode:0xE4]
+    082612EF  lock                 
+    082612F0  specialvar           output=32781 SPECIAL_\function=417
+    082612F5  compare_var_to_value var=0x800D value=6
+    082612FA  goto_if              condition=0 destination=0x082613B8
+    08261300  showmoneybox         x=0 y=0 disable=0
+    08261304  message              text="Which TM should I get?\nEach one costs ¥7500!"
+    08261309  removemoney          value=2433230365 disable=29
+    0826130F  specialvar           output=37128 SPECIAL_\function=9757
+    08261314  gotostd              function=145
+    08261316  compare_local_to_ptr local=38 ptr=639471880
+    0826131C  gotostd              function=145
+    0826131E  compare_local_to_ptr local=38 ptr=3202639368
+    08261324  compare_local_to_ptr local=38 ptr=3825279496
+    0826132A  moverotatingtileobjects puzzleNumber=9757
+    0826132D  gotostd              function=36
+    0826132F  nop1                 
+
+  script 0x082613B8  [ok]
+    082613B8  msgbox_multilang     type=0 text_0="It’s a TM vendor machine!\nIt is under repair…" text_1="It’s a TM vendor machine!\nIt is under repair…" text_2="It’s a TM vendor machine!\nIt is under repair…" text_3="It’s a TM vendor machine!\nIt is under repair…" text_4="It’s a TM vendor machine!\nIt is under repair…" text_5="It’s a TM vendor machine!\nIt is under repair…" text_6="It’s a TM vendor machine!\nIt is under repair…"
+    082613D6  callstd              function=MSGBOX_SIGN(3)
+    082613D8  release              
+
+  sign 6 at (7,3) -> 0x082614D4
+  script 0x082614D4  [opcode-out-of-range:0xFC]
+    082614D4  lock                 
+    082614D5  specialvar           output=32781 SPECIAL_\function=417
+    082614DA  compare_var_to_value var=0x800D value=8
+    082614DF  goto_if              condition=0 destination=0x08261596
+    082614E5  showmoneybox         x=0 y=0 disable=0
+    082614E9  message              text="Which TM should I get?\nEach one costs ¥10000!"
+    082614EE  pokemartdecoration2  products=2282235422
+    082614F3  compare_ptr_to_local ptr=512231462 local=38
+    082614F9  gotostd              function=136
+    082614FB  compare_ptr_to_local ptr=512231462 local=38
+    08261501  gotostd              function=136
+    08261503  compare_ptr_to_local ptr=3831892006 local=182
+    08261509  compare_ptr_to_local ptr=19269670 local=228
+    0826150F  waitmoncry           
+    08261510  compare_ptr_to_local ptr=19793958 local=228
+    08261516  warpmossdeepgym      mapGroup=30 mapNum=38 WARP_ID_NONE=8 -1=303 -1=60388
+    0826151E  compare_ptr_to_local ptr=19990566 local=228
+
+  script 0x08261596  [ok]
+    08261596  msgbox_multilang     type=0 text_0="It’s a TM vendor machine!\nIt is under repair…" text_1="It’s a TM vendor machine!\nIt is under repair…" text_2="It’s a TM vendor machine!\nIt is under repair…" text_3="It’s a TM vendor machine!\nIt is under repair…" text_4="It’s a TM vendor machine!\nIt is under repair…" text_5="It’s a TM vendor machine!\nIt is under repair…" text_6="It’s a TM vendor machine!\nIt is under repair…"
+    082615B4  callstd              function=MSGBOX_SIGN(3)
+    082615B6  release              
+

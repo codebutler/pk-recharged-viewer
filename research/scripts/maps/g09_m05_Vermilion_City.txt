@@ -1,0 +1,36 @@
+Vermilion City  (group 9, map 5)  header 0x08B3D240
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0825E752
+  script 0x0825E752  [opcode-out-of-range:0xFE]
+    0825E752  lock                 
+    0825E753  faceplayer           
+    0825E754  call                 destination=0x082BB330
+    0825E759  message              text="Hi, there!\nMay I help you?"
+    0825E75E  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0xFB, flag 0x0000) -> 0x0825E7A3
+  script 0x0825E7A3  [ok]
+    0825E7A3  msgbox_multilang     type=0 text_0="I think Pokémon can be good or bad.\nIt depends on the Trainer." text_1="I think Pokémon can be good or bad.\nIt depends on the Trainer." text_2="I think Pokémon can be good or bad.\nIt depends on the Trainer." text_3="I think Pokémon can be good or bad.\nIt depends on the Trainer." text_4="I think Pokémon can be good or bad.\nIt depends on the Trainer." text_5="I think Pokémon can be good or bad.\nIt depends on the Trainer." text_6="I think Pokémon can be good or bad.\nIt depends on the Trainer."
+    0825E7C1  callstd              function=MSGBOX_NPC(2)
+    0825E7C3  end                  
+
+  object 3 (gfx 0xF4, flag 0x0000) -> 0x0825E7C4
+  script 0x0825E7C4  [ok]
+    0825E7C4  msgbox_multilang     type=0 text_0="There are wicked people who will use\nPokémon for criminal acts.\pTeam Rocket traffics in rare Pokémon,\nfor example.\pThey also abandon Pokémon that they\nconsider unpopular or useless.\pThat’s the sort of horrid people they\nare, Team Rocket." text_1="There are wicked people who will use\nPokémon for criminal acts.\pTeam Rocket traffics in rare Pokémon,\nfor example.\pThey also abandon Pokémon that they\nconsider unpopular or useless.\pThat’s the sort of horrid people they\nare, Team Rocket." text_2="There are wicked people who will use\nPokémon for criminal acts.\pTeam Rocket traffics in rare Pokémon,\nfor example.\pThey also abandon Pokémon that they\nconsider unpopular or useless.\pThat’s the sort of horrid people they\nare, Team Rocket." text_3="There are wicked people who will use\nPokémon for criminal acts.\pTeam Rocket traffics in rare Pokémon,\nfor example.\pThey also abandon Pokémon that they\nconsider unpopular or useless.\pThat’s the sort of horrid people they\nare, Team Rocket." text_4="There are wicked people who will use\nPokémon for criminal acts.\pTeam Rocket traffics in rare Pokémon,\nfor example.\pThey also abandon Pokémon that they\nconsider unpopular or useless.\pThat’s the sort of horrid people they\nare, Team Rocket." text_5="There are wicked people who will use\nPokémon for criminal acts.\pTeam Rocket traffics in rare Pokémon,\nfor example.\pThey also abandon Pokémon that they\nconsider unpopular or useless.\pThat’s the sort of horrid people they\nare, Team Rocket." text_6="There are wicked people who will use\nPokémon for criminal acts.\pTeam Rocket traffics in rare Pokémon,\nfor example.\pThey also abandon Pokémon that they\nconsider unpopular or useless.\pThat’s the sort of horrid people they\nare, Team Rocket."
+    0825E7E2  callstd              function=MSGBOX_NPC(2)
+    0825E7E4  end                  
+

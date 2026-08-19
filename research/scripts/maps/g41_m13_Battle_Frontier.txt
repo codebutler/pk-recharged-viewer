@@ -1,0 +1,658 @@
+Battle Frontier  (group 41, map 13)  header 0x08B3E21C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x15, flag 0x0000) -> 0x08299924
+  script 0x08299924  [ok]
+    08299924  lock                 
+    08299925  faceplayer           
+    08299926  setvar               destination=VAR_0x40CF value=2
+    0829992B  setvar               destination=VAR_0x408C value=0
+    08299930  goto                 destination=0x08299948
+
+  script 0x08299948  [ok]
+    08299948  setvar               destination=VAR_0x8004 value=1
+    0829994D  setvar               destination=VAR_0x8005 value=0
+    08299952  special              SPECIAL_\function=151
+    08299955  compare_var_to_value var=0x800D value=0
+    0829995A  goto_if              condition=5 destination=0x082996EA
+    08299960  special              SPECIAL_\function=18
+    08299963  compare_var_to_value var=0x408C value=0
+    08299968  call_if              condition=1 destination=0x08299C60
+    0829996E  compare_var_to_value var=0x408C value=1
+    08299973  call_if              condition=1 destination=0x08299C81
+    08299979  compare_var_to_value var=0x408C value=0
+    0829997E  call_if              condition=1 destination=0x08299CA2
+    08299984  compare_var_to_value var=0x408C value=1
+    08299989  call_if              condition=1 destination=0x08299CC0
+    0829998F  waitmessage          
+    08299990  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    08299995  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829999A  compare_var_to_value var=0x8000 value=0
+    0829999F  goto_if              condition=1 destination=0x082999C6
+    082999A5  compare_var_to_value var=0x8000 value=1
+    082999AA  goto_if              condition=1 destination=0x08299B65
+    082999B0  compare_var_to_value var=0x8000 value=2
+    082999B5  goto_if              condition=1 destination=0x08299C3E
+    082999BB  compare_var_to_value var=0x8000 value=127
+    082999C0  goto_if              condition=1 destination=0x08299C3E
+    082999C6  message              text="There are two BATTLE HALLS,\nLevel 50 and Open Level.\pWhich is your choice of a challenge?"
+    082999CB  getpartysize         
+    082999CC  resetweather         
+    082999CD  setflag              flag=0x4308 (temp)
+    082999D0  resetweather         
+    082999D1  setflag              flag=0x4308 (temp)
+    082999D4  resetweather         
+    082999D5  setflag              flag=0x4308 (temp)
+    082999D8  resetweather         
+    082999D9  setflag              flag=0x4308 (temp)
+    082999DC  resetweather         
+    082999DD  setflag              flag=0x4308 (temp)
+    082999E0  resetweather         
+    082999E1  setflag              flag=0x6608 (temp)
+    082999E4  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    082999E9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082999EE  compare_var_to_value var=0x8000 value=2
+    082999F3  goto_if              condition=1 destination=0x08299C3E
+    082999F9  compare_var_to_value var=0x8000 value=127
+    082999FE  goto_if              condition=1 destination=0x08299C3E
+    08299A04  setvar               destination=VAR_0x8004 value=15
+    08299A09  special              SPECIAL_\function=148
+    08299A0C  compare_var_to_value var=0x8004 value=1
+    08299A11  goto_if              condition=1 destination=0x08299BBA
+    08299A17  setvar               destination=VAR_0x8004 value=2
+    08299A1C  setvar               destination=VAR_0x8005 value=1
+    08299A21  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08299A26  special              SPECIAL_\function=148
+    08299A29  msgbox_multilang     type=0 text_0="Good. Now, you must select your\nthree POKéMON." text_1="Good. Now, you must select your\nthree POKéMON." text_2="Good. Now, you must select your\nthree POKéMON." text_3="Good. Now, you must select your\nthree POKéMON." text_4="Good. Now, you must select your\nthree POKéMON." text_5="Good. Now, you must select your\nthree POKéMON." text_6="Good. Now, you must select your\nthree POKéMON."
+    08299A47  callstd              function=MSGBOX_DEFAULT(4)
+    08299A49  fadescreen           mode=1
+    08299A4B  callnative           func=0x080D5995
+    08299A50  call                 destination=0x08289DDE
+    08299A55  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    08299A5A  setvar               destination=VAR_0x8005 value=3
+    08299A5F  special              SPECIAL_\function=161
+    08299A62  waitstate            
+
+  script 0x082996EA  [ok]
+    082996EA  lockall              
+    082996EB  setvar               destination=VAR_0x8004 value=10
+    082996F0  special              SPECIAL_\function=148
+    082996F3  compare_var_to_value var=0x800D value=1
+    082996F8  goto_if              condition=1 destination=0x08299723
+    082996FE  msgbox_multilang     type=0 text_0="To achieve a 7-win streak…\pThe bonds that bind your heart with\nyour POKéMON seem firm and true." text_1="To achieve a 7-win streak…\pThe bonds that bind your heart with\nyour POKéMON seem firm and true." text_2="To achieve a 7-win streak…\pThe bonds that bind your heart with\nyour POKéMON seem firm and true." text_3="To achieve a 7-win streak…\pThe bonds that bind your heart with\nyour POKéMON seem firm and true." text_4="To achieve a 7-win streak…\pThe bonds that bind your heart with\nyour POKéMON seem firm and true." text_5="To achieve a 7-win streak…\pThe bonds that bind your heart with\nyour POKéMON seem firm and true." text_6="To achieve a 7-win streak…\pThe bonds that bind your heart with\nyour POKéMON seem firm and true."
+    0829971C  callstd              function=MSGBOX_DEFAULT(4)
+    0829971E  goto                 destination=0x08299743
+
+  script 0x08299C60  [ok]
+    08299C60  msgbox_multilang     type=0 text_0="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the SINGLE\nBATTLE HALLS." text_1="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the SINGLE\nBATTLE HALLS." text_2="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the SINGLE\nBATTLE HALLS." text_3="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the SINGLE\nBATTLE HALLS." text_4="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the SINGLE\nBATTLE HALLS." text_5="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the SINGLE\nBATTLE HALLS." text_6="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the SINGLE\nBATTLE HALLS."
+    08299C7E  callstd              function=MSGBOX_DEFAULT(4)
+    08299C80  return               
+
+  script 0x08299C81  [ok]
+    08299C81  msgbox_multilang     type=0 text_0="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the DOUBLE\nBATTLE HALLS." text_1="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the DOUBLE\nBATTLE HALLS." text_2="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the DOUBLE\nBATTLE HALLS." text_3="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the DOUBLE\nBATTLE HALLS." text_4="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the DOUBLE\nBATTLE HALLS." text_5="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the DOUBLE\nBATTLE HALLS." text_6="Where the hearts of TRAINERS\nare put to the test.\pI welcome you to the BATTLE PALACE.\pI accept challenges to the DOUBLE\nBATTLE HALLS."
+    08299C9F  callstd              function=MSGBOX_DEFAULT(4)
+    08299CA1  return               
+
+  script 0x08299CA2  [ok]
+    08299CA2  message              text="Do you wish to take\nthe SINGLE BATTLE HALL challenge?"
+    08299CA7  callstd_if           condition=160 function=41
+    08299CAA  gotostd              function=11
+    08299CAC  checkplayergender    
+    08299CAD  setflag              flag=0xB08
+    08299CB0  checkplayergender    
+    08299CB1  setflag              flag=0xB08
+    08299CB4  checkplayergender    
+    08299CB5  setflag              flag=0xB08
+    08299CB8  checkplayergender    
+    08299CB9  setflag              flag=0xB08
+    08299CBC  checkplayergender    
+    08299CBD  setflag              flag=0x308
+    08299CC0  message              text="Do you wish to take\nthe DOUBLE BATTLE HALL challenge?"
+    08299CC5  yesnobox             x=173 y=41
+    08299CC8  gotostd              function=110
+    08299CCA  closedoor            x=2089 y=44398
+    08299CCF  setflag              flag=0x6E08 (temp)
+    08299CD2  closedoor            x=2089 y=44398
+    08299CD7  setflag              flag=0x6E08 (temp)
+    08299CDA  closedoor            x=2089 y=8451
+    08299CDF  startcontest         
+    08299CE0  setdivewarp          mapGroup=0 mapNum=0 WARP_ID_NONE=7 -1=17665 -1=10653
+    08299CE8  gotostd              function=33
+    08299CEA  startcontest         
+    08299CEB  setdivewarp          mapGroup=1 mapNum=0 WARP_ID_NONE=7 -1=19201 -1=10653
+    08299CF3  gotostd              function=79
+    08299CF5  loadword             destIndex=128 value=0x08299D69
+    08299CFB  applymovement        localId=255 movements=[walk_up]
+    08299D02  waitmovement         localId=0
+    08299D05  compare_var_to_value var=0x408C value=0
+    08299D0A  call_if              condition=1 destination=0x08299D51
+    08299D10  compare_var_to_value var=0x408C value=1
+    08299D15  call_if              condition=1 destination=0x08299D57
+    08299D1B  waitdooranim         
+    08299D1C  applymovement        localId=32783 movements=[walk_up set_invisible]
+    08299D23  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08299D2A  waitmovement         localId=0
+    08299D2D  compare_var_to_value var=0x408C value=0
+    08299D32  call_if              condition=1 destination=0x08299D5D
+    08299D38  compare_var_to_value var=0x408C value=1
+    08299D3D  call_if              condition=1 destination=0x08299D63
+    08299D43  waitdooranim         
+    08299D44  return               
+
+  script 0x08299CC0  [ok]
+    08299CC0  message              text="Do you wish to take\nthe DOUBLE BATTLE HALL challenge?"
+    08299CC5  yesnobox             x=173 y=41
+    08299CC8  gotostd              function=110
+    08299CCA  closedoor            x=2089 y=44398
+    08299CCF  setflag              flag=0x6E08 (temp)
+    08299CD2  closedoor            x=2089 y=44398
+    08299CD7  setflag              flag=0x6E08 (temp)
+    08299CDA  closedoor            x=2089 y=8451
+    08299CDF  startcontest         
+    08299CE0  setdivewarp          mapGroup=0 mapNum=0 WARP_ID_NONE=7 -1=17665 -1=10653
+    08299CE8  gotostd              function=33
+    08299CEA  startcontest         
+    08299CEB  setdivewarp          mapGroup=1 mapNum=0 WARP_ID_NONE=7 -1=19201 -1=10653
+    08299CF3  gotostd              function=79
+    08299CF5  loadword             destIndex=128 value=0x08299D69
+    08299CFB  applymovement        localId=255 movements=[walk_up]
+    08299D02  waitmovement         localId=0
+    08299D05  compare_var_to_value var=0x408C value=0
+    08299D0A  call_if              condition=1 destination=0x08299D51
+    08299D10  compare_var_to_value var=0x408C value=1
+    08299D15  call_if              condition=1 destination=0x08299D57
+    08299D1B  waitdooranim         
+    08299D1C  applymovement        localId=32783 movements=[walk_up set_invisible]
+    08299D23  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08299D2A  waitmovement         localId=0
+    08299D2D  compare_var_to_value var=0x408C value=0
+    08299D32  call_if              condition=1 destination=0x08299D5D
+    08299D38  compare_var_to_value var=0x408C value=1
+    08299D3D  call_if              condition=1 destination=0x08299D63
+    08299D43  waitdooranim         
+    08299D44  return               
+
+  script 0x082999C6  [ok]
+    082999C6  message              text="There are two BATTLE HALLS,\nLevel 50 and Open Level.\pWhich is your choice of a challenge?"
+    082999CB  getpartysize         
+    082999CC  resetweather         
+    082999CD  setflag              flag=0x4308 (temp)
+    082999D0  resetweather         
+    082999D1  setflag              flag=0x4308 (temp)
+    082999D4  resetweather         
+    082999D5  setflag              flag=0x4308 (temp)
+    082999D8  resetweather         
+    082999D9  setflag              flag=0x4308 (temp)
+    082999DC  resetweather         
+    082999DD  setflag              flag=0x4308 (temp)
+    082999E0  resetweather         
+    082999E1  setflag              flag=0x6608 (temp)
+    082999E4  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    082999E9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082999EE  compare_var_to_value var=0x8000 value=2
+    082999F3  goto_if              condition=1 destination=0x08299C3E
+    082999F9  compare_var_to_value var=0x8000 value=127
+    082999FE  goto_if              condition=1 destination=0x08299C3E
+    08299A04  setvar               destination=VAR_0x8004 value=15
+    08299A09  special              SPECIAL_\function=148
+    08299A0C  compare_var_to_value var=0x8004 value=1
+    08299A11  goto_if              condition=1 destination=0x08299BBA
+    08299A17  setvar               destination=VAR_0x8004 value=2
+    08299A1C  setvar               destination=VAR_0x8005 value=1
+    08299A21  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08299A26  special              SPECIAL_\function=148
+    08299A29  msgbox_multilang     type=0 text_0="Good. Now, you must select your\nthree POKéMON." text_1="Good. Now, you must select your\nthree POKéMON." text_2="Good. Now, you must select your\nthree POKéMON." text_3="Good. Now, you must select your\nthree POKéMON." text_4="Good. Now, you must select your\nthree POKéMON." text_5="Good. Now, you must select your\nthree POKéMON." text_6="Good. Now, you must select your\nthree POKéMON."
+    08299A47  callstd              function=MSGBOX_DEFAULT(4)
+    08299A49  fadescreen           mode=1
+    08299A4B  callnative           func=0x080D5995
+    08299A50  call                 destination=0x08289DDE
+    08299A55  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    08299A5A  setvar               destination=VAR_0x8005 value=3
+    08299A5F  special              SPECIAL_\function=161
+    08299A62  waitstate            
+
+  script 0x08299B65  [ok]
+    08299B65  compare_var_to_value var=0x408C value=1
+    08299B6A  goto_if              condition=1 destination=0x08299B95
+    08299B70  msgbox_multilang     type=0 text_0="In the BATTLE PALACE, there are\nseveral auditoriums for SINGLE BATTLES\pthat are named SINGLE BATTLE HALLS.\pThe SINGLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, you must save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_1="In the BATTLE PALACE, there are\nseveral auditoriums for SINGLE BATTLES\pthat are named SINGLE BATTLE HALLS.\pThe SINGLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, you must save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_2="In the BATTLE PALACE, there are\nseveral auditoriums for SINGLE BATTLES\pthat are named SINGLE BATTLE HALLS.\pThe SINGLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, you must save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_3="In the BATTLE PALACE, there are\nseveral auditoriums for SINGLE BATTLES\pthat are named SINGLE BATTLE HALLS.\pThe SINGLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, you must save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_4="In the BATTLE PALACE, there are\nseveral auditoriums for SINGLE BATTLES\pthat are named SINGLE BATTLE HALLS.\pThe SINGLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, you must save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_5="In the BATTLE PALACE, there are\nseveral auditoriums for SINGLE BATTLES\pthat are named SINGLE BATTLE HALLS.\pThe SINGLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, you must save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_6="In the BATTLE PALACE, there are\nseveral auditoriums for SINGLE BATTLES\pthat are named SINGLE BATTLE HALLS.\pThe SINGLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, you must save the game.\pIf you don’t save before interrupting,\nyou will be disqualified."
+    08299B8E  callstd              function=MSGBOX_DEFAULT(4)
+    08299B90  goto                 destination=0x08299979
+
+  script 0x08299C3E  [ok]
+    08299C3E  msgbox_multilang     type=0 text_0="When you have fortified your heart\nand POKéMON, you must return." text_1="When you have fortified your heart\nand POKéMON, you must return." text_2="When you have fortified your heart\nand POKéMON, you must return." text_3="When you have fortified your heart\nand POKéMON, you must return." text_4="When you have fortified your heart\nand POKéMON, you must return." text_5="When you have fortified your heart\nand POKéMON, you must return." text_6="When you have fortified your heart\nand POKéMON, you must return."
+    08299C5C  callstd              function=MSGBOX_DEFAULT(4)
+    08299C5E  release              
+
+  script 0x08299BBA  [ok]
+    08299BBA  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08299BBF  compare_var_to_value var=0x8000 value=0
+    08299BC4  goto_if              condition=1 destination=0x08299BD5
+    08299BCA  compare_var_to_value var=0x8000 value=1
+    08299BCF  goto_if              condition=1 destination=0x08299BFA
+    08299BD5  msgbox_multilang     type=0 text_0="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_1="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_2="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_3="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_4="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_5="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_6="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations."
+    08299BF3  callstd              function=MSGBOX_DEFAULT(4)
+    08299BF5  goto                 destination=0x08299C5E
+
+  script 0x08289DDE  [ok]
+    08289DDE  setvar               destination=VAR_0x8004 value=1
+    08289DE3  setvar               destination=VAR_0x8005 value=1
+    08289DE8  special              SPECIAL_\function=148
+    08289DEB  return               
+
+  script 0x08299723  [ok]
+    08299723  msgbox_multilang     type=0 text_0="To defeat the PALACE MAVEN\nand seven TRAINERS in a row…" text_1="To defeat the PALACE MAVEN\nand seven TRAINERS in a row…" text_2="To defeat the PALACE MAVEN\nand seven TRAINERS in a row…" text_3="To defeat the PALACE MAVEN\nand seven TRAINERS in a row…" text_4="To defeat the PALACE MAVEN\nand seven TRAINERS in a row…" text_5="To defeat the PALACE MAVEN\nand seven TRAINERS in a row…" text_6="To defeat the PALACE MAVEN\nand seven TRAINERS in a row…"
+    08299741  callstd              function=MSGBOX_DEFAULT(4)
+    08299743  msgbox_multilang     type=0 text_0="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_1="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_2="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_3="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_4="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_5="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_6="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)."
+    08299761  callstd              function=MSGBOX_DEFAULT(4)
+    08299763  setvar               destination=VAR_0x8004 value=11
+    08299768  special              SPECIAL_\function=148
+    0829976B  msgbox_multilang     type=0 text_0="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained {STR_VAR_1} Battle Point(s)."
+    08299789  callstd              function=11
+    0829978B  message              text="Your feat will be recorded.\nI must ask you to briefly wait."
+    08299790  compare_var_to_value var=0x29A7 value=8456
+    08299795  setmaplayoutindex    index=2089
+    08299798  compare_var_to_value var=0x29A7 value=8456
+    0829979D  setmaplayoutindex    index=2089
+    082997A0  compare_var_to_value var=0x29A7 value=8456
+    082997A5  setmaplayoutindex    index=2089
+    082997A8  waitmessage          
+    082997A9  call                 destination=0x08299834
+    082997AE  msgbox_multilang     type=0 text_0="When you have fortified your heart\nand POKéMON, you must return." text_1="When you have fortified your heart\nand POKéMON, you must return." text_2="When you have fortified your heart\nand POKéMON, you must return." text_3="When you have fortified your heart\nand POKéMON, you must return." text_4="When you have fortified your heart\nand POKéMON, you must return." text_5="When you have fortified your heart\nand POKéMON, you must return." text_6="When you have fortified your heart\nand POKéMON, you must return."
+    082997CC  callstd              function=MSGBOX_DEFAULT(4)
+    082997CE  closemessage         
+    082997CF  setvar               destination=VAR_0x4000 value=255
+    082997D4  releaseall           
+
+  script 0x08299743  [ok]
+    08299743  msgbox_multilang     type=0 text_0="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_1="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_2="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_3="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_4="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_5="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)." text_6="In honor of the bond you share with\nyour POKéMON, we present you with\pthese Battle Point(s)."
+    08299761  callstd              function=MSGBOX_DEFAULT(4)
+    08299763  setvar               destination=VAR_0x8004 value=11
+    08299768  special              SPECIAL_\function=148
+    0829976B  msgbox_multilang     type=0 text_0="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained {STR_VAR_1} Battle Point(s)."
+    08299789  callstd              function=11
+    0829978B  message              text="Your feat will be recorded.\nI must ask you to briefly wait."
+    08299790  compare_var_to_value var=0x29A7 value=8456
+    08299795  setmaplayoutindex    index=2089
+    08299798  compare_var_to_value var=0x29A7 value=8456
+    0829979D  setmaplayoutindex    index=2089
+    082997A0  compare_var_to_value var=0x29A7 value=8456
+    082997A5  setmaplayoutindex    index=2089
+    082997A8  waitmessage          
+    082997A9  call                 destination=0x08299834
+    082997AE  msgbox_multilang     type=0 text_0="When you have fortified your heart\nand POKéMON, you must return." text_1="When you have fortified your heart\nand POKéMON, you must return." text_2="When you have fortified your heart\nand POKéMON, you must return." text_3="When you have fortified your heart\nand POKéMON, you must return." text_4="When you have fortified your heart\nand POKéMON, you must return." text_5="When you have fortified your heart\nand POKéMON, you must return." text_6="When you have fortified your heart\nand POKéMON, you must return."
+    082997CC  callstd              function=MSGBOX_DEFAULT(4)
+    082997CE  closemessage         
+    082997CF  setvar               destination=VAR_0x4000 value=255
+    082997D4  releaseall           
+
+  script 0x08299D51  [ok]
+    08299D51  opendoor             x=5 y=4
+    08299D56  return               
+
+  script 0x08299D57  [ok]
+    08299D57  opendoor             x=19 y=4
+    08299D5C  return               
+
+  script 0x08299D5D  [ok]
+    08299D5D  closedoor            x=5 y=4
+    08299D62  return               
+
+  script 0x08299D63  [ok]
+    08299D63  closedoor            x=19 y=4
+    08299D68  return               
+
+  script 0x08299B95  [ok]
+    08299B95  msgbox_multilang     type=0 text_0="In the BATTLE PALACE, there are\nseveral auditoriums for DOUBLE BATTLES\pthat are named DOUBLE BATTLE HALLS.\pThe DOUBLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_1="In the BATTLE PALACE, there are\nseveral auditoriums for DOUBLE BATTLES\pthat are named DOUBLE BATTLE HALLS.\pThe DOUBLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_2="In the BATTLE PALACE, there are\nseveral auditoriums for DOUBLE BATTLES\pthat are named DOUBLE BATTLE HALLS.\pThe DOUBLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_3="In the BATTLE PALACE, there are\nseveral auditoriums for DOUBLE BATTLES\pthat are named DOUBLE BATTLE HALLS.\pThe DOUBLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_4="In the BATTLE PALACE, there are\nseveral auditoriums for DOUBLE BATTLES\pthat are named DOUBLE BATTLE HALLS.\pThe DOUBLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_5="In the BATTLE PALACE, there are\nseveral auditoriums for DOUBLE BATTLES\pthat are named DOUBLE BATTLE HALLS.\pThe DOUBLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_6="In the BATTLE PALACE, there are\nseveral auditoriums for DOUBLE BATTLES\pthat are named DOUBLE BATTLE HALLS.\pThe DOUBLE BATTLES are conducted in\nthe usual way, except with one crucial\prule that must be obeyed.\pTRAINERS are permitted only to switch\ntheir POKéMON in and out.\pTRAINERS are otherwise forbidden to\ncommand their POKéMON.\pThe POKéMON are to behave according\nto their nature and battle on their own.\pYou must put your trust in your\nPOKéMON and watch over them.\pIf you achieve the honor of beating\nseven TRAINERS in succession,\pwe will present you with Battle Points.\pIf you want to interrupt your\nchallenge, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified."
+    08299BB3  callstd              function=MSGBOX_DEFAULT(4)
+    08299BB5  goto                 destination=0x08299979
+
+  script 0x08299979  [ok]
+    08299979  compare_var_to_value var=0x408C value=0
+    0829997E  call_if              condition=1 destination=0x08299CA2
+    08299984  compare_var_to_value var=0x408C value=1
+    08299989  call_if              condition=1 destination=0x08299CC0
+    0829998F  waitmessage          
+    08299990  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    08299995  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829999A  compare_var_to_value var=0x8000 value=0
+    0829999F  goto_if              condition=1 destination=0x082999C6
+    082999A5  compare_var_to_value var=0x8000 value=1
+    082999AA  goto_if              condition=1 destination=0x08299B65
+    082999B0  compare_var_to_value var=0x8000 value=2
+    082999B5  goto_if              condition=1 destination=0x08299C3E
+    082999BB  compare_var_to_value var=0x8000 value=127
+    082999C0  goto_if              condition=1 destination=0x08299C3E
+    082999C6  message              text="There are two BATTLE HALLS,\nLevel 50 and Open Level.\pWhich is your choice of a challenge?"
+    082999CB  getpartysize         
+    082999CC  resetweather         
+    082999CD  setflag              flag=0x4308 (temp)
+    082999D0  resetweather         
+    082999D1  setflag              flag=0x4308 (temp)
+    082999D4  resetweather         
+    082999D5  setflag              flag=0x4308 (temp)
+    082999D8  resetweather         
+    082999D9  setflag              flag=0x4308 (temp)
+    082999DC  resetweather         
+    082999DD  setflag              flag=0x4308 (temp)
+    082999E0  resetweather         
+    082999E1  setflag              flag=0x6608 (temp)
+    082999E4  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    082999E9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082999EE  compare_var_to_value var=0x8000 value=2
+    082999F3  goto_if              condition=1 destination=0x08299C3E
+    082999F9  compare_var_to_value var=0x8000 value=127
+    082999FE  goto_if              condition=1 destination=0x08299C3E
+    08299A04  setvar               destination=VAR_0x8004 value=15
+    08299A09  special              SPECIAL_\function=148
+    08299A0C  compare_var_to_value var=0x8004 value=1
+    08299A11  goto_if              condition=1 destination=0x08299BBA
+    08299A17  setvar               destination=VAR_0x8004 value=2
+    08299A1C  setvar               destination=VAR_0x8005 value=1
+    08299A21  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08299A26  special              SPECIAL_\function=148
+    08299A29  msgbox_multilang     type=0 text_0="Good. Now, you must select your\nthree POKéMON." text_1="Good. Now, you must select your\nthree POKéMON." text_2="Good. Now, you must select your\nthree POKéMON." text_3="Good. Now, you must select your\nthree POKéMON." text_4="Good. Now, you must select your\nthree POKéMON." text_5="Good. Now, you must select your\nthree POKéMON." text_6="Good. Now, you must select your\nthree POKéMON."
+    08299A47  callstd              function=MSGBOX_DEFAULT(4)
+    08299A49  fadescreen           mode=1
+    08299A4B  callnative           func=0x080D5995
+    08299A50  call                 destination=0x08289DDE
+    08299A55  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    08299A5A  setvar               destination=VAR_0x8005 value=3
+    08299A5F  special              SPECIAL_\function=161
+    08299A62  waitstate            
+
+  script 0x08299BD5  [ok]
+    08299BD5  msgbox_multilang     type=0 text_0="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_1="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_2="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_3="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_4="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_5="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_6="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThese POKéMON must all be of\nLevel 50 or lower.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations."
+    08299BF3  callstd              function=MSGBOX_DEFAULT(4)
+    08299BF5  goto                 destination=0x08299C5E
+
+  script 0x08299BFA  [ok]
+    08299BFA  msgbox_multilang     type=0 text_0="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_1="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_2="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_3="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_4="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_5="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations." text_6="Sigh…\pYou do not have the three POKéMON\nrequired for the challenge.\pTo enter, you must provide three\ndifferent kinds of POKéMON.\pThey also must not be holding\nthe same kinds of items.\pEGGS{STR_VAR_1} ineligible.\pCome back when you have made\nyour preparations."
+    08299C18  callstd              function=MSGBOX_DEFAULT(4)
+    08299C1A  goto                 destination=0x08299C5E
+
+  script 0x08299C5E  [ok]
+    08299C5E  release              
+
+  script 0x08299834  [opcode-out-of-range:0xF8]
+    08299834  setvar               destination=VAR_0x8004 value=8
+    08299839  special              SPECIAL_\function=148
+    0829983C  special              SPECIAL_\function=19
+    0829983F  special              SPECIAL_\function=0
+    08299842  callnative           func=0x080D5785
+    08299847  setvar               destination=VAR_0x8004 value=7
+    0829984C  setvar               destination=VAR_0x8005 value=0
+    08299851  special              SPECIAL_\function=151
+    08299854  playse               song=55
+    08299857  waitse               
+    08299858  call                 destination=0x0828900D
+    0829985D  compare_var_to_value var=0x800D value=1
+    08299862  goto_if              condition=1 destination=0x082998B7
+    08299868  message              text="Would you like to record your latest\nBATTLE PALACE match on your\pFRONTIER PASS?"
+
+  script 0x0828900D  [ok]
+    0828900D  setvar               destination=VAR_0x8004 value=1
+    08289012  setvar               destination=VAR_0x8005 value=6
+    08289017  special              SPECIAL_\function=148
+    0828901A  return               
+
+  script 0x082998B7  [ok]
+    082998B7  return               
+
+  object 2 (gfx 0x07, flag 0x0000) -> 0x08299DA4
+  script 0x08299DA4  [ok]
+    08299DA4  msgbox_multilang     type=0 text_0="For a hardy fellow like me,\nhardy POKéMON are the best.\pOffense is the best defense!\nA relentless attack is the ultimate!\pBut that’s not what I wanted to chat\nabout.\pEvery so often a really cute lady\nswings by here.\pShe says that she can tell what\nPOKéMON are thinking.\pI don’t know about that part,\nbut she is really cute.\pHuh?\nWhy are you looking at me like that?" text_1="For a hardy fellow like me,\nhardy POKéMON are the best.\pOffense is the best defense!\nA relentless attack is the ultimate!\pBut that’s not what I wanted to chat\nabout.\pEvery so often a really cute lady\nswings by here.\pShe says that she can tell what\nPOKéMON are thinking.\pI don’t know about that part,\nbut she is really cute.\pHuh?\nWhy are you looking at me like that?" text_2="For a hardy fellow like me,\nhardy POKéMON are the best.\pOffense is the best defense!\nA relentless attack is the ultimate!\pBut that’s not what I wanted to chat\nabout.\pEvery so often a really cute lady\nswings by here.\pShe says that she can tell what\nPOKéMON are thinking.\pI don’t know about that part,\nbut she is really cute.\pHuh?\nWhy are you looking at me like that?" text_3="For a hardy fellow like me,\nhardy POKéMON are the best.\pOffense is the best defense!\nA relentless attack is the ultimate!\pBut that’s not what I wanted to chat\nabout.\pEvery so often a really cute lady\nswings by here.\pShe says that she can tell what\nPOKéMON are thinking.\pI don’t know about that part,\nbut she is really cute.\pHuh?\nWhy are you looking at me like that?" text_4="For a hardy fellow like me,\nhardy POKéMON are the best.\pOffense is the best defense!\nA relentless attack is the ultimate!\pBut that’s not what I wanted to chat\nabout.\pEvery so often a really cute lady\nswings by here.\pShe says that she can tell what\nPOKéMON are thinking.\pI don’t know about that part,\nbut she is really cute.\pHuh?\nWhy are you looking at me like that?" text_5="For a hardy fellow like me,\nhardy POKéMON are the best.\pOffense is the best defense!\nA relentless attack is the ultimate!\pBut that’s not what I wanted to chat\nabout.\pEvery so often a really cute lady\nswings by here.\pShe says that she can tell what\nPOKéMON are thinking.\pI don’t know about that part,\nbut she is really cute.\pHuh?\nWhy are you looking at me like that?" text_6="For a hardy fellow like me,\nhardy POKéMON are the best.\pOffense is the best defense!\nA relentless attack is the ultimate!\pBut that’s not what I wanted to chat\nabout.\pEvery so often a really cute lady\nswings by here.\pShe says that she can tell what\nPOKéMON are thinking.\pI don’t know about that part,\nbut she is really cute.\pHuh?\nWhy are you looking at me like that?"
+    08299DC2  callstd              function=MSGBOX_NPC(2)
+    08299DC4  end                  
+
+  object 3 (gfx 0x05, flag 0x0000) -> 0x08299E07
+  script 0x08299E07  [ok]
+    08299E07  msgbox_multilang     type=0 text_0="I wonder what sort of nature a POKéMON\nwould have if it favored enfeebling its\popponents and chipping away slowly.\pI’d be surprised if it was a LAX nature.\pBut, nah, that can’t be right." text_1="I wonder what sort of nature a POKéMON\nwould have if it favored enfeebling its\popponents and chipping away slowly.\pI’d be surprised if it was a LAX nature.\pBut, nah, that can’t be right." text_2="I wonder what sort of nature a POKéMON\nwould have if it favored enfeebling its\popponents and chipping away slowly.\pI’d be surprised if it was a LAX nature.\pBut, nah, that can’t be right." text_3="I wonder what sort of nature a POKéMON\nwould have if it favored enfeebling its\popponents and chipping away slowly.\pI’d be surprised if it was a LAX nature.\pBut, nah, that can’t be right." text_4="I wonder what sort of nature a POKéMON\nwould have if it favored enfeebling its\popponents and chipping away slowly.\pI’d be surprised if it was a LAX nature.\pBut, nah, that can’t be right." text_5="I wonder what sort of nature a POKéMON\nwould have if it favored enfeebling its\popponents and chipping away slowly.\pI’d be surprised if it was a LAX nature.\pBut, nah, that can’t be right." text_6="I wonder what sort of nature a POKéMON\nwould have if it favored enfeebling its\popponents and chipping away slowly.\pI’d be surprised if it was a LAX nature.\pBut, nah, that can’t be right."
+    08299E25  callstd              function=MSGBOX_NPC(2)
+    08299E27  end                  
+
+  object 4 (gfx 0xFA, flag 0x0000) -> 0x08299DC5
+  script 0x08299DC5  [ok]
+    08299DC5  msgbox_multilang     type=0 text_0="Hmm…\pIt appears that the nature of POKéMON\nand the moves that they have been\ptaught are the keys to battle here.\pTo be more precise, it’s how well\nthe moves match the nature of\pthe POKéMON.\pIf your POKéMON is in trouble and\nunable to live up to its potential,\pyou may need to examine how well\pits moves match its nature." text_1="Hmm…\pIt appears that the nature of POKéMON\nand the moves that they have been\ptaught are the keys to battle here.\pTo be more precise, it’s how well\nthe moves match the nature of\pthe POKéMON.\pIf your POKéMON is in trouble and\nunable to live up to its potential,\pyou may need to examine how well\pits moves match its nature." text_2="Hmm…\pIt appears that the nature of POKéMON\nand the moves that they have been\ptaught are the keys to battle here.\pTo be more precise, it’s how well\nthe moves match the nature of\pthe POKéMON.\pIf your POKéMON is in trouble and\nunable to live up to its potential,\pyou may need to examine how well\pits moves match its nature." text_3="Hmm…\pIt appears that the nature of POKéMON\nand the moves that they have been\ptaught are the keys to battle here.\pTo be more precise, it’s how well\nthe moves match the nature of\pthe POKéMON.\pIf your POKéMON is in trouble and\nunable to live up to its potential,\pyou may need to examine how well\pits moves match its nature." text_4="Hmm…\pIt appears that the nature of POKéMON\nand the moves that they have been\ptaught are the keys to battle here.\pTo be more precise, it’s how well\nthe moves match the nature of\pthe POKéMON.\pIf your POKéMON is in trouble and\nunable to live up to its potential,\pyou may need to examine how well\pits moves match its nature." text_5="Hmm…\pIt appears that the nature of POKéMON\nand the moves that they have been\ptaught are the keys to battle here.\pTo be more precise, it’s how well\nthe moves match the nature of\pthe POKéMON.\pIf your POKéMON is in trouble and\nunable to live up to its potential,\pyou may need to examine how well\pits moves match its nature." text_6="Hmm…\pIt appears that the nature of POKéMON\nand the moves that they have been\ptaught are the keys to battle here.\pTo be more precise, it’s how well\nthe moves match the nature of\pthe POKéMON.\pIf your POKéMON is in trouble and\nunable to live up to its potential,\pyou may need to examine how well\pits moves match its nature."
+    08299DE3  callstd              function=MSGBOX_NPC(2)
+    08299DE5  end                  
+
+  object 5 (gfx 0x2D, flag 0x0000) -> 0x08299DE6
+  script 0x08299DE6  [ok]
+    08299DE6  msgbox_multilang     type=0 text_0="My POKéMON is usually very docile.\pBut when it’s in a BATTLE HALL,\nit sometimes seems to become\ptransformed into something wicked!\pIt becomes totally intimidating.\nIt’s shocking, even." text_1="My POKéMON is usually very docile.\pBut when it’s in a BATTLE HALL,\nit sometimes seems to become\ptransformed into something wicked!\pIt becomes totally intimidating.\nIt’s shocking, even." text_2="My POKéMON is usually very docile.\pBut when it’s in a BATTLE HALL,\nit sometimes seems to become\ptransformed into something wicked!\pIt becomes totally intimidating.\nIt’s shocking, even." text_3="My POKéMON is usually very docile.\pBut when it’s in a BATTLE HALL,\nit sometimes seems to become\ptransformed into something wicked!\pIt becomes totally intimidating.\nIt’s shocking, even." text_4="My POKéMON is usually very docile.\pBut when it’s in a BATTLE HALL,\nit sometimes seems to become\ptransformed into something wicked!\pIt becomes totally intimidating.\nIt’s shocking, even." text_5="My POKéMON is usually very docile.\pBut when it’s in a BATTLE HALL,\nit sometimes seems to become\ptransformed into something wicked!\pIt becomes totally intimidating.\nIt’s shocking, even." text_6="My POKéMON is usually very docile.\pBut when it’s in a BATTLE HALL,\nit sometimes seems to become\ptransformed into something wicked!\pIt becomes totally intimidating.\nIt’s shocking, even."
+    08299E04  callstd              function=MSGBOX_NPC(2)
+    08299E06  end                  
+
+  object 6 (gfx 0x15, flag 0x0000) -> 0x08299936
+  script 0x08299936  [ok]
+    08299936  lock                 
+    08299937  faceplayer           
+    08299938  setvar               destination=VAR_0x40CF value=2
+    0829993D  setvar               destination=VAR_0x408C value=1
+    08299942  goto                 destination=0x08299948
+
+  sign 0 at (2,7) -> 0x08299D72
+  script 0x08299D72  [ok]
+    08299D72  lockall              
+    08299D73  setvar               destination=VAR_0x8004 value=7
+    08299D78  setvar               destination=VAR_0x8005 value=2
+    08299D7D  setvar               destination=VAR_0x8006 value=0
+    08299D82  special              SPECIAL_\function=148
+    08299D85  waitbuttonpress      
+    08299D86  special              SPECIAL_\function=342
+    08299D89  releaseall           
+
+  sign 1 at (16,7) -> 0x08299D8B
+  script 0x08299D8B  [ok]
+    08299D8B  lockall              
+    08299D8C  setvar               destination=VAR_0x8004 value=7
+    08299D91  setvar               destination=VAR_0x8005 value=2
+    08299D96  setvar               destination=VAR_0x8006 value=1
+    08299D9B  special              SPECIAL_\function=148
+    08299D9E  waitbuttonpress      
+    08299D9F  special              SPECIAL_\function=342
+    08299DA2  releaseall           
+
+  sign 2 at (10,4) -> 0x08299E28
+  script 0x08299E28  [ok]
+    08299E28  lockall              
+    08299E29  msgbox_multilang     type=0 text_0="The BATTLE HALL rules are listed." text_1="The BATTLE HALL rules are listed." text_2="The BATTLE HALL rules are listed." text_3="The BATTLE HALL rules are listed." text_4="The BATTLE HALL rules are listed." text_5="The BATTLE HALL rules are listed." text_6="The BATTLE HALL rules are listed."
+    08299E47  callstd              function=MSGBOX_DEFAULT(4)
+    08299E49  goto                 destination=0x08299E4F
+
+  script 0x08299E4F  [ok]
+    08299E4F  message              text="Which heading do you want to read?"
+    08299E54  lock                 
+    08299E55  addelevmenuitem      a=41 b=27144 c=10673 d=27144
+    08299E5D  addelevmenuitem      a=41 b=27144 c=10673 d=27144
+    08299E65  addelevmenuitem      a=41 b=27144 c=10673 d=26120
+    08299E6D  multichoice          x=16 y=0 multichoiceId=100 ignoreBPress=0
+    08299E72  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08299E77  compare_var_to_value var=0x8000 value=0
+    08299E7C  goto_if              condition=1 destination=0x08299EC5
+    08299E82  compare_var_to_value var=0x8000 value=1
+    08299E87  goto_if              condition=1 destination=0x08299EEB
+    08299E8D  compare_var_to_value var=0x8000 value=2
+    08299E92  goto_if              condition=1 destination=0x08299F11
+    08299E98  compare_var_to_value var=0x8000 value=3
+    08299E9D  goto_if              condition=1 destination=0x08299F37
+    08299EA3  compare_var_to_value var=0x8000 value=4
+    08299EA8  goto_if              condition=1 destination=0x08299F5D
+    08299EAE  compare_var_to_value var=0x8000 value=5
+    08299EB3  goto_if              condition=1 destination=0x08299F83
+    08299EB9  compare_var_to_value var=0x8000 value=127
+    08299EBE  goto_if              condition=1 destination=0x08299F83
+    08299EC4  end                  
+
+  script 0x08299EC5  [ok]
+    08299EC5  msgbox_multilang     type=0 text_0="Here, POKéMON are required to think\nand battle by themselves.\pUnlike in the wild, POKéMON that live\nwith people behave differently\pdepending on their nature." text_1="Here, POKéMON are required to think\nand battle by themselves.\pUnlike in the wild, POKéMON that live\nwith people behave differently\pdepending on their nature." text_2="Here, POKéMON are required to think\nand battle by themselves.\pUnlike in the wild, POKéMON that live\nwith people behave differently\pdepending on their nature." text_3="Here, POKéMON are required to think\nand battle by themselves.\pUnlike in the wild, POKéMON that live\nwith people behave differently\pdepending on their nature." text_4="Here, POKéMON are required to think\nand battle by themselves.\pUnlike in the wild, POKéMON that live\nwith people behave differently\pdepending on their nature." text_5="Here, POKéMON are required to think\nand battle by themselves.\pUnlike in the wild, POKéMON that live\nwith people behave differently\pdepending on their nature." text_6="Here, POKéMON are required to think\nand battle by themselves.\pUnlike in the wild, POKéMON that live\nwith people behave differently\pdepending on their nature."
+    08299EE3  callstd              function=MSGBOX_DEFAULT(4)
+    08299EE5  goto                 destination=0x08299E4F
+
+  script 0x08299EEB  [ok]
+    08299EEB  msgbox_multilang     type=0 text_0="Depending on its nature, a POKéMON\nmay prefer to attack no matter what.\pAnother POKéMON may prefer to protect\nitself from any harm.\pYet another may enjoy vexing or\nconfounding its foes.\pDue to its nature, a POKéMON\nwill have favorite moves that it is good\pat using.\pIt may also dislike certain moves that\nit has trouble using." text_1="Depending on its nature, a POKéMON\nmay prefer to attack no matter what.\pAnother POKéMON may prefer to protect\nitself from any harm.\pYet another may enjoy vexing or\nconfounding its foes.\pDue to its nature, a POKéMON\nwill have favorite moves that it is good\pat using.\pIt may also dislike certain moves that\nit has trouble using." text_2="Depending on its nature, a POKéMON\nmay prefer to attack no matter what.\pAnother POKéMON may prefer to protect\nitself from any harm.\pYet another may enjoy vexing or\nconfounding its foes.\pDue to its nature, a POKéMON\nwill have favorite moves that it is good\pat using.\pIt may also dislike certain moves that\nit has trouble using." text_3="Depending on its nature, a POKéMON\nmay prefer to attack no matter what.\pAnother POKéMON may prefer to protect\nitself from any harm.\pYet another may enjoy vexing or\nconfounding its foes.\pDue to its nature, a POKéMON\nwill have favorite moves that it is good\pat using.\pIt may also dislike certain moves that\nit has trouble using." text_4="Depending on its nature, a POKéMON\nmay prefer to attack no matter what.\pAnother POKéMON may prefer to protect\nitself from any harm.\pYet another may enjoy vexing or\nconfounding its foes.\pDue to its nature, a POKéMON\nwill have favorite moves that it is good\pat using.\pIt may also dislike certain moves that\nit has trouble using." text_5="Depending on its nature, a POKéMON\nmay prefer to attack no matter what.\pAnother POKéMON may prefer to protect\nitself from any harm.\pYet another may enjoy vexing or\nconfounding its foes.\pDue to its nature, a POKéMON\nwill have favorite moves that it is good\pat using.\pIt may also dislike certain moves that\nit has trouble using." text_6="Depending on its nature, a POKéMON\nmay prefer to attack no matter what.\pAnother POKéMON may prefer to protect\nitself from any harm.\pYet another may enjoy vexing or\nconfounding its foes.\pDue to its nature, a POKéMON\nwill have favorite moves that it is good\pat using.\pIt may also dislike certain moves that\nit has trouble using."
+    08299F09  callstd              function=MSGBOX_DEFAULT(4)
+    08299F0B  goto                 destination=0x08299E4F
+
+  script 0x08299F11  [ok]
+    08299F11  msgbox_multilang     type=0 text_0="There are offensive moves that inflict\ndirect damage on the foe.\pThere are defensive moves that are\nused to prepare for enemy attacks or\pused to heal HP and so on.\pThere are also other somewhat-odd\nmoves that may enfeeble the foes with\pstat problems including poison and \pparalysis.\pPOKéMON will consider using moves in\nthese three categories." text_1="There are offensive moves that inflict\ndirect damage on the foe.\pThere are defensive moves that are\nused to prepare for enemy attacks or\pused to heal HP and so on.\pThere are also other somewhat-odd\nmoves that may enfeeble the foes with\pstat problems including poison and \pparalysis.\pPOKéMON will consider using moves in\nthese three categories." text_2="There are offensive moves that inflict\ndirect damage on the foe.\pThere are defensive moves that are\nused to prepare for enemy attacks or\pused to heal HP and so on.\pThere are also other somewhat-odd\nmoves that may enfeeble the foes with\pstat problems including poison and \pparalysis.\pPOKéMON will consider using moves in\nthese three categories." text_3="There are offensive moves that inflict\ndirect damage on the foe.\pThere are defensive moves that are\nused to prepare for enemy attacks or\pused to heal HP and so on.\pThere are also other somewhat-odd\nmoves that may enfeeble the foes with\pstat problems including poison and \pparalysis.\pPOKéMON will consider using moves in\nthese three categories." text_4="There are offensive moves that inflict\ndirect damage on the foe.\pThere are defensive moves that are\nused to prepare for enemy attacks or\pused to heal HP and so on.\pThere are also other somewhat-odd\nmoves that may enfeeble the foes with\pstat problems including poison and \pparalysis.\pPOKéMON will consider using moves in\nthese three categories." text_5="There are offensive moves that inflict\ndirect damage on the foe.\pThere are defensive moves that are\nused to prepare for enemy attacks or\pused to heal HP and so on.\pThere are also other somewhat-odd\nmoves that may enfeeble the foes with\pstat problems including poison and \pparalysis.\pPOKéMON will consider using moves in\nthese three categories." text_6="There are offensive moves that inflict\ndirect damage on the foe.\pThere are defensive moves that are\nused to prepare for enemy attacks or\pused to heal HP and so on.\pThere are also other somewhat-odd\nmoves that may enfeeble the foes with\pstat problems including poison and \pparalysis.\pPOKéMON will consider using moves in\nthese three categories."
+    08299F2F  callstd              function=MSGBOX_DEFAULT(4)
+    08299F31  goto                 destination=0x08299E4F
+
+  script 0x08299F37  [ok]
+    08299F37  msgbox_multilang     type=0 text_0="When not under command by its TRAINER,\na POKéMON may be unable to effectively\puse certain moves.\pA POKéMON is not good at using any\nmove that it dislikes.\pIf a POKéMON only knows moves that\ndo not match its nature, it will often\pbe unable to live up to its potential." text_1="When not under command by its TRAINER,\na POKéMON may be unable to effectively\puse certain moves.\pA POKéMON is not good at using any\nmove that it dislikes.\pIf a POKéMON only knows moves that\ndo not match its nature, it will often\pbe unable to live up to its potential." text_2="When not under command by its TRAINER,\na POKéMON may be unable to effectively\puse certain moves.\pA POKéMON is not good at using any\nmove that it dislikes.\pIf a POKéMON only knows moves that\ndo not match its nature, it will often\pbe unable to live up to its potential." text_3="When not under command by its TRAINER,\na POKéMON may be unable to effectively\puse certain moves.\pA POKéMON is not good at using any\nmove that it dislikes.\pIf a POKéMON only knows moves that\ndo not match its nature, it will often\pbe unable to live up to its potential." text_4="When not under command by its TRAINER,\na POKéMON may be unable to effectively\puse certain moves.\pA POKéMON is not good at using any\nmove that it dislikes.\pIf a POKéMON only knows moves that\ndo not match its nature, it will often\pbe unable to live up to its potential." text_5="When not under command by its TRAINER,\na POKéMON may be unable to effectively\puse certain moves.\pA POKéMON is not good at using any\nmove that it dislikes.\pIf a POKéMON only knows moves that\ndo not match its nature, it will often\pbe unable to live up to its potential." text_6="When not under command by its TRAINER,\na POKéMON may be unable to effectively\puse certain moves.\pA POKéMON is not good at using any\nmove that it dislikes.\pIf a POKéMON only knows moves that\ndo not match its nature, it will often\pbe unable to live up to its potential."
+    08299F55  callstd              function=MSGBOX_DEFAULT(4)
+    08299F57  goto                 destination=0x08299E4F
+
+  script 0x08299F5D  [ok]
+    08299F5D  msgbox_multilang     type=0 text_0="Depending on its nature, a POKéMON may\nstart using moves that don’t match its\pnature when it is in trouble.\pIf a POKéMON begins behaving oddly\nin a pinch, watch it carefully." text_1="Depending on its nature, a POKéMON may\nstart using moves that don’t match its\pnature when it is in trouble.\pIf a POKéMON begins behaving oddly\nin a pinch, watch it carefully." text_2="Depending on its nature, a POKéMON may\nstart using moves that don’t match its\pnature when it is in trouble.\pIf a POKéMON begins behaving oddly\nin a pinch, watch it carefully." text_3="Depending on its nature, a POKéMON may\nstart using moves that don’t match its\pnature when it is in trouble.\pIf a POKéMON begins behaving oddly\nin a pinch, watch it carefully." text_4="Depending on its nature, a POKéMON may\nstart using moves that don’t match its\pnature when it is in trouble.\pIf a POKéMON begins behaving oddly\nin a pinch, watch it carefully." text_5="Depending on its nature, a POKéMON may\nstart using moves that don’t match its\pnature when it is in trouble.\pIf a POKéMON begins behaving oddly\nin a pinch, watch it carefully." text_6="Depending on its nature, a POKéMON may\nstart using moves that don’t match its\pnature when it is in trouble.\pIf a POKéMON begins behaving oddly\nin a pinch, watch it carefully."
+    08299F7B  callstd              function=MSGBOX_DEFAULT(4)
+    08299F7D  goto                 destination=0x08299E4F
+
+  script 0x08299F83  [ok]
+    08299F83  releaseall           
+
+  map script type 2 (var 0x4000 == 0) -> 0x08299682
+  script 0x08299682  [ok]
+    08299682  setvar               destination=VAR_0x8004 value=0
+    08299687  special              SPECIAL_\function=148
+    0829968A  end                  
+
+  map script type 2 (var 0x4000 == 1) -> 0x0829968B
+  script 0x0829968B  [ok]
+    0829968B  lockall              
+    0829968C  msgbox_multilang     type=0 text_0="Sigh…\pYou failed to save before you ended\nyour challenge the last time.\pAs a result, your challenge has been\ndisqualified. It is most unfortunate." text_1="Sigh…\pYou failed to save before you ended\nyour challenge the last time.\pAs a result, your challenge has been\ndisqualified. It is most unfortunate." text_2="Sigh…\pYou failed to save before you ended\nyour challenge the last time.\pAs a result, your challenge has been\ndisqualified. It is most unfortunate." text_3="Sigh…\pYou failed to save before you ended\nyour challenge the last time.\pAs a result, your challenge has been\ndisqualified. It is most unfortunate." text_4="Sigh…\pYou failed to save before you ended\nyour challenge the last time.\pAs a result, your challenge has been\ndisqualified. It is most unfortunate." text_5="Sigh…\pYou failed to save before you ended\nyour challenge the last time.\pAs a result, your challenge has been\ndisqualified. It is most unfortunate." text_6="Sigh…\pYou failed to save before you ended\nyour challenge the last time.\pAs a result, your challenge has been\ndisqualified. It is most unfortunate."
+    082996AA  callstd              function=MSGBOX_DEFAULT(4)
+    082996AC  closemessage         
+    082996AD  setvar               destination=VAR_0x8004 value=2
+    082996B2  setvar               destination=VAR_0x8005 value=1
+    082996B7  setvar               destination=VAR_0x8006 value=0
+    082996BC  special              SPECIAL_\function=151
+    082996BF  setvar               destination=VAR_0x8004 value=2
+    082996C4  setvar               destination=VAR_0x8005 value=2
+    082996C9  setvar               destination=VAR_0x8006 value=0
+    082996CE  special              SPECIAL_\function=151
+    082996D1  setvar               destination=VAR_0x8004 value=2
+    082996D6  setvar               destination=VAR_0x8005 value=0
+    082996DB  setvar               destination=VAR_0x8006 value=0
+    082996E0  special              SPECIAL_\function=148
+    082996E3  setvar               destination=VAR_0x4000 value=255
+    082996E8  releaseall           
+
+  map script type 2 (var 0x4000 == 2) -> 0x082998B8
+  script 0x082998B8  [ok]
+    082998B8  lockall              
+    082998B9  msgbox_multilang     type=0 text_0="We have been waiting for you…" text_1="We have been waiting for you…" text_2="We have been waiting for you…" text_3="We have been waiting for you…" text_4="We have been waiting for you…" text_5="We have been waiting for you…" text_6="We have been waiting for you…"
+    082998D7  callstd              function=MSGBOX_DEFAULT(4)
+    082998D9  message              text="I must save before I show you to\nthe BATTLE HALL. Is that okay?"
+    082998DE  selectapproachingtrainer 
+    082998DF  setmaplayoutindex    index=2089
+    082998E2  selectapproachingtrainer 
+    082998E3  setmaplayoutindex    index=2089
+    082998E6  selectapproachingtrainer 
+    082998E7  setmaplayoutindex    index=2089
+    082998EA  selectapproachingtrainer 
+    082998EB  setmaplayoutindex    index=2089
+    082998EE  selectapproachingtrainer 
+    082998EF  setmaplayoutindex    index=2089
+    082998F2  selectapproachingtrainer 
+    082998F3  setmaplayoutindex    index=2089
+    082998F6  waitmessage          
+    082998F7  setvar               destination=VAR_0x8004 value=7
+    082998FC  setvar               destination=VAR_0x8005 value=1
+    08299901  special              SPECIAL_\function=151
+    08299904  playse               song=55
+    08299907  waitse               
+    08299908  setvar               destination=VAR_0x8004 value=2
+    0829990D  setvar               destination=VAR_0x8005 value=3
+    08299912  setvar               destination=VAR_0x8006 value=0
+    08299917  special              SPECIAL_\function=148
+    0829991A  setvar               destination=VAR_0x4000 value=255
+    0829991F  goto                 destination=0x08299B20
+
+  script 0x08299B20  [ok]
+    08299B20  special              SPECIAL_\function=18
+    08299B23  setvar               destination=VAR_0x8004 value=3
+    08299B28  setvar               destination=VAR_0x8005 value=3
+    08299B2D  special              SPECIAL_\function=148
+    08299B30  msgbox_multilang     type=0 text_0="Good.\nNow, follow me." text_1="Good.\nNow, follow me." text_2="Good.\nNow, follow me." text_3="Good.\nNow, follow me." text_4="Good.\nNow, follow me." text_5="Good.\nNow, follow me." text_6="Good.\nNow, follow me."
+    08299B4E  callstd              function=MSGBOX_DEFAULT(4)
+    08299B50  closemessage         
+    08299B51  call                 destination=0x08299CDE
+    08299B56  warp                 mapGroup=41 mapNum=14 WARP_ID_NONE=255 -1=8 -1=13
+    08299B5E  setvar               destination=VAR_0x4000 value=0
+    08299B63  waitstate            
+
+  script 0x08299CDE  [ok]
+    08299CDE  compare_var_to_value var=0x408C value=0
+    08299CE3  call_if              condition=1 destination=0x08299D45
+    08299CE9  compare_var_to_value var=0x408C value=1
+    08299CEE  call_if              condition=1 destination=0x08299D4B
+    08299CF4  applymovement        localId=32783 movements=[walk_up]
+    08299CFB  applymovement        localId=255 movements=[walk_up]
+    08299D02  waitmovement         localId=0
+    08299D05  compare_var_to_value var=0x408C value=0
+    08299D0A  call_if              condition=1 destination=0x08299D51
+    08299D10  compare_var_to_value var=0x408C value=1
+    08299D15  call_if              condition=1 destination=0x08299D57
+    08299D1B  waitdooranim         
+    08299D1C  applymovement        localId=32783 movements=[walk_up set_invisible]
+    08299D23  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08299D2A  waitmovement         localId=0
+    08299D2D  compare_var_to_value var=0x408C value=0
+    08299D32  call_if              condition=1 destination=0x08299D5D
+    08299D38  compare_var_to_value var=0x408C value=1
+    08299D3D  call_if              condition=1 destination=0x08299D63
+    08299D43  waitdooranim         
+    08299D44  return               
+
+  script 0x08299D45  [ok]
+    08299D45  setvar               destination=VAR_0x800F value=1
+    08299D4A  return               
+
+  script 0x08299D4B  [ok]
+    08299D4B  setvar               destination=VAR_0x800F value=6
+    08299D50  return               
+
+  map script type 2 (var 0x4000 == 3) -> 0x082996EA
+  map script type 2 (var 0x4000 == 4) -> 0x082997D6
+  script 0x082997D6  [ok]
+    082997D6  lockall              
+    082997D7  message              text="I feel privileged for having seen\nyour POKéMON’s exploits.\pThe results will be recorded.\nI must ask you to briefly wait."
+    082997DC  checkitemtype        itemId=10662
+    082997DF  gotostd              function=72
+    082997E1  setstepcallback      stepCbId=41
+    082997E3  gotostd              function=72
+    082997E5  setstepcallback      stepCbId=41
+    082997E7  gotostd              function=72
+    082997E9  setstepcallback      stepCbId=41
+    082997EB  gotostd              function=72
+    082997ED  setstepcallback      stepCbId=41
+    082997EF  gotostd              function=72
+    082997F1  setstepcallback      stepCbId=41
+    082997F3  gotostd              function=102
+    082997F5  setvar               destination=VAR_0x8004 value=2
+    082997FA  setvar               destination=VAR_0x8005 value=2
+    082997FF  setvar               destination=VAR_0x8006 value=0
+    08299804  special              SPECIAL_\function=151
+    08299807  call                 destination=0x08299834
+    0829980C  msgbox_multilang     type=0 text_0="When you have fortified your heart\nand POKéMON, you must return." text_1="When you have fortified your heart\nand POKéMON, you must return." text_2="When you have fortified your heart\nand POKéMON, you must return." text_3="When you have fortified your heart\nand POKéMON, you must return." text_4="When you have fortified your heart\nand POKéMON, you must return." text_5="When you have fortified your heart\nand POKéMON, you must return." text_6="When you have fortified your heart\nand POKéMON, you must return."
+    0829982A  callstd              function=MSGBOX_DEFAULT(4)
+    0829982C  closemessage         
+    0829982D  setvar               destination=VAR_0x4000 value=255
+    08299832  releaseall           
+
+  map script type 4 (var 0x4001 == 0) -> 0x0829964E
+  script 0x0829964E  [ok]
+    0829964E  setvar               destination=VAR_0x4001 value=1
+    08299653  turnobject           localId=255 direction=2
+    08299657  end                  
+

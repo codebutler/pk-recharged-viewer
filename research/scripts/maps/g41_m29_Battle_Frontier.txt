@@ -1,0 +1,34 @@
+Battle Frontier  (group 41, map 29)  header 0x08B3E3DC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1C, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x082AC993
+  script 0x082AC993  [ok]
+    082AC993  delay                frames=16
+    082AC996  applymovement        localId=1 movements=[walk_down walk_down]
+    082AC99D  waitmovement         localId=0
+    082AC9A0  setvar               destination=VAR_0x8004 value=2
+    082AC9A5  setvar               destination=VAR_0x8005 value=0
+    082AC9AA  setvar               destination=VAR_0x8006 value=3
+    082AC9AF  special              SPECIAL_\function=148
+    082AC9B2  lockall              
+    082AC9B3  msgbox_multilang     type=0 text_0="Congratulations…\nNow, this way, please…" text_1="Congratulations…\nNow, this way, please…" text_2="Congratulations…\nNow, this way, please…" text_3="Congratulations…\nNow, this way, please…" text_4="Congratulations…\nNow, this way, please…" text_5="Congratulations…\nNow, this way, please…" text_6="Congratulations…\nNow, this way, please…"
+    082AC9D1  callstd              function=MSGBOX_DEFAULT(4)
+    082AC9D3  closemessage         
+    082AC9D4  releaseall           
+
+  map script type 4 (var 0x4004 == 0) -> 0x082AC9EC
+  script 0x082AC9EC  [ok]
+    082AC9EC  setvar               destination=VAR_0x4004 value=1
+    082AC9F1  turnobject           localId=255 direction=2
+    082AC9F5  end                  
+

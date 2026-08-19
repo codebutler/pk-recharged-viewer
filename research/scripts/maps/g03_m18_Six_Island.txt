@@ -1,0 +1,37 @@
+Six Island  (group 3, map 18)  header 0x08B3C8BC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xEF, flag 0x0000) -> 0x08231107
+  script 0x08231107  [ok]
+    08231107  msgbox_multilang     type=0 text_0="When you’re this far away from the\ncity, the sky at night is fantastic." text_1="When you’re this far away from the\ncity, the sky at night is fantastic." text_2="When you’re this far away from the\ncity, the sky at night is fantastic." text_3="When you’re this far away from the\ncity, the sky at night is fantastic." text_4="When you’re this far away from the\ncity, the sky at night is fantastic." text_5="When you’re this far away from the\ncity, the sky at night is fantastic." text_6="When you’re this far away from the\ncity, the sky at night is fantastic."
+    08231125  callstd              function=MSGBOX_NPC(2)
+    08231127  end                  
+
+  object 2 (gfx 0x37, flag 0x0000) -> 0x082310E6
+  script 0x082310E6  [ok]
+    082310E6  msgbox_multilang     type=0 text_0="Keep going this way and you’ll get to\nthe Water Path.\pStay on that and you’ll get to the\nRuin Valley." text_1="Keep going this way and you’ll get to\nthe Water Path.\pStay on that and you’ll get to the\nRuin Valley." text_2="Keep going this way and you’ll get to\nthe Water Path.\pStay on that and you’ll get to the\nRuin Valley." text_3="Keep going this way and you’ll get to\nthe Water Path.\pStay on that and you’ll get to the\nRuin Valley." text_4="Keep going this way and you’ll get to\nthe Water Path.\pStay on that and you’ll get to the\nRuin Valley." text_5="Keep going this way and you’ll get to\nthe Water Path.\pStay on that and you’ll get to the\nRuin Valley." text_6="Keep going this way and you’ll get to\nthe Water Path.\pStay on that and you’ll get to the\nRuin Valley."
+    08231104  callstd              function=MSGBOX_NPC(2)
+    08231106  end                  
+
+  sign 0 at (9,17) -> 0x08231128
+  script 0x08231128  [ok]
+    08231128  msgbox_multilang     type=0 text_0="Six Island\nFortune Island of Aged Wisdom" text_1="Six Island\nFortune Island of Aged Wisdom" text_2="Six Island\nFortune Island of Aged Wisdom" text_3="Six Island\nFortune Island of Aged Wisdom" text_4="Six Island\nFortune Island of Aged Wisdom" text_5="Six Island\nFortune Island of Aged Wisdom" text_6="Six Island\nFortune Island of Aged Wisdom"
+    08231146  callstd              function=MSGBOX_SIGN(3)
+    08231148  end                  
+
+  hidden item at (9,7): Leppa Berry
+
+  map script type 3 -> 0x082310E2
+  script 0x082310E2  [ok]
+    082310E2  setworldmapflag      flag=0x901
+    082310E5  return               
+

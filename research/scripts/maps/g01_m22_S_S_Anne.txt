@@ -1,0 +1,24 @@
+S.S. Anne  (group 1, map 22)  header 0x08B3B480
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x30, flag 0x0000) -> 0x0820C302
+  script 0x0820C302  [ok]
+    0820C302  msgbox_multilang     type=0 text_0="Have you gone to the Safari Zone in\nFuchsia City?\pThere are many kinds of rare Pokémon." text_1="Have you gone to the Safari Zone in\nFuchsia City?\pThere are many kinds of rare Pokémon." text_2="Have you gone to the Safari Zone in\nFuchsia City?\pThere are many kinds of rare Pokémon." text_3="Have you gone to the Safari Zone in\nFuchsia City?\pThere are many kinds of rare Pokémon." text_4="Have you gone to the Safari Zone in\nFuchsia City?\pThere are many kinds of rare Pokémon." text_5="Have you gone to the Safari Zone in\nFuchsia City?\pThere are many kinds of rare Pokémon." text_6="Have you gone to the Safari Zone in\nFuchsia City?\pThere are many kinds of rare Pokémon."
+    0820C320  callstd              function=MSGBOX_NPC(2)
+    0820C322  end                  
+
+  object 2 (gfx 0x0B, flag 0x0000) -> 0x0820C323
+  script 0x0820C323  [ok]
+    0820C323  msgbox_multilang     type=0 text_0="Me and my daddy think the Safari\nZone is awesome!\pI wish we could go there again." text_1="Me and my daddy think the Safari\nZone is awesome!\pI wish we could go there again." text_2="Me and my daddy think the Safari\nZone is awesome!\pI wish we could go there again." text_3="Me and my daddy think the Safari\nZone is awesome!\pI wish we could go there again." text_4="Me and my daddy think the Safari\nZone is awesome!\pI wish we could go there again." text_5="Me and my daddy think the Safari\nZone is awesome!\pI wish we could go there again." text_6="Me and my daddy think the Safari\nZone is awesome!\pI wish we could go there again."
+    0820C341  callstd              function=MSGBOX_NPC(2)
+    0820C343  end                  
+

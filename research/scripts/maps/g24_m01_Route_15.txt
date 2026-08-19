@@ -1,0 +1,80 @@
+Route 15  (group 24, map 1)  header 0x08B3DA58
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x082796B6
+  script 0x082796B6  [unknown-opcode:0xE9]
+    082796B6  lock                 
+    082796B7  faceplayer           
+    082796B8  call                 destination=0x082797A6
+    082796BD  checkflag            flag=0x256
+    082796C0  goto_if              condition=1 destination=0x08279784
+    082796C6  msgbox_multilang     type=0 text_0="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_1="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_2="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_3="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_4="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_5="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_6="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?"
+    082796E4  callstd              function=MSGBOX_YESNO(5)
+    082796E6  compare_var_to_value var=0x800D value=0
+    082796EB  goto_if              condition=1 destination=0x081FF771
+    082796F1  setvar               destination=VAR_0x8004 value=0
+    082796F6  specialvar           output=32781 SPECIAL_\function=133
+    082796FB  buffernumberstring   stringVarId=2 input=32774
+    082796FF  call                 destination=0x082797A6
+    08279704  compare_var_to_value var=0x8006 value=50
+    08279709  goto_if              condition=0 destination=0x081FF72D
+    0827970F  msgbox_multilang     type=0 text_0="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_1="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_2="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_3="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_4="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_5="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_6="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!"
+    0827972D  callstd              function=MSGBOX_DEFAULT(4)
+    0827972F  checkitemspace       itemId=Exp. Share(348) quantity=1
+    08279734  compare_var_to_value var=0x800D value=0
+    08279739  goto_if              condition=1 destination=0x081FF74F
+    0827973F  additem              itemId=Exp. Share(348) quantity=1
+
+  script 0x082797A6  [ok]
+    082797A6  buffernumberstring   stringVarId=0 input=50
+    082797AA  bufferitemname       stringVarId=1 item=348
+    082797AE  return               
+
+  script 0x08279784  [ok]
+    08279784  msgbox_multilang     type=0 text_0="Pokémon will receive a share of the\nExp. Points without having to\pbattle.\pThis Exp. Share is special and very\nunique.\pInstead of giving it to a Pokémon you\ncan turn it ON/OFF from your Key\pItems Pocket.\pAnd don’t worry, it also works with\nother types of Exp. Shares, they\peven get extra experience." text_1="Pokémon will receive a share of the\nExp. Points without having to\pbattle.\pThis Exp. Share is special and very\nunique.\pInstead of giving it to a Pokémon you\ncan turn it ON/OFF from your Key\pItems Pocket.\pAnd don’t worry, it also works with\nother types of Exp. Shares, they\peven get extra experience." text_2="Pokémon will receive a share of the\nExp. Points without having to\pbattle.\pThis Exp. Share is special and very\nunique.\pInstead of giving it to a Pokémon you\ncan turn it ON/OFF from your Key\pItems Pocket.\pAnd don’t worry, it also works with\nother types of Exp. Shares, they\peven get extra experience." text_3="Pokémon will receive a share of the\nExp. Points without having to\pbattle.\pThis Exp. Share is special and very\nunique.\pInstead of giving it to a Pokémon you\ncan turn it ON/OFF from your Key\pItems Pocket.\pAnd don’t worry, it also works with\nother types of Exp. Shares, they\peven get extra experience." text_4="Pokémon will receive a share of the\nExp. Points without having to\pbattle.\pThis Exp. Share is special and very\nunique.\pInstead of giving it to a Pokémon you\ncan turn it ON/OFF from your Key\pItems Pocket.\pAnd don’t worry, it also works with\nother types of Exp. Shares, they\peven get extra experience." text_5="Pokémon will receive a share of the\nExp. Points without having to\pbattle.\pThis Exp. Share is special and very\nunique.\pInstead of giving it to a Pokémon you\ncan turn it ON/OFF from your Key\pItems Pocket.\pAnd don’t worry, it also works with\nother types of Exp. Shares, they\peven get extra experience." text_6="Pokémon will receive a share of the\nExp. Points without having to\pbattle.\pThis Exp. Share is special and very\nunique.\pInstead of giving it to a Pokémon you\ncan turn it ON/OFF from your Key\pItems Pocket.\pAnd don’t worry, it also works with\nother types of Exp. Shares, they\peven get extra experience."
+    082797A2  callstd              function=MSGBOX_DEFAULT(4)
+    082797A4  release              
+
+  script 0x081FF771  [ok]
+    081FF771  msgbox_multilang     type=0 text_0="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_1="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_2="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_3="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_4="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_5="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_6="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}."
+    081FF78F  callstd              function=MSGBOX_DEFAULT(4)
+    081FF791  release              
+
+  script 0x081FF72D  [ok]
+    081FF72D  msgbox_multilang     type=0 text_0="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_1="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_2="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_3="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_4="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_5="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_6="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}."
+    081FF74B  callstd              function=MSGBOX_DEFAULT(4)
+    081FF74D  release              
+
+  script 0x081FF74F  [ok]
+    081FF74F  msgbox_multilang     type=0 text_0="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_1="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_2="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_3="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_4="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_5="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_6="Oh! I see you don’t have any\nroom for the {STR_VAR_2}."
+    081FF76D  callstd              function=MSGBOX_DEFAULT(4)
+    081FF76F  release              
+
+  sign 0 at (4,1) -> 0x08279660
+  script 0x08279660  [ok]
+    08279660  lockall              
+    08279661  msgbox_multilang     type=0 text_0="Let’s see what the binoculars have\nto show…\pA large, shining bird is flying\ntoward the sea." text_1="Let’s see what the binoculars have\nto show…\pA large, shining bird is flying\ntoward the sea." text_2="Let’s see what the binoculars have\nto show…\pA large, shining bird is flying\ntoward the sea." text_3="Let’s see what the binoculars have\nto show…\pA large, shining bird is flying\ntoward the sea." text_4="Let’s see what the binoculars have\nto show…\pA large, shining bird is flying\ntoward the sea." text_5="Let’s see what the binoculars have\nto show…\pA large, shining bird is flying\ntoward the sea." text_6="Let’s see what the binoculars have\nto show…\pA large, shining bird is flying\ntoward the sea."
+    0827967F  callstd              function=MSGBOX_DEFAULT(4)
+    08279681  showmonpic           species=ARTICUNO(144) x=10 y=3
+    08279686  delay                frames=20
+    08279689  waitbuttonpress      
+    0827968A  hidemonpic           
+    0827968B  setvar               destination=VAR_0x8004 value=144
+    08279690  special              SPECIAL_\function=364
+    08279693  releaseall           
+
+  sign 1 at (8,1) -> 0x08279695
+  script 0x08279695  [ok]
+    08279695  msgbox_multilang     type=0 text_0="Let’s see what the binoculars have\nto show…\pIt looks like a small island on\nthe horizon!" text_1="Let’s see what the binoculars have\nto show…\pIt looks like a small island on\nthe horizon!" text_2="Let’s see what the binoculars have\nto show…\pIt looks like a small island on\nthe horizon!" text_3="Let’s see what the binoculars have\nto show…\pIt looks like a small island on\nthe horizon!" text_4="Let’s see what the binoculars have\nto show…\pIt looks like a small island on\nthe horizon!" text_5="Let’s see what the binoculars have\nto show…\pIt looks like a small island on\nthe horizon!" text_6="Let’s see what the binoculars have\nto show…\pIt looks like a small island on\nthe horizon!"
+    082796B3  callstd              function=MSGBOX_SIGN(3)
+    082796B5  end                  
+

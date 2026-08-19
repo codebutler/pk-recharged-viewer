@@ -1,0 +1,390 @@
+Battle Frontier  (group 41, map 0)  header 0x08B3E0B0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xEF, flag 0x0000) -> 0x082878B0
+  script 0x082878B0  [ok]
+    082878B0  msgbox_multilang     type=0 text_0="I’m the best out of all my friends.\nBut here…\pI’ve been useless!" text_1="I’m the best out of all my friends.\nBut here…\pI’ve been useless!" text_2="I’m the best out of all my friends.\nBut here…\pI’ve been useless!" text_3="I’m the best out of all my friends.\nBut here…\pI’ve been useless!" text_4="I’m the best out of all my friends.\nBut here…\pI’ve been useless!" text_5="I’m the best out of all my friends.\nBut here…\pI’ve been useless!" text_6="I’m the best out of all my friends.\nBut here…\pI’ve been useless!"
+    082878CE  callstd              function=MSGBOX_NPC(2)
+    082878D0  end                  
+
+  object 2 (gfx 0x8C, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x2D, flag 0x0000) -> 0x08287683
+  script 0x08287683  [ok]
+    08287683  lock                 
+    08287684  faceplayer           
+    08287685  msgbox_multilang     type=0 text_0="Hello, are you here for the ferry?\nMay I see your TICKET?" text_1="Hello, are you here for the ferry?\nMay I see your TICKET?" text_2="Hello, are you here for the ferry?\nMay I see your TICKET?" text_3="Hello, are you here for the ferry?\nMay I see your TICKET?" text_4="Hello, are you here for the ferry?\nMay I see your TICKET?" text_5="Hello, are you here for the ferry?\nMay I see your TICKET?" text_6="Hello, are you here for the ferry?\nMay I see your TICKET?"
+    082876A3  callstd              function=MSGBOX_DEFAULT(4)
+    082876A5  checkitem            itemId=S.S. Ticket(265) quantity=1
+    082876AA  compare_var_to_value var=0x800D value=0
+    082876AF  goto_if              condition=1 destination=0x08287711
+    082876B5  message              text="{PLAYER} flashed the TICKET.\pPerfect! That’s all you need!\pAnd where would you like to go?"
+    082876BA  dotrainerbattle      
+    082876BB  bufferleadmonspeciesname stringVarId=40
+    082876BD  gotostd              function=93
+    082876BF  bufferleadmonspeciesname stringVarId=40
+    082876C1  gotostd              function=93
+    082876C3  bufferleadmonspeciesname stringVarId=40
+    082876C5  gotostd              function=93
+    082876C7  bufferleadmonspeciesname stringVarId=40
+    082876C9  gotostd              function=93
+    082876CB  bufferleadmonspeciesname stringVarId=40
+    082876CD  gotostd              function=93
+    082876CF  bufferleadmonspeciesname stringVarId=40
+    082876D1  gotostd              function=102
+    082876D3  goto                 destination=0x082876D9
+
+  script 0x08287711  [ok]
+    08287711  msgbox_multilang     type=0 text_0="{PLAYER} doesn’t have the TICKET…\pI’m terribly sorry.\pYou must have a TICKET to board\nthe ferry." text_1="{PLAYER} doesn’t have the TICKET…\pI’m terribly sorry.\pYou must have a TICKET to board\nthe ferry." text_2="{PLAYER} doesn’t have the TICKET…\pI’m terribly sorry.\pYou must have a TICKET to board\nthe ferry." text_3="{PLAYER} doesn’t have the TICKET…\pI’m terribly sorry.\pYou must have a TICKET to board\nthe ferry." text_4="{PLAYER} doesn’t have the TICKET…\pI’m terribly sorry.\pYou must have a TICKET to board\nthe ferry." text_5="{PLAYER} doesn’t have the TICKET…\pI’m terribly sorry.\pYou must have a TICKET to board\nthe ferry." text_6="{PLAYER} doesn’t have the TICKET…\pI’m terribly sorry.\pYou must have a TICKET to board\nthe ferry."
+    0828772F  callstd              function=MSGBOX_DEFAULT(4)
+    08287731  release              
+
+  script 0x082876D9  [ok]
+    082876D9  multichoicedefault   x=18 y=6 multichoiceId=70 default=2 ignoreBPress=0
+    082876DF  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082876E4  compare_var_to_value var=0x8000 value=0
+    082876E9  goto_if              condition=1 destination=0x08287733
+    082876EF  compare_var_to_value var=0x8000 value=1
+    082876F4  goto_if              condition=1 destination=0x0828778E
+    082876FA  compare_var_to_value var=0x8000 value=2
+    082876FF  goto_if              condition=1 destination=0x0828782B
+    08287705  compare_var_to_value var=0x8000 value=127
+    0828770A  goto_if              condition=1 destination=0x0828782B
+    08287710  end                  
+
+  script 0x08287733  [ok]
+    08287733  msgbox_multilang     type=0 text_0="SLATEPORT CITY it is, then!" text_1="SLATEPORT CITY it is, then!" text_2="SLATEPORT CITY it is, then!" text_3="SLATEPORT CITY it is, then!" text_4="SLATEPORT CITY it is, then!" text_5="SLATEPORT CITY it is, then!" text_6="SLATEPORT CITY it is, then!"
+    08287751  callstd              function=MSGBOX_YESNO(5)
+    08287753  compare_var_to_value var=0x800D value=0
+    08287758  goto_if              condition=1 destination=0x082877E9
+    0828775E  msgbox_multilang     type=0 text_0="Please board the ferry and wait for\ndeparture." text_1="Please board the ferry and wait for\ndeparture." text_2="Please board the ferry and wait for\ndeparture." text_3="Please board the ferry and wait for\ndeparture." text_4="Please board the ferry and wait for\ndeparture." text_5="Please board the ferry and wait for\ndeparture." text_6="Please board the ferry and wait for\ndeparture."
+    0828777C  callstd              function=MSGBOX_DEFAULT(4)
+    0828777E  call                 destination=0x0828780D
+    08287783  warp                 mapGroup=41 mapNum=0 WARP_ID_NONE=255 -1=8 -1=11
+    0828778B  waitstate            
+
+  script 0x0828778E  [ok]
+    0828778E  msgbox_multilang     type=0 text_0="LILYCOVE CITY it is, then!" text_1="LILYCOVE CITY it is, then!" text_2="LILYCOVE CITY it is, then!" text_3="LILYCOVE CITY it is, then!" text_4="LILYCOVE CITY it is, then!" text_5="LILYCOVE CITY it is, then!" text_6="LILYCOVE CITY it is, then!"
+    082877AC  callstd              function=MSGBOX_YESNO(5)
+    082877AE  compare_var_to_value var=0x800D value=0
+    082877B3  goto_if              condition=1 destination=0x082877E9
+    082877B9  msgbox_multilang     type=0 text_0="Please board the ferry and wait for\ndeparture." text_1="Please board the ferry and wait for\ndeparture." text_2="Please board the ferry and wait for\ndeparture." text_3="Please board the ferry and wait for\ndeparture." text_4="Please board the ferry and wait for\ndeparture." text_5="Please board the ferry and wait for\ndeparture." text_6="Please board the ferry and wait for\ndeparture."
+    082877D7  callstd              function=MSGBOX_DEFAULT(4)
+    082877D9  call                 destination=0x0828780D
+    082877DE  warp                 mapGroup=41 mapNum=0 WARP_ID_NONE=255 -1=8 -1=11
+    082877E6  waitstate            
+
+  script 0x0828782B  [ok]
+    0828782B  msgbox_multilang     type=0 text_0="Please sail with us another time!" text_1="Please sail with us another time!" text_2="Please sail with us another time!" text_3="Please sail with us another time!" text_4="Please sail with us another time!" text_5="Please sail with us another time!" text_6="Please sail with us another time!"
+    08287849  callstd              function=MSGBOX_DEFAULT(4)
+    0828784B  release              
+
+  script 0x082877E9  [ok]
+    082877E9  message              text="Then, where would you like to go?"
+    082877EE  warpsilent           mapGroup=127 mapNum=40 WARP_ID_NONE=8 -1=32570 -1=2088
+    082877F6  warpsilent           mapGroup=127 mapNum=40 WARP_ID_NONE=8 -1=32570 -1=2088
+    082877FE  warpsilent           mapGroup=127 mapNum=40 WARP_ID_NONE=8 -1=32570 -1=2088
+    08287806  waitmessage          
+    08287807  goto                 destination=0x082876D9
+
+  script 0x0828780D  [ok]
+    0828780D  closemessage         
+    0828780E  applymovement        localId=32783 movements=[walk_in_place_faster_down]
+    08287815  waitmovement         localId=0
+    08287818  delay                frames=30
+    0828781B  hideobjectat         localId=3 mapGroup=41 mapNum=0
+    08287820  setvar               destination=VAR_0x8004 value=2
+    08287825  call                 destination=0x082BBE40
+    0828782A  return               
+
+  script 0x082BBE40  [ok]
+    082BBE40  compare_var_to_value var=0x800C value=1
+    082BBE45  call_if              condition=1 destination=0x0828D9B0
+    082BBE4B  compare_var_to_value var=0x800C value=3
+    082BBE50  call_if              condition=1 destination=0x0828D9BB
+    082BBE56  delay                frames=30
+    082BBE59  hideobjectat         localId=255 mapGroup=0 mapNum=0
+    082BBE5E  call                 destination=0x082BBE03
+    082BBE63  return               
+
+  script 0x0828D9B0  [ok]
+    0828D9B0  applymovement        localId=255 movements=[walk_down]
+    0828D9B7  waitmovement         localId=0
+    0828D9BA  return               
+
+  script 0x0828D9BB  [ok]
+    0828D9BB  applymovement        localId=255 movements=[walk_left walk_in_place_faster_down]
+    0828D9C2  waitmovement         localId=0
+    0828D9C5  return               
+
+  script 0x082BBE03  [ok]
+    082BBE03  delay                frames=60
+    082BBE06  applymovement        localId=32772 movements=[walk_slow_right walk_slow_right walk_slow_right walk_right walk_right walk_right walk_right]
+    082BBE0D  waitmovement         localId=0
+    082BBE10  return               
+
+  object 4 (gfx 0x15, flag 0x0000) -> 0x08287B5B
+  script 0x08287B5B  [ok]
+    08287B5B  msgbox_multilang     type=0 text_0="Ah, so this here is the BATTLE DOME?\nI won’t let GENTLEMEN beat me!\pBut where is the entrance?" text_1="Ah, so this here is the BATTLE DOME?\nI won’t let GENTLEMEN beat me!\pBut where is the entrance?" text_2="Ah, so this here is the BATTLE DOME?\nI won’t let GENTLEMEN beat me!\pBut where is the entrance?" text_3="Ah, so this here is the BATTLE DOME?\nI won’t let GENTLEMEN beat me!\pBut where is the entrance?" text_4="Ah, so this here is the BATTLE DOME?\nI won’t let GENTLEMEN beat me!\pBut where is the entrance?" text_5="Ah, so this here is the BATTLE DOME?\nI won’t let GENTLEMEN beat me!\pBut where is the entrance?" text_6="Ah, so this here is the BATTLE DOME?\nI won’t let GENTLEMEN beat me!\pBut where is the entrance?"
+    08287B79  callstd              function=MSGBOX_NPC(2)
+    08287B7B  end                  
+
+  object 5 (gfx 0xFA, flag 0x0000) -> 0x082878FE
+  script 0x082878FE  [ok]
+    082878FE  msgbox_multilang     type=0 text_0="It’s not as if just anyone can come\nhere, you know?\pOnly those TRAINERS who’ve been\nrecognized as tough are brought here.\pThat’s why many TRAINERS don’t even\nknow about the BATTLE FRONTIER." text_1="It’s not as if just anyone can come\nhere, you know?\pOnly those TRAINERS who’ve been\nrecognized as tough are brought here.\pThat’s why many TRAINERS don’t even\nknow about the BATTLE FRONTIER." text_2="It’s not as if just anyone can come\nhere, you know?\pOnly those TRAINERS who’ve been\nrecognized as tough are brought here.\pThat’s why many TRAINERS don’t even\nknow about the BATTLE FRONTIER." text_3="It’s not as if just anyone can come\nhere, you know?\pOnly those TRAINERS who’ve been\nrecognized as tough are brought here.\pThat’s why many TRAINERS don’t even\nknow about the BATTLE FRONTIER." text_4="It’s not as if just anyone can come\nhere, you know?\pOnly those TRAINERS who’ve been\nrecognized as tough are brought here.\pThat’s why many TRAINERS don’t even\nknow about the BATTLE FRONTIER." text_5="It’s not as if just anyone can come\nhere, you know?\pOnly those TRAINERS who’ve been\nrecognized as tough are brought here.\pThat’s why many TRAINERS don’t even\nknow about the BATTLE FRONTIER." text_6="It’s not as if just anyone can come\nhere, you know?\pOnly those TRAINERS who’ve been\nrecognized as tough are brought here.\pThat’s why many TRAINERS don’t even\nknow about the BATTLE FRONTIER."
+    0828791C  callstd              function=MSGBOX_NPC(2)
+    0828791E  end                  
+
+  object 6 (gfx 0x22, flag 0x0000) -> 0x08287B9D
+  script 0x08287B9D  [ok]
+    08287B9D  msgbox_multilang     type=0 text_0="I’ve finally arrived at the BATTLE\nFRONTIER!\pI’m sure to grab attention with\nmy looks and ability!" text_1="I’ve finally arrived at the BATTLE\nFRONTIER!\pI’m sure to grab attention with\nmy looks and ability!" text_2="I’ve finally arrived at the BATTLE\nFRONTIER!\pI’m sure to grab attention with\nmy looks and ability!" text_3="I’ve finally arrived at the BATTLE\nFRONTIER!\pI’m sure to grab attention with\nmy looks and ability!" text_4="I’ve finally arrived at the BATTLE\nFRONTIER!\pI’m sure to grab attention with\nmy looks and ability!" text_5="I’ve finally arrived at the BATTLE\nFRONTIER!\pI’m sure to grab attention with\nmy looks and ability!" text_6="I’ve finally arrived at the BATTLE\nFRONTIER!\pI’m sure to grab attention with\nmy looks and ability!"
+    08287BBB  callstd              function=MSGBOX_NPC(2)
+    08287BBD  end                  
+
+  object 7 (gfx 0x11, flag 0x0000) -> 0x08287BBE
+  script 0x08287BBE  [ok]
+    08287BBE  msgbox_multilang     type=0 text_0="Munch, munch…\pIt looks like this square’s filled with\ntough people.\pMunch, munch…" text_1="Munch, munch…\pIt looks like this square’s filled with\ntough people.\pMunch, munch…" text_2="Munch, munch…\pIt looks like this square’s filled with\ntough people.\pMunch, munch…" text_3="Munch, munch…\pIt looks like this square’s filled with\ntough people.\pMunch, munch…" text_4="Munch, munch…\pIt looks like this square’s filled with\ntough people.\pMunch, munch…" text_5="Munch, munch…\pIt looks like this square’s filled with\ntough people.\pMunch, munch…" text_6="Munch, munch…\pIt looks like this square’s filled with\ntough people.\pMunch, munch…"
+    08287BDC  callstd              function=MSGBOX_NPC(2)
+    08287BDE  end                  
+
+  object 8 (gfx 0x30, flag 0x0000) -> 0x08287B19
+  script 0x08287B19  [ok]
+    08287B19  msgbox_multilang     type=0 text_0="Oh? You’re off to challenge\nthe BATTLE DOME?\pI’ll wish you the best of luck.\nLet us both win our way up and meet\pin challenges." text_1="Oh? You’re off to challenge\nthe BATTLE DOME?\pI’ll wish you the best of luck.\nLet us both win our way up and meet\pin challenges." text_2="Oh? You’re off to challenge\nthe BATTLE DOME?\pI’ll wish you the best of luck.\nLet us both win our way up and meet\pin challenges." text_3="Oh? You’re off to challenge\nthe BATTLE DOME?\pI’ll wish you the best of luck.\nLet us both win our way up and meet\pin challenges." text_4="Oh? You’re off to challenge\nthe BATTLE DOME?\pI’ll wish you the best of luck.\nLet us both win our way up and meet\pin challenges." text_5="Oh? You’re off to challenge\nthe BATTLE DOME?\pI’ll wish you the best of luck.\nLet us both win our way up and meet\pin challenges." text_6="Oh? You’re off to challenge\nthe BATTLE DOME?\pI’ll wish you the best of luck.\nLet us both win our way up and meet\pin challenges."
+    08287B37  callstd              function=MSGBOX_NPC(2)
+    08287B39  end                  
+
+  object 9 (gfx 0x05, flag 0x0000) -> 0x0828791F
+  script 0x0828791F  [ok]
+    0828791F  lock                 
+    08287920  goto                 destination=0x0828792D
+
+  script 0x0828792D  [ok]
+    0828792D  applymovement        localId=9 movements=[walk_in_place_faster_right]
+    08287934  waitmovement         localId=0
+    08287937  msgbox_multilang     type=0 text_0="Hey, bro…\pAre you sure we can make challenges\neven if we don’t have any POKéMON?" text_1="Hey, bro…\pAre you sure we can make challenges\neven if we don’t have any POKéMON?" text_2="Hey, bro…\pAre you sure we can make challenges\neven if we don’t have any POKéMON?" text_3="Hey, bro…\pAre you sure we can make challenges\neven if we don’t have any POKéMON?" text_4="Hey, bro…\pAre you sure we can make challenges\neven if we don’t have any POKéMON?" text_5="Hey, bro…\pAre you sure we can make challenges\neven if we don’t have any POKéMON?" text_6="Hey, bro…\pAre you sure we can make challenges\neven if we don’t have any POKéMON?"
+    08287955  callstd              function=MSGBOX_DEFAULT(4)
+    08287957  applymovement        localId=10 movements=[walk_in_place_faster_left]
+    0828795E  waitmovement         localId=0
+    08287961  msgbox_multilang     type=0 text_0="Uh…\nI’m sure it’ll be okay.\pI think…\pBut remember that big scary guy?\nHe said, “I’ll lend you POKéMON!”" text_1="Uh…\nI’m sure it’ll be okay.\pI think…\pBut remember that big scary guy?\nHe said, “I’ll lend you POKéMON!”" text_2="Uh…\nI’m sure it’ll be okay.\pI think…\pBut remember that big scary guy?\nHe said, “I’ll lend you POKéMON!”" text_3="Uh…\nI’m sure it’ll be okay.\pI think…\pBut remember that big scary guy?\nHe said, “I’ll lend you POKéMON!”" text_4="Uh…\nI’m sure it’ll be okay.\pI think…\pBut remember that big scary guy?\nHe said, “I’ll lend you POKéMON!”" text_5="Uh…\nI’m sure it’ll be okay.\pI think…\pBut remember that big scary guy?\nHe said, “I’ll lend you POKéMON!”" text_6="Uh…\nI’m sure it’ll be okay.\pI think…\pBut remember that big scary guy?\nHe said, “I’ll lend you POKéMON!”"
+    0828797F  callstd              function=MSGBOX_DEFAULT(4)
+    08287981  closemessage         
+    08287982  delay                frames=25
+    08287985  applymovement        localId=9 movements=[walk_in_place_faster_up]
+    0828798C  applymovement        localId=10 movements=[walk_in_place_faster_up]
+    08287993  waitmovement         localId=0
+    08287996  release              
+
+  object 10 (gfx 0x05, flag 0x0000) -> 0x08287926
+  script 0x08287926  [ok]
+    08287926  lock                 
+    08287927  goto                 destination=0x0828792D
+
+  object 11 (gfx 0xF3, flag 0x0000) -> 0x08287B7C
+  script 0x08287B7C  [ok]
+    08287B7C  msgbox_multilang     type=0 text_0="There used to be nothing here not all\nthat long ago.\pBut, now look at this place! Amazing!\nI’ll bring my mother out to see this." text_1="There used to be nothing here not all\nthat long ago.\pBut, now look at this place! Amazing!\nI’ll bring my mother out to see this." text_2="There used to be nothing here not all\nthat long ago.\pBut, now look at this place! Amazing!\nI’ll bring my mother out to see this." text_3="There used to be nothing here not all\nthat long ago.\pBut, now look at this place! Amazing!\nI’ll bring my mother out to see this." text_4="There used to be nothing here not all\nthat long ago.\pBut, now look at this place! Amazing!\nI’ll bring my mother out to see this." text_5="There used to be nothing here not all\nthat long ago.\pBut, now look at this place! Amazing!\nI’ll bring my mother out to see this." text_6="There used to be nothing here not all\nthat long ago.\pBut, now look at this place! Amazing!\nI’ll bring my mother out to see this."
+    08287B9A  callstd              function=MSGBOX_NPC(2)
+    08287B9C  end                  
+
+  object 12 (gfx 0x08, flag 0x0000) -> 0x082879F7
+  script 0x082879F7  [ok]
+    082879F7  lock                 
+    082879F8  faceplayer           
+    082879F9  message              text="I’m scared of going into the BATTLE\nPIKE because of SEVIPER…\pB-but I came all the way here, so I will\ntry to conquer everything!\p…Shudder…"
+    082879FE  multichoicedefault   x=130 y=40 multichoiceId=8 default=112 ignoreBPress=130
+    08287A04  delay                frames=28680
+    08287A07  buffermovename       stringVarId=40 move=?(28680)
+    08287A0B  buffermovename       stringVarId=40 move=?(28680)
+    08287A0F  buffermovename       stringVarId=40 move=?(28680)
+    08287A13  buffermovename       stringVarId=40 move=?(26120)
+    08287A17  compare_var_to_value var=0x800C value=2
+    08287A1C  call_if              condition=1 destination=0x08287A46
+    08287A22  compare_var_to_value var=0x800C value=1
+    08287A27  call_if              condition=1 destination=0x08287A51
+    08287A2D  compare_var_to_value var=0x800C value=3
+    08287A32  call_if              condition=1 destination=0x08287A5C
+    08287A38  compare_var_to_value var=0x800C value=4
+    08287A3D  call_if              condition=1 destination=0x08287A67
+    08287A43  waitbuttonpress      
+    08287A44  release              
+
+  script 0x08287A46  [ok]
+    08287A46  applymovement        localId=12 movements=[walk_in_place_faster_down walk_in_place_faster_down]
+    08287A4D  waitmovement         localId=0
+    08287A50  return               
+
+  script 0x08287A51  [ok]
+    08287A51  applymovement        localId=12 movements=[walk_in_place_faster_up walk_in_place_faster_up]
+    08287A58  waitmovement         localId=0
+    08287A5B  return               
+
+  script 0x08287A5C  [ok]
+    08287A5C  applymovement        localId=12 movements=[walk_in_place_faster_right walk_in_place_faster_right]
+    08287A63  waitmovement         localId=0
+    08287A66  return               
+
+  script 0x08287A67  [ok]
+    08287A67  applymovement        localId=12 movements=[walk_in_place_faster_left walk_in_place_faster_left]
+    08287A6E  waitmovement         localId=0
+    08287A71  return               
+
+  object 13 (gfx 0x18, flag 0x0000) -> 0x08287A7E
+  script 0x08287A7E  [ok]
+    08287A7E  lock                 
+    08287A7F  faceplayer           
+    08287A80  msgbox_multilang     type=0 text_0="Let’s play rock, paper, scissors!\nOne, two, three!\p… … … … … …" text_1="Let’s play rock, paper, scissors!\nOne, two, three!\p… … … … … …" text_2="Let’s play rock, paper, scissors!\nOne, two, three!\p… … … … … …" text_3="Let’s play rock, paper, scissors!\nOne, two, three!\p… … … … … …" text_4="Let’s play rock, paper, scissors!\nOne, two, three!\p… … … … … …" text_5="Let’s play rock, paper, scissors!\nOne, two, three!\p… … … … … …" text_6="Let’s play rock, paper, scissors!\nOne, two, three!\p… … … … … …"
+    08287A9E  callstd              function=MSGBOX_DEFAULT(4)
+    08287AA0  random               limit=2
+    08287AA3  compare_var_to_value var=0x800D value=1
+    08287AA8  goto_if              condition=1 destination=0x08287AB4
+    08287AAE  goto                 destination=0x08287AD6
+
+  script 0x08287AB4  [ok]
+    08287AB4  msgbox_multilang     type=0 text_0="Yay! I won!\nI will take the BATTLE PIKE challenge!" text_1="Yay! I won!\nI will take the BATTLE PIKE challenge!" text_2="Yay! I won!\nI will take the BATTLE PIKE challenge!" text_3="Yay! I won!\nI will take the BATTLE PIKE challenge!" text_4="Yay! I won!\nI will take the BATTLE PIKE challenge!" text_5="Yay! I won!\nI will take the BATTLE PIKE challenge!" text_6="Yay! I won!\nI will take the BATTLE PIKE challenge!"
+    08287AD2  callstd              function=MSGBOX_DEFAULT(4)
+    08287AD4  release              
+
+  script 0x08287AD6  [ok]
+    08287AD6  msgbox_multilang     type=0 text_0="Oh, no…\nI lost.\pI guess I’m not very lucky today.\nI’ll put off my BATTLE PIKE challenge\puntil tomorrow." text_1="Oh, no…\nI lost.\pI guess I’m not very lucky today.\nI’ll put off my BATTLE PIKE challenge\puntil tomorrow." text_2="Oh, no…\nI lost.\pI guess I’m not very lucky today.\nI’ll put off my BATTLE PIKE challenge\puntil tomorrow." text_3="Oh, no…\nI lost.\pI guess I’m not very lucky today.\nI’ll put off my BATTLE PIKE challenge\puntil tomorrow." text_4="Oh, no…\nI lost.\pI guess I’m not very lucky today.\nI’ll put off my BATTLE PIKE challenge\puntil tomorrow." text_5="Oh, no…\nI lost.\pI guess I’m not very lucky today.\nI’ll put off my BATTLE PIKE challenge\puntil tomorrow." text_6="Oh, no…\nI lost.\pI guess I’m not very lucky today.\nI’ll put off my BATTLE PIKE challenge\puntil tomorrow."
+    08287AF4  callstd              function=MSGBOX_DEFAULT(4)
+    08287AF6  release              
+
+  object 14 (gfx 0x1F, flag 0x0000) -> 0x08287998
+  script 0x08287998  [ok]
+    08287998  lock                 
+    08287999  faceplayer           
+    0828799A  delay                frames=20
+    0828799D  compare_var_to_value var=0x800C value=2
+    082879A2  call_if              condition=1 destination=0x082879EB
+    082879A8  compare_var_to_value var=0x800C value=1
+    082879AD  call_if              condition=1 destination=0x082879F6
+    082879B3  compare_var_to_value var=0x800C value=3
+    082879B8  call_if              condition=1 destination=0x082879EB
+    082879BE  compare_var_to_value var=0x800C value=4
+    082879C3  call_if              condition=1 destination=0x082879EB
+    082879C9  msgbox_multilang     type=0 text_0="That’s the BATTLE FACTORY.\nYou can rent strong POKéMON there.\pBut it makes me wonder.\nWho’s raising those rental POKéMON?" text_1="That’s the BATTLE FACTORY.\nYou can rent strong POKéMON there.\pBut it makes me wonder.\nWho’s raising those rental POKéMON?" text_2="That’s the BATTLE FACTORY.\nYou can rent strong POKéMON there.\pBut it makes me wonder.\nWho’s raising those rental POKéMON?" text_3="That’s the BATTLE FACTORY.\nYou can rent strong POKéMON there.\pBut it makes me wonder.\nWho’s raising those rental POKéMON?" text_4="That’s the BATTLE FACTORY.\nYou can rent strong POKéMON there.\pBut it makes me wonder.\nWho’s raising those rental POKéMON?" text_5="That’s the BATTLE FACTORY.\nYou can rent strong POKéMON there.\pBut it makes me wonder.\nWho’s raising those rental POKéMON?" text_6="That’s the BATTLE FACTORY.\nYou can rent strong POKéMON there.\pBut it makes me wonder.\nWho’s raising those rental POKéMON?"
+    082879E7  callstd              function=MSGBOX_DEFAULT(4)
+    082879E9  release              
+
+  script 0x082879EB  [ok]
+    082879EB  applymovement        localId=14 movements=[walk_in_place_faster_up]
+    082879F2  waitmovement         localId=0
+    082879F5  return               
+
+  script 0x082879F6  [ok]
+    082879F6  return               
+
+  object 15 (gfx 0x2F, flag 0x0000) -> 0x08287B3A
+  script 0x08287B3A  [ok]
+    08287B3A  msgbox_multilang     type=0 text_0="Today, I’m going to keep battling, no\nmatter what, until I get a Symbol." text_1="Today, I’m going to keep battling, no\nmatter what, until I get a Symbol." text_2="Today, I’m going to keep battling, no\nmatter what, until I get a Symbol." text_3="Today, I’m going to keep battling, no\nmatter what, until I get a Symbol." text_4="Today, I’m going to keep battling, no\nmatter what, until I get a Symbol." text_5="Today, I’m going to keep battling, no\nmatter what, until I get a Symbol." text_6="Today, I’m going to keep battling, no\nmatter what, until I get a Symbol."
+    08287B58  callstd              function=MSGBOX_NPC(2)
+    08287B5A  end                  
+
+  object 16 (gfx 0x17, flag 0x0000) -> 0x08295566
+  script 0x08295566  [ok]
+    08295566  msgbox_multilang     type=0 text_0="The BATTLE FRONTIER…\nI’ve long dreamed about a place like it." text_1="The BATTLE FRONTIER…\nI’ve long dreamed about a place like it." text_2="The BATTLE FRONTIER…\nI’ve long dreamed about a place like it." text_3="The BATTLE FRONTIER…\nI’ve long dreamed about a place like it." text_4="The BATTLE FRONTIER…\nI’ve long dreamed about a place like it." text_5="The BATTLE FRONTIER…\nI’ve long dreamed about a place like it." text_6="The BATTLE FRONTIER…\nI’ve long dreamed about a place like it."
+    08295584  callstd              function=MSGBOX_NPC(2)
+    08295586  end                  
+
+  object 17 (gfx 0x09, flag 0x0000) -> 0x08287AF8
+  script 0x08287AF8  [ok]
+    08287AF8  msgbox_multilang     type=0 text_0="I believe I’m the only person here who,\nfor some unknown reason, would choose\pfishing over battling.\pHuh? You can’t catch anything here?\nThat’s disappointing…" text_1="I believe I’m the only person here who,\nfor some unknown reason, would choose\pfishing over battling.\pHuh? You can’t catch anything here?\nThat’s disappointing…" text_2="I believe I’m the only person here who,\nfor some unknown reason, would choose\pfishing over battling.\pHuh? You can’t catch anything here?\nThat’s disappointing…" text_3="I believe I’m the only person here who,\nfor some unknown reason, would choose\pfishing over battling.\pHuh? You can’t catch anything here?\nThat’s disappointing…" text_4="I believe I’m the only person here who,\nfor some unknown reason, would choose\pfishing over battling.\pHuh? You can’t catch anything here?\nThat’s disappointing…" text_5="I believe I’m the only person here who,\nfor some unknown reason, would choose\pfishing over battling.\pHuh? You can’t catch anything here?\nThat’s disappointing…" text_6="I believe I’m the only person here who,\nfor some unknown reason, would choose\pfishing over battling.\pHuh? You can’t catch anything here?\nThat’s disappointing…"
+    08287B16  callstd              function=MSGBOX_NPC(2)
+    08287B18  end                  
+
+  object 18 (gfx 0x09, flag 0x0000) -> 0x082878D1
+  script 0x082878D1  [ok]
+    082878D1  lock                 
+    082878D2  faceplayer           
+    082878D3  message              text="I wanted to take a challenge as soon\nas I arrived here.\pBut on the way, I got seasick…\nUrrrrp…"
+    082878D8  compare_ptr_to_ptr   ptr1=537405568 ptr2=537405568
+    082878E1  bufferitemname       stringVarId=40 item=8200
+    082878E5  bufferitemname       stringVarId=40 item=8200
+    082878E9  bufferitemname       stringVarId=40 item=8200
+    082878ED  bufferitemname       stringVarId=40 item=26120
+    082878F1  applymovement        localId=18 movements=[face_away_player]
+    082878F8  waitmovement         localId=0
+    082878FB  waitbuttonpress      
+    082878FC  release              
+
+  object 19 (gfx 0x11, flag 0x0000) -> 0x08287BDF
+  script 0x08287BDF  [ok]
+    08287BDF  msgbox_multilang     type=0 text_0="Crunch, munch…\pA while back, I met this older girl\nat the BATTLE PIKE.\pShe had these eyes that were scary\nin a real ornery way.\pCrunch, munch…\pShe got all furious: “Will you quit\neating!” Then she whaled on me.\pIt was a hair-raising kind of\nscary experience, sure enough.\pCrunch, munch…" text_1="Crunch, munch…\pA while back, I met this older girl\nat the BATTLE PIKE.\pShe had these eyes that were scary\nin a real ornery way.\pCrunch, munch…\pShe got all furious: “Will you quit\neating!” Then she whaled on me.\pIt was a hair-raising kind of\nscary experience, sure enough.\pCrunch, munch…" text_2="Crunch, munch…\pA while back, I met this older girl\nat the BATTLE PIKE.\pShe had these eyes that were scary\nin a real ornery way.\pCrunch, munch…\pShe got all furious: “Will you quit\neating!” Then she whaled on me.\pIt was a hair-raising kind of\nscary experience, sure enough.\pCrunch, munch…" text_3="Crunch, munch…\pA while back, I met this older girl\nat the BATTLE PIKE.\pShe had these eyes that were scary\nin a real ornery way.\pCrunch, munch…\pShe got all furious: “Will you quit\neating!” Then she whaled on me.\pIt was a hair-raising kind of\nscary experience, sure enough.\pCrunch, munch…" text_4="Crunch, munch…\pA while back, I met this older girl\nat the BATTLE PIKE.\pShe had these eyes that were scary\nin a real ornery way.\pCrunch, munch…\pShe got all furious: “Will you quit\neating!” Then she whaled on me.\pIt was a hair-raising kind of\nscary experience, sure enough.\pCrunch, munch…" text_5="Crunch, munch…\pA while back, I met this older girl\nat the BATTLE PIKE.\pShe had these eyes that were scary\nin a real ornery way.\pCrunch, munch…\pShe got all furious: “Will you quit\neating!” Then she whaled on me.\pIt was a hair-raising kind of\nscary experience, sure enough.\pCrunch, munch…" text_6="Crunch, munch…\pA while back, I met this older girl\nat the BATTLE PIKE.\pShe had these eyes that were scary\nin a real ornery way.\pCrunch, munch…\pShe got all furious: “Will you quit\neating!” Then she whaled on me.\pIt was a hair-raising kind of\nscary experience, sure enough.\pCrunch, munch…"
+    08287BFD  callstd              function=MSGBOX_NPC(2)
+    08287BFF  end                  
+
+  object 20 (gfx 0x14, flag 0x0000) -> 0x08287C00
+  script 0x08287C00  [ok]
+    08287C00  lock                 
+    08287C01  msgbox_multilang     type=0 text_0="Huh? Will you listen to yourself?\nThat’s nothing!\pWhy, the last time I cheered for him,\nour eyes met and sparks flew!" text_1="Huh? Will you listen to yourself?\nThat’s nothing!\pWhy, the last time I cheered for him,\nour eyes met and sparks flew!" text_2="Huh? Will you listen to yourself?\nThat’s nothing!\pWhy, the last time I cheered for him,\nour eyes met and sparks flew!" text_3="Huh? Will you listen to yourself?\nThat’s nothing!\pWhy, the last time I cheered for him,\nour eyes met and sparks flew!" text_4="Huh? Will you listen to yourself?\nThat’s nothing!\pWhy, the last time I cheered for him,\nour eyes met and sparks flew!" text_5="Huh? Will you listen to yourself?\nThat’s nothing!\pWhy, the last time I cheered for him,\nour eyes met and sparks flew!" text_6="Huh? Will you listen to yourself?\nThat’s nothing!\pWhy, the last time I cheered for him,\nour eyes met and sparks flew!"
+    08287C1F  callstd              function=MSGBOX_DEFAULT(4)
+    08287C21  release              
+
+  object 21 (gfx 0x07, flag 0x0000) -> 0x08287C23
+  script 0x08287C23  [ok]
+    08287C23  lock                 
+    08287C24  msgbox_multilang     type=0 text_0="Whaaaaaat?!\nPfft!\pThat only happened because\nI happened to be sitting next to you!\pThe DOME ACE only looked our way\nbecause my cheering was so loud!" text_1="Whaaaaaat?!\nPfft!\pThat only happened because\nI happened to be sitting next to you!\pThe DOME ACE only looked our way\nbecause my cheering was so loud!" text_2="Whaaaaaat?!\nPfft!\pThat only happened because\nI happened to be sitting next to you!\pThe DOME ACE only looked our way\nbecause my cheering was so loud!" text_3="Whaaaaaat?!\nPfft!\pThat only happened because\nI happened to be sitting next to you!\pThe DOME ACE only looked our way\nbecause my cheering was so loud!" text_4="Whaaaaaat?!\nPfft!\pThat only happened because\nI happened to be sitting next to you!\pThe DOME ACE only looked our way\nbecause my cheering was so loud!" text_5="Whaaaaaat?!\nPfft!\pThat only happened because\nI happened to be sitting next to you!\pThe DOME ACE only looked our way\nbecause my cheering was so loud!" text_6="Whaaaaaat?!\nPfft!\pThat only happened because\nI happened to be sitting next to you!\pThe DOME ACE only looked our way\nbecause my cheering was so loud!"
+    08287C42  callstd              function=MSGBOX_DEFAULT(4)
+    08287C44  release              
+
+  object 22 (gfx 0xF6, flag 0x0000) -> 0x08287C46
+  script 0x08287C46  [ok]
+    08287C46  msgbox_multilang     type=0 text_0="Oh, shush!\nKeep that racket down!\pYou fair-weather fans should stick\nto cheering for some GYM LEADER!\pThe DOME ACE is mine!\nThe only idol for me!" text_1="Oh, shush!\nKeep that racket down!\pYou fair-weather fans should stick\nto cheering for some GYM LEADER!\pThe DOME ACE is mine!\nThe only idol for me!" text_2="Oh, shush!\nKeep that racket down!\pYou fair-weather fans should stick\nto cheering for some GYM LEADER!\pThe DOME ACE is mine!\nThe only idol for me!" text_3="Oh, shush!\nKeep that racket down!\pYou fair-weather fans should stick\nto cheering for some GYM LEADER!\pThe DOME ACE is mine!\nThe only idol for me!" text_4="Oh, shush!\nKeep that racket down!\pYou fair-weather fans should stick\nto cheering for some GYM LEADER!\pThe DOME ACE is mine!\nThe only idol for me!" text_5="Oh, shush!\nKeep that racket down!\pYou fair-weather fans should stick\nto cheering for some GYM LEADER!\pThe DOME ACE is mine!\nThe only idol for me!" text_6="Oh, shush!\nKeep that racket down!\pYou fair-weather fans should stick\nto cheering for some GYM LEADER!\pThe DOME ACE is mine!\nThe only idol for me!"
+    08287C64  callstd              function=MSGBOX_NPC(2)
+    08287C66  end                  
+
+  object 23 (gfx 0x41, flag 0x0000) -> 0x08287C67
+  script 0x08287C67  [ok]
+    08287C67  lock                 
+    08287C68  faceplayer           
+    08287C69  msgbox_multilang     type=0 text_0="Those people squabbling over there…\pIt’s hard to believe, but they once\nwere TRAINERS, and good ones, too.\pThey used to be incredibly tough,\nand they were famous, too.\pBut they were obliterated by this\ncertain TRAINER at a tournament.\pThey were so thoroughly whipped,\nthey became smitten by the TRAINER.\pNow they’re just fans of the TRAINER.\nThey go cheer for their idol at the\pBATTLE DOME every day now." text_1="Those people squabbling over there…\pIt’s hard to believe, but they once\nwere TRAINERS, and good ones, too.\pThey used to be incredibly tough,\nand they were famous, too.\pBut they were obliterated by this\ncertain TRAINER at a tournament.\pThey were so thoroughly whipped,\nthey became smitten by the TRAINER.\pNow they’re just fans of the TRAINER.\nThey go cheer for their idol at the\pBATTLE DOME every day now." text_2="Those people squabbling over there…\pIt’s hard to believe, but they once\nwere TRAINERS, and good ones, too.\pThey used to be incredibly tough,\nand they were famous, too.\pBut they were obliterated by this\ncertain TRAINER at a tournament.\pThey were so thoroughly whipped,\nthey became smitten by the TRAINER.\pNow they’re just fans of the TRAINER.\nThey go cheer for their idol at the\pBATTLE DOME every day now." text_3="Those people squabbling over there…\pIt’s hard to believe, but they once\nwere TRAINERS, and good ones, too.\pThey used to be incredibly tough,\nand they were famous, too.\pBut they were obliterated by this\ncertain TRAINER at a tournament.\pThey were so thoroughly whipped,\nthey became smitten by the TRAINER.\pNow they’re just fans of the TRAINER.\nThey go cheer for their idol at the\pBATTLE DOME every day now." text_4="Those people squabbling over there…\pIt’s hard to believe, but they once\nwere TRAINERS, and good ones, too.\pThey used to be incredibly tough,\nand they were famous, too.\pBut they were obliterated by this\ncertain TRAINER at a tournament.\pThey were so thoroughly whipped,\nthey became smitten by the TRAINER.\pNow they’re just fans of the TRAINER.\nThey go cheer for their idol at the\pBATTLE DOME every day now." text_5="Those people squabbling over there…\pIt’s hard to believe, but they once\nwere TRAINERS, and good ones, too.\pThey used to be incredibly tough,\nand they were famous, too.\pBut they were obliterated by this\ncertain TRAINER at a tournament.\pThey were so thoroughly whipped,\nthey became smitten by the TRAINER.\pNow they’re just fans of the TRAINER.\nThey go cheer for their idol at the\pBATTLE DOME every day now." text_6="Those people squabbling over there…\pIt’s hard to believe, but they once\nwere TRAINERS, and good ones, too.\pThey used to be incredibly tough,\nand they were famous, too.\pBut they were obliterated by this\ncertain TRAINER at a tournament.\pThey were so thoroughly whipped,\nthey became smitten by the TRAINER.\pNow they’re just fans of the TRAINER.\nThey go cheer for their idol at the\pBATTLE DOME every day now."
+    08287C87  callstd              function=MSGBOX_DEFAULT(4)
+    08287C89  closemessage         
+    08287C8A  applymovement        localId=23 movements=[face_original_direction]
+    08287C91  waitmovement         localId=0
+    08287C94  release              
+
+  object 24 (gfx 0x12, flag 0x0000) -> 0x08287C96
+  script 0x08287C96  [ok]
+    08287C96  msgbox_multilang     type=0 text_0="I heard a rumor that someone saw\na POKéMON with an unusually long tail\psomewhere in the BATTLE FRONTIER.\pIt must be adorable. I’m sure of it…\pOh, challenges can wait. I feel driven\nto find the delightful creature!" text_1="I heard a rumor that someone saw\na POKéMON with an unusually long tail\psomewhere in the BATTLE FRONTIER.\pIt must be adorable. I’m sure of it…\pOh, challenges can wait. I feel driven\nto find the delightful creature!" text_2="I heard a rumor that someone saw\na POKéMON with an unusually long tail\psomewhere in the BATTLE FRONTIER.\pIt must be adorable. I’m sure of it…\pOh, challenges can wait. I feel driven\nto find the delightful creature!" text_3="I heard a rumor that someone saw\na POKéMON with an unusually long tail\psomewhere in the BATTLE FRONTIER.\pIt must be adorable. I’m sure of it…\pOh, challenges can wait. I feel driven\nto find the delightful creature!" text_4="I heard a rumor that someone saw\na POKéMON with an unusually long tail\psomewhere in the BATTLE FRONTIER.\pIt must be adorable. I’m sure of it…\pOh, challenges can wait. I feel driven\nto find the delightful creature!" text_5="I heard a rumor that someone saw\na POKéMON with an unusually long tail\psomewhere in the BATTLE FRONTIER.\pIt must be adorable. I’m sure of it…\pOh, challenges can wait. I feel driven\nto find the delightful creature!" text_6="I heard a rumor that someone saw\na POKéMON with an unusually long tail\psomewhere in the BATTLE FRONTIER.\pIt must be adorable. I’m sure of it…\pOh, challenges can wait. I feel driven\nto find the delightful creature!"
+    08287CB4  callstd              function=MSGBOX_NPC(2)
+    08287CB6  end                  
+
+  sign 0 at (15,18) -> 0x0828784D
+  script 0x0828784D  [ok]
+    0828784D  msgbox_multilang     type=0 text_0="This is the BATTLE DOME!\nYour path to the invincible superstar!" text_1="This is the BATTLE DOME!\nYour path to the invincible superstar!" text_2="This is the BATTLE DOME!\nYour path to the invincible superstar!" text_3="This is the BATTLE DOME!\nYour path to the invincible superstar!" text_4="This is the BATTLE DOME!\nYour path to the invincible superstar!" text_5="This is the BATTLE DOME!\nYour path to the invincible superstar!" text_6="This is the BATTLE DOME!\nYour path to the invincible superstar!"
+    0828786B  callstd              function=MSGBOX_SIGN(3)
+    0828786D  end                  
+
+  sign 1 at (45,30) -> 0x0828788F
+  script 0x0828788F  [ok]
+    0828788F  msgbox_multilang     type=0 text_0="This is the BATTLE PIKE!\nChoose one of three paths!" text_1="This is the BATTLE PIKE!\nChoose one of three paths!" text_2="This is the BATTLE PIKE!\nChoose one of three paths!" text_3="This is the BATTLE PIKE!\nChoose one of three paths!" text_4="This is the BATTLE PIKE!\nChoose one of three paths!" text_5="This is the BATTLE PIKE!\nChoose one of three paths!" text_6="This is the BATTLE PIKE!\nChoose one of three paths!"
+    082878AD  callstd              function=MSGBOX_SIGN(3)
+    082878AF  end                  
+
+  sign 2 at (16,43) -> 0x0828786E
+  script 0x0828786E  [ok]
+    0828786E  msgbox_multilang     type=0 text_0="This is the BATTLE FACTORY!\nSeek out the toughest POKéMON!" text_1="This is the BATTLE FACTORY!\nSeek out the toughest POKéMON!" text_2="This is the BATTLE FACTORY!\nSeek out the toughest POKéMON!" text_3="This is the BATTLE FACTORY!\nSeek out the toughest POKéMON!" text_4="This is the BATTLE FACTORY!\nSeek out the toughest POKéMON!" text_5="This is the BATTLE FACTORY!\nSeek out the toughest POKéMON!" text_6="This is the BATTLE FACTORY!\nSeek out the toughest POKéMON!"
+    0828788C  callstd              function=MSGBOX_SIGN(3)
+    0828788E  end                  
+
+  sign 3 at (52,51) -> 0x082BBC16
+  script 0x082BBC16  [ok]
+    082BBC16  msgbox_multilang     type=0 text_0="“Selected items for your convenience!”\nPokémon Mart" text_1="“Selected items for your convenience!”\nPokémon Mart" text_2="“Selected items for your convenience!”\nPokémon Mart" text_3="“Selected items for your convenience!”\nPokémon Mart" text_4="“Selected items for your convenience!”\nPokémon Mart" text_5="“Selected items for your convenience!”\nPokémon Mart" text_6="“Selected items for your convenience!”\nPokémon Mart"
+    082BBC34  callstd              function=MSGBOX_SIGN(3)
+    082BBC36  end                  
+
+  sign 4 at (53,51) -> 0x082BBC16
+  map script type 3 -> 0x0828767A
+  script 0x0828767A  [ok]
+    0828767A  setvar               destination=VAR_0x40CB value=0
+    0828767F  setflag              flag=0x4C1
+    08287682  end                  
+

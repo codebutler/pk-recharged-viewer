@@ -1,0 +1,32 @@
+Celadon City  (group 10, map 8)  header 0x08B3D390
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x00, flag 0x009E) -> 0x081F26A1
+  script 0x081F26A1  [ok]
+    081F26A1  lock                 
+    081F26A2  faceplayer           
+    081F26A3  setvar               destination=VAR_0x8004 value=5
+    081F26A8  setvar               destination=VAR_0x8005 value=5
+    081F26AD  special              SPECIAL_\function=347
+    081F26B0  textcolor            color=3
+    081F26B2  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature: Celadon Gym\nLeader Erika!\pRumor has it that if you peek into\nCeladon Gym, you can often\psee Erika snoozing." text_1="Pokémon Journal\pSpecial Feature: Celadon Gym\nLeader Erika!\pRumor has it that if you peek into\nCeladon Gym, you can often\psee Erika snoozing." text_2="Pokémon Journal\pSpecial Feature: Celadon Gym\nLeader Erika!\pRumor has it that if you peek into\nCeladon Gym, you can often\psee Erika snoozing." text_3="Pokémon Journal\pSpecial Feature: Celadon Gym\nLeader Erika!\pRumor has it that if you peek into\nCeladon Gym, you can often\psee Erika snoozing." text_4="Pokémon Journal\pSpecial Feature: Celadon Gym\nLeader Erika!\pRumor has it that if you peek into\nCeladon Gym, you can often\psee Erika snoozing." text_5="Pokémon Journal\pSpecial Feature: Celadon Gym\nLeader Erika!\pRumor has it that if you peek into\nCeladon Gym, you can often\psee Erika snoozing." text_6="Pokémon Journal\pSpecial Feature: Celadon Gym\nLeader Erika!\pRumor has it that if you peek into\nCeladon Gym, you can often\psee Erika snoozing."
+    081F26D0  callstd              function=MSGBOX_DEFAULT(4)
+    081F26D2  release              
+
+  object 2 (gfx 0x00, flag 0x009E) -> 0x081F26A1
+  sign 0 at (8,12) -> 0x08263060
+  script 0x08263060  [ok]
+    08263060  msgbox_multilang     type=0 text_0="Game Freak Meeting Room" text_1="Game Freak Meeting Room" text_2="Game Freak Meeting Room" text_3="Game Freak Meeting Room" text_4="Game Freak Meeting Room" text_5="Game Freak Meeting Room" text_6="Game Freak Meeting Room"
+    0826307E  callstd              function=MSGBOX_SIGN(3)
+    08263080  end                  
+
+  sign 1 at (7,12) -> 0x08263060

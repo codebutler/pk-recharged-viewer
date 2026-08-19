@@ -1,0 +1,40 @@
+Battle Frontier  (group 41, map 26)  header 0x08B3E388
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1C, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x082AA712
+  script 0x082AA712  [ok]
+    082AA712  delay                frames=16
+    082AA715  setvar               destination=VAR_0x8004 value=2
+    082AA71A  setvar               destination=VAR_0x8005 value=2
+    082AA71F  setvar               destination=VAR_0x8006 value=1
+    082AA724  special              SPECIAL_\function=148
+    082AA727  setvar               destination=VAR_0x8004 value=20
+    082AA72C  special              SPECIAL_\function=155
+    082AA72F  setvar               destination=VAR_0x8004 value=24
+    082AA734  setvar               destination=VAR_0x8005 value=1
+    082AA739  special              SPECIAL_\function=155
+    082AA73C  applymovement        localId=255 movements=[walk_up walk_up]
+    082AA743  applymovement        localId=1 movements=[walk_up walk_up walk_left face_down]
+    082AA74A  waitmovement         localId=0
+    082AA74D  lockall              
+    082AA74E  msgbox_multilang     type=0 text_0="Your Battle Choice challenge\nhas now begun…" text_1="Your Battle Choice challenge\nhas now begun…" text_2="Your Battle Choice challenge\nhas now begun…" text_3="Your Battle Choice challenge\nhas now begun…" text_4="Your Battle Choice challenge\nhas now begun…" text_5="Your Battle Choice challenge\nhas now begun…" text_6="Your Battle Choice challenge\nhas now begun…"
+    082AA76C  callstd              function=MSGBOX_DEFAULT(4)
+    082AA76E  closemessage         
+    082AA76F  releaseall           
+
+  map script type 4 (var 0x4001 == 0) -> 0x082AA7A5
+  script 0x082AA7A5  [ok]
+    082AA7A5  setvar               destination=VAR_0x4001 value=1
+    082AA7AA  turnobject           localId=255 direction=2
+    082AA7AE  end                  
+

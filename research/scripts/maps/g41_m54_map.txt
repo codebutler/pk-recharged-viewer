@@ -1,0 +1,41 @@
+map  (group 41, map 54)  header 0x08B3E698
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0000) -> 0x0829F75D
+  script 0x0829F75D  [ok]
+    0829F75D  trainerbattle        type=9 trainer=0x1 localId=0 ptr1=0x0829F79B ptr2=0x0829F79B
+    0829F76B  setvar               destination=VAR_0x8004 value=10
+    0829F770  special              SPECIAL_\function=156
+    0829F773  waitmessage          
+    0829F774  waitbuttonpress      
+    0829F775  closemessage         
+    0829F776  releaseall           
+
+  object 2 (gfx 0x0C, flag 0x0000) -> 0x0829F75D
+  object 3 (gfx 0x0C, flag 0x0000) -> 0x0829F75D
+  object 4 (gfx 0x0C, flag 0x0000) -> 0x0829F75D
+  object 5 (gfx 0x35, flag 0x0000) -> 0x0829F778
+  script 0x0829F778  [ok]
+    0829F778  setvar               destination=VAR_0x8004 value=7
+    0829F77D  special              SPECIAL_\function=156
+    0829F780  callstd              function=STD_FIND_ITEM(1)
+    0829F782  compare_var_to_value var=0x8007 value=0
+    0829F787  goto_if              condition=1 destination=0x0829F795
+    0829F78D  setvar               destination=VAR_0x8004 value=8
+    0829F792  special              SPECIAL_\function=156
+    0829F795  end                  
+
+  script 0x0829F795  [ok]
+    0829F795  end                  
+
+  object 6 (gfx 0x35, flag 0x0000) -> 0x0829F778
+  object 7 (gfx 0x35, flag 0x0000) -> 0x0829F778

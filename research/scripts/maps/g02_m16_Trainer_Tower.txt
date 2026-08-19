@@ -1,0 +1,267 @@
+Trainer Tower  (group 2, map 16)  header 0x08B3C14C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0821B752
+  script 0x0821B752  [ok]
+    0821B752  lock                 
+    0821B753  faceplayer           
+    0821B754  call                 destination=0x082BB336
+    0821B759  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x0F, flag 0x0000) -> 0x0821B7AF
+  script 0x0821B7AF  [opcode-out-of-range:0xFE]
+    0821B7AF  lock                 
+    0821B7B0  faceplayer           
+    0821B7B1  call                 destination=0x082BB330
+    0821B7B6  message              text="Hi, there!\nMay I help you?"
+    0821B7BB  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 3 (gfx 0x0F, flag 0x0000) -> 0x0821B75B
+  script 0x0821B75B  [ok]
+    0821B75B  lock                 
+    0821B75C  faceplayer           
+    0821B75D  compare_var_to_value var=0x800D value=1
+    0821B762  goto_if              condition=1 destination=0x0821B78D
+    0821B768  msgbox_multilang     type=0 text_0="I hope you give it your best." text_1="I hope you give it your best." text_2="I hope you give it your best." text_3="I hope you give it your best." text_4="I hope you give it your best." text_5="I hope you give it your best." text_6="I hope you give it your best."
+    0821B786  callstd              function=MSGBOX_DEFAULT(4)
+    0821B788  goto                 destination=0x0821B7AD
+
+  script 0x0821B78D  [ok]
+    0821B78D  msgbox_multilang     type=0 text_0="Thank you for competing!" text_1="Thank you for competing!" text_2="Thank you for competing!" text_3="Thank you for competing!" text_4="Thank you for competing!" text_5="Thank you for competing!" text_6="Thank you for competing!"
+    0821B7AB  callstd              function=MSGBOX_DEFAULT(4)
+    0821B7AD  release              
+
+  script 0x0821B7AD  [ok]
+    0821B7AD  release              
+
+  object 4 (gfx 0xFB, flag 0x0000) -> 0x0821B9C5
+  script 0x0821B9C5  [ok]
+    0821B9C5  msgbox_multilang     type=0 text_0="I’m here to see how good I am.\pI wonder what kinds of TRAINERS\nare waiting for me?\pIt’s nerve-racking!" text_1="I’m here to see how good I am.\pI wonder what kinds of TRAINERS\nare waiting for me?\pIt’s nerve-racking!" text_2="I’m here to see how good I am.\pI wonder what kinds of TRAINERS\nare waiting for me?\pIt’s nerve-racking!" text_3="I’m here to see how good I am.\pI wonder what kinds of TRAINERS\nare waiting for me?\pIt’s nerve-racking!" text_4="I’m here to see how good I am.\pI wonder what kinds of TRAINERS\nare waiting for me?\pIt’s nerve-racking!" text_5="I’m here to see how good I am.\pI wonder what kinds of TRAINERS\nare waiting for me?\pIt’s nerve-racking!" text_6="I’m here to see how good I am.\pI wonder what kinds of TRAINERS\nare waiting for me?\pIt’s nerve-racking!"
+    0821B9E3  callstd              function=MSGBOX_NPC(2)
+    0821B9E5  end                  
+
+  object 5 (gfx 0xF4, flag 0x0000) -> 0x0821B9E6
+  script 0x0821B9E6  [ok]
+    0821B9E6  msgbox_multilang     type=0 text_0="Gasp, gasp…\nGasp…\pNever mind battling! These stairs…\nThey’re tougher than any battle…" text_1="Gasp, gasp…\nGasp…\pNever mind battling! These stairs…\nThey’re tougher than any battle…" text_2="Gasp, gasp…\nGasp…\pNever mind battling! These stairs…\nThey’re tougher than any battle…" text_3="Gasp, gasp…\nGasp…\pNever mind battling! These stairs…\nThey’re tougher than any battle…" text_4="Gasp, gasp…\nGasp…\pNever mind battling! These stairs…\nThey’re tougher than any battle…" text_5="Gasp, gasp…\nGasp…\pNever mind battling! These stairs…\nThey’re tougher than any battle…" text_6="Gasp, gasp…\nGasp…\pNever mind battling! These stairs…\nThey’re tougher than any battle…"
+    0821BA04  callstd              function=MSGBOX_NPC(2)
+    0821BA06  end                  
+
+  coord trigger 0 (var 0x4082 == 0) -> 0x0821B818
+  script 0x0821B818  [ok]
+    0821B818  lockall              
+    0821B819  applymovement        localId=255 movements=[face_right]
+    0821B820  textcolor            color=1
+    0821B822  msgbox_multilang     type=0 text_0="Hello!\pWelcome to TRAINER TOWER where\nTRAINERS gather from all over!" text_1="Hello!\pWelcome to TRAINER TOWER where\nTRAINERS gather from all over!" text_2="Hello!\pWelcome to TRAINER TOWER where\nTRAINERS gather from all over!" text_3="Hello!\pWelcome to TRAINER TOWER where\nTRAINERS gather from all over!" text_4="Hello!\pWelcome to TRAINER TOWER where\nTRAINERS gather from all over!" text_5="Hello!\pWelcome to TRAINER TOWER where\nTRAINERS gather from all over!" text_6="Hello!\pWelcome to TRAINER TOWER where\nTRAINERS gather from all over!"
+    0821B840  callstd              function=MSGBOX_DEFAULT(4)
+    0821B842  compare_var_to_value var=0x800D value=0
+    0821B847  goto_if              condition=1 destination=0x0821B872
+    0821B84D  msgbox_multilang     type=0 text_0="TRAINERS from all over the world\ngather here to battle.\pLet me see…\pRight now, there are TRAINERS only\nup to Floor {STR_VAR_1}." text_1="TRAINERS from all over the world\ngather here to battle.\pLet me see…\pRight now, there are TRAINERS only\nup to Floor {STR_VAR_1}." text_2="TRAINERS from all over the world\ngather here to battle.\pLet me see…\pRight now, there are TRAINERS only\nup to Floor {STR_VAR_1}." text_3="TRAINERS from all over the world\ngather here to battle.\pLet me see…\pRight now, there are TRAINERS only\nup to Floor {STR_VAR_1}." text_4="TRAINERS from all over the world\ngather here to battle.\pLet me see…\pRight now, there are TRAINERS only\nup to Floor {STR_VAR_1}." text_5="TRAINERS from all over the world\ngather here to battle.\pLet me see…\pRight now, there are TRAINERS only\nup to Floor {STR_VAR_1}." text_6="TRAINERS from all over the world\ngather here to battle.\pLet me see…\pRight now, there are TRAINERS only\nup to Floor {STR_VAR_1}."
+    0821B86B  callstd              function=MSGBOX_DEFAULT(4)
+    0821B86D  goto                 destination=0x0821B892
+
+  script 0x0821B872  [ok]
+    0821B872  msgbox_multilang     type=0 text_0="TRAINERS are awaiting your\nchallenge up to the eighth floor." text_1="TRAINERS are awaiting your\nchallenge up to the eighth floor." text_2="TRAINERS are awaiting your\nchallenge up to the eighth floor." text_3="TRAINERS are awaiting your\nchallenge up to the eighth floor." text_4="TRAINERS are awaiting your\nchallenge up to the eighth floor." text_5="TRAINERS are awaiting your\nchallenge up to the eighth floor." text_6="TRAINERS are awaiting your\nchallenge up to the eighth floor."
+    0821B890  callstd              function=MSGBOX_DEFAULT(4)
+    0821B892  message              text="Would you like to challenge the\nwaiting TRAINERS?"
+    0821B897  nop                  
+    0821B898  vgoto_if             condition=33 destination=565903368
+    0821B89E  gotostd              function=STD_OBTAIN_ITEM(0)
+    0821B8A0  vgoto_if             condition=33 destination=565903368
+    0821B8A6  gotostd              function=STD_OBTAIN_ITEM(0)
+    0821B8A8  vgoto_if             condition=33 destination=565903368
+    0821B8AE  gotostd              function=102
+    0821B8B0  multichoice          x=18 y=6 multichoiceId=16 ignoreBPress=0
+    0821B8B5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0821B8BA  compare_var_to_value var=0x8000 value=0
+    0821B8BF  goto_if              condition=1 destination=0x0821B90D
+    0821B8C5  compare_var_to_value var=0x8000 value=1
+    0821B8CA  goto_if              condition=1 destination=0x0821B989
+    0821B8D0  compare_var_to_value var=0x8000 value=2
+    0821B8D5  goto_if              condition=1 destination=0x0821B8E7
+    0821B8DB  compare_var_to_value var=0x8000 value=127
+    0821B8E0  goto_if              condition=1 destination=0x0821B989
+    0821B8E6  end                  
+
+  script 0x0821B892  [ok]
+    0821B892  message              text="Would you like to challenge the\nwaiting TRAINERS?"
+    0821B897  nop                  
+    0821B898  vgoto_if             condition=33 destination=565903368
+    0821B89E  gotostd              function=STD_OBTAIN_ITEM(0)
+    0821B8A0  vgoto_if             condition=33 destination=565903368
+    0821B8A6  gotostd              function=STD_OBTAIN_ITEM(0)
+    0821B8A8  vgoto_if             condition=33 destination=565903368
+    0821B8AE  gotostd              function=102
+    0821B8B0  multichoice          x=18 y=6 multichoiceId=16 ignoreBPress=0
+    0821B8B5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0821B8BA  compare_var_to_value var=0x8000 value=0
+    0821B8BF  goto_if              condition=1 destination=0x0821B90D
+    0821B8C5  compare_var_to_value var=0x8000 value=1
+    0821B8CA  goto_if              condition=1 destination=0x0821B989
+    0821B8D0  compare_var_to_value var=0x8000 value=2
+    0821B8D5  goto_if              condition=1 destination=0x0821B8E7
+    0821B8DB  compare_var_to_value var=0x8000 value=127
+    0821B8E0  goto_if              condition=1 destination=0x0821B989
+    0821B8E6  end                  
+
+  script 0x0821B90D  [ok]
+    0821B90D  multichoice          x=13 y=3 multichoiceId=64 ignoreBPress=0
+    0821B912  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0821B917  compare_var_to_value var=0x8000 value=0
+    0821B91C  goto_if              condition=1 destination=0x0821B95A
+    0821B922  compare_var_to_value var=0x8000 value=1
+    0821B927  goto_if              condition=1 destination=0x0821B95A
+    0821B92D  compare_var_to_value var=0x8000 value=2
+    0821B932  goto_if              condition=1 destination=0x0821B95A
+    0821B938  compare_var_to_value var=0x8000 value=3
+    0821B93D  goto_if              condition=1 destination=0x0821B95A
+    0821B943  compare_var_to_value var=0x8000 value=4
+    0821B948  goto_if              condition=1 destination=0x0821B989
+    0821B94E  compare_var_to_value var=0x8000 value=127
+    0821B953  goto_if              condition=1 destination=0x0821B989
+    0821B959  end                  
+
+  script 0x0821B989  [ok]
+    0821B989  msgbox_multilang     type=0 text_0="Please do visit us again!" text_1="Please do visit us again!" text_2="Please do visit us again!" text_3="Please do visit us again!" text_4="Please do visit us again!" text_5="Please do visit us again!" text_6="Please do visit us again!"
+    0821B9A7  callstd              function=MSGBOX_DEFAULT(4)
+    0821B9A9  closemessage         
+    0821B9AA  applymovement        localId=255 movements=[walk_down]
+    0821B9B1  waitmovement         localId=0
+    0821B9B4  releaseall           
+
+  script 0x0821B8E7  [ok]
+    0821B8E7  msgbox_multilang     type=0 text_0="Here at TRAINER TOWER, there is an\nevent called TIME ATTACK.\pYou will be timed on how quickly\nyou can get from the reception\pcounter to the OWNER on the roof.\pThe best times will be recorded on\nthe Time Board.\pTry competing with friends to see\nwho can beat it the fastest.\pYou will not earn any EXP. Points\nor money by beating TRAINERS here." text_1="Here at TRAINER TOWER, there is an\nevent called TIME ATTACK.\pYou will be timed on how quickly\nyou can get from the reception\pcounter to the OWNER on the roof.\pThe best times will be recorded on\nthe Time Board.\pTry competing with friends to see\nwho can beat it the fastest.\pYou will not earn any EXP. Points\nor money by beating TRAINERS here." text_2="Here at TRAINER TOWER, there is an\nevent called TIME ATTACK.\pYou will be timed on how quickly\nyou can get from the reception\pcounter to the OWNER on the roof.\pThe best times will be recorded on\nthe Time Board.\pTry competing with friends to see\nwho can beat it the fastest.\pYou will not earn any EXP. Points\nor money by beating TRAINERS here." text_3="Here at TRAINER TOWER, there is an\nevent called TIME ATTACK.\pYou will be timed on how quickly\nyou can get from the reception\pcounter to the OWNER on the roof.\pThe best times will be recorded on\nthe Time Board.\pTry competing with friends to see\nwho can beat it the fastest.\pYou will not earn any EXP. Points\nor money by beating TRAINERS here." text_4="Here at TRAINER TOWER, there is an\nevent called TIME ATTACK.\pYou will be timed on how quickly\nyou can get from the reception\pcounter to the OWNER on the roof.\pThe best times will be recorded on\nthe Time Board.\pTry competing with friends to see\nwho can beat it the fastest.\pYou will not earn any EXP. Points\nor money by beating TRAINERS here." text_5="Here at TRAINER TOWER, there is an\nevent called TIME ATTACK.\pYou will be timed on how quickly\nyou can get from the reception\pcounter to the OWNER on the roof.\pThe best times will be recorded on\nthe Time Board.\pTry competing with friends to see\nwho can beat it the fastest.\pYou will not earn any EXP. Points\nor money by beating TRAINERS here." text_6="Here at TRAINER TOWER, there is an\nevent called TIME ATTACK.\pYou will be timed on how quickly\nyou can get from the reception\pcounter to the OWNER on the roof.\pThe best times will be recorded on\nthe Time Board.\pTry competing with friends to see\nwho can beat it the fastest.\pYou will not earn any EXP. Points\nor money by beating TRAINERS here."
+    0821B905  callstd              function=MSGBOX_DEFAULT(4)
+    0821B907  goto                 destination=0x0821B892
+
+  script 0x0821B95A  [ok]
+    0821B95A  copyvar              destination=VAR_0x8005 source=VAR_0x800D
+    0821B95F  setvar               destination=VAR_0x4082 value=1
+    0821B964  special              SPECIAL_\function=0
+    0821B967  msgbox_multilang     type=0 text_0="Okay, I’ll get the clock started,\nso give it everything you have.\pOn your marks…\pGet set…\pGo!" text_1="Okay, I’ll get the clock started,\nso give it everything you have.\pOn your marks…\pGet set…\pGo!" text_2="Okay, I’ll get the clock started,\nso give it everything you have.\pOn your marks…\pGet set…\pGo!" text_3="Okay, I’ll get the clock started,\nso give it everything you have.\pOn your marks…\pGet set…\pGo!" text_4="Okay, I’ll get the clock started,\nso give it everything you have.\pOn your marks…\pGet set…\pGo!" text_5="Okay, I’ll get the clock started,\nso give it everything you have.\pOn your marks…\pGet set…\pGo!" text_6="Okay, I’ll get the clock started,\nso give it everything you have.\pOn your marks…\pGet set…\pGo!"
+    0821B985  callstd              function=MSGBOX_DEFAULT(4)
+    0821B987  releaseall           
+
+  sign 0 at (8,10) -> 0x0821B9BA
+  script 0x0821B9BA  [ok]
+    0821B9BA  lockall              
+    0821B9BB  fadescreen           mode=1
+    0821B9BD  setvar               destination=VAR_0x8004 value=1
+    0821B9C2  waitstate            
+
+  map script type 5 -> 0x0821B630
+  script 0x0821B630  [ok]
+    0821B630  setvar               destination=VAR_0x4002 value=0
+    0821B635  compare_var_to_value var=0x800D value=0
+    0821B63A  goto_if              condition=1 destination=0x0821B653
+    0821B640  setvar               destination=VAR_0x4000 value=0
+    0821B645  setobjectxy          localId=255 x=9 y=7
+    0821B64C  applymovement        localId=255 movements=[face_right]
+    0821B653  end                  
+
+  script 0x0821B653  [ok]
+    0821B653  end                  
+
+  map script type 7 -> 0x0821B654
+  script 0x0821B654  [ok]
+    0821B654  addobject            localId=1
+    0821B657  addobject            localId=2
+    0821B65A  addobject            localId=3
+    0821B65D  addobject            localId=4
+    0821B660  addobject            localId=5
+    0821B663  end                  
+
+  map script type 3 -> 0x0821B67A
+  script 0x0821B67A  [ok]
+    0821B67A  setworldmapflag      flag=0x91A
+    0821B67D  getplayerxy          x=16397 y=32781
+    0821B682  end                  
+
+  map script type 1 -> 0x0821B664
+  script 0x0821B664  [ok]
+    0821B664  compare_var_to_value var=0x400D value=17
+    0821B669  call_if              condition=1 destination=0x0821B670
+    0821B66F  end                  
+
+  script 0x0821B670  [ok]
+    0821B670  setmetatile          x=17 y=10 metatileId=647 impassable=0
+    0821B679  return               
+
+  map script type 2 (var 0x4000 == 0) -> 0x0821B6BA
+  script 0x0821B6BA  [ok]
+    0821B6BA  setvar               destination=VAR_0x4000 value=1
+    0821B6BF  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0821B6C4  compare_var_to_value var=0x8000 value=0
+    0821B6C9  goto_if              condition=1 destination=0x0821B6E5
+    0821B6CF  compare_var_to_value var=0x8000 value=1
+    0821B6D4  goto_if              condition=1 destination=0x0821B715
+    0821B6DA  compare_var_to_value var=0x8000 value=2
+    0821B6DF  goto_if              condition=1 destination=0x0821B751
+    0821B6E5  lock                 
+    0821B6E6  faceplayer           
+    0821B6E7  applymovement        localId=255 movements=[face_right]
+    0821B6EE  textcolor            color=1
+    0821B6F0  msgbox_multilang     type=0 text_0="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_1="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_2="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_3="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_4="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_5="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_6="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!"
+    0821B70E  callstd              function=MSGBOX_DEFAULT(4)
+    0821B710  goto                 destination=0x0821B740
+
+  script 0x0821B6E5  [ok]
+    0821B6E5  lock                 
+    0821B6E6  faceplayer           
+    0821B6E7  applymovement        localId=255 movements=[face_right]
+    0821B6EE  textcolor            color=1
+    0821B6F0  msgbox_multilang     type=0 text_0="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_1="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_2="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_3="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_4="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_5="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!" text_6="That was too bad.\pI think you put in a tremendous\neffort in your battling.\pPlease come back and try again!"
+    0821B70E  callstd              function=MSGBOX_DEFAULT(4)
+    0821B710  goto                 destination=0x0821B740
+
+  script 0x0821B715  [ok]
+    0821B715  lock                 
+    0821B716  faceplayer           
+    0821B717  applymovement        localId=255 movements=[face_right]
+    0821B71E  textcolor            color=1
+    0821B720  msgbox_multilang     type=0 text_0="When the TRAINERS switch places,\nthe movement can be hectic.\pTo avoid the stampede, we moved\nthe reception counter here.\pI’m sorry for the inconvenience." text_1="When the TRAINERS switch places,\nthe movement can be hectic.\pTo avoid the stampede, we moved\nthe reception counter here.\pI’m sorry for the inconvenience." text_2="When the TRAINERS switch places,\nthe movement can be hectic.\pTo avoid the stampede, we moved\nthe reception counter here.\pI’m sorry for the inconvenience." text_3="When the TRAINERS switch places,\nthe movement can be hectic.\pTo avoid the stampede, we moved\nthe reception counter here.\pI’m sorry for the inconvenience." text_4="When the TRAINERS switch places,\nthe movement can be hectic.\pTo avoid the stampede, we moved\nthe reception counter here.\pI’m sorry for the inconvenience." text_5="When the TRAINERS switch places,\nthe movement can be hectic.\pTo avoid the stampede, we moved\nthe reception counter here.\pI’m sorry for the inconvenience." text_6="When the TRAINERS switch places,\nthe movement can be hectic.\pTo avoid the stampede, we moved\nthe reception counter here.\pI’m sorry for the inconvenience."
+    0821B73E  callstd              function=MSGBOX_DEFAULT(4)
+    0821B740  closemessage         
+    0821B741  applymovement        localId=255 movements=[walk_down]
+    0821B748  waitmovement         localId=0
+    0821B74B  setvar               destination=VAR_0x4082 value=0
+    0821B750  release              
+
+  script 0x0821B751  [ok]
+    0821B751  end                  
+
+  script 0x0821B740  [ok]
+    0821B740  closemessage         
+    0821B741  applymovement        localId=255 movements=[walk_down]
+    0821B748  waitmovement         localId=0
+    0821B74B  setvar               destination=VAR_0x4082 value=0
+    0821B750  release              
+
+  map script type 2 (var 0x400D == 17) -> 0x0821B695
+  script 0x0821B695  [ok]
+    0821B695  lockall              
+    0821B696  applymovement        localId=255 movements=[walk_down walk_down]
+    0821B69D  waitmovement         localId=0
+    0821B6A0  setmetatile          x=17 y=10 metatileId=692 impassable=1
+    0821B6A9  special              SPECIAL_\function=79
+    0821B6AC  playse               song=36
+    0821B6AF  waitse               
+    0821B6B0  setvar               destination=VAR_0x400D value=0
+    0821B6B5  releaseall           
+

@@ -1,0 +1,29 @@
+Silph Co.  (group 1, map 47)  header 0x08B3B73C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x01, flag 0x003F) -> 0x0820EB76
+  script 0x0820EB76  [ok]
+    0820EB76  msgbox_multilang     type=0 text_0="Welcome.\pThe President is in the boardroom on\n11F." text_1="Welcome.\pThe President is in the boardroom on\n11F." text_2="Welcome.\pThe President is in the boardroom on\n11F." text_3="Welcome.\pThe President is in the boardroom on\n11F." text_4="Welcome.\pThe President is in the boardroom on\n11F." text_5="Welcome.\pThe President is in the boardroom on\n11F." text_6="Welcome.\pThe President is in the boardroom on\n11F."
+    0820EB94  callstd              function=MSGBOX_NPC(2)
+    0820EB96  return               
+
+  sign 0 at (30,1) -> 0x0820EB97
+  script 0x0820EB97  [ok]
+    0820EB97  msgbox_multilang     type=0 text_0="Silph Co. Head Office\n1F" text_1="Silph Co. Head Office\n1F" text_2="Silph Co. Head Office\n1F" text_3="Silph Co. Head Office\n1F" text_4="Silph Co. Head Office\n1F" text_5="Silph Co. Head Office\n1F" text_6="Silph Co. Head Office\n1F"
+    0820EBB5  callstd              function=MSGBOX_SIGN(3)
+    0820EBB7  return               
+
+  map script type 3 -> 0x0820EB72
+  script 0x0820EB72  [ok]
+    0820EB72  setworldmapflag      flag=0x90C
+    0820EB75  return               
+

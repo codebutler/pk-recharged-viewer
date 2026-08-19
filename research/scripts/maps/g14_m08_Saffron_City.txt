@@ -1,0 +1,35 @@
+Saffron City  (group 14, map 8)  header 0x08B3D7F0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF4, flag 0x0000) -> 0x082716F0
+  script 0x082716F0  [unknown-opcode:0xE9]
+    082716F0  lock                 
+    082716F1  faceplayer           
+    082716F2  checkflag            flag=0x245
+    082716F5  goto_if              condition=1 destination=0x0827178F
+    082716FB  msgbox_multilang     type=0 text_0="…Wait! Don’t say a word!\pYou wanted this!" text_1="…Wait! Don’t say a word!\pYou wanted this!" text_2="…Wait! Don’t say a word!\pYou wanted this!" text_3="…Wait! Don’t say a word!\pYou wanted this!" text_4="…Wait! Don’t say a word!\pYou wanted this!" text_5="…Wait! Don’t say a word!\pYou wanted this!" text_6="…Wait! Don’t say a word!\pYou wanted this!"
+    08271719  callstd              function=MSGBOX_DEFAULT(4)
+    0827171B  checkitemspace       itemId=TM29(317) quantity=1
+    08271720  compare_var_to_value var=0x800D value=0
+    08271725  goto_if              condition=1 destination=0x0827176D
+    0827172B  additem              itemId=TM29(317) quantity=1
+
+  script 0x0827178F  [ok]
+    0827178F  msgbox_multilang     type=0 text_0="You already know, don’t you?\nTM29 is Psychic.\pIt’s an attack that may also lower\nthe target’s special stats." text_1="You already know, don’t you?\nTM29 is Psychic.\pIt’s an attack that may also lower\nthe target’s special stats." text_2="You already know, don’t you?\nTM29 is Psychic.\pIt’s an attack that may also lower\nthe target’s special stats." text_3="You already know, don’t you?\nTM29 is Psychic.\pIt’s an attack that may also lower\nthe target’s special stats." text_4="You already know, don’t you?\nTM29 is Psychic.\pIt’s an attack that may also lower\nthe target’s special stats." text_5="You already know, don’t you?\nTM29 is Psychic.\pIt’s an attack that may also lower\nthe target’s special stats." text_6="You already know, don’t you?\nTM29 is Psychic.\pIt’s an attack that may also lower\nthe target’s special stats."
+    082717AD  callstd              function=MSGBOX_DEFAULT(4)
+    082717AF  release              
+
+  script 0x0827176D  [ok]
+    0827176D  msgbox_multilang     type=0 text_0="Where do you plan to put this?\nYou’ve no room." text_1="Where do you plan to put this?\nYou’ve no room." text_2="Where do you plan to put this?\nYou’ve no room." text_3="Where do you plan to put this?\nYou’ve no room." text_4="Where do you plan to put this?\nYou’ve no room." text_5="Where do you plan to put this?\nYou’ve no room." text_6="Where do you plan to put this?\nYou’ve no room."
+    0827178B  callstd              function=MSGBOX_DEFAULT(4)
+    0827178D  release              
+

@@ -1,0 +1,92 @@
+Six Island  (group 35, map 0)  header 0x08B3DF7C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0827E39A
+  script 0x0827E39A  [ok]
+    0827E39A  lock                 
+    0827E39B  faceplayer           
+    0827E39C  call                 destination=0x082BB336
+    0827E3A1  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x15, flag 0x0098) -> 0x00000000
+  object 3 (gfx 0x37, flag 0x0000) -> 0x0827E3A3
+  script 0x0827E3A3  [ok]
+    0827E3A3  msgbox_multilang     type=0 text_0="For ten years, I’ve searched for\nRuins.\pNo, make that twenty years.\pI get this feeling that there’s\nsomething hidden on this island." text_1="For ten years, I’ve searched for\nRuins.\pNo, make that twenty years.\pI get this feeling that there’s\nsomething hidden on this island." text_2="For ten years, I’ve searched for\nRuins.\pNo, make that twenty years.\pI get this feeling that there’s\nsomething hidden on this island." text_3="For ten years, I’ve searched for\nRuins.\pNo, make that twenty years.\pI get this feeling that there’s\nsomething hidden on this island." text_4="For ten years, I’ve searched for\nRuins.\pNo, make that twenty years.\pI get this feeling that there’s\nsomething hidden on this island." text_5="For ten years, I’ve searched for\nRuins.\pNo, make that twenty years.\pI get this feeling that there’s\nsomething hidden on this island." text_6="For ten years, I’ve searched for\nRuins.\pNo, make that twenty years.\pI get this feeling that there’s\nsomething hidden on this island."
+    0827E3C1  callstd              function=MSGBOX_NPC(2)
+    0827E3C3  end                  
+
+  object 4 (gfx 0xF6, flag 0x0000) -> 0x0827E3C4
+  script 0x0827E3C4  [ok]
+    0827E3C4  msgbox_multilang     type=0 text_0="You know of Pokémon that evolve\nonly upon trading, yes?\pBut did you know that there are\nstill others?\pSome Pokémon evolve only when\ntraded while holding specific items." text_1="You know of Pokémon that evolve\nonly upon trading, yes?\pBut did you know that there are\nstill others?\pSome Pokémon evolve only when\ntraded while holding specific items." text_2="You know of Pokémon that evolve\nonly upon trading, yes?\pBut did you know that there are\nstill others?\pSome Pokémon evolve only when\ntraded while holding specific items." text_3="You know of Pokémon that evolve\nonly upon trading, yes?\pBut did you know that there are\nstill others?\pSome Pokémon evolve only when\ntraded while holding specific items." text_4="You know of Pokémon that evolve\nonly upon trading, yes?\pBut did you know that there are\nstill others?\pSome Pokémon evolve only when\ntraded while holding specific items." text_5="You know of Pokémon that evolve\nonly upon trading, yes?\pBut did you know that there are\nstill others?\pSome Pokémon evolve only when\ntraded while holding specific items." text_6="You know of Pokémon that evolve\nonly upon trading, yes?\pBut did you know that there are\nstill others?\pSome Pokémon evolve only when\ntraded while holding specific items."
+    0827E3E2  callstd              function=MSGBOX_NPC(2)
+    0827E3E4  end                  
+
+  object 5 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0827E2F7
+  script 0x0827E2F7  [ok]
+    0827E2F7  setrespawn           heallocation=20
+    0827E2FA  compare_var_to_value var=0x4089 value=0
+    0827E2FF  call_if              condition=1 destination=0x0827E306
+    0827E305  end                  
+
+  script 0x0827E306  [ok]
+    0827E306  clearflag            flag=0x098
+    0827E309  return               
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+
+  map script type 2 (var 0x4089 == 0) -> 0x0827E314
+  script 0x0827E314  [ok]
+    0827E314  lockall              
+    0827E315  textcolor            color=0
+    0827E317  applymovement        localId=2 movements=[walk_in_place_faster_down]
+    0827E31E  waitmovement         localId=0
+    0827E321  playbgm              song=527 save_song=0
+    0827E325  applymovement        localId=2 movements=[emote_exclamation_mark]
+    0827E32C  waitmovement         localId=0
+    0827E32F  applymovement        localId=2 movements=[delay_16 delay_16 delay_16]
+    0827E336  waitmovement         localId=0
+    0827E339  delay                frames=25
+    0827E33C  applymovement        localId=2 movements=[walk_right walk_right walk_down walk_down]
+    0827E343  waitmovement         localId=0
+    0827E346  msgbox_multilang     type=0 text_0="{RIVAL}: Hey, {PLAYER}!\nHow’s your Pokédex filling up?\pIt looks like it’s impossible to get\nall the Pokémon by hanging around\pjust these parts.\pMaybe there are Pokémon we don’t\nknow about somewhere far away…\p… … …  … … …  … … …\pWell, if I can’t do it, there’s no\nway for you to get it done.\pI’m not going to get all desperate\nover this.\pI’ll keep collecting Pokémon at my\nown pace while I train them.\pThat’s what I’ll do.\nSo there’s no point staying here.\pI may as well leave for home.\pThat’s that, then!\nSmell ya later!" text_1="{RIVAL}: Hey, {PLAYER}!\nHow’s your Pokédex filling up?\pIt looks like it’s impossible to get\nall the Pokémon by hanging around\pjust these parts.\pMaybe there are Pokémon we don’t\nknow about somewhere far away…\p… … …  … … …  … … …\pWell, if I can’t do it, there’s no\nway for you to get it done.\pI’m not going to get all desperate\nover this.\pI’ll keep collecting Pokémon at my\nown pace while I train them.\pThat’s what I’ll do.\nSo there’s no point staying here.\pI may as well leave for home.\pThat’s that, then!\nSmell ya later!" text_2="{RIVAL}: Hey, {PLAYER}!\nHow’s your Pokédex filling up?\pIt looks like it’s impossible to get\nall the Pokémon by hanging around\pjust these parts.\pMaybe there are Pokémon we don’t\nknow about somewhere far away…\p… … …  … … …  … … …\pWell, if I can’t do it, there’s no\nway for you to get it done.\pI’m not going to get all desperate\nover this.\pI’ll keep collecting Pokémon at my\nown pace while I train them.\pThat’s what I’ll do.\nSo there’s no point staying here.\pI may as well leave for home.\pThat’s that, then!\nSmell ya later!" text_3="{RIVAL}: Hey, {PLAYER}!\nHow’s your Pokédex filling up?\pIt looks like it’s impossible to get\nall the Pokémon by hanging around\pjust these parts.\pMaybe there are Pokémon we don’t\nknow about somewhere far away…\p… … …  … … …  … … …\pWell, if I can’t do it, there’s no\nway for you to get it done.\pI’m not going to get all desperate\nover this.\pI’ll keep collecting Pokémon at my\nown pace while I train them.\pThat’s what I’ll do.\nSo there’s no point staying here.\pI may as well leave for home.\pThat’s that, then!\nSmell ya later!" text_4="{RIVAL}: Hey, {PLAYER}!\nHow’s your Pokédex filling up?\pIt looks like it’s impossible to get\nall the Pokémon by hanging around\pjust these parts.\pMaybe there are Pokémon we don’t\nknow about somewhere far away…\p… … …  … … …  … … …\pWell, if I can’t do it, there’s no\nway for you to get it done.\pI’m not going to get all desperate\nover this.\pI’ll keep collecting Pokémon at my\nown pace while I train them.\pThat’s what I’ll do.\nSo there’s no point staying here.\pI may as well leave for home.\pThat’s that, then!\nSmell ya later!" text_5="{RIVAL}: Hey, {PLAYER}!\nHow’s your Pokédex filling up?\pIt looks like it’s impossible to get\nall the Pokémon by hanging around\pjust these parts.\pMaybe there are Pokémon we don’t\nknow about somewhere far away…\p… … …  … … …  … … …\pWell, if I can’t do it, there’s no\nway for you to get it done.\pI’m not going to get all desperate\nover this.\pI’ll keep collecting Pokémon at my\nown pace while I train them.\pThat’s what I’ll do.\nSo there’s no point staying here.\pI may as well leave for home.\pThat’s that, then!\nSmell ya later!" text_6="{RIVAL}: Hey, {PLAYER}!\nHow’s your Pokédex filling up?\pIt looks like it’s impossible to get\nall the Pokémon by hanging around\pjust these parts.\pMaybe there are Pokémon we don’t\nknow about somewhere far away…\p… … …  … … …  … … …\pWell, if I can’t do it, there’s no\nway for you to get it done.\pI’m not going to get all desperate\nover this.\pI’ll keep collecting Pokémon at my\nown pace while I train them.\pThat’s what I’ll do.\nSo there’s no point staying here.\pI may as well leave for home.\pThat’s that, then!\nSmell ya later!"
+    0827E364  callstd              function=MSGBOX_DEFAULT(4)
+    0827E366  closemessage         
+    0827E367  applymovement        localId=255 movements=[walk_left walk_in_place_faster_right]
+    0827E36E  applymovement        localId=2 movements=[delay_16 delay_4 walk_down]
+    0827E375  waitmovement         localId=0
+    0827E378  fadedefaultbgm       
+    0827E379  playse               song=9
+    0827E37C  delay                frames=35
+    0827E37F  removeobject         localId=2
+    0827E382  setvar               destination=VAR_0x4089 value=1
+    0827E387  setvar               destination=VAR_0x4086 value=1
+    0827E38C  releaseall           
+

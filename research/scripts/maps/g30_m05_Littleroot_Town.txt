@@ -1,0 +1,325 @@
+Littleroot Town  (group 30, map 5)  header 0x08B3DC88
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x40, flag 0x0000) -> 0x082F870D
+  script 0x082F870D  [ok]
+    082F870D  lock                 
+    082F870E  speakername          name="Prof. Birch"
+    082F8713  checkflag            flag=0x13B
+    082F8716  goto_if              condition=0 destination=0x082F873E
+    082F871C  msgbox_multilang     type=0 text_0="Thank you very much for your help\n{PLAYER}." text_1="Muchas gracias por tu ayuda\n{PLAYER}." text_2="Thank you very much for your help\n{PLAYER}." text_3="Thank you very much for your help\n{PLAYER}." text_4="Thank you very much for your help\n{PLAYER}." text_5="Thank you very much for your help\n{PLAYER}." text_6="Thank you very much for your help\n{PLAYER}."
+    082F873A  callstd              function=MSGBOX_NPC(2)
+    082F873C  release              
+
+  script 0x082F873E  [ok]
+    082F873E  msgbox_multilang     type=0 text_0="Help us recover the Blueprints!" text_1="Help us recover the Blueprints!" text_2="Help us recover the Blueprints!" text_3="Help us recover the Blueprints!" text_4="Help us recover the Blueprints!" text_5="Help us recover the Blueprints!" text_6="Help us recover the Blueprints!"
+    082F875C  callstd              function=MSGBOX_NPC(2)
+    082F875E  goto                 destination=0x082F873C
+
+  script 0x082F873C  [ok]
+    082F873C  release              
+
+  object 2 (gfx 0x44, flag 0x0000) -> 0x082F8763
+  script 0x082F8763  [ok]
+    082F8763  lock                 
+    082F8764  speakername          name="May"
+    082F8769  checkflag            flag=0x13B
+    082F876C  goto_if              condition=0 destination=0x082F8794
+    082F8772  msgbox_multilang     type=0 text_0="You did it!" text_1="¡Lo lograste!" text_2="You did it!" text_3="You did it!" text_4="You did it!" text_5="You did it!" text_6="You did it!"
+    082F8790  callstd              function=MSGBOX_NPC(2)
+    082F8792  release              
+
+  script 0x082F8794  [ok]
+    082F8794  msgbox_multilang     type=0 text_0="Please! We need the Blueprints!" text_1="Please! We need the Blueprints!" text_2="Please! We need the Blueprints!" text_3="Please! We need the Blueprints!" text_4="Please! We need the Blueprints!" text_5="Please! We need the Blueprints!" text_6="Please! We need the Blueprints!"
+    082F87B2  callstd              function=MSGBOX_NPC(2)
+    082F87B4  goto                 destination=0x082F8792
+
+  script 0x082F8792  [ok]
+    082F8792  release              
+
+  object 3 (gfx 0x2E, flag 0x0000) -> 0x082F88DD
+  script 0x082F88DD  [ok]
+    082F88DD  msgbox_multilang     type=0 text_0="I’m not sure why オカキクケS aren’t that\ncommon in Kanto.\pWe couldn’t live without them at\nhome." text_1="I’m not sure why オカキクケS aren’t that\ncommon in Kanto.\pWe couldn’t live without them at\nhome." text_2="I’m not sure why オカキクケS aren’t that\ncommon in Kanto.\pWe couldn’t live without them at\nhome." text_3="I’m not sure why オカキクケS aren’t that\ncommon in Kanto.\pWe couldn’t live without them at\nhome." text_4="I’m not sure why オカキクケS aren’t that\ncommon in Kanto.\pWe couldn’t live without them at\nhome." text_5="I’m not sure why オカキクケS aren’t that\ncommon in Kanto.\pWe couldn’t live without them at\nhome." text_6="I’m not sure why オカキクケS aren’t that\ncommon in Kanto.\pWe couldn’t live without them at\nhome."
+    082F88FB  callstd              function=MSGBOX_NPC(2)
+    082F88FD  end                  
+
+  object 4 (gfx 0x73, flag 0x0000) -> 0x082F883D
+  script 0x082F883D  [ok]
+    082F883D  lock                 
+    082F883E  checkflag            flag=0x13B
+    082F8841  goto_if              condition=0 destination=0x082F8869
+    082F8847  msgbox_multilang     type=0 text_0="Thanks for bringing back the\nBlueprints!\pFeel free to take a look at the\nmachine." text_1="¡Gracias por recuperar las\nBlueprints!\pSiéntete libre de echarle un vistazo\na la máquina." text_2="Thanks for bringing back the\nBlueprints!\pFeel free to take a look at the\nmachine." text_3="Thanks for bringing back the\nBlueprints!\pFeel free to take a look at the\nmachine." text_4="Thanks for bringing back the\nBlueprints!\pFeel free to take a look at the\nmachine." text_5="Thanks for bringing back the\nBlueprints!\pFeel free to take a look at the\nmachine." text_6="Thanks for bringing back the\nBlueprints!\pFeel free to take a look at the\nmachine."
+    082F8865  callstd              function=MSGBOX_NPC(2)
+    082F8867  release              
+
+  script 0x082F8869  [ok]
+    082F8869  msgbox_multilang     type=0 text_0="Someone dressed in white, with a\nlarge ’R’ on their chest, has stolen\pthe Blueprints for the machine!\pWe need it completed soon to analyze\nthe Pokémon from the Sevii Islands.\pPlease help us!" text_1="Someone dressed in white, with a\nlarge ’R’ on their chest, has stolen\pthe Blueprints for the machine!\pWe need it completed soon to analyze\nthe Pokémon from the Sevii Islands.\pPlease help us!" text_2="Someone dressed in white, with a\nlarge ’R’ on their chest, has stolen\pthe Blueprints for the machine!\pWe need it completed soon to analyze\nthe Pokémon from the Sevii Islands.\pPlease help us!" text_3="Someone dressed in white, with a\nlarge ’R’ on their chest, has stolen\pthe Blueprints for the machine!\pWe need it completed soon to analyze\nthe Pokémon from the Sevii Islands.\pPlease help us!" text_4="Someone dressed in white, with a\nlarge ’R’ on their chest, has stolen\pthe Blueprints for the machine!\pWe need it completed soon to analyze\nthe Pokémon from the Sevii Islands.\pPlease help us!" text_5="Someone dressed in white, with a\nlarge ’R’ on their chest, has stolen\pthe Blueprints for the machine!\pWe need it completed soon to analyze\nthe Pokémon from the Sevii Islands.\pPlease help us!" text_6="Someone dressed in white, with a\nlarge ’R’ on their chest, has stolen\pthe Blueprints for the machine!\pWe need it completed soon to analyze\nthe Pokémon from the Sevii Islands.\pPlease help us!"
+    082F8887  callstd              function=MSGBOX_NPC(2)
+    082F8889  goto                 destination=0x082F8867
+
+  script 0x082F8867  [ok]
+    082F8867  release              
+
+  object 5 (gfx 0x4E, flag 0x0000) -> 0x082F888E
+  script 0x082F888E  [ok]
+    082F888E  checkflag            flag=0x13B
+    082F8891  goto_if              condition=0 destination=0x082F88B8
+    082F8897  msgbox_multilang     type=0 text_0="Leaving Hoenn behind to come here\nwas a big sacrifice, but it was\ptotally worth it.\pAfter all this studying and helping\nProf. Birch, I already feel a\pstronger psychic bond with my\pPokémon." text_1="Dejar atrás Hoenn para venir hasta\naquí ha sido un gran sacrificio\ppero ha merecido totalmente la\ppena.\pDespués de tanto estudiar y ayudar\nal Prof. Birch ya siento una unión\ppsíquica más fuerte con mis Pokémon." text_2="Leaving Hoenn behind to come here\nwas a big sacrifice, but it was\ptotally worth it.\pAfter all this studying and helping\nProf. Birch, I already feel a\pstronger psychic bond with my\pPokémon." text_3="Leaving Hoenn behind to come here\nwas a big sacrifice, but it was\ptotally worth it.\pAfter all this studying and helping\nProf. Birch, I already feel a\pstronger psychic bond with my\pPokémon." text_4="Leaving Hoenn behind to come here\nwas a big sacrifice, but it was\ptotally worth it.\pAfter all this studying and helping\nProf. Birch, I already feel a\pstronger psychic bond with my\pPokémon." text_5="Leaving Hoenn behind to come here\nwas a big sacrifice, but it was\ptotally worth it.\pAfter all this studying and helping\nProf. Birch, I already feel a\pstronger psychic bond with my\pPokémon." text_6="Leaving Hoenn behind to come here\nwas a big sacrifice, but it was\ptotally worth it.\pAfter all this studying and helping\nProf. Birch, I already feel a\pstronger psychic bond with my\pPokémon."
+    082F88B5  callstd              function=MSGBOX_NPC(2)
+    082F88B7  end                  
+
+  script 0x082F88B8  [ok]
+    082F88B8  msgbox_multilang     type=0 text_0="It takes a lot of willpower to help\nProf. Birch recover the Blueprints\pas soon as you meet him.\pI feel that there are strong powers\nwithin you, certainly admirable." text_1="Hay que tener mucha voluntad para\nayudar al Prof. Birch a recuperar\plas Blueprints nada más conocerlo.\pSiento que hay fuertes poderes\ndentro de ti, ciertamente admirables." text_2="It takes a lot of willpower to help\nProf. Birch recover the Blueprints\pas soon as you meet him.\pI feel that there are strong powers\nwithin you, certainly admirable." text_3="It takes a lot of willpower to help\nProf. Birch recover the Blueprints\pas soon as you meet him.\pI feel that there are strong powers\nwithin you, certainly admirable." text_4="It takes a lot of willpower to help\nProf. Birch recover the Blueprints\pas soon as you meet him.\pI feel that there are strong powers\nwithin you, certainly admirable." text_5="It takes a lot of willpower to help\nProf. Birch recover the Blueprints\pas soon as you meet him.\pI feel that there are strong powers\nwithin you, certainly admirable." text_6="It takes a lot of willpower to help\nProf. Birch recover the Blueprints\pas soon as you meet him.\pI feel that there are strong powers\nwithin you, certainly admirable."
+    082F88D6  callstd              function=MSGBOX_NPC(2)
+    082F88D8  goto                 destination=0x082F88B7
+
+  script 0x082F88B7  [ok]
+    082F88B7  end                  
+
+  object 6 (gfx 0x2E, flag 0x0000) -> 0x082F88FE
+  script 0x082F88FE  [ok]
+    082F88FE  msgbox_multilang     type=0 text_0="Nature Mint behavior seems to match\nits effects across every region." text_1="Nature Mint behavior seems to match\nits effects across every region." text_2="Nature Mint behavior seems to match\nits effects across every region." text_3="Nature Mint behavior seems to match\nits effects across every region." text_4="Nature Mint behavior seems to match\nits effects across every region." text_5="Nature Mint behavior seems to match\nits effects across every region." text_6="Nature Mint behavior seems to match\nits effects across every region."
+    082F891C  callstd              function=MSGBOX_NPC(2)
+    082F891E  end                  
+
+  object 7 (gfx 0x41, flag 0x0138) -> 0x00000000
+  sign 0 at (3,5) -> 0x082F87B9
+  script 0x082F87B9  [ok]
+    082F87B9  lockall              
+    082F87BA  checkflag            flag=0x13B
+    082F87BD  goto_if              condition=0 destination=0x082F8810
+    082F87C3  msgbox_multilang     type=0 text_0="It’s a weird machine…\nTake a look?" text_1="It’s a weird machine…\nTake a look?" text_2="It’s a weird machine…\nTake a look?" text_3="It’s a weird machine…\nTake a look?" text_4="It’s a weird machine…\nTake a look?" text_5="It’s a weird machine…\nTake a look?" text_6="It’s a weird machine…\nTake a look?"
+    082F87E1  callstd              function=MSGBOX_YESNO(5)
+    082F87E3  compare_var_to_value var=0x800D value=1
+    082F87E8  goto_if              condition=1 destination=0x082F8835
+    082F87EE  msgbox_multilang     type=0 text_0="Maybe some other time!" text_1="Maybe some other time!" text_2="Maybe some other time!" text_3="Maybe some other time!" text_4="Maybe some other time!" text_5="Maybe some other time!" text_6="Maybe some other time!"
+    082F880C  callstd              function=MSGBOX_DEFAULT(4)
+    082F880E  releaseall           
+
+  script 0x082F8810  [ok]
+    082F8810  msgbox_multilang     type=0 text_0="It’s a weird machine, will be finished\nwith the Blueprints." text_1="It’s a weird machine, will be finished\nwith the Blueprints." text_2="It’s a weird machine, will be finished\nwith the Blueprints." text_3="It’s a weird machine, will be finished\nwith the Blueprints." text_4="It’s a weird machine, will be finished\nwith the Blueprints." text_5="It’s a weird machine, will be finished\nwith the Blueprints." text_6="It’s a weird machine, will be finished\nwith the Blueprints."
+    082F882E  callstd              function=MSGBOX_DEFAULT(4)
+    082F8830  goto                 destination=0x082F880E
+
+  script 0x082F8835  [ok]
+    082F8835  special              SPECIAL_\function=424
+    082F8838  goto                 destination=0x082F880E
+
+  script 0x082F880E  [ok]
+    082F880E  releaseall           
+
+  sign 1 at (4,5) -> 0x082F87B9
+  map script type 3 -> 0x082F8286
+  script 0x082F8286  [ok]
+    082F8286  compare_var_to_value var=0x40E5 value=2
+    082F828B  goto_if              condition=0 destination=0x082F8292
+    082F8291  return               
+
+  script 0x082F8292  [ok]
+    082F8292  setobjectxyperm      localId=2 x=8 y=6
+    082F8299  return               
+
+  map script type 2 (var 0x40E5 == 1) -> 0x082F82AC
+  script 0x082F82AC  [ok]
+    082F82AC  lockall              
+    082F82AD  setmetatile          x=6 y=1 metatileId=815 impassable=1
+    082F82B6  special              SPECIAL_\function=79
+    082F82B9  textcolor            color=1
+    082F82BB  applymovement        localId=255 movements=[walk_up walk_up walk_up]
+    082F82C2  waitmovement         localId=0
+    082F82C5  speakername          name="May"
+    082F82CA  msgbox_multilang     type=0 text_0="Hey, this lab isn’t so bad after all,\nis it?" text_1="Oye, después de todo, este\nlaboratorio no está tan mal, ¿verdad?" text_2="Hé, ce laboratoire n’est pas si mal\naprès tout, n’est-ce pas?" text_3="Ehi, dopotutto questo laboratorio non\nè così male, vero?" text_4="Hey, dieses Labor ist doch gar nicht\nso schlecht, oder?" text_5="Ei, esse laboratório nぇo é tぇo ruim\nassim, nぇo é?" text_6="Hey, this lab isn’t so bad after all,\nis it?"
+    082F82E8  callstd              function=MSGBOX_DEFAULT(4)
+    082F82EA  closemessage         
+    082F82EB  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up]
+    082F82F2  applymovement        localId=2 movements=[walk_up walk_up walk_right walk_up]
+    082F82F9  waitmovement         localId=0
+    082F82FC  delay                frames=16
+    082F82FF  playse               song=21
+    082F8302  applymovement        localId=2 movements=[action_0xAF]
+    082F8309  waitmovement         localId=0
+    082F830C  delay                frames=48
+    082F830F  speakername          name="May"
+    082F8314  msgbox_multilang     type=0 text_0="Dad?" text_1="¿Papá?" text_2="Papa ?" text_3="Papà?" text_4="Papa?" text_5="Pai?" text_6="Dad?"
+    082F8332  callstd              function=MSGBOX_DEFAULT(4)
+    082F8334  closemessage         
+    082F8335  delay                frames=32
+    082F8338  playse               song=21
+    082F833B  applymovement        localId=1 movements=[emote_exclamation_mark]
+    082F8342  waitmovement         localId=0
+    082F8345  delay                frames=32
+    082F8348  turnobject           localId=1 direction=1
+    082F834C  textcolor            color=0
+    082F834E  speakername          name="Prof. Birch"
+    082F8353  msgbox_multilang     type=0 text_0="Oh! Hello, May!\nI didn’t see you there.\pSo, you’ve brought someone with\pyou?\pWhy don’t you introduce me to your\nnew friend?" text_1="¡Oh! ¡Hola, May!\nNo te vi ahí.\pEntonces, ¿has traído a alguien\pcontigo?\p¿Por qué no me presentas a tu nuevo\namigo?" text_2="Oh ! Bonjour, May !\nJe ne t’avais pas vue là.?\pAlors, tu as amené quelqu’un avec\ptoi ?\pPourquoi ne pas me présenter à ton\nnouvel ami ?" text_3="Oh! Ciao, May!\nNon ti avevo vista lì.\pQuindi, hai portato qualcuno con\pte?\pPerché non mi presenti al tuo nuovo\namico?" text_4="Oh! Hallo, May!\nIch habe dich dort nicht gesehen.\pAlso, hast du jemanden mitgebracht?\pWarum stellst du mir deinen neuen\nFreund nicht vor?" text_5="Oh! Olá, May!\nNぇo te vi aí.\pEntぇo, você trouxe alguém com\pvocê?\pPor que você nぇo me apresenta ao\nseu novo amigo?" text_6="Oh! Hello, May!\nI didn’t see you there.\pSo, you’ve brought someone with\pyou?\pWhy don’t you introduce me to your\nnew friend?"
+    082F8371  callstd              function=MSGBOX_DEFAULT(4)
+    082F8373  closemessage         
+    082F8374  applymovement        localId=2 movements=[walk_in_place_up]
+    082F837B  waitmovement         localId=0
+    082F837E  delay                frames=16
+    082F8381  textcolor            color=1
+    082F8383  speakername          name="May"
+    082F8388  msgbox_multilang     type=0 text_0="But Dad! This is {PLAYER}, the\nChampion of Kanto!\pYou should know who they are!\pI brought them because I thought\nthey could help us with our\presearch." text_1="¡Pero papá! ¡Este es {PLAYER}, el\nCampeón de Kanto!\p¡Deberías saber quién es!\pLos traje porque pensé que podrían\nayudarnos con nuestra investigación." text_2="Mais papa ! C’est {PLAYER}, le\nChampion de Kanto !\pTu devrais savoir qui c’est !\pJe les ai amenés parce que je\npensais qu’ils pourraient nous aider\pavec notre recherche." text_3="Ma papà! Questo è {PLAYER}, il\nCampione di Kanto!\pDovresti sapere chi è!\pLi ho portati perché pensavo che\npotessero aiutarci con la nostra\pricerca." text_4="Aber Papa! Das ist {PLAYER}, der\nChampion von Kanto!\pDu solltest wissen, wer das ist!\pIch habe sie mitgebracht, weil ich\ndachte, sie könnten uns bei unserer\pForschung helfen." text_5="Mas pai! Este é {PLAYER}, o\nCampeぇo de Kanto!\pVocê deveria saber quem eles sぇo!\pEu os trouxe porque pensei que\npoderiam nos ajudar com nossa\ppesquisa." text_6="But Dad! This is {PLAYER}, the\nChampion of Kanto!\pYou should know who they are!\pI brought them because I thought\nthey could help us with our\presearch."
+    082F83A6  callstd              function=MSGBOX_DEFAULT(4)
+    082F83A8  closemessage         
+    082F83A9  delay                frames=32
+    082F83AC  textcolor            color=0
+    082F83AE  speakername          name="Prof. Birch"
+    082F83B3  msgbox_multilang     type=0 text_0="Pleasure to\nmeet you, {PLAYER}.\pApologies for my lack of\ncompetence-I’m not very involved in\pPokémon battles.\pMy name is Professor Birch, and I\nspecialize in Pokémon research.\pWe usually study in the Hoenn region,\nspecifically in Littleroot Town.\pWe’ve come to the Sevii Islands\nbecause we believe they are truly\pfascinating!\pThey share a region with Kanto but\nhave Pokémon from different origins!\pI know your Pokédex currently only\nrecords data on Kanto Pokémon, but\pthat’s an easy fix!\pPlease, allow me to take a look at it\nfor a moment." text_1="Pleasure to\nmeet you, {PLAYER}.\pApologies for my lack of\ncompetence-I’m not very involved in\pPokémon battles.\pMy name is Professor Birch, and I\nspecialize in Pokémon research.\pWe usually study in the Hoenn region,\nspecifically in Littleroot Town.\pWe’ve come to the Sevii Islands\nbecause we believe they are truly\pfascinating!\pThey share a region with Kanto but\nhave Pokémon from different origins!\pI know your Pokédex currently only\nrecords data on Kanto Pokémon, but\pthat’s an easy fix!\pPlease, allow me to take a look at it\nfor a moment." text_2="Pleasure to\nmeet you, {PLAYER}.\pApologies for my lack of\ncompetence-I’m not very involved in\pPokémon battles.\pMy name is Professor Birch, and I\nspecialize in Pokémon research.\pWe usually study in the Hoenn region,\nspecifically in Littleroot Town.\pWe’ve come to the Sevii Islands\nbecause we believe they are truly\pfascinating!\pThey share a region with Kanto but\nhave Pokémon from different origins!\pI know your Pokédex currently only\nrecords data on Kanto Pokémon, but\pthat’s an easy fix!\pPlease, allow me to take a look at it\nfor a moment." text_3="Pleasure to\nmeet you, {PLAYER}.\pApologies for my lack of\ncompetence-I’m not very involved in\pPokémon battles.\pMy name is Professor Birch, and I\nspecialize in Pokémon research.\pWe usually study in the Hoenn region,\nspecifically in Littleroot Town.\pWe’ve come to the Sevii Islands\nbecause we believe they are truly\pfascinating!\pThey share a region with Kanto but\nhave Pokémon from different origins!\pI know your Pokédex currently only\nrecords data on Kanto Pokémon, but\pthat’s an easy fix!\pPlease, allow me to take a look at it\nfor a moment." text_4="Pleasure to\nmeet you, {PLAYER}.\pApologies for my lack of\ncompetence-I’m not very involved in\pPokémon battles.\pMy name is Professor Birch, and I\nspecialize in Pokémon research.\pWe usually study in the Hoenn region,\nspecifically in Littleroot Town.\pWe’ve come to the Sevii Islands\nbecause we believe they are truly\pfascinating!\pThey share a region with Kanto but\nhave Pokémon from different origins!\pI know your Pokédex currently only\nrecords data on Kanto Pokémon, but\pthat’s an easy fix!\pPlease, allow me to take a look at it\nfor a moment." text_5="Pleasure to\nmeet you, {PLAYER}.\pApologies for my lack of\ncompetence-I’m not very involved in\pPokémon battles.\pMy name is Professor Birch, and I\nspecialize in Pokémon research.\pWe usually study in the Hoenn region,\nspecifically in Littleroot Town.\pWe’ve come to the Sevii Islands\nbecause we believe they are truly\pfascinating!\pThey share a region with Kanto but\nhave Pokémon from different origins!\pI know your Pokédex currently only\nrecords data on Kanto Pokémon, but\pthat’s an easy fix!\pPlease, allow me to take a look at it\nfor a moment." text_6="Pleasure to\nmeet you, {PLAYER}.\pApologies for my lack of\ncompetence-I’m not very involved in\pPokémon battles.\pMy name is Professor Birch, and I\nspecialize in Pokémon research.\pWe usually study in the Hoenn region,\nspecifically in Littleroot Town.\pWe’ve come to the Sevii Islands\nbecause we believe they are truly\pfascinating!\pThey share a region with Kanto but\nhave Pokémon from different origins!\pI know your Pokédex currently only\nrecords data on Kanto Pokémon, but\pthat’s an easy fix!\pPlease, allow me to take a look at it\nfor a moment."
+    082F83D1  callstd              function=MSGBOX_DEFAULT(4)
+    082F83D3  closemessage         
+    082F83D4  delay                frames=16
+    082F83D7  applymovement        localId=1 movements=[walk_in_place_down]
+    082F83DE  waitmovement         localId=0
+    082F83E1  delay                frames=16
+    082F83E4  textcolor            color=3
+    082F83E6  playfanfare          song=370
+    082F83E9  message              text="{PLAYER}’s Pokédex was upgraded\nto the National Mode!"
+    082F83EE  checkdecorspace      decoration=12179
+    082F83F1  gotostd              function=78
+    082F83F3  showmoneybox         x=47 y=8 disable=78
+    082F83F7  showmoneybox         x=47 y=8 disable=78
+    082F83FB  showmoneybox         x=47 y=8 disable=78
+    082F83FF  showmoneybox         x=47 y=8 disable=78
+    082F8403  showmoneybox         x=47 y=8 disable=102
+    082F8407  waitfanfare          
+    082F8408  special              SPECIAL_\function=328
+    082F840B  textcolor            color=0
+    082F840D  speakername          name="Prof. Birch"
+    082F8412  msgbox_multilang     type=0 text_0="There you go!" text_1="There you go!" text_2="There you go!" text_3="There you go!" text_4="There you go!" text_5="There you go!" text_6="There you go!"
+    082F8430  callstd              function=MSGBOX_DEFAULT(4)
+    082F8432  closemessage         
+    082F8433  playse               song=21
+    082F8436  turnobject           localId=255 direction=1
+    082F843A  turnobject           localId=1 direction=1
+    082F843E  turnobject           localId=2 direction=1
+    082F8442  playse               song=9
+    082F8445  playbgm              song=495 save_song=0
+    082F8449  addobject            localId=7
+    082F844C  applymovement        localId=7 movements=[walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_left walk_fast_left walk_fast_up walk_fast_up face_right]
+    082F8453  waitmovement         localId=0
+    082F8456  turnobject           localId=255 direction=3
+    082F845A  turnobject           localId=1 direction=3
+    082F845E  turnobject           localId=2 direction=3
+    082F8462  delay                frames=16
+    082F8465  playse               song=21
+    082F8468  applymovement        localId=7 movements=[action_0xB0]
+    082F846F  applymovement        localId=255 movements=[emote_question_mark]
+    082F8476  applymovement        localId=2 movements=[emote_question_mark]
+    082F847D  applymovement        localId=1 movements=[emote_question_mark]
+    082F8484  waitmovement         localId=0
+    082F8487  delay                frames=16
+    082F848A  speakername          name="James"
+    082F848F  msgbox_multilang     type=0 text_0="Oh no! Not you again!\pI’m grabbing the Blueprints and making\na run for it!" text_1="Oh no! Not you again!\pI’m grabbing the Blueprints and making\na run for it!" text_2="Oh no! Not you again!\pI’m grabbing the Blueprints and making\na run for it!" text_3="Oh no! Not you again!\pI’m grabbing the Blueprints and making\na run for it!" text_4="Oh no! Not you again!\pI’m grabbing the Blueprints and making\na run for it!" text_5="Oh no! Not you again!\pI’m grabbing the Blueprints and making\na run for it!" text_6="Oh no! Not you again!\pI’m grabbing the Blueprints and making\na run for it!"
+    082F84AD  callstd              function=MSGBOX_DEFAULT(4)
+    082F84AF  closemessage         
+    082F84B0  applymovement        localId=7 movements=[walk_fast_up walk_in_place_fast_up walk_in_place_fast_up]
+    082F84B7  waitmovement         localId=0
+    082F84BA  delay                frames=16
+    082F84BD  setmetatile          x=6 y=1 metatileId=133 impassable=1
+    082F84C6  special              SPECIAL_\function=79
+    082F84C9  delay                frames=16
+    082F84CC  applymovement        localId=7 movements=[walk_fast_down walk_fast_down walk_fast_down walk_fast_right walk_fast_right walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down]
+    082F84D3  delay                frames=32
+    082F84D6  turnobject           localId=255 direction=1
+    082F84DA  turnobject           localId=1 direction=1
+    082F84DE  turnobject           localId=2 direction=1
+    082F84E2  waitmovement         localId=0
+    082F84E5  removeobject         localId=7
+    082F84E8  playse               song=9
+    082F84EB  turnobject           localId=255 direction=4
+    082F84EF  turnobject           localId=1 direction=1
+    082F84F3  turnobject           localId=2 direction=3
+    082F84F7  textcolor            color=1
+    082F84F9  delay                frames=16
+    082F84FC  playse               song=21
+    082F84FF  applymovement        localId=2 movements=[emote_exclamation_mark]
+    082F8506  waitmovement         localId=0
+    082F8509  delay                frames=32
+    082F850C  speakername          name="May"
+    082F8511  msgbox_multilang     type=0 text_0="Those Blueprints were crucial for our\nmachine.\pThey allow us to see the Pokémon’s\nstats in greater detail.\pI don’t know what dark intentions they\nmight have with those plans, but\pthe machine is vital to our\presearch.\pPlease, help us get them back!" text_1="Those Blueprints were crucial for our\nmachine.\pThey allow us to see the Pokémon’s\nstats in greater detail.\pI don’t know what dark intentions they\nmight have with those plans, but\pthe machine is vital to our\presearch.\pPlease, help us get them back!" text_2="Those Blueprints were crucial for our\nmachine.\pThey allow us to see the Pokémon’s\nstats in greater detail.\pI don’t know what dark intentions they\nmight have with those plans, but\pthe machine is vital to our\presearch.\pPlease, help us get them back!" text_3="Those Blueprints were crucial for our\nmachine.\pThey allow us to see the Pokémon’s\nstats in greater detail.\pI don’t know what dark intentions they\nmight have with those plans, but\pthe machine is vital to our\presearch.\pPlease, help us get them back!" text_4="Those Blueprints were crucial for our\nmachine.\pThey allow us to see the Pokémon’s\nstats in greater detail.\pI don’t know what dark intentions they\nmight have with those plans, but\pthe machine is vital to our\presearch.\pPlease, help us get them back!" text_5="Those Blueprints were crucial for our\nmachine.\pThey allow us to see the Pokémon’s\nstats in greater detail.\pI don’t know what dark intentions they\nmight have with those plans, but\pthe machine is vital to our\presearch.\pPlease, help us get them back!" text_6="Those Blueprints were crucial for our\nmachine.\pThey allow us to see the Pokémon’s\nstats in greater detail.\pI don’t know what dark intentions they\nmight have with those plans, but\pthe machine is vital to our\presearch.\pPlease, help us get them back!"
+    082F852F  callstd              function=MSGBOX_DEFAULT(4)
+    082F8531  closemessage         
+    082F8532  fadedefaultbgm       
+    082F8533  setvar               destination=VAR_0x40E5 value=2
+    082F8538  setflag              flag=0x132
+    082F853B  releaseall           
+
+  map script type 2 (var 0x40E5 == 3) -> 0x082F853D
+  script 0x082F853D  [unknown-opcode:0xE9]
+    082F853D  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up walk_up]
+    082F8544  waitmovement         localId=0
+    082F8547  delay                frames=16
+    082F854A  turnobject           localId=2 direction=3
+    082F854E  delay                frames=16
+    082F8551  playse               song=21
+    082F8554  applymovement        localId=2 movements=[emote_exclamation_mark]
+    082F855B  waitmovement         localId=0
+    082F855E  textcolor            color=1
+    082F8560  turnobject           localId=255 direction=4
+    082F8564  speakername          name="May"
+    082F8569  msgbox_multilang     type=0 text_0="What’s that you have there? It can’t\nbe!" text_1="¿Qué es eso que tienes ahí?\n¡No puede ser!" text_2="What’s that you have there? It can’t\nbe!" text_3="What’s that you have there? It can’t\nbe!" text_4="What’s that you have there? It can’t\nbe!" text_5="What’s that you have there? It can’t\nbe!" text_6="What’s that you have there? It can’t\nbe!"
+    082F8587  callstd              function=MSGBOX_DEFAULT(4)
+    082F8589  closemessage         
+    082F858A  delay                frames=16
+    082F858D  speakername          name="May"
+    082F8592  msgbox_multilang     type=0 text_0="You have recovered the Blueprints!" text_1="¡Has recuperado las Blueprints!" text_2="You have recovered the Blueprints!" text_3="You have recovered the Blueprints!" text_4="You have recovered the Blueprints!" text_5="You have recovered the Blueprints!" text_6="You have recovered the Blueprints!"
+    082F85B0  callstd              function=MSGBOX_DEFAULT(4)
+    082F85B2  closemessage         
+    082F85B3  delay                frames=16
+    082F85B6  playse               song=21
+    082F85B9  applymovement        localId=1 movements=[emote_exclamation_mark]
+    082F85C0  waitmovement         localId=0
+    082F85C3  turnobject           localId=1 direction=1
+    082F85C7  turnobject           localId=255 direction=2
+    082F85CB  delay                frames=32
+    082F85CE  textcolor            color=0
+    082F85D0  speakername          name="Prof. Birch"
+    082F85D5  msgbox_multilang     type=0 text_0="Is that true {PLAYER}?" text_1="¿Es eso cierto {PLAYER}?" text_2="Is that true {PLAYER}?" text_3="Is that true {PLAYER}?" text_4="Is that true {PLAYER}?" text_5="Is that true {PLAYER}?" text_6="Is that true {PLAYER}?"
+    082F85F3  callstd              function=MSGBOX_DEFAULT(4)
+    082F85F5  closemessage         
+    082F85F6  applymovement        localId=255 movements=[walk_in_place_up]
+    082F85FD  waitmovement         localId=0
+    082F8600  setvar               destination=VAR_0x8004 value=408
+    082F8605  call                 destination=0x082BBFAD
+    082F860A  closemessage         
+    082F860B  speakername          name="Prof. Birch"
+    082F8610  msgbox_multilang     type=0 text_0="Awesome! Thank you so much!\pCould you take this as a thank you\nfor getting them back?\pIt’s not much, but I’m sure they’ll\ncome in handy." text_1="¡Increible! ¡Muchas gracias!\p¿Podrías tomar esto como\nagradecimiento por recuperarlas?\pNo es gran cosa, pero seguro te son\nútiles." text_2="Awesome! Thank you so much!\pCould you take this as a thank you\nfor getting them back?\pIt’s not much, but I’m sure they’ll\ncome in handy." text_3="Awesome! Thank you so much!\pCould you take this as a thank you\nfor getting them back?\pIt’s not much, but I’m sure they’ll\ncome in handy." text_4="Awesome! Thank you so much!\pCould you take this as a thank you\nfor getting them back?\pIt’s not much, but I’m sure they’ll\ncome in handy." text_5="Awesome! Thank you so much!\pCould you take this as a thank you\nfor getting them back?\pIt’s not much, but I’m sure they’ll\ncome in handy." text_6="Awesome! Thank you so much!\pCould you take this as a thank you\nfor getting them back?\pIt’s not much, but I’m sure they’ll\ncome in handy."
+    082F862E  callstd              function=MSGBOX_DEFAULT(4)
+    082F8630  closemessage         
+    082F8631  applymovement        localId=1 movements=[walk_in_place_down]
+    082F8638  waitmovement         localId=0
+    082F863B  delay                frames=16
+
+  script 0x082BBFAD  [ok]
+    082BBFAD  textcolor            color=3
+    082BBFAF  bufferitemname       stringVarId=0 item=32772
+    082BBFB3  playfanfare          song=372
+    082BBFB6  message              text="{PLAYER} handed over the\n{STR_VAR_1}."
+    082BBFBB  showcontestresults   
+    082BBFBC  loadhelp             
+    082BBFBD  checkflag            flag=0x8D08 (temp)
+    082BBFC0  loadhelp             
+    082BBFC1  checkflag            flag=0x8D08 (temp)
+    082BBFC4  loadhelp             
+    082BBFC5  checkflag            flag=0x8D08 (temp)
+    082BBFC8  loadhelp             
+    082BBFC9  checkflag            flag=0x8D08 (temp)
+    082BBFCC  loadhelp             
+    082BBFCD  checkflag            flag=0x8D08 (temp)
+    082BBFD0  loadhelp             
+    082BBFD1  checkflag            flag=0x6608 (temp)
+    082BBFD4  waitfanfare          
+    082BBFD5  removeitem           itemId=item_32772(32772) quantity=1
+    082BBFDA  copyvar              destination=VAR_0x8012 source=VAR_0x8013
+    082BBFDF  return               
+

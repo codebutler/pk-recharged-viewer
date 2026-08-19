@@ -1,0 +1,214 @@
+Battle Frontier  (group 41, map 6)  header 0x08B3E158
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x0828F14B
+  script 0x0828F14B  [opcode-out-of-range:0xF3]
+    0828F14B  lock                 
+    0828F14C  faceplayer           
+    0828F14D  message              text="{PLAYER}, you have not found a partner\nfor your tag team.\pWould you like to quit looking and\nreturn to the reception counter?"
+    0828F152  closedoor            x=10483 y=44296
+
+  object 2 (gfx 0x5A, flag 0x00E0) -> 0x0828F242
+  script 0x0828F242  [ok]
+    0828F242  lock                 
+    0828F243  faceplayer           
+    0828F244  setvar               destination=VAR_0x4002 value=0
+    0828F249  goto                 destination=0x0828F24F
+
+  script 0x0828F24F  [ok]
+    0828F24F  checkflag            flag=0x0C4
+    0828F252  goto_if              condition=1 destination=0x0828F2DC
+    0828F258  setvar               destination=VAR_0x8004 value=11
+    0828F25D  setvar               destination=VAR_0x8005 value=0
+    0828F262  special              SPECIAL_\function=149
+    0828F265  waitmessage          
+    0828F266  waitbuttonpress      
+    0828F267  setvar               destination=VAR_0x8004 value=11
+    0828F26C  setvar               destination=VAR_0x8005 value=1
+    0828F271  special              SPECIAL_\function=149
+    0828F274  waitmessage          
+    0828F275  waitbuttonpress      
+    0828F276  setvar               destination=VAR_0x8004 value=11
+    0828F27B  setvar               destination=VAR_0x8005 value=2
+    0828F280  special              SPECIAL_\function=149
+    0828F283  waitmessage          
+    0828F284  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0828F28A  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828F28F  compare_var_to_value var=0x8000 value=1
+    0828F294  goto_if              condition=1 destination=0x0828F2DC
+    0828F29A  compare_var_to_value var=0x8000 value=127
+    0828F29F  goto_if              condition=1 destination=0x0828F2DC
+    0828F2A5  setvar               destination=VAR_0x8004 value=11
+    0828F2AA  setvar               destination=VAR_0x8005 value=3
+    0828F2AF  special              SPECIAL_\function=149
+    0828F2B2  waitmessage          
+    0828F2B3  waitbuttonpress      
+    0828F2B4  closemessage         
+    0828F2B5  compare_var_to_value var=0x800C value=1
+    0828F2BA  call_if              condition=5 destination=0x0828F2ED
+    0828F2C0  compare_var_to_value var=0x800C value=1
+    0828F2C5  call_if              condition=1 destination=0x0828F2F8
+    0828F2CB  removeobject         localId=32783
+    0828F2CE  setflag              flag=0x0C4
+    0828F2D1  warpsilent           mapGroup=41 mapNum=6 WARP_ID_NONE=255 -1=10 -1=3
+    0828F2D9  waitstate            
+
+  script 0x0828F2DC  [ok]
+    0828F2DC  setvar               destination=VAR_0x8004 value=11
+    0828F2E1  setvar               destination=VAR_0x8005 value=4
+    0828F2E6  special              SPECIAL_\function=149
+    0828F2E9  waitmessage          
+    0828F2EA  waitbuttonpress      
+    0828F2EB  release              
+
+  script 0x0828F2ED  [ok]
+    0828F2ED  applymovement        localId=32783 movements=[walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up]
+    0828F2F4  waitmovement         localId=0
+    0828F2F7  return               
+
+  script 0x0828F2F8  [ok]
+    0828F2F8  applymovement        localId=32783 movements=[walk_fast_left walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up]
+    0828F2FF  waitmovement         localId=0
+    0828F302  return               
+
+  object 3 (gfx 0x5B, flag 0x00D4) -> 0x0828F314
+  script 0x0828F314  [ok]
+    0828F314  lock                 
+    0828F315  faceplayer           
+    0828F316  setvar               destination=VAR_0x4002 value=1
+    0828F31B  goto                 destination=0x0828F24F
+
+  object 4 (gfx 0x5C, flag 0x00D5) -> 0x0828F321
+  script 0x0828F321  [ok]
+    0828F321  lock                 
+    0828F322  faceplayer           
+    0828F323  setvar               destination=VAR_0x4002 value=2
+    0828F328  goto                 destination=0x0828F24F
+
+  object 5 (gfx 0x5D, flag 0x00D6) -> 0x0828F32E
+  script 0x0828F32E  [ok]
+    0828F32E  lock                 
+    0828F32F  faceplayer           
+    0828F330  setvar               destination=VAR_0x4002 value=3
+    0828F335  goto                 destination=0x0828F24F
+
+  object 6 (gfx 0x5E, flag 0x00D7) -> 0x0828F33B
+  script 0x0828F33B  [ok]
+    0828F33B  lock                 
+    0828F33C  faceplayer           
+    0828F33D  setvar               destination=VAR_0x4002 value=4
+    0828F342  goto                 destination=0x0828F24F
+
+  object 7 (gfx 0x5F, flag 0x00D8) -> 0x0828F348
+  script 0x0828F348  [ok]
+    0828F348  lock                 
+    0828F349  faceplayer           
+    0828F34A  setvar               destination=VAR_0x4002 value=5
+    0828F34F  goto                 destination=0x0828F24F
+
+  object 8 (gfx 0x60, flag 0x00BF) -> 0x0828F355
+  script 0x0828F355  [ok]
+    0828F355  lock                 
+    0828F356  faceplayer           
+    0828F357  setvar               destination=VAR_0x4002 value=6
+    0828F35C  goto                 destination=0x0828F24F
+
+  object 9 (gfx 0x61, flag 0x00C0) -> 0x0828F362
+  script 0x0828F362  [ok]
+    0828F362  lock                 
+    0828F363  faceplayer           
+    0828F364  setvar               destination=VAR_0x4002 value=7
+    0828F369  goto                 destination=0x0828F24F
+
+  map script type 5 -> 0x0828F060
+  script 0x0828F060  [ok]
+    0828F060  setvar               destination=VAR_0x8004 value=17
+    0828F065  special              SPECIAL_\function=156
+    0828F068  end                  
+
+  map script type 3 -> 0x0828F069
+  script 0x0828F069  [ok]
+    0828F069  checkflag            flag=0x0C4
+    0828F06C  goto_if              condition=1 destination=0x0828F093
+    0828F072  clearflag            flag=0x0E0
+    0828F075  clearflag            flag=0x0D4
+    0828F078  clearflag            flag=0x0D5
+    0828F07B  clearflag            flag=0x0D6
+    0828F07E  clearflag            flag=0x0D7
+    0828F081  clearflag            flag=0x0D8
+    0828F084  setflag              flag=0x0BF
+    0828F087  setflag              flag=0x0C0
+    0828F08A  setvar               destination=VAR_0x8004 value=10
+    0828F08F  special              SPECIAL_\function=149
+    0828F092  end                  
+
+  script 0x0828F093  [ok]
+    0828F093  setvar               destination=VAR_0x4010 value=7
+    0828F098  setvar               destination=VAR_0x4011 value=7
+    0828F09D  setvar               destination=VAR_0x4012 value=7
+    0828F0A2  setvar               destination=VAR_0x4013 value=7
+    0828F0A7  setvar               destination=VAR_0x4014 value=7
+    0828F0AC  setvar               destination=VAR_0x4015 value=7
+    0828F0B1  setvar               destination=VAR_0x4016 value=7
+    0828F0B6  setvar               destination=VAR_0x4017 value=7
+    0828F0BB  setvar               destination=VAR_0x4001 value=1
+    0828F0C0  setvar               destination=VAR_0x4003 value=1
+    0828F0C5  setobjectxyperm      localId=1 x=10 y=2
+    0828F0CC  end                  
+
+  map script type 4 (var 0x4003 == 1) -> 0x0828F0D7
+  script 0x0828F0D7  [ok]
+    0828F0D7  turnobject           localId=255 direction=2
+    0828F0DB  end                  
+
+  map script type 2 (var 0x4001 == 0) -> 0x0828F0FA
+  script 0x0828F0FA  [ok]
+    0828F0FA  lockall              
+    0828F0FB  applymovement        localId=255 movements=[walk_down]
+    0828F102  waitmovement         localId=0
+    0828F105  applymovement        localId=1 movements=[walk_left walk_in_place_faster_down]
+    0828F10C  waitmovement         localId=0
+    0828F10F  copyobjectxytoperm   localId=1
+    0828F112  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    0828F119  waitmovement         localId=0
+    0828F11C  msgbox_multilang     type=0 text_0="Please find a partner from out of\nthe TRAINERS gathered here." text_1="Please find a partner from out of\nthe TRAINERS gathered here." text_2="Please find a partner from out of\nthe TRAINERS gathered here." text_3="Please find a partner from out of\nthe TRAINERS gathered here." text_4="Please find a partner from out of\nthe TRAINERS gathered here." text_5="Please find a partner from out of\nthe TRAINERS gathered here." text_6="Please find a partner from out of\nthe TRAINERS gathered here."
+    0828F13A  callstd              function=MSGBOX_DEFAULT(4)
+    0828F13C  special              SPECIAL_\function=0
+    0828F13F  setvar               destination=VAR_0x4001 value=1
+    0828F144  releaseall           
+
+  map script type 2 (var 0x4003 == 1) -> 0x0828F0EE
+  script 0x0828F0EE  [ok]
+    0828F0EE  lockall              
+    0828F0EF  setvar               destination=VAR_0x4003 value=0
+    0828F0F4  goto                 destination=0x0828F1B6
+
+  script 0x0828F1B6  [ok]
+    0828F1B6  msgbox_multilang     type=0 text_0="Thank you for choosing a partner.\pI will now show you to your\nMULTI BATTLE ROOM." text_1="Thank you for choosing a partner.\pI will now show you to your\nMULTI BATTLE ROOM." text_2="Thank you for choosing a partner.\pI will now show you to your\nMULTI BATTLE ROOM." text_3="Thank you for choosing a partner.\pI will now show you to your\nMULTI BATTLE ROOM." text_4="Thank you for choosing a partner.\pI will now show you to your\nMULTI BATTLE ROOM." text_5="Thank you for choosing a partner.\pI will now show you to your\nMULTI BATTLE ROOM." text_6="Thank you for choosing a partner.\pI will now show you to your\nMULTI BATTLE ROOM."
+    0828F1D4  callstd              function=MSGBOX_DEFAULT(4)
+    0828F1D6  closemessage         
+    0828F1D7  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    0828F1DE  waitmovement         localId=0
+    0828F1E1  opendoor             x=10 y=1
+    0828F1E6  waitdooranim         
+    0828F1E7  call                 destination=0x0828F1FD
+    0828F1EC  closedoor            x=10 y=1
+    0828F1F1  waitdooranim         
+    0828F1F2  warp                 mapGroup=41 mapNum=3 WARP_ID_NONE=255 -1=1 -1=6
+    0828F1FA  waitstate            
+
+  script 0x0828F1FD  [ok]
+    0828F1FD  applymovement        localId=1 movements=[walk_up set_invisible]
+    0828F204  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    0828F20B  waitmovement         localId=0
+    0828F20E  return               
+

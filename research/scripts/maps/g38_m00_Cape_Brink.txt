@@ -1,0 +1,74 @@
+Cape Brink  (group 38, map 0)  header 0x08B3E040
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xFA, flag 0x0000) -> 0x0827F092
+  script 0x0827F092  [ok]
+    0827F092  lock                 
+    0827F093  setflag              flag=0x4005 (temp)
+    0827F096  faceplayer           
+    0827F097  checkflag            flag=0x1BC
+    0827F09A  goto_if              condition=0 destination=0x0827F0D3
+    0827F0A0  checkitem            itemId=Bottle Cap(398) quantity=1
+    0827F0A5  compare_var_to_value var=0x800D value=1
+    0827F0AA  goto_if              condition=1 destination=0x0827F129
+    0827F0B0  msgbox_multilang     type=0 text_0="Too bad!\nYou don’t have a Bottle Cap!" text_1="Too bad!\nYou don’t have a Bottle Cap!" text_2="Too bad!\nYou don’t have a Bottle Cap!" text_3="Too bad!\nYou don’t have a Bottle Cap!" text_4="Too bad!\nYou don’t have a Bottle Cap!" text_5="Too bad!\nYou don’t have a Bottle Cap!" text_6="Too bad!\nYou don’t have a Bottle Cap!"
+    0827F0CE  callstd              function=MSGBOX_DEFAULT(4)
+    0827F0D0  closemessage         
+    0827F0D1  release              
+
+  script 0x0827F0D3  [ok]
+    0827F0D3  msgbox_multilang     type=0 text_0="Hey! You!\pDo you know what’s amazing? Yeah,\nyou guessed right, Bottle Caps!" text_1="Hey! You!\pDo you know what’s amazing? Yeah,\nyou guessed right, Bottle Caps!" text_2="Hey! You!\pDo you know what’s amazing? Yeah,\nyou guessed right, Bottle Caps!" text_3="Hey! You!\pDo you know what’s amazing? Yeah,\nyou guessed right, Bottle Caps!" text_4="Hey! You!\pDo you know what’s amazing? Yeah,\nyou guessed right, Bottle Caps!" text_5="Hey! You!\pDo you know what’s amazing? Yeah,\nyou guessed right, Bottle Caps!" text_6="Hey! You!\pDo you know what’s amazing? Yeah,\nyou guessed right, Bottle Caps!"
+    0827F0F1  callstd              function=MSGBOX_DEFAULT(4)
+    0827F0F3  closemessage         
+    0827F0F4  delay                frames=16
+    0827F0F7  playse               song=21
+    0827F0FA  applymovement        localId=27 movements=[emote_exclamation_mark]
+    0827F101  msgbox_multilang     type=0 text_0="I know!\pIf you get me a Bottle Cap I will\nHyper Train a Stat of one of your\pPokémon.\pHyper Training means that the IV of\nthe selected stat gets up to 31!\pYou can’t use those stats for\nbreeding, but they are amazing at\pbattles!" text_1="I know!\pIf you get me a Bottle Cap I will\nHyper Train a Stat of one of your\pPokémon.\pHyper Training means that the IV of\nthe selected stat gets up to 31!\pYou can’t use those stats for\nbreeding, but they are amazing at\pbattles!" text_2="I know!\pIf you get me a Bottle Cap I will\nHyper Train a Stat of one of your\pPokémon.\pHyper Training means that the IV of\nthe selected stat gets up to 31!\pYou can’t use those stats for\nbreeding, but they are amazing at\pbattles!" text_3="I know!\pIf you get me a Bottle Cap I will\nHyper Train a Stat of one of your\pPokémon.\pHyper Training means that the IV of\nthe selected stat gets up to 31!\pYou can’t use those stats for\nbreeding, but they are amazing at\pbattles!" text_4="I know!\pIf you get me a Bottle Cap I will\nHyper Train a Stat of one of your\pPokémon.\pHyper Training means that the IV of\nthe selected stat gets up to 31!\pYou can’t use those stats for\nbreeding, but they are amazing at\pbattles!" text_5="I know!\pIf you get me a Bottle Cap I will\nHyper Train a Stat of one of your\pPokémon.\pHyper Training means that the IV of\nthe selected stat gets up to 31!\pYou can’t use those stats for\nbreeding, but they are amazing at\pbattles!" text_6="I know!\pIf you get me a Bottle Cap I will\nHyper Train a Stat of one of your\pPokémon.\pHyper Training means that the IV of\nthe selected stat gets up to 31!\pYou can’t use those stats for\nbreeding, but they are amazing at\pbattles!"
+    0827F11F  callstd              function=MSGBOX_DEFAULT(4)
+    0827F121  setflag              flag=0x1BC
+    0827F124  goto                 destination=0x0827F0A0
+
+  script 0x0827F129  [ok]
+    0827F129  msgbox_multilang     type=0 text_0="Wooo! You got a Bottle Cap!\nWant some Hyper Training?" text_1="Wooo! You got a Bottle Cap!\nWant some Hyper Training?" text_2="Wooo! You got a Bottle Cap!\nWant some Hyper Training?" text_3="Wooo! You got a Bottle Cap!\nWant some Hyper Training?" text_4="Wooo! You got a Bottle Cap!\nWant some Hyper Training?" text_5="Wooo! You got a Bottle Cap!\nWant some Hyper Training?" text_6="Wooo! You got a Bottle Cap!\nWant some Hyper Training?"
+    0827F147  callstd              function=MSGBOX_YESNO(5)
+    0827F149  compare_var_to_value var=0x800D value=1
+    0827F14E  goto_if              condition=1 destination=0x0827F179
+    0827F154  msgbox_multilang     type=0 text_0="Oh! Come on!\nYou don’t need that Bottle Cap!" text_1="Oh! Come on!\nYou don’t need that Bottle Cap!" text_2="Oh! Come on!\nYou don’t need that Bottle Cap!" text_3="Oh! Come on!\nYou don’t need that Bottle Cap!" text_4="Oh! Come on!\nYou don’t need that Bottle Cap!" text_5="Oh! Come on!\nYou don’t need that Bottle Cap!" text_6="Oh! Come on!\nYou don’t need that Bottle Cap!"
+    0827F172  callstd              function=MSGBOX_DEFAULT(4)
+    0827F174  goto                 destination=0x0827F0D0
+
+  script 0x0827F0A0  [ok]
+    0827F0A0  checkitem            itemId=Bottle Cap(398) quantity=1
+    0827F0A5  compare_var_to_value var=0x800D value=1
+    0827F0AA  goto_if              condition=1 destination=0x0827F129
+    0827F0B0  msgbox_multilang     type=0 text_0="Too bad!\nYou don’t have a Bottle Cap!" text_1="Too bad!\nYou don’t have a Bottle Cap!" text_2="Too bad!\nYou don’t have a Bottle Cap!" text_3="Too bad!\nYou don’t have a Bottle Cap!" text_4="Too bad!\nYou don’t have a Bottle Cap!" text_5="Too bad!\nYou don’t have a Bottle Cap!" text_6="Too bad!\nYou don’t have a Bottle Cap!"
+    0827F0CE  callstd              function=MSGBOX_DEFAULT(4)
+    0827F0D0  closemessage         
+    0827F0D1  release              
+
+  script 0x0827F179  [ok]
+    0827F179  special              SPECIAL_\function=96
+    0827F17C  waitstate            
+
+  script 0x0827F0D0  [ok]
+    0827F0D0  closemessage         
+    0827F0D1  release              
+
+  object 2 (gfx 0xFB, flag 0x0000) -> 0x0827F2F1
+  script 0x0827F2F1  [ok]
+    0827F2F1  lockall              
+    0827F2F2  faceplayer           
+    0827F2F3  clearflag            flag=0x013
+    0827F2F6  message              text="If you are planning to trade or\nbattle with official Pokémon games\pyou might want to reset their stats.\pWhat do you want to remove from your\nPokémon?"
+    0827F2FB  bufferleadmonspeciesname stringVarId=247
+    0827F2FD  waitstate            
+

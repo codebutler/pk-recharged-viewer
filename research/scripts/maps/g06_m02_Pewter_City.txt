@@ -1,0 +1,219 @@
+Pewter City  (group 6, map 2)  header 0x08B3CF4C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1D, flag 0x0000) -> 0x08252416
+  script 0x08252416  [ok]
+    08252416  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08252419  goto_if              condition=1 destination=0x08252469
+    0825241F  setvar               destination=VAR_0x8004 value=2
+    08252424  setvar               destination=VAR_0x8005 value=2
+    08252429  special              SPECIAL_\function=348
+    0825242C  trainerbattle        type=1 trainer=0x19E localId=0 ptr1=0x08252BE6 ptr2=0x08252594 ptr3=0x082524A7
+    0825243E  checkflag            flag=0x254
+    08252441  goto_if              condition=0 destination=0x0825249D
+    08252447  msgbox_multilang     type=0 text_0="There are all kinds of Trainers in\nthis huge world of ours.\pYou appear to be very gifted as a\nPokémon Trainer.\pSo let me make a suggestion.\pGo to the Gym in Cerulean and test\nyour abilities." text_1="There are all kinds of Trainers in\nthis huge world of ours.\pYou appear to be very gifted as a\nPokémon Trainer.\pSo let me make a suggestion.\pGo to the Gym in Cerulean and test\nyour abilities." text_2="There are all kinds of Trainers in\nthis huge world of ours.\pYou appear to be very gifted as a\nPokémon Trainer.\pSo let me make a suggestion.\pGo to the Gym in Cerulean and test\nyour abilities." text_3="There are all kinds of Trainers in\nthis huge world of ours.\pYou appear to be very gifted as a\nPokémon Trainer.\pSo let me make a suggestion.\pGo to the Gym in Cerulean and test\nyour abilities." text_4="There are all kinds of Trainers in\nthis huge world of ours.\pYou appear to be very gifted as a\nPokémon Trainer.\pSo let me make a suggestion.\pGo to the Gym in Cerulean and test\nyour abilities." text_5="There are all kinds of Trainers in\nthis huge world of ours.\pYou appear to be very gifted as a\nPokémon Trainer.\pSo let me make a suggestion.\pGo to the Gym in Cerulean and test\nyour abilities." text_6="There are all kinds of Trainers in\nthis huge world of ours.\pYou appear to be very gifted as a\nPokémon Trainer.\pSo let me make a suggestion.\pGo to the Gym in Cerulean and test\nyour abilities."
+    08252465  callstd              function=MSGBOX_DEFAULT(4)
+    08252467  release              
+
+  script 0x08252469  [ok]
+    08252469  trainerbattle        type=1 trainer=0x2EF localId=0 ptr1=0x08252ABE ptr2=0x08252B3A ptr3=0x082524D3
+    0825247B  msgbox_multilang     type=0 text_0="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_1="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_2="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_3="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_4="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_5="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_6="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!"
+    08252499  callstd              function=MSGBOX_DEFAULT(4)
+    0825249B  release              
+
+  script 0x082524A7  [ok]
+    082524A7  closemessage         
+    082524A8  setvar               destination=VAR_0x8004 value=2
+    082524AD  setvar               destination=VAR_0x8005 value=1
+    082524B2  special              SPECIAL_\function=347
+    082524B5  setflag              flag=0x880:BADGE1_BOULDER
+    082524B8  addelevmenuitem      a=1 b=5632 c=16492 d=1
+    082524C0  setflag              flag=0x02E
+    082524C3  setvar               destination=VAR_0x8008 value=1
+    082524C8  call                 destination=0x082BBD1A
+    082524CD  goto                 destination=0x082524F5
+
+  script 0x0825249D  [ok]
+    0825249D  goto                 destination=0x082524F5
+
+  script 0x082524D3  [ok]
+    082524D3  msgbox_multilang     type=0 text_0="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_1="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_2="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_3="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_4="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_5="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!" text_6="I’m interested in training to grow\nstrong enough to one day face and\pdefeat you!\pPlease, battle me every day so I can\ngrow even stronger!"
+    082524F1  callstd              function=MSGBOX_DEFAULT(4)
+    082524F3  release              
+
+  script 0x082BBD1A  [ok]
+    082BBD1A  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    082BBD1F  compare_var_to_value var=0x8000 value=1
+    082BBD24  goto_if              condition=1 destination=0x082BBD78
+    082BBD2A  compare_var_to_value var=0x8000 value=2
+    082BBD2F  goto_if              condition=1 destination=0x082BBD7F
+    082BBD35  compare_var_to_value var=0x8000 value=3
+    082BBD3A  goto_if              condition=1 destination=0x082BBD86
+    082BBD40  compare_var_to_value var=0x8000 value=4
+    082BBD45  goto_if              condition=1 destination=0x082BBD90
+    082BBD4B  compare_var_to_value var=0x8000 value=5
+    082BBD50  goto_if              condition=1 destination=0x082BBDA6
+    082BBD56  compare_var_to_value var=0x8000 value=6
+    082BBD5B  goto_if              condition=1 destination=0x082BBDB9
+    082BBD61  compare_var_to_value var=0x8000 value=7
+    082BBD66  goto_if              condition=1 destination=0x082BBDCF
+    082BBD6C  compare_var_to_value var=0x8000 value=8
+    082BBD71  goto_if              condition=1 destination=0x082BBDE5
+    082BBD77  end                  
+
+  script 0x082524F5  [unknown-opcode:0xE9]
+    082524F5  speakername          name="Brock"
+    082524FA  msgbox_multilang     type=0 text_0="Wait!\nTake this with you." text_1="Wait!\nTake this with you." text_2="Wait!\nTake this with you." text_3="Wait!\nTake this with you." text_4="Wait!\nTake this with you." text_5="Wait!\nTake this with you." text_6="Wait!\nTake this with you."
+    08252518  callstd              function=MSGBOX_DEFAULT(4)
+    0825251A  closemessage         
+    0825251B  checkitemspace       itemId=TM39(327) quantity=1
+    08252520  compare_var_to_value var=0x800D value=0
+    08252525  goto_if              condition=1 destination=0x08252572
+    0825252B  additem              itemId=TM39(327) quantity=1
+
+  script 0x082BBD78  [ok]
+    082BBD78  settrainerflag       trainer=0x8E
+    082BBD7B  settrainerflag       trainer=0x147
+    082BBD7E  return               
+
+  script 0x082BBD7F  [ok]
+    082BBD7F  settrainerflag       trainer=0x96
+    082BBD82  settrainerflag       trainer=0xEA
+    082BBD85  return               
+
+  script 0x082BBD86  [ok]
+    082BBD86  settrainerflag       trainer=0x8D
+    082BBD89  settrainerflag       trainer=0xDC
+    082BBD8C  settrainerflag       trainer=0x1A7
+    082BBD8F  return               
+
+  script 0x082BBD90  [ok]
+    082BBD90  settrainerflag       trainer=0x84
+    082BBD93  settrainerflag       trainer=0x85
+    082BBD96  settrainerflag       trainer=0xA0
+    082BBD99  settrainerflag       trainer=0x109
+    082BBD9C  settrainerflag       trainer=0x10A
+    082BBD9F  settrainerflag       trainer=0x10B
+    082BBDA2  settrainerflag       trainer=0x192
+    082BBDA5  return               
+
+  script 0x082BBDA6  [ok]
+    082BBDA6  settrainerflag       trainer=0x126
+    082BBDA9  settrainerflag       trainer=0x127
+    082BBDAC  settrainerflag       trainer=0x120
+    082BBDAF  settrainerflag       trainer=0x121
+    082BBDB2  settrainerflag       trainer=0x124
+    082BBDB5  settrainerflag       trainer=0x125
+    082BBDB8  return               
+
+  script 0x082BBDB9  [ok]
+    082BBDB9  settrainerflag       trainer=0x118
+    082BBDBC  settrainerflag       trainer=0x119
+    082BBDBF  settrainerflag       trainer=0x11A
+    082BBDC2  settrainerflag       trainer=0x11B
+    082BBDC5  settrainerflag       trainer=0x1CE
+    082BBDC8  settrainerflag       trainer=0x1CF
+    082BBDCB  settrainerflag       trainer=0x1D0
+    082BBDCE  return               
+
+  script 0x082BBDCF  [ok]
+    082BBDCF  settrainerflag       trainer=0xB1
+    082BBDD2  settrainerflag       trainer=0xB2
+    082BBDD5  settrainerflag       trainer=0xB3
+    082BBDD8  settrainerflag       trainer=0xB4
+    082BBDDB  settrainerflag       trainer=0xD5
+    082BBDDE  settrainerflag       trainer=0xD6
+    082BBDE1  settrainerflag       trainer=0xD7
+    082BBDE4  return               
+
+  script 0x082BBDE5  [ok]
+    082BBDE5  settrainerflag       trainer=0x128
+    082BBDE8  settrainerflag       trainer=0x129
+    082BBDEB  settrainerflag       trainer=0x142
+    082BBDEE  settrainerflag       trainer=0x143
+    082BBDF1  settrainerflag       trainer=0x144
+    082BBDF4  settrainerflag       trainer=0x188
+    082BBDF7  settrainerflag       trainer=0x190
+    082BBDFA  settrainerflag       trainer=0x191
+    082BBDFD  return               
+
+  script 0x08252572  [ok]
+    08252572  msgbox_multilang     type=0 text_0="You don’t have room for this." text_1="You don’t have room for this." text_2="You don’t have room for this." text_3="You don’t have room for this." text_4="You don’t have room for this." text_5="You don’t have room for this." text_6="You don’t have room for this."
+    08252590  callstd              function=MSGBOX_DEFAULT(4)
+    08252592  release              
+
+  object 2 (gfx 0x1F, flag 0x0000) -> 0x0825294D
+  script 0x0825294D  [ok]
+    0825294D  trainerbattle        type=0 trainer=0x8E localId=0 ptr1=0x08252D67 ptr2=0x08252DB1
+    0825295B  msgbox_multilang     type=0 text_0="You’re pretty hot.\n…But not as hot as Brock!" text_1="You’re pretty hot.\n…But not as hot as Brock!" text_2="You’re pretty hot.\n…But not as hot as Brock!" text_3="You’re pretty hot.\n…But not as hot as Brock!" text_4="You’re pretty hot.\n…But not as hot as Brock!" text_5="You’re pretty hot.\n…But not as hot as Brock!" text_6="You’re pretty hot.\n…But not as hot as Brock!"
+    08252979  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0825297B  end                  
+
+  object 3 (gfx 0x27, flag 0x0000) -> 0x082529AB
+  script 0x082529AB  [ok]
+    082529AB  lock                 
+    082529AC  faceplayer           
+    082529AD  checkflag            flag=0x880:BADGE1_BOULDER
+    082529B0  goto_if              condition=1 destination=0x08252A23
+    082529B6  msgbox_multilang     type=0 text_0="Hiya!\nDo you want to dream big?\pDo you dare to dream of becoming the\nPokémon champ?\pI’m no Trainer, but I can advise you\non how to win.\pLet me take you to the top!" text_1="Hiya!\nDo you want to dream big?\pDo you dare to dream of becoming the\nPokémon champ?\pI’m no Trainer, but I can advise you\non how to win.\pLet me take you to the top!" text_2="Hiya!\nDo you want to dream big?\pDo you dare to dream of becoming the\nPokémon champ?\pI’m no Trainer, but I can advise you\non how to win.\pLet me take you to the top!" text_3="Hiya!\nDo you want to dream big?\pDo you dare to dream of becoming the\nPokémon champ?\pI’m no Trainer, but I can advise you\non how to win.\pLet me take you to the top!" text_4="Hiya!\nDo you want to dream big?\pDo you dare to dream of becoming the\nPokémon champ?\pI’m no Trainer, but I can advise you\non how to win.\pLet me take you to the top!" text_5="Hiya!\nDo you want to dream big?\pDo you dare to dream of becoming the\nPokémon champ?\pI’m no Trainer, but I can advise you\non how to win.\pLet me take you to the top!" text_6="Hiya!\nDo you want to dream big?\pDo you dare to dream of becoming the\nPokémon champ?\pI’m no Trainer, but I can advise you\non how to win.\pLet me take you to the top!"
+    082529D4  callstd              function=MSGBOX_YESNO(5)
+    082529D6  compare_var_to_value var=0x800D value=1
+    082529DB  goto_if              condition=1 destination=0x08252A48
+    082529E1  msgbox_multilang     type=0 text_0="It’s a free service!\nLet’s get happening!" text_1="It’s a free service!\nLet’s get happening!" text_2="It’s a free service!\nLet’s get happening!" text_3="It’s a free service!\nLet’s get happening!" text_4="It’s a free service!\nLet’s get happening!" text_5="It’s a free service!\nLet’s get happening!" text_6="It’s a free service!\nLet’s get happening!"
+    082529FF  callstd              function=MSGBOX_DEFAULT(4)
+    08252A01  msgbox_multilang     type=0 text_0="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_1="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_2="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_3="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_4="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_5="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_6="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party."
+    08252A1F  callstd              function=MSGBOX_DEFAULT(4)
+    08252A21  release              
+
+  script 0x08252A23  [ok]
+    08252A23  msgbox_multilang     type=0 text_0="Just as I thought!\nYou’re Pokémon champ material!" text_1="Just as I thought!\nYou’re Pokémon champ material!" text_2="Just as I thought!\nYou’re Pokémon champ material!" text_3="Just as I thought!\nYou’re Pokémon champ material!" text_4="Just as I thought!\nYou’re Pokémon champ material!" text_5="Just as I thought!\nYou’re Pokémon champ material!" text_6="Just as I thought!\nYou’re Pokémon champ material!"
+    08252A41  callstd              function=MSGBOX_DEFAULT(4)
+    08252A43  goto                 destination=0x08252A21
+
+  script 0x08252A48  [ok]
+    08252A48  msgbox_multilang     type=0 text_0="All right!\nLet’s get happening!" text_1="All right!\nLet’s get happening!" text_2="All right!\nLet’s get happening!" text_3="All right!\nLet’s get happening!" text_4="All right!\nLet’s get happening!" text_5="All right!\nLet’s get happening!" text_6="All right!\nLet’s get happening!"
+    08252A66  callstd              function=MSGBOX_DEFAULT(4)
+    08252A68  goto                 destination=0x08252A01
+
+  script 0x08252A21  [ok]
+    08252A21  release              
+
+  script 0x08252A01  [ok]
+    08252A01  msgbox_multilang     type=0 text_0="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_1="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_2="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_3="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_4="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_5="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party." text_6="The first Pokémon out in a match is\nat the left of the Pokémon List.\pBy changing the order of Pokémon,\nyou may gain an advantage.\pTry different orders to suit your\nopponent’s party."
+    08252A1F  callstd              function=MSGBOX_DEFAULT(4)
+    08252A21  release              
+
+  object 4 (gfx 0x20, flag 0x0000) -> 0x0825297C
+  script 0x0825297C  [ok]
+    0825297C  trainerbattle        type=0 trainer=0x147 localId=0 ptr1=0x08252E12 ptr2=0x08252E71
+    0825298A  msgbox_multilang     type=0 text_0="Was it your first Gym battle?\nYou don’t look it, but you have a\plot of guts." text_1="Was it your first Gym battle?\nYou don’t look it, but you have a\plot of guts." text_2="Was it your first Gym battle?\nYou don’t look it, but you have a\plot of guts." text_3="Was it your first Gym battle?\nYou don’t look it, but you have a\plot of guts." text_4="Was it your first Gym battle?\nYou don’t look it, but you have a\plot of guts." text_5="Was it your first Gym battle?\nYou don’t look it, but you have a\plot of guts." text_6="Was it your first Gym battle?\nYou don’t look it, but you have a\plot of guts."
+    082529A8  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082529AA  end                  
+
+  sign 0 at (4,12) -> 0x08252A6D
+  script 0x08252A6D  [ok]
+    08252A6D  lockall              
+    08252A6E  checkflag            flag=0x880:BADGE1_BOULDER
+    08252A71  goto_if              condition=1 destination=0x08252A99
+    08252A77  msgbox_multilang     type=0 text_0="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}" text_1="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}" text_2="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}" text_3="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}" text_4="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}" text_5="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}" text_6="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}"
+    08252A95  callstd              function=MSGBOX_DEFAULT(4)
+    08252A97  releaseall           
+
+  script 0x08252A99  [ok]
+    08252A99  msgbox_multilang     type=0 text_0="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_1="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_2="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_3="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_4="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_5="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_6="Pewter Pokémon Gym\nLeader: Brock\pWinning Trainers:\n{RIVAL}, {PLAYER}"
+    08252AB7  callstd              function=MSGBOX_DEFAULT(4)
+    08252AB9  goto                 destination=0x08252A97
+
+  script 0x08252A97  [ok]
+    08252A97  releaseall           
+
+  sign 1 at (8,12) -> 0x08252A6D

@@ -1,0 +1,17 @@
+Navel Rock  (group 2, map 6)  header 0x08B3C034
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  map script type 3 -> 0x0821B491
+  script 0x0821B491  [ok]
+    0821B491  setworldmapflag      flag=0x915
+    0821B494  end                  
+

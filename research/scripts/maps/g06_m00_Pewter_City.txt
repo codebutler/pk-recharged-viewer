@@ -1,0 +1,212 @@
+Pewter City  (group 6, map 0)  header 0x08B3CF14
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x00, flag 0x0000) -> 0x082515F4
+  script 0x082515F4  [ok]
+    082515F4  lock                 
+    082515F5  faceplayer           
+    082515F6  compare_var_to_value var=0x800C value=3
+    082515FB  goto_if              condition=1 destination=0x08251639
+    08251601  compare_var_to_value var=0x800C value=1
+    08251606  goto_if              condition=1 destination=0x08251639
+    0825160C  compare_var_to_value var=0x800C value=2
+    08251611  goto_if              condition=1 destination=0x08251639
+    08251617  msgbox_multilang     type=0 text_0="Please enjoy yourself." text_1="Please enjoy yourself." text_2="Please enjoy yourself." text_3="Please enjoy yourself." text_4="Please enjoy yourself." text_5="Please enjoy yourself." text_6="Please enjoy yourself."
+    08251635  callstd              function=MSGBOX_DEFAULT(4)
+    08251637  release              
+
+  script 0x08251639  [ok]
+    08251639  msgbox_multilang     type=0 text_0="You can’t sneak in the back way!\nNice try, kid, but no.\pOh, whatever!\nDo you know what Amber is?" text_1="You can’t sneak in the back way!\nNice try, kid, but no.\pOh, whatever!\nDo you know what Amber is?" text_2="You can’t sneak in the back way!\nNice try, kid, but no.\pOh, whatever!\nDo you know what Amber is?" text_3="You can’t sneak in the back way!\nNice try, kid, but no.\pOh, whatever!\nDo you know what Amber is?" text_4="You can’t sneak in the back way!\nNice try, kid, but no.\pOh, whatever!\nDo you know what Amber is?" text_5="You can’t sneak in the back way!\nNice try, kid, but no.\pOh, whatever!\nDo you know what Amber is?" text_6="You can’t sneak in the back way!\nNice try, kid, but no.\pOh, whatever!\nDo you know what Amber is?"
+    08251657  callstd              function=MSGBOX_YESNO(5)
+    08251659  compare_var_to_value var=0x800D value=1
+    0825165E  goto_if              condition=1 destination=0x08251670
+    08251664  compare_var_to_value var=0x800D value=0
+    08251669  goto_if              condition=1 destination=0x0825169C
+    0825166F  end                  
+
+  script 0x08251670  [ok]
+    08251670  msgbox_multilang     type=0 text_0="Amber contains the genetic matter\nof ancient Pokémon.\pThere’s a Lab somewhere trying to\nresurrect Pokémon from Amber." text_1="Amber contains the genetic matter\nof ancient Pokémon.\pThere’s a Lab somewhere trying to\nresurrect Pokémon from Amber." text_2="Amber contains the genetic matter\nof ancient Pokémon.\pThere’s a Lab somewhere trying to\nresurrect Pokémon from Amber." text_3="Amber contains the genetic matter\nof ancient Pokémon.\pThere’s a Lab somewhere trying to\nresurrect Pokémon from Amber." text_4="Amber contains the genetic matter\nof ancient Pokémon.\pThere’s a Lab somewhere trying to\nresurrect Pokémon from Amber." text_5="Amber contains the genetic matter\nof ancient Pokémon.\pThere’s a Lab somewhere trying to\nresurrect Pokémon from Amber." text_6="Amber contains the genetic matter\nof ancient Pokémon.\pThere’s a Lab somewhere trying to\nresurrect Pokémon from Amber."
+    0825168E  callstd              function=MSGBOX_DEFAULT(4)
+    08251690  applymovement        localId=1 movements=[face_original_direction]
+    08251697  waitmovement         localId=0
+    0825169A  release              
+
+  script 0x0825169C  [ok]
+    0825169C  msgbox_multilang     type=0 text_0="Amber is actually sap, that gooey\nstuff that oozes from trees.\pThe ancient sap fossilized over\ntime to become rock-hard Amber." text_1="Amber is actually sap, that gooey\nstuff that oozes from trees.\pThe ancient sap fossilized over\ntime to become rock-hard Amber." text_2="Amber is actually sap, that gooey\nstuff that oozes from trees.\pThe ancient sap fossilized over\ntime to become rock-hard Amber." text_3="Amber is actually sap, that gooey\nstuff that oozes from trees.\pThe ancient sap fossilized over\ntime to become rock-hard Amber." text_4="Amber is actually sap, that gooey\nstuff that oozes from trees.\pThe ancient sap fossilized over\ntime to become rock-hard Amber." text_5="Amber is actually sap, that gooey\nstuff that oozes from trees.\pThe ancient sap fossilized over\ntime to become rock-hard Amber." text_6="Amber is actually sap, that gooey\nstuff that oozes from trees.\pThe ancient sap fossilized over\ntime to become rock-hard Amber."
+    082516BA  callstd              function=MSGBOX_DEFAULT(4)
+    082516BC  applymovement        localId=1 movements=[face_original_direction]
+    082516C3  waitmovement         localId=0
+    082516C6  release              
+
+  object 2 (gfx 0xF5, flag 0x0000) -> 0x08251856
+  script 0x08251856  [ok]
+    08251856  msgbox_multilang     type=0 text_0="I should be grateful for my long\nlife.\pNever did I think I would get to\nsee the bones of a dragon!" text_1="I should be grateful for my long\nlife.\pNever did I think I would get to\nsee the bones of a dragon!" text_2="I should be grateful for my long\nlife.\pNever did I think I would get to\nsee the bones of a dragon!" text_3="I should be grateful for my long\nlife.\pNever did I think I would get to\nsee the bones of a dragon!" text_4="I should be grateful for my long\nlife.\pNever did I think I would get to\nsee the bones of a dragon!" text_5="I should be grateful for my long\nlife.\pNever did I think I would get to\nsee the bones of a dragon!" text_6="I should be grateful for my long\nlife.\pNever did I think I would get to\nsee the bones of a dragon!"
+    08251874  callstd              function=MSGBOX_NPC(2)
+    08251876  end                  
+
+  object 3 (gfx 0x08, flag 0x0000) -> 0x08251877
+  script 0x08251877  [unknown-opcode:0xE9]
+    08251877  lock                 
+    08251878  faceplayer           
+    08251879  checkflag            flag=0x25E
+    0825187C  goto_if              condition=1 destination=0x082518F9
+    08251882  msgbox_multilang     type=0 text_0="Ssh! Listen, I need to share a\nsecret with someone.\pI think that this chunk of Amber\ncontains Pokémon DNA!\pIt would be a shattering scientific\nbreakthrough if Pokémon could be\presurrected from it.\pBut, my colleagues just ignore\nwhat I have to say.\pSo, I have a favor to ask!\pI want you to get this examined at\na Pokémon Lab somewhere." text_1="Ssh! Listen, I need to share a\nsecret with someone.\pI think that this chunk of Amber\ncontains Pokémon DNA!\pIt would be a shattering scientific\nbreakthrough if Pokémon could be\presurrected from it.\pBut, my colleagues just ignore\nwhat I have to say.\pSo, I have a favor to ask!\pI want you to get this examined at\na Pokémon Lab somewhere." text_2="Ssh! Listen, I need to share a\nsecret with someone.\pI think that this chunk of Amber\ncontains Pokémon DNA!\pIt would be a shattering scientific\nbreakthrough if Pokémon could be\presurrected from it.\pBut, my colleagues just ignore\nwhat I have to say.\pSo, I have a favor to ask!\pI want you to get this examined at\na Pokémon Lab somewhere." text_3="Ssh! Listen, I need to share a\nsecret with someone.\pI think that this chunk of Amber\ncontains Pokémon DNA!\pIt would be a shattering scientific\nbreakthrough if Pokémon could be\presurrected from it.\pBut, my colleagues just ignore\nwhat I have to say.\pSo, I have a favor to ask!\pI want you to get this examined at\na Pokémon Lab somewhere." text_4="Ssh! Listen, I need to share a\nsecret with someone.\pI think that this chunk of Amber\ncontains Pokémon DNA!\pIt would be a shattering scientific\nbreakthrough if Pokémon could be\presurrected from it.\pBut, my colleagues just ignore\nwhat I have to say.\pSo, I have a favor to ask!\pI want you to get this examined at\na Pokémon Lab somewhere." text_5="Ssh! Listen, I need to share a\nsecret with someone.\pI think that this chunk of Amber\ncontains Pokémon DNA!\pIt would be a shattering scientific\nbreakthrough if Pokémon could be\presurrected from it.\pBut, my colleagues just ignore\nwhat I have to say.\pSo, I have a favor to ask!\pI want you to get this examined at\na Pokémon Lab somewhere." text_6="Ssh! Listen, I need to share a\nsecret with someone.\pI think that this chunk of Amber\ncontains Pokémon DNA!\pIt would be a shattering scientific\nbreakthrough if Pokémon could be\presurrected from it.\pBut, my colleagues just ignore\nwhat I have to say.\pSo, I have a favor to ask!\pI want you to get this examined at\na Pokémon Lab somewhere."
+    082518A0  callstd              function=MSGBOX_DEFAULT(4)
+    082518A2  checkitemspace       itemId=Old Amber(354) quantity=1
+    082518A7  compare_var_to_value var=0x800D value=0
+    082518AC  goto_if              condition=1 destination=0x082518D7
+    082518B2  setflag              flag=0x25E
+    082518B5  removeobject         localId=4
+    082518B8  additem              itemId=Old Amber(354) quantity=1
+
+  script 0x082518F9  [ok]
+    082518F9  msgbox_multilang     type=0 text_0="Ssh!\nGet the Old Amber checked!" text_1="Ssh!\nGet the Old Amber checked!" text_2="Ssh!\nGet the Old Amber checked!" text_3="Ssh!\nGet the Old Amber checked!" text_4="Ssh!\nGet the Old Amber checked!" text_5="Ssh!\nGet the Old Amber checked!" text_6="Ssh!\nGet the Old Amber checked!"
+    08251917  callstd              function=MSGBOX_DEFAULT(4)
+    08251919  release              
+
+  script 0x082518D7  [ok]
+    082518D7  msgbox_multilang     type=0 text_0="You don’t have space for this." text_1="You don’t have space for this." text_2="You don’t have space for this." text_3="You don’t have space for this." text_4="You don’t have space for this." text_5="You don’t have space for this." text_6="You don’t have space for this."
+    082518F5  callstd              function=MSGBOX_DEFAULT(4)
+    082518F7  release              
+
+  object 4 (gfx 0x2D, flag 0x0056) -> 0x0825191B
+  script 0x0825191B  [ok]
+    0825191B  msgbox_multilang     type=0 text_0="There is a beautiful piece of\nAmber in a clear gold color." text_1="There is a beautiful piece of\nAmber in a clear gold color." text_2="There is a beautiful piece of\nAmber in a clear gold color." text_3="There is a beautiful piece of\nAmber in a clear gold color." text_4="There is a beautiful piece of\nAmber in a clear gold color." text_5="There is a beautiful piece of\nAmber in a clear gold color." text_6="There is a beautiful piece of\nAmber in a clear gold color."
+    08251939  callstd              function=MSGBOX_NPC(2)
+    0825193B  end                  
+
+  object 5 (gfx 0x08, flag 0x0000) -> 0x08251835
+  script 0x08251835  [ok]
+    08251835  msgbox_multilang     type=0 text_0="We have two fossils of rare,\nprehistoric Pokémon on exhibit." text_1="We have two fossils of rare,\nprehistoric Pokémon on exhibit." text_2="We have two fossils of rare,\nprehistoric Pokémon on exhibit." text_3="We have two fossils of rare,\nprehistoric Pokémon on exhibit." text_4="We have two fossils of rare,\nprehistoric Pokémon on exhibit." text_5="We have two fossils of rare,\nprehistoric Pokémon on exhibit." text_6="We have two fossils of rare,\nprehistoric Pokémon on exhibit."
+    08251853  callstd              function=MSGBOX_NPC(2)
+    08251855  end                  
+
+  coord trigger 0 (var 0x4061 == 0) -> 0x082516C8
+  script 0x082516C8  [ok]
+    082516C8  lockall              
+    082516C9  setvar               destination=VAR_0x4001 value=0
+    082516CE  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    082516D5  waitmovement         localId=0
+    082516D8  goto                 destination=0x0825170A
+
+  script 0x0825170A  [ok]
+    0825170A  textcolor            color=0
+    0825170C  showmoneybox         x=0 y=0 disable=0
+    08251710  msgbox_multilang     type=0 text_0="Yes, yes.\nIt’s ¥50 for a child’s ticket.\pWould you like to come in?" text_1="Yes, yes.\nIt’s ¥50 for a child’s ticket.\pWould you like to come in?" text_2="Yes, yes.\nIt’s ¥50 for a child’s ticket.\pWould you like to come in?" text_3="Yes, yes.\nIt’s ¥50 for a child’s ticket.\pWould you like to come in?" text_4="Yes, yes.\nIt’s ¥50 for a child’s ticket.\pWould you like to come in?" text_5="Yes, yes.\nIt’s ¥50 for a child’s ticket.\pWould you like to come in?" text_6="Yes, yes.\nIt’s ¥50 for a child’s ticket.\pWould you like to come in?"
+    0825172E  callstd              function=MSGBOX_YESNO(5)
+    08251730  compare_var_to_value var=0x800D value=1
+    08251735  goto_if              condition=1 destination=0x0825176B
+    0825173B  msgbox_multilang     type=0 text_0="Come again!" text_1="Come again!" text_2="Come again!" text_3="Come again!" text_4="Come again!" text_5="Come again!" text_6="Come again!"
+    08251759  callstd              function=MSGBOX_DEFAULT(4)
+    0825175B  closemessage         
+    0825175C  hidemoneybox         0=0 0=0
+    0825175F  applymovement        localId=255 movements=[walk_down]
+    08251766  waitmovement         localId=0
+    08251769  releaseall           
+
+  script 0x0825176B  [ok]
+    0825176B  checkmoney           value=50 disable=0
+    08251771  compare_var_to_value var=0x800D value=0
+    08251776  goto_if              condition=1 destination=0x082517F7
+    0825177C  closemessage         
+    0825177D  compare_var_to_value var=0x4001 value=0
+    08251782  call_if              condition=1 destination=0x082517D6
+    08251788  compare_var_to_value var=0x4001 value=1
+    0825178D  call_if              condition=1 destination=0x082517E1
+    08251793  compare_var_to_value var=0x4001 value=2
+    08251798  call_if              condition=1 destination=0x082517EC
+    0825179E  playse               song=255
+    082517A1  removemoney          value=50 disable=0
+    082517A7  updatemoneybox       0=0 0=0 disable=0
+    082517AB  waitse               
+    082517AC  msgbox_multilang     type=0 text_0="Right, ¥50!\nThank you!" text_1="Right, ¥50!\nThank you!" text_2="Right, ¥50!\nThank you!" text_3="Right, ¥50!\nThank you!" text_4="Right, ¥50!\nThank you!" text_5="Right, ¥50!\nThank you!" text_6="Right, ¥50!\nThank you!"
+    082517CA  callstd              function=MSGBOX_DEFAULT(4)
+    082517CC  setvar               destination=VAR_0x4061 value=1
+    082517D1  hidemoneybox         0=0 0=0
+    082517D4  releaseall           
+
+  script 0x082517F7  [ok]
+    082517F7  msgbox_multilang     type=0 text_0="You don’t have enough money." text_1="You don’t have enough money." text_2="You don’t have enough money." text_3="You don’t have enough money." text_4="You don’t have enough money." text_5="You don’t have enough money." text_6="You don’t have enough money."
+    08251815  callstd              function=MSGBOX_DEFAULT(4)
+    08251817  closemessage         
+    08251818  hidemoneybox         0=0 0=0
+    0825181B  applymovement        localId=255 movements=[walk_down]
+    08251822  waitmovement         localId=0
+    08251825  releaseall           
+
+  script 0x082517D6  [ok]
+    082517D6  applymovement        localId=255 movements=[walk_right walk_right delay_8 walk_in_place_right]
+    082517DD  waitmovement         localId=0
+    082517E0  return               
+
+  script 0x082517E1  [ok]
+    082517E1  applymovement        localId=255 movements=[walk_right delay_8 walk_in_place_right]
+    082517E8  waitmovement         localId=0
+    082517EB  return               
+
+  script 0x082517EC  [ok]
+    082517EC  applymovement        localId=255 movements=[delay_8 walk_in_place_right]
+    082517F3  waitmovement         localId=0
+    082517F6  return               
+
+  coord trigger 1 (var 0x4061 == 0) -> 0x082516DE
+  script 0x082516DE  [ok]
+    082516DE  lockall              
+    082516DF  setvar               destination=VAR_0x4001 value=1
+    082516E4  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    082516EB  waitmovement         localId=0
+    082516EE  goto                 destination=0x0825170A
+
+  coord trigger 2 (var 0x4061 == 0) -> 0x082516F4
+  script 0x082516F4  [ok]
+    082516F4  lockall              
+    082516F5  setvar               destination=VAR_0x4001 value=2
+    082516FA  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    08251701  waitmovement         localId=0
+    08251704  goto                 destination=0x0825170A
+
+  sign 0 at (4,4) -> 0x0825193C
+  script 0x0825193C  [ok]
+    0825193C  lockall              
+    0825193D  setvar               destination=VAR_0x8004 value=142
+    08251942  setvar               destination=VAR_0x8005 value=10
+    08251947  setvar               destination=VAR_0x8006 value=3
+    0825194C  special              SPECIAL_\function=372
+    0825194F  msgbox_multilang     type=0 text_0="Aerodactyl Fossil\nA primitive and rare Pokémon." text_1="Aerodactyl Fossil\nA primitive and rare Pokémon." text_2="Aerodactyl Fossil\nA primitive and rare Pokémon." text_3="Aerodactyl Fossil\nA primitive and rare Pokémon." text_4="Aerodactyl Fossil\nA primitive and rare Pokémon." text_5="Aerodactyl Fossil\nA primitive and rare Pokémon." text_6="Aerodactyl Fossil\nA primitive and rare Pokémon."
+    0825196D  callstd              function=MSGBOX_DEFAULT(4)
+    0825196F  special              SPECIAL_\function=373
+    08251972  releaseall           
+
+  sign 1 at (4,7) -> 0x08251974
+  script 0x08251974  [ok]
+    08251974  lockall              
+    08251975  setvar               destination=VAR_0x8004 value=141
+    0825197A  setvar               destination=VAR_0x8005 value=10
+    0825197F  setvar               destination=VAR_0x8006 value=3
+    08251984  special              SPECIAL_\function=372
+    08251987  msgbox_multilang     type=0 text_0="Kabutops Fossil\nA primitive and rare Pokémon." text_1="Kabutops Fossil\nA primitive and rare Pokémon." text_2="Kabutops Fossil\nA primitive and rare Pokémon." text_3="Kabutops Fossil\nA primitive and rare Pokémon." text_4="Kabutops Fossil\nA primitive and rare Pokémon." text_5="Kabutops Fossil\nA primitive and rare Pokémon." text_6="Kabutops Fossil\nA primitive and rare Pokémon."
+    082519A5  callstd              function=MSGBOX_DEFAULT(4)
+    082519A7  special              SPECIAL_\function=373
+    082519AA  releaseall           
+
+  sign 2 at (27,1) -> 0x081F25A8
+  script 0x081F25A8  [ok]
+    081F25A8  lockall              
+    081F25A9  setvar               destination=VAR_0x8004 value=2
+    081F25AE  setvar               destination=VAR_0x8005 value=5
+    081F25B3  special              SPECIAL_\function=347
+    081F25B6  textcolor            color=3
+    081F25B8  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature: Pewter Gym\nLeader Brock!\pBrock rarely laughs, but is said to\nbe unable to stop if he starts." text_1="Pokémon Journal\pSpecial Feature: Pewter Gym\nLeader Brock!\pBrock rarely laughs, but is said to\nbe unable to stop if he starts." text_2="Pokémon Journal\pSpecial Feature: Pewter Gym\nLeader Brock!\pBrock rarely laughs, but is said to\nbe unable to stop if he starts." text_3="Pokémon Journal\pSpecial Feature: Pewter Gym\nLeader Brock!\pBrock rarely laughs, but is said to\nbe unable to stop if he starts." text_4="Pokémon Journal\pSpecial Feature: Pewter Gym\nLeader Brock!\pBrock rarely laughs, but is said to\nbe unable to stop if he starts." text_5="Pokémon Journal\pSpecial Feature: Pewter Gym\nLeader Brock!\pBrock rarely laughs, but is said to\nbe unable to stop if he starts." text_6="Pokémon Journal\pSpecial Feature: Pewter Gym\nLeader Brock!\pBrock rarely laughs, but is said to\nbe unable to stop if he starts."
+    081F25D6  callstd              function=MSGBOX_DEFAULT(4)
+    081F25D8  releaseall           
+
+  sign 3 at (26,1) -> 0x081F25A8

@@ -1,0 +1,149 @@
+Fuchsia City  (group 11, map 7)  header 0x08B3D5A4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF6, flag 0x0000) -> 0x0826A4F9
+  script 0x0826A4F9  [ok]
+    0826A4F9  lock                 
+    0826A4FA  faceplayer           
+    0826A4FB  checkflag            flag=0x23A
+    0826A4FE  goto_if              condition=1 destination=0x0826A650
+    0826A504  checkflag            flag=0x189
+    0826A507  goto_if              condition=1 destination=0x0826A545
+    0826A50D  msgbox_multilang     type=0 text_0="Warden: Hif fuff hefifoo!\pHa lof ha feef ee hafahi ho.\nHeff hee fwee!" text_1="Warden: Hif fuff hefifoo!\pHa lof ha feef ee hafahi ho.\nHeff hee fwee!" text_2="Warden: Hif fuff hefifoo!\pHa lof ha feef ee hafahi ho.\nHeff hee fwee!" text_3="Warden: Hif fuff hefifoo!\pHa lof ha feef ee hafahi ho.\nHeff hee fwee!" text_4="Warden: Hif fuff hefifoo!\pHa lof ha feef ee hafahi ho.\nHeff hee fwee!" text_5="Warden: Hif fuff hefifoo!\pHa lof ha feef ee hafahi ho.\nHeff hee fwee!" text_6="Warden: Hif fuff hefifoo!\pHa lof ha feef ee hafahi ho.\nHeff hee fwee!"
+    0826A52B  callstd              function=MSGBOX_YESNO(5)
+    0826A52D  compare_var_to_value var=0x800D value=1
+    0826A532  call_if              condition=1 destination=0x0826A60E
+    0826A538  compare_var_to_value var=0x800D value=0
+    0826A53D  call_if              condition=1 destination=0x0826A62F
+    0826A543  release              
+
+  script 0x0826A650  [ok]
+    0826A650  msgbox_multilang     type=0 text_0="Warden: Inside HM04 you’ll find\nStrength.\pIt lets Pokémon move boulders when\nyou’re outside of battle.\pOh yes, did you find the Secret\nHouse in the Safari Zone?" text_1="Warden: Inside HM04 you’ll find\nStrength.\pIt lets Pokémon move boulders when\nyou’re outside of battle.\pOh yes, did you find the Secret\nHouse in the Safari Zone?" text_2="Warden: Inside HM04 you’ll find\nStrength.\pIt lets Pokémon move boulders when\nyou’re outside of battle.\pOh yes, did you find the Secret\nHouse in the Safari Zone?" text_3="Warden: Inside HM04 you’ll find\nStrength.\pIt lets Pokémon move boulders when\nyou’re outside of battle.\pOh yes, did you find the Secret\nHouse in the Safari Zone?" text_4="Warden: Inside HM04 you’ll find\nStrength.\pIt lets Pokémon move boulders when\nyou’re outside of battle.\pOh yes, did you find the Secret\nHouse in the Safari Zone?" text_5="Warden: Inside HM04 you’ll find\nStrength.\pIt lets Pokémon move boulders when\nyou’re outside of battle.\pOh yes, did you find the Secret\nHouse in the Safari Zone?" text_6="Warden: Inside HM04 you’ll find\nStrength.\pIt lets Pokémon move boulders when\nyou’re outside of battle.\pOh yes, did you find the Secret\nHouse in the Safari Zone?"
+    0826A66E  callstd              function=MSGBOX_DEFAULT(4)
+    0826A670  release              
+
+  script 0x0826A545  [unknown-opcode:0xE9]
+    0826A545  textcolor            color=3
+    0826A547  playfanfare          song=372
+    0826A54A  message              text="{PLAYER} gave the Gold Teeth\nto the Warden."
+    0826A54F  setdynamicwarp       mapGroup=167 mapNum=38 WARP_ID_NONE=8 -1=42815 -1=2086
+    0826A557  setdynamicwarp       mapGroup=167 mapNum=38 WARP_ID_NONE=8 -1=42815 -1=2086
+    0826A55F  setdynamicwarp       mapGroup=167 mapNum=38 WARP_ID_NONE=8 -1=42815 -1=2086
+    0826A567  waitmessage          
+    0826A568  waitfanfare          
+    0826A569  msgbox_multilang     type=0 text_0="The Warden popped in his teeth!" text_1="The Warden popped in his teeth!" text_2="The Warden popped in his teeth!" text_3="The Warden popped in his teeth!" text_4="The Warden popped in his teeth!" text_5="The Warden popped in his teeth!" text_6="The Warden popped in his teeth!"
+    0826A587  callstd              function=MSGBOX_DEFAULT(4)
+    0826A589  call                 destination=0x082BB551
+    0826A58E  checkplayergender    
+    0826A58F  compare_var_to_value var=0x800D value=0
+    0826A594  call_if              condition=1 destination=0x0826A5CC
+    0826A59A  compare_var_to_value var=0x800D value=1
+    0826A59F  call_if              condition=1 destination=0x0826A5ED
+    0826A5A5  additem              itemId=HM04(342) quantity=1
+
+  script 0x0826A60E  [ok]
+    0826A60E  msgbox_multilang     type=0 text_0="Ah howhee ho hoo!\nEef ee hafahi ho!" text_1="Ah howhee ho hoo!\nEef ee hafahi ho!" text_2="Ah howhee ho hoo!\nEef ee hafahi ho!" text_3="Ah howhee ho hoo!\nEef ee hafahi ho!" text_4="Ah howhee ho hoo!\nEef ee hafahi ho!" text_5="Ah howhee ho hoo!\nEef ee hafahi ho!" text_6="Ah howhee ho hoo!\nEef ee hafahi ho!"
+    0826A62C  callstd              function=MSGBOX_DEFAULT(4)
+    0826A62E  return               
+
+  script 0x0826A62F  [ok]
+    0826A62F  msgbox_multilang     type=0 text_0="Ha?\nHe ohay heh ha hoo ee haheh!" text_1="Ha?\nHe ohay heh ha hoo ee haheh!" text_2="Ha?\nHe ohay heh ha hoo ee haheh!" text_3="Ha?\nHe ohay heh ha hoo ee haheh!" text_4="Ha?\nHe ohay heh ha hoo ee haheh!" text_5="Ha?\nHe ohay heh ha hoo ee haheh!" text_6="Ha?\nHe ohay heh ha hoo ee haheh!"
+    0826A64D  callstd              function=MSGBOX_DEFAULT(4)
+    0826A64F  return               
+
+  script 0x082BB551  [ok]
+    082BB551  copyvar              destination=VAR_0x8012 source=VAR_0x8013
+    082BB556  return               
+
+  script 0x0826A5CC  [ok]
+    0826A5CC  msgbox_multilang     type=0 text_0="Warden: Thanks, son!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_1="Warden: Thanks, son!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_2="Warden: Thanks, son!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_3="Warden: Thanks, son!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_4="Warden: Thanks, son!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_5="Warden: Thanks, son!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_6="Warden: Thanks, son!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble."
+    0826A5EA  callstd              function=MSGBOX_DEFAULT(4)
+    0826A5EC  return               
+
+  script 0x0826A5ED  [ok]
+    0826A5ED  msgbox_multilang     type=0 text_0="Warden: Thank you, lassie!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_1="Warden: Thank you, lassie!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_2="Warden: Thank you, lassie!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_3="Warden: Thank you, lassie!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_4="Warden: Thank you, lassie!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_5="Warden: Thank you, lassie!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble." text_6="Warden: Thank you, lassie!\nYou’re a real lifesaver!\pNo one could understand a word\nthat I said, not a one!\pI was too ashamed to show my face\naround the Office, even.\pLet me give you something for your\ntrouble."
+    0826A60B  callstd              function=MSGBOX_DEFAULT(4)
+    0826A60D  return               
+
+  object 2 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  script 0x0820540E  [ok]
+    0820540E  lockall              
+    0820540F  checkflag            flag=0x883:BADGE4_RAINBOW
+    08205412  goto_if              condition=0 destination=0x082054BA
+    08205418  checkflag            flag=0x23A
+    0820541B  goto_if              condition=0 destination=0x082054BA
+    08205421  checkflag            flag=0x865
+    08205424  goto_if              condition=1 destination=0x082054DB
+    0820542A  checkpartymove       move=Strength(70)
+    0820542D  compare_var_to_value var=0x800D value=6
+    08205432  goto_if              condition=1 destination=0x082054AC
+    08205438  compare_var_to_value var=0x800D value=6
+    0820543D  goto_if              condition=1 destination=0x082054BA
+    08205443  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205447  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?"
+    08205465  callstd              function=MSGBOX_YESNO(5)
+    08205467  compare_var_to_value var=0x800D value=0
+    0820546C  goto_if              condition=1 destination=0x082054FC
+    08205472  closemessage         
+    08205473  dofieldeffect        animation=40
+    08205476  waitstate            
+
+  script 0x082054BA  [ok]
+    082054BA  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside."
+    082054D8  callstd              function=MSGBOX_SIGN(3)
+    082054DA  end                  
+
+  script 0x082054DB  [ok]
+    082054DB  msgbox_multilang     type=0 text_0="Strength made it possible to move\nboulders around." text_1="Strength made it possible to move\nboulders around." text_2="Strength made it possible to move\nboulders around." text_3="Strength made it possible to move\nboulders around." text_4="Strength made it possible to move\nboulders around." text_5="Strength made it possible to move\nboulders around." text_6="Strength made it possible to move\nboulders around."
+    082054F9  callstd              function=MSGBOX_SIGN(3)
+    082054FB  end                  
+
+  script 0x082054AC  [unknown-opcode:0xE5]
+
+  script 0x082054FC  [ok]
+    082054FC  closemessage         
+    082054FD  releaseall           
+
+  object 3 (gfx 0x35, flag 0x01B9) -> 0x082D5AC6
+  script 0x082D5AC6  [ok]
+    082D5AC6  setorcopyvar         destination=VAR_0x8000 source=68
+    082D5ACB  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5AD0  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Rare Candy
+    082D5AD2  end                  
+
+  object 4 (gfx 0x00, flag 0x009F) -> 0x081F26D4
+  script 0x081F26D4  [ok]
+    081F26D4  lock                 
+    081F26D5  faceplayer           
+    081F26D6  setvar               destination=VAR_0x8004 value=6
+    081F26DB  setvar               destination=VAR_0x8005 value=4
+    081F26E0  special              SPECIAL_\function=347
+    081F26E3  textcolor            color=3
+    081F26E5  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature: Fuchsia Gym\nLeader Koga!\pKoga is said to have a thorough\nknowledge of medicine.\pHe even concocts medicine to nurse\nhis Pokémon to health." text_1="Pokémon Journal\pSpecial Feature: Fuchsia Gym\nLeader Koga!\pKoga is said to have a thorough\nknowledge of medicine.\pHe even concocts medicine to nurse\nhis Pokémon to health." text_2="Pokémon Journal\pSpecial Feature: Fuchsia Gym\nLeader Koga!\pKoga is said to have a thorough\nknowledge of medicine.\pHe even concocts medicine to nurse\nhis Pokémon to health." text_3="Pokémon Journal\pSpecial Feature: Fuchsia Gym\nLeader Koga!\pKoga is said to have a thorough\nknowledge of medicine.\pHe even concocts medicine to nurse\nhis Pokémon to health." text_4="Pokémon Journal\pSpecial Feature: Fuchsia Gym\nLeader Koga!\pKoga is said to have a thorough\nknowledge of medicine.\pHe even concocts medicine to nurse\nhis Pokémon to health." text_5="Pokémon Journal\pSpecial Feature: Fuchsia Gym\nLeader Koga!\pKoga is said to have a thorough\nknowledge of medicine.\pHe even concocts medicine to nurse\nhis Pokémon to health." text_6="Pokémon Journal\pSpecial Feature: Fuchsia Gym\nLeader Koga!\pKoga is said to have a thorough\nknowledge of medicine.\pHe even concocts medicine to nurse\nhis Pokémon to health."
+    081F2703  callstd              function=MSGBOX_DEFAULT(4)
+    081F2705  release              
+
+  sign 0 at (7,4) -> 0x0826A693
+  script 0x0826A693  [ok]
+    0826A693  msgbox_multilang     type=0 text_0="Old Pokémon merchandise is on\ndisplay." text_1="Old Pokémon merchandise is on\ndisplay." text_2="Old Pokémon merchandise is on\ndisplay." text_3="Old Pokémon merchandise is on\ndisplay." text_4="Old Pokémon merchandise is on\ndisplay." text_5="Old Pokémon merchandise is on\ndisplay." text_6="Old Pokémon merchandise is on\ndisplay."
+    0826A6B1  callstd              function=MSGBOX_SIGN(3)
+    0826A6B3  end                  
+
+  sign 1 at (4,4) -> 0x0826A672
+  script 0x0826A672  [ok]
+    0826A672  msgbox_multilang     type=0 text_0="Pokémon photos and fossils are on\ndisplay." text_1="Pokémon photos and fossils are on\ndisplay." text_2="Pokémon photos and fossils are on\ndisplay." text_3="Pokémon photos and fossils are on\ndisplay." text_4="Pokémon photos and fossils are on\ndisplay." text_5="Pokémon photos and fossils are on\ndisplay." text_6="Pokémon photos and fossils are on\ndisplay."
+    0826A690  callstd              function=MSGBOX_SIGN(3)
+    0826A692  end                  
+
+  sign 2 at (5,4) -> 0x0826A672
+  sign 3 at (6,4) -> 0x0826A693

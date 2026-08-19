@@ -1,0 +1,19 @@
+Dotted Hole  (group 1, map 118)  header 0x08B3BF00
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  sign 0 at (6,5) -> 0x0821A52D
+  script 0x0821A52D  [ok]
+    0821A52D  lockall              
+    0821A52E  braillemessage       text="ëÉÔÒì"
+    0821A533  waitbuttonpress      
+    0821A534  releaseall           
+

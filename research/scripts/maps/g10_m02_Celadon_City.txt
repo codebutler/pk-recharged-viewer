@@ -1,0 +1,82 @@
+Celadon City  (group 10, map 2)  header 0x08B3D2E8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x04, flag 0x0000) -> 0x0825FDF5
+  script 0x0825FDF5  [ok]
+    0825FDF5  msgbox_multilang     type=0 text_0="Captured Pokémon are registered\nwith an ID No. and the OT.\pOT stands for “Original Trainer” -\nthe Trainer that caught it first." text_1="Captured Pokémon are registered\nwith an ID No. and the OT.\pOT stands for “Original Trainer” -\nthe Trainer that caught it first." text_2="Captured Pokémon are registered\nwith an ID No. and the OT.\pOT stands for “Original Trainer” -\nthe Trainer that caught it first." text_3="Captured Pokémon are registered\nwith an ID No. and the OT.\pOT stands for “Original Trainer” -\nthe Trainer that caught it first." text_4="Captured Pokémon are registered\nwith an ID No. and the OT.\pOT stands for “Original Trainer” -\nthe Trainer that caught it first." text_5="Captured Pokémon are registered\nwith an ID No. and the OT.\pOT stands for “Original Trainer” -\nthe Trainer that caught it first." text_6="Captured Pokémon are registered\nwith an ID No. and the OT.\pOT stands for “Original Trainer” -\nthe Trainer that caught it first."
+    0825FE13  callstd              function=MSGBOX_NPC(2)
+    0825FE15  end                  
+
+  object 2 (gfx 0x04, flag 0x0000) -> 0x0825FE37
+  script 0x0825FE37  [ok]
+    0825FE37  msgbox_multilang     type=0 text_0="Come on, Haunter!\pI love Haunter!\nI collect them!\pHuh?\pHaunter turned into a different\nPokémon while being traded!" text_1="Come on, Haunter!\pI love Haunter!\nI collect them!\pHuh?\pHaunter turned into a different\nPokémon while being traded!" text_2="Come on, Haunter!\pI love Haunter!\nI collect them!\pHuh?\pHaunter turned into a different\nPokémon while being traded!" text_3="Come on, Haunter!\pI love Haunter!\nI collect them!\pHuh?\pHaunter turned into a different\nPokémon while being traded!" text_4="Come on, Haunter!\pI love Haunter!\nI collect them!\pHuh?\pHaunter turned into a different\nPokémon while being traded!" text_5="Come on, Haunter!\pI love Haunter!\nI collect them!\pHuh?\pHaunter turned into a different\nPokémon while being traded!" text_6="Come on, Haunter!\pI love Haunter!\nI collect them!\pHuh?\pHaunter turned into a different\nPokémon while being traded!"
+    0825FE55  callstd              function=MSGBOX_NPC(2)
+    0825FE57  end                  
+
+  object 3 (gfx 0x04, flag 0x0000) -> 0x0825FE16
+  script 0x0825FE16  [ok]
+    0825FE16  msgbox_multilang     type=0 text_0="All right!\pMy buddy’s going to trade me his\nKangaskhan for my Haunter!" text_1="All right!\pMy buddy’s going to trade me his\nKangaskhan for my Haunter!" text_2="All right!\pMy buddy’s going to trade me his\nKangaskhan for my Haunter!" text_3="All right!\pMy buddy’s going to trade me his\nKangaskhan for my Haunter!" text_4="All right!\pMy buddy’s going to trade me his\nKangaskhan for my Haunter!" text_5="All right!\pMy buddy’s going to trade me his\nKangaskhan for my Haunter!" text_6="All right!\pMy buddy’s going to trade me his\nKangaskhan for my Haunter!"
+    0825FE34  callstd              function=MSGBOX_NPC(2)
+    0825FE36  end                  
+
+  object 4 (gfx 0x0C, flag 0x0000) -> 0x0825FE58
+  script 0x0825FE58  [ok]
+    0825FE58  msgbox_multilang     type=0 text_0="You can identify Pokémon you get\nin trades by their ID Numbers." text_1="You can identify Pokémon you get\nin trades by their ID Numbers." text_2="You can identify Pokémon you get\nin trades by their ID Numbers." text_3="You can identify Pokémon you get\nin trades by their ID Numbers." text_4="You can identify Pokémon you get\nin trades by their ID Numbers." text_5="You can identify Pokémon you get\nin trades by their ID Numbers." text_6="You can identify Pokémon you get\nin trades by their ID Numbers."
+    0825FE76  callstd              function=MSGBOX_NPC(2)
+    0825FE78  end                  
+
+  sign 0 at (8,1) -> 0x0825FF1E
+  script 0x0825FF1E  [ok]
+    0825FF1E  msgbox_multilang     type=0 text_0="3F: TV Game Shop" text_1="3F: TV Game Shop" text_2="3F: TV Game Shop" text_3="3F: TV Game Shop" text_4="3F: TV Game Shop" text_5="3F: TV Game Shop" text_6="3F: TV Game Shop"
+    0825FF3C  callstd              function=MSGBOX_SIGN(3)
+    0825FF3E  end                  
+
+  sign 1 at (2,8) -> 0x0825FE9A
+  script 0x0825FE9A  [ok]
+    0825FE9A  msgbox_multilang     type=0 text_0="An Rpg!\nThere’s no time for that!" text_1="An Rpg!\nThere’s no time for that!" text_2="An Rpg!\nThere’s no time for that!" text_3="An Rpg!\nThere’s no time for that!" text_4="An Rpg!\nThere’s no time for that!" text_5="An Rpg!\nThere’s no time for that!" text_6="An Rpg!\nThere’s no time for that!"
+    0825FEB8  callstd              function=MSGBOX_SIGN(3)
+    0825FEBA  end                  
+
+  sign 2 at (5,8) -> 0x0825FEBB
+  script 0x0825FEBB  [ok]
+    0825FEBB  msgbox_multilang     type=0 text_0="A sports game!\nDad’ll like that!" text_1="A sports game!\nDad’ll like that!" text_2="A sports game!\nDad’ll like that!" text_3="A sports game!\nDad’ll like that!" text_4="A sports game!\nDad’ll like that!" text_5="A sports game!\nDad’ll like that!" text_6="A sports game!\nDad’ll like that!"
+    0825FED9  callstd              function=MSGBOX_SIGN(3)
+    0825FEDB  end                  
+
+  sign 3 at (2,11) -> 0x0825FEDC
+  script 0x0825FEDC  [ok]
+    0825FEDC  msgbox_multilang     type=0 text_0="A puzzle game!\nLooks addictive!" text_1="A puzzle game!\nLooks addictive!" text_2="A puzzle game!\nLooks addictive!" text_3="A puzzle game!\nLooks addictive!" text_4="A puzzle game!\nLooks addictive!" text_5="A puzzle game!\nLooks addictive!" text_6="A puzzle game!\nLooks addictive!"
+    0825FEFA  callstd              function=MSGBOX_SIGN(3)
+    0825FEFC  end                  
+
+  sign 4 at (5,11) -> 0x0825FEFD
+  script 0x0825FEFD  [ok]
+    0825FEFD  msgbox_multilang     type=0 text_0="A fighting game!\nLooks tough!" text_1="A fighting game!\nLooks tough!" text_2="A fighting game!\nLooks tough!" text_3="A fighting game!\nLooks tough!" text_4="A fighting game!\nLooks tough!" text_5="A fighting game!\nLooks tough!" text_6="A fighting game!\nLooks tough!"
+    0825FF1B  callstd              function=MSGBOX_SIGN(3)
+    0825FF1D  end                  
+
+  sign 5 at (1,8) -> 0x0825FE79
+  script 0x0825FE79  [ok]
+    0825FE79  msgbox_multilang     type=0 text_0="It’s a Super Nes." text_1="It’s a Super Nes." text_2="It’s a Super Nes." text_3="It’s a Super Nes." text_4="It’s a Super Nes." text_5="It’s a Super Nes." text_6="It’s a Super Nes."
+    0825FE97  callstd              function=MSGBOX_SIGN(3)
+    0825FE99  end                  
+
+  sign 6 at (1,11) -> 0x0825FE79
+  sign 7 at (4,8) -> 0x0825FE79
+  sign 8 at (4,11) -> 0x0825FE79
+  sign 9 at (2,4) -> 0x0825FF3F
+  script 0x0825FF3F  [ok]
+    0825FF3F  msgbox_multilang     type=0 text_0="Red and Green!\nBoth are Pokémon!" text_1="Red and Green!\nBoth are Pokémon!" text_2="Red and Green!\nBoth are Pokémon!" text_3="Red and Green!\nBoth are Pokémon!" text_4="Red and Green!\nBoth are Pokémon!" text_5="Red and Green!\nBoth are Pokémon!" text_6="Red and Green!\nBoth are Pokémon!"
+    0825FF5D  callstd              function=MSGBOX_SIGN(3)
+    0825FF5F  end                  
+
+  sign 10 at (0,4) -> 0x0825FF3F

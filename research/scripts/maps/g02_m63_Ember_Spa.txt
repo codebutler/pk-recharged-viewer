@@ -1,0 +1,117 @@
+Ember Spa  (group 2, map 63)  header 0x08B3C670
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF5, flag 0x0000) -> 0x0821D09C
+  script 0x0821D09C  [ok]
+    0821D09C  msgbox_multilang     type=0 text_0="Hm!\nHaaaaaaaaaaah!\pAaaah! This is heavenly!\nThe water warms me to my core!\pYou should jump in, too.\pGo to the middle, relax, and get\ngood and warm!" text_1="Hm!\nHaaaaaaaaaaah!\pAaaah! This is heavenly!\nThe water warms me to my core!\pYou should jump in, too.\pGo to the middle, relax, and get\ngood and warm!" text_2="Hm!\nHaaaaaaaaaaah!\pAaaah! This is heavenly!\nThe water warms me to my core!\pYou should jump in, too.\pGo to the middle, relax, and get\ngood and warm!" text_3="Hm!\nHaaaaaaaaaaah!\pAaaah! This is heavenly!\nThe water warms me to my core!\pYou should jump in, too.\pGo to the middle, relax, and get\ngood and warm!" text_4="Hm!\nHaaaaaaaaaaah!\pAaaah! This is heavenly!\nThe water warms me to my core!\pYou should jump in, too.\pGo to the middle, relax, and get\ngood and warm!" text_5="Hm!\nHaaaaaaaaaaah!\pAaaah! This is heavenly!\nThe water warms me to my core!\pYou should jump in, too.\pGo to the middle, relax, and get\ngood and warm!" text_6="Hm!\nHaaaaaaaaaaah!\pAaaah! This is heavenly!\nThe water warms me to my core!\pYou should jump in, too.\pGo to the middle, relax, and get\ngood and warm!"
+    0821D0BA  callstd              function=MSGBOX_NPC(2)
+    0821D0BC  end                  
+
+  object 2 (gfx 0xF4, flag 0x0000) -> 0x0821D0BD
+  script 0x0821D0BD  [ok]
+    0821D0BD  msgbox_multilang     type=0 text_0="My favorite part of bathing comes\nup right after this.\pI enjoy a bowl of chowder to\nwarm me from the inside, too!" text_1="My favorite part of bathing comes\nup right after this.\pI enjoy a bowl of chowder to\nwarm me from the inside, too!" text_2="My favorite part of bathing comes\nup right after this.\pI enjoy a bowl of chowder to\nwarm me from the inside, too!" text_3="My favorite part of bathing comes\nup right after this.\pI enjoy a bowl of chowder to\nwarm me from the inside, too!" text_4="My favorite part of bathing comes\nup right after this.\pI enjoy a bowl of chowder to\nwarm me from the inside, too!" text_5="My favorite part of bathing comes\nup right after this.\pI enjoy a bowl of chowder to\nwarm me from the inside, too!" text_6="My favorite part of bathing comes\nup right after this.\pI enjoy a bowl of chowder to\nwarm me from the inside, too!"
+    0821D0DB  callstd              function=MSGBOX_NPC(2)
+    0821D0DD  end                  
+
+  object 3 (gfx 0x07, flag 0x009D) -> 0x0821D120
+  script 0x0821D120  [ok]
+    0821D120  lock                 
+    0821D121  faceplayer           
+    0821D122  setvar               destination=VAR_0x8004 value=10
+    0821D127  setvar               destination=VAR_0x8005 value=3
+    0821D12C  special              SPECIAL_\function=347
+    0821D12F  msgbox_multilang     type=0 text_0="After an honest day of training,\nnothing beats a relaxing soak in\pthe hot spring pool.\pBruno, who’s a senior ahead of me,\nvisits the Spa on occasion.\pHe comes to rehab injuries, both\nhis own and his Pokémon’s." text_1="After an honest day of training,\nnothing beats a relaxing soak in\pthe hot spring pool.\pBruno, who’s a senior ahead of me,\nvisits the Spa on occasion.\pHe comes to rehab injuries, both\nhis own and his Pokémon’s." text_2="After an honest day of training,\nnothing beats a relaxing soak in\pthe hot spring pool.\pBruno, who’s a senior ahead of me,\nvisits the Spa on occasion.\pHe comes to rehab injuries, both\nhis own and his Pokémon’s." text_3="After an honest day of training,\nnothing beats a relaxing soak in\pthe hot spring pool.\pBruno, who’s a senior ahead of me,\nvisits the Spa on occasion.\pHe comes to rehab injuries, both\nhis own and his Pokémon’s." text_4="After an honest day of training,\nnothing beats a relaxing soak in\pthe hot spring pool.\pBruno, who’s a senior ahead of me,\nvisits the Spa on occasion.\pHe comes to rehab injuries, both\nhis own and his Pokémon’s." text_5="After an honest day of training,\nnothing beats a relaxing soak in\pthe hot spring pool.\pBruno, who’s a senior ahead of me,\nvisits the Spa on occasion.\pHe comes to rehab injuries, both\nhis own and his Pokémon’s." text_6="After an honest day of training,\nnothing beats a relaxing soak in\pthe hot spring pool.\pBruno, who’s a senior ahead of me,\nvisits the Spa on occasion.\pHe comes to rehab injuries, both\nhis own and his Pokémon’s."
+    0821D14D  callstd              function=MSGBOX_DEFAULT(4)
+    0821D14F  release              
+
+  object 4 (gfx 0x1E, flag 0x0000) -> 0x0821D0FF
+  script 0x0821D0FF  [ok]
+    0821D0FF  msgbox_multilang     type=0 text_0="Have a look at my face.\nSee how smooth my skin is?\pThe hot spring’s water keeps my\nskin younger than my age." text_1="Have a look at my face.\nSee how smooth my skin is?\pThe hot spring’s water keeps my\nskin younger than my age." text_2="Have a look at my face.\nSee how smooth my skin is?\pThe hot spring’s water keeps my\nskin younger than my age." text_3="Have a look at my face.\nSee how smooth my skin is?\pThe hot spring’s water keeps my\nskin younger than my age." text_4="Have a look at my face.\nSee how smooth my skin is?\pThe hot spring’s water keeps my\nskin younger than my age." text_5="Have a look at my face.\nSee how smooth my skin is?\pThe hot spring’s water keeps my\nskin younger than my age." text_6="Have a look at my face.\nSee how smooth my skin is?\pThe hot spring’s water keeps my\nskin younger than my age."
+    0821D11D  callstd              function=MSGBOX_NPC(2)
+    0821D11F  end                  
+
+  object 5 (gfx 0xF5, flag 0x0000) -> 0x0821CED4
+  script 0x0821CED4  [unknown-opcode:0xE9]
+    0821CED4  lock                 
+    0821CED5  faceplayer           
+    0821CED6  checkflag            flag=0x2EF
+    0821CED9  goto_if              condition=1 destination=0x0821CF31
+    0821CEDF  msgbox_multilang     type=0 text_0="I don’t know what that young fellow\nwith the purple hair wanted from\pme.\pHere at Ember Spa, we cherish our\npeace and tranquility.\pIt took us quite a bit of effort to\ncarve our way through the rocks to\preach this serene spot.\pThanks to you, we can enjoy even\nmore peace, and we no longer need\pRock Smash to clear any more\pstones.\pPlease, take this as a token of our\ngratitude." text_1="I don’t know what that young fellow\nwith the purple hair wanted from\pme.\pHere at Ember Spa, we cherish our\npeace and tranquility.\pIt took us quite a bit of effort to\ncarve our way through the rocks to\preach this serene spot.\pThanks to you, we can enjoy even\nmore peace, and we no longer need\pRock Smash to clear any more\pstones.\pPlease, take this as a token of our\ngratitude." text_2="I don’t know what that young fellow\nwith the purple hair wanted from\pme.\pHere at Ember Spa, we cherish our\npeace and tranquility.\pIt took us quite a bit of effort to\ncarve our way through the rocks to\preach this serene spot.\pThanks to you, we can enjoy even\nmore peace, and we no longer need\pRock Smash to clear any more\pstones.\pPlease, take this as a token of our\ngratitude." text_3="I don’t know what that young fellow\nwith the purple hair wanted from\pme.\pHere at Ember Spa, we cherish our\npeace and tranquility.\pIt took us quite a bit of effort to\ncarve our way through the rocks to\preach this serene spot.\pThanks to you, we can enjoy even\nmore peace, and we no longer need\pRock Smash to clear any more\pstones.\pPlease, take this as a token of our\ngratitude." text_4="I don’t know what that young fellow\nwith the purple hair wanted from\pme.\pHere at Ember Spa, we cherish our\npeace and tranquility.\pIt took us quite a bit of effort to\ncarve our way through the rocks to\preach this serene spot.\pThanks to you, we can enjoy even\nmore peace, and we no longer need\pRock Smash to clear any more\pstones.\pPlease, take this as a token of our\ngratitude." text_5="I don’t know what that young fellow\nwith the purple hair wanted from\pme.\pHere at Ember Spa, we cherish our\npeace and tranquility.\pIt took us quite a bit of effort to\ncarve our way through the rocks to\preach this serene spot.\pThanks to you, we can enjoy even\nmore peace, and we no longer need\pRock Smash to clear any more\pstones.\pPlease, take this as a token of our\ngratitude." text_6="I don’t know what that young fellow\nwith the purple hair wanted from\pme.\pHere at Ember Spa, we cherish our\npeace and tranquility.\pIt took us quite a bit of effort to\ncarve our way through the rocks to\preach this serene spot.\pThanks to you, we can enjoy even\nmore peace, and we no longer need\pRock Smash to clear any more\pstones.\pPlease, take this as a token of our\ngratitude."
+    0821CEFD  callstd              function=MSGBOX_DEFAULT(4)
+
+  script 0x0821CF31  [ok]
+    0821CF31  msgbox_multilang     type=0 text_0="That shatters boulders as if they\nwere made of crackers." text_1="That shatters boulders as if they\nwere made of crackers." text_2="That shatters boulders as if they\nwere made of crackers." text_3="That shatters boulders as if they\nwere made of crackers." text_4="That shatters boulders as if they\nwere made of crackers." text_5="That shatters boulders as if they\nwere made of crackers." text_6="That shatters boulders as if they\nwere made of crackers."
+    0821CF4F  callstd              function=MSGBOX_DEFAULT(4)
+    0821CF51  goto                 destination=0x0821CF2F
+
+  script 0x0821CF2F  [ok]
+    0821CF2F  release              
+
+  object 6 (gfx 0xF4, flag 0x0000) -> 0x0821D0DE
+  script 0x0821D0DE  [ok]
+    0821D0DE  msgbox_multilang     type=0 text_0="Soaking in a hot spring pool is\ntherapeutic, people say." text_1="Soaking in a hot spring pool is\ntherapeutic, people say." text_2="Soaking in a hot spring pool is\ntherapeutic, people say." text_3="Soaking in a hot spring pool is\ntherapeutic, people say." text_4="Soaking in a hot spring pool is\ntherapeutic, people say." text_5="Soaking in a hot spring pool is\ntherapeutic, people say." text_6="Soaking in a hot spring pool is\ntherapeutic, people say."
+    0821D0FC  callstd              function=MSGBOX_NPC(2)
+    0821D0FE  end                  
+
+  object 7 (gfx 0x41, flag 0x013A) -> 0x0821CF56
+  script 0x0821CF56  [ok]
+    0821CF56  lockall              
+    0821CF57  playbgm              song=495 save_song=0
+    0821CF5B  applymovement        localId=7 movements=[walk_in_place_up]
+    0821CF62  waitmovement         localId=7
+    0821CF65  delay                frames=16
+    0821CF68  textcolor            color=0
+    0821CF6A  speakername          name="James"
+    0821CF6F  msgbox_multilang     type=0 text_0="Stop defending yourself already!\pI just want the damn Hidden\nTechnique to continue exploring One\pIsland.\pI didn’t mean to cause any trouble,\nbut you’re really getting on my\pnerves!" text_1="Stop defending yourself already!\pI just want the damn Hidden\nTechnique to continue exploring One\pIsland.\pI didn’t mean to cause any trouble,\nbut you’re really getting on my\pnerves!" text_2="Stop defending yourself already!\pI just want the damn Hidden\nTechnique to continue exploring One\pIsland.\pI didn’t mean to cause any trouble,\nbut you’re really getting on my\pnerves!" text_3="Stop defending yourself already!\pI just want the damn Hidden\nTechnique to continue exploring One\pIsland.\pI didn’t mean to cause any trouble,\nbut you’re really getting on my\pnerves!" text_4="Stop defending yourself already!\pI just want the damn Hidden\nTechnique to continue exploring One\pIsland.\pI didn’t mean to cause any trouble,\nbut you’re really getting on my\pnerves!" text_5="Stop defending yourself already!\pI just want the damn Hidden\nTechnique to continue exploring One\pIsland.\pI didn’t mean to cause any trouble,\nbut you’re really getting on my\pnerves!" text_6="Stop defending yourself already!\pI just want the damn Hidden\nTechnique to continue exploring One\pIsland.\pI didn’t mean to cause any trouble,\nbut you’re really getting on my\pnerves!"
+    0821CF8D  callstd              function=MSGBOX_DEFAULT(4)
+    0821CF8F  closemessage         
+    0821CF90  playse               song=21
+    0821CF93  applymovement        localId=7 movements=[emote_exclamation_mark]
+    0821CF9A  waitmovement         localId=7
+    0821CF9D  delay                frames=32
+    0821CFA0  turnobject           localId=7 direction=1
+    0821CFA4  speakername          name="James"
+    0821CFA9  msgbox_multilang     type=0 text_0="Oh no! Not you again!\nI get it, I get it, you’re really\pstrong.\pI’ll leave without causing any\ntrouble." text_1="Oh no! Not you again!\nI get it, I get it, you’re really\pstrong.\pI’ll leave without causing any\ntrouble." text_2="Oh no! Not you again!\nI get it, I get it, you’re really\pstrong.\pI’ll leave without causing any\ntrouble." text_3="Oh no! Not you again!\nI get it, I get it, you’re really\pstrong.\pI’ll leave without causing any\ntrouble." text_4="Oh no! Not you again!\nI get it, I get it, you’re really\pstrong.\pI’ll leave without causing any\ntrouble." text_5="Oh no! Not you again!\nI get it, I get it, you’re really\pstrong.\pI’ll leave without causing any\ntrouble." text_6="Oh no! Not you again!\nI get it, I get it, you’re really\pstrong.\pI’ll leave without causing any\ntrouble."
+    0821CFC7  callstd              function=MSGBOX_DEFAULT(4)
+    0821CFC9  closemessage         
+    0821CFCA  delay                frames=16
+    0821CFCD  applymovement        localId=7 movements=[walk_in_place_down]
+    0821CFD4  waitmovement         localId=7
+    0821CFD7  delay                frames=16
+    0821CFDA  playse               song=21
+    0821CFDD  applymovement        localId=7 movements=[emote_question_mark]
+    0821CFE4  waitmovement         localId=7
+    0821CFE7  delay                frames=16
+    0821CFEA  turnobject           localId=7 direction=1
+    0821CFEE  speakername          name="James"
+    0821CFF3  msgbox_multilang     type=0 text_0="What? You want the damn BluePrints?\pFine, you can keep them." text_1="What? You want the damn BluePrints?\pFine, you can keep them." text_2="What? You want the damn BluePrints?\pFine, you can keep them." text_3="What? You want the damn BluePrints?\pFine, you can keep them." text_4="What? You want the damn BluePrints?\pFine, you can keep them." text_5="What? You want the damn BluePrints?\pFine, you can keep them." text_6="What? You want the damn BluePrints?\pFine, you can keep them."
+    0821D011  callstd              function=MSGBOX_DEFAULT(4)
+    0821D013  closemessage         
+    0821D014  delay                frames=32
+    0821D017  textcolor            color=3
+    0821D019  playfanfare          song=530
+    0821D01C  message              text="{PLAYER} recovered the BluePrints!"
+    0821D021  releaseall           
+
+  coord trigger 0 (var 0x4001 == 0) -> 0x0821D151
+  script 0x0821D151  [ok]
+    0821D151  lockall              
+    0821D152  fadescreenswapbuffers mode=3
+    0821D154  nop                  
+    0821D155  special              SPECIAL_\function=0
+    0821D158  fadescreenswapbuffers mode=2
+    0821D15A  nop                  
+    0821D15B  msgbox_multilang     type=0 text_0="The water is perfectly warm.\nIt feels exquisite…\p{PLAYER} and the Pokémon were\nfully refreshed!" text_1="The water is perfectly warm.\nIt feels exquisite…\p{PLAYER} and the Pokémon were\nfully refreshed!" text_2="The water is perfectly warm.\nIt feels exquisite…\p{PLAYER} and the Pokémon were\nfully refreshed!" text_3="The water is perfectly warm.\nIt feels exquisite…\p{PLAYER} and the Pokémon were\nfully refreshed!" text_4="The water is perfectly warm.\nIt feels exquisite…\p{PLAYER} and the Pokémon were\nfully refreshed!" text_5="The water is perfectly warm.\nIt feels exquisite…\p{PLAYER} and the Pokémon were\nfully refreshed!" text_6="The water is perfectly warm.\nIt feels exquisite…\p{PLAYER} and the Pokémon were\nfully refreshed!"
+    0821D179  callstd              function=MSGBOX_DEFAULT(4)
+    0821D17B  setvar               destination=VAR_0x4001 value=1
+    0821D180  releaseall           
+

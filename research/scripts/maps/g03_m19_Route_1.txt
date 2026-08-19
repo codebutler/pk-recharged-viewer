@@ -1,0 +1,61 @@
+Route 1  (group 3, map 19)  header 0x08B3C8D8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x08231221
+  script 0x08231221  [unknown-opcode:0xE9]
+    08231221  lock                 
+    08231222  faceplayer           
+    08231223  checkflag            flag=0x230
+    08231226  goto_if              condition=1 destination=0x082312BA
+    0823122C  speakername          name="Clerk"
+    08231231  msgbox_multilang     type=0 text_0="Hi!\nI work at a Pokémon Mart.\pIt’s part of a convenient chain\nselling all sorts of items.\pPlease, visit us in Viridian City.\pI know, I’ll give you a sample.\nHere you go!" text_1="¡Hola!\nTrabajo en una TIENDA POKéMON.\pTenemos muchas cosas. Visítanos\nen CIUDAD VERDE.\p¡Mira, te daré una muestra!\n¡Aquí tienes!" text_2="Salut! Je travaille à la\nBOUTIQUE POKéMON.\pNous avons plein d’articles! Viens\nnous voir à JADIELLE.\pPrends donc ceci comme\néchantillon!" text_3="Ciao!\nLavoro in un POKéMON-MARKET.\pAbbiamo prezzi buoni! Vieni a\ntrovarci a SMERALDOPOLI.\pTieni! Ti do un campioncino!\nEcco qua!" text_4="Hi! Ich arbeite in einem POKéMON-\nSUPERMARKT.\pWir verkaufen viele praktische\nDinge!\pDu findest unseren Laden in\nVERTANIA CITY.\pAm besten gebe ich dir ein\nWerbegeschenk! Hier, bitte!" text_5="Oi!\nEu trabalho em uma Loja Pokémon.\pÉ uma multi empresa que vende todo\ntipo de items.\pPor favor, nos visite em Viridian.\pAh! Eu vou te dar um brinde.\nBem, aqui está!" text_6="Hi!\nI work at a Pokémon Mart.\pIt’s part of a convenient chain\nselling all sorts of items.\pPlease, visit us in Viridian City.\pI know, I’ll give you a sample.\nHere you go!"
+    0823124F  callstd              function=MSGBOX_DEFAULT(4)
+    08231251  closemessage         
+    08231252  textcolor            color=3
+    08231254  checkitemspace       itemId=Potion(13) quantity=1
+    08231259  compare_var_to_value var=0x800D value=0
+    0823125E  goto_if              condition=1 destination=0x082312E4
+    08231264  bufferitemname       stringVarId=1 item=13
+    08231268  playfanfare          song=367
+
+  script 0x082312BA  [ok]
+    082312BA  speakername          name="Clerk"
+    082312BF  msgbox_multilang     type=0 text_0="Please come see us if you need\nPoké Balls for catching Pokémon." text_1="¡También tenemos POKé BALLS\npara capturar los POKéMON!" text_2="Nous avons aussi des POKé BALLS\npour capturer les POKéMON!" text_3="Abbiamo anche le POKé BALL per\ncatturare i POKéMON!" text_4="Willst du POKéMON fangen? Wir\nhaben auch POKéBÄLLE im Sortiment!" text_5="Por favor nos visite, se prescisar de\nPoké Bolas ou Items." text_6="Please come see us if you need\nPoké Balls for catching Pokémon."
+    082312DD  callstd              function=MSGBOX_DEFAULT(4)
+    082312DF  goto                 destination=0x082312B8
+
+  script 0x082312E4  [ok]
+    082312E4  goto                 destination=0x081FFDED
+
+  script 0x082312B8  [ok]
+    082312B8  release              
+
+  script 0x081FFDED  [ok]
+    081FFDED  textcolor            color=3
+    081FFDEF  msgbox_multilang     type=0 text_0="Too bad!\nThe BAG is full…" text_1="Too bad!\nThe BAG is full…" text_2="Too bad!\nThe BAG is full…" text_3="Too bad!\nThe BAG is full…" text_4="Too bad!\nThe BAG is full…" text_5="Too bad!\nThe BAG is full…" text_6="Too bad!\nThe BAG is full…"
+    081FFE0D  callstd              function=MSGBOX_DEFAULT(4)
+    081FFE0F  release              
+
+  object 2 (gfx 0xEF, flag 0x0000) -> 0x082312EE
+  script 0x082312EE  [ok]
+    082312EE  msgbox_multilang     type=0 text_0="See those ledges along the road?\pIt’s a bit scary, but you can jump\nfrom them.\pYou can get back to Pallet Town\nquicker that way." text_1="¿Ves esos bordes del camino?\pDan miedo, pero puedes saltar\npor encima de ellos.\p¡De esa forma podrás volver más\nrápidamente a PUEBLO PALETA!" text_2="Tu vois tous ces petits talus?\pTu peux sauter par-dessus!\nC’est dingue, non?\pTu peux revenir plus vite à\nBOURG PALETTE de cette façon!" text_3="Vedi quei dislivelli lungo la\nstrada?\pFa un po’ paura, ma li puoi\nsaltare.\pCosì puoi tornare a BIANCAVILLA\npiù rapidamente!" text_4="Siehst du die Stufen hier?\pDu kannst nicht hinaufklettern,\ndafür aber herunterspringen!\pSo kommst du viel schneller nach\nALABASTIA zurück." text_5="Veja as barreiras na estrada?\pÉ um pouco assustador, mas você\npuede pula-las.\pVocê poderá voltar para Pallet bem\nmais depressa." text_6="See those ledges along the road?\pIt’s a bit scary, but you can jump\nfrom them.\pYou can get back to Pallet Town\nquicker that way."
+    0823130C  callstd              function=MSGBOX_NPC(2)
+    0823130E  end                  
+
+  object 3 (gfx 0x35, flag 0x0077) -> 0x00000000
+  object 4 (gfx 0x35, flag 0x0118) -> 0x00000000
+  sign 0 at (9,31) -> 0x0823130F
+  script 0x0823130F  [ok]
+    0823130F  msgbox_multilang     type=0 text_0="Route 1\nPallet Town - Viridian City" text_1="RUTA 1:\nPUEBLO PALETA - CIUDAD VERDE" text_2="ROUTE 1\nBOURG PALETTE - JADIELLE" text_3="PERCORSO 1\nBIANCAVILLA - SMERALDOPOLI" text_4="ROUTE 1\nALABASTIA - VERTANIA CITY" text_5="Rota 1\nVila Pallet - Cidade Viridian" text_6="Route 1\nPallet Town - Viridian City"
+    0823132D  callstd              function=MSGBOX_SIGN(3)
+    0823132F  end                  
+

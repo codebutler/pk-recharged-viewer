@@ -1,0 +1,108 @@
+Mt. Ember  (group 1, map 101)  header 0x08B3BD24
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  script 0x0820540E  [ok]
+    0820540E  lockall              
+    0820540F  checkflag            flag=0x883:BADGE4_RAINBOW
+    08205412  goto_if              condition=0 destination=0x082054BA
+    08205418  checkflag            flag=0x23A
+    0820541B  goto_if              condition=0 destination=0x082054BA
+    08205421  checkflag            flag=0x865
+    08205424  goto_if              condition=1 destination=0x082054DB
+    0820542A  checkpartymove       move=Strength(70)
+    0820542D  compare_var_to_value var=0x800D value=6
+    08205432  goto_if              condition=1 destination=0x082054AC
+    08205438  compare_var_to_value var=0x800D value=6
+    0820543D  goto_if              condition=1 destination=0x082054BA
+    08205443  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205447  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?"
+    08205465  callstd              function=MSGBOX_YESNO(5)
+    08205467  compare_var_to_value var=0x800D value=0
+    0820546C  goto_if              condition=1 destination=0x082054FC
+    08205472  closemessage         
+    08205473  dofieldeffect        animation=40
+    08205476  waitstate            
+
+  script 0x082054BA  [ok]
+    082054BA  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside."
+    082054D8  callstd              function=MSGBOX_SIGN(3)
+    082054DA  end                  
+
+  script 0x082054DB  [ok]
+    082054DB  msgbox_multilang     type=0 text_0="Strength made it possible to move\nboulders around." text_1="Strength made it possible to move\nboulders around." text_2="Strength made it possible to move\nboulders around." text_3="Strength made it possible to move\nboulders around." text_4="Strength made it possible to move\nboulders around." text_5="Strength made it possible to move\nboulders around." text_6="Strength made it possible to move\nboulders around."
+    082054F9  callstd              function=MSGBOX_SIGN(3)
+    082054FB  end                  
+
+  script 0x082054AC  [unknown-opcode:0xE5]
+
+  script 0x082054FC  [ok]
+    082054FC  closemessage         
+    082054FD  releaseall           
+
+  object 2 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 3 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 4 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 5 (gfx 0xF4, flag 0x04C8) -> 0x08218C80
+  script 0x08218C80  [ok]
+    08218C80  bufferspeciesname    stringVarId=0 species=ENTEI(244)
+    08218C84  lock                 
+    08218C85  faceplayer           
+    08218C86  setwildbattle        species=ENTEI(244) level=50 item=0
+    08218C8C  waitse               
+    08218C8D  playmoncry           species=ENTEI(244) mode=2
+    08218C92  message              text="Graaaoh!"
+    08218C97  specialvar           output=8589 SPECIAL_\function=9736
+    08218C9C  showcontestresults   
+    08218C9D  compare_var_to_value var=0x2608 value=8589
+    08218CA2  gotostd              function=38
+    08218CA4  showcontestresults   
+    08218CA5  compare_var_to_value var=0x2608 value=8589
+    08218CAA  gotostd              function=38
+    08218CAC  showcontestresults   
+    08218CAD  compare_var_to_value var=0x6608 value=10437
+    08218CB2  gotostd_if           condition=0 function=51
+    08218CB5  clearflag            flag=0x002
+    08218CB8  waitbuttonpress      
+    08218CB9  setflag              flag=0x867
+    08218CBC  special              SPECIAL_\function=223
+    08218CBF  waitstate            
+
+  map script type 3 -> 0x08218C4F
+  script 0x08218C4F  [ok]
+    08218C4F  checkflag            flag=0x4C9
+    08218C52  goto_if              condition=0 destination=0x08218C59
+    08218C58  end                  
+
+  script 0x08218C59  [ok]
+    08218C59  clearflag            flag=0x4C8
+    08218C5C  goto                 destination=0x08218C58
+
+  script 0x08218C58  [ok]
+    08218C58  end                  
+
+  map script type 5 -> 0x08218C61
+  script 0x08218C61  [ok]
+    08218C61  checkflag            flag=0x867
+    08218C64  goto_if              condition=1 destination=0x08218C6B
+    08218C6A  end                  
+
+  script 0x08218C6B  [ok]
+    08218C6B  specialvar           output=32781 SPECIAL_\function=102
+    08218C70  compare_var_to_value var=0x800D value=7
+    08218C75  goto_if              condition=5 destination=0x08218C7F
+    08218C7B  removeobject         localId=32783
+    08218C7E  return               
+
+  script 0x08218C7F  [ok]
+    08218C7F  return               
+

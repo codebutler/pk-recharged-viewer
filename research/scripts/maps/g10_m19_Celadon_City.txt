@@ -1,0 +1,36 @@
+Celadon City  (group 10, map 19)  header 0x08B3D4C4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1E, flag 0x0000) -> 0x082686E8
+  script 0x082686E8  [ok]
+    082686E8  msgbox_multilang     type=0 text_0="Pokémon?\nNo, this is a hotel for people.\pWe’re full up, unfortunately." text_1="Pokémon?\nNo, this is a hotel for people.\pWe’re full up, unfortunately." text_2="Pokémon?\nNo, this is a hotel for people.\pWe’re full up, unfortunately." text_3="Pokémon?\nNo, this is a hotel for people.\pWe’re full up, unfortunately." text_4="Pokémon?\nNo, this is a hotel for people.\pWe’re full up, unfortunately." text_5="Pokémon?\nNo, this is a hotel for people.\pWe’re full up, unfortunately." text_6="Pokémon?\nNo, this is a hotel for people.\pWe’re full up, unfortunately."
+    08268706  callstd              function=MSGBOX_NPC(2)
+    08268708  end                  
+
+  object 2 (gfx 0x2D, flag 0x0000) -> 0x08268709
+  script 0x08268709  [ok]
+    08268709  msgbox_multilang     type=0 text_0="I’m on vacation with my brother and\nboyfriend.\pCeladon is such a pretty city!" text_1="I’m on vacation with my brother and\nboyfriend.\pCeladon is such a pretty city!" text_2="I’m on vacation with my brother and\nboyfriend.\pCeladon is such a pretty city!" text_3="I’m on vacation with my brother and\nboyfriend.\pCeladon is such a pretty city!" text_4="I’m on vacation with my brother and\nboyfriend.\pCeladon is such a pretty city!" text_5="I’m on vacation with my brother and\nboyfriend.\pCeladon is such a pretty city!" text_6="I’m on vacation with my brother and\nboyfriend.\pCeladon is such a pretty city!"
+    08268727  callstd              function=MSGBOX_NPC(2)
+    08268729  end                  
+
+  object 3 (gfx 0xF2, flag 0x0000) -> 0x0826872A
+  script 0x0826872A  [ok]
+    0826872A  msgbox_multilang     type=0 text_0="Why?\nWhy did she bring her brother?" text_1="Why?\nWhy did she bring her brother?" text_2="Why?\nWhy did she bring her brother?" text_3="Why?\nWhy did she bring her brother?" text_4="Why?\nWhy did she bring her brother?" text_5="Why?\nWhy did she bring her brother?" text_6="Why?\nWhy did she bring her brother?"
+    08268748  callstd              function=MSGBOX_NPC(2)
+    0826874A  end                  
+
+  object 4 (gfx 0x0B, flag 0x0000) -> 0x0826874B
+  script 0x0826874B  [ok]
+    0826874B  msgbox_multilang     type=0 text_0="Yippee! I’m on vacation!\nMy sis brought me along! Awesome!" text_1="Yippee! I’m on vacation!\nMy sis brought me along! Awesome!" text_2="Yippee! I’m on vacation!\nMy sis brought me along! Awesome!" text_3="Yippee! I’m on vacation!\nMy sis brought me along! Awesome!" text_4="Yippee! I’m on vacation!\nMy sis brought me along! Awesome!" text_5="Yippee! I’m on vacation!\nMy sis brought me along! Awesome!" text_6="Yippee! I’m on vacation!\nMy sis brought me along! Awesome!"
+    08268769  callstd              function=MSGBOX_NPC(2)
+    0826876B  end                  
+

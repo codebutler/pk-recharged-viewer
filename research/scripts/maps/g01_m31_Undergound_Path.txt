@@ -1,0 +1,31 @@
+Undergound Path  (group 1, map 31)  header 0x08B3B57C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  hidden item at (5,30): Potion
+
+  hidden item at (5,6): Antidote
+
+  hidden item at (2,57): Burn Heal
+
+  hidden item at (1,24): Awakening
+
+  hidden item at (6,53): Ice Heal
+
+  hidden item at (3,15): Parlyz Heal
+
+  hidden item at (3,39): Ether
+
+  map script type 3 -> 0x0820CC15
+  script 0x0820CC15  [ok]
+    0820CC15  setworldmapflag      flag=0x907
+    0820CC18  end                  
+

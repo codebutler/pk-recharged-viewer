@@ -1,0 +1,246 @@
+Route 4  (group 16, map 0)  header 0x08B3D898
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x08273BCF
+  script 0x08273BCF  [ok]
+    08273BCF  lock                 
+    08273BD0  faceplayer           
+    08273BD1  call                 destination=0x082BB336
+    08273BD6  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0xF4, flag 0x0000) -> 0x08273C60
+  script 0x08273C60  [ok]
+    08273C60  lock                 
+    08273C61  faceplayer           
+    08273C62  checkflag            flag=0x249
+    08273C65  goto_if              condition=1 destination=0x08273CE9
+    08273C6B  showmoneybox         x=0 y=0 disable=0
+    08273C6F  checkplayergender    
+    08273C70  speakername          name="Strange Man"
+    08273C75  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08273C7A  compare_var_to_value var=0x8000 value=0
+    08273C7F  goto_if              condition=1 destination=0x08273D10
+    08273C85  compare_var_to_value var=0x8000 value=1
+    08273C8A  goto_if              condition=1 destination=0x08273D35
+    08273C90  compare_var_to_value var=0x800D value=0
+    08273C95  goto_if              condition=1 destination=0x08273D5A
+    08273C9B  checkmoney           value=500 disable=0
+    08273CA1  compare_var_to_value var=0x800D value=0
+    08273CA6  goto_if              condition=1 destination=0x08273D84
+    08273CAC  textcolor            color=3
+    08273CAE  setvar               destination=VAR_0x4001 value=129
+    08273CB3  givemon              species=MAGIKARP(129) level=5 item=0 0=0 0=0 0=0
+    08273CC2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08273CC7  compare_var_to_value var=0x8000 value=0
+    08273CCC  goto_if              condition=1 destination=0x08273DAE
+    08273CD2  compare_var_to_value var=0x8000 value=1
+    08273CD7  goto_if              condition=1 destination=0x08273DF7
+    08273CDD  compare_var_to_value var=0x8000 value=2
+    08273CE2  goto_if              condition=1 destination=0x08273E3D
+    08273CE8  end                  
+
+  script 0x08273CE9  [ok]
+    08273CE9  speakername          name="Strange Man"
+    08273CEE  msgbox_multilang     type=0 text_0="Well, I don’t give refunds.\nYou knew what you were getting!" text_1="Well, I don’t give refunds.\nYou knew what you were getting!" text_2="Well, I don’t give refunds.\nYou knew what you were getting!" text_3="Well, I don’t give refunds.\nYou knew what you were getting!" text_4="Well, I don’t give refunds.\nYou knew what you were getting!" text_5="Well, I don’t give refunds.\nYou knew what you were getting!" text_6="Well, I don’t give refunds.\nYou knew what you were getting!"
+    08273D0C  callstd              function=MSGBOX_DEFAULT(4)
+    08273D0E  release              
+
+  script 0x08273D10  [ok]
+    08273D10  msgbox_multilang     type=0 text_0="Hello there, laddie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_1="Hello there, laddie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_2="Hello there, laddie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_3="Hello there, laddie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_4="Hello there, laddie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_5="Hello there, laddie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_6="Hello there, laddie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?"
+    08273D2E  callstd              function=MSGBOX_YESNO(5)
+    08273D30  goto                 destination=0x08273C90
+
+  script 0x08273D35  [ok]
+    08273D35  msgbox_multilang     type=0 text_0="Hello there, sweetie pie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_1="Hello there, sweetie pie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_2="Hello there, sweetie pie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_3="Hello there, sweetie pie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_4="Hello there, sweetie pie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_5="Hello there, sweetie pie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?" text_6="Hello there, sweetie pie!\nHave I got a deal just for you!\pI’ll let you have a secret Pokémon\n-a Magikarp- for just ¥500!\pSo, you’ll buy it, am I right?"
+    08273D53  callstd              function=MSGBOX_YESNO(5)
+    08273D55  goto                 destination=0x08273C90
+
+  script 0x08273D5A  [ok]
+    08273D5A  speakername          name="Strange Man"
+    08273D5F  msgbox_multilang     type=0 text_0="No? You say no? I’m only doing this\nas a favor to you!" text_1="No? You say no? I’m only doing this\nas a favor to you!" text_2="No? You say no? I’m only doing this\nas a favor to you!" text_3="No? You say no? I’m only doing this\nas a favor to you!" text_4="No? You say no? I’m only doing this\nas a favor to you!" text_5="No? You say no? I’m only doing this\nas a favor to you!" text_6="No? You say no? I’m only doing this\nas a favor to you!"
+    08273D7D  callstd              function=MSGBOX_DEFAULT(4)
+    08273D7F  hidemoneybox         0=0 0=0
+    08273D82  release              
+
+  script 0x08273D84  [ok]
+    08273D84  speakername          name="Strange Man"
+    08273D89  msgbox_multilang     type=0 text_0="You’ll need more money than that!" text_1="You’ll need more money than that!" text_2="You’ll need more money than that!" text_3="You’ll need more money than that!" text_4="You’ll need more money than that!" text_5="You’ll need more money than that!" text_6="You’ll need more money than that!"
+    08273DA7  callstd              function=MSGBOX_DEFAULT(4)
+    08273DA9  hidemoneybox         0=0 0=0
+    08273DAC  release              
+
+  script 0x08273DAE  [ok]
+    08273DAE  call                 destination=0x08273E85
+    08273DB3  speakername          name="Strange Man"
+    08273DB8  msgbox_multilang     type=0 text_0="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_1="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_2="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_3="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_4="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_5="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_6="Do you want to give a nickname to\nthis {STR_VAR_1}?"
+    08273DD6  callstd              function=MSGBOX_YESNO(5)
+    08273DD8  compare_var_to_value var=0x800D value=0
+    08273DDD  goto_if              condition=1 destination=0x08273E69
+    08273DE3  call                 destination=0x082BCF8B
+    08273DE8  fadescreen           mode=1
+    08273DEA  hidemoneybox         0=0 0=0
+    08273DED  special              SPECIAL_\function=95
+    08273DF0  waitstate            
+
+  script 0x08273DF7  [ok]
+    08273DF7  call                 destination=0x08273E85
+    08273DFC  msgbox_multilang     type=0 text_0="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_1="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_2="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_3="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_4="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_5="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_6="Do you want to give a nickname to\nthis {STR_VAR_1}?"
+    08273E1A  callstd              function=MSGBOX_YESNO(5)
+    08273E1C  compare_var_to_value var=0x800D value=0
+    08273E21  goto_if              condition=1 destination=0x08273E72
+    08273E27  fadescreen           mode=1
+    08273E29  hidemoneybox         0=0 0=0
+    08273E2C  special              SPECIAL_\function=318
+    08273E2F  waitstate            
+
+  script 0x08273E3D  [ok]
+    08273E3D  textcolor            color=0
+    08273E3F  speakername          name="Strange Man"
+    08273E44  msgbox_multilang     type=0 text_0="There’s no more room for any more\nPokémon, it looks like." text_1="There’s no more room for any more\nPokémon, it looks like." text_2="There’s no more room for any more\nPokémon, it looks like." text_3="There’s no more room for any more\nPokémon, it looks like." text_4="There’s no more room for any more\nPokémon, it looks like." text_5="There’s no more room for any more\nPokémon, it looks like." text_6="There’s no more room for any more\nPokémon, it looks like."
+    08273E62  callstd              function=MSGBOX_DEFAULT(4)
+    08273E64  hidemoneybox         0=0 0=0
+    08273E67  release              
+
+  script 0x08273C90  [ok]
+    08273C90  compare_var_to_value var=0x800D value=0
+    08273C95  goto_if              condition=1 destination=0x08273D5A
+    08273C9B  checkmoney           value=500 disable=0
+    08273CA1  compare_var_to_value var=0x800D value=0
+    08273CA6  goto_if              condition=1 destination=0x08273D84
+    08273CAC  textcolor            color=3
+    08273CAE  setvar               destination=VAR_0x4001 value=129
+    08273CB3  givemon              species=MAGIKARP(129) level=5 item=0 0=0 0=0 0=0
+    08273CC2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08273CC7  compare_var_to_value var=0x8000 value=0
+    08273CCC  goto_if              condition=1 destination=0x08273DAE
+    08273CD2  compare_var_to_value var=0x8000 value=1
+    08273CD7  goto_if              condition=1 destination=0x08273DF7
+    08273CDD  compare_var_to_value var=0x8000 value=2
+    08273CE2  goto_if              condition=1 destination=0x08273E3D
+    08273CE8  end                  
+
+  script 0x08273E85  [unknown-opcode:0xE9]
+    08273E85  removemoney          value=500 disable=0
+    08273E8B  updatemoneybox       0=0 0=0 disable=0
+    08273E8F  playfanfare          song=367
+
+  script 0x08273E69  [ok]
+    08273E69  hidemoneybox         0=0 0=0
+    08273E6C  goto                 destination=0x08273E80
+
+  script 0x082BCF8B  [ok]
+    082BCF8B  getpartysize         
+    082BCF8C  subvar               destination=VAR_0x800D value=1
+    082BCF91  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082BCF96  return               
+
+  script 0x08273E72  [ok]
+    08273E72  call                 destination=0x082BCFA0
+    08273E77  hidemoneybox         0=0 0=0
+    08273E7A  goto                 destination=0x08273E80
+
+  script 0x08273E80  [ok]
+    08273E80  setflag              flag=0x249
+    08273E83  release              
+
+  script 0x082BCFA0  [ok]
+    082BCFA0  bufferboxname        stringVarId=0 box=16439
+    082BCFA4  bufferspeciesname    stringVarId=1 species=?(16385)
+    082BCFA8  checkflag            flag=0x894
+    082BCFAB  call_if              condition=0 destination=0x082BCFBB
+    082BCFB1  checkflag            flag=0x894
+    082BCFB4  call_if              condition=1 destination=0x082BD016
+    082BCFBA  return               
+
+  script 0x082BCFBB  [ok]
+    082BCFBB  specialvar           output=32781 SPECIAL_\function=320
+    082BCFC0  compare_var_to_value var=0x800D value=1
+    082BCFC5  goto_if              condition=1 destination=0x082BCFEC
+    082BCFCB  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BCFE9  callstd              function=MSGBOX_DEFAULT(4)
+    082BCFEB  return               
+
+  script 0x082BD016  [ok]
+    082BD016  specialvar           output=32781 SPECIAL_\function=320
+    082BD01B  compare_var_to_value var=0x800D value=1
+    082BD020  goto_if              condition=1 destination=0x082BD047
+    082BD026  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BD044  callstd              function=MSGBOX_DEFAULT(4)
+    082BD046  return               
+
+  script 0x082BCFEC  [ok]
+    082BCFEC  specialvar           output=32781 SPECIAL_\function=319
+    082BCFF1  bufferboxname        stringVarId=2 box=32781
+    082BCFF5  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD013  callstd              function=MSGBOX_DEFAULT(4)
+    082BD015  return               
+
+  script 0x082BD047  [ok]
+    082BD047  specialvar           output=32781 SPECIAL_\function=319
+    082BD04C  bufferboxname        stringVarId=2 box=32781
+    082BD050  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD06E  callstd              function=MSGBOX_DEFAULT(4)
+    082BD070  return               
+
+  object 3 (gfx 0x30, flag 0x0000) -> 0x08273BF9
+  script 0x08273BF9  [ok]
+    08273BF9  lock                 
+    08273BFA  msgbox_multilang     type=0 text_0="Team Rocket attacks Cerulean\ncitizens…\pNot a day goes by without Team\nRocket being in the news." text_1="Team Rocket attacks Cerulean\ncitizens…\pNot a day goes by without Team\nRocket being in the news." text_2="Team Rocket attacks Cerulean\ncitizens…\pNot a day goes by without Team\nRocket being in the news." text_3="Team Rocket attacks Cerulean\ncitizens…\pNot a day goes by without Team\nRocket being in the news." text_4="Team Rocket attacks Cerulean\ncitizens…\pNot a day goes by without Team\nRocket being in the news." text_5="Team Rocket attacks Cerulean\ncitizens…\pNot a day goes by without Team\nRocket being in the news." text_6="Team Rocket attacks Cerulean\ncitizens…\pNot a day goes by without Team\nRocket being in the news."
+    08273C18  callstd              function=MSGBOX_DEFAULT(4)
+    08273C1A  release              
+
+  object 4 (gfx 0xEF, flag 0x0000) -> 0x08273BD8
+  script 0x08273BD8  [ok]
+    08273BD8  msgbox_multilang     type=0 text_0="Okay, set six Poké Balls in my\nbelt…\pYeah, that’ll do it. At most, you can\nhave six Pokémon with you." text_1="Okay, set six Poké Balls in my\nbelt…\pYeah, that’ll do it. At most, you can\nhave six Pokémon with you." text_2="Okay, set six Poké Balls in my\nbelt…\pYeah, that’ll do it. At most, you can\nhave six Pokémon with you." text_3="Okay, set six Poké Balls in my\nbelt…\pYeah, that’ll do it. At most, you can\nhave six Pokémon with you." text_4="Okay, set six Poké Balls in my\nbelt…\pYeah, that’ll do it. At most, you can\nhave six Pokémon with you." text_5="Okay, set six Poké Balls in my\nbelt…\pYeah, that’ll do it. At most, you can\nhave six Pokémon with you." text_6="Okay, set six Poké Balls in my\nbelt…\pYeah, that’ll do it. At most, you can\nhave six Pokémon with you."
+    08273BF6  callstd              function=MSGBOX_NPC(2)
+    08273BF8  end                  
+
+  object 5 (gfx 0x23, flag 0x0000) -> 0x08273C1C
+  script 0x08273C1C  [ok]
+    08273C1C  msgbox_multilang     type=0 text_0="Sometimes, you’ll have too many\nPokémon with you to add any more.\pIn that case, you should just store\nsome using any PC." text_1="Sometimes, you’ll have too many\nPokémon with you to add any more.\pIn that case, you should just store\nsome using any PC." text_2="Sometimes, you’ll have too many\nPokémon with you to add any more.\pIn that case, you should just store\nsome using any PC." text_3="Sometimes, you’ll have too many\nPokémon with you to add any more.\pIn that case, you should just store\nsome using any PC." text_4="Sometimes, you’ll have too many\nPokémon with you to add any more.\pIn that case, you should just store\nsome using any PC." text_5="Sometimes, you’ll have too many\nPokémon with you to add any more.\pIn that case, you should just store\nsome using any PC." text_6="Sometimes, you’ll have too many\nPokémon with you to add any more.\pIn that case, you should just store\nsome using any PC."
+    08273C3A  callstd              function=MSGBOX_NPC(2)
+    08273C3C  end                  
+
+  object 6 (gfx 0x31, flag 0x0000) -> 0x08273C3D
+  script 0x08273C3D  [ok]
+    08273C3D  lock                 
+    08273C3E  msgbox_multilang     type=0 text_0="It’s a newspaper." text_1="It’s a newspaper." text_2="It’s a newspaper." text_3="It’s a newspaper." text_4="It’s a newspaper." text_5="It’s a newspaper." text_6="It’s a newspaper."
+    08273C5C  callstd              function=MSGBOX_DEFAULT(4)
+    08273C5E  release              
+
+  object 7 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x08273BC8
+  script 0x08273BC8  [ok]
+    08273BC8  setworldmapflag      flag=0x902
+    08273BCB  setrespawn           heallocation=12
+    08273BCE  return               
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

@@ -1,0 +1,395 @@
+Battle Frontier  (group 41, map 27)  header 0x08B3E3A4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1C, flag 0x0000) -> 0x082AA8DC
+  script 0x082AA8DC  [ok]
+    082AA8DC  setvar               destination=VAR_0x8004 value=1
+    082AA8E1  setvar               destination=VAR_0x8005 value=2
+    082AA8E6  special              SPECIAL_\function=148
+    082AA8E9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AA8EE  compare_var_to_value var=0x8000 value=1
+    082AA8F3  goto_if              condition=1 destination=0x082AA93C
+    082AA8F9  compare_var_to_value var=0x8000 value=3
+    082AA8FE  goto_if              condition=1 destination=0x082AA964
+    082AA904  compare_var_to_value var=0x8000 value=5
+    082AA909  goto_if              condition=1 destination=0x082AA98C
+    082AA90F  compare_var_to_value var=0x8000 value=7
+    082AA914  goto_if              condition=1 destination=0x082AA9B4
+    082AA91A  compare_var_to_value var=0x8000 value=9
+    082AA91F  goto_if              condition=1 destination=0x082AA9DC
+    082AA925  compare_var_to_value var=0x8000 value=11
+    082AA92A  goto_if              condition=1 destination=0x082AAA04
+    082AA930  compare_var_to_value var=0x8000 value=13
+    082AA935  goto_if              condition=1 destination=0x082AAA2C
+    082AA93B  end                  
+
+  script 0x082AA93C  [ok]
+    082AA93C  lock                 
+    082AA93D  faceplayer           
+    082AA93E  msgbox_multilang     type=0 text_0="You are currently in\nthe 1st room…" text_1="You are currently in\nthe 1st room…" text_2="You are currently in\nthe 1st room…" text_3="You are currently in\nthe 1st room…" text_4="You are currently in\nthe 1st room…" text_5="You are currently in\nthe 1st room…" text_6="You are currently in\nthe 1st room…"
+    082AA95C  callstd              function=MSGBOX_DEFAULT(4)
+    082AA95E  goto                 destination=0x082AAA54
+
+  script 0x082AA964  [ok]
+    082AA964  lock                 
+    082AA965  faceplayer           
+    082AA966  msgbox_multilang     type=0 text_0="You are currently in\nthe 3rd room…" text_1="You are currently in\nthe 3rd room…" text_2="You are currently in\nthe 3rd room…" text_3="You are currently in\nthe 3rd room…" text_4="You are currently in\nthe 3rd room…" text_5="You are currently in\nthe 3rd room…" text_6="You are currently in\nthe 3rd room…"
+    082AA984  callstd              function=MSGBOX_DEFAULT(4)
+    082AA986  goto                 destination=0x082AAA54
+
+  script 0x082AA98C  [ok]
+    082AA98C  lock                 
+    082AA98D  faceplayer           
+    082AA98E  msgbox_multilang     type=0 text_0="You are currently in\nthe 5th room…" text_1="You are currently in\nthe 5th room…" text_2="You are currently in\nthe 5th room…" text_3="You are currently in\nthe 5th room…" text_4="You are currently in\nthe 5th room…" text_5="You are currently in\nthe 5th room…" text_6="You are currently in\nthe 5th room…"
+    082AA9AC  callstd              function=MSGBOX_DEFAULT(4)
+    082AA9AE  goto                 destination=0x082AAA54
+
+  script 0x082AA9B4  [ok]
+    082AA9B4  lock                 
+    082AA9B5  faceplayer           
+    082AA9B6  msgbox_multilang     type=0 text_0="You are currently in\nthe 7th room…" text_1="You are currently in\nthe 7th room…" text_2="You are currently in\nthe 7th room…" text_3="You are currently in\nthe 7th room…" text_4="You are currently in\nthe 7th room…" text_5="You are currently in\nthe 7th room…" text_6="You are currently in\nthe 7th room…"
+    082AA9D4  callstd              function=MSGBOX_DEFAULT(4)
+    082AA9D6  goto                 destination=0x082AAA54
+
+  script 0x082AA9DC  [ok]
+    082AA9DC  lock                 
+    082AA9DD  faceplayer           
+    082AA9DE  msgbox_multilang     type=0 text_0="You are currently in\nthe 9th room…" text_1="You are currently in\nthe 9th room…" text_2="You are currently in\nthe 9th room…" text_3="You are currently in\nthe 9th room…" text_4="You are currently in\nthe 9th room…" text_5="You are currently in\nthe 9th room…" text_6="You are currently in\nthe 9th room…"
+    082AA9FC  callstd              function=MSGBOX_DEFAULT(4)
+    082AA9FE  goto                 destination=0x082AAA54
+
+  script 0x082AAA04  [ok]
+    082AAA04  lock                 
+    082AAA05  faceplayer           
+    082AAA06  msgbox_multilang     type=0 text_0="You are currently in\nthe 11th room…" text_1="You are currently in\nthe 11th room…" text_2="You are currently in\nthe 11th room…" text_3="You are currently in\nthe 11th room…" text_4="You are currently in\nthe 11th room…" text_5="You are currently in\nthe 11th room…" text_6="You are currently in\nthe 11th room…"
+    082AAA24  callstd              function=MSGBOX_DEFAULT(4)
+    082AAA26  goto                 destination=0x082AAA54
+
+  script 0x082AAA2C  [ok]
+    082AAA2C  lock                 
+    082AAA2D  faceplayer           
+    082AAA2E  msgbox_multilang     type=0 text_0="You are currently in\nthe 13th room…" text_1="You are currently in\nthe 13th room…" text_2="You are currently in\nthe 13th room…" text_3="You are currently in\nthe 13th room…" text_4="You are currently in\nthe 13th room…" text_5="You are currently in\nthe 13th room…" text_6="You are currently in\nthe 13th room…"
+    082AAA4C  callstd              function=MSGBOX_DEFAULT(4)
+    082AAA4E  goto                 destination=0x082AAA54
+
+  script 0x082AAA54  [ok]
+    082AAA54  msgbox_multilang     type=0 text_0="Will you continue with\nyour challenge?" text_1="Will you continue with\nyour challenge?" text_2="Will you continue with\nyour challenge?" text_3="Will you continue with\nyour challenge?" text_4="Will you continue with\nyour challenge?" text_5="Will you continue with\nyour challenge?" text_6="Will you continue with\nyour challenge?"
+    082AAA72  callstd              function=MSGBOX_YESNO(5)
+    082AAA74  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AAA79  compare_var_to_value var=0x8000 value=0
+    082AAA7E  goto_if              condition=1 destination=0x082AAAD6
+    082AAA84  compare_var_to_value var=0x8000 value=127
+    082AAA89  goto_if              condition=1 destination=0x082AAAD6
+    082AAA8F  release              
+
+  script 0x082AAAD6  [ok]
+    082AAAD6  msgbox_multilang     type=0 text_0="Would you like to save your challenge\nand quit the game for now?" text_1="Would you like to save your challenge\nand quit the game for now?" text_2="Would you like to save your challenge\nand quit the game for now?" text_3="Would you like to save your challenge\nand quit the game for now?" text_4="Would you like to save your challenge\nand quit the game for now?" text_5="Would you like to save your challenge\nand quit the game for now?" text_6="Would you like to save your challenge\nand quit the game for now?"
+    082AAAF4  callstd              function=MSGBOX_YESNO(5)
+    082AAAF6  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AAAFB  compare_var_to_value var=0x8000 value=1
+    082AAB00  goto_if              condition=1 destination=0x082AAA91
+    082AAB06  compare_var_to_value var=0x8000 value=0
+    082AAB0B  goto_if              condition=1 destination=0x082AAB1E
+    082AAB11  compare_var_to_value var=0x8000 value=127
+    082AAB16  goto_if              condition=1 destination=0x082AAB1E
+    082AAB1C  release              
+
+  script 0x082AAA91  [opcode-out-of-range:0xEC]
+    082AAA91  setvar               destination=VAR_0x8004 value=6
+    082AAA96  special              SPECIAL_\function=148
+    082AAA99  message              text="I am saving your data…\nA little time, please…"
+
+  script 0x082AAB1E  [ok]
+    082AAB1E  message              text="Do you wish to retire from your\nBattle Choice challenge?"
+    082AAB23  compare_ptr_to_ptr   ptr1=537406127 ptr2=537406127
+    082AAB2C  setdooropen          x=2090 y=44832
+    082AAB31  clearflag            flag=0x2008
+    082AAB34  setdooropen          x=2090 y=44832
+    082AAB39  clearflag            flag=0x6608 (temp)
+    082AAB3C  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    082AAB42  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AAB47  compare_var_to_value var=0x8000 value=0
+    082AAB4C  goto_if              condition=1 destination=0x082F375B
+    082AAB52  release              
+
+  script 0x082F375B  [ok]
+    082F375B  setvar               destination=VAR_0x8004 value=2
+    082F3760  setvar               destination=VAR_0x8005 value=0
+    082F3765  setvar               destination=VAR_0x8006 value=4
+    082F376A  special              SPECIAL_\function=148
+    082F376D  warp                 mapGroup=41 mapNum=25 WARP_ID_NONE=255 -1=5 -1=6
+    082F3775  waitstate            
+
+  object 2 (gfx 0x1C, flag 0x0000) -> 0x082AABAF
+  script 0x082AABAF  [ok]
+    082AABAF  setvar               destination=VAR_0x8004 value=19
+    082AABB4  special              SPECIAL_\function=155
+    082AABB7  compare_var_to_value var=0x800D value=4
+    082AABBC  goto_if              condition=1 destination=0x082AAD8E
+    082AABC2  lock                 
+    082AABC3  faceplayer           
+    082AABC4  msgbox_multilang     type=0 text_0="I beg your pardon, but…\pAre you perhaps finding it difficult\nto choose your path?" text_1="I beg your pardon, but…\pAre you perhaps finding it difficult\nto choose your path?" text_2="I beg your pardon, but…\pAre you perhaps finding it difficult\nto choose your path?" text_3="I beg your pardon, but…\pAre you perhaps finding it difficult\nto choose your path?" text_4="I beg your pardon, but…\pAre you perhaps finding it difficult\nto choose your path?" text_5="I beg your pardon, but…\pAre you perhaps finding it difficult\nto choose your path?" text_6="I beg your pardon, but…\pAre you perhaps finding it difficult\nto choose your path?"
+    082AABE2  callstd              function=MSGBOX_YESNO(5)
+    082AABE4  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AABE9  compare_var_to_value var=0x8000 value=1
+    082AABEE  goto_if              condition=1 destination=0x082AAC2E
+    082AABF4  compare_var_to_value var=0x8000 value=0
+    082AABF9  goto_if              condition=1 destination=0x082AAC0C
+    082AABFF  compare_var_to_value var=0x8000 value=127
+    082AAC04  goto_if              condition=1 destination=0x082AAC0C
+    082AAC0A  release              
+
+  script 0x082AAD8E  [ok]
+    082AAD8E  lock                 
+    082AAD8F  faceplayer           
+    082AAD90  msgbox_multilang     type=0 text_0="From every path I sense a dreadful\npresence…" text_1="From every path I sense a dreadful\npresence…" text_2="From every path I sense a dreadful\npresence…" text_3="From every path I sense a dreadful\npresence…" text_4="From every path I sense a dreadful\npresence…" text_5="From every path I sense a dreadful\npresence…" text_6="From every path I sense a dreadful\npresence…"
+    082AADAE  callstd              function=MSGBOX_DEFAULT(4)
+    082AADB0  release              
+
+  script 0x082AAC2E  [ok]
+    082AAC2E  setvar               destination=VAR_0x8004 value=18
+    082AAC33  special              SPECIAL_\function=155
+    082AAC36  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AAC3B  compare_var_to_value var=0x8000 value=0
+    082AAC40  goto_if              condition=1 destination=0x082AAC5D
+    082AAC46  compare_var_to_value var=0x8000 value=1
+    082AAC4B  goto_if              condition=1 destination=0x082AAC82
+    082AAC51  compare_var_to_value var=0x8000 value=2
+    082AAC56  goto_if              condition=1 destination=0x082AACA7
+    082AAC5C  end                  
+
+  script 0x082AAC0C  [ok]
+    082AAC0C  msgbox_multilang     type=0 text_0="I see…\nI apologize for my impertinence…" text_1="I see…\nI apologize for my impertinence…" text_2="I see…\nI apologize for my impertinence…" text_3="I see…\nI apologize for my impertinence…" text_4="I see…\nI apologize for my impertinence…" text_5="I see…\nI apologize for my impertinence…" text_6="I see…\nI apologize for my impertinence…"
+    082AAC2A  callstd              function=MSGBOX_DEFAULT(4)
+    082AAC2C  release              
+
+  script 0x082AAC5D  [ok]
+    082AAC5D  msgbox_multilang     type=0 text_0="Ah, let me see… There is something\nabout the path on the left…" text_1="Ah, let me see… There is something\nabout the path on the left…" text_2="Ah, let me see… There is something\nabout the path on the left…" text_3="Ah, let me see… There is something\nabout the path on the left…" text_4="Ah, let me see… There is something\nabout the path on the left…" text_5="Ah, let me see… There is something\nabout the path on the left…" text_6="Ah, let me see… There is something\nabout the path on the left…"
+    082AAC7B  callstd              function=MSGBOX_DEFAULT(4)
+    082AAC7D  goto                 destination=0x082AACCC
+
+  script 0x082AAC82  [ok]
+    082AAC82  msgbox_multilang     type=0 text_0="Ah, let me see… There is something\nabout the path in the center…" text_1="Ah, let me see… There is something\nabout the path in the center…" text_2="Ah, let me see… There is something\nabout the path in the center…" text_3="Ah, let me see… There is something\nabout the path in the center…" text_4="Ah, let me see… There is something\nabout the path in the center…" text_5="Ah, let me see… There is something\nabout the path in the center…" text_6="Ah, let me see… There is something\nabout the path in the center…"
+    082AACA0  callstd              function=MSGBOX_DEFAULT(4)
+    082AACA2  goto                 destination=0x082AACCC
+
+  script 0x082AACA7  [ok]
+    082AACA7  msgbox_multilang     type=0 text_0="Ah, let me see… There is something\nabout the path on the right…" text_1="Ah, let me see… There is something\nabout the path on the right…" text_2="Ah, let me see… There is something\nabout the path on the right…" text_3="Ah, let me see… There is something\nabout the path on the right…" text_4="Ah, let me see… There is something\nabout the path on the right…" text_5="Ah, let me see… There is something\nabout the path on the right…" text_6="Ah, let me see… There is something\nabout the path on the right…"
+    082AACC5  callstd              function=MSGBOX_DEFAULT(4)
+    082AACC7  goto                 destination=0x082AACCC
+
+  script 0x082AACCC  [ok]
+    082AACCC  setvar               destination=VAR_0x8004 value=19
+    082AACD1  special              SPECIAL_\function=155
+    082AACD4  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AACD9  compare_var_to_value var=0x8000 value=0
+    082AACDE  goto_if              condition=1 destination=0x082AAD06
+    082AACE4  compare_var_to_value var=0x8000 value=1
+    082AACE9  goto_if              condition=1 destination=0x082AAD28
+    082AACEF  compare_var_to_value var=0x8000 value=2
+    082AACF4  goto_if              condition=1 destination=0x082AAD4A
+    082AACFA  compare_var_to_value var=0x8000 value=3
+    082AACFF  goto_if              condition=1 destination=0x082AAD6C
+    082AAD05  end                  
+
+  script 0x082AAD06  [ok]
+    082AAD06  msgbox_multilang     type=0 text_0="For some odd reason, I felt a wave\nof nostalgia coming from it…" text_1="For some odd reason, I felt a wave\nof nostalgia coming from it…" text_2="For some odd reason, I felt a wave\nof nostalgia coming from it…" text_3="For some odd reason, I felt a wave\nof nostalgia coming from it…" text_4="For some odd reason, I felt a wave\nof nostalgia coming from it…" text_5="For some odd reason, I felt a wave\nof nostalgia coming from it…" text_6="For some odd reason, I felt a wave\nof nostalgia coming from it…"
+    082AAD24  callstd              function=MSGBOX_DEFAULT(4)
+    082AAD26  release              
+
+  script 0x082AAD28  [ok]
+    082AAD28  msgbox_multilang     type=0 text_0="I seem to have heard something…\nIt may have been whispering…" text_1="I seem to have heard something…\nIt may have been whispering…" text_2="I seem to have heard something…\nIt may have been whispering…" text_3="I seem to have heard something…\nIt may have been whispering…" text_4="I seem to have heard something…\nIt may have been whispering…" text_5="I seem to have heard something…\nIt may have been whispering…" text_6="I seem to have heard something…\nIt may have been whispering…"
+    082AAD46  callstd              function=MSGBOX_DEFAULT(4)
+    082AAD48  release              
+
+  script 0x082AAD4A  [ok]
+    082AAD4A  msgbox_multilang     type=0 text_0="It seems to have the distinct aroma\nof POKéMON wafting around it…" text_1="It seems to have the distinct aroma\nof POKéMON wafting around it…" text_2="It seems to have the distinct aroma\nof POKéMON wafting around it…" text_3="It seems to have the distinct aroma\nof POKéMON wafting around it…" text_4="It seems to have the distinct aroma\nof POKéMON wafting around it…" text_5="It seems to have the distinct aroma\nof POKéMON wafting around it…" text_6="It seems to have the distinct aroma\nof POKéMON wafting around it…"
+    082AAD68  callstd              function=MSGBOX_DEFAULT(4)
+    082AAD6A  release              
+
+  script 0x082AAD6C  [ok]
+    082AAD6C  msgbox_multilang     type=0 text_0="Is it… A TRAINER?\nI sense the presence of people…" text_1="Is it… A TRAINER?\nI sense the presence of people…" text_2="Is it… A TRAINER?\nI sense the presence of people…" text_3="Is it… A TRAINER?\nI sense the presence of people…" text_4="Is it… A TRAINER?\nI sense the presence of people…" text_5="Is it… A TRAINER?\nI sense the presence of people…" text_6="Is it… A TRAINER?\nI sense the presence of people…"
+    082AAD8A  callstd              function=MSGBOX_DEFAULT(4)
+    082AAD8C  release              
+
+  coord trigger 0 (var 0x4001 == 0) -> 0x082F3439
+  script 0x082F3439  [ok]
+    082F3439  setvar               destination=VAR_0x8007 value=0
+    082F343E  goto                 destination=0x082F345A
+
+  script 0x082F345A  [ok]
+    082F345A  clearflag            flag=0x4005 (temp)
+    082F345D  setvar               destination=VAR_0x8004 value=1
+    082F3462  setvar               destination=VAR_0x8005 value=1
+    082F3467  special              SPECIAL_\function=155
+    082F346A  addvar               destination=VAR_0x800D value=1
+    082F346F  setvar               destination=VAR_0x8004 value=2
+    082F3474  setvar               destination=VAR_0x8005 value=1
+    082F3479  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082F347E  special              SPECIAL_\function=155
+    082F3481  setvar               destination=VAR_0x8004 value=1
+    082F3486  setvar               destination=VAR_0x8005 value=2
+    082F348B  special              SPECIAL_\function=148
+    082F348E  addvar               destination=VAR_0x800D value=1
+    082F3493  setvar               destination=VAR_0x8004 value=2
+    082F3498  setvar               destination=VAR_0x8005 value=2
+    082F349D  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082F34A2  special              SPECIAL_\function=148
+    082F34A5  setvar               destination=VAR_0x8004 value=0
+    082F34AA  special              SPECIAL_\function=155
+    082F34AD  setvar               destination=VAR_0x8004 value=5
+    082F34B2  special              SPECIAL_\function=155
+    082F34B5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082F34BA  compare_var_to_value var=0x8000 value=0
+    082F34BF  goto_if              condition=1 destination=0x082F351E
+    082F34C5  compare_var_to_value var=0x8000 value=1
+    082F34CA  goto_if              condition=1 destination=0x082F351E
+    082F34D0  compare_var_to_value var=0x8000 value=2
+    082F34D5  goto_if              condition=1 destination=0x082F351E
+    082F34DB  compare_var_to_value var=0x8000 value=3
+    082F34E0  goto_if              condition=1 destination=0x082F351E
+    082F34E6  compare_var_to_value var=0x8000 value=4
+    082F34EB  goto_if              condition=1 destination=0x082F351E
+    082F34F1  compare_var_to_value var=0x8000 value=5
+    082F34F6  goto_if              condition=1 destination=0x082F3537
+    082F34FC  compare_var_to_value var=0x8000 value=6
+    082F3501  goto_if              condition=1 destination=0x082F351E
+    082F3507  compare_var_to_value var=0x8000 value=7
+    082F350C  goto_if              condition=1 destination=0x082F351E
+    082F3512  compare_var_to_value var=0x8000 value=8
+    082F3517  goto_if              condition=1 destination=0x082F351E
+    082F351D  end                  
+
+  script 0x082F351E  [ok]
+    082F351E  applymovement        localId=255 movements=[set_invisible]
+    082F3525  waitmovement         localId=0
+    082F3528  call                 destination=0x082A9AD5
+    082F352D  warpsilent           mapGroup=41 mapNum=28 WARP_ID_NONE=255 -1=4 -1=7
+    082F3535  waitstate            
+
+  script 0x082F3537  [ok]
+    082F3537  applymovement        localId=255 movements=[set_invisible]
+    082F353E  waitmovement         localId=0
+    082F3541  call                 destination=0x082A9AD5
+    082F3546  warpsilent           mapGroup=41 mapNum=30 WARP_ID_NONE=255 -1=4 -1=19
+    082F354E  waitstate            
+
+  script 0x082A9AD5  [ok]
+    082A9AD5  playse               song=267
+    082A9AD8  special              SPECIAL_\function=251
+    082A9ADB  waitstate            
+
+  coord trigger 1 (var 0x4001 == 0) -> 0x082F3444
+  script 0x082F3444  [ok]
+    082F3444  setvar               destination=VAR_0x8007 value=1
+    082F3449  goto                 destination=0x082F345A
+
+  coord trigger 2 (var 0x4001 == 0) -> 0x082F344F
+  script 0x082F344F  [ok]
+    082F344F  setvar               destination=VAR_0x8007 value=2
+    082F3454  goto                 destination=0x082F345A
+
+  coord trigger 3 (var 0x4003 == 1) -> 0x082F355B
+  script 0x082F355B  [ok]
+    082F355B  setvar               destination=VAR_0x4003 value=0
+    082F3560  setvar               destination=VAR_0x4002 value=0
+    082F3565  lockall              
+    082F3566  msgbox_multilang     type=0 text_0="The path is blocked!\nAnd there is no turning back…" text_1="The path is blocked!\nAnd there is no turning back…" text_2="The path is blocked!\nAnd there is no turning back…" text_3="The path is blocked!\nAnd there is no turning back…" text_4="The path is blocked!\nAnd there is no turning back…" text_5="The path is blocked!\nAnd there is no turning back…" text_6="The path is blocked!\nAnd there is no turning back…"
+    082F3584  callstd              function=MSGBOX_DEFAULT(4)
+    082F3586  closemessage         
+    082F3587  releaseall           
+
+  coord trigger 4 (var 0x4003 == 1) -> 0x082F355B
+  coord trigger 5 (var 0x4002 == 0) -> 0x082F3550
+  script 0x082F3550  [ok]
+    082F3550  setvar               destination=VAR_0x4003 value=1
+    082F3555  setvar               destination=VAR_0x4002 value=1
+    082F355A  end                  
+
+  coord trigger 6 (var 0x4002 == 0) -> 0x082F3550
+  coord trigger 7 (var 0x4002 == 0) -> 0x082F3550
+  coord trigger 8 (var 0x4003 == 1) -> 0x082F355B
+  map script type 5 -> 0x082F3777
+  script 0x082F3777  [ok]
+    082F3777  setorcopyvar         destination=VAR_0x8006 source=VAR_0x800D
+    082F377C  setvar               destination=VAR_0x8004 value=1
+    082F3781  setvar               destination=VAR_0x8005 value=0
+    082F3786  special              SPECIAL_\function=148
+    082F3789  compare_var_to_value var=0x800D value=2
+    082F378E  goto_if              condition=1 destination=0x082F37A4
+    082F3794  compare_var_to_value var=0x800D value=1
+    082F3799  goto_if              condition=1 destination=0x082F37A4
+    082F379F  call                 destination=0x082F37AA
+    082F37A4  setorcopyvar         destination=VAR_0x800D source=VAR_0x8006
+    082F37A9  end                  
+
+  script 0x082F37A4  [ok]
+    082F37A4  setorcopyvar         destination=VAR_0x800D source=VAR_0x8006
+    082F37A9  end                  
+
+  script 0x082F37AA  [ok]
+    082F37AA  setvar               destination=VAR_0x8004 value=21
+    082F37AF  special              SPECIAL_\function=148
+    082F37B2  return               
+
+  map script type 2 (var 0x4000 == 0) -> 0x082AA835
+  script 0x082AA835  [ok]
+    082AA835  setvar               destination=VAR_0x8004 value=0
+    082AA83A  special              SPECIAL_\function=148
+    082AA83D  end                  
+
+  map script type 2 (var 0x4000 == 1) -> 0x082AA83E
+  script 0x082AA83E  [ok]
+    082AA83E  warp                 mapGroup=41 mapNum=25 WARP_ID_NONE=255 -1=5 -1=6
+    082AA846  waitstate            
+
+  map script type 2 (var 0x4000 == 2) -> 0x082AA848
+  script 0x082AA848  [ok]
+    082AA848  lockall              
+    082AA849  message              text="We’ve been awaiting your return…\pBefore resuming your Battle Choice\nchallenge, let me save the game…"
+    082AA84E  hideobjectat         localId=10927 mapGroup=8 mapNum=89
+    082AA853  setdooropen          x=2090 y=44889
+    082AA858  clearflag            flag=0x5908 (temp)
+    082AA85B  setdooropen          x=2090 y=44889
+    082AA860  clearflag            flag=0x5908 (temp)
+    082AA863  setdooropen          x=2090 y=5734
+    082AA868  call                 destination=369100928
+    082AA86D  goto                 destination=620757376
+
+  map script type 2 (var 0x4005 == 0) -> 0x082AAB54
+  script 0x082AAB54  [ok]
+    082AAB54  setvar               destination=VAR_0x8004 value=17
+    082AAB59  special              SPECIAL_\function=155
+    082AAB5C  compare_var_to_value var=0x800D value=1
+    082AAB61  goto_if              condition=1 destination=0x082AAB6D
+    082AAB67  setvar               destination=VAR_0x4005 value=255
+    082AAB6C  end                  
+
+  script 0x082AAB6D  [ok]
+    082AAB6D  setvar               destination=VAR_0x4005 value=1
+    082AAB72  end                  
+
+  map script type 2 (var 0x4005 == 1) -> 0x082AAB73
+  script 0x082AAB73  [ok]
+    082AAB73  applymovement        localId=2 movements=[walk_left walk_left walk_down walk_down walk_down walk_down]
+    082AAB7A  waitmovement         localId=0
+    082AAB7D  lockall              
+    082AAB7E  msgbox_multilang     type=0 text_0="I am sorry to say…\pA terrifying event, yes, a horrible one,\nis about to befall you…\pI urge you to pay the utmost care\nand prepare for the worst…" text_1="I am sorry to say…\pA terrifying event, yes, a horrible one,\nis about to befall you…\pI urge you to pay the utmost care\nand prepare for the worst…" text_2="I am sorry to say…\pA terrifying event, yes, a horrible one,\nis about to befall you…\pI urge you to pay the utmost care\nand prepare for the worst…" text_3="I am sorry to say…\pA terrifying event, yes, a horrible one,\nis about to befall you…\pI urge you to pay the utmost care\nand prepare for the worst…" text_4="I am sorry to say…\pA terrifying event, yes, a horrible one,\nis about to befall you…\pI urge you to pay the utmost care\nand prepare for the worst…" text_5="I am sorry to say…\pA terrifying event, yes, a horrible one,\nis about to befall you…\pI urge you to pay the utmost care\nand prepare for the worst…" text_6="I am sorry to say…\pA terrifying event, yes, a horrible one,\nis about to befall you…\pI urge you to pay the utmost care\nand prepare for the worst…"
+    082AAB9C  callstd              function=MSGBOX_DEFAULT(4)
+    082AAB9E  releaseall           
+
+  map script type 4 (var 0x4004 == 0) -> 0x082AA82B
+  script 0x082AA82B  [ok]
+    082AA82B  setvar               destination=VAR_0x4004 value=1
+    082AA830  turnobject           localId=255 direction=2
+    082AA834  end                  
+

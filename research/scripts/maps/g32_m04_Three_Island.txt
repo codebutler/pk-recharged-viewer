@@ -1,0 +1,29 @@
+Three Island  (group 32, map 4)  header 0x08B3DDA0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF3, flag 0x0000) -> 0x0827D2CC
+  script 0x0827D2CC  [ok]
+    0827D2CC  msgbox_multilang     type=0 text_0="Urrrrrrrrgggghhhh…\nKwaaaaah!\p…It’s useless! I can’t make this spoon\nbend with my mind.\pMaybe I really don’t have any\npsychic powers." text_1="Urrrrrrrrgggghhhh…\nKwaaaaah!\p…It’s useless! I can’t make this spoon\nbend with my mind.\pMaybe I really don’t have any\npsychic powers." text_2="Urrrrrrrrgggghhhh…\nKwaaaaah!\p…It’s useless! I can’t make this spoon\nbend with my mind.\pMaybe I really don’t have any\npsychic powers." text_3="Urrrrrrrrgggghhhh…\nKwaaaaah!\p…It’s useless! I can’t make this spoon\nbend with my mind.\pMaybe I really don’t have any\npsychic powers." text_4="Urrrrrrrrgggghhhh…\nKwaaaaah!\p…It’s useless! I can’t make this spoon\nbend with my mind.\pMaybe I really don’t have any\npsychic powers." text_5="Urrrrrrrrgggghhhh…\nKwaaaaah!\p…It’s useless! I can’t make this spoon\nbend with my mind.\pMaybe I really don’t have any\npsychic powers." text_6="Urrrrrrrrgggghhhh…\nKwaaaaah!\p…It’s useless! I can’t make this spoon\nbend with my mind.\pMaybe I really don’t have any\npsychic powers."
+    0827D2EA  callstd              function=MSGBOX_NPC(2)
+    0827D2EC  end                  
+
+  object 2 (gfx 0xF2, flag 0x0000) -> 0x0827D29B
+  script 0x0827D29B  [ok]
+    0827D29B  lock                 
+    0827D29C  faceplayer           
+    0827D29D  setvar               destination=VAR_0x8004 value=7
+    0827D2A2  setvar               destination=VAR_0x8005 value=1
+    0827D2A7  special              SPECIAL_\function=347
+    0827D2AA  msgbox_multilang     type=0 text_0="You know about a girl Gym Leader in\nSaffron City?\pShe uses Psychic-type Pokémon,\nright?\pI admire her, I really do.\pI’ve heard that she’s one cool\ncustomer and beautiful, too." text_1="You know about a girl Gym Leader in\nSaffron City?\pShe uses Psychic-type Pokémon,\nright?\pI admire her, I really do.\pI’ve heard that she’s one cool\ncustomer and beautiful, too." text_2="You know about a girl Gym Leader in\nSaffron City?\pShe uses Psychic-type Pokémon,\nright?\pI admire her, I really do.\pI’ve heard that she’s one cool\ncustomer and beautiful, too." text_3="You know about a girl Gym Leader in\nSaffron City?\pShe uses Psychic-type Pokémon,\nright?\pI admire her, I really do.\pI’ve heard that she’s one cool\ncustomer and beautiful, too." text_4="You know about a girl Gym Leader in\nSaffron City?\pShe uses Psychic-type Pokémon,\nright?\pI admire her, I really do.\pI’ve heard that she’s one cool\ncustomer and beautiful, too." text_5="You know about a girl Gym Leader in\nSaffron City?\pShe uses Psychic-type Pokémon,\nright?\pI admire her, I really do.\pI’ve heard that she’s one cool\ncustomer and beautiful, too." text_6="You know about a girl Gym Leader in\nSaffron City?\pShe uses Psychic-type Pokémon,\nright?\pI admire her, I really do.\pI’ve heard that she’s one cool\ncustomer and beautiful, too."
+    0827D2C8  callstd              function=MSGBOX_DEFAULT(4)
+    0827D2CA  release              
+

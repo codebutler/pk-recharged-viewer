@@ -1,0 +1,38 @@
+One Island  (group 30, map 4)  header 0x08B3DC6C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x33, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x31, flag 0x0000) -> 0x0827C0CF
+  script 0x0827C0CF  [unknown-opcode:0xE4]
+    0827C0CF  lock                 
+    0827C0D0  setvar               destination=VAR_0x400B value=0
+    0827C0D5  compare_var_to_value var=0x40E5 value=0
+    0827C0DA  goto_if              condition=1 destination=0x0827C1AD
+    0827C0E0  faceplayer           
+    0827C0E1  speakername          name="Sailor"
+    0827C0E6  message              text="Ahoy, there!\nWhere do you want to sail?"
+    0827C0EB  playbgm              song=10179 save_song=8
+    0827C0EF  playbgm              song=10179 save_song=8
+    0827C0F3  playbgm              song=10179 save_song=8
+    0827C0F7  playbgm              song=10179 save_song=8
+    0827C0FB  playbgm              song=10179 save_song=8
+    0827C0FF  playbgm              song=10179 save_song=8
+    0827C103  waitmessage          
+    0827C104  setvar               destination=VAR_0x8004 value=1
+    0827C109  setvar               destination=VAR_0x400B value=8
+
+  script 0x0827C1AD  [ok]
+    0827C1AD  speakername          name="Sailor"
+    0827C1B2  msgbox_multilang     type=0 text_0="The ship will take some time to\nsail.\pExplore One Island in the meantime!" text_1="The ship will take some time to\nsail.\pExplore One Island in the meantime!" text_2="The ship will take some time to\nsail.\pExplore One Island in the meantime!" text_3="The ship will take some time to\nsail.\pExplore One Island in the meantime!" text_4="The ship will take some time to\nsail.\pExplore One Island in the meantime!" text_5="The ship will take some time to\nsail.\pExplore One Island in the meantime!" text_6="The ship will take some time to\nsail.\pExplore One Island in the meantime!"
+    0827C1D0  callstd              function=MSGBOX_NPC(2)
+    0827C1D2  release              
+

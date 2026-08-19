@@ -1,0 +1,498 @@
+Four Island  (group 0, map 5)  header 0x08B3B1E0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x07, flag 0x0000) -> 0x082FA1EA
+  script 0x082FA1EA  [ok]
+    082FA1EA  lock                 
+    082FA1EB  faceplayer           
+    082FA1EC  setvar               destination=VAR_0x40CF value=10
+    082FA1F1  special              SPECIAL_\function=18
+    082FA1F4  message              text="Hi-yah! {PLAYER}! Do you want to\ntry Restricted Sparring?"
+    082FA1F9  setworldmapflag      flag=0x2FB0
+    082FA1FC  gotostd              function=208
+    082FA1FE  setdoorclosed        x=2095 y=45264
+    082FA203  playse               song=53256
+    082FA206  setdoorclosed        x=2095 y=45264
+    082FA20B  playse               song=53256
+    082FA20E  setdoorclosed        x=2095 y=28518
+    082FA213  setptr               value=6 ptr=1638465
+    082FA219  bufferitemname       stringVarId=13 item=8576
+    082FA21D  nop                  
+    082FA21E  bufferitemname       stringVarId=0 item=1536
+    082FA222  nop1                 
+    082FA223  addpcitem            itemId=item_12194(12194) quantity=8456
+    082FA228  nop                  
+    082FA229  bufferitemname       stringVarId=1 item=1536
+    082FA22D  nop1                 
+    082FA22E  applymovement        localId=12194 movements=2147492104
+    082FA235  bufferpartymonnick   stringVarId=0 slot=262
+    082FA239  addobject            localId=12194
+    082FA23C  gotostd              function=33
+    082FA23E  nop                  
+    082FA23F  bufferitemname       stringVarId=2 item=1536
+    082FA243  nop1                 
+    082FA244  addobject            localId=12194
+    082FA247  gotostd              function=MSGBOX_SIGN(3)
+    082FA249  goto                 destination=0x082FA25B
+
+  script 0x082FA25B  [ok]
+    082FA25B  message              text="Restricted Sparring offers two levels\nof challenge, Level 50 and Open\pLevel.\pSo, which one is your pick?"
+    082FA260  call                 destination=67645361
+    082FA265  addelevmenuitem      a=47 b=1032 c=12209 d=1032
+    082FA26D  addelevmenuitem      a=47 b=1032 c=12209 d=1032
+    082FA275  addelevmenuitem      a=47 b=26120 c=4463 d=18182
+    082FA27D  nop                  
+    082FA27E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082FA283  compare_var_to_value var=0x8000 value=2
+    082FA288  goto_if              condition=1 destination=0x082FA350
+    082FA28E  compare_var_to_value var=0x8000 value=127
+    082FA293  goto_if              condition=1 destination=0x082FA350
+    082FA299  message              text="Select the type you want to use for\nsparring."
+    082FA29E  waitbuttonpress      
+    082FA29F  addelevmenuitem      a=47 b=27912 c=12209 d=27912
+    082FA2A7  addelevmenuitem      a=47 b=27912 c=12209 d=27912
+    082FA2AF  addelevmenuitem      a=47 b=27912 c=12209 d=26120
+    082FA2B7  setvar               destination=VAR_0x8004 value=2
+    082FA2BC  setvar               destination=VAR_0x8005 value=1
+    082FA2C1  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082FA2C6  special              SPECIAL_\function=148
+    082FA2C9  call                 destination=0x082FA366
+    082FA2CE  setvar               destination=VAR_0x8004 value=15
+    082FA2D3  special              SPECIAL_\function=148
+    082FA2D6  compare_var_to_value var=0x8004 value=1
+    082FA2DB  goto_if              condition=1 destination=0x082FA47B
+    082FA2E1  fadescreen           mode=1
+    082FA2E3  setvar               destination=VAR_0x8004 value=1
+    082FA2E8  setvar               destination=VAR_0x8005 value=1
+    082FA2ED  special              SPECIAL_\function=148
+    082FA2F0  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082FA2F5  setvar               destination=VAR_0x8005 value=3
+    082FA2FA  special              SPECIAL_\function=161
+    082FA2FD  waitstate            
+
+  script 0x082FA350  [ok]
+    082FA350  goto                 destination=0x082FA4E8
+
+  script 0x082FA366  [unknown-opcode:0xE3]
+    082FA366  setvar               destination=VAR_0x8009 value=0
+    082FA36B  special              SPECIAL_\function=430
+    082FA36E  callnative           func=0x0819F2E9
+
+  script 0x082FA47B  [ok]
+    082FA47B  setvar               destination=VAR_0x8004 value=1
+    082FA480  setvar               destination=VAR_0x8005 value=1
+    082FA485  special              SPECIAL_\function=148
+    082FA488  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082FA48D  compare_var_to_value var=0x800D value=0
+    082FA492  goto_if              condition=1 destination=0x082FA4BA
+    082FA498  msgbox_multilang     type=0 text_0="Hold up, {PLAYER}! You need three\ndifferent POKéMON to enter. They\pmust all share the\p{STR_VAR_3}-type and hold\pdifferent items. EGGS{STR_VAR_1}\pnot allowed. Come back when you’re\pready!" text_1="Hold up, {PLAYER}! You need three\ndifferent POKéMON to enter. They\pmust all share the\p{STR_VAR_3}-type and hold\pdifferent items. EGGS{STR_VAR_1}\pnot allowed. Come back when you’re\pready!" text_2="Hold up, {PLAYER}! You need three\ndifferent POKéMON to enter. They\pmust all share the\p{STR_VAR_3}-type and hold\pdifferent items. EGGS{STR_VAR_1}\pnot allowed. Come back when you’re\pready!" text_3="Hold up, {PLAYER}! You need three\ndifferent POKéMON to enter. They\pmust all share the\p{STR_VAR_3}-type and hold\pdifferent items. EGGS{STR_VAR_1}\pnot allowed. Come back when you’re\pready!" text_4="Hold up, {PLAYER}! You need three\ndifferent POKéMON to enter. They\pmust all share the\p{STR_VAR_3}-type and hold\pdifferent items. EGGS{STR_VAR_1}\pnot allowed. Come back when you’re\pready!" text_5="Hold up, {PLAYER}! You need three\ndifferent POKéMON to enter. They\pmust all share the\p{STR_VAR_3}-type and hold\pdifferent items. EGGS{STR_VAR_1}\pnot allowed. Come back when you’re\pready!" text_6="Hold up, {PLAYER}! You need three\ndifferent POKéMON to enter. They\pmust all share the\p{STR_VAR_3}-type and hold\pdifferent items. EGGS{STR_VAR_1}\pnot allowed. Come back when you’re\pready!"
+    082FA4B6  callstd              function=MSGBOX_DEFAULT(4)
+    082FA4B8  release              
+
+  script 0x082FA4E8  [ok]
+    082FA4E8  msgbox_multilang     type=0 text_0="Oh, you changed your mind? Some\nother time, then." text_1="Oh, you changed your mind? Some\nother time, then." text_2="Oh, you changed your mind? Some\nother time, then." text_3="Oh, you changed your mind? Some\nother time, then." text_4="Oh, you changed your mind? Some\nother time, then." text_5="Oh, you changed your mind? Some\nother time, then." text_6="Oh, you changed your mind? Some\nother time, then."
+    082FA506  callstd              function=MSGBOX_DEFAULT(4)
+    082FA508  release              
+
+  script 0x082FA4BA  [ok]
+    082FA4BA  msgbox_multilang     type=0 text_0="Hold up, {PLAYER}!\pYou need three different Pokémon of\nLevel 50 or less to enter.\pThey must all share the\n{STR_VAR_3}-type and hold\pdifferent Items.\pEggs{STR_VAR_1} not allowed. Come\nback when you’re ready!" text_1="Hold up, {PLAYER}!\pYou need three different Pokémon of\nLevel 50 or less to enter.\pThey must all share the\n{STR_VAR_3}-type and hold\pdifferent Items.\pEggs{STR_VAR_1} not allowed. Come\nback when you’re ready!" text_2="Hold up, {PLAYER}!\pYou need three different Pokémon of\nLevel 50 or less to enter.\pThey must all share the\n{STR_VAR_3}-type and hold\pdifferent Items.\pEggs{STR_VAR_1} not allowed. Come\nback when you’re ready!" text_3="Hold up, {PLAYER}!\pYou need three different Pokémon of\nLevel 50 or less to enter.\pThey must all share the\n{STR_VAR_3}-type and hold\pdifferent Items.\pEggs{STR_VAR_1} not allowed. Come\nback when you’re ready!" text_4="Hold up, {PLAYER}!\pYou need three different Pokémon of\nLevel 50 or less to enter.\pThey must all share the\n{STR_VAR_3}-type and hold\pdifferent Items.\pEggs{STR_VAR_1} not allowed. Come\nback when you’re ready!" text_5="Hold up, {PLAYER}!\pYou need three different Pokémon of\nLevel 50 or less to enter.\pThey must all share the\n{STR_VAR_3}-type and hold\pdifferent Items.\pEggs{STR_VAR_1} not allowed. Come\nback when you’re ready!" text_6="Hold up, {PLAYER}!\pYou need three different Pokémon of\nLevel 50 or less to enter.\pThey must all share the\n{STR_VAR_3}-type and hold\pdifferent Items.\pEggs{STR_VAR_1} not allowed. Come\nback when you’re ready!"
+    082FA4D8  callstd              function=MSGBOX_DEFAULT(4)
+    082FA4DA  goto                 destination=0x082FA4B8
+
+  script 0x082FA4B8  [ok]
+    082FA4B8  release              
+
+  object 2 (gfx 0xFB, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0xFA, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0x05, flag 0x0000) -> 0x00000000
+  coord trigger 0 (var 0x4000 == 0) -> 0x00000000
+  coord trigger 1 (var 0x4000 == 0) -> 0x00000000
+  sign 0 at (7,6) -> 0x082FA928
+  script 0x082FA928  [ok]
+    082FA928  lockall              
+    082FA929  msgbox_multilang     type=0 text_0="The Restricted Sparring rules are\nlisted." text_1="The Restricted Sparring rules are\nlisted." text_2="The Restricted Sparring rules are\nlisted." text_3="The Restricted Sparring rules are\nlisted." text_4="The Restricted Sparring rules are\nlisted." text_5="The Restricted Sparring rules are\nlisted." text_6="The Restricted Sparring rules are\nlisted."
+    082FA947  callstd              function=MSGBOX_DEFAULT(4)
+    082FA949  goto                 destination=0x082FA94F
+
+  script 0x082FA94F  [ok]
+    082FA94F  message              text="Which heading do you want to read?"
+    082FA954  lock                 
+    082FA955  updatecoinsbox       x=40 y=8
+    082FA958  lock                 
+    082FA959  updatecoinsbox       x=40 y=8
+    082FA95C  lock                 
+    082FA95D  updatecoinsbox       x=40 y=8
+    082FA960  lock                 
+    082FA961  updatecoinsbox       x=40 y=8
+    082FA964  lock                 
+    082FA965  updatecoinsbox       x=40 y=8
+    082FA968  lock                 
+    082FA969  updatecoinsbox       x=40 y=8
+    082FA96C  waitmessage          
+    082FA96D  multichoice          x=17 y=2 multichoiceId=118 ignoreBPress=0
+    082FA972  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082FA977  compare_var_to_value var=0x8000 value=0
+    082FA97C  goto_if              condition=1 destination=0x082FA9B4
+    082FA982  compare_var_to_value var=0x8000 value=1
+    082FA987  goto_if              condition=1 destination=0x082FA9D9
+    082FA98D  compare_var_to_value var=0x8000 value=2
+    082FA992  goto_if              condition=1 destination=0x082FA9FE
+    082FA998  compare_var_to_value var=0x8000 value=3
+    082FA99D  goto_if              condition=1 destination=0x082FAA23
+    082FA9A3  compare_var_to_value var=0x8000 value=127
+    082FA9A8  goto_if              condition=1 destination=0x082FAA23
+    082FA9AE  goto                 destination=0x082FA928
+
+  script 0x082FA9B4  [ok]
+    082FA9B4  msgbox_multilang     type=0 text_0="Restricted Sparring is challenges you\nto battle using up to three\pPOKéMON of a single type. Select a\plevel mode and a type, then battle\pyour way through five consecutive\pbattles." text_1="Restricted Sparring is challenges you\nto battle using up to three\pPOKéMON of a single type. Select a\plevel mode and a type, then battle\pyour way through five consecutive\pbattles." text_2="Restricted Sparring is challenges you\nto battle using up to three\pPOKéMON of a single type. Select a\plevel mode and a type, then battle\pyour way through five consecutive\pbattles." text_3="Restricted Sparring is challenges you\nto battle using up to three\pPOKéMON of a single type. Select a\plevel mode and a type, then battle\pyour way through five consecutive\pbattles." text_4="Restricted Sparring is challenges you\nto battle using up to three\pPOKéMON of a single type. Select a\plevel mode and a type, then battle\pyour way through five consecutive\pbattles." text_5="Restricted Sparring is challenges you\nto battle using up to three\pPOKéMON of a single type. Select a\plevel mode and a type, then battle\pyour way through five consecutive\pbattles." text_6="Restricted Sparring is challenges you\nto battle using up to three\pPOKéMON of a single type. Select a\plevel mode and a type, then battle\pyour way through five consecutive\pbattles."
+    082FA9D2  callstd              function=MSGBOX_DEFAULT(4)
+    082FA9D4  goto                 destination=0x082FA9AE
+
+  script 0x082FA9D9  [ok]
+    082FA9D9  msgbox_multilang     type=0 text_0="No duplicate POKéMON or items are\nallowed. You can only restore your\pPOKéMON twice in total, so use your\popportunities wisely." text_1="No duplicate POKéMON or items are\nallowed. You can only restore your\pPOKéMON twice in total, so use your\popportunities wisely." text_2="No duplicate POKéMON or items are\nallowed. You can only restore your\pPOKéMON twice in total, so use your\popportunities wisely." text_3="No duplicate POKéMON or items are\nallowed. You can only restore your\pPOKéMON twice in total, so use your\popportunities wisely." text_4="No duplicate POKéMON or items are\nallowed. You can only restore your\pPOKéMON twice in total, so use your\popportunities wisely." text_5="No duplicate POKéMON or items are\nallowed. You can only restore your\pPOKéMON twice in total, so use your\popportunities wisely." text_6="No duplicate POKéMON or items are\nallowed. You can only restore your\pPOKéMON twice in total, so use your\popportunities wisely."
+    082FA9F7  callstd              function=MSGBOX_DEFAULT(4)
+    082FA9F9  goto                 destination=0x082FA9AE
+
+  script 0x082FA9FE  [ok]
+    082FA9FE  msgbox_multilang     type=0 text_0="If you can win five times in a row,\nyou will complete the training, but\pyou can continue to increase your\pstreak. You’ll recieve a reward for\pcompleting training for all types in\pa level mode." text_1="If you can win five times in a row,\nyou will complete the training, but\pyou can continue to increase your\pstreak. You’ll recieve a reward for\pcompleting training for all types in\pa level mode." text_2="If you can win five times in a row,\nyou will complete the training, but\pyou can continue to increase your\pstreak. You’ll recieve a reward for\pcompleting training for all types in\pa level mode." text_3="If you can win five times in a row,\nyou will complete the training, but\pyou can continue to increase your\pstreak. You’ll recieve a reward for\pcompleting training for all types in\pa level mode." text_4="If you can win five times in a row,\nyou will complete the training, but\pyou can continue to increase your\pstreak. You’ll recieve a reward for\pcompleting training for all types in\pa level mode." text_5="If you can win five times in a row,\nyou will complete the training, but\pyou can continue to increase your\pstreak. You’ll recieve a reward for\pcompleting training for all types in\pa level mode." text_6="If you can win five times in a row,\nyou will complete the training, but\pyou can continue to increase your\pstreak. You’ll recieve a reward for\pcompleting training for all types in\pa level mode."
+    082FAA1C  callstd              function=MSGBOX_DEFAULT(4)
+    082FAA1E  goto                 destination=0x082FA9AE
+
+  script 0x082FAA23  [ok]
+    082FAA23  releaseall           
+
+  script 0x082FA9AE  [ok]
+    082FA9AE  goto                 destination=0x082FA928
+
+  sign 1 at (11,6) -> 0x082FA90F
+  script 0x082FA90F  [ok]
+    082FA90F  lockall              
+    082FA910  setvar               destination=VAR_0x8004 value=7
+    082FA915  setvar               destination=VAR_0x8005 value=10
+    082FA91A  setvar               destination=VAR_0x8006 value=0
+    082FA91F  special              SPECIAL_\function=148
+    082FA922  waitbuttonpress      
+    082FA923  special              SPECIAL_\function=342
+    082FA926  releaseall           
+
+  map script type 4 (var 0x4001 == 0) -> 0x082FBCBE
+  script 0x082FBCBE  [ok]
+    082FBCBE  setvar               destination=VAR_0x4001 value=1
+    082FBCC3  turnobject           localId=255 direction=2
+    082FBCC7  end                  
+
+  map script type 2 (var 0x4000 == 0) -> 0x082FA18B
+  script 0x082FA18B  [ok]
+    082FA18B  setvar               destination=VAR_0x8004 value=0
+    082FA190  special              SPECIAL_\function=148
+    082FA193  end                  
+
+  map script type 2 (var 0x4000 == 1) -> 0x082FA194
+  script 0x082FA194  [ok]
+    082FA194  lock                 
+    082FA195  faceplayer           
+    082FA196  delay                frames=30
+    082FA199  textcolor            color=0
+    082FA19B  msgbox_multilang     type=0 text_0="Oops! {PLAYER}, it seems you didn’t\nsave before quitting your challenge\plast time.\pBecause of that, your challenge so\nfar has been disqualified.\pSorry!" text_1="Oops! {PLAYER}, it seems you didn’t\nsave before quitting your challenge\plast time.\pBecause of that, your challenge so\nfar has been disqualified.\pSorry!" text_2="Oops! {PLAYER}, it seems you didn’t\nsave before quitting your challenge\plast time.\pBecause of that, your challenge so\nfar has been disqualified.\pSorry!" text_3="Oops! {PLAYER}, it seems you didn’t\nsave before quitting your challenge\plast time.\pBecause of that, your challenge so\nfar has been disqualified.\pSorry!" text_4="Oops! {PLAYER}, it seems you didn’t\nsave before quitting your challenge\plast time.\pBecause of that, your challenge so\nfar has been disqualified.\pSorry!" text_5="Oops! {PLAYER}, it seems you didn’t\nsave before quitting your challenge\plast time.\pBecause of that, your challenge so\nfar has been disqualified.\pSorry!" text_6="Oops! {PLAYER}, it seems you didn’t\nsave before quitting your challenge\plast time.\pBecause of that, your challenge so\nfar has been disqualified.\pSorry!"
+    082FA1B9  callstd              function=MSGBOX_DEFAULT(4)
+    082FA1BB  setvar               destination=VAR_0x8004 value=2
+    082FA1C0  setvar               destination=VAR_0x8005 value=1
+    082FA1C5  setvar               destination=VAR_0x8006 value=0
+    082FA1CA  special              SPECIAL_\function=428
+    082FA1CD  setvar               destination=VAR_0x8004 value=2
+    082FA1D2  setvar               destination=VAR_0x8005 value=0
+    082FA1D7  setvar               destination=VAR_0x8006 value=0
+    082FA1DC  special              SPECIAL_\function=148
+    082FA1DF  setvar               destination=VAR_0x4000 value=255
+    082FA1E4  goto                 destination=0x082FA8A8
+
+  script 0x082FA8A8  [ok]
+    082FA8A8  setvar               destination=VAR_0x4000 value=255
+    082FA8AD  closemessage         
+    082FA8AE  setvar               destination=VAR_0x40EE value=255
+    082FA8B3  release              
+
+  map script type 2 (var 0x4000 == 2) -> 0x082FA8B5
+  script 0x082FA8B5  [ok]
+    082FA8B5  lock                 
+    082FA8B6  faceplayer           
+    082FA8B7  message              text="We’ve been waiting for you,\n{PLAYER}!"
+    082FA8BC  delay                frames=12216
+    082FA8BF  gotostd              function=40
+    082FA8C1  setvaddress          pointer=3089631279
+    082FA8C6  playse               song=10248
+    082FA8C9  setvaddress          pointer=3089631279
+    082FA8CE  playse               song=10248
+    082FA8D1  setvaddress          pointer=1734740015
+    082FA8D6  checkitemtype        itemId=12216
+    082FA8D9  gotostd              function=72
+    082FA8DB  setvaddress          pointer=3091728431
+    082FA8E0  playse               song=18440
+    082FA8E3  setvaddress          pointer=3091728431
+    082FA8E8  playse               song=18440
+    082FA8EB  setvaddress          pointer=3091728431
+    082FA8F0  playse               song=26120
+    082FA8F3  playse               song=55
+    082FA8F6  waitse               
+    082FA8F7  setvar               destination=VAR_0x8004 value=2
+    082FA8FC  setvar               destination=VAR_0x8005 value=3
+    082FA901  setvar               destination=VAR_0x8006 value=0
+    082FA906  special              SPECIAL_\function=148
+    082FA909  goto                 destination=0x082FA52C
+
+  script 0x082FA52C  [ok]
+    082FA52C  setvar               destination=VAR_0x8004 value=3
+    082FA531  setvar               destination=VAR_0x8005 value=3
+    082FA536  special              SPECIAL_\function=148
+    082FA539  setvar               destination=VAR_0x8004 value=6
+    082FA53E  special              SPECIAL_\function=148
+    082FA541  setvar               destination=VAR_0x800D value=0
+    082FA546  warp                 mapGroup=0 mapNum=6 WARP_ID_NONE=255 -1=0 -1=6
+    082FA54E  setvar               destination=VAR_0x8004 value=4
+    082FA553  setvar               destination=VAR_0x8005 value=1
+    082FA558  special              SPECIAL_\function=428
+    082FA55B  return               
+
+  map script type 2 (var 0x4000 == 3) -> 0x082FA55C
+  script 0x082FA55C  [ok]
+    082FA55C  setvar               destination=VAR_0x8004 value=1
+    082FA561  setvar               destination=VAR_0x8005 value=1
+    082FA566  special              SPECIAL_\function=428
+    082FA569  compare_var_to_value var=0x800D value=0
+    082FA56E  goto_if              condition=1 destination=0x082FA57E
+    082FA574  buffernumberstring   stringVarId=0 input=32781
+    082FA578  goto                 destination=0x082FA5B6
+
+  script 0x082FA57E  [ok]
+    082FA57E  goto                 destination=0x082FA584
+
+  script 0x082FA5B6  [ok]
+    082FA5B6  lock                 
+    082FA5B7  faceplayer           
+    082FA5B8  call                 destination=0x082FA639
+    082FA5BD  setvar               destination=VAR_0x8004 value=10
+    082FA5C2  special              SPECIAL_\function=428
+    082FA5C5  setvar               destination=VAR_0x8004 value=1
+    082FA5CA  setvar               destination=VAR_0x8005 value=1
+    082FA5CF  special              SPECIAL_\function=428
+    082FA5D2  buffernumberstring   stringVarId=0 input=32781
+    082FA5D6  msgbox_multilang     type=0 text_0="Your result for this Restricted\nSparring set is…\pYou had {STR_VAR_1} win(s) with\nthe {STR_VAR_3}-type Pokémon\prestriction!" text_1="Your result for this Restricted\nSparring set is…\pYou had {STR_VAR_1} win(s) with\nthe {STR_VAR_3}-type Pokémon\prestriction!" text_2="Your result for this Restricted\nSparring set is…\pYou had {STR_VAR_1} win(s) with\nthe {STR_VAR_3}-type Pokémon\prestriction!" text_3="Your result for this Restricted\nSparring set is…\pYou had {STR_VAR_1} win(s) with\nthe {STR_VAR_3}-type Pokémon\prestriction!" text_4="Your result for this Restricted\nSparring set is…\pYou had {STR_VAR_1} win(s) with\nthe {STR_VAR_3}-type Pokémon\prestriction!" text_5="Your result for this Restricted\nSparring set is…\pYou had {STR_VAR_1} win(s) with\nthe {STR_VAR_3}-type Pokémon\prestriction!" text_6="Your result for this Restricted\nSparring set is…\pYou had {STR_VAR_1} win(s) with\nthe {STR_VAR_3}-type Pokémon\prestriction!"
+    082FA5F4  callstd              function=MSGBOX_DEFAULT(4)
+    082FA5F6  call                 destination=0x082FA6AA
+    082FA5FB  checkflag            flag=0x4CB
+    082FA5FE  goto_if              condition=1 destination=0x082FA60F
+    082FA604  call                 destination=0x082FA7F9
+    082FA609  goto                 destination=0x082FA8A8
+
+  script 0x082FA584  [ok]
+    082FA584  lock                 
+    082FA585  faceplayer           
+    082FA586  call                 destination=0x082FA639
+    082FA58B  call                 destination=0x082FA7F9
+    082FA590  msgbox_multilang     type=0 text_0="You lost… but train yourself and your\nPOKéMON, and try again!\pI’m looking forward to your next\nchallenge." text_1="You lost… but train yourself and your\nPOKéMON, and try again!\pI’m looking forward to your next\nchallenge." text_2="You lost… but train yourself and your\nPOKéMON, and try again!\pI’m looking forward to your next\nchallenge." text_3="You lost… but train yourself and your\nPOKéMON, and try again!\pI’m looking forward to your next\nchallenge." text_4="You lost… but train yourself and your\nPOKéMON, and try again!\pI’m looking forward to your next\nchallenge." text_5="You lost… but train yourself and your\nPOKéMON, and try again!\pI’m looking forward to your next\nchallenge." text_6="You lost… but train yourself and your\nPOKéMON, and try again!\pI’m looking forward to your next\nchallenge."
+    082FA5AE  callstd              function=MSGBOX_DEFAULT(4)
+    082FA5B0  goto                 destination=0x082FA8A8
+
+  script 0x082FA639  [ok]
+    082FA639  message              text="Your record will be saved soon."
+    082FA63E  yesnobox             x=182 y=47
+    082FA641  gotostd              function=110
+    082FA643  setwildbattle        species=?(2095) level=110 item=12214
+    082FA649  gotostd              function=110
+    082FA64B  setwildbattle        species=?(2095) level=110 item=12214
+    082FA651  gotostd              function=110
+    082FA653  setwildbattle        species=?(2095) level=102 item=1046
+    082FA659  bufferitemname       stringVarId=8 item=9472
+    082FA65D  hidemoneybox         0=0 0=22
+    082FA660  call                 destination=620759424
+    082FA665  opendoor             x=5633 y=32772
+    082FA66A  callstd_if           condition=0 function=37
+    082FA66D  opendoor             x=8449 y=32781
+    082FA672  nop1                 
+    082FA673  nop                  
+    082FA674  goto_if              condition=1 destination=0x082FA69A
+    082FA67A  compare_var_to_value var=0x800D value=2
+    082FA67F  goto_if              condition=1 destination=0x082FA6A2
+    082FA685  special              SPECIAL_\function=19
+    082FA688  setvar               destination=VAR_0x8004 value=4
+    082FA68D  setvar               destination=VAR_0x8005 value=0
+    082FA692  special              SPECIAL_\function=428
+    082FA695  playse               song=55
+    082FA698  waitse               
+    082FA699  return               
+
+  script 0x082FA6AA  [ok]
+    082FA6AA  msgbox_multilang     type=0 text_0="You earned {STR_VAR_2} BP!" text_1="You earned {STR_VAR_2} BP!" text_2="You earned {STR_VAR_2} BP!" text_3="You earned {STR_VAR_2} BP!" text_4="You earned {STR_VAR_2} BP!" text_5="You earned {STR_VAR_2} BP!" text_6="You earned {STR_VAR_2} BP!"
+    082FA6C8  callstd              function=MSGBOX_DEFAULT(4)
+    082FA6CA  return               
+
+  script 0x082FA60F  [ok]
+    082FA60F  msgbox_multilang     type=0 text_0="The way you handle\n{STR_VAR_3}-type Pokémon is\pflawless!" text_1="The way you handle\n{STR_VAR_3}-type Pokémon is\pflawless!" text_2="The way you handle\n{STR_VAR_3}-type Pokémon is\pflawless!" text_3="The way you handle\n{STR_VAR_3}-type Pokémon is\pflawless!" text_4="The way you handle\n{STR_VAR_3}-type Pokémon is\pflawless!" text_5="The way you handle\n{STR_VAR_3}-type Pokémon is\pflawless!" text_6="The way you handle\n{STR_VAR_3}-type Pokémon is\pflawless!"
+    082FA62D  callstd              function=MSGBOX_DEFAULT(4)
+    082FA62F  call                 destination=0x082FA6CB
+    082FA634  goto                 destination=0x082FA604
+
+  script 0x082FA7F9  [ok]
+    082FA7F9  setvar               destination=VAR_0x8004 value=1
+    082FA7FE  setvar               destination=VAR_0x8005 value=6
+    082FA803  special              SPECIAL_\function=148
+    082FA806  compare_var_to_value var=0x800D value=1
+    082FA80B  goto_if              condition=1 destination=0x082FA841
+    082FA811  message              text="Want me to record your last\nRestricted Sparring match on your\pFRONTIER PASS?"
+    082FA816  waitfanfare          
+    082FA817  vcall_if             condition=47 destination=800862728
+    082FA81D  gotostd              function=50
+    082FA81F  vcall_if             condition=47 destination=800862728
+    082FA825  gotostd              function=50
+    082FA827  vcall_if             condition=47 destination=800862728
+    082FA82D  gotostd              function=102
+    082FA82F  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    082FA835  compare_var_to_value var=0x800D value=0
+    082FA83A  goto_if              condition=1 destination=0x082FA842
+    082FA840  return               
+
+  script 0x082FA69A  [ok]
+    082FA69A  setflag              flag=0x8CA
+    082FA69D  goto                 destination=0x082FA685
+
+  script 0x082FA6A2  [ok]
+    082FA6A2  setflag              flag=0x8CB
+    082FA6A5  goto                 destination=0x082FA685
+
+  script 0x082FA6CB  [ok]
+    082FA6CB  setvar               destination=VAR_0x8004 value=11
+    082FA6D0  special              SPECIAL_\function=428
+    082FA6D3  compare_var_to_value var=0x800D value=0
+    082FA6D8  goto_if              condition=2 destination=0x082FA6DF
+    082FA6DE  return               
+
+  script 0x082FA604  [ok]
+    082FA604  call                 destination=0x082FA7F9
+    082FA609  goto                 destination=0x082FA8A8
+
+  script 0x082FA841  [ok]
+    082FA841  return               
+
+  script 0x082FA842  [ok]
+    082FA842  call                 destination=0x082FA84C
+    082FA847  goto                 destination=0x082FA840
+
+  script 0x082FA685  [ok]
+    082FA685  special              SPECIAL_\function=19
+    082FA688  setvar               destination=VAR_0x8004 value=4
+    082FA68D  setvar               destination=VAR_0x8005 value=0
+    082FA692  special              SPECIAL_\function=428
+    082FA695  playse               song=55
+    082FA698  waitse               
+    082FA699  return               
+
+  script 0x082FA6DF  [ok]
+    082FA6DF  call                 destination=0x082FA6E9
+    082FA6E4  goto                 destination=0x082FA6DE
+
+  script 0x082FA84C  [ok]
+    082FA84C  setvar               destination=VAR_0x8004 value=19
+    082FA851  special              SPECIAL_\function=148
+    082FA854  compare_var_to_value var=0x800D value=0
+    082FA859  goto_if              condition=5 destination=0x082FA880
+    082FA85F  msgbox_multilang     type=0 text_0="Oops! There was a glitch, and your\nrecord couldn’t be saved. Better\pluck next time!" text_1="Oops! There was a glitch, and your\nrecord couldn’t be saved. Better\pluck next time!" text_2="Oops! There was a glitch, and your\nrecord couldn’t be saved. Better\pluck next time!" text_3="Oops! There was a glitch, and your\nrecord couldn’t be saved. Better\pluck next time!" text_4="Oops! There was a glitch, and your\nrecord couldn’t be saved. Better\pluck next time!" text_5="Oops! There was a glitch, and your\nrecord couldn’t be saved. Better\pluck next time!" text_6="Oops! There was a glitch, and your\nrecord couldn’t be saved. Better\pluck next time!"
+    082FA87D  callstd              function=MSGBOX_DEFAULT(4)
+    082FA87F  return               
+
+  script 0x082FA840  [ok]
+    082FA840  return               
+
+  script 0x082FA6E9  [ok]
+    082FA6E9  msgbox_multilang     type=0 text_0="What?! You completed Restricted\nSparring with {STR_VAR_1}\ptype(s)?!" text_1="What?! You completed Restricted\nSparring with {STR_VAR_1}\ptype(s)?!" text_2="What?! You completed Restricted\nSparring with {STR_VAR_1}\ptype(s)?!" text_3="What?! You completed Restricted\nSparring with {STR_VAR_1}\ptype(s)?!" text_4="What?! You completed Restricted\nSparring with {STR_VAR_1}\ptype(s)?!" text_5="What?! You completed Restricted\nSparring with {STR_VAR_1}\ptype(s)?!" text_6="What?! You completed Restricted\nSparring with {STR_VAR_1}\ptype(s)?!"
+    082FA707  callstd              function=MSGBOX_DEFAULT(4)
+    082FA709  compare_var_to_value var=0x800D value=1
+    082FA70E  goto_if              condition=1 destination=0x082FA78D
+    082FA714  msgbox_multilang     type=0 text_0="I can’t believe it... Your\nachievement is just phenomenal!\pThis accomplishment is sure to go\ndown in dojo history!" text_1="I can’t believe it... Your\nachievement is just phenomenal!\pThis accomplishment is sure to go\ndown in dojo history!" text_2="I can’t believe it... Your\nachievement is just phenomenal!\pThis accomplishment is sure to go\ndown in dojo history!" text_3="I can’t believe it... Your\nachievement is just phenomenal!\pThis accomplishment is sure to go\ndown in dojo history!" text_4="I can’t believe it... Your\nachievement is just phenomenal!\pThis accomplishment is sure to go\ndown in dojo history!" text_5="I can’t believe it... Your\nachievement is just phenomenal!\pThis accomplishment is sure to go\ndown in dojo history!" text_6="I can’t believe it... Your\nachievement is just phenomenal!\pThis accomplishment is sure to go\ndown in dojo history!"
+    082FA732  callstd              function=MSGBOX_DEFAULT(4)
+    082FA734  msgbox_multilang     type=0 text_0="To commemorate this monumental\nachievement, I’ll grant you this!" text_1="To commemorate this monumental\nachievement, I’ll grant you this!" text_2="To commemorate this monumental\nachievement, I’ll grant you this!" text_3="To commemorate this monumental\nachievement, I’ll grant you this!" text_4="To commemorate this monumental\nachievement, I’ll grant you this!" text_5="To commemorate this monumental\nachievement, I’ll grant you this!" text_6="To commemorate this monumental\nachievement, I’ll grant you this!"
+    082FA752  callstd              function=MSGBOX_DEFAULT(4)
+    082FA754  playfanfare          song=466
+    082FA757  compare_var_to_value var=0x800D value=1
+    082FA75C  goto_if              condition=1 destination=0x082FA7B2
+    082FA762  message              text="The Guts Symbol took on\na golden shine!"
+    082FA767  resetweather         
+    082FA768  addobject            localId=2090
+    082FA76B  resetweather         
+    082FA76C  addobject            localId=2090
+    082FA76F  resetweather         
+    082FA770  addobject            localId=2090
+    082FA773  resetweather         
+    082FA774  addobject            localId=2090
+    082FA777  resetweather         
+    082FA778  addobject            localId=2090
+    082FA77B  resetweather         
+    082FA77C  addobject            localId=2090
+    082FA77F  waitmessage          
+    082FA780  waitfanfare          
+    082FA781  compare_var_to_value var=0x800D value=2
+    082FA786  goto_if              condition=1 destination=0x082FA7D4
+    082FA78C  return               
+
+  script 0x082FA6DE  [ok]
+    082FA6DE  return               
+
+  script 0x082FA880  [ok]
+    082FA880  playse               song=55
+    082FA883  msgbox_multilang     type=0 text_0="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_1="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_2="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_3="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_4="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_5="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_6="{PLAYER}’s battle was recorded\non the FRONTIER PASS."
+    082FA8A1  callstd              function=MSGBOX_DEFAULT(4)
+    082FA8A3  goto                 destination=0x082FA87F
+
+  script 0x082FA78D  [ok]
+    082FA78D  msgbox_multilang     type=0 text_0="That’s excellent work!" text_1="That’s excellent work!" text_2="That’s excellent work!" text_3="That’s excellent work!" text_4="That’s excellent work!" text_5="That’s excellent work!" text_6="That’s excellent work!"
+    082FA7AB  callstd              function=MSGBOX_DEFAULT(4)
+    082FA7AD  goto                 destination=0x082FA734
+
+  script 0x082FA7B2  [unknown-opcode:0xE4]
+    082FA7B2  message              text="The Guts Symbol was embossed on\nthe FRONTIER PASS!"
+
+  script 0x082FA7D4  [ok]
+    082FA7D4  msgbox_multilang     type=0 text_0="I hope you’ll keep exceeding your\nown limits!" text_1="I hope you’ll keep exceeding your\nown limits!" text_2="I hope you’ll keep exceeding your\nown limits!" text_3="I hope you’ll keep exceeding your\nown limits!" text_4="I hope you’ll keep exceeding your\nown limits!" text_5="I hope you’ll keep exceeding your\nown limits!" text_6="I hope you’ll keep exceeding your\nown limits!"
+    082FA7F2  callstd              function=MSGBOX_DEFAULT(4)
+    082FA7F4  goto                 destination=0x082FA78C
+
+  script 0x082FA87F  [ok]
+    082FA87F  return               
+
+  script 0x082FA734  [ok]
+    082FA734  msgbox_multilang     type=0 text_0="To commemorate this monumental\nachievement, I’ll grant you this!" text_1="To commemorate this monumental\nachievement, I’ll grant you this!" text_2="To commemorate this monumental\nachievement, I’ll grant you this!" text_3="To commemorate this monumental\nachievement, I’ll grant you this!" text_4="To commemorate this monumental\nachievement, I’ll grant you this!" text_5="To commemorate this monumental\nachievement, I’ll grant you this!" text_6="To commemorate this monumental\nachievement, I’ll grant you this!"
+    082FA752  callstd              function=MSGBOX_DEFAULT(4)
+    082FA754  playfanfare          song=466
+    082FA757  compare_var_to_value var=0x800D value=1
+    082FA75C  goto_if              condition=1 destination=0x082FA7B2
+    082FA762  message              text="The Guts Symbol took on\na golden shine!"
+    082FA767  resetweather         
+    082FA768  addobject            localId=2090
+    082FA76B  resetweather         
+    082FA76C  addobject            localId=2090
+    082FA76F  resetweather         
+    082FA770  addobject            localId=2090
+    082FA773  resetweather         
+    082FA774  addobject            localId=2090
+    082FA777  resetweather         
+    082FA778  addobject            localId=2090
+    082FA77B  resetweather         
+    082FA77C  addobject            localId=2090
+    082FA77F  waitmessage          
+    082FA780  waitfanfare          
+    082FA781  compare_var_to_value var=0x800D value=2
+    082FA786  goto_if              condition=1 destination=0x082FA7D4
+    082FA78C  return               
+
+  script 0x082FA78C  [ok]
+    082FA78C  return               
+
+  map script type 2 (var 0x4000 == 4) -> 0x082FA55C

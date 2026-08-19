@@ -1,0 +1,70 @@
+Five Island  (group 34, map 0)  header 0x08B3DEF0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0827DFF8
+  script 0x0827DFF8  [ok]
+    0827DFF8  lock                 
+    0827DFF9  faceplayer           
+    0827DFFA  call                 destination=0x082BB336
+    0827DFFF  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0xFB, flag 0x0000) -> 0x0827E022
+  script 0x0827E022  [ok]
+    0827E022  msgbox_multilang     type=0 text_0="You’re on a quest to catch every\nsingle kind of Pokémon?\p…How incredible. Please tell me if\nyou catch a strong one!" text_1="You’re on a quest to catch every\nsingle kind of Pokémon?\p…How incredible. Please tell me if\nyou catch a strong one!" text_2="You’re on a quest to catch every\nsingle kind of Pokémon?\p…How incredible. Please tell me if\nyou catch a strong one!" text_3="You’re on a quest to catch every\nsingle kind of Pokémon?\p…How incredible. Please tell me if\nyou catch a strong one!" text_4="You’re on a quest to catch every\nsingle kind of Pokémon?\p…How incredible. Please tell me if\nyou catch a strong one!" text_5="You’re on a quest to catch every\nsingle kind of Pokémon?\p…How incredible. Please tell me if\nyou catch a strong one!" text_6="You’re on a quest to catch every\nsingle kind of Pokémon?\p…How incredible. Please tell me if\nyou catch a strong one!"
+    0827E040  callstd              function=MSGBOX_NPC(2)
+    0827E042  end                  
+
+  object 3 (gfx 0x0B, flag 0x0000) -> 0x0827E001
+  script 0x0827E001  [ok]
+    0827E001  msgbox_multilang     type=0 text_0="I’m on my way to prepare a meal\nfor a certain high-society person." text_1="I’m on my way to prepare a meal\nfor a certain high-society person." text_2="I’m on my way to prepare a meal\nfor a certain high-society person." text_3="I’m on my way to prepare a meal\nfor a certain high-society person." text_4="I’m on my way to prepare a meal\nfor a certain high-society person." text_5="I’m on my way to prepare a meal\nfor a certain high-society person." text_6="I’m on my way to prepare a meal\nfor a certain high-society person."
+    0827E01F  callstd              function=MSGBOX_NPC(2)
+    0827E021  end                  
+
+  object 4 (gfx 0x00, flag 0x009D) -> 0x081F280B
+  script 0x081F280B  [ok]
+    081F280B  lock                 
+    081F280C  faceplayer           
+    081F280D  setvar               destination=VAR_0x8004 value=9
+    081F2812  setvar               destination=VAR_0x8005 value=3
+    081F2817  special              SPECIAL_\function=347
+    081F281A  textcolor            color=3
+    081F281C  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature:\nElite Four’s Lorelei!\pKnown for her logical, calculated,\nand cool battling style, Lorelei\phas a surprising secret!" text_1="Pokémon Journal\pSpecial Feature:\nElite Four’s Lorelei!\pKnown for her logical, calculated,\nand cool battling style, Lorelei\phas a surprising secret!" text_2="Pokémon Journal\pSpecial Feature:\nElite Four’s Lorelei!\pKnown for her logical, calculated,\nand cool battling style, Lorelei\phas a surprising secret!" text_3="Pokémon Journal\pSpecial Feature:\nElite Four’s Lorelei!\pKnown for her logical, calculated,\nand cool battling style, Lorelei\phas a surprising secret!" text_4="Pokémon Journal\pSpecial Feature:\nElite Four’s Lorelei!\pKnown for her logical, calculated,\nand cool battling style, Lorelei\phas a surprising secret!" text_5="Pokémon Journal\pSpecial Feature:\nElite Four’s Lorelei!\pKnown for her logical, calculated,\nand cool battling style, Lorelei\phas a surprising secret!" text_6="Pokémon Journal\pSpecial Feature:\nElite Four’s Lorelei!\pKnown for her logical, calculated,\nand cool battling style, Lorelei\phas a surprising secret!"
+    081F283A  callstd              function=MSGBOX_DEFAULT(4)
+    081F283C  release              
+
+  object 5 (gfx 0x00, flag 0x009D) -> 0x081F280B
+  object 6 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0827DFF4
+  script 0x0827DFF4  [ok]
+    0827DFF4  setrespawn           heallocation=18
+    0827DFF7  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

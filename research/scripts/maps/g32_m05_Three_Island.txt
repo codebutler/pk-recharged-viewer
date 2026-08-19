@@ -1,0 +1,18 @@
+Three Island  (group 32, map 5)  header 0x08B3DDBC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2D, flag 0x0000) -> 0x0827D422
+  script 0x0827D422  [ok]
+    0827D422  msgbox_multilang     type=0 text_0="I bought this house because I wanted\nto live somewhere quiet.\pToday, I think I’ll go out fishing." text_1="I bought this house because I wanted\nto live somewhere quiet.\pToday, I think I’ll go out fishing." text_2="I bought this house because I wanted\nto live somewhere quiet.\pToday, I think I’ll go out fishing." text_3="I bought this house because I wanted\nto live somewhere quiet.\pToday, I think I’ll go out fishing." text_4="I bought this house because I wanted\nto live somewhere quiet.\pToday, I think I’ll go out fishing." text_5="I bought this house because I wanted\nto live somewhere quiet.\pToday, I think I’ll go out fishing." text_6="I bought this house because I wanted\nto live somewhere quiet.\pToday, I think I’ll go out fishing."
+    0827D440  callstd              function=MSGBOX_NPC(2)
+    0827D442  end                  
+

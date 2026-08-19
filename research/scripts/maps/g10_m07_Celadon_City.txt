@@ -1,0 +1,90 @@
+Celadon City  (group 10, map 7)  header 0x08B3D374
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x34, flag 0x0000) -> 0x08262275
+  script 0x08262275  [ok]
+    08262275  lock                 
+    08262276  faceplayer           
+    08262277  waitse               
+    08262278  playmoncry           species=MEOWTH(52) mode=0
+    0826227D  speakername          name="Meowth"
+    08262282  msgbox_multilang     type=0 text_0="Meow!" text_1="Meow!" text_2="Meow!" text_3="Meow!" text_4="Meow!" text_5="Meow!" text_6="Meow!"
+    082622A0  callstd              function=MSGBOX_DEFAULT(4)
+    082622A2  waitmoncry           
+    082622A3  release              
+
+  object 2 (gfx 0x23, flag 0x0000) -> 0x082622A5
+  script 0x082622A5  [ok]
+    082622A5  lock                 
+    082622A6  faceplayer           
+    082622A7  waitse               
+    082622A8  playmoncry           species=CLEFAIRY(35) mode=0
+    082622AD  msgbox_multilang     type=0 text_0="Clefairy: Pi pippippi!" text_1="Clefairy: Pi pippippi!" text_2="Clefairy: Pi pippippi!" text_3="Clefairy: Pi pippippi!" text_4="Clefairy: Pi pippippi!" text_5="Clefairy: Pi pippippi!" text_6="Clefairy: Pi pippippi!"
+    082622CB  callstd              function=MSGBOX_DEFAULT(4)
+    082622CD  waitmoncry           
+    082622CE  release              
+
+  object 3 (gfx 0x1D, flag 0x0000) -> 0x082622D0
+  script 0x082622D0  [ok]
+    082622D0  lock                 
+    082622D1  faceplayer           
+    082622D2  waitse               
+    082622D3  playmoncry           species=NIDORAN♀(29) mode=0
+    082622D8  msgbox_multilang     type=0 text_0="Nidoran♀: Kya kyaoo!" text_1="Nidoran♀: Kya kyaoo!" text_2="Nidoran♀: Kya kyaoo!" text_3="Nidoran♀: Kya kyaoo!" text_4="Nidoran♀: Kya kyaoo!" text_5="Nidoran♀: Kya kyaoo!" text_6="Nidoran♀: Kya kyaoo!"
+    082622F6  callstd              function=MSGBOX_DEFAULT(4)
+    082622F8  waitmoncry           
+    082622F9  release              
+
+  object 4 (gfx 0x1E, flag 0x0000) -> 0x0826217F
+  script 0x0826217F  [unknown-opcode:0xE9]
+    0826217F  lock                 
+    08262180  faceplayer           
+    08262181  checkflag            flag=0x2F8
+    08262184  goto_if              condition=1 destination=0x082621F9
+    0826218A  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0826218D  goto_if              condition=1 destination=0x08262203
+    08262193  checkflag            flag=0x2A6
+    08262196  goto_if              condition=1 destination=0x0826220D
+    0826219C  msgbox_multilang     type=0 text_0="You shouldn’t spend all your money\non drinks.\pTry this instead." text_1="You shouldn’t spend all your money\non drinks.\pTry this instead." text_2="You shouldn’t spend all your money\non drinks.\pTry this instead." text_3="You shouldn’t spend all your money\non drinks.\pTry this instead." text_4="You shouldn’t spend all your money\non drinks.\pTry this instead." text_5="You shouldn’t spend all your money\non drinks.\pTry this instead." text_6="You shouldn’t spend all your money\non drinks.\pTry this instead."
+    082621BA  callstd              function=MSGBOX_DEFAULT(4)
+    082621BC  setflag              flag=0x2A6
+
+  script 0x082621F9  [ok]
+    082621F9  goto                 destination=0x08262221
+
+  script 0x08262203  [ok]
+    08262203  goto                 destination=0x08262243
+
+  script 0x0826220D  [ok]
+    0826220D  goto                 destination=0x08262221
+
+  script 0x08262221  [ok]
+    08262221  msgbox_multilang     type=0 text_0="My dear Pokémon keep me company.\nMeowth even brings money home!" text_1="My dear Pokémon keep me company.\nMeowth even brings money home!" text_2="My dear Pokémon keep me company.\nMeowth even brings money home!" text_3="My dear Pokémon keep me company.\nMeowth even brings money home!" text_4="My dear Pokémon keep me company.\nMeowth even brings money home!" text_5="My dear Pokémon keep me company.\nMeowth even brings money home!" text_6="My dear Pokémon keep me company.\nMeowth even brings money home!"
+    0826223F  callstd              function=MSGBOX_DEFAULT(4)
+    08262241  release              
+
+  script 0x08262243  [ok]
+    08262243  setvar               destination=VAR_0x8004 value=1
+    08262248  setvar               destination=VAR_0x8005 value=4
+    0826224D  special              SPECIAL_\function=347
+    08262250  setflag              flag=0x2F8
+    08262253  msgbox_multilang     type=0 text_0="Oh, hello, dearie.\nDid you enjoy my Tea?\pBy the way, dear. Are you, by any\nchance, from Pallet Town?\pA girl from Pallet Town, Daisy,\nshe enjoys Tea every day.\pShe visits the Celadon Dept. Store\nto buy some Tea." text_1="Oh, hello, dearie.\nDid you enjoy my Tea?\pBy the way, dear. Are you, by any\nchance, from Pallet Town?\pA girl from Pallet Town, Daisy,\nshe enjoys Tea every day.\pShe visits the Celadon Dept. Store\nto buy some Tea." text_2="Oh, hello, dearie.\nDid you enjoy my Tea?\pBy the way, dear. Are you, by any\nchance, from Pallet Town?\pA girl from Pallet Town, Daisy,\nshe enjoys Tea every day.\pShe visits the Celadon Dept. Store\nto buy some Tea." text_3="Oh, hello, dearie.\nDid you enjoy my Tea?\pBy the way, dear. Are you, by any\nchance, from Pallet Town?\pA girl from Pallet Town, Daisy,\nshe enjoys Tea every day.\pShe visits the Celadon Dept. Store\nto buy some Tea." text_4="Oh, hello, dearie.\nDid you enjoy my Tea?\pBy the way, dear. Are you, by any\nchance, from Pallet Town?\pA girl from Pallet Town, Daisy,\nshe enjoys Tea every day.\pShe visits the Celadon Dept. Store\nto buy some Tea." text_5="Oh, hello, dearie.\nDid you enjoy my Tea?\pBy the way, dear. Are you, by any\nchance, from Pallet Town?\pA girl from Pallet Town, Daisy,\nshe enjoys Tea every day.\pShe visits the Celadon Dept. Store\nto buy some Tea." text_6="Oh, hello, dearie.\nDid you enjoy my Tea?\pBy the way, dear. Are you, by any\nchance, from Pallet Town?\pA girl from Pallet Town, Daisy,\nshe enjoys Tea every day.\pShe visits the Celadon Dept. Store\nto buy some Tea."
+    08262271  callstd              function=MSGBOX_DEFAULT(4)
+    08262273  release              
+
+  sign 0 at (8,12) -> 0x082622FB
+  script 0x082622FB  [ok]
+    082622FB  msgbox_multilang     type=0 text_0="Celadon Mansion\nManager’s Suite" text_1="Celadon Mansion\nManager’s Suite" text_2="Celadon Mansion\nManager’s Suite" text_3="Celadon Mansion\nManager’s Suite" text_4="Celadon Mansion\nManager’s Suite" text_5="Celadon Mansion\nManager’s Suite" text_6="Celadon Mansion\nManager’s Suite"
+    08262319  callstd              function=MSGBOX_SIGN(3)
+    0826231B  end                  
+
+  sign 1 at (7,12) -> 0x082622FB

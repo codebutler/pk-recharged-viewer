@@ -1,0 +1,60 @@
+S.S. Anne  (group 1, map 29)  header 0x08B3B544
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x14, flag 0x0000) -> 0x0820C974
+  script 0x0820C974  [ok]
+    0820C974  lock                 
+    0820C975  faceplayer           
+    0820C976  msgbox_multilang     type=0 text_0="You look tired. Would you like to\ntake a short rest?" text_1="You look tired. Would you like to\ntake a short rest?" text_2="You look tired. Would you like to\ntake a short rest?" text_3="You look tired. Would you like to\ntake a short rest?" text_4="You look tired. Would you like to\ntake a short rest?" text_5="You look tired. Would you like to\ntake a short rest?" text_6="You look tired. Would you like to\ntake a short rest?"
+    0820C994  callstd              function=MSGBOX_YESNO(5)
+    0820C996  compare_var_to_value var=0x800D value=0
+    0820C99B  goto_if              condition=1 destination=0x0820C9C9
+    0820C9A1  closemessage         
+    0820C9A2  call                 destination=0x082F81AB
+    0820C9A7  msgbox_multilang     type=0 text_0="I’m glad to see that everyone is\nlooking refreshed and chipper." text_1="I’m glad to see that everyone is\nlooking refreshed and chipper." text_2="I’m glad to see that everyone is\nlooking refreshed and chipper." text_3="I’m glad to see that everyone is\nlooking refreshed and chipper." text_4="I’m glad to see that everyone is\nlooking refreshed and chipper." text_5="I’m glad to see that everyone is\nlooking refreshed and chipper." text_6="I’m glad to see that everyone is\nlooking refreshed and chipper."
+    0820C9C5  callstd              function=MSGBOX_DEFAULT(4)
+    0820C9C7  release              
+
+  script 0x0820C9C9  [ok]
+    0820C9C9  checkplayergender    
+    0820C9CA  compare_var_to_value var=0x800D value=0
+    0820C9CF  goto_if              condition=1 destination=0x0820C9F7
+    0820C9D5  msgbox_multilang     type=0 text_0="Oh, I’m sorry for fussing over you.\nYou look like my little sister…" text_1="Oh, I’m sorry for fussing over you.\nYou look like my little sister…" text_2="Oh, I’m sorry for fussing over you.\nYou look like my little sister…" text_3="Oh, I’m sorry for fussing over you.\nYou look like my little sister…" text_4="Oh, I’m sorry for fussing over you.\nYou look like my little sister…" text_5="Oh, I’m sorry for fussing over you.\nYou look like my little sister…" text_6="Oh, I’m sorry for fussing over you.\nYou look like my little sister…"
+    0820C9F3  callstd              function=MSGBOX_DEFAULT(4)
+    0820C9F5  release              
+
+  script 0x082F81AB  [ok]
+    082F81AB  fadescreenswapbuffers mode=1
+    082F81AD  nop                  
+    082F81AE  playfanfare          song=368
+    082F81B1  waitfanfare          
+    082F81B2  special              SPECIAL_\function=0
+    082F81B5  callnative           func=0x080D5785
+    082F81BA  fadescreenswapbuffers mode=0
+    082F81BC  nop                  
+    082F81BD  return               
+
+  script 0x0820C9F7  [ok]
+    0820C9F7  msgbox_multilang     type=0 text_0="Oh, I’m sorry for fussing over you.\nYou look like my little brother…" text_1="Oh, I’m sorry for fussing over you.\nYou look like my little brother…" text_2="Oh, I’m sorry for fussing over you.\nYou look like my little brother…" text_3="Oh, I’m sorry for fussing over you.\nYou look like my little brother…" text_4="Oh, I’m sorry for fussing over you.\nYou look like my little brother…" text_5="Oh, I’m sorry for fussing over you.\nYou look like my little brother…" text_6="Oh, I’m sorry for fussing over you.\nYou look like my little brother…"
+    0820CA15  callstd              function=MSGBOX_DEFAULT(4)
+    0820CA17  goto                 destination=0x0820C9F5
+
+  script 0x0820C9F5  [ok]
+    0820C9F5  release              
+
+  map script type 1 -> 0x0820C958
+  script 0x0820C958  [ok]
+    0820C958  setmetatile          x=0 y=0 metatileId=984 impassable=1
+    0820C961  setmetatile          x=0 y=1 metatileId=98 impassable=1
+    0820C96A  setmetatile          x=0 y=2 metatileId=985 impassable=0
+    0820C973  return               
+

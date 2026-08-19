@@ -1,0 +1,468 @@
+Mt. Moon  (group 1, map 1)  header 0x08B3B234
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2F, flag 0x0000) -> 0x08206621
+  script 0x08206621  [ok]
+    08206621  trainerbattle        type=0 trainer=0x79 localId=0 ptr1=0x082068B2 ptr2=0x082068E4
+    0820662F  msgbox_multilang     type=0 text_0="I came because I heard there are\nsome very rare fossils here." text_1="I came because I heard there are\nsome very rare fossils here." text_2="I came because I heard there are\nsome very rare fossils here." text_3="I came because I heard there are\nsome very rare fossils here." text_4="I came because I heard there are\nsome very rare fossils here." text_5="I came because I heard there are\nsome very rare fossils here." text_6="I came because I heard there are\nsome very rare fossils here."
+    0820664D  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820664F  end                  
+
+  object 2 (gfx 0x24, flag 0x0000) -> 0x082066AE
+  script 0x082066AE  [ok]
+    082066AE  trainerbattle        type=0 trainer=0x6D localId=0 ptr1=0x08206995 ptr2=0x082069CF
+    082066BC  msgbox_multilang     type=0 text_0="Zubat is tough!\nBut if you can catch one, you’ll\pbe able to count on it." text_1="Zubat is tough!\nBut if you can catch one, you’ll\pbe able to count on it." text_2="Zubat is tough!\nBut if you can catch one, you’ll\pbe able to count on it." text_3="Zubat is tough!\nBut if you can catch one, you’ll\pbe able to count on it." text_4="Zubat is tough!\nBut if you can catch one, you’ll\pbe able to count on it." text_5="Zubat is tough!\nBut if you can catch one, you’ll\pbe able to count on it." text_6="Zubat is tough!\nBut if you can catch one, you’ll\pbe able to count on it."
+    082066DA  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082066DC  end                  
+
+  object 3 (gfx 0x05, flag 0x0000) -> 0x08206650
+  script 0x08206650  [ok]
+    08206650  trainerbattle        type=0 trainer=0xA9 localId=0 ptr1=0x0820684B ptr2=0x08206867
+    0820665E  msgbox_multilang     type=0 text_0="I have to find stronger Pokémon.\nWhere might they be?" text_1="I have to find stronger Pokémon.\nWhere might they be?" text_2="I have to find stronger Pokémon.\nWhere might they be?" text_3="I have to find stronger Pokémon.\nWhere might they be?" text_4="I have to find stronger Pokémon.\nWhere might they be?" text_5="I have to find stronger Pokémon.\nWhere might they be?" text_6="I have to find stronger Pokémon.\nWhere might they be?"
+    0820667C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820667E  end                  
+
+  object 4 (gfx 0x2F, flag 0x0000) -> 0x082065F2
+  script 0x082065F2  [ok]
+    082065F2  trainerbattle        type=0 trainer=0x78 localId=0 ptr1=0x082067D6 ptr2=0x08206803
+    08206600  msgbox_multilang     type=0 text_0="How do you get out of here?\nIt’s so big, I may get lost." text_1="How do you get out of here?\nIt’s so big, I may get lost." text_2="How do you get out of here?\nIt’s so big, I may get lost." text_3="How do you get out of here?\nIt’s so big, I may get lost." text_4="How do you get out of here?\nIt’s so big, I may get lost." text_5="How do you get out of here?\nIt’s so big, I may get lost." text_6="How do you get out of here?\nIt’s so big, I may get lost."
+    0820661E  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08206620  end                  
+
+  object 5 (gfx 0x24, flag 0x0000) -> 0x0820667F
+  script 0x0820667F  [ok]
+    0820667F  trainerbattle        type=0 trainer=0x6C localId=0 ptr1=0x0820692A ptr2=0x0820695A
+    0820668D  msgbox_multilang     type=0 text_0="I saw them!\nI’m sure they’re from Team Rocket!" text_1="I saw them!\nI’m sure they’re from Team Rocket!" text_2="I saw them!\nI’m sure they’re from Team Rocket!" text_3="I saw them!\nI’m sure they’re from Team Rocket!" text_4="I saw them!\nI’m sure they’re from Team Rocket!" text_5="I saw them!\nI’m sure they’re from Team Rocket!" text_6="I saw them!\nI’m sure they’re from Team Rocket!"
+    082066AB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082066AD  end                  
+
+  object 6 (gfx 0x23, flag 0x0000) -> 0x082065C3
+  script 0x082065C3  [ok]
+    082065C3  trainerbattle        type=0 trainer=0x5B localId=0 ptr1=0x0820675D ptr2=0x08206784
+    082065D1  msgbox_multilang     type=0 text_0="I came all the way down here to\nshow off to girls." text_1="I came all the way down here to\nshow off to girls." text_2="I came all the way down here to\nshow off to girls." text_3="I came all the way down here to\nshow off to girls." text_4="I came all the way down here to\nshow off to girls." text_5="I came all the way down here to\nshow off to girls." text_6="I came all the way down here to\nshow off to girls."
+    082065EF  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082065F1  end                  
+
+  object 7 (gfx 0x37, flag 0x0000) -> 0x08206594
+  script 0x08206594  [ok]
+    08206594  trainerbattle        type=0 trainer=0xB5 localId=0 ptr1=0x082066DD ptr2=0x0820670B
+    082065A2  msgbox_multilang     type=0 text_0="Kids like you shouldn’t be\nwandering around here in the dark." text_1="Kids like you shouldn’t be\nwandering around here in the dark." text_2="Kids like you shouldn’t be\nwandering around here in the dark." text_3="Kids like you shouldn’t be\nwandering around here in the dark." text_4="Kids like you shouldn’t be\nwandering around here in the dark." text_5="Kids like you shouldn’t be\nwandering around here in the dark." text_6="Kids like you shouldn’t be\nwandering around here in the dark."
+    082065C0  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082065C2  end                  
+
+  object 8 (gfx 0x35, flag 0x0159) -> 0x082D55F3
+  script 0x082D55F3  [ok]
+    082D55F3  setorcopyvar         destination=VAR_0x8000 source=18
+    082D55F8  setorcopyvar         destination=VAR_0x8001 source=1
+    082D55FD  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Parlyz Heal
+    082D55FF  end                  
+
+  object 9 (gfx 0x55, flag 0x015A) -> 0x082D5600
+  script 0x082D5600  [ok]
+    082D5600  setorcopyvar         destination=VAR_0x8000 source=297
+    082D5605  setorcopyvar         destination=VAR_0x8001 source=1
+    082D560A  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM09
+    082D560C  end                  
+
+  object 10 (gfx 0x35, flag 0x015B) -> 0x082D560D
+  script 0x082D560D  [ok]
+    082D560D  setorcopyvar         destination=VAR_0x8000 source=13
+    082D5612  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5617  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Potion
+    082D5619  end                  
+
+  object 11 (gfx 0x35, flag 0x015C) -> 0x082D561A
+  script 0x082D561A  [ok]
+    082D561A  setorcopyvar         destination=VAR_0x8000 source=68
+    082D561F  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5624  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Rare Candy
+    082D5626  end                  
+
+  object 12 (gfx 0x35, flag 0x015D) -> 0x082D5627
+  script 0x082D5627  [ok]
+    082D5627  setorcopyvar         destination=VAR_0x8000 source=85
+    082D562C  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5631  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Escape Rope
+    082D5633  end                  
+
+  object 13 (gfx 0x35, flag 0x015E) -> 0x082D5634
+  script 0x082D5634  [ok]
+    082D5634  setorcopyvar         destination=VAR_0x8000 source=94
+    082D5639  setorcopyvar         destination=VAR_0x8001 source=1
+    082D563E  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Moon Stone
+    082D5640  end                  
+
+  object 14 (gfx 0xF4, flag 0x0000) -> 0x081F2577
+  script 0x081F2577  [ok]
+    081F2577  lock                 
+    081F2578  faceplayer           
+    081F2579  setvar               destination=VAR_0x8004 value=2
+    081F257E  setvar               destination=VAR_0x8005 value=4
+    081F2583  special              SPECIAL_\function=347
+    081F2586  msgbox_multilang     type=0 text_0="Hi, I’m excavating for fossils here\nunder Mt. Moon.\pSometimes, Brock of Pewter Gym\nlends me a hand." text_1="Hi, I’m excavating for fossils here\nunder Mt. Moon.\pSometimes, Brock of Pewter Gym\nlends me a hand." text_2="Hi, I’m excavating for fossils here\nunder Mt. Moon.\pSometimes, Brock of Pewter Gym\nlends me a hand." text_3="Hi, I’m excavating for fossils here\nunder Mt. Moon.\pSometimes, Brock of Pewter Gym\nlends me a hand." text_4="Hi, I’m excavating for fossils here\nunder Mt. Moon.\pSometimes, Brock of Pewter Gym\nlends me a hand." text_5="Hi, I’m excavating for fossils here\nunder Mt. Moon.\pSometimes, Brock of Pewter Gym\nlends me a hand." text_6="Hi, I’m excavating for fossils here\nunder Mt. Moon.\pSometimes, Brock of Pewter Gym\nlends me a hand."
+    081F25A4  callstd              function=MSGBOX_DEFAULT(4)
+    081F25A6  release              
+
+  object 15 (gfx 0x42, flag 0x0119) -> 0x00000000
+  object 16 (gfx 0x41, flag 0x0119) -> 0x00000000
+  object 17 (gfx 0x40, flag 0x0126) -> 0x00000000
+  object 18 (gfx 0x42, flag 0x0122) -> 0x00000000
+  object 19 (gfx 0x41, flag 0x0123) -> 0x00000000
+  coord trigger 0 (var 0x40E1 == 0) -> 0x082061AD
+  script 0x082061AD  [ok]
+    082061AD  lockall              
+    082061AE  special              SPECIAL_\function=190
+    082061B1  getplayerxy          x=16384 y=16385
+    082061B6  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    082061BB  compare_var_to_value var=0x8000 value=17
+    082061C0  goto_if              condition=1 destination=0x082063D5
+    082061C6  compare_var_to_value var=0x8000 value=18
+    082061CB  goto_if              condition=1 destination=0x082063E4
+    082061D1  compare_var_to_value var=0x8000 value=19
+    082061D6  goto_if              condition=1 destination=0x082063F3
+    082061DC  delay                frames=32
+    082061DF  turnobject           localId=15 direction=2
+    082061E3  turnobject           localId=16 direction=1
+    082061E7  delay                frames=64
+    082061EA  turnobject           localId=15 direction=1
+    082061EE  turnobject           localId=16 direction=2
+    082061F2  delay                frames=64
+    082061F5  turnobject           localId=15 direction=3
+    082061F9  turnobject           localId=16 direction=4
+    082061FD  playse               song=21
+    08206200  applymovement        localId=16 movements=[action_0xAF]
+    08206207  applymovement        localId=15 movements=[action_0xAF]
+    0820620E  waitmovement         localId=0
+    08206211  delay                frames=80
+    08206214  textcolor            color=1
+    08206216  speakername          name="???"
+    0820621B  msgbox_multilang     type=0 text_0="Looks like there’s nothing here…" text_1="Parece que no hay nada aquí…" text_2="On dirait qu’il n’y a rien ici…" text_3="Sembra che non ci sia nulla qui…" text_4="Sieht so aus, als wäre hier nichts…" text_5="Parece que nぇo há nada aqui…" text_6="Looks like there’s nothing here…"
+    08206239  callstd              function=MSGBOX_DEFAULT(4)
+    0820623B  closemessage         
+    0820623C  delay                frames=16
+    0820623F  textcolor            color=0
+    08206241  speakername          name="???"
+    08206246  msgbox_multilang     type=0 text_0="Then let’s just search farther in!" text_1="¡Entonces, busquemos más adentro!" text_2="Alors cherchons plus loin !" text_3="Allora cerchiamo più a fondo!" text_4="Dann lasst uns weiter drinnen suchen!" text_5="Entぇo vamos procurar mais adiante!" text_6="Then let’s just search farther in!"
+    08206264  callstd              function=MSGBOX_DEFAULT(4)
+    08206266  closemessage         
+    08206267  delay                frames=32
+    0820626A  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    0820626F  compare_var_to_value var=0x8000 value=17
+    08206274  goto_if              condition=1 destination=0x08206402
+    0820627A  compare_var_to_value var=0x8000 value=18
+    0820627F  goto_if              condition=1 destination=0x0820640E
+    08206285  compare_var_to_value var=0x8000 value=19
+    0820628A  goto_if              condition=1 destination=0x0820641A
+    08206290  playse               song=21
+    08206293  turnobject           localId=15 direction=1
+    08206297  turnobject           localId=16 direction=1
+    0820629B  applymovement        localId=16 movements=[emote_exclamation_mark]
+    082062A2  applymovement        localId=15 movements=[emote_exclamation_mark]
+    082062A9  delay                frames=16
+    082062AC  waitmovement         localId=255
+    082062AF  special              SPECIAL_\function=191
+    082062B2  textcolor            color=1
+    082062B4  delay                frames=16
+    082062B7  speakername          name="???"
+    082062BC  msgbox_multilang     type=0 text_0="You! You were eavesdropping on us\njust now, weren’t you!" text_1="¡Tú! ¡Estabas espiándonos justo\nahora, ¿verdad?!" text_2="Toi ! Tu nous écoutais en cachette à\nl’instant, n’est-ce pas !" text_3="Tu! Ci stavi spiando proprio adesso,\nvero?!" text_4="Du! Du hast uns gerade belauscht,\nnicht wahr?!" text_5="Você! Estava nos espionando agora\nmesmo, nぇo estava?!" text_6="You! You were eavesdropping on us\njust now, weren’t you!"
+    082062DA  callstd              function=MSGBOX_DEFAULT(4)
+    082062DC  closemessage         
+    082062DD  delay                frames=16
+    082062E0  textcolor            color=0
+    082062E2  speakername          name="???"
+    082062E7  msgbox_multilang     type=0 text_0="Meowth! You were supposed to be\nkeeping watch!" text_1="¡Meowth! ¡Se suponía que debías\nestar vigilando!" text_2="Miaouss ! Tu étais censé faire le\nguet !" text_3="Meowth! Dovevi fare la guardia!" text_4="Mauzi! Du solltest Wache halten!" text_5="Meowth! Você deveria estar de vigia!" text_6="Meowth! You were supposed to be\nkeeping watch!"
+    08206305  callstd              function=MSGBOX_DEFAULT(4)
+    08206307  closemessage         
+    08206308  playmoncry           species=MEOWTH(52) mode=0
+    0820630D  clearflag            flag=0x126
+    08206310  addobject            localId=17
+    08206313  applymovement        localId=17 movements=[walk_fast_right walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up]
+    0820631A  waitmovement         localId=0
+    0820631D  textcolor            color=3
+    0820631F  speakername          name="Meowth"
+    08206324  msgbox_multilang     type=0 text_0="Mrawr!" text_1="¡Miau!" text_2="Miaou !" text_3="Miao!" text_4="Miau!" text_5="Miau!" text_6="Mrawr!"
+    08206342  callstd              function=MSGBOX_DEFAULT(4)
+    08206344  textcolor            color=1
+    08206346  speakername          name="???"
+    0820634B  msgbox_multilang     type=0 text_0="We know there’re rare Fossils buried\naround here somewhere!\pIf you’ve got any, you’d better hand\nthem over to us, twerp!" text_1="¡Sabemos que hay fósiles raros\nenterrados por aquí en alguna\pparte!\p¡Si tienes alguno, será mejor que nos\nlos entregues, mocoso!" text_2="Nous savons qu’il y a des fossiles\nrares enterrados par ici quelque\ppart !\pSi tu en as, tu ferais bien de nous\nles remettre, petit !" text_3="Sappiamo che ci sono fossili rari\nsepolti da qualche parte qui\pintorno!\pSe ne hai, è meglio che ce li\nconsegni, pischello!" text_4="Wir wissen, dass hier irgendwo seltene\nFossilien vergraben sind!\pWenn du welche hast, solltest du sie\nbesser uns übergeben, Fratz!" text_5="Sabemos que há fósseis raros\nenterrados por aqui em algum\plugar!\pSe você tiver algum, é melhor\nentregá-los para nós, pirralho!" text_6="We know there’re rare Fossils buried\naround here somewhere!\pIf you’ve got any, you’d better hand\nthem over to us, twerp!"
+    08206369  callstd              function=MSGBOX_DEFAULT(4)
+    0820636B  closemessage         
+    0820636C  delay                frames=16
+    0820636F  textcolor            color=0
+    08206371  speakername          name="???"
+    08206376  msgbox_multilang     type=0 text_0="That’s right! If anyone is going to\nprofit off those rare Fossils, it’s\pgoing to be us!\pWahahaha!" text_1="Exactamente! ¡Si alguien va a\nbeneficiarse de esos fósiles raros,\pseremos nosotros!\p¡Wahahaha!" text_2="C’est exact ! Si quelqu’un doit tirer\nprofit de ces fossiles rares, ce\psera nous !\pWahahaha !" text_3="Esatto! Se qualcuno deve trarre\nprofitto da quei fossili rari,\psaremo noi!\pWahahaha!" text_4="Ganz genau! Wenn jemand von diesen\nseltenen Fossilien profitieren soll,\pdann sind wir es!\pWahahaha!" text_5="Isso mesmo! Se alguém vai lucrar com\nesses fósseis raros, seremos nós!\pWahahaha!" text_6="That’s right! If anyone is going to\nprofit off those rare Fossils, it’s\pgoing to be us!\pWahahaha!"
+    08206394  callstd              function=MSGBOX_DEFAULT(4)
+    08206396  closemessage         
+    08206397  applymovement        localId=15 movements=[face_right delay_16 walk_faster_right walk_faster_right walk_faster_up walk_faster_right walk_faster_right walk_faster_up walk_faster_up walk_faster_up]
+    0820639E  applymovement        localId=16 movements=[face_right delay_16 walk_faster_right walk_faster_right walk_faster_right walk_faster_right walk_faster_up walk_faster_right walk_faster_right walk_faster_up walk_faster_up walk_faster_up]
+    082063A5  waitmovement         localId=15
+    082063A8  removeobject         localId=15
+    082063AB  waitmovement         localId=16
+    082063AE  removeobject         localId=16
+    082063B1  playse               song=21
+    082063B4  applymovement        localId=17 movements=[emote_question_mark]
+    082063BB  waitmovement         localId=0
+    082063BE  delay                frames=16
+    082063C1  applymovement        localId=17 movements=[delay_16 walk_fast_up walk_fast_up walk_fast_up walk_fast_right walk_fast_right walk_fast_right walk_fast_up walk_fast_up]
+    082063C8  waitmovement         localId=0
+    082063CB  removeobject         localId=17
+    082063CE  releaseall           
+
+  script 0x082063D5  [ok]
+    082063D5  applymovement        localId=127 movements=[walk_up walk_up walk_up walk_diag_northeast walk_up]
+    082063DC  waitmovement         localId=0
+    082063DF  goto                 destination=0x082061DC
+
+  script 0x082063E4  [ok]
+    082063E4  applymovement        localId=127 movements=[walk_up walk_up walk_up walk_up walk_up]
+    082063EB  waitmovement         localId=0
+    082063EE  goto                 destination=0x082061DC
+
+  script 0x082063F3  [ok]
+    082063F3  applymovement        localId=127 movements=[walk_up walk_up walk_up walk_diag_northwest walk_up]
+    082063FA  waitmovement         localId=0
+    082063FD  goto                 destination=0x082061DC
+
+  script 0x08206402  [ok]
+    08206402  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_right walk_up walk_up]
+    08206409  goto                 destination=0x08206290
+
+  script 0x0820640E  [ok]
+    0820640E  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up]
+    08206415  goto                 destination=0x08206290
+
+  script 0x0820641A  [ok]
+    0820641A  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_left walk_up walk_up]
+    08206421  goto                 destination=0x08206290
+
+  script 0x082061DC  [ok]
+    082061DC  delay                frames=32
+    082061DF  turnobject           localId=15 direction=2
+    082061E3  turnobject           localId=16 direction=1
+    082061E7  delay                frames=64
+    082061EA  turnobject           localId=15 direction=1
+    082061EE  turnobject           localId=16 direction=2
+    082061F2  delay                frames=64
+    082061F5  turnobject           localId=15 direction=3
+    082061F9  turnobject           localId=16 direction=4
+    082061FD  playse               song=21
+    08206200  applymovement        localId=16 movements=[action_0xAF]
+    08206207  applymovement        localId=15 movements=[action_0xAF]
+    0820620E  waitmovement         localId=0
+    08206211  delay                frames=80
+    08206214  textcolor            color=1
+    08206216  speakername          name="???"
+    0820621B  msgbox_multilang     type=0 text_0="Looks like there’s nothing here…" text_1="Parece que no hay nada aquí…" text_2="On dirait qu’il n’y a rien ici…" text_3="Sembra che non ci sia nulla qui…" text_4="Sieht so aus, als wäre hier nichts…" text_5="Parece que nぇo há nada aqui…" text_6="Looks like there’s nothing here…"
+    08206239  callstd              function=MSGBOX_DEFAULT(4)
+    0820623B  closemessage         
+    0820623C  delay                frames=16
+    0820623F  textcolor            color=0
+    08206241  speakername          name="???"
+    08206246  msgbox_multilang     type=0 text_0="Then let’s just search farther in!" text_1="¡Entonces, busquemos más adentro!" text_2="Alors cherchons plus loin !" text_3="Allora cerchiamo più a fondo!" text_4="Dann lasst uns weiter drinnen suchen!" text_5="Entぇo vamos procurar mais adiante!" text_6="Then let’s just search farther in!"
+    08206264  callstd              function=MSGBOX_DEFAULT(4)
+    08206266  closemessage         
+    08206267  delay                frames=32
+    0820626A  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    0820626F  compare_var_to_value var=0x8000 value=17
+    08206274  goto_if              condition=1 destination=0x08206402
+    0820627A  compare_var_to_value var=0x8000 value=18
+    0820627F  goto_if              condition=1 destination=0x0820640E
+    08206285  compare_var_to_value var=0x8000 value=19
+    0820628A  goto_if              condition=1 destination=0x0820641A
+    08206290  playse               song=21
+    08206293  turnobject           localId=15 direction=1
+    08206297  turnobject           localId=16 direction=1
+    0820629B  applymovement        localId=16 movements=[emote_exclamation_mark]
+    082062A2  applymovement        localId=15 movements=[emote_exclamation_mark]
+    082062A9  delay                frames=16
+    082062AC  waitmovement         localId=255
+    082062AF  special              SPECIAL_\function=191
+    082062B2  textcolor            color=1
+    082062B4  delay                frames=16
+    082062B7  speakername          name="???"
+    082062BC  msgbox_multilang     type=0 text_0="You! You were eavesdropping on us\njust now, weren’t you!" text_1="¡Tú! ¡Estabas espiándonos justo\nahora, ¿verdad?!" text_2="Toi ! Tu nous écoutais en cachette à\nl’instant, n’est-ce pas !" text_3="Tu! Ci stavi spiando proprio adesso,\nvero?!" text_4="Du! Du hast uns gerade belauscht,\nnicht wahr?!" text_5="Você! Estava nos espionando agora\nmesmo, nぇo estava?!" text_6="You! You were eavesdropping on us\njust now, weren’t you!"
+    082062DA  callstd              function=MSGBOX_DEFAULT(4)
+    082062DC  closemessage         
+    082062DD  delay                frames=16
+    082062E0  textcolor            color=0
+    082062E2  speakername          name="???"
+    082062E7  msgbox_multilang     type=0 text_0="Meowth! You were supposed to be\nkeeping watch!" text_1="¡Meowth! ¡Se suponía que debías\nestar vigilando!" text_2="Miaouss ! Tu étais censé faire le\nguet !" text_3="Meowth! Dovevi fare la guardia!" text_4="Mauzi! Du solltest Wache halten!" text_5="Meowth! Você deveria estar de vigia!" text_6="Meowth! You were supposed to be\nkeeping watch!"
+    08206305  callstd              function=MSGBOX_DEFAULT(4)
+    08206307  closemessage         
+    08206308  playmoncry           species=MEOWTH(52) mode=0
+    0820630D  clearflag            flag=0x126
+    08206310  addobject            localId=17
+    08206313  applymovement        localId=17 movements=[walk_fast_right walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up]
+    0820631A  waitmovement         localId=0
+    0820631D  textcolor            color=3
+    0820631F  speakername          name="Meowth"
+    08206324  msgbox_multilang     type=0 text_0="Mrawr!" text_1="¡Miau!" text_2="Miaou !" text_3="Miao!" text_4="Miau!" text_5="Miau!" text_6="Mrawr!"
+    08206342  callstd              function=MSGBOX_DEFAULT(4)
+    08206344  textcolor            color=1
+    08206346  speakername          name="???"
+    0820634B  msgbox_multilang     type=0 text_0="We know there’re rare Fossils buried\naround here somewhere!\pIf you’ve got any, you’d better hand\nthem over to us, twerp!" text_1="¡Sabemos que hay fósiles raros\nenterrados por aquí en alguna\pparte!\p¡Si tienes alguno, será mejor que nos\nlos entregues, mocoso!" text_2="Nous savons qu’il y a des fossiles\nrares enterrados par ici quelque\ppart !\pSi tu en as, tu ferais bien de nous\nles remettre, petit !" text_3="Sappiamo che ci sono fossili rari\nsepolti da qualche parte qui\pintorno!\pSe ne hai, è meglio che ce li\nconsegni, pischello!" text_4="Wir wissen, dass hier irgendwo seltene\nFossilien vergraben sind!\pWenn du welche hast, solltest du sie\nbesser uns übergeben, Fratz!" text_5="Sabemos que há fósseis raros\nenterrados por aqui em algum\plugar!\pSe você tiver algum, é melhor\nentregá-los para nós, pirralho!" text_6="We know there’re rare Fossils buried\naround here somewhere!\pIf you’ve got any, you’d better hand\nthem over to us, twerp!"
+    08206369  callstd              function=MSGBOX_DEFAULT(4)
+    0820636B  closemessage         
+    0820636C  delay                frames=16
+    0820636F  textcolor            color=0
+    08206371  speakername          name="???"
+    08206376  msgbox_multilang     type=0 text_0="That’s right! If anyone is going to\nprofit off those rare Fossils, it’s\pgoing to be us!\pWahahaha!" text_1="Exactamente! ¡Si alguien va a\nbeneficiarse de esos fósiles raros,\pseremos nosotros!\p¡Wahahaha!" text_2="C’est exact ! Si quelqu’un doit tirer\nprofit de ces fossiles rares, ce\psera nous !\pWahahaha !" text_3="Esatto! Se qualcuno deve trarre\nprofitto da quei fossili rari,\psaremo noi!\pWahahaha!" text_4="Ganz genau! Wenn jemand von diesen\nseltenen Fossilien profitieren soll,\pdann sind wir es!\pWahahaha!" text_5="Isso mesmo! Se alguém vai lucrar com\nesses fósseis raros, seremos nós!\pWahahaha!" text_6="That’s right! If anyone is going to\nprofit off those rare Fossils, it’s\pgoing to be us!\pWahahaha!"
+    08206394  callstd              function=MSGBOX_DEFAULT(4)
+    08206396  closemessage         
+    08206397  applymovement        localId=15 movements=[face_right delay_16 walk_faster_right walk_faster_right walk_faster_up walk_faster_right walk_faster_right walk_faster_up walk_faster_up walk_faster_up]
+    0820639E  applymovement        localId=16 movements=[face_right delay_16 walk_faster_right walk_faster_right walk_faster_right walk_faster_right walk_faster_up walk_faster_right walk_faster_right walk_faster_up walk_faster_up walk_faster_up]
+    082063A5  waitmovement         localId=15
+    082063A8  removeobject         localId=15
+    082063AB  waitmovement         localId=16
+    082063AE  removeobject         localId=16
+    082063B1  playse               song=21
+    082063B4  applymovement        localId=17 movements=[emote_question_mark]
+    082063BB  waitmovement         localId=0
+    082063BE  delay                frames=16
+    082063C1  applymovement        localId=17 movements=[delay_16 walk_fast_up walk_fast_up walk_fast_up walk_fast_right walk_fast_right walk_fast_right walk_fast_up walk_fast_up]
+    082063C8  waitmovement         localId=0
+    082063CB  removeobject         localId=17
+    082063CE  releaseall           
+
+  script 0x08206290  [ok]
+    08206290  playse               song=21
+    08206293  turnobject           localId=15 direction=1
+    08206297  turnobject           localId=16 direction=1
+    0820629B  applymovement        localId=16 movements=[emote_exclamation_mark]
+    082062A2  applymovement        localId=15 movements=[emote_exclamation_mark]
+    082062A9  delay                frames=16
+    082062AC  waitmovement         localId=255
+    082062AF  special              SPECIAL_\function=191
+    082062B2  textcolor            color=1
+    082062B4  delay                frames=16
+    082062B7  speakername          name="???"
+    082062BC  msgbox_multilang     type=0 text_0="You! You were eavesdropping on us\njust now, weren’t you!" text_1="¡Tú! ¡Estabas espiándonos justo\nahora, ¿verdad?!" text_2="Toi ! Tu nous écoutais en cachette à\nl’instant, n’est-ce pas !" text_3="Tu! Ci stavi spiando proprio adesso,\nvero?!" text_4="Du! Du hast uns gerade belauscht,\nnicht wahr?!" text_5="Você! Estava nos espionando agora\nmesmo, nぇo estava?!" text_6="You! You were eavesdropping on us\njust now, weren’t you!"
+    082062DA  callstd              function=MSGBOX_DEFAULT(4)
+    082062DC  closemessage         
+    082062DD  delay                frames=16
+    082062E0  textcolor            color=0
+    082062E2  speakername          name="???"
+    082062E7  msgbox_multilang     type=0 text_0="Meowth! You were supposed to be\nkeeping watch!" text_1="¡Meowth! ¡Se suponía que debías\nestar vigilando!" text_2="Miaouss ! Tu étais censé faire le\nguet !" text_3="Meowth! Dovevi fare la guardia!" text_4="Mauzi! Du solltest Wache halten!" text_5="Meowth! Você deveria estar de vigia!" text_6="Meowth! You were supposed to be\nkeeping watch!"
+    08206305  callstd              function=MSGBOX_DEFAULT(4)
+    08206307  closemessage         
+    08206308  playmoncry           species=MEOWTH(52) mode=0
+    0820630D  clearflag            flag=0x126
+    08206310  addobject            localId=17
+    08206313  applymovement        localId=17 movements=[walk_fast_right walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up]
+    0820631A  waitmovement         localId=0
+    0820631D  textcolor            color=3
+    0820631F  speakername          name="Meowth"
+    08206324  msgbox_multilang     type=0 text_0="Mrawr!" text_1="¡Miau!" text_2="Miaou !" text_3="Miao!" text_4="Miau!" text_5="Miau!" text_6="Mrawr!"
+    08206342  callstd              function=MSGBOX_DEFAULT(4)
+    08206344  textcolor            color=1
+    08206346  speakername          name="???"
+    0820634B  msgbox_multilang     type=0 text_0="We know there’re rare Fossils buried\naround here somewhere!\pIf you’ve got any, you’d better hand\nthem over to us, twerp!" text_1="¡Sabemos que hay fósiles raros\nenterrados por aquí en alguna\pparte!\p¡Si tienes alguno, será mejor que nos\nlos entregues, mocoso!" text_2="Nous savons qu’il y a des fossiles\nrares enterrados par ici quelque\ppart !\pSi tu en as, tu ferais bien de nous\nles remettre, petit !" text_3="Sappiamo che ci sono fossili rari\nsepolti da qualche parte qui\pintorno!\pSe ne hai, è meglio che ce li\nconsegni, pischello!" text_4="Wir wissen, dass hier irgendwo seltene\nFossilien vergraben sind!\pWenn du welche hast, solltest du sie\nbesser uns übergeben, Fratz!" text_5="Sabemos que há fósseis raros\nenterrados por aqui em algum\plugar!\pSe você tiver algum, é melhor\nentregá-los para nós, pirralho!" text_6="We know there’re rare Fossils buried\naround here somewhere!\pIf you’ve got any, you’d better hand\nthem over to us, twerp!"
+    08206369  callstd              function=MSGBOX_DEFAULT(4)
+    0820636B  closemessage         
+    0820636C  delay                frames=16
+    0820636F  textcolor            color=0
+    08206371  speakername          name="???"
+    08206376  msgbox_multilang     type=0 text_0="That’s right! If anyone is going to\nprofit off those rare Fossils, it’s\pgoing to be us!\pWahahaha!" text_1="Exactamente! ¡Si alguien va a\nbeneficiarse de esos fósiles raros,\pseremos nosotros!\p¡Wahahaha!" text_2="C’est exact ! Si quelqu’un doit tirer\nprofit de ces fossiles rares, ce\psera nous !\pWahahaha !" text_3="Esatto! Se qualcuno deve trarre\nprofitto da quei fossili rari,\psaremo noi!\pWahahaha!" text_4="Ganz genau! Wenn jemand von diesen\nseltenen Fossilien profitieren soll,\pdann sind wir es!\pWahahaha!" text_5="Isso mesmo! Se alguém vai lucrar com\nesses fósseis raros, seremos nós!\pWahahaha!" text_6="That’s right! If anyone is going to\nprofit off those rare Fossils, it’s\pgoing to be us!\pWahahaha!"
+    08206394  callstd              function=MSGBOX_DEFAULT(4)
+    08206396  closemessage         
+    08206397  applymovement        localId=15 movements=[face_right delay_16 walk_faster_right walk_faster_right walk_faster_up walk_faster_right walk_faster_right walk_faster_up walk_faster_up walk_faster_up]
+    0820639E  applymovement        localId=16 movements=[face_right delay_16 walk_faster_right walk_faster_right walk_faster_right walk_faster_right walk_faster_up walk_faster_right walk_faster_right walk_faster_up walk_faster_up walk_faster_up]
+    082063A5  waitmovement         localId=15
+    082063A8  removeobject         localId=15
+    082063AB  waitmovement         localId=16
+    082063AE  removeobject         localId=16
+    082063B1  playse               song=21
+    082063B4  applymovement        localId=17 movements=[emote_question_mark]
+    082063BB  waitmovement         localId=0
+    082063BE  delay                frames=16
+    082063C1  applymovement        localId=17 movements=[delay_16 walk_fast_up walk_fast_up walk_fast_up walk_fast_right walk_fast_right walk_fast_right walk_fast_up walk_fast_up]
+    082063C8  waitmovement         localId=0
+    082063CB  removeobject         localId=17
+    082063CE  releaseall           
+
+  coord trigger 1 (var 0x40E1 == 0) -> 0x082061AD
+  coord trigger 2 (var 0x40E1 == 0) -> 0x082061AD
+  coord trigger 3 (var 0x40E1 == 1) -> 0x08206473
+  script 0x08206473  [ok]
+    08206473  lockall              
+    08206474  setflag              flag=0x4005 (temp)
+    08206477  special              SPECIAL_\function=190
+    0820647A  applymovement        localId=127 movements=[walk_right walk_right walk_right]
+    08206481  waitmovement         localId=127
+    08206484  applymovement        localId=18 movements=[face_up delay_16 delay_16 delay_16 delay_16 face_down delay_16 delay_16 delay_16 delay_16 face_right delay_16 delay_16 delay_16 delay_16 face_left delay_16 delay_16 delay_16 delay_16]
+    0820648B  waitmovement         localId=18
+    0820648E  playse               song=21
+    08206491  applymovement        localId=18 movements=[emote_exclamation_mark]
+    08206498  delay                frames=16
+    0820649B  waitmovement         localId=18
+    0820649E  textcolor            color=1
+    082064A0  speakername          name="???"
+    082064A5  msgbox_multilang     type=0 text_0="Ugh! You’re pretty fast, kid!" text_1="¡Ugh! ¡Eres bastante rápido, chico!" text_2="Ugh ! Tu es plutôt rapide, gamin !" text_3="Ugh! Sei piuttosto veloce, ragazzo!" text_4="Ugh! Du bist ziemlich schnell,\nKleiner!" text_5="Ugh! Você é bem rápido, garoto!" text_6="Ugh! You’re pretty fast, kid!"
+    082064C3  callstd              function=MSGBOX_DEFAULT(4)
+    082064C5  closemessage         
+    082064C6  applymovement        localId=18 movements=[walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up walk_fast_up]
+    082064CD  waitmovement         localId=18
+    082064D0  removeobject         localId=18
+    082064D3  applymovement        localId=127 movements=[walk_left walk_left walk_left]
+    082064DA  waitmovement         localId=127
+    082064DD  special              SPECIAL_\function=191
+    082064E0  addvar               destination=VAR_0x40E1 value=1
+    082064E5  clearflag            flag=0x4005 (temp)
+    082064E8  releaseall           
+
+  coord trigger 4 (var 0x40E1 == 1) -> 0x08206473
+  coord trigger 5 (var 0x40E1 == 1) -> 0x08206473
+  coord trigger 6 (var 0x40E1 == 2) -> 0x0820650E
+  script 0x0820650E  [ok]
+    0820650E  lockall              
+    0820650F  setflag              flag=0x4005 (temp)
+    08206512  special              SPECIAL_\function=190
+    08206515  applymovement        localId=127 movements=[walk_down walk_down walk_down]
+    0820651C  waitmovement         localId=127
+    0820651F  applymovement        localId=19 movements=[face_left delay_16 delay_16 delay_16 delay_16 face_right delay_16 delay_16 delay_16 delay_16 face_down delay_16 delay_16 delay_16 delay_16 face_up delay_16 delay_16 delay_16 delay_16]
+    08206526  waitmovement         localId=19
+    08206529  textcolor            color=0
+    0820652B  speakername          name="???"
+    08206530  msgbox_multilang     type=0 text_0="Yikes! Quit following us!" text_1="¡Ay! ¡Deja de seguirnos!" text_2="Oh là là ! Arrête de nous suivre !" text_3="Accidenti! Smettila di seguirci!" text_4="Mist! Hör auf, uns zu folgen!" text_5="Ai! Pare de nos seguir!" text_6="Yikes! Quit following us!"
+    0820654E  callstd              function=MSGBOX_DEFAULT(4)
+    08206550  closemessage         
+    08206551  applymovement        localId=19 movements=[walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left]
+    08206558  waitmovement         localId=19
+    0820655B  removeobject         localId=19
+    0820655E  applymovement        localId=127 movements=[walk_up walk_up walk_up]
+    08206565  waitmovement         localId=127
+    08206568  special              SPECIAL_\function=191
+    0820656B  clearflag            flag=0x4005 (temp)
+    0820656E  addvar               destination=VAR_0x40E1 value=1
+    08206573  releaseall           
+
+  coord trigger 7 (var 0x40E1 == 2) -> 0x0820650E
+  coord trigger 8 (var 0x40E1 == 2) -> 0x0820650E
+  coord trigger 9 (var 0x40E1 == 2) -> 0x0820650E
+  sign 0 at (16,25) -> 0x0820618C
+  script 0x0820618C  [ok]
+    0820618C  msgbox_multilang     type=0 text_0="Beware! Zubat is a bloodsucker!\nWatch out for its Leech Life move!" text_1="¡Cuidado! ¡Zubat es un chupasangre!\n¡Ten cuidado con su movimiento\pChupavidas!" text_2="Attention ! Nosferapti est un suceur\nde sang !\pFais attention à son attaque\pVampirisme !" text_3="Attento! Zubat è un succhiasangue!\nFai attenzione alla sua mossa Leech\pLife!" text_4="Achtung! Zubat ist ein Blutsauger!\nPass auf seinen Attacke Blutdurst\pauf!" text_5="Cuidado! Zubat é um sugador de\nsangue!\pFique de olho no movimento Absorver!" text_6="Beware! Zubat is a bloodsucker!\nWatch out for its Leech Life move!"
+    082061AA  callstd              function=MSGBOX_SIGN(3)
+    082061AC  end                  
+
+  sign 1 at (17,25) -> 0x0820618C
+  map script type 3 -> 0x08206188
+  script 0x08206188  [ok]
+    08206188  setworldmapflag      flag=0x905
+    0820618B  return               
+

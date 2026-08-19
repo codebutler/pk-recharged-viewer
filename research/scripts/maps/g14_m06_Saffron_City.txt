@@ -1,0 +1,85 @@
+Saffron City  (group 14, map 6)  header 0x08B3D7B8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0827150D
+  script 0x0827150D  [ok]
+    0827150D  lock                 
+    0827150E  faceplayer           
+    0827150F  call                 destination=0x082BB336
+    08271514  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x30, flag 0x0000) -> 0x08271516
+  script 0x08271516  [ok]
+    08271516  msgbox_multilang     type=0 text_0="Silph Co. is widely known to all.\pIt’s a victim of its own fame - it\nattracted Team Rocket." text_1="Silph Co. is widely known to all.\pIt’s a victim of its own fame - it\nattracted Team Rocket." text_2="Silph Co. is widely known to all.\pIt’s a victim of its own fame - it\nattracted Team Rocket." text_3="Silph Co. is widely known to all.\pIt’s a victim of its own fame - it\nattracted Team Rocket." text_4="Silph Co. is widely known to all.\pIt’s a victim of its own fame - it\nattracted Team Rocket." text_5="Silph Co. is widely known to all.\pIt’s a victim of its own fame - it\nattracted Team Rocket." text_6="Silph Co. is widely known to all.\pIt’s a victim of its own fame - it\nattracted Team Rocket."
+    08271534  callstd              function=MSGBOX_NPC(2)
+    08271536  end                  
+
+  object 3 (gfx 0x18, flag 0x0000) -> 0x08271537
+  script 0x08271537  [ok]
+    08271537  msgbox_multilang     type=0 text_0="Pokémon growth rates differ from\nspecies to species." text_1="Pokémon growth rates differ from\nspecies to species." text_2="Pokémon growth rates differ from\nspecies to species." text_3="Pokémon growth rates differ from\nspecies to species." text_4="Pokémon growth rates differ from\nspecies to species." text_5="Pokémon growth rates differ from\nspecies to species." text_6="Pokémon growth rates differ from\nspecies to species."
+    08271555  callstd              function=MSGBOX_NPC(2)
+    08271557  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x08271558
+  script 0x08271558  [ok]
+    08271558  lock                 
+    08271559  faceplayer           
+    0827155A  compare_var_to_value var=0x4060 value=1
+    0827155F  goto_if              condition=1 destination=0x08271587
+    08271565  msgbox_multilang     type=0 text_0="Sigh…\nWouldn’t this be great?\pIf the Elite Four came and\nstomped Team Rocket?" text_1="Sigh…\nWouldn’t this be great?\pIf the Elite Four came and\nstomped Team Rocket?" text_2="Sigh…\nWouldn’t this be great?\pIf the Elite Four came and\nstomped Team Rocket?" text_3="Sigh…\nWouldn’t this be great?\pIf the Elite Four came and\nstomped Team Rocket?" text_4="Sigh…\nWouldn’t this be great?\pIf the Elite Four came and\nstomped Team Rocket?" text_5="Sigh…\nWouldn’t this be great?\pIf the Elite Four came and\nstomped Team Rocket?" text_6="Sigh…\nWouldn’t this be great?\pIf the Elite Four came and\nstomped Team Rocket?"
+    08271583  callstd              function=MSGBOX_DEFAULT(4)
+    08271585  release              
+
+  script 0x08271587  [ok]
+    08271587  msgbox_multilang     type=0 text_0="Team Rocket took off!\nWe can go out safely again!\pThat’s great!" text_1="Team Rocket took off!\nWe can go out safely again!\pThat’s great!" text_2="Team Rocket took off!\nWe can go out safely again!\pThat’s great!" text_3="Team Rocket took off!\nWe can go out safely again!\pThat’s great!" text_4="Team Rocket took off!\nWe can go out safely again!\pThat’s great!" text_5="Team Rocket took off!\nWe can go out safely again!\pThat’s great!" text_6="Team Rocket took off!\nWe can go out safely again!\pThat’s great!"
+    082715A5  callstd              function=MSGBOX_DEFAULT(4)
+    082715A7  release              
+
+  object 5 (gfx 0x00, flag 0x00AE) -> 0x081F2738
+  script 0x081F2738  [ok]
+    081F2738  lock                 
+    081F2739  faceplayer           
+    081F273A  setvar               destination=VAR_0x8004 value=7
+    081F273F  setvar               destination=VAR_0x8005 value=4
+    081F2744  special              SPECIAL_\function=347
+    081F2747  textcolor            color=3
+    081F2749  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature: Saffron Gym\nLeader Sabrina!\pPeople say that Sabrina can\ncommunicate with her Pokémon\pduring battle without speaking." text_1="Pokémon Journal\pSpecial Feature: Saffron Gym\nLeader Sabrina!\pPeople say that Sabrina can\ncommunicate with her Pokémon\pduring battle without speaking." text_2="Pokémon Journal\pSpecial Feature: Saffron Gym\nLeader Sabrina!\pPeople say that Sabrina can\ncommunicate with her Pokémon\pduring battle without speaking." text_3="Pokémon Journal\pSpecial Feature: Saffron Gym\nLeader Sabrina!\pPeople say that Sabrina can\ncommunicate with her Pokémon\pduring battle without speaking." text_4="Pokémon Journal\pSpecial Feature: Saffron Gym\nLeader Sabrina!\pPeople say that Sabrina can\ncommunicate with her Pokémon\pduring battle without speaking." text_5="Pokémon Journal\pSpecial Feature: Saffron Gym\nLeader Sabrina!\pPeople say that Sabrina can\ncommunicate with her Pokémon\pduring battle without speaking." text_6="Pokémon Journal\pSpecial Feature: Saffron Gym\nLeader Sabrina!\pPeople say that Sabrina can\ncommunicate with her Pokémon\pduring battle without speaking."
+    081F2767  callstd              function=MSGBOX_DEFAULT(4)
+    081F2769  release              
+
+  object 6 (gfx 0x00, flag 0x00AE) -> 0x081F2738
+  object 7 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x08271509
+  script 0x08271509  [ok]
+    08271509  setrespawn           heallocation=11
+    0827150C  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

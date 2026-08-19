@@ -1,0 +1,20 @@
+Lost Cave  (group 2, map 30)  header 0x08B3C2D4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x01FA) -> 0x082D5DF9
+  script 0x082D5DF9  [ok]
+    082D5DF9  setorcopyvar         destination=VAR_0x8000 source=220
+    082D5DFE  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5E03  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Sea Incense
+    082D5E05  end                  
+

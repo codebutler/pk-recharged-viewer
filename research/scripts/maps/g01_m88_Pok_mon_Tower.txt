@@ -1,0 +1,60 @@
+Pokémon Tower  (group 1, map 88)  header 0x08B3BBB8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x01, flag 0x0000) -> 0x08216D0F
+  script 0x08216D0F  [ok]
+    08216D0F  msgbox_multilang     type=0 text_0="Pokémon Tower was erected in the\nmemory of Pokémon that died." text_1="Pokémon Tower was erected in the\nmemory of Pokémon that died." text_2="Pokémon Tower was erected in the\nmemory of Pokémon that died." text_3="Pokémon Tower was erected in the\nmemory of Pokémon that died." text_4="Pokémon Tower was erected in the\nmemory of Pokémon that died." text_5="Pokémon Tower was erected in the\nmemory of Pokémon that died." text_6="Pokémon Tower was erected in the\nmemory of Pokémon that died."
+    08216D2D  callstd              function=MSGBOX_NPC(2)
+    08216D2F  end                  
+
+  object 2 (gfx 0x0A, flag 0x0000) -> 0x08216C57
+  script 0x08216C57  [ok]
+    08216C57  msgbox_multilang     type=0 text_0="I am a Channeler.\pThere are spirits up to mischief.\nI sense them high in the Tower." text_1="I am a Channeler.\pThere are spirits up to mischief.\nI sense them high in the Tower." text_2="I am a Channeler.\pThere are spirits up to mischief.\nI sense them high in the Tower." text_3="I am a Channeler.\pThere are spirits up to mischief.\nI sense them high in the Tower." text_4="I am a Channeler.\pThere are spirits up to mischief.\nI sense them high in the Tower." text_5="I am a Channeler.\pThere are spirits up to mischief.\nI sense them high in the Tower." text_6="I am a Channeler.\pThere are spirits up to mischief.\nI sense them high in the Tower."
+    08216C75  callstd              function=MSGBOX_NPC(2)
+    08216C77  end                  
+
+  object 3 (gfx 0x14, flag 0x0000) -> 0x08216C78
+  script 0x08216C78  [ok]
+    08216C78  msgbox_multilang     type=0 text_0="My Growlithe…\nWhy did you die?" text_1="My Growlithe…\nWhy did you die?" text_2="My Growlithe…\nWhy did you die?" text_3="My Growlithe…\nWhy did you die?" text_4="My Growlithe…\nWhy did you die?" text_5="My Growlithe…\nWhy did you die?" text_6="My Growlithe…\nWhy did you die?"
+    08216C96  callstd              function=MSGBOX_NPC(2)
+    08216C98  end                  
+
+  object 4 (gfx 0x18, flag 0x0000) -> 0x08216CBA
+  script 0x08216CBA  [ok]
+    08216CBA  lock                 
+    08216CBB  faceplayer           
+    08216CBC  checkplayergender    
+    08216CBD  compare_var_to_value var=0x800D value=0
+    08216CC2  goto_if              condition=1 destination=0x08216CEA
+    08216CC8  msgbox_multilang     type=0 text_0="Did you come to pay respects?\pBless your Pokémon-loving heart,\ngirl." text_1="Did you come to pay respects?\pBless your Pokémon-loving heart,\ngirl." text_2="Did you come to pay respects?\pBless your Pokémon-loving heart,\ngirl." text_3="Did you come to pay respects?\pBless your Pokémon-loving heart,\ngirl." text_4="Did you come to pay respects?\pBless your Pokémon-loving heart,\ngirl." text_5="Did you come to pay respects?\pBless your Pokémon-loving heart,\ngirl." text_6="Did you come to pay respects?\pBless your Pokémon-loving heart,\ngirl."
+    08216CE6  callstd              function=MSGBOX_DEFAULT(4)
+    08216CE8  release              
+
+  script 0x08216CEA  [ok]
+    08216CEA  msgbox_multilang     type=0 text_0="Did you come to pay respects?\pBless your Pokémon-loving heart,\nson." text_1="Did you come to pay respects?\pBless your Pokémon-loving heart,\nson." text_2="Did you come to pay respects?\pBless your Pokémon-loving heart,\nson." text_3="Did you come to pay respects?\pBless your Pokémon-loving heart,\nson." text_4="Did you come to pay respects?\pBless your Pokémon-loving heart,\nson." text_5="Did you come to pay respects?\pBless your Pokémon-loving heart,\nson." text_6="Did you come to pay respects?\pBless your Pokémon-loving heart,\nson."
+    08216D08  callstd              function=MSGBOX_DEFAULT(4)
+    08216D0A  goto                 destination=0x08216CE8
+
+  script 0x08216CE8  [ok]
+    08216CE8  release              
+
+  object 5 (gfx 0xF4, flag 0x0000) -> 0x08216C99
+  script 0x08216C99  [ok]
+    08216C99  msgbox_multilang     type=0 text_0="I came to pray for my dearly\ndeparted Clefairy.\pSniff!\nI’m awash in tears…" text_1="I came to pray for my dearly\ndeparted Clefairy.\pSniff!\nI’m awash in tears…" text_2="I came to pray for my dearly\ndeparted Clefairy.\pSniff!\nI’m awash in tears…" text_3="I came to pray for my dearly\ndeparted Clefairy.\pSniff!\nI’m awash in tears…" text_4="I came to pray for my dearly\ndeparted Clefairy.\pSniff!\nI’m awash in tears…" text_5="I came to pray for my dearly\ndeparted Clefairy.\pSniff!\nI’m awash in tears…" text_6="I came to pray for my dearly\ndeparted Clefairy.\pSniff!\nI’m awash in tears…"
+    08216CB7  callstd              function=MSGBOX_NPC(2)
+    08216CB9  end                  
+
+  map script type 3 -> 0x08216C53
+  script 0x08216C53  [ok]
+    08216C53  setworldmapflag      flag=0x912
+    08216C56  return               
+

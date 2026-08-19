@@ -1,0 +1,36 @@
+Pewter City  (group 6, map 3)  header 0x08B3CF68
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x23, flag 0x0000) -> 0x0825313D
+  script 0x0825313D  [ok]
+    0825313D  msgbox_multilang     type=0 text_0="A shady old guy sucked me into\nbuying this weird fish Pokémon!\pIt’s totally weak and it cost ¥500!" text_1="A shady old guy sucked me into\nbuying this weird fish Pokémon!\pIt’s totally weak and it cost ¥500!" text_2="A shady old guy sucked me into\nbuying this weird fish Pokémon!\pIt’s totally weak and it cost ¥500!" text_3="A shady old guy sucked me into\nbuying this weird fish Pokémon!\pIt’s totally weak and it cost ¥500!" text_4="A shady old guy sucked me into\nbuying this weird fish Pokémon!\pIt’s totally weak and it cost ¥500!" text_5="A shady old guy sucked me into\nbuying this weird fish Pokémon!\pIt’s totally weak and it cost ¥500!" text_6="A shady old guy sucked me into\nbuying this weird fish Pokémon!\pIt’s totally weak and it cost ¥500!"
+    0825315B  callstd              function=MSGBOX_NPC(2)
+    0825315D  end                  
+
+  object 2 (gfx 0xEF, flag 0x0000) -> 0x0825315E
+  script 0x0825315E  [ok]
+    0825315E  msgbox_multilang     type=0 text_0="Good things can happen if you raise\nPokémon diligently.\pEven the weak ones can surprise\nyou if you don’t give up on them." text_1="Good things can happen if you raise\nPokémon diligently.\pEven the weak ones can surprise\nyou if you don’t give up on them." text_2="Good things can happen if you raise\nPokémon diligently.\pEven the weak ones can surprise\nyou if you don’t give up on them." text_3="Good things can happen if you raise\nPokémon diligently.\pEven the weak ones can surprise\nyou if you don’t give up on them." text_4="Good things can happen if you raise\nPokémon diligently.\pEven the weak ones can surprise\nyou if you don’t give up on them." text_5="Good things can happen if you raise\nPokémon diligently.\pEven the weak ones can surprise\nyou if you don’t give up on them." text_6="Good things can happen if you raise\nPokémon diligently.\pEven the weak ones can surprise\nyou if you don’t give up on them."
+    0825317C  callstd              function=MSGBOX_NPC(2)
+    0825317E  end                  
+
+  object 3 (gfx 0x11, flag 0x0000) -> 0x0825317F
+  script 0x0825317F  [opcode-out-of-range:0xFE]
+    0825317F  lock                 
+    08253180  faceplayer           
+    08253181  call                 destination=0x082BB330
+    08253186  message              text="Hi, there!\nMay I help you?"
+    0825318B  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+

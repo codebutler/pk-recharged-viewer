@@ -1,0 +1,70 @@
+Safari Zone  (group 1, map 66)  header 0x08B3B950
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x0189) -> 0x082D5863
+  script 0x082D5863  [ok]
+    082D5863  setorcopyvar         destination=VAR_0x8000 source=353
+    082D5868  setorcopyvar         destination=VAR_0x8001 source=1
+    082D586D  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Gold Teeth
+    082D586F  end                  
+
+  object 2 (gfx 0x55, flag 0x0188) -> 0x082D5856
+  script 0x082D5856  [ok]
+    082D5856  setorcopyvar         destination=VAR_0x8000 source=320
+    082D585B  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5860  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM32
+    082D5862  end                  
+
+  object 3 (gfx 0x35, flag 0x018A) -> 0x082D5870
+  script 0x082D5870  [ok]
+    082D5870  setorcopyvar         destination=VAR_0x8000 source=20
+    082D5875  setorcopyvar         destination=VAR_0x8001 source=1
+    082D587A  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Max Potion
+    082D587C  end                  
+
+  object 4 (gfx 0x35, flag 0x018B) -> 0x082D587D
+  script 0x082D587D  [ok]
+    082D587D  setorcopyvar         destination=VAR_0x8000 source=25
+    082D5882  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5887  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Max Revive
+    082D5889  end                  
+
+  sign 0 at (27,9) -> 0x082128A5
+  script 0x082128A5  [ok]
+    082128A5  msgbox_multilang     type=0 text_0="Request Notice\pPlease find the Safari Warden’s\nlost Gold Teeth.\pThey’re around here somewhere.\pReward offered!\nContact: Warden" text_1="Request Notice\pPlease find the Safari Warden’s\nlost Gold Teeth.\pThey’re around here somewhere.\pReward offered!\nContact: Warden" text_2="Request Notice\pPlease find the Safari Warden’s\nlost Gold Teeth.\pThey’re around here somewhere.\pReward offered!\nContact: Warden" text_3="Request Notice\pPlease find the Safari Warden’s\nlost Gold Teeth.\pThey’re around here somewhere.\pReward offered!\nContact: Warden" text_4="Request Notice\pPlease find the Safari Warden’s\nlost Gold Teeth.\pThey’re around here somewhere.\pReward offered!\nContact: Warden" text_5="Request Notice\pPlease find the Safari Warden’s\nlost Gold Teeth.\pThey’re around here somewhere.\pReward offered!\nContact: Warden" text_6="Request Notice\pPlease find the Safari Warden’s\nlost Gold Teeth.\pThey’re around here somewhere.\pReward offered!\nContact: Warden"
+    082128C3  callstd              function=MSGBOX_SIGN(3)
+    082128C5  end                  
+
+  sign 1 at (36,10) -> 0x082128C6
+  script 0x082128C6  [ok]
+    082128C6  msgbox_multilang     type=0 text_0="Trainer Tips\pZone Exploration Campaign!\nThe Search for the Secret House!" text_1="Trainer Tips\pZone Exploration Campaign!\nThe Search for the Secret House!" text_2="Trainer Tips\pZone Exploration Campaign!\nThe Search for the Secret House!" text_3="Trainer Tips\pZone Exploration Campaign!\nThe Search for the Secret House!" text_4="Trainer Tips\pZone Exploration Campaign!\nThe Search for the Secret House!" text_5="Trainer Tips\pZone Exploration Campaign!\nThe Search for the Secret House!" text_6="Trainer Tips\pZone Exploration Campaign!\nThe Search for the Secret House!"
+    082128E4  callstd              function=MSGBOX_SIGN(3)
+    082128E6  end                  
+
+  sign 2 at (35,26) -> 0x082128E7
+  script 0x082128E7  [ok]
+    082128E7  msgbox_multilang     type=0 text_0="Area 3\nEast: Center Area" text_1="Area 3\nEast: Center Area" text_2="Area 3\nEast: Center Area" text_3="Area 3\nEast: Center Area" text_4="Area 3\nEast: Center Area" text_5="Area 3\nEast: Center Area" text_6="Area 3\nEast: Center Area"
+    08212905  callstd              function=MSGBOX_SIGN(3)
+    08212907  end                  
+
+  sign 3 at (22,19) -> 0x08212884
+  script 0x08212884  [ok]
+    08212884  msgbox_multilang     type=0 text_0="Rest House" text_1="Rest House" text_2="Rest House" text_3="Rest House" text_4="Rest House" text_5="Rest House" text_6="Rest House"
+    082128A2  callstd              function=MSGBOX_SIGN(3)
+    082128A4  end                  
+
+  hidden item at (13,11): Revive
+

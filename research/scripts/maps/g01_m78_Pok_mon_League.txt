@@ -1,0 +1,169 @@
+Pokémon League  (group 1, map 78)  header 0x08B3BAA0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x17, flag 0x0000) -> 0x08213DB4
+  script 0x08213DB4  [ok]
+    08213DB4  lock                 
+    08213DB5  faceplayer           
+    08213DB6  speakername          name="Lance"
+    08213DBB  setvar               destination=VAR_0x8004 value=12
+    08213DC0  setvar               destination=VAR_0x8005 value=2
+    08213DC5  special              SPECIAL_\function=348
+    08213DC8  checkflag            flag=0x4BB
+    08213DCB  goto_if              condition=1 destination=0x08213E68
+    08213DD1  setvar               destination=VAR_0x8004 value=12
+    08213DD6  setvar               destination=VAR_0x8005 value=0
+    08213DDB  special              SPECIAL_\function=347
+    08213DDE  setvar               destination=VAR_0x8004 value=12
+    08213DE3  setvar               destination=VAR_0x8005 value=1
+    08213DE8  special              SPECIAL_\function=347
+    08213DEB  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08213DEE  goto_if              condition=0 destination=0x08213E8A
+    08213DF4  msgbox_multilang     type=0 text_0="Ah!\nSo, you’ve returned, {PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_1="Ah!\nSo, you’ve returned, {PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_2="Ah!\nSo, you’ve returned, {PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_3="Ah!\nSo, you’ve returned, {PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_4="Ah!\nSo, you’ve returned, {PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_5="Ah!\nSo, you’ve returned, {PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_6="Ah!\nSo, you’ve returned, {PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}"
+    08213E12  callstd              function=MSGBOX_DEFAULT(4)
+    08213E14  setflag              flag=0x003
+    08213E17  setflag              flag=0x005
+    08213E1A  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08213E1D  goto_if              condition=0 destination=0x08213EAF
+    08213E23  trainerbattle        type=3 trainer=0x2E2 localId=0 ptr1=0x0821417B
+    08213E2D  clearflag            flag=0x005
+    08213E30  setvar               destination=VAR_0x8004 value=0
+    08213E35  special              SPECIAL_\function=100
+    08213E38  setflag              flag=0x4BB
+    08213E3B  call                 destination=0x0820117F
+    08213E40  speakername          name="Lance"
+    08213E45  msgbox_multilang     type=0 text_0="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_1="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_2="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_3="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_4="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_5="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_6="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion."
+    08213E63  callstd              function=MSGBOX_DEFAULT(4)
+    08213E65  closemessage         
+    08213E66  release              
+
+  script 0x08213E68  [ok]
+    08213E68  msgbox_multilang     type=0 text_0="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_1="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_2="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_3="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_4="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_5="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_6="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion."
+    08213E86  callstd              function=MSGBOX_DEFAULT(4)
+    08213E88  release              
+
+  script 0x08213E8A  [ok]
+    08213E8A  msgbox_multilang     type=0 text_0="Ah! I’ve heard about you,\n{PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_1="Ah! I’ve heard about you,\n{PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_2="Ah! I’ve heard about you,\n{PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_3="Ah! I’ve heard about you,\n{PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_4="Ah! I’ve heard about you,\n{PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_5="Ah! I’ve heard about you,\n{PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}" text_6="Ah! I’ve heard about you,\n{PLAYER}!\pI lead the Elite Four.\pYou can call me Lance the dragon\nTrainer.\pYou know that dragons are mythical\nPokémon.\pThey’re hard to catch and raise, but\ntheir powers are superior.\pThey’re virtually indestructible.\nThere’s no being clever with them.\pWell, are you ready to lose?\pYour League challenge ends with me,\n{PLAYER}!{CTRL_0B}"
+    08213EA8  callstd              function=MSGBOX_DEFAULT(4)
+    08213EAA  goto                 destination=0x08213E14
+
+  script 0x08213EAF  [ok]
+    08213EAF  trainerbattle        type=3 trainer=0x19D localId=0 ptr1=0x0821417B
+    08213EB9  goto                 destination=0x08213E2D
+
+  script 0x0820117F  [ok]
+    0820117F  applymovement        localId=255 movements=[delay_16 delay_16]
+    08201186  waitmovement         localId=0
+    08201189  playse               song=248
+    0820118C  setmetatile          x=6 y=4 metatileId=654 impassable=1
+    08201195  setmetatile          x=6 y=5 metatileId=662 impassable=0
+    0820119E  special              SPECIAL_\function=79
+    082011A1  setflag              flag=0x004
+    082011A4  return               
+
+  script 0x08213E14  [ok]
+    08213E14  setflag              flag=0x003
+    08213E17  setflag              flag=0x005
+    08213E1A  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08213E1D  goto_if              condition=0 destination=0x08213EAF
+    08213E23  trainerbattle        type=3 trainer=0x2E2 localId=0 ptr1=0x0821417B
+    08213E2D  clearflag            flag=0x005
+    08213E30  setvar               destination=VAR_0x8004 value=0
+    08213E35  special              SPECIAL_\function=100
+    08213E38  setflag              flag=0x4BB
+    08213E3B  call                 destination=0x0820117F
+    08213E40  speakername          name="Lance"
+    08213E45  msgbox_multilang     type=0 text_0="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_1="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_2="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_3="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_4="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_5="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_6="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion."
+    08213E63  callstd              function=MSGBOX_DEFAULT(4)
+    08213E65  closemessage         
+    08213E66  release              
+
+  script 0x08213E2D  [ok]
+    08213E2D  clearflag            flag=0x005
+    08213E30  setvar               destination=VAR_0x8004 value=0
+    08213E35  special              SPECIAL_\function=100
+    08213E38  setflag              flag=0x4BB
+    08213E3B  call                 destination=0x0820117F
+    08213E40  speakername          name="Lance"
+    08213E45  msgbox_multilang     type=0 text_0="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_1="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_2="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_3="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_4="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_5="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion." text_6="I still can’t believe my dragons lost\nto you, {PLAYER}.\pYou are now the Pokémon League\nChampion!\p…Or, you would have been, but you\nhave one more challenge left.\pThere is one more Trainer to face!\nHis name is…\p{RIVAL}!\pHe beat the Elite Four before you.\pHe is the real Pokémon League\nChampion."
+    08213E63  callstd              function=MSGBOX_DEFAULT(4)
+    08213E65  closemessage         
+    08213E66  release              
+
+  map script type 5 -> 0x08213CDA
+  script 0x08213CDA  [ok]
+    08213CDA  setvar               destination=VAR_0x8004 value=3
+    08213CDF  call                 destination=0x082011F1
+    08213CE4  end                  
+
+  script 0x082011F1  [ok]
+    082011F1  special              SPECIAL_\function=368
+    082011F4  return               
+
+  map script type 1 -> 0x08213CE5
+  script 0x08213CE5  [ok]
+    08213CE5  compare_var_to_value var=0x4068 value=4
+    08213CEA  goto_if              condition=1 destination=0x08213CFA
+    08213CF0  checkflag            flag=0x4BB
+    08213CF3  goto_if              condition=1 destination=0x08213D04
+    08213CF9  end                  
+
+  script 0x08213CFA  [ok]
+    08213CFA  call                 destination=0x08213D48
+    08213CFF  goto                 destination=0x08213CF0
+
+  script 0x08213D04  [ok]
+    08213D04  call                 destination=0x082011A5
+    08213D09  goto                 destination=0x08213CF9
+
+  script 0x08213D48  [ok]
+    08213D48  setmetatile          x=5 y=14 metatileId=669 impassable=1
+    08213D51  setmetatile          x=6 y=14 metatileId=670 impassable=1
+    08213D5A  setmetatile          x=7 y=14 metatileId=671 impassable=1
+    08213D63  setmetatile          x=5 y=15 metatileId=677 impassable=1
+    08213D6C  setmetatile          x=6 y=15 metatileId=678 impassable=1
+    08213D75  setmetatile          x=7 y=15 metatileId=679 impassable=1
+    08213D7E  setmetatile          x=6 y=16 metatileId=785 impassable=0
+    08213D87  setmetatile          x=7 y=16 metatileId=785 impassable=0
+    08213D90  return               
+
+  script 0x08213CF0  [ok]
+    08213CF0  checkflag            flag=0x4BB
+    08213CF3  goto_if              condition=1 destination=0x08213D04
+    08213CF9  end                  
+
+  script 0x082011A5  [ok]
+    082011A5  setmetatile          x=6 y=4 metatileId=654 impassable=1
+    082011AE  setmetatile          x=6 y=5 metatileId=662 impassable=0
+    082011B7  return               
+
+  script 0x08213CF9  [ok]
+    08213CF9  end                  
+
+  map script type 4 (var 0x4001 == 0) -> 0x08213D18
+  script 0x08213D18  [ok]
+    08213D18  turnobject           localId=255 direction=2
+    08213D1C  end                  
+
+  map script type 2 (var 0x4068 == 3) -> 0x08213D27
+  script 0x08213D27  [ok]
+    08213D27  lockall              
+    08213D28  applymovement        localId=255 movements=[walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_down walk_down walk_down walk_down walk_down walk_down walk_down walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up ...]
+    08213D2F  waitmovement         localId=0
+    08213D32  setflag              flag=0x002
+    08213D35  call                 destination=0x08213D48
+    08213D3A  playse               song=44
+    08213D3D  special              SPECIAL_\function=79
+    08213D40  waitse               
+    08213D41  setvar               destination=VAR_0x4068 value=4
+    08213D46  releaseall           
+

@@ -1,0 +1,173 @@
+Saffron City  (group 14, map 2)  header 0x08B3D748
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x07, flag 0x0000) -> 0x0826FEA0
+  script 0x0826FEA0  [ok]
+    0826FEA0  trainerbattle        type=0 trainer=0x141 localId=0 ptr1=0x08270274 ptr2=0x082702A4
+    0826FEAE  msgbox_multilang     type=0 text_0="The prime fighters across the land\ntrain here." text_1="The prime fighters across the land\ntrain here." text_2="The prime fighters across the land\ntrain here." text_3="The prime fighters across the land\ntrain here." text_4="The prime fighters across the land\ntrain here." text_5="The prime fighters across the land\ntrain here." text_6="The prime fighters across the land\ntrain here."
+    0826FECC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826FECE  end                  
+
+  object 2 (gfx 0x07, flag 0x0000) -> 0x0826FECF
+  script 0x0826FECF  [ok]
+    0826FECF  trainerbattle        type=0 trainer=0x13F localId=0 ptr1=0x08270175 ptr2=0x08270192
+    0826FEDD  msgbox_multilang     type=0 text_0="Our Master is a pro fighter.\nBe prepared to lose!" text_1="Our Master is a pro fighter.\nBe prepared to lose!" text_2="Our Master is a pro fighter.\nBe prepared to lose!" text_3="Our Master is a pro fighter.\nBe prepared to lose!" text_4="Our Master is a pro fighter.\nBe prepared to lose!" text_5="Our Master is a pro fighter.\nBe prepared to lose!" text_6="Our Master is a pro fighter.\nBe prepared to lose!"
+    0826FEFB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826FEFD  end                  
+
+  object 3 (gfx 0x07, flag 0x0000) -> 0x0826FEFE
+  script 0x0826FEFE  [ok]
+    0826FEFE  trainerbattle        type=0 trainer=0x140 localId=0 ptr1=0x082701D6 ptr2=0x0827022B
+    0826FF0C  msgbox_multilang     type=0 text_0="The only thing that frightens us is\npsychic power!" text_1="The only thing that frightens us is\npsychic power!" text_2="The only thing that frightens us is\npsychic power!" text_3="The only thing that frightens us is\npsychic power!" text_4="The only thing that frightens us is\npsychic power!" text_5="The only thing that frightens us is\npsychic power!" text_6="The only thing that frightens us is\npsychic power!"
+    0826FF2A  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826FF2C  end                  
+
+  object 4 (gfx 0x07, flag 0x0000) -> 0x0826FF2D
+  script 0x0826FF2D  [ok]
+    0826FF2D  trainerbattle        type=0 trainer=0x13E localId=0 ptr1=0x0827010A ptr2=0x08270127
+    0826FF3B  msgbox_multilang     type=0 text_0="You wait ’til you see our Master!\nI’m a small fry compared to him!" text_1="You wait ’til you see our Master!\nI’m a small fry compared to him!" text_2="You wait ’til you see our Master!\nI’m a small fry compared to him!" text_3="You wait ’til you see our Master!\nI’m a small fry compared to him!" text_4="You wait ’til you see our Master!\nI’m a small fry compared to him!" text_5="You wait ’til you see our Master!\nI’m a small fry compared to him!" text_6="You wait ’til you see our Master!\nI’m a small fry compared to him!"
+    0826FF59  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826FF5B  end                  
+
+  object 5 (gfx 0x07, flag 0x0000) -> 0x0826FF5C
+  script 0x0826FF5C  [ok]
+    0826FF5C  trainerbattle        type=2 trainer=0x13D localId=0 ptr1=0x0826FFC1 ptr2=0x08270028 ptr3=0x0826FFBA
+    0826FF6E  checkflag            flag=0x278
+    0826FF71  goto_if              condition=1 destination=0x0826FF98
+    0826FF77  msgbox_multilang     type=0 text_0="Indeed, I have lost!\pBut, I beseech you, do not take\nour emblem as your trophy!\pIn return, I will give you a prized\nFighting Pokémon!\pChoose whichever one you like!" text_1="Indeed, I have lost!\pBut, I beseech you, do not take\nour emblem as your trophy!\pIn return, I will give you a prized\nFighting Pokémon!\pChoose whichever one you like!" text_2="Indeed, I have lost!\pBut, I beseech you, do not take\nour emblem as your trophy!\pIn return, I will give you a prized\nFighting Pokémon!\pChoose whichever one you like!" text_3="Indeed, I have lost!\pBut, I beseech you, do not take\nour emblem as your trophy!\pIn return, I will give you a prized\nFighting Pokémon!\pChoose whichever one you like!" text_4="Indeed, I have lost!\pBut, I beseech you, do not take\nour emblem as your trophy!\pIn return, I will give you a prized\nFighting Pokémon!\pChoose whichever one you like!" text_5="Indeed, I have lost!\pBut, I beseech you, do not take\nour emblem as your trophy!\pIn return, I will give you a prized\nFighting Pokémon!\pChoose whichever one you like!" text_6="Indeed, I have lost!\pBut, I beseech you, do not take\nour emblem as your trophy!\pIn return, I will give you a prized\nFighting Pokémon!\pChoose whichever one you like!"
+    0826FF95  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826FF97  end                  
+
+  script 0x0826FFBA  [ok]
+    0826FFBA  setvar               destination=VAR_0x4081 value=1
+    0826FFBF  release              
+
+  script 0x0826FF98  [ok]
+    0826FF98  msgbox_multilang     type=0 text_0="Grunt!\nStay and train at karate with us!" text_1="Grunt!\nStay and train at karate with us!" text_2="Grunt!\nStay and train at karate with us!" text_3="Grunt!\nStay and train at karate with us!" text_4="Grunt!\nStay and train at karate with us!" text_5="Grunt!\nStay and train at karate with us!" text_6="Grunt!\nStay and train at karate with us!"
+    0826FFB6  callstd              function=MSGBOX_DEFAULT(4)
+    0826FFB8  release              
+
+  object 6 (gfx 0x35, flag 0x0060) -> 0x0826FC64
+  script 0x0826FC64  [ok]
+    0826FC64  lock                 
+    0826FC65  faceplayer           
+    0826FC66  checkflag            flag=0x278
+    0826FC69  goto_if              condition=1 destination=0x0826FCB8
+    0826FC6F  showmonpic           species=HITMONLEE(106) x=10 y=3
+    0826FC74  setvar               destination=VAR_0x4001 value=106
+    0826FC79  applymovement        localId=5 movements=[walk_in_place_faster_up]
+    0826FC80  waitmovement         localId=0
+    0826FC83  textcolor            color=0
+    0826FC85  msgbox_multilang     type=0 text_0="You want the hard-kicking\nHitmonlee?" text_1="You want the hard-kicking\nHitmonlee?" text_2="You want the hard-kicking\nHitmonlee?" text_3="You want the hard-kicking\nHitmonlee?" text_4="You want the hard-kicking\nHitmonlee?" text_5="You want the hard-kicking\nHitmonlee?" text_6="You want the hard-kicking\nHitmonlee?"
+    0826FCA3  callstd              function=MSGBOX_YESNO(5)
+    0826FCA5  call                 destination=0x082BB551
+    0826FCAA  compare_var_to_value var=0x800D value=1
+    0826FCAF  goto_if              condition=1 destination=0x0826FD2E
+    0826FCB5  hidemonpic           
+    0826FCB6  release              
+
+  script 0x0826FCB8  [ok]
+    0826FCB8  msgbox_multilang     type=0 text_0="Better not get greedy…" text_1="Better not get greedy…" text_2="Better not get greedy…" text_3="Better not get greedy…" text_4="Better not get greedy…" text_5="Better not get greedy…" text_6="Better not get greedy…"
+    0826FCD6  callstd              function=MSGBOX_DEFAULT(4)
+    0826FCD8  release              
+
+  script 0x082BB551  [ok]
+    082BB551  copyvar              destination=VAR_0x8012 source=VAR_0x8013
+    082BB556  return               
+
+  script 0x0826FD2E  [ok]
+    0826FD2E  hidemonpic           
+    0826FD2F  givemon              species=?(16385) level=25 item=0 0=0 0=0 0=0
+    0826FD3E  compare_var_to_value var=0x800D value=0
+    0826FD43  goto_if              condition=1 destination=0x0826FD61
+    0826FD49  compare_var_to_value var=0x800D value=1
+    0826FD4E  goto_if              condition=1 destination=0x0826FDCB
+    0826FD54  compare_var_to_value var=0x800D value=2
+    0826FD59  goto_if              condition=1 destination=0x082F8102
+    0826FD5F  release              
+
+  script 0x0826FD61  [ok]
+    0826FD61  removeobject         localId=32783
+    0826FD64  bufferspeciesname    stringVarId=0 species=?(16385)
+    0826FD68  playfanfare          song=367
+    0826FD6B  message              text="{PLAYER} received the {STR_VAR_1}\nfrom the Karate Master."
+    0826FD70  gotostd              function=MSGBOX_SIGN(3)
+    0826FD72  waitstate            
+
+  script 0x0826FDCB  [ok]
+    0826FDCB  removeobject         localId=32783
+    0826FDCE  bufferspeciesname    stringVarId=0 species=?(16385)
+    0826FDD2  playfanfare          song=367
+    0826FDD5  message              text="{PLAYER} received the {STR_VAR_1}\nfrom the Karate Master."
+    0826FDDA  gotostd              function=MSGBOX_SIGN(3)
+    0826FDDC  waitstate            
+
+  script 0x082F8102  [ok]
+    082F8102  textcolor            color=3
+    082F8104  msgbox_multilang     type=0 text_0="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_1="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_2="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_3="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_4="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_5="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_6="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!"
+    082F8122  callstd              function=MSGBOX_DEFAULT(4)
+    082F8124  release              
+
+  object 7 (gfx 0x35, flag 0x0061) -> 0x0826FCDA
+  script 0x0826FCDA  [ok]
+    0826FCDA  lock                 
+    0826FCDB  faceplayer           
+    0826FCDC  checkflag            flag=0x278
+    0826FCDF  goto_if              condition=1 destination=0x0826FCB8
+    0826FCE5  showmonpic           species=HITMONCHAN(107) x=10 y=3
+    0826FCEA  setvar               destination=VAR_0x4001 value=107
+    0826FCEF  applymovement        localId=5 movements=[walk_in_place_faster_up]
+    0826FCF6  waitmovement         localId=0
+    0826FCF9  textcolor            color=0
+    0826FCFB  msgbox_multilang     type=0 text_0="You want the piston-punching\nHitmonchan?" text_1="You want the piston-punching\nHitmonchan?" text_2="You want the piston-punching\nHitmonchan?" text_3="You want the piston-punching\nHitmonchan?" text_4="You want the piston-punching\nHitmonchan?" text_5="You want the piston-punching\nHitmonchan?" text_6="You want the piston-punching\nHitmonchan?"
+    0826FD19  callstd              function=MSGBOX_YESNO(5)
+    0826FD1B  call                 destination=0x082BB551
+    0826FD20  compare_var_to_value var=0x800D value=1
+    0826FD25  goto_if              condition=1 destination=0x0826FD2E
+    0826FD2B  hidemonpic           
+    0826FD2C  release              
+
+  coord trigger 0 (var 0x4081 == 0) -> 0x0826FC40
+  script 0x0826FC40  [ok]
+    0826FC40  lockall              
+    0826FC41  setvar               destination=VAR_0x4081 value=1
+    0826FC46  applymovement        localId=5 movements=[walk_in_place_faster_left]
+    0826FC4D  waitmovement         localId=0
+    0826FC50  releaseall           
+
+  coord trigger 1 (var 0x4081 == 0) -> 0x0826FC52
+  script 0x0826FC52  [ok]
+    0826FC52  lockall              
+    0826FC53  setvar               destination=VAR_0x4081 value=1
+    0826FC58  applymovement        localId=5 movements=[walk_in_place_faster_right]
+    0826FC5F  waitmovement         localId=0
+    0826FC62  releaseall           
+
+  sign 0 at (3,13) -> 0x0826FE3D
+  script 0x0826FE3D  [ok]
+    0826FE3D  msgbox_multilang     type=0 text_0="Fighting Dojo" text_1="Fighting Dojo" text_2="Fighting Dojo" text_3="Fighting Dojo" text_4="Fighting Dojo" text_5="Fighting Dojo" text_6="Fighting Dojo"
+    0826FE5B  callstd              function=MSGBOX_SIGN(3)
+    0826FE5D  end                  
+
+  sign 1 at (9,13) -> 0x0826FE3D
+  sign 2 at (5,2) -> 0x0826FE5E
+  script 0x0826FE5E  [ok]
+    0826FE5E  msgbox_multilang     type=0 text_0="Enemies on every side!" text_1="Enemies on every side!" text_2="Enemies on every side!" text_3="Enemies on every side!" text_4="Enemies on every side!" text_5="Enemies on every side!" text_6="Enemies on every side!"
+    0826FE7C  callstd              function=MSGBOX_SIGN(3)
+    0826FE7E  end                  
+
+  sign 3 at (7,2) -> 0x0826FE7F
+  script 0x0826FE7F  [ok]
+    0826FE7F  msgbox_multilang     type=0 text_0="What goes around comes around." text_1="What goes around comes around." text_2="What goes around comes around." text_3="What goes around comes around." text_4="What goes around comes around." text_5="What goes around comes around." text_6="What goes around comes around."
+    0826FE9D  callstd              function=MSGBOX_SIGN(3)
+    0826FE9F  end                  
+

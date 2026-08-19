@@ -1,0 +1,145 @@
+Indigo Plateau  (group 13, map 0)  header 0x08B3D6D8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0826F424
+  script 0x0826F424  [opcode-out-of-range:0xFE]
+    0826F424  lock                 
+    0826F425  faceplayer           
+    0826F426  call                 destination=0x082BB330
+    0826F42B  message              text="Hi, there!\nMay I help you?"
+    0826F430  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x3A, flag 0x0000) -> 0x0826F48A
+  script 0x0826F48A  [ok]
+    0826F48A  lock                 
+    0826F48B  faceplayer           
+    0826F48C  call                 destination=0x082BB336
+    0826F491  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 3 (gfx 0x27, flag 0x0000) -> 0x0826F403
+  script 0x0826F403  [ok]
+    0826F403  msgbox_multilang     type=0 text_0="Yo!\nChamp in the making!\pAt the Pokémon League, you will face\nthe Elite Four all in a row.\pIf you lose, you have to start all\nover again!\pThis is it!\nGo for it!" text_1="Yo!\nChamp in the making!\pAt the Pokémon League, you will face\nthe Elite Four all in a row.\pIf you lose, you have to start all\nover again!\pThis is it!\nGo for it!" text_2="Yo!\nChamp in the making!\pAt the Pokémon League, you will face\nthe Elite Four all in a row.\pIf you lose, you have to start all\nover again!\pThis is it!\nGo for it!" text_3="Yo!\nChamp in the making!\pAt the Pokémon League, you will face\nthe Elite Four all in a row.\pIf you lose, you have to start all\nover again!\pThis is it!\nGo for it!" text_4="Yo!\nChamp in the making!\pAt the Pokémon League, you will face\nthe Elite Four all in a row.\pIf you lose, you have to start all\nover again!\pThis is it!\nGo for it!" text_5="Yo!\nChamp in the making!\pAt the Pokémon League, you will face\nthe Elite Four all in a row.\pIf you lose, you have to start all\nover again!\pThis is it!\nGo for it!" text_6="Yo!\nChamp in the making!\pAt the Pokémon League, you will face\nthe Elite Four all in a row.\pIf you lose, you have to start all\nover again!\pThis is it!\nGo for it!"
+    0826F421  callstd              function=MSGBOX_NPC(2)
+    0826F423  end                  
+
+  object 4 (gfx 0xFB, flag 0x0000) -> 0x0826F36C
+  script 0x0826F36C  [ok]
+    0826F36C  lock                 
+    0826F36D  faceplayer           
+    0826F36E  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0826F371  goto_if              condition=1 destination=0x0826F399
+    0826F377  msgbox_multilang     type=0 text_0="From here on, you face the Elite\nFour one by one.\pIf you win, a door opens to the next\nTrainer. Good luck!" text_1="From here on, you face the Elite\nFour one by one.\pIf you win, a door opens to the next\nTrainer. Good luck!" text_2="From here on, you face the Elite\nFour one by one.\pIf you win, a door opens to the next\nTrainer. Good luck!" text_3="From here on, you face the Elite\nFour one by one.\pIf you win, a door opens to the next\nTrainer. Good luck!" text_4="From here on, you face the Elite\nFour one by one.\pIf you win, a door opens to the next\nTrainer. Good luck!" text_5="From here on, you face the Elite\nFour one by one.\pIf you win, a door opens to the next\nTrainer. Good luck!" text_6="From here on, you face the Elite\nFour one by one.\pIf you win, a door opens to the next\nTrainer. Good luck!"
+    0826F395  callstd              function=MSGBOX_DEFAULT(4)
+    0826F397  release              
+
+  script 0x0826F399  [unknown-opcode:0xE9]
+    0826F399  checkitem            itemId=Power Items(406) quantity=1
+    0826F39E  compare_var_to_value var=0x800D value=1
+    0826F3A3  goto_if              condition=1 destination=0x0826F3DE
+    0826F3A9  msgbox_multilang     type=0 text_0="You are the Champ!\pFrom now on, the League will be much\nharder, proper training is required.\pI know! There! This will help you to\ncontinue being the Champ!" text_1="You are the Champ!\pFrom now on, the League will be much\nharder, proper training is required.\pI know! There! This will help you to\ncontinue being the Champ!" text_2="You are the Champ!\pFrom now on, the League will be much\nharder, proper training is required.\pI know! There! This will help you to\ncontinue being the Champ!" text_3="You are the Champ!\pFrom now on, the League will be much\nharder, proper training is required.\pI know! There! This will help you to\ncontinue being the Champ!" text_4="You are the Champ!\pFrom now on, the League will be much\nharder, proper training is required.\pI know! There! This will help you to\ncontinue being the Champ!" text_5="You are the Champ!\pFrom now on, the League will be much\nharder, proper training is required.\pI know! There! This will help you to\ncontinue being the Champ!" text_6="You are the Champ!\pFrom now on, the League will be much\nharder, proper training is required.\pI know! There! This will help you to\ncontinue being the Champ!"
+    0826F3C7  callstd              function=MSGBOX_DEFAULT(4)
+
+  script 0x0826F3DE  [ok]
+    0826F3DE  msgbox_multilang     type=0 text_0="Congrats on defeating the Champion.\nGood luck in your next attempts!" text_1="Congrats on defeating the Champion.\nGood luck in your next attempts!" text_2="Congrats on defeating the Champion.\nGood luck in your next attempts!" text_3="Congrats on defeating the Champion.\nGood luck in your next attempts!" text_4="Congrats on defeating the Champion.\nGood luck in your next attempts!" text_5="Congrats on defeating the Champion.\nGood luck in your next attempts!" text_6="Congrats on defeating the Champion.\nGood luck in your next attempts!"
+    0826F3FC  callstd              function=MSGBOX_DEFAULT(4)
+    0826F3FE  goto                 destination=0x0826F397
+
+  script 0x0826F397  [ok]
+    0826F397  release              
+
+  object 5 (gfx 0x07, flag 0x009D) -> 0x081F28A2
+  script 0x081F28A2  [ok]
+    081F28A2  lock                 
+    081F28A3  faceplayer           
+    081F28A4  setvar               destination=VAR_0x8004 value=11
+    081F28A9  setvar               destination=VAR_0x8005 value=1
+    081F28AE  special              SPECIAL_\function=347
+    081F28B1  setvar               destination=VAR_0x8004 value=11
+    081F28B6  setvar               destination=VAR_0x8005 value=2
+    081F28BB  special              SPECIAL_\function=347
+    081F28BE  msgbox_multilang     type=0 text_0="Agatha’s Ghost-type Pokémon are\nhorrifically terrifying in toughness.\pI took my Fighting-type Pokémon\nand raised them to the max.\pI went at Agatha feeling pretty\nconfident, but she whupped us.\pThat old lady’s also got a really\nshort fuse, too.\pIt doesn’t take anything to get\nthat scary lady hollering." text_1="Agatha’s Ghost-type Pokémon are\nhorrifically terrifying in toughness.\pI took my Fighting-type Pokémon\nand raised them to the max.\pI went at Agatha feeling pretty\nconfident, but she whupped us.\pThat old lady’s also got a really\nshort fuse, too.\pIt doesn’t take anything to get\nthat scary lady hollering." text_2="Agatha’s Ghost-type Pokémon are\nhorrifically terrifying in toughness.\pI took my Fighting-type Pokémon\nand raised them to the max.\pI went at Agatha feeling pretty\nconfident, but she whupped us.\pThat old lady’s also got a really\nshort fuse, too.\pIt doesn’t take anything to get\nthat scary lady hollering." text_3="Agatha’s Ghost-type Pokémon are\nhorrifically terrifying in toughness.\pI took my Fighting-type Pokémon\nand raised them to the max.\pI went at Agatha feeling pretty\nconfident, but she whupped us.\pThat old lady’s also got a really\nshort fuse, too.\pIt doesn’t take anything to get\nthat scary lady hollering." text_4="Agatha’s Ghost-type Pokémon are\nhorrifically terrifying in toughness.\pI took my Fighting-type Pokémon\nand raised them to the max.\pI went at Agatha feeling pretty\nconfident, but she whupped us.\pThat old lady’s also got a really\nshort fuse, too.\pIt doesn’t take anything to get\nthat scary lady hollering." text_5="Agatha’s Ghost-type Pokémon are\nhorrifically terrifying in toughness.\pI took my Fighting-type Pokémon\nand raised them to the max.\pI went at Agatha feeling pretty\nconfident, but she whupped us.\pThat old lady’s also got a really\nshort fuse, too.\pIt doesn’t take anything to get\nthat scary lady hollering." text_6="Agatha’s Ghost-type Pokémon are\nhorrifically terrifying in toughness.\pI took my Fighting-type Pokémon\nand raised them to the max.\pI went at Agatha feeling pretty\nconfident, but she whupped us.\pThat old lady’s also got a really\nshort fuse, too.\pIt doesn’t take anything to get\nthat scary lady hollering."
+    081F28DC  callstd              function=MSGBOX_DEFAULT(4)
+    081F28DE  release              
+
+  object 6 (gfx 0x00, flag 0x009D) -> 0x081F29D7
+  script 0x081F29D7  [ok]
+    081F29D7  lock                 
+    081F29D8  faceplayer           
+    081F29D9  setvar               destination=VAR_0x8004 value=12
+    081F29DE  setvar               destination=VAR_0x8005 value=4
+    081F29E3  special              SPECIAL_\function=347
+    081F29E6  textcolor            color=3
+    081F29E8  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature:\nElite Four’s Lance!\pLance’s grandfather is thought to\nbe the elder of a famous clan of\pdragon masters." text_1="Pokémon Journal\pSpecial Feature:\nElite Four’s Lance!\pLance’s grandfather is thought to\nbe the elder of a famous clan of\pdragon masters." text_2="Pokémon Journal\pSpecial Feature:\nElite Four’s Lance!\pLance’s grandfather is thought to\nbe the elder of a famous clan of\pdragon masters." text_3="Pokémon Journal\pSpecial Feature:\nElite Four’s Lance!\pLance’s grandfather is thought to\nbe the elder of a famous clan of\pdragon masters." text_4="Pokémon Journal\pSpecial Feature:\nElite Four’s Lance!\pLance’s grandfather is thought to\nbe the elder of a famous clan of\pdragon masters." text_5="Pokémon Journal\pSpecial Feature:\nElite Four’s Lance!\pLance’s grandfather is thought to\nbe the elder of a famous clan of\pdragon masters." text_6="Pokémon Journal\pSpecial Feature:\nElite Four’s Lance!\pLance’s grandfather is thought to\nbe the elder of a famous clan of\pdragon masters."
+    081F2A06  callstd              function=MSGBOX_DEFAULT(4)
+    081F2A08  release              
+
+  object 7 (gfx 0xFA, flag 0x009D) -> 0x081F2A0A
+  script 0x081F2A0A  [ok]
+    081F2A0A  lock                 
+    081F2A0B  faceplayer           
+    081F2A0C  setvar               destination=VAR_0x8004 value=12
+    081F2A11  setvar               destination=VAR_0x8005 value=5
+    081F2A16  special              SPECIAL_\function=347
+    081F2A19  msgbox_multilang     type=0 text_0="Maybe becoming an Elite Four\nmember is in the blood.\pFrom what I’ve heard, Lance has\na cousin who’s a Gym Leader\psomewhere far away." text_1="Maybe becoming an Elite Four\nmember is in the blood.\pFrom what I’ve heard, Lance has\na cousin who’s a Gym Leader\psomewhere far away." text_2="Maybe becoming an Elite Four\nmember is in the blood.\pFrom what I’ve heard, Lance has\na cousin who’s a Gym Leader\psomewhere far away." text_3="Maybe becoming an Elite Four\nmember is in the blood.\pFrom what I’ve heard, Lance has\na cousin who’s a Gym Leader\psomewhere far away." text_4="Maybe becoming an Elite Four\nmember is in the blood.\pFrom what I’ve heard, Lance has\na cousin who’s a Gym Leader\psomewhere far away." text_5="Maybe becoming an Elite Four\nmember is in the blood.\pFrom what I’ve heard, Lance has\na cousin who’s a Gym Leader\psomewhere far away." text_6="Maybe becoming an Elite Four\nmember is in the blood.\pFrom what I’ve heard, Lance has\na cousin who’s a Gym Leader\psomewhere far away."
+    081F2A37  callstd              function=MSGBOX_DEFAULT(4)
+    081F2A39  release              
+
+  object 8 (gfx 0x00, flag 0x009D) -> 0x081F29D7
+  object 9 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0826F33A
+  script 0x0826F33A  [ok]
+    0826F33A  setrespawn           heallocation=10
+    0826F33D  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0826F340  goto_if              condition=1 destination=0x0826F35C
+    0826F346  setdynamicwarp       mapGroup=1 mapNum=75 WARP_ID_NONE=0 -1=65535 -1=65535
+    0826F34E  end                  
+
+  script 0x0826F35C  [ok]
+    0826F35C  compare_var_to_value var=0x40EC value=0
+    0826F361  goto_if              condition=5 destination=0x0826F34F
+    0826F367  goto                 destination=0x0826F346
+
+  script 0x0826F34F  [ok]
+    0826F34F  setdynamicwarp       mapGroup=1 mapNum=79 WARP_ID_NONE=255 -1=6 -1=7
+    0826F357  goto                 destination=0x0826F34E
+
+  script 0x0826F346  [ok]
+    0826F346  setdynamicwarp       mapGroup=1 mapNum=75 WARP_ID_NONE=0 -1=65535 -1=65535
+    0826F34E  end                  
+
+  script 0x0826F34E  [ok]
+    0826F34E  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

@@ -1,0 +1,55 @@
+Pallet Town  (group 4, map 1)  header 0x08B3CE18
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3C, flag 0x0000) -> 0x082439C0
+  script 0x082439C0  [ok]
+    082439C0  msgbox_multilang     type=0 text_0="{PLAYER} played with the Switch.\p…Okay!\nIt’s time to go!" text_1="{PLAYER} jugó con la Switch.\p…¡Vale!\n¡Hora de irse!" text_2="{PLAYER} joue à la Switch.\p…Bon !\nFaut y aller !" text_3="{PLAYER} jogou com o Switch.\p…Certo!\nÉ hora de ir!" text_4="{PLAYER} played with the Switch.\p…Okay!\nIt’s time to go!" text_5="{PLAYER} played with the Switch.\p…Okay!\nIt’s time to go!" text_6="{PLAYER} played with the Switch.\p…Okay!\nIt’s time to go!"
+    082439DE  callstd              function=MSGBOX_SIGN(3)
+    082439E0  return               
+
+  sign 0 at (1,1) -> 0x082439E1
+  script 0x082439E1  [ok]
+    082439E1  lockall              
+    082439E2  setvar               destination=VAR_0x8004 value=1
+    082439E7  special              SPECIAL_\function=134
+    082439EA  playse               song=4
+    082439ED  waitse               
+    082439EE  msgbox_multilang     type=0 text_0="You have a beautiful wallpaper.\pThere is a Gyarados surrounded by\nmultiple Pokémon like Horsea." text_1="Tienes un fondo de escritorio\nprecioso.\pHay un Gyarados rodeado de muchos\nPokémon como Horsea." text_2="C’est un magnifique papier peint.\pOn y voit un Léviator entouré de\nplusieurs Pokémon comme Hypotrempe." text_3="C’è una bella immagine.\pRaffigura un Gyarados circondato da\nalcuni Horsea." text_4="Du hast einen wunderschönen\nHintergrund.\pDa ist ein Garados umgeben von vielen\nSeeper." text_5="Você tem um belo papel de parede.\pHá um Gyarados cercado por diversos\nPokémon como o Horsea." text_6="You have a beautiful wallpaper.\pThere is a Gyarados surrounded by\nmultiple Pokémon like Horsea."
+    08243A0C  callstd              function=MSGBOX_SIGN(3)
+    08243A0E  playse               song=3
+    08243A11  special              SPECIAL_\function=135
+    08243A14  releaseall           
+
+  sign 1 at (11,1) -> 0x0824399F
+  script 0x0824399F  [ok]
+    0824399F  msgbox_multilang     type=0 text_0="Pokémon Recharged Yellow\pFangame made with love by Jaizu." text_1="Pokémon Amarillo Recargado\pFangame hecho con amor por Jaizu." text_2="Pokémon Jaune Rechargé\pFangame fait avec amour par Jaizu." text_3="Pokémon Giallo Ricaricato\pFangame fatto con amore da Jaizu." text_4="Pokémon Aufgeladenes Gelb\pFanspiel mit Liebe gemacht von Jaizu." text_5="Pokémon Amarelo Recarregado\pÉ um Fangame feito com amor por\nJaizu." text_6="Pokémon Recharged Yellow\pFangame made with love by Jaizu."
+    082439BD  callstd              function=MSGBOX_SIGN(3)
+    082439BF  return               
+
+  map script type 3 -> 0x0824397B
+  script 0x0824397B  [ok]
+    0824397B  compare_var_to_value var=0x40E0 value=0
+    08243980  goto_if              condition=1 destination=0x08243987
+    08243986  end                  
+
+  script 0x08243987  [ok]
+    08243987  setrespawn           heallocation=1
+    0824398A  goto                 destination=0x08243986
+
+  script 0x08243986  [ok]
+    08243986  end                  
+
+  map script type 4 (var 0x40E0 == 0) -> 0x08243999
+  script 0x08243999  [ok]
+    08243999  setvar               destination=VAR_0x40E0 value=1
+    0824399E  end                  
+

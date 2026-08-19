@@ -1,0 +1,382 @@
+Fallarbor Town  (group 42, map 2)  header 0x08B3E7CC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x5B, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x07, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x5A, flag 0x0000) -> 0x00000000
+  map script type 3 -> 0x08284E52
+  script 0x08284E52  [ok]
+    08284E52  call                 destination=0x08284E58
+    08284E57  end                  
+
+  script 0x08284E58  [ok]
+    08284E58  checkplayergender    
+    08284E59  compare_var_to_value var=0x800D value=0
+    08284E5E  goto_if              condition=1 destination=0x08284E70
+    08284E64  compare_var_to_value var=0x800D value=1
+    08284E69  goto_if              condition=1 destination=0x08284E7B
+    08284E6F  return               
+
+  script 0x08284E70  [ok]
+    08284E70  setvar               destination=VAR_0x4011 value=0
+    08284E75  setvar               destination=VAR_0x4010 value=0
+    08284E7A  return               
+
+  script 0x08284E7B  [ok]
+    08284E7B  setvar               destination=VAR_0x4011 value=89
+    08284E80  setvar               destination=VAR_0x4010 value=89
+    08284E85  return               
+
+  map script type 2 (var 0x4000 == 0) -> 0x08284E90
+  script 0x08284E90  [ok]
+    08284E90  lockall              
+    08284E91  showobjectat         localId=1 mapGroup=43 mapNum=2
+    08284E96  applymovement        localId=1 movements=[walk_up walk_up walk_up walk_in_place_faster_right]
+    08284E9D  waitmovement         localId=0
+    08284EA0  setvar               destination=VAR_0x8004 value=1
+    08284EA5  setvar               destination=VAR_0x8005 value=2
+    08284EAA  special              SPECIAL_\function=148
+    08284EAD  compare_var_to_value var=0x800D value=0
+    08284EB2  goto_if              condition=5 destination=0x0828520C
+    08284EB8  setvar               destination=VAR_0x8004 value=3
+    08284EBD  special              SPECIAL_\function=149
+    08284EC0  addobject            localId=3
+    08284EC3  applymovement        localId=3 movements=[walk_down walk_down walk_down walk_down walk_in_place_faster_left]
+    08284ECA  waitmovement         localId=0
+    08284ECD  applymovement        localId=2 movements=[disable_jump_landing_ground_effect jump_in_place_down]
+    08284ED4  playse               song=185
+    08284ED7  waitse               
+    08284ED8  waitmovement         localId=0
+    08284EDB  msgbox_multilang     type=0 text_0="REFEREE: Set KO Tourney!\nBegin!" text_1="REFEREE: Set KO Tourney!\nBegin!" text_2="REFEREE: Set KO Tourney!\nBegin!" text_3="REFEREE: Set KO Tourney!\nBegin!" text_4="REFEREE: Set KO Tourney!\nBegin!" text_5="REFEREE: Set KO Tourney!\nBegin!" text_6="REFEREE: Set KO Tourney!\nBegin!"
+    08284EF9  callstd              function=MSGBOX_DEFAULT(4)
+    08284EFB  setvar               destination=VAR_0x8004 value=4
+    08284F00  special              SPECIAL_\function=158
+    08284F03  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    08284F21  callstd              function=MSGBOX_DEFAULT(4)
+    08284F23  waitmessage          
+    08284F24  call                 destination=0x082A4D9C
+    08284F29  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08284F2E  compare_var_to_value var=0x8000 value=1
+    08284F33  goto_if              condition=1 destination=0x08284F8D
+    08284F39  applymovement        localId=2 movements=[disable_jump_landing_ground_effect jump_in_place_down]
+    08284F40  playse               song=197
+    08284F43  waitse               
+    08284F44  waitmovement         localId=0
+    08284F47  setvar               destination=VAR_0x8004 value=6
+    08284F4C  special              SPECIAL_\function=159
+    08284F4F  msgbox_multilang     type=0 text_0="REFEREE: The winner is {STR_VAR_1}!" text_1="REFEREE: The winner is {STR_VAR_1}!" text_2="REFEREE: The winner is {STR_VAR_1}!" text_3="REFEREE: The winner is {STR_VAR_1}!" text_4="REFEREE: The winner is {STR_VAR_1}!" text_5="REFEREE: The winner is {STR_VAR_1}!" text_6="REFEREE: The winner is {STR_VAR_1}!"
+    08284F6D  callstd              function=MSGBOX_DEFAULT(4)
+    08284F6F  setvar               destination=VAR_0x8004 value=2
+    08284F74  setvar               destination=VAR_0x8005 value=0
+    08284F79  setvar               destination=VAR_0x8006 value=4
+    08284F7E  special              SPECIAL_\function=148
+    08284F81  special              SPECIAL_\function=19
+    08284F84  warp                 mapGroup=43 mapNum=0 WARP_ID_NONE=255 -1=6 -1=6
+    08284F8C  waitstate            
+
+  script 0x0828520C  [ok]
+    0828520C  applymovement        localId=2 movements=[walk_down walk_down walk_down walk_in_place_faster_right]
+    08285213  waitmovement         localId=0
+    08285216  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    0828521D  waitmovement         localId=0
+    08285220  goto                 destination=0x0828504B
+
+  script 0x082A4D9C  [ok]
+    082A4D9C  closemessage         
+    082A4D9D  setvar               destination=VAR_0x4002 value=0
+    082A4DA2  setvar               destination=VAR_0x8004 value=2
+    082A4DA7  setvar               destination=VAR_0x8005 value=6
+    082A4DAC  setvar               destination=VAR_0x8006 value=0
+    082A4DB1  special              SPECIAL_\function=148
+    082A4DB4  special              SPECIAL_\function=0
+    082A4DB7  setvar               destination=VAR_0x8004 value=5
+    082A4DBC  setvar               destination=VAR_0x8005 value=0
+    082A4DC1  special              SPECIAL_\function=152
+    082A4DC4  waitstate            
+
+  script 0x08284F8D  [ok]
+    08284F8D  applymovement        localId=2 movements=[disable_jump_landing_ground_effect jump_in_place_down]
+    08284F94  playse               song=20
+    08284F97  waitse               
+    08284F98  waitmovement         localId=0
+    08284F9B  msgbox_multilang     type=0 text_0="REFEREE: The winner is {PLAYER}!" text_1="REFEREE: The winner is {PLAYER}!" text_2="REFEREE: The winner is {PLAYER}!" text_3="REFEREE: The winner is {PLAYER}!" text_4="REFEREE: The winner is {PLAYER}!" text_5="REFEREE: The winner is {PLAYER}!" text_6="REFEREE: The winner is {PLAYER}!"
+    08284FB9  callstd              function=MSGBOX_DEFAULT(4)
+    08284FBB  closemessage         
+    08284FBC  setvar               destination=VAR_0x8004 value=1
+    08284FC1  setvar               destination=VAR_0x8005 value=2
+    08284FC6  special              SPECIAL_\function=148
+    08284FC9  addvar               destination=VAR_0x800D value=1
+    08284FCE  setvar               destination=VAR_0x8004 value=2
+    08284FD3  setvar               destination=VAR_0x8005 value=2
+    08284FD8  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08284FDD  special              SPECIAL_\function=148
+    08284FE0  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08284FE5  compare_var_to_value var=0x8000 value=3
+    08284FEA  goto_if              condition=1 destination=0x08285144
+    08284FF0  applymovement        localId=3 movements=[walk_up walk_up walk_up walk_up]
+    08284FF7  waitmovement         localId=0
+    08284FFA  removeobject         localId=3
+    08284FFD  applymovement        localId=2 movements=[walk_down walk_down walk_down walk_in_place_faster_right]
+    08285004  waitmovement         localId=0
+    08285007  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    0828500E  waitmovement         localId=0
+    08285011  msgbox_multilang     type=0 text_0="Your POKéMON will be restored to\nfull health." text_1="Your POKéMON will be restored to\nfull health." text_2="Your POKéMON will be restored to\nfull health." text_3="Your POKéMON will be restored to\nfull health." text_4="Your POKéMON will be restored to\nfull health." text_5="Your POKéMON will be restored to\nfull health." text_6="Your POKéMON will be restored to\nfull health."
+    0828502F  callstd              function=MSGBOX_DEFAULT(4)
+    08285031  special              SPECIAL_\function=19
+    08285034  special              SPECIAL_\function=18
+    08285037  setvar               destination=VAR_0x8004 value=3
+    0828503C  setvar               destination=VAR_0x8005 value=3
+    08285041  special              SPECIAL_\function=148
+    08285044  playfanfare          song=368
+    08285047  waitfanfare          
+    08285048  special              SPECIAL_\function=0
+    0828504B  setvar               destination=VAR_0x8004 value=1
+    08285050  setvar               destination=VAR_0x8005 value=2
+    08285055  special              SPECIAL_\function=148
+    08285058  compare_var_to_value var=0x800D value=1
+    0828505D  call_if              condition=1 destination=0x08285194
+    08285063  compare_var_to_value var=0x800D value=2
+    08285068  call_if              condition=1 destination=0x082851B3
+    0828506E  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    08285073  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08285078  compare_var_to_value var=0x8000 value=0
+    0828507D  goto_if              condition=1 destination=0x08285129
+    08285083  compare_var_to_value var=0x8000 value=1
+    08285088  goto_if              condition=1 destination=0x08285099
+    0828508E  compare_var_to_value var=0x8000 value=2
+    08285093  goto_if              condition=1 destination=0x082850DF
+    08285099  msgbox_multilang     type=0 text_0="Would you like to save the game and\nshut down now?" text_1="Would you like to save the game and\nshut down now?" text_2="Would you like to save the game and\nshut down now?" text_3="Would you like to save the game and\nshut down now?" text_4="Would you like to save the game and\nshut down now?" text_5="Would you like to save the game and\nshut down now?" text_6="Would you like to save the game and\nshut down now?"
+    082850B7  callstd              function=MSGBOX_YESNO(5)
+    082850B9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082850BE  compare_var_to_value var=0x8000 value=0
+    082850C3  goto_if              condition=1 destination=0x0828504B
+    082850C9  compare_var_to_value var=0x8000 value=1
+    082850CE  goto_if              condition=1 destination=0x082851D2
+    082850D4  compare_var_to_value var=0x8000 value=127
+    082850D9  goto_if              condition=1 destination=0x0828504B
+    082850DF  message              text="Would you like to retire from your\nSet KO Tourney challenge?"
+    082850E4  msgbox_multilang     type=80 text_0=1357252650 text_1=1357252650 text_2=1357252650 text_3=1357252650 text_4=1357252650 text_5=1885734954 text_6=22939668
+    08285102  nop                  
+    08285103  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08285108  compare_var_to_value var=0x8000 value=1
+    0828510D  goto_if              condition=1 destination=0x0828504B
+    08285113  compare_var_to_value var=0x8000 value=0
+    08285118  goto_if              condition=1 destination=0x08284F6F
+    0828511E  compare_var_to_value var=0x8000 value=127
+    08285123  goto_if              condition=1 destination=0x0828504B
+    08285129  closemessage         
+    0828512A  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_in_place_faster_down]
+    08285131  waitmovement         localId=0
+    08285134  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    0828513B  waitmovement         localId=0
+    0828513E  goto                 destination=0x08284EB8
+
+  script 0x0828504B  [ok]
+    0828504B  setvar               destination=VAR_0x8004 value=1
+    08285050  setvar               destination=VAR_0x8005 value=2
+    08285055  special              SPECIAL_\function=148
+    08285058  compare_var_to_value var=0x800D value=1
+    0828505D  call_if              condition=1 destination=0x08285194
+    08285063  compare_var_to_value var=0x800D value=2
+    08285068  call_if              condition=1 destination=0x082851B3
+    0828506E  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    08285073  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08285078  compare_var_to_value var=0x8000 value=0
+    0828507D  goto_if              condition=1 destination=0x08285129
+    08285083  compare_var_to_value var=0x8000 value=1
+    08285088  goto_if              condition=1 destination=0x08285099
+    0828508E  compare_var_to_value var=0x8000 value=2
+    08285093  goto_if              condition=1 destination=0x082850DF
+    08285099  msgbox_multilang     type=0 text_0="Would you like to save the game and\nshut down now?" text_1="Would you like to save the game and\nshut down now?" text_2="Would you like to save the game and\nshut down now?" text_3="Would you like to save the game and\nshut down now?" text_4="Would you like to save the game and\nshut down now?" text_5="Would you like to save the game and\nshut down now?" text_6="Would you like to save the game and\nshut down now?"
+    082850B7  callstd              function=MSGBOX_YESNO(5)
+    082850B9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082850BE  compare_var_to_value var=0x8000 value=0
+    082850C3  goto_if              condition=1 destination=0x0828504B
+    082850C9  compare_var_to_value var=0x8000 value=1
+    082850CE  goto_if              condition=1 destination=0x082851D2
+    082850D4  compare_var_to_value var=0x8000 value=127
+    082850D9  goto_if              condition=1 destination=0x0828504B
+    082850DF  message              text="Would you like to retire from your\nSet KO Tourney challenge?"
+    082850E4  msgbox_multilang     type=80 text_0=1357252650 text_1=1357252650 text_2=1357252650 text_3=1357252650 text_4=1357252650 text_5=1885734954 text_6=22939668
+    08285102  nop                  
+    08285103  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08285108  compare_var_to_value var=0x8000 value=1
+    0828510D  goto_if              condition=1 destination=0x0828504B
+    08285113  compare_var_to_value var=0x8000 value=0
+    08285118  goto_if              condition=1 destination=0x08284F6F
+    0828511E  compare_var_to_value var=0x8000 value=127
+    08285123  goto_if              condition=1 destination=0x0828504B
+    08285129  closemessage         
+    0828512A  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_in_place_faster_down]
+    08285131  waitmovement         localId=0
+    08285134  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    0828513B  waitmovement         localId=0
+    0828513E  goto                 destination=0x08284EB8
+
+  script 0x08285144  [ok]
+    08285144  delay                frames=60
+    08285147  setvar               destination=VAR_0x8004 value=2
+    0828514C  setvar               destination=VAR_0x8005 value=0
+    08285151  setvar               destination=VAR_0x8006 value=3
+    08285156  special              SPECIAL_\function=148
+    08285159  special              SPECIAL_\function=19
+    0828515C  warp                 mapGroup=43 mapNum=0 WARP_ID_NONE=255 -1=6 -1=6
+    08285164  waitstate            
+
+  script 0x08285194  [ok]
+    08285194  message              text="Next up, your second opponent!\nAre you ready to move on?"
+    08285199  gotobeatenscript     
+    0828519A  applymovement        localId=2090 movements=[action_0xC8 action_0xD9 action_0xEC action_0xE8 face_down action_0xE9 action_0xE4 action_0xB8 face_down action_0xED action_0xE3 action_0xE9 action_0xE6 face_down action_0xE7 action_0xD9 action_0xD7 action_0xE3 action_0xE2 action_0xD8 face_down action_0xE3 action_0xE4 action_0xE4 action_0xE3 action_0xE2 action_0xD9 action_0xE2 action_0xE8 action_0xAB]
+    082851A1  gotobeatenscript     
+    082851A2  applymovement        localId=2090 movements=[action_0xC8 action_0xD9 action_0xEC action_0xE8 face_down action_0xE9 action_0xE4 action_0xB8 face_down action_0xED action_0xE3 action_0xE9 action_0xE6 face_down action_0xE7 action_0xD9 action_0xD7 action_0xE3 action_0xE2 action_0xD8 face_down action_0xE3 action_0xE4 action_0xE4 action_0xE3 action_0xE2 action_0xD9 action_0xE2 action_0xE8 action_0xAB]
+    082851A9  gotobeatenscript     
+    082851AA  applymovement        localId=2090 movements=[action_0xC8 action_0xD9 action_0xEC action_0xE8 face_down action_0xE9 action_0xE4 action_0xB8 face_down action_0xED action_0xE3 action_0xE9 action_0xE6 face_down action_0xE7 action_0xD9 action_0xD7 action_0xE3 action_0xE2 action_0xD8 face_down action_0xE3 action_0xE4 action_0xE4 action_0xE3 action_0xE2 action_0xD9 action_0xE2 action_0xE8 action_0xAB]
+    082851B1  waitmessage          
+    082851B2  return               
+
+  script 0x082851B3  [ok]
+    082851B3  message              text="Next up, your third opponent!\nAre you ready to move on?"
+    082851B8  fadescreenspeed      mode=79 speed=42
+    082851BB  gotostd              function=152
+    082851BD  applymovement        localId=2090 movements=[action_0xC8 action_0xD9 action_0xEC action_0xE8 face_down action_0xE9 action_0xE4 action_0xB8 face_down action_0xED action_0xE3 action_0xE9 action_0xE6 face_down action_0xE8 action_0xDC action_0xDD action_0xE6 action_0xD8 face_down action_0xE3 action_0xE4 action_0xE4 action_0xE3 action_0xE2 action_0xD9 action_0xE2 action_0xE8 action_0xAB]
+    082851C4  fadescreenspeed      mode=79 speed=42
+    082851C7  gotostd              function=152
+    082851C9  applymovement        localId=2090 movements=[action_0xC8 action_0xD9 action_0xEC action_0xE8 face_down action_0xE9 action_0xE4 action_0xB8 face_down action_0xED action_0xE3 action_0xE9 action_0xE6 face_down action_0xE8 action_0xDC action_0xDD action_0xE6 action_0xD8 face_down action_0xE3 action_0xE4 action_0xE4 action_0xE3 action_0xE2 action_0xD9 action_0xE2 action_0xE8 action_0xAB]
+    082851D0  waitmessage          
+    082851D1  return               
+
+  script 0x08285129  [ok]
+    08285129  closemessage         
+    0828512A  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_in_place_faster_down]
+    08285131  waitmovement         localId=0
+    08285134  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    0828513B  waitmovement         localId=0
+    0828513E  goto                 destination=0x08284EB8
+
+  script 0x08285099  [ok]
+    08285099  msgbox_multilang     type=0 text_0="Would you like to save the game and\nshut down now?" text_1="Would you like to save the game and\nshut down now?" text_2="Would you like to save the game and\nshut down now?" text_3="Would you like to save the game and\nshut down now?" text_4="Would you like to save the game and\nshut down now?" text_5="Would you like to save the game and\nshut down now?" text_6="Would you like to save the game and\nshut down now?"
+    082850B7  callstd              function=MSGBOX_YESNO(5)
+    082850B9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082850BE  compare_var_to_value var=0x8000 value=0
+    082850C3  goto_if              condition=1 destination=0x0828504B
+    082850C9  compare_var_to_value var=0x8000 value=1
+    082850CE  goto_if              condition=1 destination=0x082851D2
+    082850D4  compare_var_to_value var=0x8000 value=127
+    082850D9  goto_if              condition=1 destination=0x0828504B
+    082850DF  message              text="Would you like to retire from your\nSet KO Tourney challenge?"
+    082850E4  msgbox_multilang     type=80 text_0=1357252650 text_1=1357252650 text_2=1357252650 text_3=1357252650 text_4=1357252650 text_5=1885734954 text_6=22939668
+    08285102  nop                  
+    08285103  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08285108  compare_var_to_value var=0x8000 value=1
+    0828510D  goto_if              condition=1 destination=0x0828504B
+    08285113  compare_var_to_value var=0x8000 value=0
+    08285118  goto_if              condition=1 destination=0x08284F6F
+    0828511E  compare_var_to_value var=0x8000 value=127
+    08285123  goto_if              condition=1 destination=0x0828504B
+    08285129  closemessage         
+    0828512A  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_in_place_faster_down]
+    08285131  waitmovement         localId=0
+    08285134  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    0828513B  waitmovement         localId=0
+    0828513E  goto                 destination=0x08284EB8
+
+  script 0x082850DF  [ok]
+    082850DF  message              text="Would you like to retire from your\nSet KO Tourney challenge?"
+    082850E4  msgbox_multilang     type=80 text_0=1357252650 text_1=1357252650 text_2=1357252650 text_3=1357252650 text_4=1357252650 text_5=1885734954 text_6=22939668
+    08285102  nop                  
+    08285103  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08285108  compare_var_to_value var=0x8000 value=1
+    0828510D  goto_if              condition=1 destination=0x0828504B
+    08285113  compare_var_to_value var=0x8000 value=0
+    08285118  goto_if              condition=1 destination=0x08284F6F
+    0828511E  compare_var_to_value var=0x8000 value=127
+    08285123  goto_if              condition=1 destination=0x0828504B
+    08285129  closemessage         
+    0828512A  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_in_place_faster_down]
+    08285131  waitmovement         localId=0
+    08285134  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    0828513B  waitmovement         localId=0
+    0828513E  goto                 destination=0x08284EB8
+
+  script 0x082851D2  [ok]
+    082851D2  message              text="I am saving your game data.\nPlease wait."
+    082851D7  callnative           func=587737681
+    082851DC  waitmovement         localId=2090
+    082851DF  callnative           func=587737681
+    082851E4  waitmovement         localId=2090
+    082851E7  callnative           func=587737681
+    082851EC  waitmovement         localId=2090
+    082851EF  waitmessage          
+    082851F0  setvar               destination=VAR_0x8004 value=3
+    082851F5  setvar               destination=VAR_0x8005 value=2
+    082851FA  special              SPECIAL_\function=159
+    082851FD  playse               song=55
+    08285200  waitse               
+    08285201  fadescreen           mode=1
+    08285203  setvar               destination=VAR_0x8004 value=4
+    08285208  special              SPECIAL_\function=148
+    0828520B  end                  
+
+  script 0x08284F6F  [ok]
+    08284F6F  setvar               destination=VAR_0x8004 value=2
+    08284F74  setvar               destination=VAR_0x8005 value=0
+    08284F79  setvar               destination=VAR_0x8006 value=4
+    08284F7E  special              SPECIAL_\function=148
+    08284F81  special              SPECIAL_\function=19
+    08284F84  warp                 mapGroup=43 mapNum=0 WARP_ID_NONE=255 -1=6 -1=6
+    08284F8C  waitstate            
+
+  script 0x08284EB8  [ok]
+    08284EB8  setvar               destination=VAR_0x8004 value=3
+    08284EBD  special              SPECIAL_\function=149
+    08284EC0  addobject            localId=3
+    08284EC3  applymovement        localId=3 movements=[walk_down walk_down walk_down walk_down walk_in_place_faster_left]
+    08284ECA  waitmovement         localId=0
+    08284ECD  applymovement        localId=2 movements=[disable_jump_landing_ground_effect jump_in_place_down]
+    08284ED4  playse               song=185
+    08284ED7  waitse               
+    08284ED8  waitmovement         localId=0
+    08284EDB  msgbox_multilang     type=0 text_0="REFEREE: Set KO Tourney!\nBegin!" text_1="REFEREE: Set KO Tourney!\nBegin!" text_2="REFEREE: Set KO Tourney!\nBegin!" text_3="REFEREE: Set KO Tourney!\nBegin!" text_4="REFEREE: Set KO Tourney!\nBegin!" text_5="REFEREE: Set KO Tourney!\nBegin!" text_6="REFEREE: Set KO Tourney!\nBegin!"
+    08284EF9  callstd              function=MSGBOX_DEFAULT(4)
+    08284EFB  setvar               destination=VAR_0x8004 value=4
+    08284F00  special              SPECIAL_\function=158
+    08284F03  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    08284F21  callstd              function=MSGBOX_DEFAULT(4)
+    08284F23  waitmessage          
+    08284F24  call                 destination=0x082A4D9C
+    08284F29  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08284F2E  compare_var_to_value var=0x8000 value=1
+    08284F33  goto_if              condition=1 destination=0x08284F8D
+    08284F39  applymovement        localId=2 movements=[disable_jump_landing_ground_effect jump_in_place_down]
+    08284F40  playse               song=197
+    08284F43  waitse               
+    08284F44  waitmovement         localId=0
+    08284F47  setvar               destination=VAR_0x8004 value=6
+    08284F4C  special              SPECIAL_\function=159
+    08284F4F  msgbox_multilang     type=0 text_0="REFEREE: The winner is {STR_VAR_1}!" text_1="REFEREE: The winner is {STR_VAR_1}!" text_2="REFEREE: The winner is {STR_VAR_1}!" text_3="REFEREE: The winner is {STR_VAR_1}!" text_4="REFEREE: The winner is {STR_VAR_1}!" text_5="REFEREE: The winner is {STR_VAR_1}!" text_6="REFEREE: The winner is {STR_VAR_1}!"
+    08284F6D  callstd              function=MSGBOX_DEFAULT(4)
+    08284F6F  setvar               destination=VAR_0x8004 value=2
+    08284F74  setvar               destination=VAR_0x8005 value=0
+    08284F79  setvar               destination=VAR_0x8006 value=4
+    08284F7E  special              SPECIAL_\function=148
+    08284F81  special              SPECIAL_\function=19
+    08284F84  warp                 mapGroup=43 mapNum=0 WARP_ID_NONE=255 -1=6 -1=6
+    08284F8C  waitstate            
+
+  map script type 4 (var 0x4001 == 0) -> 0x08285251
+  script 0x08285251  [ok]
+    08285251  hideobjectat         localId=255 mapGroup=43 mapNum=2
+    08285256  hideobjectat         localId=1 mapGroup=43 mapNum=2
+    0828525B  removeobject         localId=3
+    0828525E  setvar               destination=VAR_0x4001 value=1
+    08285263  end                  
+

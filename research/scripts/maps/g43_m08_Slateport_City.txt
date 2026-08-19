@@ -1,0 +1,68 @@
+Slateport City  (group 43, map 8)  header 0x08B3E874
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x5A, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x5B, flag 0x0000) -> 0x00000000
+  map script type 3 -> 0x08286D99
+  script 0x08286D99  [ok]
+    08286D99  call                 destination=0x08286D9F
+    08286D9E  end                  
+
+  script 0x08286D9F  [ok]
+    08286D9F  checkplayergender    
+    08286DA0  compare_var_to_value var=0x800D value=0
+    08286DA5  goto_if              condition=1 destination=0x08286DB7
+    08286DAB  compare_var_to_value var=0x800D value=1
+    08286DB0  goto_if              condition=1 destination=0x08286DBD
+    08286DB6  return               
+
+  script 0x08286DB7  [ok]
+    08286DB7  setvar               destination=VAR_0x4011 value=0
+    08286DBC  return               
+
+  script 0x08286DBD  [ok]
+    08286DBD  setvar               destination=VAR_0x4011 value=89
+    08286DC2  return               
+
+  map script type 4 (var 0x4001 == 0) -> 0x08286DCD
+  script 0x08286DCD  [ok]
+    08286DCD  setvar               destination=VAR_0x4001 value=1
+    08286DD2  hideobjectat         localId=255 mapGroup=43 mapNum=2
+    08286DD7  hideobjectat         localId=2 mapGroup=43 mapNum=8
+    08286DDC  end                  
+
+  map script type 2 (var 0x4000 == 0) -> 0x08286DE7
+  script 0x08286DE7  [ok]
+    08286DE7  applymovement        localId=3 movements=[walk_up walk_up walk_up walk_in_place_faster_right]
+    08286DEE  waitmovement         localId=0
+    08286DF1  setvar               destination=VAR_0x8004 value=11
+    08286DF6  special              SPECIAL_\function=154
+    08286DF9  setobjectxyperm      localId=2 x=5 y=1
+    08286E00  removeobject         localId=2
+    08286E03  delay                frames=1
+    08286E06  addobject            localId=2
+    08286E09  applymovement        localId=2 movements=[walk_down walk_down walk_down walk_down walk_in_place_faster_left]
+    08286E10  waitmovement         localId=0
+    08286E13  setvar               destination=VAR_0x8004 value=4
+    08286E18  special              SPECIAL_\function=158
+    08286E1B  lockall              
+    08286E1C  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    08286E3A  callstd              function=MSGBOX_DEFAULT(4)
+    08286E3C  waitmessage          
+    08286E3D  closemessage         
+    08286E3E  special              SPECIAL_\function=0
+    08286E41  setvar               destination=VAR_0x8004 value=6
+    08286E46  setvar               destination=VAR_0x8005 value=0
+    08286E4B  special              SPECIAL_\function=152
+    08286E4E  waitstate            
+

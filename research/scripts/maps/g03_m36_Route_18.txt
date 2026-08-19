@@ -1,0 +1,96 @@
+Route 18  (group 3, map 36)  header 0x08B3CAB4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x47, flag 0x0000) -> 0x081FBF57
+  script 0x081FBF57  [ok]
+    081FBF57  trainerbattle        type=0 trainer=0x135 localId=0 ptr1=0x08237909 ptr2=0x0823792B
+    081FBF65  specialvar           output=32781 SPECIAL_\function=37
+    081FBF6A  compare_var_to_value var=0x800D value=1
+    081FBF6F  goto_if              condition=1 destination=0x081FBF96
+    081FBF75  msgbox_multilang     type=0 text_0="This is my fave area for catching\nPokémon." text_1="This is my fave area for catching\nPokémon." text_2="This is my fave area for catching\nPokémon." text_3="This is my fave area for catching\nPokémon." text_4="This is my fave area for catching\nPokémon." text_5="This is my fave area for catching\nPokémon." text_6="This is my fave area for catching\nPokémon."
+    081FBF93  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBF95  end                  
+
+  script 0x081FBF96  [ok]
+    081FBF96  goto                 destination=0x081FBFA0
+
+  script 0x081FBFA0  [ok]
+    081FBFA0  trainerbattle        type=5 trainer=0x135 localId=0 ptr1=0x082B97A2 ptr2=0x0823792B
+    081FBFAE  msgbox_multilang     type=0 text_0="This is my fave area for catching\nPokémon." text_1="This is my fave area for catching\nPokémon." text_2="This is my fave area for catching\nPokémon." text_3="This is my fave area for catching\nPokémon." text_4="This is my fave area for catching\nPokémon." text_5="This is my fave area for catching\nPokémon." text_6="This is my fave area for catching\nPokémon."
+    081FBFCC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBFCE  end                  
+
+  object 2 (gfx 0x47, flag 0x0000) -> 0x081FBEDF
+  script 0x081FBEDF  [ok]
+    081FBEDF  trainerbattle        type=0 trainer=0x134 localId=0 ptr1=0x08237891 ptr2=0x082378B8
+    081FBEED  specialvar           output=32781 SPECIAL_\function=37
+    081FBEF2  compare_var_to_value var=0x800D value=1
+    081FBEF7  goto_if              condition=1 destination=0x081FBF1E
+    081FBEFD  msgbox_multilang     type=0 text_0="I collect sea Pokémon on weekends\nbecause the sea is so close." text_1="I collect sea Pokémon on weekends\nbecause the sea is so close." text_2="I collect sea Pokémon on weekends\nbecause the sea is so close." text_3="I collect sea Pokémon on weekends\nbecause the sea is so close." text_4="I collect sea Pokémon on weekends\nbecause the sea is so close." text_5="I collect sea Pokémon on weekends\nbecause the sea is so close." text_6="I collect sea Pokémon on weekends\nbecause the sea is so close."
+    081FBF1B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBF1D  end                  
+
+  script 0x081FBF1E  [ok]
+    081FBF1E  goto                 destination=0x081FBF28
+
+  script 0x081FBF28  [ok]
+    081FBF28  trainerbattle        type=5 trainer=0x134 localId=0 ptr1=0x082B9775 ptr2=0x082378B8
+    081FBF36  msgbox_multilang     type=0 text_0="I collect sea Pokémon on weekends\nbecause the sea is so close." text_1="I collect sea Pokémon on weekends\nbecause the sea is so close." text_2="I collect sea Pokémon on weekends\nbecause the sea is so close." text_3="I collect sea Pokémon on weekends\nbecause the sea is so close." text_4="I collect sea Pokémon on weekends\nbecause the sea is so close." text_5="I collect sea Pokémon on weekends\nbecause the sea is so close." text_6="I collect sea Pokémon on weekends\nbecause the sea is so close."
+    081FBF54  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBF56  end                  
+
+  object 3 (gfx 0x47, flag 0x0000) -> 0x081FBE67
+  script 0x081FBE67  [ok]
+    081FBE67  trainerbattle        type=0 trainer=0x133 localId=0 ptr1=0x08237845 ptr2=0x08237877
+    081FBE75  specialvar           output=32781 SPECIAL_\function=37
+    081FBE7A  compare_var_to_value var=0x800D value=1
+    081FBE7F  goto_if              condition=1 destination=0x081FBEA6
+    081FBE85  msgbox_multilang     type=0 text_0="I wish I had a Bike!" text_1="I wish I had a Bike!" text_2="I wish I had a Bike!" text_3="I wish I had a Bike!" text_4="I wish I had a Bike!" text_5="I wish I had a Bike!" text_6="I wish I had a Bike!"
+    081FBEA3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBEA5  end                  
+
+  script 0x081FBEA6  [ok]
+    081FBEA6  goto                 destination=0x081FBEB0
+
+  script 0x081FBEB0  [ok]
+    081FBEB0  trainerbattle        type=5 trainer=0x133 localId=0 ptr1=0x082B9725 ptr2=0x08237877
+    081FBEBE  msgbox_multilang     type=0 text_0="I wish I had a Bike!" text_1="I wish I had a Bike!" text_2="I wish I had a Bike!" text_3="I wish I had a Bike!" text_4="I wish I had a Bike!" text_5="I wish I had a Bike!" text_6="I wish I had a Bike!"
+    081FBEDC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBEDE  end                  
+
+  sign 0 at (37,7) -> 0x08237824
+  script 0x08237824  [ok]
+    08237824  msgbox_multilang     type=0 text_0="Cycling Road\nNo pedestrians permitted!" text_1="Cycling Road\nNo pedestrians permitted!" text_2="Cycling Road\nNo pedestrians permitted!" text_3="Cycling Road\nNo pedestrians permitted!" text_4="Cycling Road\nNo pedestrians permitted!" text_5="Cycling Road\nNo pedestrians permitted!" text_6="Cycling Road\nNo pedestrians permitted!"
+    08237842  callstd              function=MSGBOX_SIGN(3)
+    08237844  end                  
+
+  sign 1 at (52,7) -> 0x08237803
+  script 0x08237803  [ok]
+    08237803  msgbox_multilang     type=0 text_0="Route 18\nCeladon City - Fuchsia City" text_1="Route 18\nCeladon City - Fuchsia City" text_2="Route 18\nCeladon City - Fuchsia City" text_3="Route 18\nCeladon City - Fuchsia City" text_4="Route 18\nCeladon City - Fuchsia City" text_5="Route 18\nCeladon City - Fuchsia City" text_6="Route 18\nCeladon City - Fuchsia City"
+    08237821  callstd              function=MSGBOX_SIGN(3)
+    08237823  end                  
+
+  map script type 3 -> 0x082377E5
+  script 0x082377E5  [ok]
+    082377E5  compare_var_to_value var=0x405E value=1
+    082377EA  call_if              condition=1 destination=0x082377F1
+    082377F0  end                  
+
+  script 0x082377F1  [ok]
+    082377F1  setflag              flag=0x890
+    082377F4  return               
+
+  map script type 4 (var 0x405E == 1) -> 0x082377FF
+  script 0x082377FF  [ok]
+    082377FF  special              SPECIAL_\function=370
+    08237802  end                  
+

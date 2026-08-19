@@ -1,0 +1,264 @@
+Rocket Warehouse  (group 1, map 114)  header 0x08B3BE90
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x0088) -> 0x08219A14
+  script 0x08219A14  [ok]
+    08219A14  trainerbattle        type=0 trainer=0x21D localId=0 ptr1=0x08219CDC ptr2=0x08219D14
+    08219A22  msgbox_multilang     type=0 text_0="Team Rocket broke up?\nWhat planet are you from?" text_1="Team Rocket broke up?\nWhat planet are you from?" text_2="Team Rocket broke up?\nWhat planet are you from?" text_3="Team Rocket broke up?\nWhat planet are you from?" text_4="Team Rocket broke up?\nWhat planet are you from?" text_5="Team Rocket broke up?\nWhat planet are you from?" text_6="Team Rocket broke up?\nWhat planet are you from?"
+    08219A40  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08219A42  end                  
+
+  object 2 (gfx 0x02, flag 0x0088) -> 0x08219A43
+  script 0x08219A43  [ok]
+    08219A43  trainerbattle        type=0 trainer=0x21E localId=0 ptr1=0x08219E06 ptr2=0x08219E68
+    08219A51  msgbox_multilang     type=0 text_0="Don’t mess in the doings of adults,\nyou jumped-up pip-squeak!" text_1="Don’t mess in the doings of adults,\nyou jumped-up pip-squeak!" text_2="Don’t mess in the doings of adults,\nyou jumped-up pip-squeak!" text_3="Don’t mess in the doings of adults,\nyou jumped-up pip-squeak!" text_4="Don’t mess in the doings of adults,\nyou jumped-up pip-squeak!" text_5="Don’t mess in the doings of adults,\nyou jumped-up pip-squeak!" text_6="Don’t mess in the doings of adults,\nyou jumped-up pip-squeak!"
+    08219A6F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08219A71  end                  
+
+  object 3 (gfx 0x03, flag 0x0088) -> 0x08219B2F
+  script 0x08219B2F  [ok]
+    08219B2F  trainerbattle        type=2 trainer=0x21F localId=0 ptr1=0x08219EBC ptr2=0x08219F2B ptr3=0x08219B62
+    08219B41  msgbox_multilang     type=0 text_0="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_1="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_2="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_3="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_4="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_5="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_6="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge."
+    08219B5F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08219B61  end                  
+
+  script 0x08219B62  [ok]
+    08219B62  getplayerxy          x=32772 y=32773
+    08219B67  specialvar           output=32781 SPECIAL_\function=199
+    08219B6C  compare_var_to_value var=0x800D value=2
+    08219B71  call_if              condition=1 destination=0x08219C1E
+    08219B77  msgbox_multilang     type=0 text_0="You’re doing things according to\nyour beliefs and morals.\pI understand now…" text_1="You’re doing things according to\nyour beliefs and morals.\pI understand now…" text_2="You’re doing things according to\nyour beliefs and morals.\pI understand now…" text_3="You’re doing things according to\nyour beliefs and morals.\pI understand now…" text_4="You’re doing things according to\nyour beliefs and morals.\pI understand now…" text_5="You’re doing things according to\nyour beliefs and morals.\pI understand now…" text_6="You’re doing things according to\nyour beliefs and morals.\pI understand now…"
+    08219B95  callstd              function=MSGBOX_DEFAULT(4)
+    08219B97  closemessage         
+    08219B98  compare_var_to_value var=0x8004 value=24
+    08219B9D  call_if              condition=3 destination=0x08219C34
+    08219BA3  compare_var_to_value var=0x8004 value=25
+    08219BA8  call_if              condition=1 destination=0x08219C3F
+    08219BAE  compare_var_to_value var=0x8004 value=26
+    08219BB3  call_if              condition=1 destination=0x08219C4A
+    08219BB9  compare_var_to_value var=0x8004 value=27
+    08219BBE  call_if              condition=1 destination=0x08219C4A
+    08219BC4  playse               song=21
+    08219BC7  call                 destination=0x082198E4
+    08219BCC  special              SPECIAL_\function=79
+    08219BCF  waitse               
+    08219BD0  compare_var_to_value var=0x8004 value=24
+    08219BD5  call_if              condition=3 destination=0x08219C55
+    08219BDB  compare_var_to_value var=0x8004 value=25
+    08219BE0  call_if              condition=1 destination=0x08219C55
+    08219BE6  compare_var_to_value var=0x8004 value=26
+    08219BEB  call_if              condition=1 destination=0x08219C55
+    08219BF1  compare_var_to_value var=0x8004 value=27
+    08219BF6  call_if              condition=1 destination=0x08219C60
+    08219BFC  msgbox_multilang     type=0 text_0="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_1="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_2="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_3="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_4="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_5="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge." text_6="I’ve made it so you can come back\nin through there.\pWhy don’t you go get rested and\nrefreshed for what lies ahead?\pThe Admin after me outranks me\nthoroughly as a Trainer.\pYou’d better steel yourself for one\nharsh challenge."
+    08219C1A  callstd              function=MSGBOX_DEFAULT(4)
+    08219C1C  release              
+
+  script 0x08219C1E  [ok]
+    08219C1E  compare_var_to_value var=0x8004 value=27
+    08219C23  goto_if              condition=1 destination=0x082BCF3E
+    08219C29  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    08219C30  waitmovement         localId=0
+    08219C33  return               
+
+  script 0x08219C34  [ok]
+    08219C34  applymovement        localId=3 movements=[walk_right walk_right walk_in_place_faster_up]
+    08219C3B  waitmovement         localId=0
+    08219C3E  return               
+
+  script 0x08219C3F  [ok]
+    08219C3F  applymovement        localId=3 movements=[walk_right walk_in_place_faster_up]
+    08219C46  waitmovement         localId=0
+    08219C49  return               
+
+  script 0x08219C4A  [ok]
+    08219C4A  applymovement        localId=3 movements=[walk_in_place_faster_up]
+    08219C51  waitmovement         localId=0
+    08219C54  return               
+
+  script 0x082198E4  [ok]
+    082198E4  setmetatile          x=26 y=20 metatileId=672 impassable=0
+    082198ED  setmetatile          x=27 y=20 metatileId=672 impassable=0
+    082198F6  return               
+
+  script 0x08219C55  [ok]
+    08219C55  applymovement        localId=3 movements=[walk_in_place_faster_left]
+    08219C5C  waitmovement         localId=0
+    08219C5F  return               
+
+  script 0x08219C60  [ok]
+    08219C60  applymovement        localId=3 movements=[walk_in_place_faster_down]
+    08219C67  waitmovement         localId=0
+    08219C6A  return               
+
+  script 0x082BCF3E  [ok]
+    082BCF3E  return               
+
+  object 4 (gfx 0x02, flag 0x0088) -> 0x08219A72
+  script 0x08219A72  [ok]
+    08219A72  trainerbattle        type=2 trainer=0x220 localId=0 ptr1=0x0821A069 ptr2=0x0821A18A ptr3=0x08219AA5
+    08219A84  msgbox_multilang     type=0 text_0="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_1="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_2="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_3="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_4="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_5="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_6="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!"
+    08219AA2  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08219AA4  end                  
+
+  script 0x08219AA5  [ok]
+    08219AA5  getplayerxy          x=32772 y=32773
+    08219AAA  compare_var_to_value var=0x8004 value=24
+    08219AAF  call_if              condition=3 destination=0x08219AF5
+    08219AB5  msgbox_multilang     type=0 text_0="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_1="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_2="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_3="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_4="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_5="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!" text_6="We will abandon this Warehouse…\pBut don’t think this is over.\nI won’t let this be the end.\pI will find Giovanni.\nAnd I will resurrect Team Rocket!\pI will…\pUntil then, farewell!"
+    08219AD3  callstd              function=MSGBOX_DEFAULT(4)
+    08219AD5  closemessage         
+    08219AD6  fadescreenswapbuffers mode=1
+    08219AD8  nop                  
+    08219AD9  removeobject         localId=1
+    08219ADC  removeobject         localId=2
+    08219ADF  removeobject         localId=4
+    08219AE2  removeobject         localId=3
+    08219AE5  setflag              flag=0x088
+    08219AE8  fadescreenswapbuffers mode=0
+    08219AEA  nop                  
+    08219AEB  setvar               destination=VAR_0x4088 value=1
+    08219AF0  setflag              flag=0x2D5
+    08219AF3  release              
+
+  script 0x08219AF5  [ok]
+    08219AF5  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    08219AFC  waitmovement         localId=0
+    08219AFF  return               
+
+  object 5 (gfx 0x03, flag 0x0088) -> 0x08219B00
+  script 0x08219B00  [ok]
+    08219B00  trainerbattle        type=0 trainer=0x204 localId=0 ptr1=0x08219D65 ptr2=0x08219DBE
+    08219B0E  msgbox_multilang     type=0 text_0="We can give you a great price.\nSell us your Pokémon!" text_1="We can give you a great price.\nSell us your Pokémon!" text_2="We can give you a great price.\nSell us your Pokémon!" text_3="We can give you a great price.\nSell us your Pokémon!" text_4="We can give you a great price.\nSell us your Pokémon!" text_5="We can give you a great price.\nSell us your Pokémon!" text_6="We can give you a great price.\nSell us your Pokémon!"
+    08219B2C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08219B2E  end                  
+
+  object 6 (gfx 0x08, flag 0x0000) -> 0x08219978
+  script 0x08219978  [ok]
+    08219978  trainerbattle        type=2 trainer=0x221 localId=0 ptr1=0x0821A33E ptr2=0x0821A3E4 ptr3=0x082199E2
+    0821998A  checkflag            flag=0x8A4
+    0821998D  goto_if              condition=1 destination=0x082199B4
+    08219993  msgbox_multilang     type=0 text_0="What do you want now?\nGo on, get lost, leave me be." text_1="What do you want now?\nGo on, get lost, leave me be." text_2="What do you want now?\nGo on, get lost, leave me be." text_3="What do you want now?\nGo on, get lost, leave me be." text_4="What do you want now?\nGo on, get lost, leave me be." text_5="What do you want now?\nGo on, get lost, leave me be." text_6="What do you want now?\nGo on, get lost, leave me be."
+    082199B1  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082199B3  end                  
+
+  script 0x082199E2  [unknown-opcode:0xE9]
+    082199E2  msgbox_multilang     type=0 text_0="If I can’t sell it, it’s worthless!\nGo ahead, take it!" text_1="If I can’t sell it, it’s worthless!\nGo ahead, take it!" text_2="If I can’t sell it, it’s worthless!\nGo ahead, take it!" text_3="If I can’t sell it, it’s worthless!\nGo ahead, take it!" text_4="If I can’t sell it, it’s worthless!\nGo ahead, take it!" text_5="If I can’t sell it, it’s worthless!\nGo ahead, take it!" text_6="If I can’t sell it, it’s worthless!\nGo ahead, take it!"
+    08219A00  callstd              function=MSGBOX_DEFAULT(4)
+    08219A02  setflag              flag=0x2DC
+
+  script 0x082199B4  [ok]
+    082199B4  setvar               destination=VAR_0x8004 value=15
+    082199B9  setvar               destination=VAR_0x8005 value=5
+    082199BE  special              SPECIAL_\function=347
+    082199C1  msgbox_multilang     type=0 text_0="What, you again?\pYou… You’re not Giovanni’s kid,\nare you?\pNo, that can’t be right!\nGiovanni’s kid has red hair.\pYou don’t have any reasons for\nbugging me. Leave me alone!" text_1="What, you again?\pYou… You’re not Giovanni’s kid,\nare you?\pNo, that can’t be right!\nGiovanni’s kid has red hair.\pYou don’t have any reasons for\nbugging me. Leave me alone!" text_2="What, you again?\pYou… You’re not Giovanni’s kid,\nare you?\pNo, that can’t be right!\nGiovanni’s kid has red hair.\pYou don’t have any reasons for\nbugging me. Leave me alone!" text_3="What, you again?\pYou… You’re not Giovanni’s kid,\nare you?\pNo, that can’t be right!\nGiovanni’s kid has red hair.\pYou don’t have any reasons for\nbugging me. Leave me alone!" text_4="What, you again?\pYou… You’re not Giovanni’s kid,\nare you?\pNo, that can’t be right!\nGiovanni’s kid has red hair.\pYou don’t have any reasons for\nbugging me. Leave me alone!" text_5="What, you again?\pYou… You’re not Giovanni’s kid,\nare you?\pNo, that can’t be right!\nGiovanni’s kid has red hair.\pYou don’t have any reasons for\nbugging me. Leave me alone!" text_6="What, you again?\pYou… You’re not Giovanni’s kid,\nare you?\pNo, that can’t be right!\nGiovanni’s kid has red hair.\pYou don’t have any reasons for\nbugging me. Leave me alone!"
+    082199DF  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082199E1  end                  
+
+  object 7 (gfx 0x35, flag 0x01F4) -> 0x082D5DAB
+  script 0x082D5DAB  [ok]
+    082D5DAB  setorcopyvar         destination=VAR_0x8000 source=107
+    082D5DB0  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5DB5  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Big Pearl
+    082D5DB7  end                  
+
+  object 8 (gfx 0x55, flag 0x01F5) -> 0x082D5DB8
+  script 0x082D5DB8  [ok]
+    082D5DB8  setorcopyvar         destination=VAR_0x8000 source=324
+    082D5DBD  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5DC2  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM36
+    082D5DC4  end                  
+
+  object 9 (gfx 0x35, flag 0x01F6) -> 0x082D5DC5
+  script 0x082D5DC5  [ok]
+    082D5DC5  setorcopyvar         destination=VAR_0x8000 source=106
+    082D5DCA  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5DCF  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Pearl
+    082D5DD1  end                  
+
+  object 10 (gfx 0x35, flag 0x01F7) -> 0x082D5DD2
+  script 0x082D5DD2  [ok]
+    082D5DD2  setorcopyvar         destination=VAR_0x8000 source=218
+    082D5DD7  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5DDC  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Up-Grade
+    082D5DDE  end                  
+
+  coord trigger 0 (var 0x4088 == 0) -> 0x08219966
+  script 0x08219966  [ok]
+    08219966  lockall              
+    08219967  applymovement        localId=4 movements=[walk_in_place_faster_left]
+    0821996E  waitmovement         localId=0
+    08219971  setvar               destination=VAR_0x4088 value=1
+    08219976  releaseall           
+
+  coord trigger 1 (var 0x4088 == 0) -> 0x08219966
+  coord trigger 2 (var 0x4088 == 0) -> 0x08219966
+  sign 0 at (11,2) -> 0x082198F7
+  script 0x082198F7  [ok]
+    082198F7  lockall              
+    082198F8  checkflag            flag=0x2D5
+    082198FB  goto_if              condition=1 destination=0x08219923
+    08219901  msgbox_multilang     type=0 text_0="There are many Pokémon locked\naway in the pen…" text_1="There are many Pokémon locked\naway in the pen…" text_2="There are many Pokémon locked\naway in the pen…" text_3="There are many Pokémon locked\naway in the pen…" text_4="There are many Pokémon locked\naway in the pen…" text_5="There are many Pokémon locked\naway in the pen…" text_6="There are many Pokémon locked\naway in the pen…"
+    0821991F  callstd              function=MSGBOX_DEFAULT(4)
+    08219921  releaseall           
+
+  script 0x08219923  [ok]
+    08219923  msgbox_multilang     type=0 text_0="The pen door is unlocked.\nThe Pokémon appear to have fled." text_1="The pen door is unlocked.\nThe Pokémon appear to have fled." text_2="The pen door is unlocked.\nThe Pokémon appear to have fled." text_3="The pen door is unlocked.\nThe Pokémon appear to have fled." text_4="The pen door is unlocked.\nThe Pokémon appear to have fled." text_5="The pen door is unlocked.\nThe Pokémon appear to have fled." text_6="The pen door is unlocked.\nThe Pokémon appear to have fled."
+    08219941  callstd              function=MSGBOX_DEFAULT(4)
+    08219943  releaseall           
+
+  sign 1 at (26,11) -> 0x08219945
+  script 0x08219945  [ok]
+    08219945  msgbox_multilang     type=0 text_0="A report with graphs and text is on\nthe PC monitor.\p“The Influence of Magnetic Waves\non Pokémon Evolution”…\p… … … … … …\pIt’s too difficult to understand…" text_1="A report with graphs and text is on\nthe PC monitor.\p“The Influence of Magnetic Waves\non Pokémon Evolution”…\p… … … … … …\pIt’s too difficult to understand…" text_2="A report with graphs and text is on\nthe PC monitor.\p“The Influence of Magnetic Waves\non Pokémon Evolution”…\p… … … … … …\pIt’s too difficult to understand…" text_3="A report with graphs and text is on\nthe PC monitor.\p“The Influence of Magnetic Waves\non Pokémon Evolution”…\p… … … … … …\pIt’s too difficult to understand…" text_4="A report with graphs and text is on\nthe PC monitor.\p“The Influence of Magnetic Waves\non Pokémon Evolution”…\p… … … … … …\pIt’s too difficult to understand…" text_5="A report with graphs and text is on\nthe PC monitor.\p“The Influence of Magnetic Waves\non Pokémon Evolution”…\p… … … … … …\pIt’s too difficult to understand…" text_6="A report with graphs and text is on\nthe PC monitor.\p“The Influence of Magnetic Waves\non Pokémon Evolution”…\p… … … … … …\pIt’s too difficult to understand…"
+    08219963  callstd              function=MSGBOX_SIGN(3)
+    08219965  end                  
+
+  hidden item at (27,2): Nest Ball
+
+  hidden item at (7,16): Net Ball
+
+  sign 4 at (12,2) -> 0x082198F7
+  sign 5 at (10,2) -> 0x082198F7
+  sign 6 at (9,2) -> 0x082198F7
+  sign 7 at (8,2) -> 0x082198F7
+  sign 8 at (7,2) -> 0x082198F7
+  sign 9 at (11,5) -> 0x082198F7
+  sign 10 at (10,5) -> 0x082198F7
+  sign 11 at (11,4) -> 0x082198F7
+  sign 12 at (10,4) -> 0x082198F7
+  sign 13 at (8,4) -> 0x082198F7
+  sign 14 at (7,4) -> 0x082198F7
+  sign 15 at (8,5) -> 0x082198F7
+  sign 16 at (7,5) -> 0x082198F7
+  sign 17 at (5,3) -> 0x082198F7
+  sign 18 at (4,3) -> 0x082198F7
+  sign 19 at (5,4) -> 0x082198F7
+  sign 20 at (4,4) -> 0x082198F7
+  sign 21 at (3,4) -> 0x082198F7
+  sign 22 at (2,4) -> 0x082198F7
+  sign 23 at (2,5) -> 0x082198F7
+  sign 24 at (3,5) -> 0x082198F7
+  map script type 1 -> 0x082198DA
+  script 0x082198DA  [ok]
+    082198DA  checktrainerflag     trainer=0x21F
+    082198DD  call_if              condition=1 destination=0x082198E4
+    082198E3  end                  
+
+  map script type 3 -> 0x082198D6
+  script 0x082198D6  [ok]
+    082198D6  setworldmapflag      flag=0x919
+    082198D9  end                  
+

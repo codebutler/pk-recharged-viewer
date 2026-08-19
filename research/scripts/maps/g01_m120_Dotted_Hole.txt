@@ -1,0 +1,192 @@
+Dotted Hole  (group 1, map 120)  header 0x08B3BF38
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2C, flag 0x008F) -> 0x0821A544
+  script 0x0821A544  [ok]
+    0821A544  lock                 
+    0821A545  faceplayer           
+    0821A546  textcolor            color=3
+    0821A548  playfanfare          song=530
+    0821A54B  message              text="{PLAYER} found a Sapphire!"
+    0821A550  call                 destination=67641768
+    0821A555  setobjectsubpriority localId=2081 mapGroup=4 mapNum=168 subpriority=33
+    0821A55B  gotostd              function=MSGBOX_DEFAULT(4)
+    0821A55D  setobjectsubpriority localId=2081 mapGroup=4 mapNum=168 subpriority=33
+    0821A563  gotostd              function=MSGBOX_DEFAULT(4)
+    0821A565  setobjectsubpriority localId=2081 mapGroup=102 mapNum=50 subpriority=104
+    0821A56B  setobjectxyperm      localId=2 x=5 y=0
+    0821A572  addobject            localId=2
+    0821A575  playse               song=43
+    0821A578  applymovement        localId=2 movements=[face_down disable_anim slide_down slide_down slide_down slide_down slide_down slide_down slide_down slide_down slide_down restore_anim]
+    0821A57F  waitmovement         localId=0
+    0821A582  playse               song=214
+    0821A585  compare_var_to_value var=0x800C value=2
+    0821A58A  call_if              condition=1 destination=0x0821A6E6
+    0821A590  compare_var_to_value var=0x800C value=1
+    0821A595  call_if              condition=1 destination=0x0821A6E6
+    0821A59B  compare_var_to_value var=0x800C value=4
+    0821A5A0  call_if              condition=1 destination=0x0821A6F1
+    0821A5A6  compare_var_to_value var=0x800C value=3
+    0821A5AB  call_if              condition=1 destination=0x0821A6F1
+    0821A5B1  setvar               destination=VAR_0x8004 value=3
+    0821A5B6  setvar               destination=VAR_0x8005 value=0
+    0821A5BB  setvar               destination=VAR_0x8006 value=12
+    0821A5C0  setvar               destination=VAR_0x8007 value=3
+    0821A5C5  special              SPECIAL_\function=221
+    0821A5C8  delay                frames=60
+    0821A5CB  compare_var_to_value var=0x800C value=2
+    0821A5D0  call_if              condition=1 destination=0x0821A6FC
+    0821A5D6  compare_var_to_value var=0x800C value=1
+    0821A5DB  call_if              condition=1 destination=0x0821A707
+    0821A5E1  compare_var_to_value var=0x800C value=4
+    0821A5E6  call_if              condition=1 destination=0x0821A712
+    0821A5EC  compare_var_to_value var=0x800C value=3
+    0821A5F1  call_if              condition=1 destination=0x0821A71D
+    0821A5F7  textcolor            color=0
+    0821A5F9  msgbox_multilang     type=0 text_0="Fufu… Fufufufu…\nI guessed right.\pI was right in tailing you!" text_1="Fufu… Fufufufu…\nI guessed right.\pI was right in tailing you!" text_2="Fufu… Fufufufu…\nI guessed right.\pI was right in tailing you!" text_3="Fufu… Fufufufu…\nI guessed right.\pI was right in tailing you!" text_4="Fufu… Fufufufu…\nI guessed right.\pI was right in tailing you!" text_5="Fufu… Fufufufu…\nI guessed right.\pI was right in tailing you!" text_6="Fufu… Fufufufu…\nI guessed right.\pI was right in tailing you!"
+    0821A617  callstd              function=MSGBOX_DEFAULT(4)
+    0821A619  closemessage         
+    0821A61A  compare_var_to_value var=0x800C value=2
+    0821A61F  call_if              condition=1 destination=0x0821A728
+    0821A625  compare_var_to_value var=0x800C value=1
+    0821A62A  call_if              condition=1 destination=0x0821A73D
+    0821A630  compare_var_to_value var=0x800C value=4
+    0821A635  call_if              condition=1 destination=0x0821A752
+    0821A63B  compare_var_to_value var=0x800C value=3
+    0821A640  call_if              condition=1 destination=0x0821A767
+    0821A646  removeobject         localId=1
+    0821A649  compare_var_to_value var=0x800C value=2
+    0821A64E  call_if              condition=1 destination=0x0821A6D0
+    0821A654  compare_var_to_value var=0x800C value=1
+    0821A659  call_if              condition=1 destination=0x0821A6D0
+    0821A65F  compare_var_to_value var=0x800C value=4
+    0821A664  call_if              condition=1 destination=0x0821A6DB
+    0821A66A  compare_var_to_value var=0x800C value=3
+    0821A66F  call_if              condition=1 destination=0x0821A6DB
+    0821A675  msgbox_multilang     type=0 text_0="I knew that there was a Sapphire\nhere, so it belongs to me!\pI’ll sell it to Team Rocket for\nserious money.\p…D-don’t glare at me like that!\pIf you want it back, why don’t you\ngo get it after I sell it?\pI’ll even tell you one of the\npasswords to Team Rocket’s\pWarehouse.\pThe Warehouse password I know is\n“Yes, nah, Chansey.”\pI’m done.\nDon’t think badly of me!" text_1="I knew that there was a Sapphire\nhere, so it belongs to me!\pI’ll sell it to Team Rocket for\nserious money.\p…D-don’t glare at me like that!\pIf you want it back, why don’t you\ngo get it after I sell it?\pI’ll even tell you one of the\npasswords to Team Rocket’s\pWarehouse.\pThe Warehouse password I know is\n“Yes, nah, Chansey.”\pI’m done.\nDon’t think badly of me!" text_2="I knew that there was a Sapphire\nhere, so it belongs to me!\pI’ll sell it to Team Rocket for\nserious money.\p…D-don’t glare at me like that!\pIf you want it back, why don’t you\ngo get it after I sell it?\pI’ll even tell you one of the\npasswords to Team Rocket’s\pWarehouse.\pThe Warehouse password I know is\n“Yes, nah, Chansey.”\pI’m done.\nDon’t think badly of me!" text_3="I knew that there was a Sapphire\nhere, so it belongs to me!\pI’ll sell it to Team Rocket for\nserious money.\p…D-don’t glare at me like that!\pIf you want it back, why don’t you\ngo get it after I sell it?\pI’ll even tell you one of the\npasswords to Team Rocket’s\pWarehouse.\pThe Warehouse password I know is\n“Yes, nah, Chansey.”\pI’m done.\nDon’t think badly of me!" text_4="I knew that there was a Sapphire\nhere, so it belongs to me!\pI’ll sell it to Team Rocket for\nserious money.\p…D-don’t glare at me like that!\pIf you want it back, why don’t you\ngo get it after I sell it?\pI’ll even tell you one of the\npasswords to Team Rocket’s\pWarehouse.\pThe Warehouse password I know is\n“Yes, nah, Chansey.”\pI’m done.\nDon’t think badly of me!" text_5="I knew that there was a Sapphire\nhere, so it belongs to me!\pI’ll sell it to Team Rocket for\nserious money.\p…D-don’t glare at me like that!\pIf you want it back, why don’t you\ngo get it after I sell it?\pI’ll even tell you one of the\npasswords to Team Rocket’s\pWarehouse.\pThe Warehouse password I know is\n“Yes, nah, Chansey.”\pI’m done.\nDon’t think badly of me!" text_6="I knew that there was a Sapphire\nhere, so it belongs to me!\pI’ll sell it to Team Rocket for\nserious money.\p…D-don’t glare at me like that!\pIf you want it back, why don’t you\ngo get it after I sell it?\pI’ll even tell you one of the\npasswords to Team Rocket’s\pWarehouse.\pThe Warehouse password I know is\n“Yes, nah, Chansey.”\pI’m done.\nDon’t think badly of me!"
+    0821A693  callstd              function=MSGBOX_DEFAULT(4)
+    0821A695  closemessage         
+    0821A696  compare_var_to_value var=0x800C value=2
+    0821A69B  call_if              condition=1 destination=0x0821A77C
+    0821A6A1  compare_var_to_value var=0x800C value=1
+    0821A6A6  call_if              condition=1 destination=0x0821A78E
+    0821A6AC  compare_var_to_value var=0x800C value=4
+    0821A6B1  call_if              condition=1 destination=0x0821A7A0
+    0821A6B7  compare_var_to_value var=0x800C value=3
+    0821A6BC  call_if              condition=1 destination=0x0821A7B2
+    0821A6C2  playse               song=9
+    0821A6C5  delay                frames=35
+    0821A6C8  removeobject         localId=2
+    0821A6CB  setflag              flag=0x2D8
+    0821A6CE  release              
+
+  script 0x0821A6E6  [ok]
+    0821A6E6  applymovement        localId=255 movements=[walk_in_place_faster_left]
+    0821A6ED  waitmovement         localId=0
+    0821A6F0  return               
+
+  script 0x0821A6F1  [ok]
+    0821A6F1  applymovement        localId=255 movements=[walk_in_place_faster_down]
+    0821A6F8  waitmovement         localId=0
+    0821A6FB  return               
+
+  script 0x0821A6FC  [ok]
+    0821A6FC  applymovement        localId=2 movements=[walk_up walk_up walk_in_place_faster_right]
+    0821A703  waitmovement         localId=0
+    0821A706  return               
+
+  script 0x0821A707  [ok]
+    0821A707  applymovement        localId=2 movements=[walk_up walk_up walk_in_place_faster_right]
+    0821A70E  waitmovement         localId=0
+    0821A711  return               
+
+  script 0x0821A712  [ok]
+    0821A712  applymovement        localId=2 movements=[walk_right walk_right walk_in_place_faster_up]
+    0821A719  waitmovement         localId=0
+    0821A71C  return               
+
+  script 0x0821A71D  [ok]
+    0821A71D  applymovement        localId=2 movements=[walk_right walk_right walk_in_place_faster_up]
+    0821A724  waitmovement         localId=0
+    0821A727  return               
+
+  script 0x0821A728  [ok]
+    0821A728  applymovement        localId=2 movements=[walk_right]
+    0821A72F  waitmovement         localId=0
+    0821A732  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    0821A739  waitmovement         localId=0
+    0821A73C  return               
+
+  script 0x0821A73D  [ok]
+    0821A73D  applymovement        localId=2 movements=[walk_right]
+    0821A744  waitmovement         localId=0
+    0821A747  applymovement        localId=255 movements=[walk_in_place_faster_down]
+    0821A74E  waitmovement         localId=0
+    0821A751  return               
+
+  script 0x0821A752  [ok]
+    0821A752  applymovement        localId=2 movements=[walk_up]
+    0821A759  waitmovement         localId=0
+    0821A75C  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0821A763  waitmovement         localId=0
+    0821A766  return               
+
+  script 0x0821A767  [ok]
+    0821A767  applymovement        localId=2 movements=[walk_up]
+    0821A76E  waitmovement         localId=0
+    0821A771  applymovement        localId=255 movements=[walk_in_place_faster_left]
+    0821A778  waitmovement         localId=0
+    0821A77B  return               
+
+  script 0x0821A6D0  [ok]
+    0821A6D0  applymovement        localId=255 movements=[walk_in_place_faster_left]
+    0821A6D7  waitmovement         localId=0
+    0821A6DA  return               
+
+  script 0x0821A6DB  [ok]
+    0821A6DB  applymovement        localId=255 movements=[walk_in_place_faster_down]
+    0821A6E2  waitmovement         localId=0
+    0821A6E5  return               
+
+  script 0x0821A77C  [ok]
+    0821A77C  applymovement        localId=255 movements=[delay_16 walk_in_place_faster_right]
+    0821A783  applymovement        localId=2 movements=[walk_fast_up walk_fast_right walk_fast_right walk_fast_right walk_fast_down walk_fast_right walk_fast_right]
+    0821A78A  waitmovement         localId=0
+    0821A78D  return               
+
+  script 0x0821A78E  [ok]
+    0821A78E  applymovement        localId=255 movements=[delay_16 walk_in_place_faster_right]
+    0821A795  applymovement        localId=2 movements=[walk_fast_down walk_fast_right walk_fast_right walk_fast_right walk_fast_up walk_fast_right walk_fast_right]
+    0821A79C  waitmovement         localId=0
+    0821A79F  return               
+
+  script 0x0821A7A0  [ok]
+    0821A7A0  applymovement        localId=255 movements=[delay_16 walk_in_place_faster_right]
+    0821A7A7  applymovement        localId=2 movements=[walk_fast_right walk_fast_right walk_fast_right walk_fast_right walk_fast_up]
+    0821A7AE  waitmovement         localId=0
+    0821A7B1  return               
+
+  script 0x0821A7B2  [ok]
+    0821A7B2  applymovement        localId=255 movements=[delay_16 walk_in_place_faster_right]
+    0821A7B9  applymovement        localId=2 movements=[walk_fast_right walk_fast_right walk_fast_right walk_fast_right walk_fast_up]
+    0821A7C0  waitmovement         localId=0
+    0821A7C3  return               
+
+  object 2 (gfx 0x08, flag 0x0090) -> 0x00000000
+  sign 0 at (7,2) -> 0x0821A7F6
+  script 0x0821A7F6  [ok]
+    0821A7F6  lockall              
+    0821A7F7  setvar               destination=VAR_0x8005 value=130
+    0821A7FC  braillemessage       text="Êçë ごçぅわ"
+    0821A801  waitbuttonpress      
+    0821A802  releaseall           
+

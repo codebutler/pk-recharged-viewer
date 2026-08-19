@@ -1,0 +1,36 @@
+Fuchsia City  (group 11, map 2)  header 0x08B3D518
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x00, flag 0x0000) -> 0x082691E3
+  script 0x082691E3  [ok]
+    082691E3  msgbox_multilang     type=0 text_0="Warden Slowpoke is very\nknowledgeable about Pokémon.\pHe even has some fossils of rare,\nextinct Pokémon." text_1="Warden Slowpoke is very\nknowledgeable about Pokémon.\pHe even has some fossils of rare,\nextinct Pokémon." text_2="Warden Slowpoke is very\nknowledgeable about Pokémon.\pHe even has some fossils of rare,\nextinct Pokémon." text_3="Warden Slowpoke is very\nknowledgeable about Pokémon.\pHe even has some fossils of rare,\nextinct Pokémon." text_4="Warden Slowpoke is very\nknowledgeable about Pokémon.\pHe even has some fossils of rare,\nextinct Pokémon." text_5="Warden Slowpoke is very\nknowledgeable about Pokémon.\pHe even has some fossils of rare,\nextinct Pokémon." text_6="Warden Slowpoke is very\nknowledgeable about Pokémon.\pHe even has some fossils of rare,\nextinct Pokémon."
+    08269201  callstd              function=MSGBOX_NPC(2)
+    08269203  end                  
+
+  object 2 (gfx 0x00, flag 0x0000) -> 0x08269204
+  script 0x08269204  [ok]
+    08269204  msgbox_multilang     type=0 text_0="Warden Slowpoke came in, but\nI couldn’t understand him.\pI think he’s got a speech problem!" text_1="Warden Slowpoke came in, but\nI couldn’t understand him.\pI think he’s got a speech problem!" text_2="Warden Slowpoke came in, but\nI couldn’t understand him.\pI think he’s got a speech problem!" text_3="Warden Slowpoke came in, but\nI couldn’t understand him.\pI think he’s got a speech problem!" text_4="Warden Slowpoke came in, but\nI couldn’t understand him.\pI think he’s got a speech problem!" text_5="Warden Slowpoke came in, but\nI couldn’t understand him.\pI think he’s got a speech problem!" text_6="Warden Slowpoke came in, but\nI couldn’t understand him.\pI think he’s got a speech problem!"
+    08269222  callstd              function=MSGBOX_NPC(2)
+    08269224  end                  
+
+  object 3 (gfx 0x00, flag 0x0000) -> 0x082691C2
+  script 0x082691C2  [ok]
+    082691C2  msgbox_multilang     type=0 text_0="We nicknamed the Warden\n“Slowpoke.”\pYou know, he has that vacant look\nlike a Slowpoke." text_1="We nicknamed the Warden\n“Slowpoke.”\pYou know, he has that vacant look\nlike a Slowpoke." text_2="We nicknamed the Warden\n“Slowpoke.”\pYou know, he has that vacant look\nlike a Slowpoke." text_3="We nicknamed the Warden\n“Slowpoke.”\pYou know, he has that vacant look\nlike a Slowpoke." text_4="We nicknamed the Warden\n“Slowpoke.”\pYou know, he has that vacant look\nlike a Slowpoke." text_5="We nicknamed the Warden\n“Slowpoke.”\pYou know, he has that vacant look\nlike a Slowpoke." text_6="We nicknamed the Warden\n“Slowpoke.”\pYou know, he has that vacant look\nlike a Slowpoke."
+    082691E0  callstd              function=MSGBOX_NPC(2)
+    082691E2  end                  
+
+  object 4 (gfx 0x00, flag 0x0000) -> 0x08269225
+  script 0x08269225  [ok]
+    08269225  msgbox_multilang     type=0 text_0="Warden Slowpoke is running a\npromotion campaign right now.\pTry to get to the farthest corner\nof the Safari Zone.\pIf you can make it, you’ll win a\nvery convenient prize." text_1="Warden Slowpoke is running a\npromotion campaign right now.\pTry to get to the farthest corner\nof the Safari Zone.\pIf you can make it, you’ll win a\nvery convenient prize." text_2="Warden Slowpoke is running a\npromotion campaign right now.\pTry to get to the farthest corner\nof the Safari Zone.\pIf you can make it, you’ll win a\nvery convenient prize." text_3="Warden Slowpoke is running a\npromotion campaign right now.\pTry to get to the farthest corner\nof the Safari Zone.\pIf you can make it, you’ll win a\nvery convenient prize." text_4="Warden Slowpoke is running a\npromotion campaign right now.\pTry to get to the farthest corner\nof the Safari Zone.\pIf you can make it, you’ll win a\nvery convenient prize." text_5="Warden Slowpoke is running a\npromotion campaign right now.\pTry to get to the farthest corner\nof the Safari Zone.\pIf you can make it, you’ll win a\nvery convenient prize." text_6="Warden Slowpoke is running a\npromotion campaign right now.\pTry to get to the farthest corner\nof the Safari Zone.\pIf you can make it, you’ll win a\nvery convenient prize."
+    08269243  callstd              function=MSGBOX_NPC(2)
+    08269245  end                  
+

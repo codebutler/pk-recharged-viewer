@@ -1,0 +1,113 @@
+Route 10  (group 21, map 0)  header 0x08B3D978
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x08277D55
+  script 0x08277D55  [ok]
+    08277D55  lock                 
+    08277D56  faceplayer           
+    08277D57  call                 destination=0x082BB336
+    08277D5C  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x30, flag 0x0000) -> 0x08277D7F
+  script 0x08277D7F  [ok]
+    08277D7F  msgbox_multilang     type=0 text_0="The types of Pokémon match up\ndifferently with each other.\pEvery type is stronger than some\ntypes and weaker than others." text_1="The types of Pokémon match up\ndifferently with each other.\pEvery type is stronger than some\ntypes and weaker than others." text_2="The types of Pokémon match up\ndifferently with each other.\pEvery type is stronger than some\ntypes and weaker than others." text_3="The types of Pokémon match up\ndifferently with each other.\pEvery type is stronger than some\ntypes and weaker than others." text_4="The types of Pokémon match up\ndifferently with each other.\pEvery type is stronger than some\ntypes and weaker than others." text_5="The types of Pokémon match up\ndifferently with each other.\pEvery type is stronger than some\ntypes and weaker than others." text_6="The types of Pokémon match up\ndifferently with each other.\pEvery type is stronger than some\ntypes and weaker than others."
+    08277D9D  callstd              function=MSGBOX_NPC(2)
+    08277D9F  end                  
+
+  object 3 (gfx 0x11, flag 0x0000) -> 0x08277D5E
+  script 0x08277D5E  [ok]
+    08277D5E  msgbox_multilang     type=0 text_0="A Nugget is totally useless.\nSo I sold it for ¥5000." text_1="A Nugget is totally useless.\nSo I sold it for ¥5000." text_2="A Nugget is totally useless.\nSo I sold it for ¥5000." text_3="A Nugget is totally useless.\nSo I sold it for ¥5000." text_4="A Nugget is totally useless.\nSo I sold it for ¥5000." text_5="A Nugget is totally useless.\nSo I sold it for ¥5000." text_6="A Nugget is totally useless.\nSo I sold it for ¥5000."
+    08277D7C  callstd              function=MSGBOX_NPC(2)
+    08277D7E  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x08277DA0
+  script 0x08277DA0  [ok]
+    08277DA0  msgbox_multilang     type=0 text_0="I heard that ghosts haunt\nLavender Town." text_1="I heard that ghosts haunt\nLavender Town." text_2="I heard that ghosts haunt\nLavender Town." text_3="I heard that ghosts haunt\nLavender Town." text_4="I heard that ghosts haunt\nLavender Town." text_5="I heard that ghosts haunt\nLavender Town." text_6="I heard that ghosts haunt\nLavender Town."
+    08277DBE  callstd              function=MSGBOX_NPC(2)
+    08277DC0  end                  
+
+  object 5 (gfx 0x08, flag 0x0000) -> 0x08277DC1
+  script 0x08277DC1  [unknown-opcode:0xE9]
+    08277DC1  lock                 
+    08277DC2  faceplayer           
+    08277DC3  call                 destination=0x08277EAE
+    08277DC8  checkflag            flag=0x2FA
+    08277DCB  goto_if              condition=1 destination=0x08277E8C
+    08277DD1  msgbox_multilang     type=0 text_0="Oh… {PLAYER}!\nI’ve been looking for you!\pIt’s me, one of the ever-present\nAides to Prof. Oak.\pIf your Pokédex has complete data\non twenty species, I’m supposed to\pgive you a reward from Prof. Oak.\pHe entrusted me with this\nEverstone.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\ntwenty kinds of Pokémon?" text_1="Oh… {PLAYER}!\nI’ve been looking for you!\pIt’s me, one of the ever-present\nAides to Prof. Oak.\pIf your Pokédex has complete data\non twenty species, I’m supposed to\pgive you a reward from Prof. Oak.\pHe entrusted me with this\nEverstone.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\ntwenty kinds of Pokémon?" text_2="Oh… {PLAYER}!\nI’ve been looking for you!\pIt’s me, one of the ever-present\nAides to Prof. Oak.\pIf your Pokédex has complete data\non twenty species, I’m supposed to\pgive you a reward from Prof. Oak.\pHe entrusted me with this\nEverstone.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\ntwenty kinds of Pokémon?" text_3="Oh… {PLAYER}!\nI’ve been looking for you!\pIt’s me, one of the ever-present\nAides to Prof. Oak.\pIf your Pokédex has complete data\non twenty species, I’m supposed to\pgive you a reward from Prof. Oak.\pHe entrusted me with this\nEverstone.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\ntwenty kinds of Pokémon?" text_4="Oh… {PLAYER}!\nI’ve been looking for you!\pIt’s me, one of the ever-present\nAides to Prof. Oak.\pIf your Pokédex has complete data\non twenty species, I’m supposed to\pgive you a reward from Prof. Oak.\pHe entrusted me with this\nEverstone.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\ntwenty kinds of Pokémon?" text_5="Oh… {PLAYER}!\nI’ve been looking for you!\pIt’s me, one of the ever-present\nAides to Prof. Oak.\pIf your Pokédex has complete data\non twenty species, I’m supposed to\pgive you a reward from Prof. Oak.\pHe entrusted me with this\nEverstone.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\ntwenty kinds of Pokémon?" text_6="Oh… {PLAYER}!\nI’ve been looking for you!\pIt’s me, one of the ever-present\nAides to Prof. Oak.\pIf your Pokédex has complete data\non twenty species, I’m supposed to\pgive you a reward from Prof. Oak.\pHe entrusted me with this\nEverstone.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\ntwenty kinds of Pokémon?"
+    08277DEF  callstd              function=MSGBOX_YESNO(5)
+    08277DF1  compare_var_to_value var=0x800D value=0
+    08277DF6  goto_if              condition=1 destination=0x081FF771
+    08277DFC  setvar               destination=VAR_0x8004 value=0
+    08277E01  specialvar           output=32781 SPECIAL_\function=133
+    08277E06  buffernumberstring   stringVarId=2 input=32774
+    08277E0A  call                 destination=0x08277EAE
+    08277E0F  compare_var_to_value var=0x8006 value=20
+    08277E14  goto_if              condition=0 destination=0x081FF72D
+    08277E1A  msgbox_multilang     type=0 text_0="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_1="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_2="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_3="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_4="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_5="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_6="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!"
+    08277E38  callstd              function=MSGBOX_DEFAULT(4)
+    08277E3A  checkitemspace       itemId=Everstone(195) quantity=1
+    08277E3F  compare_var_to_value var=0x800D value=0
+    08277E44  goto_if              condition=1 destination=0x081FF74F
+    08277E4A  additem              itemId=Everstone(195) quantity=1
+
+  script 0x08277EAE  [ok]
+    08277EAE  buffernumberstring   stringVarId=0 input=20
+    08277EB2  bufferitemname       stringVarId=1 item=195
+    08277EB6  return               
+
+  script 0x08277E8C  [ok]
+    08277E8C  msgbox_multilang     type=0 text_0="Making Pokémon evolve certainly\ncan add to the Pokédex.\pHowever, at times, you may not\nwant a certain Pokémon to evolve.\pIn that case, give the Everstone\nto that Pokémon.\pIt will prevent evolution according\nto the Professor." text_1="Making Pokémon evolve certainly\ncan add to the Pokédex.\pHowever, at times, you may not\nwant a certain Pokémon to evolve.\pIn that case, give the Everstone\nto that Pokémon.\pIt will prevent evolution according\nto the Professor." text_2="Making Pokémon evolve certainly\ncan add to the Pokédex.\pHowever, at times, you may not\nwant a certain Pokémon to evolve.\pIn that case, give the Everstone\nto that Pokémon.\pIt will prevent evolution according\nto the Professor." text_3="Making Pokémon evolve certainly\ncan add to the Pokédex.\pHowever, at times, you may not\nwant a certain Pokémon to evolve.\pIn that case, give the Everstone\nto that Pokémon.\pIt will prevent evolution according\nto the Professor." text_4="Making Pokémon evolve certainly\ncan add to the Pokédex.\pHowever, at times, you may not\nwant a certain Pokémon to evolve.\pIn that case, give the Everstone\nto that Pokémon.\pIt will prevent evolution according\nto the Professor." text_5="Making Pokémon evolve certainly\ncan add to the Pokédex.\pHowever, at times, you may not\nwant a certain Pokémon to evolve.\pIn that case, give the Everstone\nto that Pokémon.\pIt will prevent evolution according\nto the Professor." text_6="Making Pokémon evolve certainly\ncan add to the Pokédex.\pHowever, at times, you may not\nwant a certain Pokémon to evolve.\pIn that case, give the Everstone\nto that Pokémon.\pIt will prevent evolution according\nto the Professor."
+    08277EAA  callstd              function=MSGBOX_DEFAULT(4)
+    08277EAC  release              
+
+  script 0x081FF771  [ok]
+    081FF771  msgbox_multilang     type=0 text_0="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_1="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_2="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_3="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_4="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_5="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_6="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}."
+    081FF78F  callstd              function=MSGBOX_DEFAULT(4)
+    081FF791  release              
+
+  script 0x081FF72D  [ok]
+    081FF72D  msgbox_multilang     type=0 text_0="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_1="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_2="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_3="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_4="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_5="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_6="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}."
+    081FF74B  callstd              function=MSGBOX_DEFAULT(4)
+    081FF74D  release              
+
+  script 0x081FF74F  [ok]
+    081FF74F  msgbox_multilang     type=0 text_0="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_1="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_2="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_3="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_4="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_5="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_6="Oh! I see you don’t have any\nroom for the {STR_VAR_2}."
+    081FF76D  callstd              function=MSGBOX_DEFAULT(4)
+    081FF76F  release              
+
+  object 6 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x08277D4E
+  script 0x08277D4E  [ok]
+    08277D4E  setworldmapflag      flag=0x903
+    08277D51  setrespawn           heallocation=13
+    08277D54  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

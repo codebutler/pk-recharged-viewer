@@ -1,0 +1,26 @@
+S.S. Anne  (group 1, map 27)  header 0x08B3B50C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x31, flag 0x0000) -> 0x0820C78C
+  script 0x0820C78C  [ok]
+    0820C78C  trainerbattle        type=0 trainer=0x89 localId=0 ptr1=0x0820C82B ptr2=0x0820C859
+    0820C79A  msgbox_multilang     type=0 text_0="Did you see the Fishing Guru in\nVermilion City?" text_1="Did you see the Fishing Guru in\nVermilion City?" text_2="Did you see the Fishing Guru in\nVermilion City?" text_3="Did you see the Fishing Guru in\nVermilion City?" text_4="Did you see the Fishing Guru in\nVermilion City?" text_5="Did you see the Fishing Guru in\nVermilion City?" text_6="Did you see the Fishing Guru in\nVermilion City?"
+    0820C7B8  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820C7BA  end                  
+
+  object 2 (gfx 0x31, flag 0x0000) -> 0x0820C75D
+  script 0x0820C75D  [ok]
+    0820C75D  trainerbattle        type=0 trainer=0x88 localId=0 ptr1=0x0820C7BB ptr2=0x0820C7EE
+    0820C76B  msgbox_multilang     type=0 text_0="Hahaha!\nWant to be a sailor, mate?" text_1="Hahaha!\nWant to be a sailor, mate?" text_2="Hahaha!\nWant to be a sailor, mate?" text_3="Hahaha!\nWant to be a sailor, mate?" text_4="Hahaha!\nWant to be a sailor, mate?" text_5="Hahaha!\nWant to be a sailor, mate?" text_6="Hahaha!\nWant to be a sailor, mate?"
+    0820C789  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820C78B  end                  
+

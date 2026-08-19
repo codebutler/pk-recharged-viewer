@@ -1,0 +1,48 @@
+Icefall Cave  (group 1, map 111)  header 0x08B3BE3C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x01F0) -> 0x082D5D77
+  script 0x082D5D77  [ok]
+    082D5D77  setorcopyvar         destination=VAR_0x8000 source=2
+    082D5D7C  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5D81  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Ultra Ball
+    082D5D83  end                  
+
+  object 2 (gfx 0x35, flag 0x01F1) -> 0x082D5D84
+  script 0x082D5D84  [ok]
+    082D5D84  setorcopyvar         destination=VAR_0x8000 source=345
+    082D5D89  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5D8E  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: HM07
+    082D5D90  end                  
+
+  map script type 5 -> 0x08219170
+  script 0x08219170  [ok]
+    08219170  setstepcallback      stepCbId=7
+    08219172  end                  
+
+  map script type 1 -> 0x08219173
+  script 0x08219173  [ok]
+    08219173  end                  
+
+  map script type 2 (var 0x4001 == 1) -> 0x0821917E
+  script 0x0821917E  [ok]
+    0821917E  lockall              
+    0821917F  delay                frames=20
+    08219182  applymovement        localId=255 movements=[set_invisible]
+    08219189  waitmovement         localId=0
+    0821918C  playse               song=43
+    0821918F  delay                frames=60
+    08219192  warphole             mapGroup=1 mapNum=112
+    08219195  waitstate            
+

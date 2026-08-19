@@ -1,0 +1,18 @@
+Undergound Path  (group 1, map 32)  header 0x08B3B598
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x14, flag 0x0000) -> 0x0820CC1A
+  script 0x0820CC1A  [ok]
+    0820CC1A  msgbox_multilang     type=0 text_0="People often lose things in the\ndarkness of the Underground Path." text_1="People often lose things in the\ndarkness of the Underground Path." text_2="People often lose things in the\ndarkness of the Underground Path." text_3="People often lose things in the\ndarkness of the Underground Path." text_4="People often lose things in the\ndarkness of the Underground Path." text_5="People often lose things in the\ndarkness of the Underground Path." text_6="People often lose things in the\ndarkness of the Underground Path."
+    0820CC38  callstd              function=MSGBOX_NPC(2)
+    0820CC3A  end                  
+

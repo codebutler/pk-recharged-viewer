@@ -1,0 +1,42 @@
+Celadon City  (group 10, map 3)  header 0x08B3D304
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF2, flag 0x0000) -> 0x08260407
+  script 0x08260407  [ok]
+    08260407  msgbox_multilang     type=0 text_0="I’m getting a present for my\ngirlfriend.\pI guess a Poké Doll will be it.\nIt’s the popular thing." text_1="I’m getting a present for my\ngirlfriend.\pI guess a Poké Doll will be it.\nIt’s the popular thing." text_2="I’m getting a present for my\ngirlfriend.\pI guess a Poké Doll will be it.\nIt’s the popular thing." text_3="I’m getting a present for my\ngirlfriend.\pI guess a Poké Doll will be it.\nIt’s the popular thing." text_4="I’m getting a present for my\ngirlfriend.\pI guess a Poké Doll will be it.\nIt’s the popular thing." text_5="I’m getting a present for my\ngirlfriend.\pI guess a Poké Doll will be it.\nIt’s the popular thing." text_6="I’m getting a present for my\ngirlfriend.\pI guess a Poké Doll will be it.\nIt’s the popular thing."
+    08260425  callstd              function=MSGBOX_NPC(2)
+    08260427  end                  
+
+  object 2 (gfx 0x23, flag 0x0000) -> 0x08260428
+  script 0x08260428  [ok]
+    08260428  msgbox_multilang     type=0 text_0="I heard something useful.\pIf a wild Pokémon appears, you can\ndistract it with a Poké Doll.\pYou can run away while the wild\nPokémon is distracted." text_1="I heard something useful.\pIf a wild Pokémon appears, you can\ndistract it with a Poké Doll.\pYou can run away while the wild\nPokémon is distracted." text_2="I heard something useful.\pIf a wild Pokémon appears, you can\ndistract it with a Poké Doll.\pYou can run away while the wild\nPokémon is distracted." text_3="I heard something useful.\pIf a wild Pokémon appears, you can\ndistract it with a Poké Doll.\pYou can run away while the wild\nPokémon is distracted." text_4="I heard something useful.\pIf a wild Pokémon appears, you can\ndistract it with a Poké Doll.\pYou can run away while the wild\nPokémon is distracted." text_5="I heard something useful.\pIf a wild Pokémon appears, you can\ndistract it with a Poké Doll.\pYou can run away while the wild\nPokémon is distracted." text_6="I heard something useful.\pIf a wild Pokémon appears, you can\ndistract it with a Poké Doll.\pYou can run away while the wild\nPokémon is distracted."
+    08260446  callstd              function=MSGBOX_NPC(2)
+    08260448  end                  
+
+  object 3 (gfx 0x11, flag 0x0000) -> 0x0826046A
+  script 0x0826046A  [opcode-out-of-range:0xFE]
+    0826046A  lock                 
+    0826046B  faceplayer           
+    0826046C  call                 destination=0x082BB330
+    08260471  message              text="Hi, there!\nMay I help you?"
+    08260476  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  sign 0 at (4,1) -> 0x08260449
+  script 0x08260449  [ok]
+    08260449  msgbox_multilang     type=0 text_0="Express yourself with gifts!\n4F: Wise Man Gifts\pEvolution Special!\nElement Stones on sale now!" text_1="Express yourself with gifts!\n4F: Wise Man Gifts\pEvolution Special!\nElement Stones on sale now!" text_2="Express yourself with gifts!\n4F: Wise Man Gifts\pEvolution Special!\nElement Stones on sale now!" text_3="Express yourself with gifts!\n4F: Wise Man Gifts\pEvolution Special!\nElement Stones on sale now!" text_4="Express yourself with gifts!\n4F: Wise Man Gifts\pEvolution Special!\nElement Stones on sale now!" text_5="Express yourself with gifts!\n4F: Wise Man Gifts\pEvolution Special!\nElement Stones on sale now!" text_6="Express yourself with gifts!\n4F: Wise Man Gifts\pEvolution Special!\nElement Stones on sale now!"
+    08260467  callstd              function=MSGBOX_SIGN(3)
+    08260469  end                  
+

@@ -1,0 +1,238 @@
+Saffron City  (group 14, map 3)  header 0x08B3D764
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x25, flag 0x0000) -> 0x082705C9
+  script 0x082705C9  [ok]
+    082705C9  trainerbattle        type=0 trainer=0x11A localId=0 ptr1=0x08270D60 ptr2=0x08270DB8
+    082705D7  msgbox_multilang     type=0 text_0="There used to be two Pokémon Gyms\nin Saffron.\pThe Fighting Dojo next door lost\nits Gym status, though.\pWe simply creamed them when we\ndecided to have just one Gym." text_1="There used to be two Pokémon Gyms\nin Saffron.\pThe Fighting Dojo next door lost\nits Gym status, though.\pWe simply creamed them when we\ndecided to have just one Gym." text_2="There used to be two Pokémon Gyms\nin Saffron.\pThe Fighting Dojo next door lost\nits Gym status, though.\pWe simply creamed them when we\ndecided to have just one Gym." text_3="There used to be two Pokémon Gyms\nin Saffron.\pThe Fighting Dojo next door lost\nits Gym status, though.\pWe simply creamed them when we\ndecided to have just one Gym." text_4="There used to be two Pokémon Gyms\nin Saffron.\pThe Fighting Dojo next door lost\nits Gym status, though.\pWe simply creamed them when we\ndecided to have just one Gym." text_5="There used to be two Pokémon Gyms\nin Saffron.\pThe Fighting Dojo next door lost\nits Gym status, though.\pWe simply creamed them when we\ndecided to have just one Gym." text_6="There used to be two Pokémon Gyms\nin Saffron.\pThe Fighting Dojo next door lost\nits Gym status, though.\pWe simply creamed them when we\ndecided to have just one Gym."
+    082705F5  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082705F7  end                  
+
+  object 2 (gfx 0x25, flag 0x0000) -> 0x0827055E
+  script 0x0827055E  [ok]
+    0827055E  trainerbattle        type=0 trainer=0x118 localId=0 ptr1=0x08270B4D ptr2=0x08270B6E
+    0827056C  msgbox_multilang     type=0 text_0="Psychic Pokémon fear only ghosts\nand bugs!" text_1="Psychic Pokémon fear only ghosts\nand bugs!" text_2="Psychic Pokémon fear only ghosts\nand bugs!" text_3="Psychic Pokémon fear only ghosts\nand bugs!" text_4="Psychic Pokémon fear only ghosts\nand bugs!" text_5="Psychic Pokémon fear only ghosts\nand bugs!" text_6="Psychic Pokémon fear only ghosts\nand bugs!"
+    0827058A  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0827058C  end                  
+
+  object 3 (gfx 0x25, flag 0x0000) -> 0x082705F8
+  script 0x082705F8  [ok]
+    082705F8  trainerbattle        type=0 trainer=0x11B localId=0 ptr1=0x08270E6E ptr2=0x08270ED3
+    08270606  msgbox_multilang     type=0 text_0="That’s right! I used telepathy to\nread your mind!" text_1="That’s right! I used telepathy to\nread your mind!" text_2="That’s right! I used telepathy to\nread your mind!" text_3="That’s right! I used telepathy to\nread your mind!" text_4="That’s right! I used telepathy to\nread your mind!" text_5="That’s right! I used telepathy to\nread your mind!" text_6="That’s right! I used telepathy to\nread your mind!"
+    08270624  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08270626  end                  
+
+  object 4 (gfx 0x0A, flag 0x0000) -> 0x08270627
+  script 0x08270627  [ok]
+    08270627  trainerbattle        type=0 trainer=0x1CE localId=0 ptr1=0x08270A81 ptr2=0x08270ABF
+    08270635  msgbox_multilang     type=0 text_0="In a battle of equals, the one\nwith the stronger will wins.\pIf you wish to beat Sabrina, focus\nand will yourself to victory." text_1="In a battle of equals, the one\nwith the stronger will wins.\pIf you wish to beat Sabrina, focus\nand will yourself to victory." text_2="In a battle of equals, the one\nwith the stronger will wins.\pIf you wish to beat Sabrina, focus\nand will yourself to victory." text_3="In a battle of equals, the one\nwith the stronger will wins.\pIf you wish to beat Sabrina, focus\nand will yourself to victory." text_4="In a battle of equals, the one\nwith the stronger will wins.\pIf you wish to beat Sabrina, focus\nand will yourself to victory." text_5="In a battle of equals, the one\nwith the stronger will wins.\pIf you wish to beat Sabrina, focus\nand will yourself to victory." text_6="In a battle of equals, the one\nwith the stronger will wins.\pIf you wish to beat Sabrina, focus\nand will yourself to victory."
+    08270653  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08270655  end                  
+
+  object 5 (gfx 0x0A, flag 0x0000) -> 0x08270656
+  script 0x08270656  [ok]
+    08270656  trainerbattle        type=0 trainer=0x1CF localId=0 ptr1=0x08270BAF ptr2=0x08270C03
+    08270664  msgbox_multilang     type=0 text_0="I have much to learn still…\pI must master Psychic and teach it\nto my Pokémon…" text_1="I have much to learn still…\pI must master Psychic and teach it\nto my Pokémon…" text_2="I have much to learn still…\pI must master Psychic and teach it\nto my Pokémon…" text_3="I have much to learn still…\pI must master Psychic and teach it\nto my Pokémon…" text_4="I have much to learn still…\pI must master Psychic and teach it\nto my Pokémon…" text_5="I have much to learn still…\pI must master Psychic and teach it\nto my Pokémon…" text_6="I have much to learn still…\pI must master Psychic and teach it\nto my Pokémon…"
+    08270682  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08270684  end                  
+
+  object 6 (gfx 0x0A, flag 0x0000) -> 0x08270685
+  script 0x08270685  [ok]
+    08270685  trainerbattle        type=0 trainer=0x1D0 localId=0 ptr1=0x08270CFF ptr2=0x08270D24
+    08270693  msgbox_multilang     type=0 text_0="I knew that this was going to take\nplace." text_1="I knew that this was going to take\nplace." text_2="I knew that this was going to take\nplace." text_3="I knew that this was going to take\nplace." text_4="I knew that this was going to take\nplace." text_5="I knew that this was going to take\nplace." text_6="I knew that this was going to take\nplace."
+    082706B1  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082706B3  end                  
+
+  object 7 (gfx 0x22, flag 0x0000) -> 0x082703D2
+  script 0x082703D2  [ok]
+    082703D2  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    082703D5  goto_if              condition=1 destination=0x08270425
+    082703DB  setvar               destination=VAR_0x8004 value=7
+    082703E0  setvar               destination=VAR_0x8005 value=2
+    082703E5  special              SPECIAL_\function=348
+    082703E8  trainerbattle        type=1 trainer=0x1A4 localId=0 ptr1=0x08270751 ptr2=0x08270817 ptr3=0x08270506
+    082703FA  checkflag            flag=0x29A
+    082703FD  goto_if              condition=0 destination=0x08270459
+    08270403  msgbox_multilang     type=0 text_0="TM04 is Calm Mind.\pIt makes the Pokémon concentrate\nto raise both Sp. Atk and Sp. Def." text_1="TM04 is Calm Mind.\pIt makes the Pokémon concentrate\nto raise both Sp. Atk and Sp. Def." text_2="TM04 is Calm Mind.\pIt makes the Pokémon concentrate\nto raise both Sp. Atk and Sp. Def." text_3="TM04 is Calm Mind.\pIt makes the Pokémon concentrate\nto raise both Sp. Atk and Sp. Def." text_4="TM04 is Calm Mind.\pIt makes the Pokémon concentrate\nto raise both Sp. Atk and Sp. Def." text_5="TM04 is Calm Mind.\pIt makes the Pokémon concentrate\nto raise both Sp. Atk and Sp. Def." text_6="TM04 is Calm Mind.\pIt makes the Pokémon concentrate\nto raise both Sp. Atk and Sp. Def."
+    08270421  callstd              function=MSGBOX_DEFAULT(4)
+    08270423  release              
+
+  script 0x08270425  [ok]
+    08270425  trainerbattle        type=1 trainer=0x2F4 localId=0 ptr1=0x0827108B ptr2=0x08271123 ptr3=0x08270463
+    08270437  msgbox_multilang     type=0 text_0="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_1="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_2="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_3="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_4="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_5="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_6="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo."
+    08270455  callstd              function=MSGBOX_DEFAULT(4)
+    08270457  release              
+
+  script 0x08270506  [ok]
+    08270506  addelevmenuitem      a=6 b=5632 c=32772 d=7
+    0827050E  setvar               destination=VAR_0x8005 value=2
+    08270513  special              SPECIAL_\function=347
+    08270516  setvar               destination=VAR_0x8004 value=7
+    0827051B  setvar               destination=VAR_0x8005 value=3
+    08270520  special              SPECIAL_\function=347
+    08270523  clearflag            flag=0x0AE
+    08270526  setflag              flag=0x4B5
+    08270529  setflag              flag=0x885:BADGE6_MARSH
+    0827052C  setvar               destination=VAR_0x8008 value=6
+    08270531  call                 destination=0x082BBD1A
+    08270536  goto                 destination=0x08270485
+
+  script 0x08270459  [ok]
+    08270459  goto                 destination=0x08270485
+
+  script 0x08270463  [ok]
+    08270463  msgbox_multilang     type=0 text_0="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_1="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_2="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_3="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_4="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_5="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo." text_6="There was once a time when I was\nshocked that I lost to you.\pThat feeling is gone now.\nIt’s been replaced with a desire to\pgrow strong and live freely, as you\pdo."
+    08270481  callstd              function=MSGBOX_DEFAULT(4)
+    08270483  release              
+
+  script 0x082BBD1A  [ok]
+    082BBD1A  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    082BBD1F  compare_var_to_value var=0x8000 value=1
+    082BBD24  goto_if              condition=1 destination=0x082BBD78
+    082BBD2A  compare_var_to_value var=0x8000 value=2
+    082BBD2F  goto_if              condition=1 destination=0x082BBD7F
+    082BBD35  compare_var_to_value var=0x8000 value=3
+    082BBD3A  goto_if              condition=1 destination=0x082BBD86
+    082BBD40  compare_var_to_value var=0x8000 value=4
+    082BBD45  goto_if              condition=1 destination=0x082BBD90
+    082BBD4B  compare_var_to_value var=0x8000 value=5
+    082BBD50  goto_if              condition=1 destination=0x082BBDA6
+    082BBD56  compare_var_to_value var=0x8000 value=6
+    082BBD5B  goto_if              condition=1 destination=0x082BBDB9
+    082BBD61  compare_var_to_value var=0x8000 value=7
+    082BBD66  goto_if              condition=1 destination=0x082BBDCF
+    082BBD6C  compare_var_to_value var=0x8000 value=8
+    082BBD71  goto_if              condition=1 destination=0x082BBDE5
+    082BBD77  end                  
+
+  script 0x08270485  [unknown-opcode:0xE9]
+    08270485  msgbox_multilang     type=0 text_0="The Marsh Badge makes Pokémon up\nto Lv. 70 obey you.\pStronger Pokémon will become wild,\nignoring your orders in battle.\pJust don’t raise your Pokémon too\nmuch to avoid that problem.\pWait, please take this TM with you." text_1="The Marsh Badge makes Pokémon up\nto Lv. 70 obey you.\pStronger Pokémon will become wild,\nignoring your orders in battle.\pJust don’t raise your Pokémon too\nmuch to avoid that problem.\pWait, please take this TM with you." text_2="The Marsh Badge makes Pokémon up\nto Lv. 70 obey you.\pStronger Pokémon will become wild,\nignoring your orders in battle.\pJust don’t raise your Pokémon too\nmuch to avoid that problem.\pWait, please take this TM with you." text_3="The Marsh Badge makes Pokémon up\nto Lv. 70 obey you.\pStronger Pokémon will become wild,\nignoring your orders in battle.\pJust don’t raise your Pokémon too\nmuch to avoid that problem.\pWait, please take this TM with you." text_4="The Marsh Badge makes Pokémon up\nto Lv. 70 obey you.\pStronger Pokémon will become wild,\nignoring your orders in battle.\pJust don’t raise your Pokémon too\nmuch to avoid that problem.\pWait, please take this TM with you." text_5="The Marsh Badge makes Pokémon up\nto Lv. 70 obey you.\pStronger Pokémon will become wild,\nignoring your orders in battle.\pJust don’t raise your Pokémon too\nmuch to avoid that problem.\pWait, please take this TM with you." text_6="The Marsh Badge makes Pokémon up\nto Lv. 70 obey you.\pStronger Pokémon will become wild,\nignoring your orders in battle.\pJust don’t raise your Pokémon too\nmuch to avoid that problem.\pWait, please take this TM with you."
+    082704A3  callstd              function=MSGBOX_DEFAULT(4)
+    082704A5  checkitemspace       itemId=TM04(292) quantity=1
+    082704AA  compare_var_to_value var=0x800D value=0
+    082704AF  goto_if              condition=1 destination=0x082704FC
+    082704B5  additem              itemId=TM04(292) quantity=1
+
+  script 0x082BBD78  [ok]
+    082BBD78  settrainerflag       trainer=0x8E
+    082BBD7B  settrainerflag       trainer=0x147
+    082BBD7E  return               
+
+  script 0x082BBD7F  [ok]
+    082BBD7F  settrainerflag       trainer=0x96
+    082BBD82  settrainerflag       trainer=0xEA
+    082BBD85  return               
+
+  script 0x082BBD86  [ok]
+    082BBD86  settrainerflag       trainer=0x8D
+    082BBD89  settrainerflag       trainer=0xDC
+    082BBD8C  settrainerflag       trainer=0x1A7
+    082BBD8F  return               
+
+  script 0x082BBD90  [ok]
+    082BBD90  settrainerflag       trainer=0x84
+    082BBD93  settrainerflag       trainer=0x85
+    082BBD96  settrainerflag       trainer=0xA0
+    082BBD99  settrainerflag       trainer=0x109
+    082BBD9C  settrainerflag       trainer=0x10A
+    082BBD9F  settrainerflag       trainer=0x10B
+    082BBDA2  settrainerflag       trainer=0x192
+    082BBDA5  return               
+
+  script 0x082BBDA6  [ok]
+    082BBDA6  settrainerflag       trainer=0x126
+    082BBDA9  settrainerflag       trainer=0x127
+    082BBDAC  settrainerflag       trainer=0x120
+    082BBDAF  settrainerflag       trainer=0x121
+    082BBDB2  settrainerflag       trainer=0x124
+    082BBDB5  settrainerflag       trainer=0x125
+    082BBDB8  return               
+
+  script 0x082BBDB9  [ok]
+    082BBDB9  settrainerflag       trainer=0x118
+    082BBDBC  settrainerflag       trainer=0x119
+    082BBDBF  settrainerflag       trainer=0x11A
+    082BBDC2  settrainerflag       trainer=0x11B
+    082BBDC5  settrainerflag       trainer=0x1CE
+    082BBDC8  settrainerflag       trainer=0x1CF
+    082BBDCB  settrainerflag       trainer=0x1D0
+    082BBDCE  return               
+
+  script 0x082BBDCF  [ok]
+    082BBDCF  settrainerflag       trainer=0xB1
+    082BBDD2  settrainerflag       trainer=0xB2
+    082BBDD5  settrainerflag       trainer=0xB3
+    082BBDD8  settrainerflag       trainer=0xB4
+    082BBDDB  settrainerflag       trainer=0xD5
+    082BBDDE  settrainerflag       trainer=0xD6
+    082BBDE1  settrainerflag       trainer=0xD7
+    082BBDE4  return               
+
+  script 0x082BBDE5  [ok]
+    082BBDE5  settrainerflag       trainer=0x128
+    082BBDE8  settrainerflag       trainer=0x129
+    082BBDEB  settrainerflag       trainer=0x142
+    082BBDEE  settrainerflag       trainer=0x143
+    082BBDF1  settrainerflag       trainer=0x144
+    082BBDF4  settrainerflag       trainer=0x188
+    082BBDF7  settrainerflag       trainer=0x190
+    082BBDFA  settrainerflag       trainer=0x191
+    082BBDFD  return               
+
+  script 0x082704FC  [ok]
+    082704FC  goto                 destination=0x0827053C
+
+  script 0x0827053C  [ok]
+    0827053C  msgbox_multilang     type=0 text_0="Your Bag is full of other items." text_1="Your Bag is full of other items." text_2="Your Bag is full of other items." text_3="Your Bag is full of other items." text_4="Your Bag is full of other items." text_5="Your Bag is full of other items." text_6="Your Bag is full of other items."
+    0827055A  callstd              function=MSGBOX_DEFAULT(4)
+    0827055C  release              
+
+  object 8 (gfx 0x25, flag 0x0000) -> 0x0827058D
+  script 0x0827058D  [ok]
+    0827058D  trainerbattle        type=0 trainer=0x119 localId=0 ptr1=0x08270C5C ptr2=0x08270CB5
+    0827059B  setvar               destination=VAR_0x8004 value=7
+    082705A0  setvar               destination=VAR_0x8005 value=5
+    082705A5  special              SPECIAL_\function=347
+    082705A8  msgbox_multilang     type=0 text_0="Sabrina just wiped out the Karate\nMaster next door." text_1="Sabrina just wiped out the Karate\nMaster next door." text_2="Sabrina just wiped out the Karate\nMaster next door." text_3="Sabrina just wiped out the Karate\nMaster next door." text_4="Sabrina just wiped out the Karate\nMaster next door." text_5="Sabrina just wiped out the Karate\nMaster next door." text_6="Sabrina just wiped out the Karate\nMaster next door."
+    082705C6  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082705C8  end                  
+
+  object 9 (gfx 0x27, flag 0x0000) -> 0x082706B4
+  script 0x082706B4  [ok]
+    082706B4  lock                 
+    082706B5  faceplayer           
+    082706B6  checkflag            flag=0x4B5
+    082706B9  goto_if              condition=1 destination=0x082706E1
+    082706BF  msgbox_multilang     type=0 text_0="Yo!\nChamp in the making!\pSabrina’s Pokémon use psychic\npower instead of force.\pFighting Pokémon are especially\nweak against Psychic Pokémon.\pThey’ll get destroyed before they\ncan even aim a punch!" text_1="Yo!\nChamp in the making!\pSabrina’s Pokémon use psychic\npower instead of force.\pFighting Pokémon are especially\nweak against Psychic Pokémon.\pThey’ll get destroyed before they\ncan even aim a punch!" text_2="Yo!\nChamp in the making!\pSabrina’s Pokémon use psychic\npower instead of force.\pFighting Pokémon are especially\nweak against Psychic Pokémon.\pThey’ll get destroyed before they\ncan even aim a punch!" text_3="Yo!\nChamp in the making!\pSabrina’s Pokémon use psychic\npower instead of force.\pFighting Pokémon are especially\nweak against Psychic Pokémon.\pThey’ll get destroyed before they\ncan even aim a punch!" text_4="Yo!\nChamp in the making!\pSabrina’s Pokémon use psychic\npower instead of force.\pFighting Pokémon are especially\nweak against Psychic Pokémon.\pThey’ll get destroyed before they\ncan even aim a punch!" text_5="Yo!\nChamp in the making!\pSabrina’s Pokémon use psychic\npower instead of force.\pFighting Pokémon are especially\nweak against Psychic Pokémon.\pThey’ll get destroyed before they\ncan even aim a punch!" text_6="Yo!\nChamp in the making!\pSabrina’s Pokémon use psychic\npower instead of force.\pFighting Pokémon are especially\nweak against Psychic Pokémon.\pThey’ll get destroyed before they\ncan even aim a punch!"
+    082706DD  callstd              function=MSGBOX_DEFAULT(4)
+    082706DF  release              
+
+  script 0x082706E1  [ok]
+    082706E1  msgbox_multilang     type=0 text_0="Psychic power, huh?\pIf I had that, I’d make a bundle\nat the slots!" text_1="Psychic power, huh?\pIf I had that, I’d make a bundle\nat the slots!" text_2="Psychic power, huh?\pIf I had that, I’d make a bundle\nat the slots!" text_3="Psychic power, huh?\pIf I had that, I’d make a bundle\nat the slots!" text_4="Psychic power, huh?\pIf I had that, I’d make a bundle\nat the slots!" text_5="Psychic power, huh?\pIf I had that, I’d make a bundle\nat the slots!" text_6="Psychic power, huh?\pIf I had that, I’d make a bundle\nat the slots!"
+    082706FF  callstd              function=MSGBOX_DEFAULT(4)
+    08270701  release              
+
+  sign 0 at (12,20) -> 0x08270703
+  script 0x08270703  [ok]
+    08270703  lockall              
+    08270704  checkflag            flag=0x885:BADGE6_MARSH
+    08270707  goto_if              condition=1 destination=0x0827072F
+    0827070D  msgbox_multilang     type=0 text_0="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}" text_1="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}" text_2="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}" text_3="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}" text_4="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}" text_5="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}" text_6="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}"
+    0827072B  callstd              function=MSGBOX_DEFAULT(4)
+    0827072D  releaseall           
+
+  script 0x0827072F  [ok]
+    0827072F  msgbox_multilang     type=0 text_0="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_1="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_2="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_3="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_4="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_5="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_6="Saffron Pokémon Gym\nLeader: Sabrina\pWinning Trainers:\n{RIVAL}, {PLAYER}"
+    0827074D  callstd              function=MSGBOX_DEFAULT(4)
+    0827074F  releaseall           
+
+  sign 1 at (16,20) -> 0x08270703

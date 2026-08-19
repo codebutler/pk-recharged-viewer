@@ -33,7 +33,12 @@ WIDTH = {"byte": 1, "2byte": 2, "4byte": 4}
 
 # Sub-macros that emit bytes but are defined outside event.inc, or whose
 # expansion is fixed. `map` (asm/macros/map.inc) emits mapGroup+mapNum.
-EXTERNAL_MACROS = {"map": [(1, "mapGroup"), (1, "mapNum")]}
+EXTERNAL_MACROS = {
+    "map": [(1, "mapGroup"), (1, "mapNum")],
+    # stringvar's body is an .if chain emitting a bare literal, which would
+    # otherwise name the argument "0"; it is always one string-var id byte.
+    "stringvar": [(1, "stringVarId")],
+}
 
 # trainerbattle is variable-length keyed on its `type` byte; the macro's
 # .elseif chain is transcribed here rather than evaluated symbolically.
@@ -221,6 +226,38 @@ def derive_from_scrcmd():
 # ---------------------------------------------------------------------------
 
 
+def movement_actions():
+    """{numeric value: friendly movement name}, e.g. 8 -> 'walk_down'.
+
+    movement.inc maps friendly names to MOVEMENT_ACTION_* symbols; the numeric
+    values live in include/constants/event_object_movement.h.
+    """
+    vals = {}
+    hdr = read("include/constants/event_object_movement.h")
+    for m in re.finditer(r"#define\s+(MOVEMENT_ACTION_\w+)\s+(0x[0-9A-Fa-f]+|\d+)",
+                         hdr):
+        vals[m.group(1)] = int(m.group(2), 0)
+    out = {}
+    for m in re.finditer(r"create_movement_action\s+(\w+)\s*,\s*(MOVEMENT_ACTION_\w+)",
+                         read("asm/macros/movement.inc")):
+        name, sym = m.group(1), m.group(2)
+        if sym in vals:
+            out.setdefault(vals[sym], name)
+    return out
+
+
+def simple_constants(prefixes):
+    """{prefix: {value: name}} for `NAME = <int>` assignments in event.inc."""
+    out = {p: {} for p in prefixes}
+    for m in re.finditer(r"^\s*([A-Z][A-Z0-9_]*)\s*=\s*(\d+)\s*$",
+                         read("asm/macros/event.inc"), re.M):
+        name, val = m.group(1), int(m.group(2))
+        for p in prefixes:
+            if name.startswith(p):
+                out[p][val] = name
+    return out
+
+
 def main():
     table = opcode_table()
     macros = parse_macros(read("asm/macros/event.inc"))
@@ -258,6 +295,16 @@ def main():
                            "Resolve against the target ROM's own handler before "
                            "decoding." % (handler, sum(m_widths)))
             stubs.append("0x%02X %s" % (num, mname))
+        elif (not c_widths and m_widths
+              and all(n == "0" for _, n in args)):
+            # Macro emits literal 0 padding the handler never reads (e.g.
+            # hidemoneybox). The VM executes the padding as NOPs, so the next
+            # instruction is at the same address either way -- safe to keep the
+            # macro length and render the padding as part of this instruction.
+            rec["note"] = ("macro emits %d literal 0 padding byte(s) that %s "
+                           "ignores; the VM runs them as NOPs, so the "
+                           "instruction stream stays in sync either way."
+                           % (sum(m_widths), handler))
         elif c_widths is None:
             rec["confidence"] = "medium"  # handler not found (inlined/aliased)
         elif m_widths != c_widths and num != tb_num:
@@ -295,6 +342,16 @@ def main():
             "ambiguous_stubs": stubs,
         },
         "opcodes": opcodes,
+    }
+    consts = simple_constants(["STD_", "MSGBOX_"])
+    # `msgbox` compiles to `loadword 0, text` + `callstd <type>`, so a callstd
+    # function number is either an STD_* or an MSGBOX_* id -- one namespace.
+    callstd = dict(consts["MSGBOX_"])
+    callstd.update(consts["STD_"])
+    doc["constants"] = {
+        "callstd": {str(k): v for k, v in sorted(callstd.items())},
+        "movement_actions": {str(k): v for k, v in
+                             sorted(movement_actions().items())},
     }
     with open(OUT, "w") as f:
         json.dump(doc, f, indent=1, sort_keys=False)

@@ -1,0 +1,80 @@
+Celadon City  (group 10, map 9)  header 0x08B3D3AC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF3, flag 0x0000) -> 0x0826312A
+  script 0x0826312A  [ok]
+    0826312A  msgbox_multilang     type=0 text_0="Me?\nI’m the programmer!" text_1="Me?\nI’m the programmer!" text_2="Me?\nI’m the programmer!" text_3="Me?\nI’m the programmer!" text_4="Me?\nI’m the programmer!" text_5="Me?\nI’m the programmer!" text_6="Me?\nI’m the programmer!"
+    08263148  callstd              function=MSGBOX_NPC(2)
+    0826314A  end                  
+
+  object 2 (gfx 0xF2, flag 0x0000) -> 0x0826318D
+  script 0x0826318D  [ok]
+    0826318D  lock                 
+    0826318E  faceplayer           
+    0826318F  specialvar           output=32781 SPECIAL_\function=349
+    08263194  compare_var_to_value var=0x800D value=1
+    08263199  goto_if              condition=1 destination=0x082631C1
+    0826319F  msgbox_multilang     type=0 text_0="Is that right?\pI’m the game designer!\pFilling up your Pokédex is tough,\nbut don’t quit!\pWhen you finish, come tell me!" text_1="Is that right?\pI’m the game designer!\pFilling up your Pokédex is tough,\nbut don’t quit!\pWhen you finish, come tell me!" text_2="Is that right?\pI’m the game designer!\pFilling up your Pokédex is tough,\nbut don’t quit!\pWhen you finish, come tell me!" text_3="Is that right?\pI’m the game designer!\pFilling up your Pokédex is tough,\nbut don’t quit!\pWhen you finish, come tell me!" text_4="Is that right?\pI’m the game designer!\pFilling up your Pokédex is tough,\nbut don’t quit!\pWhen you finish, come tell me!" text_5="Is that right?\pI’m the game designer!\pFilling up your Pokédex is tough,\nbut don’t quit!\pWhen you finish, come tell me!" text_6="Is that right?\pI’m the game designer!\pFilling up your Pokédex is tough,\nbut don’t quit!\pWhen you finish, come tell me!"
+    082631BD  callstd              function=MSGBOX_DEFAULT(4)
+    082631BF  release              
+
+  script 0x082631C1  [ok]
+    082631C1  message              text="Wow! Excellent!\nYou completed your Pokédex!\pCongratulations!\p…"
+    082631C6  gotostd              function=53
+    082631C8  specialvar           output=3336 SPECIAL_\function=9783
+    082631CD  gotostd              function=18
+    082631CF  warp                 mapGroup=38 mapNum=8 WARP_ID_NONE=23 -1=9787 -1=7176
+    082631D7  warpteleport         mapGroup=38 mapNum=8 WARP_ID_NONE=33 -1=9791 -1=26120
+    082631DF  delay                frames=60
+    082631E2  special              SPECIAL_\function=179
+    082631E5  waitstate            
+
+  object 3 (gfx 0x05, flag 0x0000) -> 0x0826314B
+  script 0x0826314B  [ok]
+    0826314B  msgbox_multilang     type=0 text_0="I’m the graphic artist!\nI drew you!" text_1="I’m the graphic artist!\nI drew you!" text_2="I’m the graphic artist!\nI drew you!" text_3="I’m the graphic artist!\nI drew you!" text_4="I’m the graphic artist!\nI drew you!" text_5="I’m the graphic artist!\nI drew you!" text_6="I’m the graphic artist!\nI drew you!"
+    08263169  callstd              function=MSGBOX_NPC(2)
+    0826316B  end                  
+
+  object 4 (gfx 0x11, flag 0x0000) -> 0x0826316C
+  script 0x0826316C  [ok]
+    0826316C  msgbox_multilang     type=0 text_0="I wrote the story!\nIsn’t Erika cute?\pI like Misty a lot, too!\nOh, and Sabrina, I like her!" text_1="I wrote the story!\nIsn’t Erika cute?\pI like Misty a lot, too!\nOh, and Sabrina, I like her!" text_2="I wrote the story!\nIsn’t Erika cute?\pI like Misty a lot, too!\nOh, and Sabrina, I like her!" text_3="I wrote the story!\nIsn’t Erika cute?\pI like Misty a lot, too!\nOh, and Sabrina, I like her!" text_4="I wrote the story!\nIsn’t Erika cute?\pI like Misty a lot, too!\nOh, and Sabrina, I like her!" text_5="I wrote the story!\nIsn’t Erika cute?\pI like Misty a lot, too!\nOh, and Sabrina, I like her!" text_6="I wrote the story!\nIsn’t Erika cute?\pI like Misty a lot, too!\nOh, and Sabrina, I like her!"
+    0826318A  callstd              function=MSGBOX_NPC(2)
+    0826318C  end                  
+
+  sign 0 at (8,12) -> 0x082631E8
+  script 0x082631E8  [ok]
+    082631E8  msgbox_multilang     type=0 text_0="Game Freak Development Room" text_1="Game Freak Development Room" text_2="Game Freak Development Room" text_3="Game Freak Development Room" text_4="Game Freak Development Room" text_5="Game Freak Development Room" text_6="Game Freak Development Room"
+    08263206  callstd              function=MSGBOX_SIGN(3)
+    08263208  end                  
+
+  sign 1 at (1,9) -> 0x08263209
+  script 0x08263209  [ok]
+    08263209  msgbox_multilang     type=0 text_0="It’s the game program! Messing with\nit could bug out the game!" text_1="It’s the game program! Messing with\nit could bug out the game!" text_2="It’s the game program! Messing with\nit could bug out the game!" text_3="It’s the game program! Messing with\nit could bug out the game!" text_4="It’s the game program! Messing with\nit could bug out the game!" text_5="It’s the game program! Messing with\nit could bug out the game!" text_6="It’s the game program! Messing with\nit could bug out the game!"
+    08263227  callstd              function=MSGBOX_SIGN(3)
+    08263229  end                  
+
+  sign 2 at (5,9) -> 0x0826322A
+  script 0x0826322A  [ok]
+    0826322A  msgbox_multilang     type=0 text_0="Someone’s playing a game instead of\nworking!" text_1="Someone’s playing a game instead of\nworking!" text_2="Someone’s playing a game instead of\nworking!" text_3="Someone’s playing a game instead of\nworking!" text_4="Someone’s playing a game instead of\nworking!" text_5="Someone’s playing a game instead of\nworking!" text_6="Someone’s playing a game instead of\nworking!"
+    08263248  callstd              function=MSGBOX_SIGN(3)
+    0826324A  end                  
+
+  sign 3 at (1,12) -> 0x0826324B
+  script 0x0826324B  [ok]
+    0826324B  msgbox_multilang     type=0 text_0="It’s the script!\nBetter not look at the ending!" text_1="It’s the script!\nBetter not look at the ending!" text_2="It’s the script!\nBetter not look at the ending!" text_3="It’s the script!\nBetter not look at the ending!" text_4="It’s the script!\nBetter not look at the ending!" text_5="It’s the script!\nBetter not look at the ending!" text_6="It’s the script!\nBetter not look at the ending!"
+    08263269  callstd              function=MSGBOX_SIGN(3)
+    0826326B  end                  
+
+  sign 4 at (7,12) -> 0x082631E8
+  sign 5 at (0,12) -> 0x0826324B
+  sign 6 at (0,9) -> 0x08263209
+  sign 7 at (4,9) -> 0x0826322A

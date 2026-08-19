@@ -1,0 +1,144 @@
+Route 11  (group 22, map 1)  header 0x08B3D9CC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x23, flag 0x0000) -> 0x08278453
+  script 0x08278453  [ok]
+    08278453  lock                 
+    08278454  faceplayer           
+    08278455  setvar               destination=VAR_0x8008 value=4
+    0827845A  call                 destination=0x082F80DB
+    0827845F  checkflag            flag=0x251
+    08278462  goto_if              condition=1 destination=0x08278525
+    08278468  msgbox_multilang     type=0 text_0="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_1="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_2="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_3="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_4="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_5="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_6="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?"
+    08278486  callstd              function=MSGBOX_YESNO(5)
+    08278488  compare_var_to_value var=0x800D value=0
+    0827848D  goto_if              condition=1 destination=0x082784DD
+    08278493  call                 destination=0x082F814F
+    08278498  compare_var_to_value var=0x8004 value=6
+    0827849D  goto_if              condition=4 destination=0x082784DD
+    082784A3  call                 destination=0x082F80F2
+    082784A8  compare_var_to_var   var1=32781 var2=32777
+    082784AD  goto_if              condition=5 destination=0x082784FF
+    082784B3  call                 destination=0x082F813B
+    082784B8  msgbox_multilang     type=0 text_0="Hey, thanks!" text_1="Hey, thanks!" text_2="Hey, thanks!" text_3="Hey, thanks!" text_4="Hey, thanks!" text_5="Hey, thanks!" text_6="Hey, thanks!"
+    082784D6  callstd              function=MSGBOX_DEFAULT(4)
+    082784D8  setflag              flag=0x251
+    082784DB  release              
+
+  script 0x082F80DB  [ok]
+    082F80DB  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    082F80E0  specialvar           output=32781 SPECIAL_\function=167
+    082F80E5  copyvar              destination=VAR_0x8009 source=VAR_0x800D
+    082F80EA  return               
+
+  script 0x08278525  [ok]
+    08278525  msgbox_multilang     type=0 text_0="Isn’t my old {STR_VAR_2} great?" text_1="Isn’t my old {STR_VAR_2} great?" text_2="Isn’t my old {STR_VAR_2} great?" text_3="Isn’t my old {STR_VAR_2} great?" text_4="Isn’t my old {STR_VAR_2} great?" text_5="Isn’t my old {STR_VAR_2} great?" text_6="Isn’t my old {STR_VAR_2} great?"
+    08278543  callstd              function=MSGBOX_DEFAULT(4)
+    08278545  release              
+
+  script 0x082784DD  [ok]
+    082784DD  msgbox_multilang     type=0 text_0="Awww!\nOh, well…" text_1="Awww!\nOh, well…" text_2="Awww!\nOh, well…" text_3="Awww!\nOh, well…" text_4="Awww!\nOh, well…" text_5="Awww!\nOh, well…" text_6="Awww!\nOh, well…"
+    082784FB  callstd              function=MSGBOX_DEFAULT(4)
+    082784FD  release              
+
+  script 0x082F814F  [ok]
+    082F814F  special              SPECIAL_\function=96
+    082F8152  waitstate            
+
+  script 0x082F80F2  [ok]
+    082F80F2  copyvar              destination=VAR_0x8005 source=VAR_0x800A
+    082F80F7  specialvar           output=32781 SPECIAL_\function=170
+    082F80FC  copyvar              destination=VAR_0x800B source=VAR_0x800D
+    082F8101  return               
+
+  script 0x082784FF  [ok]
+    082784FF  bufferspeciesname    stringVarId=0 species=?(32777)
+    08278503  msgbox_multilang     type=0 text_0="What?\nThat’s no {STR_VAR_1}!" text_1="What?\nThat’s no {STR_VAR_1}!" text_2="What?\nThat’s no {STR_VAR_1}!" text_3="What?\nThat’s no {STR_VAR_1}!" text_4="What?\nThat’s no {STR_VAR_1}!" text_5="What?\nThat’s no {STR_VAR_1}!" text_6="What?\nThat’s no {STR_VAR_1}!"
+    08278521  callstd              function=MSGBOX_DEFAULT(4)
+    08278523  release              
+
+  script 0x082F813B  [ok]
+    082F813B  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    082F8140  copyvar              destination=VAR_0x8005 source=VAR_0x800A
+    082F8145  special              SPECIAL_\function=168
+    082F8148  special              SPECIAL_\function=169
+    082F814B  waitstate            
+
+  object 2 (gfx 0x08, flag 0x0000) -> 0x08278547
+  script 0x08278547  [unknown-opcode:0xE9]
+    08278547  lock                 
+    08278548  faceplayer           
+    08278549  call                 destination=0x08278634
+    0827854E  checkflag            flag=0x252
+    08278551  goto_if              condition=1 destination=0x08278612
+    08278557  msgbox_multilang     type=0 text_0="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_1="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_2="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_3="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_4="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_5="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?" text_6="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data\non {STR_VAR_1} species, I’m supposed to\pgive you a reward.\pProf. Oak entrusted me with the\n{STR_VAR_2} for you.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\n{STR_VAR_1} kinds of Pokémon?"
+    08278575  callstd              function=MSGBOX_YESNO(5)
+    08278577  compare_var_to_value var=0x800D value=0
+    0827857C  goto_if              condition=1 destination=0x081FF771
+    08278582  setvar               destination=VAR_0x8004 value=0
+    08278587  specialvar           output=32781 SPECIAL_\function=133
+    0827858C  buffernumberstring   stringVarId=2 input=32774
+    08278590  call                 destination=0x08278634
+    08278595  compare_var_to_value var=0x8006 value=30
+    0827859A  goto_if              condition=0 destination=0x081FF72D
+    082785A0  msgbox_multilang     type=0 text_0="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_1="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_2="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_3="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_4="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_5="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_6="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!"
+    082785BE  callstd              function=MSGBOX_DEFAULT(4)
+    082785C0  checkitemspace       itemId=Itemfinder(261) quantity=1
+    082785C5  compare_var_to_value var=0x800D value=0
+    082785CA  goto_if              condition=1 destination=0x081FF74F
+    082785D0  additem              itemId=Itemfinder(261) quantity=1
+
+  script 0x08278634  [ok]
+    08278634  buffernumberstring   stringVarId=0 input=30
+    08278638  bufferitemname       stringVarId=1 item=261
+    0827863C  return               
+
+  script 0x08278612  [ok]
+    08278612  msgbox_multilang     type=0 text_0="There are items on the ground that\nmay be hidden from view.\pUse the Itemfinder to detect any\nhidden items close to you.\pThe machine is a bit limited.\nIt can’t pinpoint item locations.\pWhat it does is show the direction\nwhere the item is.\pUse it to get your bearings, then\nsearch the suspect area by hand." text_1="There are items on the ground that\nmay be hidden from view.\pUse the Itemfinder to detect any\nhidden items close to you.\pThe machine is a bit limited.\nIt can’t pinpoint item locations.\pWhat it does is show the direction\nwhere the item is.\pUse it to get your bearings, then\nsearch the suspect area by hand." text_2="There are items on the ground that\nmay be hidden from view.\pUse the Itemfinder to detect any\nhidden items close to you.\pThe machine is a bit limited.\nIt can’t pinpoint item locations.\pWhat it does is show the direction\nwhere the item is.\pUse it to get your bearings, then\nsearch the suspect area by hand." text_3="There are items on the ground that\nmay be hidden from view.\pUse the Itemfinder to detect any\nhidden items close to you.\pThe machine is a bit limited.\nIt can’t pinpoint item locations.\pWhat it does is show the direction\nwhere the item is.\pUse it to get your bearings, then\nsearch the suspect area by hand." text_4="There are items on the ground that\nmay be hidden from view.\pUse the Itemfinder to detect any\nhidden items close to you.\pThe machine is a bit limited.\nIt can’t pinpoint item locations.\pWhat it does is show the direction\nwhere the item is.\pUse it to get your bearings, then\nsearch the suspect area by hand." text_5="There are items on the ground that\nmay be hidden from view.\pUse the Itemfinder to detect any\nhidden items close to you.\pThe machine is a bit limited.\nIt can’t pinpoint item locations.\pWhat it does is show the direction\nwhere the item is.\pUse it to get your bearings, then\nsearch the suspect area by hand." text_6="There are items on the ground that\nmay be hidden from view.\pUse the Itemfinder to detect any\nhidden items close to you.\pThe machine is a bit limited.\nIt can’t pinpoint item locations.\pWhat it does is show the direction\nwhere the item is.\pUse it to get your bearings, then\nsearch the suspect area by hand."
+    08278630  callstd              function=MSGBOX_DEFAULT(4)
+    08278632  release              
+
+  script 0x081FF771  [ok]
+    081FF771  msgbox_multilang     type=0 text_0="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_1="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_2="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_3="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_4="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_5="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_6="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}."
+    081FF78F  callstd              function=MSGBOX_DEFAULT(4)
+    081FF791  release              
+
+  script 0x081FF72D  [ok]
+    081FF72D  msgbox_multilang     type=0 text_0="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_1="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_2="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_3="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_4="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_5="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_6="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}."
+    081FF74B  callstd              function=MSGBOX_DEFAULT(4)
+    081FF74D  release              
+
+  script 0x081FF74F  [ok]
+    081FF74F  msgbox_multilang     type=0 text_0="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_1="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_2="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_3="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_4="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_5="Oh! I see you don’t have any\nroom for the {STR_VAR_2}." text_6="Oh! I see you don’t have any\nroom for the {STR_VAR_2}."
+    081FF76D  callstd              function=MSGBOX_DEFAULT(4)
+    081FF76F  release              
+
+  sign 0 at (4,1) -> 0x082783E4
+  script 0x082783E4  [ok]
+    082783E4  lockall              
+    082783E5  checkflag            flag=0x253
+    082783E8  goto_if              condition=1 destination=0x08278410
+    082783EE  msgbox_multilang     type=0 text_0="Let’s see what the binoculars have\nto show…\pA big Pokémon is asleep on a road!" text_1="Let’s see what the binoculars have\nto show…\pA big Pokémon is asleep on a road!" text_2="Let’s see what the binoculars have\nto show…\pA big Pokémon is asleep on a road!" text_3="Let’s see what the binoculars have\nto show…\pA big Pokémon is asleep on a road!" text_4="Let’s see what the binoculars have\nto show…\pA big Pokémon is asleep on a road!" text_5="Let’s see what the binoculars have\nto show…\pA big Pokémon is asleep on a road!" text_6="Let’s see what the binoculars have\nto show…\pA big Pokémon is asleep on a road!"
+    0827840C  callstd              function=MSGBOX_DEFAULT(4)
+    0827840E  releaseall           
+
+  script 0x08278410  [ok]
+    08278410  msgbox_multilang     type=0 text_0="Let’s see what the binoculars have\nto show…\pWhat a breathtaking view!" text_1="Let’s see what the binoculars have\nto show…\pWhat a breathtaking view!" text_2="Let’s see what the binoculars have\nto show…\pWhat a breathtaking view!" text_3="Let’s see what the binoculars have\nto show…\pWhat a breathtaking view!" text_4="Let’s see what the binoculars have\nto show…\pWhat a breathtaking view!" text_5="Let’s see what the binoculars have\nto show…\pWhat a breathtaking view!" text_6="Let’s see what the binoculars have\nto show…\pWhat a breathtaking view!"
+    0827842E  callstd              function=MSGBOX_DEFAULT(4)
+    08278430  releaseall           
+
+  sign 1 at (8,1) -> 0x08278432
+  script 0x08278432  [ok]
+    08278432  msgbox_multilang     type=0 text_0="Let’s see what the binoculars have\nto show…\pTo get to Lavender Town from\nCerulean City…\pRock Tunnel appears to be a good\nroute to take." text_1="Let’s see what the binoculars have\nto show…\pTo get to Lavender Town from\nCerulean City…\pRock Tunnel appears to be a good\nroute to take." text_2="Let’s see what the binoculars have\nto show…\pTo get to Lavender Town from\nCerulean City…\pRock Tunnel appears to be a good\nroute to take." text_3="Let’s see what the binoculars have\nto show…\pTo get to Lavender Town from\nCerulean City…\pRock Tunnel appears to be a good\nroute to take." text_4="Let’s see what the binoculars have\nto show…\pTo get to Lavender Town from\nCerulean City…\pRock Tunnel appears to be a good\nroute to take." text_5="Let’s see what the binoculars have\nto show…\pTo get to Lavender Town from\nCerulean City…\pRock Tunnel appears to be a good\nroute to take." text_6="Let’s see what the binoculars have\nto show…\pTo get to Lavender Town from\nCerulean City…\pRock Tunnel appears to be a good\nroute to take."
+    08278450  callstd              function=MSGBOX_SIGN(3)
+    08278452  end                  
+

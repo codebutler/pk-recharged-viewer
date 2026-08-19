@@ -1,0 +1,108 @@
+Three Island  (group 3, map 14)  header 0x08B3C84C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x01BB) -> 0x082D5AE0
+  script 0x082D5AE0  [ok]
+    082D5AE0  setorcopyvar         destination=VAR_0x8000 source=70
+    082D5AE5  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5AEA  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Zinc
+    082D5AEC  end                  
+
+  object 2 (gfx 0x10, flag 0x0000) -> 0x0823088F
+  script 0x0823088F  [ok]
+    0823088F  msgbox_multilang     type=0 text_0="Three Island is actually the most\npopulous of the islands here.\pStill, it could be less sleepy.\pBut I wouldn’t want to see goons like\nthose Bikers here again." text_1="Three Island is actually the most\npopulous of the islands here.\pStill, it could be less sleepy.\pBut I wouldn’t want to see goons like\nthose Bikers here again." text_2="Three Island is actually the most\npopulous of the islands here.\pStill, it could be less sleepy.\pBut I wouldn’t want to see goons like\nthose Bikers here again." text_3="Three Island is actually the most\npopulous of the islands here.\pStill, it could be less sleepy.\pBut I wouldn’t want to see goons like\nthose Bikers here again." text_4="Three Island is actually the most\npopulous of the islands here.\pStill, it could be less sleepy.\pBut I wouldn’t want to see goons like\nthose Bikers here again." text_5="Three Island is actually the most\npopulous of the islands here.\pStill, it could be less sleepy.\pBut I wouldn’t want to see goons like\nthose Bikers here again." text_6="Three Island is actually the most\npopulous of the islands here.\pStill, it could be less sleepy.\pBut I wouldn’t want to see goons like\nthose Bikers here again."
+    082308AD  callstd              function=MSGBOX_NPC(2)
+    082308AF  end                  
+
+  object 3 (gfx 0x0B, flag 0x0000) -> 0x082308B0
+  script 0x082308B0  [ok]
+    082308B0  msgbox_multilang     type=0 text_0="I’m going to train my Doduo in the\nBerry Forest.\pWhen it evolves, I’m going to play a\ngame on Two Island." text_1="I’m going to train my Doduo in the\nBerry Forest.\pWhen it evolves, I’m going to play a\ngame on Two Island." text_2="I’m going to train my Doduo in the\nBerry Forest.\pWhen it evolves, I’m going to play a\ngame on Two Island." text_3="I’m going to train my Doduo in the\nBerry Forest.\pWhen it evolves, I’m going to play a\ngame on Two Island." text_4="I’m going to train my Doduo in the\nBerry Forest.\pWhen it evolves, I’m going to play a\ngame on Two Island." text_5="I’m going to train my Doduo in the\nBerry Forest.\pWhen it evolves, I’m going to play a\ngame on Two Island." text_6="I’m going to train my Doduo in the\nBerry Forest.\pWhen it evolves, I’m going to play a\ngame on Two Island."
+    082308CE  callstd              function=MSGBOX_NPC(2)
+    082308D0  end                  
+
+  object 4 (gfx 0x54, flag 0x0000) -> 0x082308D1
+  script 0x082308D1  [ok]
+    082308D1  bufferspeciesname    stringVarId=0 species=DODUO(84)
+    082308D5  lock                 
+    082308D6  faceplayer           
+    082308D7  waitse               
+    082308D8  playmoncry           species=DODUO(84) mode=0
+    082308DD  msgbox_multilang     type=0 text_0="DODUO: Gigiih!" text_1="DODUO: Gigiih!" text_2="DODUO: Gigiih!" text_3="DODUO: Gigiih!" text_4="DODUO: Gigiih!" text_5="DODUO: Gigiih!" text_6="DODUO: Gigiih!"
+    082308FB  callstd              function=MSGBOX_DEFAULT(4)
+    082308FD  waitmoncry           
+    082308FE  release              
+
+  object 5 (gfx 0x52, flag 0x031E) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  sign 0 at (12,31) -> 0x08230900
+  script 0x08230900  [ok]
+    08230900  msgbox_multilang     type=0 text_0="Three Island\nKin Island of Family Bonding" text_1="Three Island\nKin Island of Family Bonding" text_2="Three Island\nKin Island of Family Bonding" text_3="Three Island\nKin Island of Family Bonding" text_4="Three Island\nKin Island of Family Bonding" text_5="Three Island\nKin Island of Family Bonding" text_6="Three Island\nKin Island of Family Bonding"
+    0823091E  callstd              function=MSGBOX_SIGN(3)
+    08230920  end                  
+
+  hidden item at (5,13): PP Up
+
+  map script type 3 -> 0x0823088B
+  script 0x0823088B  [ok]
+    0823088B  setworldmapflag      flag=0x8FD
+    0823088E  return               
+

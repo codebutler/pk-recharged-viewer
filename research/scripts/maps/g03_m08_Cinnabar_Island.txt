@@ -1,0 +1,76 @@
+Cinnabar Island  (group 3, map 8)  header 0x08B3C7A4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x14, flag 0x0000) -> 0x0822E463
+  script 0x0822E463  [ok]
+    0822E463  lock                 
+    0822E464  faceplayer           
+    0822E465  setvar               destination=VAR_0x8004 value=8
+    0822E46A  setvar               destination=VAR_0x8005 value=3
+    0822E46F  special              SPECIAL_\function=347
+    0822E472  msgbox_multilang     type=0 text_0="Cinnabar Gym’s Blaine is quite the odd\nfellow.\pHe’s lived on the island since way\nbefore the Lab was built." text_1="Cinnabar Gym’s Blaine is quite the odd\nfellow.\pHe’s lived on the island since way\nbefore the Lab was built." text_2="Cinnabar Gym’s Blaine is quite the odd\nfellow.\pHe’s lived on the island since way\nbefore the Lab was built." text_3="Cinnabar Gym’s Blaine is quite the odd\nfellow.\pHe’s lived on the island since way\nbefore the Lab was built." text_4="Cinnabar Gym’s Blaine is quite the odd\nfellow.\pHe’s lived on the island since way\nbefore the Lab was built." text_5="Cinnabar Gym’s Blaine is quite the odd\nfellow.\pHe’s lived on the island since way\nbefore the Lab was built." text_6="Cinnabar Gym’s Blaine is quite the odd\nfellow.\pHe’s lived on the island since way\nbefore the Lab was built."
+    0822E490  callstd              function=MSGBOX_DEFAULT(4)
+    0822E492  release              
+
+  object 2 (gfx 0xF5, flag 0x0000) -> 0x0822E494
+  script 0x0822E494  [ok]
+    0822E494  msgbox_multilang     type=0 text_0="Scientists conduct experiments in the\nburned-out building.\pYou know, the one they call the\nPokémon Mansion." text_1="Scientists conduct experiments in the\nburned-out building.\pYou know, the one they call the\nPokémon Mansion." text_2="Scientists conduct experiments in the\nburned-out building.\pYou know, the one they call the\nPokémon Mansion." text_3="Scientists conduct experiments in the\nburned-out building.\pYou know, the one they call the\nPokémon Mansion." text_4="Scientists conduct experiments in the\nburned-out building.\pYou know, the one they call the\nPokémon Mansion." text_5="Scientists conduct experiments in the\nburned-out building.\pYou know, the one they call the\nPokémon Mansion." text_6="Scientists conduct experiments in the\nburned-out building.\pYou know, the one they call the\nPokémon Mansion."
+    0822E4B2  callstd              function=MSGBOX_NPC(2)
+    0822E4B4  end                  
+
+  coord trigger 0 (var 0x4001 == 0) -> 0x0822E426
+  script 0x0822E426  [ok]
+    0822E426  lockall              
+    0822E427  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    0822E42E  waitmovement         localId=0
+    0822E431  delay                frames=20
+    0822E434  msgbox_multilang     type=0 text_0="The door is locked…" text_1="The door is locked…" text_2="The door is locked…" text_3="The door is locked…" text_4="The door is locked…" text_5="The door is locked…" text_6="The door is locked…"
+    0822E452  callstd              function=MSGBOX_DEFAULT(4)
+    0822E454  closemessage         
+    0822E455  applymovement        localId=255 movements=[walk_down]
+    0822E45C  waitmovement         localId=0
+    0822E45F  releaseall           
+
+  sign 0 at (12,3) -> 0x0822E4B5
+  script 0x0822E4B5  [ok]
+    0822E4B5  msgbox_multilang     type=0 text_0="Cinnabar Island\nThe Fiery Town of Burning Desire" text_1="Cinnabar Island\nThe Fiery Town of Burning Desire" text_2="Cinnabar Island\nThe Fiery Town of Burning Desire" text_3="Cinnabar Island\nThe Fiery Town of Burning Desire" text_4="Cinnabar Island\nThe Fiery Town of Burning Desire" text_5="Cinnabar Island\nThe Fiery Town of Burning Desire" text_6="Cinnabar Island\nThe Fiery Town of Burning Desire"
+    0822E4D3  callstd              function=MSGBOX_SIGN(3)
+    0822E4D5  end                  
+
+  sign 1 at (9,9) -> 0x0822E4D6
+  script 0x0822E4D6  [ok]
+    0822E4D6  msgbox_multilang     type=0 text_0="Pokémon Lab" text_1="Pokémon Lab" text_2="Pokémon Lab" text_3="Pokémon Lab" text_4="Pokémon Lab" text_5="Pokémon Lab" text_6="Pokémon Lab"
+    0822E4F4  callstd              function=MSGBOX_SIGN(3)
+    0822E4F6  end                  
+
+  sign 2 at (22,5) -> 0x0822E4F7
+  script 0x0822E4F7  [ok]
+    0822E4F7  lockall              
+    0822E4F8  setvar               destination=VAR_0x8004 value=8
+    0822E4FD  setvar               destination=VAR_0x8005 value=0
+    0822E502  special              SPECIAL_\function=347
+    0822E505  msgbox_multilang     type=0 text_0="Cinnabar Island Pokémon Gym\nLeader: Blaine\pThe Hotheaded Quiz Master!" text_1="Cinnabar Island Pokémon Gym\nLeader: Blaine\pThe Hotheaded Quiz Master!" text_2="Cinnabar Island Pokémon Gym\nLeader: Blaine\pThe Hotheaded Quiz Master!" text_3="Cinnabar Island Pokémon Gym\nLeader: Blaine\pThe Hotheaded Quiz Master!" text_4="Cinnabar Island Pokémon Gym\nLeader: Blaine\pThe Hotheaded Quiz Master!" text_5="Cinnabar Island Pokémon Gym\nLeader: Blaine\pThe Hotheaded Quiz Master!" text_6="Cinnabar Island Pokémon Gym\nLeader: Blaine\pThe Hotheaded Quiz Master!"
+    0822E523  callstd              function=MSGBOX_DEFAULT(4)
+    0822E525  releaseall           
+
+  sign 3 at (10,9) -> 0x0822E4D6
+  map script type 3 -> 0x0822E413
+  script 0x0822E413  [ok]
+    0822E413  setworldmapflag      flag=0x8F8
+    0822E416  checkflag            flag=0x1A8
+    0822E419  goto_if              condition=1 destination=0x0822E420
+    0822E41F  return               
+
+  script 0x0822E420  [ok]
+    0822E420  setvar               destination=VAR_0x4001 value=1
+    0822E425  return               
+

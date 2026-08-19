@@ -1,0 +1,136 @@
+S.S. Anne  (group 1, map 6)  header 0x08B3B2C0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x15, flag 0x003D) -> 0x00000000
+  object 2 (gfx 0x31, flag 0x0000) -> 0x0820AC94
+  script 0x0820AC94  [ok]
+    0820AC94  msgbox_multilang     type=0 text_0="This ship, she is a luxury liner for\nTrainers of the world!\pAt every port, we hold parties with\ninvited Trainers." text_1="This ship, she is a luxury liner for\nTrainers of the world!\pAt every port, we hold parties with\ninvited Trainers." text_2="This ship, she is a luxury liner for\nTrainers of the world!\pAt every port, we hold parties with\ninvited Trainers." text_3="This ship, she is a luxury liner for\nTrainers of the world!\pAt every port, we hold parties with\ninvited Trainers." text_4="This ship, she is a luxury liner for\nTrainers of the world!\pAt every port, we hold parties with\ninvited Trainers." text_5="This ship, she is a luxury liner for\nTrainers of the world!\pAt every port, we hold parties with\ninvited Trainers." text_6="This ship, she is a luxury liner for\nTrainers of the world!\pAt every port, we hold parties with\ninvited Trainers."
+    0820ACB2  callstd              function=MSGBOX_NPC(2)
+    0820ACB4  end                  
+
+  coord trigger 0 (var 0x405B == 0) -> 0x0820AB0C
+  script 0x0820AB0C  [ok]
+    0820AB0C  lockall              
+    0820AB0D  setvar               destination=VAR_0x4001 value=0
+    0820AB12  goto                 destination=0x0820AB30
+
+  script 0x0820AB30  [ok]
+    0820AB30  textcolor            color=0
+    0820AB32  playse               song=9
+    0820AB35  delay                frames=5
+    0820AB38  playbgm              song=527 save_song=0
+    0820AB3C  addobject            localId=1
+    0820AB3F  delay                frames=10
+    0820AB42  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    0820AB49  waitmovement         localId=0
+    0820AB4C  delay                frames=20
+    0820AB4F  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0820AB54  compare_var_to_value var=0x8000 value=0
+    0820AB59  goto_if              condition=1 destination=0x0820AC08
+    0820AB5F  compare_var_to_value var=0x8000 value=1
+    0820AB64  goto_if              condition=1 destination=0x0820AC14
+    0820AB6A  compare_var_to_value var=0x8000 value=2
+    0820AB6F  goto_if              condition=1 destination=0x0820AC27
+    0820AB75  waitmovement         localId=0
+    0820AB78  speakername          name="{RIVAL}"
+    0820AB7D  msgbox_multilang     type=0 text_0="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_1="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_2="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_3="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_4="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_5="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_6="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them."
+    0820AB9B  callstd              function=MSGBOX_DEFAULT(4)
+    0820AB9D  setvar               destination=VAR_0x800F value=1
+    0820ABA2  trainerbattle        type=3 trainer=0x1AC localId=0 ptr1=0x0820AD8F
+    0820ABAC  msgbox_multilang     type=0 text_0="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_1="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_2="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_3="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_4="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_5="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_6="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!"
+    0820ABCA  callstd              function=MSGBOX_DEFAULT(4)
+    0820ABCC  closemessage         
+    0820ABCD  delay                frames=10
+    0820ABD0  playbgm              song=528 save_song=0
+    0820ABD4  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0820ABD9  compare_var_to_value var=0x8000 value=0
+    0820ABDE  goto_if              condition=1 destination=0x0820AC3A
+    0820ABE4  compare_var_to_value var=0x8000 value=1
+    0820ABE9  goto_if              condition=1 destination=0x0820AC46
+    0820ABEF  compare_var_to_value var=0x8000 value=2
+    0820ABF4  goto_if              condition=1 destination=0x0820AC52
+    0820ABFA  waitmovement         localId=0
+    0820ABFD  fadedefaultbgm       
+    0820ABFE  removeobject         localId=1
+    0820AC01  setvar               destination=VAR_0x405B value=1
+    0820AC06  releaseall           
+
+  script 0x0820AC08  [ok]
+    0820AC08  applymovement        localId=1 movements=[walk_down walk_down walk_down]
+    0820AC0F  goto                 destination=0x0820AB75
+
+  script 0x0820AC14  [ok]
+    0820AC14  applymovement        localId=1 movements=[walk_down walk_down walk_down walk_down walk_in_place_faster_right]
+    0820AC1B  applymovement        localId=255 movements=[delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_left]
+    0820AC22  goto                 destination=0x0820AB75
+
+  script 0x0820AC27  [ok]
+    0820AC27  applymovement        localId=255 movements=[delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_left]
+    0820AC2E  applymovement        localId=1 movements=[walk_down walk_down walk_down walk_down walk_right delay_4]
+    0820AC35  goto                 destination=0x0820AB75
+
+  script 0x0820AC3A  [ok]
+    0820AC3A  applymovement        localId=1 movements=[walk_right walk_down walk_down walk_down walk_down walk_down walk_down walk_down]
+    0820AC41  goto                 destination=0x0820ABFA
+
+  script 0x0820AC46  [ok]
+    0820AC46  applymovement        localId=1 movements=[walk_down walk_down walk_down walk_down walk_down walk_down walk_down]
+    0820AC4D  goto                 destination=0x0820ABFA
+
+  script 0x0820AC52  [ok]
+    0820AC52  applymovement        localId=1 movements=[walk_down walk_down walk_down walk_down walk_down walk_down walk_down]
+    0820AC59  goto                 destination=0x0820ABFA
+
+  script 0x0820AB75  [ok]
+    0820AB75  waitmovement         localId=0
+    0820AB78  speakername          name="{RIVAL}"
+    0820AB7D  msgbox_multilang     type=0 text_0="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_1="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_2="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_3="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_4="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_5="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them." text_6="Bonjour!\n{PLAYER}!\pImagine seeing you here!\n{PLAYER}, were you really\pinvited?\pSo how’s your Pokédex coming?\pI already caught 40 kinds, pal.\nDifferent kinds are everywhere.\pCrawl around in grassy areas, and\nlook hard for them."
+    0820AB9B  callstd              function=MSGBOX_DEFAULT(4)
+    0820AB9D  setvar               destination=VAR_0x800F value=1
+    0820ABA2  trainerbattle        type=3 trainer=0x1AC localId=0 ptr1=0x0820AD8F
+    0820ABAC  msgbox_multilang     type=0 text_0="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_1="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_2="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_3="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_4="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_5="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!" text_6="I heard there was a Cut master on\nboard.\pBut he was just a seasick old man!\pCut itself is really useful.\nYup, it’ll be handy.\pYou should go see him, too.\nSmell ya!"
+    0820ABCA  callstd              function=MSGBOX_DEFAULT(4)
+    0820ABCC  closemessage         
+    0820ABCD  delay                frames=10
+    0820ABD0  playbgm              song=528 save_song=0
+    0820ABD4  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0820ABD9  compare_var_to_value var=0x8000 value=0
+    0820ABDE  goto_if              condition=1 destination=0x0820AC3A
+    0820ABE4  compare_var_to_value var=0x8000 value=1
+    0820ABE9  goto_if              condition=1 destination=0x0820AC46
+    0820ABEF  compare_var_to_value var=0x8000 value=2
+    0820ABF4  goto_if              condition=1 destination=0x0820AC52
+    0820ABFA  waitmovement         localId=0
+    0820ABFD  fadedefaultbgm       
+    0820ABFE  removeobject         localId=1
+    0820AC01  setvar               destination=VAR_0x405B value=1
+    0820AC06  releaseall           
+
+  script 0x0820ABFA  [ok]
+    0820ABFA  waitmovement         localId=0
+    0820ABFD  fadedefaultbgm       
+    0820ABFE  removeobject         localId=1
+    0820AC01  setvar               destination=VAR_0x405B value=1
+    0820AC06  releaseall           
+
+  coord trigger 1 (var 0x405B == 0) -> 0x0820AB18
+  script 0x0820AB18  [ok]
+    0820AB18  lockall              
+    0820AB19  setvar               destination=VAR_0x4001 value=1
+    0820AB1E  goto                 destination=0x0820AB30
+
+  coord trigger 2 (var 0x405B == 0) -> 0x0820AB24
+  script 0x0820AB24  [ok]
+    0820AB24  lockall              
+    0820AB25  setvar               destination=VAR_0x4001 value=2
+    0820AB2A  goto                 destination=0x0820AB30
+

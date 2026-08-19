@@ -1,0 +1,2469 @@
+{
+ "????????": [
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  }
+ ],
+ "Adamant Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Kindle Road",
+   "script": "0x082D5C8A"
+  }
+ ],
+ "Amulet Coin": [
+  {
+   "kind": "script-give",
+   "map": "Route 16",
+   "script": "0x0827A014"
+  }
+ ],
+ "Antidote": [
+  {
+   "kind": "ground-item",
+   "map": "Viridian Forest",
+   "script": "0x082D55E3"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Viridian Forest"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D5B11"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  }
+ ],
+ "Aspear Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 23"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Water Path"
+  }
+ ],
+ "Autograph": [
+  {
+   "kind": "script-give",
+   "map": "Vermilion City",
+   "script": "0x0825ED47"
+  },
+  {
+   "kind": "script-give",
+   "map": "Vermilion City",
+   "script": "0x0825ED47"
+  }
+ ],
+ "Awakening": [
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Tower",
+   "script": "0x082D579D"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Route 11",
+   "script": "0x082D5BD4"
+  }
+ ],
+ "Big Mushroom": [
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Moon"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Moon"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Moon"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Pok\u00e9mon Tower"
+  }
+ ],
+ "Big Pearl": [
+  {
+   "kind": "ground-item",
+   "map": "Seafoam Islands",
+   "script": "0x082D5C3C"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rocket Warehouse",
+   "script": "0x082D5DB5"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Treasure Beach"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Memorial Pillar"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Trainer Tower"
+  }
+ ],
+ "Bike Voucher": [
+  {
+   "kind": "script-give",
+   "map": "Vermilion City",
+   "script": "0x0825DE13"
+  }
+ ],
+ "BlackGlasses": [
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D5BFB"
+  }
+ ],
+ "Bluk Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 25"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Memorial Pillar"
+  }
+ ],
+ "Bold Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  }
+ ],
+ "Bottle Cap": [
+  {
+   "kind": "hidden-item",
+   "map": "Cape Brink"
+  }
+ ],
+ "Brave Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  }
+ ],
+ "Burn Heal": [
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Route 9",
+   "script": "0x082D5B2B"
+  }
+ ],
+ "Calcium": [
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D5776"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D5909"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D59A5"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Artisan Cave"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Calm Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "Carbos": [
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D5923"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D598B"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Artisan Cave",
+   "script": "0x082D5554"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Card Key": [
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D58E2"
+  }
+ ],
+ "Careful Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "Cheri Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "S.S. Anne"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 10"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Sevault Canyon"
+  }
+ ],
+ "Chesto Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "S.S. Anne"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 9"
+  }
+ ],
+ "Cleanse Tag": [
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Tower",
+   "script": "0x082D5BE1"
+  }
+ ],
+ "Coin Case": [
+  {
+   "kind": "script-give",
+   "map": "Celadon City",
+   "script": "0x0826834C"
+  }
+ ],
+ "Dome Fossil": [
+  {
+   "kind": "script-give",
+   "map": "Cinnabar Island",
+   "script": "0x0826D523"
+  }
+ ],
+ "Dragon Scale": [
+  {
+   "kind": "ground-item",
+   "map": "Water Path",
+   "script": "0x082D5CD8"
+  }
+ ],
+ "Elixir": [
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Pok\u00e9mon Mansion"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Tower",
+   "script": "0x082D5790"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Power Plant",
+   "script": "0x082D597E"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 25"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Water Path",
+   "script": "0x082D5CCB"
+  }
+ ],
+ "Escape Rope": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D5631"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D56F4"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D58AE"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D5998"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rock Tunnel",
+   "script": "0x082D5B52"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Tower",
+   "script": "0x082D5783"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 11"
+  }
+ ],
+ "Ether": [
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Moon"
+  },
+  {
+   "kind": "ground-item",
+   "map": "S.S. Anne",
+   "script": "0x082D56C0"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Celadon City",
+   "script": "0x082D5BEE"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Route 2",
+   "script": "0x082D55BC"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 9"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 25"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Kindle Road",
+   "script": "0x082D5C70"
+  }
+ ],
+ "Everstone": [
+  {
+   "kind": "script-give",
+   "map": "Route 10",
+   "script": "0x08277E4A"
+  }
+ ],
+ "Exp. Share": [
+  {
+   "kind": "script-give",
+   "map": "Route 15",
+   "script": "0x0827973F"
+  }
+ ],
+ "Fire Stone": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Ember",
+   "script": "0x082D5D67"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Ember"
+  }
+ ],
+ "Full Heal": [
+  {
+   "kind": "ground-item",
+   "map": "Victory Road",
+   "script": "0x082D5A34"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D58BB"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Berry Forest",
+   "script": "0x082D5D40"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Full Restore": [
+  {
+   "kind": "hidden-item",
+   "map": "Victory Road"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D59D9"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D581F"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Cerulean Cave",
+   "script": "0x082D5A82"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Cerulean Cave",
+   "script": "0x082D5A8F"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Icefall Cave",
+   "script": "0x082D5D9B"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 17"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 23"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Ruin Valley",
+   "script": "0x082D5CE5"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Gentle Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "Gold Teeth": [
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D586D"
+  }
+ ],
+ "Good Rod": [
+  {
+   "kind": "script-give",
+   "map": "Fuchsia City",
+   "script": "0x0826AAF4"
+  }
+ ],
+ "Great Ball": [
+  {
+   "kind": "ground-item",
+   "map": "S.S. Anne",
+   "script": "0x082D56DA"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Tower",
+   "script": "0x082D57AA"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 4"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Route 11",
+   "script": "0x082D5BC7"
+  }
+ ],
+ "Guard Spec.": [
+  {
+   "kind": "ground-item",
+   "map": "Victory Road",
+   "script": "0x082D5A1A"
+  }
+ ],
+ "HM02": [
+  {
+   "kind": "script-give",
+   "map": "Route 16",
+   "script": "0x08279B3F"
+  }
+ ],
+ "HM03": [
+  {
+   "kind": "script-give",
+   "map": "Safari Zone",
+   "script": "0x08212F06"
+  }
+ ],
+ "HM04": [
+  {
+   "kind": "script-give",
+   "map": "Fuchsia City",
+   "script": "0x0826A5A5"
+  }
+ ],
+ "HM05": [
+  {
+   "kind": "script-give",
+   "map": "Route 2",
+   "script": "0x0827372F"
+  }
+ ],
+ "HM07": [
+  {
+   "kind": "ground-item",
+   "map": "Icefall Cave",
+   "script": "0x082D5D8E"
+  }
+ ],
+ "HP Up": [
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D58EF"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D5BAD"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Artisan Cave",
+   "script": "0x082D5547"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Ruin Valley",
+   "script": "0x082D5CF2"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Hasty Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "Heart Scale": [
+  {
+   "kind": "hidden-item",
+   "map": "Tanoby Ruins"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Tanoby Ruins"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Tanoby Ruins"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Tanoby Ruins"
+  }
+ ],
+ "Helix Fossil": [
+  {
+   "kind": "script-give",
+   "map": "Cinnabar Island",
+   "script": "0x0826D514"
+  }
+ ],
+ "Hyper Potion": [
+  {
+   "kind": "hidden-item",
+   "map": "S.S. Anne"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D5701"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D5894"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 12"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Ice Heal": [
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Seafoam Islands",
+   "script": "0x082D5C15"
+  }
+ ],
+ "Impish Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  }
+ ],
+ "Iron": [
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D5B79"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D59BF"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Artisan Cave"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Route 12",
+   "script": "0x082D57EB"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Itemfinder": [
+  {
+   "kind": "script-give",
+   "map": "Route 11",
+   "script": "0x082785D0"
+  }
+ ],
+ "Jolly Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "King\u2019s Rock": [
+  {
+   "kind": "ground-item",
+   "map": "Sevault Canyon",
+   "script": "0x082D5D0C"
+  }
+ ],
+ "Lava Cookie": [
+  {
+   "kind": "hidden-item",
+   "map": "S.S. Anne"
+  }
+ ],
+ "Lax Incense": [
+  {
+   "kind": "ground-item",
+   "map": "Lost Cave",
+   "script": "0x082D5DF6"
+  }
+ ],
+ "Lax Mint": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Ember",
+   "script": "0x082D5D74"
+  },
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  }
+ ],
+ "Leaf Stone": [
+  {
+   "kind": "hidden-item",
+   "map": "Safari Zone"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D5839"
+  }
+ ],
+ "Leftovers": [
+  {
+   "kind": "hidden-item",
+   "map": "Route 12"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 16"
+  }
+ ],
+ "Leppa Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Six Island"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 8"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 23"
+  }
+ ],
+ "Linking Cord": [
+  {
+   "kind": "script-give",
+   "map": "Silph Co.",
+   "script": "0x08210036"
+  },
+  {
+   "kind": "script-give",
+   "map": "Silph Co.",
+   "script": "0x08210036"
+  },
+  {
+   "kind": "script-give",
+   "map": "Silph Co.",
+   "script": "0x08210036"
+  },
+  {
+   "kind": "script-give",
+   "map": "Silph Co.",
+   "script": "0x08210036"
+  }
+ ],
+ "Lonely Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  }
+ ],
+ "Lucky Punch": [
+  {
+   "kind": "ground-item",
+   "map": "Sevault Canyon",
+   "script": "0x082D5E2A"
+  }
+ ],
+ "Lum Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 8"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 23"
+  }
+ ],
+ "Macho Brace": [
+  {
+   "kind": "hidden-item",
+   "map": "Viridian City"
+  }
+ ],
+ "Master Ball": [
+  {
+   "kind": "script-give",
+   "map": "Silph Co.",
+   "script": "0x08211526"
+  },
+  {
+   "kind": "script-give",
+   "map": "Silph Co.",
+   "script": "0x08211526"
+  }
+ ],
+ "Max Elixir": [
+  {
+   "kind": "ground-item",
+   "map": "Cerulean Cave",
+   "script": "0x082D5A68"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Power Plant"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Berry Forest",
+   "script": "0x082D5D4D"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 17"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 23"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Sevault Canyon",
+   "script": "0x082D5D19"
+  }
+ ],
+ "Max Ether": [
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D5769"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rock Tunnel",
+   "script": "0x082D5B6C"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Berry Forest",
+   "script": "0x082D5D33"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Vermilion City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 10"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 23"
+  }
+ ],
+ "Max Lure": [
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Max Potion": [
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D59B2"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D5812"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D587A"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Power Plant",
+   "script": "0x082D594A"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Five Isle Meadow",
+   "script": "0x082D5C97"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Max Repel": [
+  {
+   "kind": "ground-item",
+   "map": "Kindle Road",
+   "script": "0x082D5C7D"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Bond Bridge"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Max Revive": [
+  {
+   "kind": "ground-item",
+   "map": "Victory Road",
+   "script": "0x082D5A4E"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D58A1"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D5887"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Cerulean Cave",
+   "script": "0x082D5AB6"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Lost Cave",
+   "script": "0x082D5E10"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Fuchsia City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 17"
+  }
+ ],
+ "Metal Coat": [
+  {
+   "kind": "ground-item",
+   "map": "Memorial Pillar",
+   "script": "0x082D5CB1"
+  }
+ ],
+ "Mild Mint": [
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Ember"
+  },
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  }
+ ],
+ "Modest Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  }
+ ],
+ "Moon Stone": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D563E"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Moon"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D571B"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Pok\u00e9mon Mansion"
+  }
+ ],
+ "Naive Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "Nanab Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 10"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Trainer Tower"
+  }
+ ],
+ "Naughty Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  }
+ ],
+ "Nest Ball": [
+  {
+   "kind": "hidden-item",
+   "map": "Rocket Hideout"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Rocket Warehouse"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Resort Gorgeous"
+  }
+ ],
+ "Net Ball": [
+  {
+   "kind": "hidden-item",
+   "map": "Rocket Hideout"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Rocket Warehouse"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Outcast Island"
+  }
+ ],
+ "NeverMeltIce": [
+  {
+   "kind": "ground-item",
+   "map": "Icefall Cave",
+   "script": "0x082D5DA8"
+  }
+ ],
+ "Nugget": [
+  {
+   "kind": "hidden-item",
+   "map": "Rocket Hideout"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D5805"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Cerulean Cave",
+   "script": "0x082D5A75"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Seafoam Islands"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Tower",
+   "script": "0x082D57B7"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Three Isle Path"
+  },
+  {
+   "kind": "script-give",
+   "map": "Route 24",
+   "script": "0x0823AA60"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Sevault Canyon",
+   "script": "0x082D5D26"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Saffron City"
+  }
+ ],
+ "Oak\u2019s Parcel": [
+  {
+   "kind": "script-give",
+   "map": "Viridian City",
+   "script": "0x08250A9B"
+  }
+ ],
+ "Old Amber": [
+  {
+   "kind": "script-give",
+   "map": "Pewter City",
+   "script": "0x082518B8"
+  },
+  {
+   "kind": "script-give",
+   "map": "Cinnabar Island",
+   "script": "0x0826D532"
+  }
+ ],
+ "Old Rod": [
+  {
+   "kind": "script-give",
+   "map": "Vermilion City",
+   "script": "0x0825D4FF"
+  }
+ ],
+ "Oran Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 3"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 25"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Water Path"
+  }
+ ],
+ "PP Max": [
+  {
+   "kind": "hidden-item",
+   "map": "Cape Brink"
+  }
+ ],
+ "PP Up": [
+  {
+   "kind": "hidden-item",
+   "map": "Rocket Hideout"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Cerulean Cave",
+   "script": "0x082D5A9C"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Celadon City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Three Island"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 13"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 17"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Five Isle Meadow",
+   "script": "0x082D5CA4"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Outcast Island",
+   "script": "0x082D5CBE"
+  }
+ ],
+ "Parlyz Heal": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D55FD"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Route 2",
+   "script": "0x082D55C9"
+  }
+ ],
+ "Pearl": [
+  {
+   "kind": "ground-item",
+   "map": "Rock Tunnel",
+   "script": "0x082D5B45"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rocket Warehouse",
+   "script": "0x082D5DCF"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Four Island"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 21"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Treasure Beach"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Treasure Beach"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Bond Bridge"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Trainer Tower"
+  }
+ ],
+ "Pecha Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "S.S. Anne"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 24"
+  }
+ ],
+ "Persim Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 4"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 10"
+  }
+ ],
+ "Pewter Arare": [
+  {
+   "kind": "script-give",
+   "map": "Pewter City",
+   "script": "0x0825355F"
+  }
+ ],
+ "Pinap Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 14"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Water Path"
+  }
+ ],
+ "Pok\u00e9 Ball": [
+  {
+   "kind": "ground-item",
+   "map": "Viridian Forest",
+   "script": "0x082D55D6"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Pewter City"
+  }
+ ],
+ "Pok\u00e9 Flute": [
+  {
+   "kind": "script-give",
+   "map": "Lavender Town",
+   "script": "0x0825C4DE"
+  }
+ ],
+ "Potion": [
+  {
+   "kind": "ground-item",
+   "map": "Viridian Forest",
+   "script": "0x082D55F0"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Viridian Forest",
+   "script": "0x082D5AF7"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Viridian Forest"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D5617"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Undergound Path"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Viridian City",
+   "script": "0x082D5BBA"
+  }
+ ],
+ "Protein": [
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D58C8"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D5B93"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D5846"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Artisan Cave"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Quick Claw": [
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D5C08"
+  }
+ ],
+ "Quiet Mint": [
+  {
+   "kind": "ground-item",
+   "map": "Two Island",
+   "script": "0x082D5ADD"
+  },
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "Rare Candy": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D5624"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Victory Road",
+   "script": "0x082D5A00"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D5742"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D593D"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Pok\u00e9mon Mansion"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Tower",
+   "script": "0x082D57C4"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Lost Cave",
+   "script": "0x082D5E1D"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Cerulean City"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 6"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 9"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 12"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 17"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Fuchsia City",
+   "script": "0x082D5AD0"
+  }
+ ],
+ "Rash Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "Rawst Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 8"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Canyon Entrance"
+  }
+ ],
+ "Razz Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 4"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Memorial Pillar"
+  }
+ ],
+ "Relaxed Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x08230296"
+  }
+ ],
+ "Repel": [
+  {
+   "kind": "ground-item",
+   "map": "Rock Tunnel",
+   "script": "0x082D5B38"
+  }
+ ],
+ "Revive": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D5B04"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Safari Zone"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rock Tunnel",
+   "script": "0x082D5B5F"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Seafoam Islands",
+   "script": "0x082D5C2F"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Ruby": [
+  {
+   "kind": "script-give",
+   "map": "Mt. Ember",
+   "script": "0x08218D4A"
+  }
+ ],
+ "S.S. Ticket": [
+  {
+   "kind": "script-give",
+   "map": "Route 25",
+   "script": "0x0827A87F"
+  }
+ ],
+ "Sacred Ash": [
+  {
+   "kind": "hidden-item",
+   "map": "Navel Rock"
+  }
+ ],
+ "Sassy Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "Sea Incense": [
+  {
+   "kind": "ground-item",
+   "map": "Lost Cave",
+   "script": "0x082D5E03"
+  }
+ ],
+ "Secret Key": [
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D59F3"
+  }
+ ],
+ "Serious Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "Silk Scarf": [
+  {
+   "kind": "ground-item",
+   "map": "Lost Cave",
+   "script": "0x082D5DE9"
+  }
+ ],
+ "Sitrus Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Route 6"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 23"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Memorial Pillar"
+  }
+ ],
+ "Soothe Bell": [
+  {
+   "kind": "hidden-item",
+   "map": "Pok\u00e9mon Tower"
+  }
+ ],
+ "Star Piece": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D564B"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Four Island",
+   "script": "0x082D5C56"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Treasure Beach"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Resort Gorgeous"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Outcast Island"
+  }
+ ],
+ "Stardust": [
+  {
+   "kind": "ground-item",
+   "map": "S.S. Anne",
+   "script": "0x082D5699"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Four Island",
+   "script": "0x082D5C63"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 20"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Treasure Beach"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Treasure Beach"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Bond Bridge"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Resort Gorgeous"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Resort Gorgeous"
+  }
+ ],
+ "Sun Stone": [
+  {
+   "kind": "ground-item",
+   "map": "Ruin Valley",
+   "script": "0x082D5CFF"
+  }
+ ],
+ "Super Potion": [
+  {
+   "kind": "ground-item",
+   "map": "S.S. Anne",
+   "script": "0x082D56CD"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D5735"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 10"
+  }
+ ],
+ "Super Rod": [
+  {
+   "kind": "script-give",
+   "map": "Route 12",
+   "script": "0x08278E00"
+  }
+ ],
+ "TM01": [
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D58D5"
+  }
+ ],
+ "TM02": [
+  {
+   "kind": "ground-item",
+   "map": "Victory Road",
+   "script": "0x082D5A0D"
+  }
+ ],
+ "TM03": [
+  {
+   "kind": "script-give",
+   "map": "Cerulean City",
+   "script": "0x0825748C"
+  }
+ ],
+ "TM04": [
+  {
+   "kind": "script-give",
+   "map": "Saffron City",
+   "script": "0x082704B5"
+  }
+ ],
+ "TM05": [
+  {
+   "kind": "ground-item",
+   "map": "Route 4",
+   "script": "0x082D5665"
+  }
+ ],
+ "TM06": [
+  {
+   "kind": "script-give",
+   "map": "Fuchsia City",
+   "script": "0x08269501"
+  }
+ ],
+ "TM07": [
+  {
+   "kind": "ground-item",
+   "map": "Victory Road",
+   "script": "0x082D5A27"
+  }
+ ],
+ "TM08": [
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D5916"
+  }
+ ],
+ "TM09": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D560A"
+  }
+ ],
+ "TM11": [
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D582C"
+  }
+ ],
+ "TM12": [
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D5728"
+  }
+ ],
+ "TM14": [
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D59CC"
+  }
+ ],
+ "TM17": [
+  {
+   "kind": "ground-item",
+   "map": "Power Plant",
+   "script": "0x082D5957"
+  }
+ ],
+ "TM18": [
+  {
+   "kind": "ground-item",
+   "map": "Route 15",
+   "script": "0x082D57F8"
+  }
+ ],
+ "TM19": [
+  {
+   "kind": "script-give",
+   "map": "Celadon City",
+   "script": "0x082677E1"
+  }
+ ],
+ "TM21": [
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D574F"
+  }
+ ],
+ "TM22": [
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D59E6"
+  }
+ ],
+ "TM25": [
+  {
+   "kind": "ground-item",
+   "map": "Power Plant",
+   "script": "0x082D5964"
+  }
+ ],
+ "TM26": [
+  {
+   "kind": "script-give",
+   "map": "Viridian City",
+   "script": "0x0824E75A"
+  }
+ ],
+ "TM27": [
+  {
+   "kind": "script-give",
+   "map": "Route 12",
+   "script": "0x08278AD0"
+  }
+ ],
+ "TM28": [
+  {
+   "kind": "script-give",
+   "map": "Cerulean City",
+   "script": "0x0822552C"
+  }
+ ],
+ "TM29": [
+  {
+   "kind": "script-give",
+   "map": "Saffron City",
+   "script": "0x0827172B"
+  }
+ ],
+ "TM31": [
+  {
+   "kind": "ground-item",
+   "map": "S.S. Anne",
+   "script": "0x082D568C"
+  }
+ ],
+ "TM32": [
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D5860"
+  }
+ ],
+ "TM34": [
+  {
+   "kind": "script-give",
+   "map": "Vermilion City",
+   "script": "0x0825EDCC"
+  }
+ ],
+ "TM36": [
+  {
+   "kind": "ground-item",
+   "map": "Rocket Warehouse",
+   "script": "0x082D5DC2"
+  }
+ ],
+ "TM37": [
+  {
+   "kind": "ground-item",
+   "map": "Victory Road",
+   "script": "0x082D5A41"
+  }
+ ],
+ "TM38": [
+  {
+   "kind": "script-give",
+   "map": "Cinnabar Island",
+   "script": "0x0826B18E"
+  }
+ ],
+ "TM39": [
+  {
+   "kind": "script-give",
+   "map": "Pewter City",
+   "script": "0x0825252B"
+  }
+ ],
+ "TM40": [
+  {
+   "kind": "ground-item",
+   "map": "Route 9",
+   "script": "0x082D56E7"
+  }
+ ],
+ "TM41": [
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D5E37"
+  }
+ ],
+ "TM43": [
+  {
+   "kind": "ground-item",
+   "map": "Route 25",
+   "script": "0x082D567F"
+  }
+ ],
+ "TM44": [
+  {
+   "kind": "ground-item",
+   "map": "S.S. Anne",
+   "script": "0x082D56B3"
+  }
+ ],
+ "TM45": [
+  {
+   "kind": "ground-item",
+   "map": "Route 24",
+   "script": "0x082D5672"
+  }
+ ],
+ "TM46": [
+  {
+   "kind": "ground-item",
+   "map": "Mt. Moon",
+   "script": "0x082D5658"
+  }
+ ],
+ "TM47": [
+  {
+   "kind": "ground-item",
+   "map": "Safari Zone",
+   "script": "0x082D5853"
+  }
+ ],
+ "TM48": [
+  {
+   "kind": "ground-item",
+   "map": "Route 12",
+   "script": "0x082D57DE"
+  }
+ ],
+ "TM49": [
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D575C"
+  }
+ ],
+ "TM50": [
+  {
+   "kind": "ground-item",
+   "map": "Victory Road",
+   "script": "0x082D5A5B"
+  }
+ ],
+ "Thunderstone": [
+  {
+   "kind": "ground-item",
+   "map": "Power Plant",
+   "script": "0x082D5971"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Power Plant"
+  }
+ ],
+ "Timid Mint": [
+  {
+   "kind": "mart",
+   "map": "Two Island",
+   "script": "0x082302A2"
+  }
+ ],
+ "TinyMushroom": [
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Moon"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Moon"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Mt. Moon"
+  }
+ ],
+ "Tri-Pass": [
+  {
+   "kind": "script-give",
+   "map": "Pallet Town",
+   "script": "0x0824D4D1"
+  },
+  {
+   "kind": "script-give",
+   "map": "Pallet Town",
+   "script": "0x0824D4F3"
+  },
+  {
+   "kind": "script-give",
+   "map": "Pallet Town",
+   "script": "0x0824D515"
+  },
+  {
+   "kind": "script-give",
+   "map": "Pallet Town",
+   "script": "0x0824D537"
+  },
+  {
+   "kind": "script-give",
+   "map": "Pallet Town",
+   "script": "0x0824D559"
+  },
+  {
+   "kind": "script-give",
+   "map": "Pallet Town",
+   "script": "0x0824D57B"
+  }
+ ],
+ "Ultra Ball": [
+  {
+   "kind": "hidden-item",
+   "map": "Victory Road"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D5930"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Cerulean Cave"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Cerulean Cave",
+   "script": "0x082D5AA9"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Cerulean Cave",
+   "script": "0x082D5AC3"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Seafoam Islands",
+   "script": "0x082D5C49"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Mt. Ember",
+   "script": "0x082D5D5A"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Icefall Cave",
+   "script": "0x082D5D81"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Four Island"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 23"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Treasure Beach"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Treasure Beach"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Green Path"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "Up-Grade": [
+  {
+   "kind": "ground-item",
+   "map": "Rocket Warehouse",
+   "script": "0x082D5DDC"
+  }
+ ],
+ "Water Stone": [
+  {
+   "kind": "ground-item",
+   "map": "Seafoam Islands",
+   "script": "0x082D5C22"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Seafoam Islands"
+  }
+ ],
+ "Wepear Berry": [
+  {
+   "kind": "hidden-item",
+   "map": "Berry Forest"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 7"
+  }
+ ],
+ "X Accuracy": [
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Tower",
+   "script": "0x082D57D1"
+  }
+ ],
+ "X Attack": [
+  {
+   "kind": "ground-item",
+   "map": "S.S. Anne",
+   "script": "0x082D56A6"
+  }
+ ],
+ "X Defend": [
+  {
+   "kind": "ground-item",
+   "map": "Route 11",
+   "script": "0x082D5B1E"
+  }
+ ],
+ "X Special": [
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D58FC"
+  }
+ ],
+ "X Speed": [
+  {
+   "kind": "ground-item",
+   "map": "Rocket Hideout",
+   "script": "0x082D570E"
+  }
+ ],
+ "Zinc": [
+  {
+   "kind": "hidden-item",
+   "map": "Silph Co."
+  },
+  {
+   "kind": "ground-item",
+   "map": "Silph Co.",
+   "script": "0x082D5B86"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Pok\u00e9mon Mansion",
+   "script": "0x082D5BA0"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Artisan Cave"
+  },
+  {
+   "kind": "ground-item",
+   "map": "Three Island",
+   "script": "0x082D5AEA"
+  },
+  {
+   "kind": "hidden-item",
+   "map": "Route 14"
+  },
+  {
+   "kind": "mart",
+   "map": "Battle Frontier",
+   "script": "0x082B6F39"
+  }
+ ],
+ "item_12100": [
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x08284208"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x08284208"
+  }
+ ],
+ "item_16384": [
+  {
+   "kind": "script-give",
+   "map": "Celadon City",
+   "script": "0x08260FAB"
+  },
+  {
+   "kind": "script-give",
+   "map": "Celadon City",
+   "script": "0x08260FAB"
+  },
+  {
+   "kind": "script-give",
+   "map": "Celadon City",
+   "script": "0x08260FAB"
+  }
+ ],
+ "item_2095": [
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x0828429C"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x082842A4"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x082842AC"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x0828420D"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x08284215"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x0828421D"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x0828429C"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x082842A4"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x082842AC"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x0828420D"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x08284215"
+  },
+  {
+   "kind": "script-give",
+   "map": "Fallarbor Town",
+   "script": "0x0828421D"
+  }
+ ],
+ "item_32777": [
+  {
+   "kind": "script-give",
+   "map": "Celadon City",
+   "script": "0x08260D78"
+  }
+ ]
+}

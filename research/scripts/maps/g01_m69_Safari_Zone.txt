@@ -1,0 +1,41 @@
+Safari Zone  (group 1, map 69)  header 0x08B3B9A4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x30, flag 0x0000) -> 0x08212BBC
+  script 0x08212BBC  [ok]
+    08212BBC  msgbox_multilang     type=0 text_0="My Eevee evolved into Flareon.\pBut, a friend’s Eevee turned into a\nVaporeon. I wonder why?" text_1="My Eevee evolved into Flareon.\pBut, a friend’s Eevee turned into a\nVaporeon. I wonder why?" text_2="My Eevee evolved into Flareon.\pBut, a friend’s Eevee turned into a\nVaporeon. I wonder why?" text_3="My Eevee evolved into Flareon.\pBut, a friend’s Eevee turned into a\nVaporeon. I wonder why?" text_4="My Eevee evolved into Flareon.\pBut, a friend’s Eevee turned into a\nVaporeon. I wonder why?" text_5="My Eevee evolved into Flareon.\pBut, a friend’s Eevee turned into a\nVaporeon. I wonder why?" text_6="My Eevee evolved into Flareon.\pBut, a friend’s Eevee turned into a\nVaporeon. I wonder why?"
+    08212BDA  callstd              function=MSGBOX_NPC(2)
+    08212BDC  end                  
+
+  object 2 (gfx 0x08, flag 0x0000) -> 0x08212B9B
+  script 0x08212B9B  [ok]
+    08212B9B  msgbox_multilang     type=0 text_0="You can keep any item you find in\nthe Safari Zone.\pBut, you’ll run out of time if you\ntry for all of them at once." text_1="You can keep any item you find in\nthe Safari Zone.\pBut, you’ll run out of time if you\ntry for all of them at once." text_2="You can keep any item you find in\nthe Safari Zone.\pBut, you’ll run out of time if you\ntry for all of them at once." text_3="You can keep any item you find in\nthe Safari Zone.\pBut, you’ll run out of time if you\ntry for all of them at once." text_4="You can keep any item you find in\nthe Safari Zone.\pBut, you’ll run out of time if you\ntry for all of them at once." text_5="You can keep any item you find in\nthe Safari Zone.\pBut, you’ll run out of time if you\ntry for all of them at once." text_6="You can keep any item you find in\nthe Safari Zone.\pBut, you’ll run out of time if you\ntry for all of them at once."
+    08212BB9  callstd              function=MSGBOX_NPC(2)
+    08212BBB  end                  
+
+  object 3 (gfx 0x09, flag 0x0000) -> 0x08212B7A
+  script 0x08212B7A  [ok]
+    08212B7A  msgbox_multilang     type=0 text_0="Go to the deepest part of the\nSafari Zone. You will win a prize!" text_1="Go to the deepest part of the\nSafari Zone. You will win a prize!" text_2="Go to the deepest part of the\nSafari Zone. You will win a prize!" text_3="Go to the deepest part of the\nSafari Zone. You will win a prize!" text_4="Go to the deepest part of the\nSafari Zone. You will win a prize!" text_5="Go to the deepest part of the\nSafari Zone. You will win a prize!" text_6="Go to the deepest part of the\nSafari Zone. You will win a prize!"
+    08212B98  callstd              function=MSGBOX_NPC(2)
+    08212B9A  end                  
+
+  object 4 (gfx 0xF4, flag 0x0000) -> 0x081F2707
+  script 0x081F2707  [ok]
+    081F2707  lock                 
+    081F2708  faceplayer           
+    081F2709  setvar               destination=VAR_0x8004 value=6
+    081F270E  setvar               destination=VAR_0x8005 value=5
+    081F2713  special              SPECIAL_\function=347
+    081F2716  msgbox_multilang     type=0 text_0="The Safari Zone’s huge, wouldn’t\nyou say?\pFuchsia’s Gym Leader, Koga, \npatrols the grounds every so often.\pThanks to him, we can play here\nknowing that we’re safe." text_1="The Safari Zone’s huge, wouldn’t\nyou say?\pFuchsia’s Gym Leader, Koga, \npatrols the grounds every so often.\pThanks to him, we can play here\nknowing that we’re safe." text_2="The Safari Zone’s huge, wouldn’t\nyou say?\pFuchsia’s Gym Leader, Koga, \npatrols the grounds every so often.\pThanks to him, we can play here\nknowing that we’re safe." text_3="The Safari Zone’s huge, wouldn’t\nyou say?\pFuchsia’s Gym Leader, Koga, \npatrols the grounds every so often.\pThanks to him, we can play here\nknowing that we’re safe." text_4="The Safari Zone’s huge, wouldn’t\nyou say?\pFuchsia’s Gym Leader, Koga, \npatrols the grounds every so often.\pThanks to him, we can play here\nknowing that we’re safe." text_5="The Safari Zone’s huge, wouldn’t\nyou say?\pFuchsia’s Gym Leader, Koga, \npatrols the grounds every so often.\pThanks to him, we can play here\nknowing that we’re safe." text_6="The Safari Zone’s huge, wouldn’t\nyou say?\pFuchsia’s Gym Leader, Koga, \npatrols the grounds every so often.\pThanks to him, we can play here\nknowing that we’re safe."
+    081F2734  callstd              function=MSGBOX_DEFAULT(4)
+    081F2736  release              
+

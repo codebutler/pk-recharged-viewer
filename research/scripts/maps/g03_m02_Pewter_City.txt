@@ -1,0 +1,322 @@
+Pewter City  (group 3, map 2)  header 0x08B3C6FC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2F, flag 0x0000) -> 0x0822469D
+  script 0x0822469D  [ok]
+    0822469D  msgbox_multilang     type=0 text_0="Clefairy came from the moon.\nThat’s what the rumor is.\pThey appeared after Moon Stones fell\non Mt. Moon." text_1="Clefairy came from the moon.\nThat’s what the rumor is.\pThey appeared after Moon Stones fell\non Mt. Moon." text_2="Clefairy came from the moon.\nThat’s what the rumor is.\pThey appeared after Moon Stones fell\non Mt. Moon." text_3="Clefairy came from the moon.\nThat’s what the rumor is.\pThey appeared after Moon Stones fell\non Mt. Moon." text_4="Clefairy came from the moon.\nThat’s what the rumor is.\pThey appeared after Moon Stones fell\non Mt. Moon." text_5="Clefairy came from the moon.\nThat’s what the rumor is.\pThey appeared after Moon Stones fell\non Mt. Moon." text_6="Clefairy came from the moon.\nThat’s what the rumor is.\pThey appeared after Moon Stones fell\non Mt. Moon."
+    082246BB  callstd              function=MSGBOX_NPC(2)
+    082246BD  end                  
+
+  object 2 (gfx 0xF2, flag 0x0050) -> 0x082249D1
+  script 0x082249D1  [ok]
+    082249D1  lock                 
+    082249D2  faceplayer           
+    082249D3  msgbox_multilang     type=0 text_0="Did you check out the Museum?" text_1="Did you check out the Museum?" text_2="Did you check out the Museum?" text_3="Did you check out the Museum?" text_4="Did you check out the Museum?" text_5="Did you check out the Museum?" text_6="Did you check out the Museum?"
+    082249F1  callstd              function=MSGBOX_YESNO(5)
+    082249F3  compare_var_to_value var=0x800D value=1
+    082249F8  goto_if              condition=1 destination=0x08224AD1
+    082249FE  msgbox_multilang     type=0 text_0="Really?\nYou absolutely have to go!" text_1="Really?\nYou absolutely have to go!" text_2="Really?\nYou absolutely have to go!" text_3="Really?\nYou absolutely have to go!" text_4="Really?\nYou absolutely have to go!" text_5="Really?\nYou absolutely have to go!" text_6="Really?\nYou absolutely have to go!"
+    08224A1C  callstd              function=MSGBOX_DEFAULT(4)
+    08224A1E  closemessage         
+    08224A1F  delay                frames=10
+    08224A22  playbgm              song=420 save_song=0
+    08224A26  compare_var_to_value var=0x800C value=2
+    08224A2B  call_if              condition=1 destination=0x08224A89
+    08224A31  compare_var_to_value var=0x800C value=1
+    08224A36  call_if              condition=1 destination=0x08224A9B
+    08224A3C  compare_var_to_value var=0x800C value=3
+    08224A41  call_if              condition=1 destination=0x08224AAD
+    08224A47  compare_var_to_value var=0x800C value=4
+    08224A4C  call_if              condition=1 destination=0x08224ABF
+    08224A52  msgbox_multilang     type=0 text_0="This is it, the Museum.\pYou have to pay to get in, but it’s\nworth it. See you around!" text_1="This is it, the Museum.\pYou have to pay to get in, but it’s\nworth it. See you around!" text_2="This is it, the Museum.\pYou have to pay to get in, but it’s\nworth it. See you around!" text_3="This is it, the Museum.\pYou have to pay to get in, but it’s\nworth it. See you around!" text_4="This is it, the Museum.\pYou have to pay to get in, but it’s\nworth it. See you around!" text_5="This is it, the Museum.\pYou have to pay to get in, but it’s\nworth it. See you around!" text_6="This is it, the Museum.\pYou have to pay to get in, but it’s\nworth it. See you around!"
+    08224A70  callstd              function=MSGBOX_DEFAULT(4)
+    08224A72  closemessage         
+    08224A73  delay                frames=10
+    08224A76  applymovement        localId=2 movements=[walk_down walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_down walk_down walk_down walk_right walk_right walk_right]
+    08224A7D  waitmovement         localId=0
+    08224A80  fadedefaultbgm       
+    08224A81  removeobject         localId=2
+    08224A84  clearflag            flag=0x050
+    08224A87  release              
+
+  script 0x08224AD1  [ok]
+    08224AD1  msgbox_multilang     type=0 text_0="Weren’t those fossils from Mt. Moon\namazing?" text_1="Weren’t those fossils from Mt. Moon\namazing?" text_2="Weren’t those fossils from Mt. Moon\namazing?" text_3="Weren’t those fossils from Mt. Moon\namazing?" text_4="Weren’t those fossils from Mt. Moon\namazing?" text_5="Weren’t those fossils from Mt. Moon\namazing?" text_6="Weren’t those fossils from Mt. Moon\namazing?"
+    08224AEF  callstd              function=MSGBOX_DEFAULT(4)
+    08224AF1  release              
+
+  script 0x08224A89  [ok]
+    08224A89  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_in_place_faster_up]
+    08224A90  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left delay_8 walk_in_place_faster_up]
+    08224A97  waitmovement         localId=0
+    08224A9A  return               
+
+  script 0x08224A9B  [ok]
+    08224A9B  applymovement        localId=2 movements=[walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_in_place_faster_up]
+    08224AA2  applymovement        localId=255 movements=[delay_16 delay_16 walk_left walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left delay_8 walk_in_place_faster_up]
+    08224AA9  waitmovement         localId=0
+    08224AAC  return               
+
+  script 0x08224AAD  [ok]
+    08224AAD  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_in_place_faster_up]
+    08224AB4  applymovement        localId=255 movements=[walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left delay_8 walk_in_place_faster_up]
+    08224ABB  waitmovement         localId=0
+    08224ABE  return               
+
+  script 0x08224ABF  [ok]
+    08224ABF  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_in_place_faster_up]
+    08224AC6  applymovement        localId=255 movements=[walk_right walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_left delay_8 walk_in_place_faster_up]
+    08224ACD  waitmovement         localId=0
+    08224AD0  return               
+
+  object 3 (gfx 0x11, flag 0x0000) -> 0x082246BE
+  script 0x082246BE  [ok]
+    082246BE  lock                 
+    082246BF  faceplayer           
+    082246C0  setvar               destination=VAR_0x8004 value=2
+    082246C5  setvar               destination=VAR_0x8005 value=2
+    082246CA  special              SPECIAL_\function=347
+    082246CD  msgbox_multilang     type=0 text_0="There aren’t many serious Pokémon\nTrainers here.\pThey’re all like Bug Catchers, you\nknow, just hobbyists.\pBut Pewter Gym’s Brock isn’t like\nthat, not one bit." text_1="There aren’t many serious Pokémon\nTrainers here.\pThey’re all like Bug Catchers, you\nknow, just hobbyists.\pBut Pewter Gym’s Brock isn’t like\nthat, not one bit." text_2="There aren’t many serious Pokémon\nTrainers here.\pThey’re all like Bug Catchers, you\nknow, just hobbyists.\pBut Pewter Gym’s Brock isn’t like\nthat, not one bit." text_3="There aren’t many serious Pokémon\nTrainers here.\pThey’re all like Bug Catchers, you\nknow, just hobbyists.\pBut Pewter Gym’s Brock isn’t like\nthat, not one bit." text_4="There aren’t many serious Pokémon\nTrainers here.\pThey’re all like Bug Catchers, you\nknow, just hobbyists.\pBut Pewter Gym’s Brock isn’t like\nthat, not one bit." text_5="There aren’t many serious Pokémon\nTrainers here.\pThey’re all like Bug Catchers, you\nknow, just hobbyists.\pBut Pewter Gym’s Brock isn’t like\nthat, not one bit." text_6="There aren’t many serious Pokémon\nTrainers here.\pThey’re all like Bug Catchers, you\nknow, just hobbyists.\pBut Pewter Gym’s Brock isn’t like\nthat, not one bit."
+    082246EB  callstd              function=MSGBOX_DEFAULT(4)
+    082246ED  release              
+
+  object 4 (gfx 0x24, flag 0x0000) -> 0x082246EF
+  script 0x082246EF  [ok]
+    082246EF  lock                 
+    082246F0  faceplayer           
+    082246F1  msgbox_multilang     type=0 text_0="Psssst!\nDo you know what I’m doing?" text_1="Psssst!\nDo you know what I’m doing?" text_2="Psssst!\nDo you know what I’m doing?" text_3="Psssst!\nDo you know what I’m doing?" text_4="Psssst!\nDo you know what I’m doing?" text_5="Psssst!\nDo you know what I’m doing?" text_6="Psssst!\nDo you know what I’m doing?"
+    0822470F  callstd              function=MSGBOX_YESNO(5)
+    08224711  compare_var_to_value var=0x800D value=1
+    08224716  goto_if              condition=1 destination=0x0822473E
+    0822471C  msgbox_multilang     type=0 text_0="I’m spraying Repel to keep wild\nPokémon out of my garden!" text_1="I’m spraying Repel to keep wild\nPokémon out of my garden!" text_2="I’m spraying Repel to keep wild\nPokémon out of my garden!" text_3="I’m spraying Repel to keep wild\nPokémon out of my garden!" text_4="I’m spraying Repel to keep wild\nPokémon out of my garden!" text_5="I’m spraying Repel to keep wild\nPokémon out of my garden!" text_6="I’m spraying Repel to keep wild\nPokémon out of my garden!"
+    0822473A  callstd              function=MSGBOX_DEFAULT(4)
+    0822473C  release              
+
+  script 0x0822473E  [ok]
+    0822473E  msgbox_multilang     type=0 text_0="That’s right!\nIt’s hard work!" text_1="That’s right!\nIt’s hard work!" text_2="That’s right!\nIt’s hard work!" text_3="That’s right!\nIt’s hard work!" text_4="That’s right!\nIt’s hard work!" text_5="That’s right!\nIt’s hard work!" text_6="That’s right!\nIt’s hard work!"
+    0822475C  callstd              function=MSGBOX_DEFAULT(4)
+    0822475E  goto                 destination=0x0822473C
+
+  script 0x0822473C  [ok]
+    0822473C  release              
+
+  object 5 (gfx 0xEF, flag 0x002E) -> 0x08224817
+  script 0x08224817  [ok]
+    08224817  lock                 
+    08224818  faceplayer           
+    08224819  msgbox_multilang     type=0 text_0="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_1="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_2="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_3="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_4="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_5="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_6="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!"
+    08224837  callstd              function=MSGBOX_DEFAULT(4)
+    08224839  closemessage         
+    0822483A  playbgm              song=420 save_song=0
+    0822483E  compare_var_to_value var=0x800C value=4
+    08224843  goto_if              condition=1 destination=0x0822487D
+    08224849  msgbox_multilang     type=0 text_0="If you have the right stuff, go take\non Brock!" text_1="If you have the right stuff, go take\non Brock!" text_2="If you have the right stuff, go take\non Brock!" text_3="If you have the right stuff, go take\non Brock!" text_4="If you have the right stuff, go take\non Brock!" text_5="If you have the right stuff, go take\non Brock!" text_6="If you have the right stuff, go take\non Brock!"
+    08224867  callstd              function=MSGBOX_DEFAULT(4)
+    08224869  closemessage         
+    0822486A  applymovement        localId=5 movements=[walk_down walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left]
+    08224871  waitmovement         localId=0
+    08224874  fadedefaultbgm       
+    08224875  removeobject         localId=5
+    08224878  clearflag            flag=0x02E
+    0822487B  release              
+
+  script 0x0822487D  [ok]
+    0822487D  call                 destination=0x08224887
+    08224882  goto                 destination=0x08224849
+
+  script 0x08224887  [ok]
+    08224887  applymovement        localId=255 movements=[delay_16 delay_16 delay_4 walk_in_place_faster_down]
+    0822488E  applymovement        localId=5 movements=[walk_down walk_left walk_in_place_faster_up walk_in_place_up]
+    08224895  waitmovement         localId=0
+    08224898  applymovement        localId=255 movements=[walk_down walk_left walk_left walk_left walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_left walk_left ...]
+    0822489F  applymovement        localId=5 movements=[walk_left walk_left walk_left walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_left walk_left walk_left ...]
+    082248A6  waitmovement         localId=0
+    082248A9  return               
+
+  script 0x08224849  [ok]
+    08224849  msgbox_multilang     type=0 text_0="If you have the right stuff, go take\non Brock!" text_1="If you have the right stuff, go take\non Brock!" text_2="If you have the right stuff, go take\non Brock!" text_3="If you have the right stuff, go take\non Brock!" text_4="If you have the right stuff, go take\non Brock!" text_5="If you have the right stuff, go take\non Brock!" text_6="If you have the right stuff, go take\non Brock!"
+    08224867  callstd              function=MSGBOX_DEFAULT(4)
+    08224869  closemessage         
+    0822486A  applymovement        localId=5 movements=[walk_down walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left]
+    08224871  waitmovement         localId=0
+    08224874  fadedefaultbgm       
+    08224875  removeobject         localId=5
+    08224878  clearflag            flag=0x02E
+    0822487B  release              
+
+  object 6 (gfx 0x52, flag 0x0306) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  coord trigger 0 (var 0x406C == 0) -> 0x0822499F
+  script 0x0822499F  [ok]
+    0822499F  lockall              
+    082249A0  setvar               destination=VAR_0x4001 value=0
+    082249A5  goto                 destination=0x082248BF
+
+  script 0x082248BF  [ok]
+    082248BF  textcolor            color=0
+    082248C1  msgbox_multilang     type=0 text_0="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_1="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_2="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_3="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_4="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_5="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!" text_6="You’re a Trainer, right?\pBrock’s looking for new challengers.\nFollow me!"
+    082248DF  callstd              function=MSGBOX_DEFAULT(4)
+    082248E1  closemessage         
+    082248E2  playbgm              song=420 save_song=0
+    082248E6  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    082248EB  compare_var_to_value var=0x8000 value=0
+    082248F0  goto_if              condition=1 destination=0x08224943
+    082248F6  compare_var_to_value var=0x8000 value=1
+    082248FB  goto_if              condition=1 destination=0x08224960
+    08224901  compare_var_to_value var=0x8000 value=2
+    08224906  goto_if              condition=1 destination=0x0822497D
+    0822490C  waitmovement         localId=0
+    0822490F  msgbox_multilang     type=0 text_0="If you have the right stuff, go take\non Brock!" text_1="If you have the right stuff, go take\non Brock!" text_2="If you have the right stuff, go take\non Brock!" text_3="If you have the right stuff, go take\non Brock!" text_4="If you have the right stuff, go take\non Brock!" text_5="If you have the right stuff, go take\non Brock!" text_6="If you have the right stuff, go take\non Brock!"
+    0822492D  callstd              function=MSGBOX_DEFAULT(4)
+    0822492F  closemessage         
+    08224930  applymovement        localId=5 movements=[walk_down walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left]
+    08224937  waitmovement         localId=0
+    0822493A  fadedefaultbgm       
+    0822493B  removeobject         localId=5
+    0822493E  clearflag            flag=0x02E
+    08224941  releaseall           
+
+  script 0x08224943  [ok]
+    08224943  applymovement        localId=5 movements=[walk_left walk_down walk_in_place_faster_right walk_in_place_right]
+    0822494A  waitmovement         localId=0
+    0822494D  applymovement        localId=255 movements=[walk_left walk_left walk_left walk_left walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_left walk_left ...]
+    08224954  applymovement        localId=5 movements=[walk_left walk_left walk_left walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_left walk_left walk_left ...]
+    0822495B  goto                 destination=0x0822490C
+
+  script 0x08224960  [ok]
+    08224960  applymovement        localId=5 movements=[walk_down walk_in_place_down]
+    08224967  waitmovement         localId=0
+    0822496A  applymovement        localId=255 movements=[walk_up walk_left walk_left walk_left walk_left walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_left ...]
+    08224971  applymovement        localId=5 movements=[walk_left walk_left walk_left walk_left walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_left walk_left ...]
+    08224978  goto                 destination=0x0822490C
+
+  script 0x0822497D  [ok]
+    0822497D  applymovement        localId=5 movements=[walk_down walk_down walk_in_place_down]
+    08224984  waitmovement         localId=0
+    08224987  applymovement        localId=255 movements=[walk_up walk_up walk_left walk_left walk_left walk_left walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up ...]
+    0822498E  applymovement        localId=5 movements=[walk_up walk_left walk_left walk_left walk_left walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_left ...]
+    08224995  goto                 destination=0x0822490C
+
+  script 0x0822490C  [ok]
+    0822490C  waitmovement         localId=0
+    0822490F  msgbox_multilang     type=0 text_0="If you have the right stuff, go take\non Brock!" text_1="If you have the right stuff, go take\non Brock!" text_2="If you have the right stuff, go take\non Brock!" text_3="If you have the right stuff, go take\non Brock!" text_4="If you have the right stuff, go take\non Brock!" text_5="If you have the right stuff, go take\non Brock!" text_6="If you have the right stuff, go take\non Brock!"
+    0822492D  callstd              function=MSGBOX_DEFAULT(4)
+    0822492F  closemessage         
+    08224930  applymovement        localId=5 movements=[walk_down walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left]
+    08224937  waitmovement         localId=0
+    0822493A  fadedefaultbgm       
+    0822493B  removeobject         localId=5
+    0822493E  clearflag            flag=0x02E
+    08224941  releaseall           
+
+  coord trigger 1 (var 0x406C == 0) -> 0x082249AB
+  script 0x082249AB  [ok]
+    082249AB  lockall              
+    082249AC  setvar               destination=VAR_0x4001 value=1
+    082249B1  goto                 destination=0x082248BF
+
+  coord trigger 2 (var 0x406C == 0) -> 0x082249B7
+  script 0x082249B7  [ok]
+    082249B7  lockall              
+    082249B8  setvar               destination=VAR_0x4001 value=2
+    082249BD  goto                 destination=0x082248BF
+
+  sign 0 at (19,7) -> 0x082247A5
+  script 0x082247A5  [ok]
+    082247A5  msgbox_multilang     type=0 text_0="Pewter Museum of Science" text_1="Pewter Museum of Science" text_2="Pewter Museum of Science" text_3="Pewter Museum of Science" text_4="Pewter Museum of Science" text_5="Pewter Museum of Science" text_6="Pewter Museum of Science"
+    082247C3  callstd              function=MSGBOX_SIGN(3)
+    082247C5  end                  
+
+  sign 1 at (39,19) -> 0x08224784
+  script 0x08224784  [ok]
+    08224784  msgbox_multilang     type=0 text_0="Notice!\pThieves have been stealing Pokémon\nfossils from Mt. Moon.\pPlease call the Pewter Police if you\nhave any information." text_1="Notice!\pThieves have been stealing Pokémon\nfossils from Mt. Moon.\pPlease call the Pewter Police if you\nhave any information." text_2="Notice!\pThieves have been stealing Pokémon\nfossils from Mt. Moon.\pPlease call the Pewter Police if you\nhave any information." text_3="Notice!\pThieves have been stealing Pokémon\nfossils from Mt. Moon.\pPlease call the Pewter Police if you\nhave any information." text_4="Notice!\pThieves have been stealing Pokémon\nfossils from Mt. Moon.\pPlease call the Pewter Police if you\nhave any information." text_5="Notice!\pThieves have been stealing Pokémon\nfossils from Mt. Moon.\pPlease call the Pewter Police if you\nhave any information." text_6="Notice!\pThieves have been stealing Pokémon\nfossils from Mt. Moon.\pPlease call the Pewter Police if you\nhave any information."
+    082247A2  callstd              function=MSGBOX_SIGN(3)
+    082247A4  end                  
+
+  sign 2 at (11,16) -> 0x082247C6
+  script 0x082247C6  [ok]
+    082247C6  lockall              
+    082247C7  setvar               destination=VAR_0x8004 value=2
+    082247CC  setvar               destination=VAR_0x8005 value=0
+    082247D1  special              SPECIAL_\function=347
+    082247D4  msgbox_multilang     type=0 text_0="Pewter City Pokémon Gym\nLeader: Brock\pThe Rock-Solid Pokémon Trainer!" text_1="Pewter City Pokémon Gym\nLeader: Brock\pThe Rock-Solid Pokémon Trainer!" text_2="Pewter City Pokémon Gym\nLeader: Brock\pThe Rock-Solid Pokémon Trainer!" text_3="Pewter City Pokémon Gym\nLeader: Brock\pThe Rock-Solid Pokémon Trainer!" text_4="Pewter City Pokémon Gym\nLeader: Brock\pThe Rock-Solid Pokémon Trainer!" text_5="Pewter City Pokémon Gym\nLeader: Brock\pThe Rock-Solid Pokémon Trainer!" text_6="Pewter City Pokémon Gym\nLeader: Brock\pThe Rock-Solid Pokémon Trainer!"
+    082247F2  callstd              function=MSGBOX_DEFAULT(4)
+    082247F4  releaseall           
+
+  sign 3 at (20,30) -> 0x08224763
+  script 0x08224763  [ok]
+    08224763  msgbox_multilang     type=0 text_0="Trainer Tips\pAll Pokémon that appear in battle,\nhowever briefly, earn Exp Points." text_1="Trainer Tips\pAll Pokémon that appear in battle,\nhowever briefly, earn Exp Points." text_2="Trainer Tips\pAll Pokémon that appear in battle,\nhowever briefly, earn Exp Points." text_3="Trainer Tips\pAll Pokémon that appear in battle,\nhowever briefly, earn Exp Points." text_4="Trainer Tips\pAll Pokémon that appear in battle,\nhowever briefly, earn Exp Points." text_5="Trainer Tips\pAll Pokémon that appear in battle,\nhowever briefly, earn Exp Points." text_6="Trainer Tips\pAll Pokémon that appear in battle,\nhowever briefly, earn Exp Points."
+    08224781  callstd              function=MSGBOX_SIGN(3)
+    08224783  end                  
+
+  sign 4 at (31,25) -> 0x082247F6
+  script 0x082247F6  [ok]
+    082247F6  msgbox_multilang     type=0 text_0="Pewter City\nA Stone Gray City" text_1="Pewter City\nA Stone Gray City" text_2="Pewter City\nA Stone Gray City" text_3="Pewter City\nA Stone Gray City" text_4="Pewter City\nA Stone Gray City" text_5="Pewter City\nA Stone Gray City" text_6="Pewter City\nA Stone Gray City"
+    08224814  callstd              function=MSGBOX_SIGN(3)
+    08224816  end                  
+
+  hidden item at (6,3): Poké Ball
+
+  map script type 3 -> 0x08224694
+  script 0x08224694  [ok]
+    08224694  setworldmapflag      flag=0x8F2
+    08224697  setvar               destination=VAR_0x4061 value=0
+    0822469C  end                  
+

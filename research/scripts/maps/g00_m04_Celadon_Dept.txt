@@ -1,0 +1,100 @@
+Celadon Dept.  (group 0, map 4)  header 0x08B3B1C4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0F, flag 0x0000) -> 0x08205D50
+  script 0x08205D50  [ok]
+    08205D50  lock                 
+    08205D51  faceplayer           
+    08205D52  setvar               destination=VAR_0x800D value=9
+    08205D57  waitstate            
+
+  object 2 (gfx 0x5D, flag 0x0066) -> 0x08205D1E
+  script 0x08205D1E  [ok]
+    08205D1E  lock                 
+    08205D1F  faceplayer           
+    08205D20  setvar               destination=VAR_0x800D value=4
+    08205D25  waitstate            
+
+  object 3 (gfx 0x61, flag 0x006A) -> 0x08205D46
+  script 0x08205D46  [ok]
+    08205D46  lock                 
+    08205D47  faceplayer           
+    08205D48  setvar               destination=VAR_0x800D value=8
+    08205D4D  waitstate            
+
+  object 4 (gfx 0x60, flag 0x0069) -> 0x08205D3C
+  script 0x08205D3C  [ok]
+    08205D3C  lock                 
+    08205D3D  faceplayer           
+    08205D3E  setvar               destination=VAR_0x800D value=7
+    08205D43  waitstate            
+
+  object 5 (gfx 0x5F, flag 0x0068) -> 0x08205D32
+  script 0x08205D32  [ok]
+    08205D32  lock                 
+    08205D33  faceplayer           
+    08205D34  setvar               destination=VAR_0x800D value=6
+    08205D39  waitstate            
+
+  object 6 (gfx 0x5E, flag 0x0067) -> 0x08205D28
+  script 0x08205D28  [ok]
+    08205D28  lock                 
+    08205D29  faceplayer           
+    08205D2A  setvar               destination=VAR_0x800D value=5
+    08205D2F  waitstate            
+
+  object 7 (gfx 0x5C, flag 0x0065) -> 0x08205D14
+  script 0x08205D14  [ok]
+    08205D14  lock                 
+    08205D15  faceplayer           
+    08205D16  setvar               destination=VAR_0x800D value=3
+    08205D1B  waitstate            
+
+  object 8 (gfx 0x5B, flag 0x0064) -> 0x08205D0A
+  script 0x08205D0A  [ok]
+    08205D0A  lock                 
+    08205D0B  faceplayer           
+    08205D0C  setvar               destination=VAR_0x800D value=2
+    08205D11  waitstate            
+
+  object 9 (gfx 0x5A, flag 0x0063) -> 0x08205D00
+  script 0x08205D00  [ok]
+    08205D00  lock                 
+    08205D01  faceplayer           
+    08205D02  setvar               destination=VAR_0x800D value=1
+    08205D07  waitstate            
+
+  map script type 5 -> 0x08205CCB
+  script 0x08205CCB  [ok]
+    08205CCB  setflag              flag=0x063
+    08205CCE  setflag              flag=0x064
+    08205CD1  setflag              flag=0x065
+    08205CD4  setflag              flag=0x066
+    08205CD7  setflag              flag=0x067
+    08205CDA  setflag              flag=0x068
+    08205CDD  setflag              flag=0x069
+    08205CE0  setflag              flag=0x06A
+    08205CE3  removeobject         localId=9
+    08205CE6  removeobject         localId=8
+    08205CE9  removeobject         localId=7
+    08205CEC  removeobject         localId=2
+    08205CEF  removeobject         localId=6
+    08205CF2  removeobject         localId=5
+    08205CF5  removeobject         localId=4
+    08205CF8  removeobject         localId=3
+    08205CFB  special              SPECIAL_\function=259
+    08205CFE  end                  
+
+  map script type 3 -> 0x08205CFF
+  script 0x08205CFF  [ok]
+    08205CFF  end                  
+

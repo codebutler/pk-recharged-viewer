@@ -1,0 +1,853 @@
+Cinnabar Island  (group 12, map 0)  header 0x08B3D5F8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x48, flag 0x0000) -> 0x0826B3BE
+  script 0x0826B3BE  [ok]
+    0826B3BE  trainerbattle        type=2 trainer=0xD5 localId=0 ptr1=0x0826C090 ptr2=0x0826C0C1 ptr3=0x0826B3F1
+    0826B3D0  msgbox_multilang     type=0 text_0="I get this uncontrollable urge to\nsteal other people’s Pokémon." text_1="I get this uncontrollable urge to\nsteal other people’s Pokémon." text_2="I get this uncontrollable urge to\nsteal other people’s Pokémon." text_3="I get this uncontrollable urge to\nsteal other people’s Pokémon." text_4="I get this uncontrollable urge to\nsteal other people’s Pokémon." text_5="I get this uncontrollable urge to\nsteal other people’s Pokémon." text_6="I get this uncontrollable urge to\nsteal other people’s Pokémon."
+    0826B3EE  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826B3F0  end                  
+
+  script 0x0826B3F1  [ok]
+    0826B3F1  checkflag            flag=0x265
+    0826B3F4  call_if              condition=0 destination=0x0826B3FC
+    0826B3FA  release              
+
+  script 0x0826B3FC  [ok]
+    0826B3FC  call                 destination=0x0826B5F7
+    0826B401  return               
+
+  script 0x0826B5F7  [ok]
+    0826B5F7  playse               song=44
+    0826B5FA  waitse               
+    0826B5FB  call                 destination=0x0826BC36
+    0826B600  special              SPECIAL_\function=79
+    0826B603  setflag              flag=0x265
+    0826B606  return               
+
+  script 0x0826BC36  [ok]
+    0826BC36  setmetatile          x=26 y=8 metatileId=711 impassable=0
+    0826BC3F  setmetatile          x=27 y=8 metatileId=710 impassable=0
+    0826BC48  setmetatile          x=26 y=9 metatileId=719 impassable=0
+    0826BC51  setmetatile          x=27 y=9 metatileId=718 impassable=0
+    0826BC5A  setmetatile          x=26 y=10 metatileId=649 impassable=0
+    0826BC63  setmetatile          x=27 y=10 metatileId=641 impassable=0
+    0826BC6C  setmetatile          x=28 y=10 metatileId=642 impassable=0
+    0826BC75  return               
+
+  object 2 (gfx 0x08, flag 0x0000) -> 0x0826B2B6
+  script 0x0826B2B6  [ok]
+    0826B2B6  trainerbattle        type=0 trainer=0xB1 localId=0 ptr1=0x0826BFF6 ptr2=0x0826C027
+    0826B2C4  msgbox_multilang     type=0 text_0="Fire, or to be more precise,\ncombustion…\p…Oxygen in the air…\nBlah, blah, blah, blah…" text_1="Fire, or to be more precise,\ncombustion…\p…Oxygen in the air…\nBlah, blah, blah, blah…" text_2="Fire, or to be more precise,\ncombustion…\p…Oxygen in the air…\nBlah, blah, blah, blah…" text_3="Fire, or to be more precise,\ncombustion…\p…Oxygen in the air…\nBlah, blah, blah, blah…" text_4="Fire, or to be more precise,\ncombustion…\p…Oxygen in the air…\nBlah, blah, blah, blah…" text_5="Fire, or to be more precise,\ncombustion…\p…Oxygen in the air…\nBlah, blah, blah, blah…" text_6="Fire, or to be more precise,\ncombustion…\p…Oxygen in the air…\nBlah, blah, blah, blah…"
+    0826B2E2  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826B2E4  end                  
+
+  object 3 (gfx 0x08, flag 0x0000) -> 0x0826B2E5
+  script 0x0826B2E5  [ok]
+    0826B2E5  trainerbattle        type=2 trainer=0xB2 localId=0 ptr1=0x0826C10E ptr2=0x0826C13E ptr3=0x0826B318
+    0826B2F7  msgbox_multilang     type=0 text_0="My theories are too complicated\nfor you to understand." text_1="My theories are too complicated\nfor you to understand." text_2="My theories are too complicated\nfor you to understand." text_3="My theories are too complicated\nfor you to understand." text_4="My theories are too complicated\nfor you to understand." text_5="My theories are too complicated\nfor you to understand." text_6="My theories are too complicated\nfor you to understand."
+    0826B315  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826B317  end                  
+
+  script 0x0826B318  [ok]
+    0826B318  checkflag            flag=0x267
+    0826B31B  call_if              condition=0 destination=0x0826B323
+    0826B321  release              
+
+  script 0x0826B323  [ok]
+    0826B323  call                 destination=0x0826B718
+    0826B328  return               
+
+  script 0x0826B718  [ok]
+    0826B718  playse               song=44
+    0826B71B  waitse               
+    0826B71C  call                 destination=0x0826BC76
+    0826B721  special              SPECIAL_\function=79
+    0826B724  setflag              flag=0x267
+    0826B727  return               
+
+  script 0x0826BC76  [ok]
+    0826BC76  setmetatile          x=17 y=8 metatileId=711 impassable=0
+    0826BC7F  setmetatile          x=18 y=8 metatileId=710 impassable=0
+    0826BC88  setmetatile          x=17 y=9 metatileId=719 impassable=0
+    0826BC91  setmetatile          x=18 y=9 metatileId=718 impassable=0
+    0826BC9A  setmetatile          x=17 y=10 metatileId=649 impassable=0
+    0826BCA3  setmetatile          x=18 y=10 metatileId=641 impassable=0
+    0826BCAC  setmetatile          x=19 y=10 metatileId=642 impassable=0
+    0826BCB5  return               
+
+  object 4 (gfx 0x48, flag 0x0000) -> 0x0826B402
+  script 0x0826B402  [ok]
+    0826B402  trainerbattle        type=2 trainer=0xD6 localId=0 ptr1=0x0826C199 ptr2=0x0826C1C4 ptr3=0x0826B435
+    0826B414  msgbox_multilang     type=0 text_0="I wish there were a thief Pokémon.\nI’d use that!" text_1="I wish there were a thief Pokémon.\nI’d use that!" text_2="I wish there were a thief Pokémon.\nI’d use that!" text_3="I wish there were a thief Pokémon.\nI’d use that!" text_4="I wish there were a thief Pokémon.\nI’d use that!" text_5="I wish there were a thief Pokémon.\nI’d use that!" text_6="I wish there were a thief Pokémon.\nI’d use that!"
+    0826B432  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826B434  end                  
+
+  script 0x0826B435  [ok]
+    0826B435  checkflag            flag=0x268
+    0826B438  call_if              condition=0 destination=0x0826B440
+    0826B43E  release              
+
+  script 0x0826B440  [ok]
+    0826B440  call                 destination=0x0826B83E
+    0826B445  return               
+
+  script 0x0826B83E  [ok]
+    0826B83E  playse               song=44
+    0826B841  waitse               
+    0826B842  call                 destination=0x0826BCB6
+    0826B847  special              SPECIAL_\function=79
+    0826B84A  setflag              flag=0x268
+    0826B84D  return               
+
+  script 0x0826BCB6  [ok]
+    0826BCB6  setmetatile          x=17 y=15 metatileId=711 impassable=0
+    0826BCBF  setmetatile          x=18 y=15 metatileId=710 impassable=0
+    0826BCC8  setmetatile          x=17 y=16 metatileId=719 impassable=0
+    0826BCD1  setmetatile          x=18 y=16 metatileId=718 impassable=0
+    0826BCDA  setmetatile          x=17 y=17 metatileId=649 impassable=0
+    0826BCE3  setmetatile          x=18 y=17 metatileId=641 impassable=0
+    0826BCEC  setmetatile          x=19 y=17 metatileId=642 impassable=0
+    0826BCF5  return               
+
+  object 5 (gfx 0x08, flag 0x0000) -> 0x0826B329
+  script 0x0826B329  [ok]
+    0826B329  trainerbattle        type=2 trainer=0xB3 localId=0 ptr1=0x0826C208 ptr2=0x0826C22C ptr3=0x0826B369
+    0826B33B  setvar               destination=VAR_0x8004 value=8
+    0826B340  setvar               destination=VAR_0x8005 value=2
+    0826B345  special              SPECIAL_\function=347
+    0826B348  msgbox_multilang     type=0 text_0="Our Leader, Blaine, became lost\nin the mountains but good.\pNight fell when a fiery bird\nPokémon appeared.\pIts light allowed Blaine to find\nhis way down safely." text_1="Our Leader, Blaine, became lost\nin the mountains but good.\pNight fell when a fiery bird\nPokémon appeared.\pIts light allowed Blaine to find\nhis way down safely." text_2="Our Leader, Blaine, became lost\nin the mountains but good.\pNight fell when a fiery bird\nPokémon appeared.\pIts light allowed Blaine to find\nhis way down safely." text_3="Our Leader, Blaine, became lost\nin the mountains but good.\pNight fell when a fiery bird\nPokémon appeared.\pIts light allowed Blaine to find\nhis way down safely." text_4="Our Leader, Blaine, became lost\nin the mountains but good.\pNight fell when a fiery bird\nPokémon appeared.\pIts light allowed Blaine to find\nhis way down safely." text_5="Our Leader, Blaine, became lost\nin the mountains but good.\pNight fell when a fiery bird\nPokémon appeared.\pIts light allowed Blaine to find\nhis way down safely." text_6="Our Leader, Blaine, became lost\nin the mountains but good.\pNight fell when a fiery bird\nPokémon appeared.\pIts light allowed Blaine to find\nhis way down safely."
+    0826B366  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826B368  end                  
+
+  script 0x0826B369  [ok]
+    0826B369  checkflag            flag=0x269
+    0826B36C  call_if              condition=0 destination=0x0826B374
+    0826B372  release              
+
+  script 0x0826B374  [ok]
+    0826B374  call                 destination=0x0826B95D
+    0826B379  return               
+
+  script 0x0826B95D  [ok]
+    0826B95D  playse               song=44
+    0826B960  waitse               
+    0826B961  call                 destination=0x0826BCF6
+    0826B966  special              SPECIAL_\function=79
+    0826B969  setflag              flag=0x269
+    0826B96C  return               
+
+  script 0x0826BCF6  [ok]
+    0826BCF6  setmetatile          x=11 y=21 metatileId=721 impassable=1
+    0826BCFF  setmetatile          x=11 y=22 metatileId=649 impassable=0
+    0826BD08  setmetatile          x=11 y=23 metatileId=641 impassable=0
+    0826BD11  return               
+
+  object 6 (gfx 0x48, flag 0x0000) -> 0x0826B446
+  script 0x0826B446  [ok]
+    0826B446  trainerbattle        type=2 trainer=0xD7 localId=0 ptr1=0x0826C2D0 ptr2=0x0826C30A ptr3=0x0826B479
+    0826B458  msgbox_multilang     type=0 text_0="Ponyta, Ninetales…\nThose are popular Fire Pokémon." text_1="Ponyta, Ninetales…\nThose are popular Fire Pokémon." text_2="Ponyta, Ninetales…\nThose are popular Fire Pokémon." text_3="Ponyta, Ninetales…\nThose are popular Fire Pokémon." text_4="Ponyta, Ninetales…\nThose are popular Fire Pokémon." text_5="Ponyta, Ninetales…\nThose are popular Fire Pokémon." text_6="Ponyta, Ninetales…\nThose are popular Fire Pokémon."
+    0826B476  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826B478  end                  
+
+  script 0x0826B479  [ok]
+    0826B479  checkflag            flag=0x26A
+    0826B47C  call_if              condition=0 destination=0x0826B484
+    0826B482  release              
+
+  script 0x0826B484  [ok]
+    0826B484  call                 destination=0x0826BA7C
+    0826B489  return               
+
+  script 0x0826BA7C  [ok]
+    0826BA7C  playse               song=44
+    0826BA7F  waitse               
+    0826BA80  call                 destination=0x0826BD12
+    0826BA85  special              SPECIAL_\function=79
+    0826BA88  setflag              flag=0x26A
+    0826BA8B  return               
+
+  script 0x0826BD12  [ok]
+    0826BD12  setmetatile          x=5 y=16 metatileId=711 impassable=0
+    0826BD1B  setmetatile          x=6 y=16 metatileId=710 impassable=0
+    0826BD24  setmetatile          x=5 y=17 metatileId=719 impassable=0
+    0826BD2D  setmetatile          x=6 y=17 metatileId=718 impassable=0
+    0826BD36  setmetatile          x=5 y=18 metatileId=649 impassable=0
+    0826BD3F  setmetatile          x=6 y=18 metatileId=641 impassable=0
+    0826BD48  setmetatile          x=7 y=18 metatileId=642 impassable=0
+    0826BD51  return               
+
+  object 7 (gfx 0x08, flag 0x0000) -> 0x0826B37A
+  script 0x0826B37A  [ok]
+    0826B37A  trainerbattle        type=2 trainer=0xB4 localId=0 ptr1=0x0826C34D ptr2=0x0826C367 ptr3=0x0826B3AD
+    0826B38C  msgbox_multilang     type=0 text_0="Water beats fire, of course.\pBut fire melts ice, so the Fire\ntype beats Ice-type Pokémon." text_1="Water beats fire, of course.\pBut fire melts ice, so the Fire\ntype beats Ice-type Pokémon." text_2="Water beats fire, of course.\pBut fire melts ice, so the Fire\ntype beats Ice-type Pokémon." text_3="Water beats fire, of course.\pBut fire melts ice, so the Fire\ntype beats Ice-type Pokémon." text_4="Water beats fire, of course.\pBut fire melts ice, so the Fire\ntype beats Ice-type Pokémon." text_5="Water beats fire, of course.\pBut fire melts ice, so the Fire\ntype beats Ice-type Pokémon." text_6="Water beats fire, of course.\pBut fire melts ice, so the Fire\ntype beats Ice-type Pokémon."
+    0826B3AA  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0826B3AC  end                  
+
+  script 0x0826B3AD  [ok]
+    0826B3AD  checkflag            flag=0x26B
+    0826B3B0  call_if              condition=0 destination=0x0826B3B8
+    0826B3B6  release              
+
+  script 0x0826B3B8  [ok]
+    0826B3B8  call                 destination=0x0826BB9B
+    0826B3BD  return               
+
+  script 0x0826BB9B  [ok]
+    0826BB9B  playse               song=44
+    0826BB9E  waitse               
+    0826BB9F  call                 destination=0x0826BD52
+    0826BBA4  special              SPECIAL_\function=79
+    0826BBA7  setflag              flag=0x26B
+    0826BBAA  return               
+
+  script 0x0826BD52  [ok]
+    0826BD52  setmetatile          x=5 y=8 metatileId=711 impassable=0
+    0826BD5B  setmetatile          x=6 y=8 metatileId=710 impassable=0
+    0826BD64  setmetatile          x=5 y=9 metatileId=719 impassable=0
+    0826BD6D  setmetatile          x=6 y=9 metatileId=718 impassable=0
+    0826BD76  setmetatile          x=5 y=10 metatileId=649 impassable=0
+    0826BD7F  setmetatile          x=6 y=10 metatileId=641 impassable=0
+    0826BD88  setmetatile          x=7 y=10 metatileId=642 impassable=0
+    0826BD91  return               
+
+  object 8 (gfx 0x23, flag 0x0000) -> 0x0826B097
+  script 0x0826B097  [ok]
+    0826B097  speakername          name="Blaine"
+    0826B09C  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0826B09F  goto_if              condition=1 destination=0x0826B0EF
+    0826B0A5  setvar               destination=VAR_0x8004 value=8
+    0826B0AA  setvar               destination=VAR_0x8005 value=2
+    0826B0AF  special              SPECIAL_\function=348
+    0826B0B2  trainerbattle        type=1 trainer=0x1A3 localId=0 ptr1=0x0826BD92 ptr2=0x0826BE49 ptr3=0x0826B268
+    0826B0C4  checkflag            flag=0x24E
+    0826B0C7  goto_if              condition=0 destination=0x0826B123
+    0826B0CD  msgbox_multilang     type=0 text_0="TM38 contains Fire Blast.\nTeach it to Fire-type Pokémon.\pVulpix or Charmeleon would be\nideal for that move." text_1="TM38 contains Fire Blast.\nTeach it to Fire-type Pokémon.\pVulpix or Charmeleon would be\nideal for that move." text_2="TM38 contains Fire Blast.\nTeach it to Fire-type Pokémon.\pVulpix or Charmeleon would be\nideal for that move." text_3="TM38 contains Fire Blast.\nTeach it to Fire-type Pokémon.\pVulpix or Charmeleon would be\nideal for that move." text_4="TM38 contains Fire Blast.\nTeach it to Fire-type Pokémon.\pVulpix or Charmeleon would be\nideal for that move." text_5="TM38 contains Fire Blast.\nTeach it to Fire-type Pokémon.\pVulpix or Charmeleon would be\nideal for that move." text_6="TM38 contains Fire Blast.\nTeach it to Fire-type Pokémon.\pVulpix or Charmeleon would be\nideal for that move."
+    0826B0EB  callstd              function=MSGBOX_DEFAULT(4)
+    0826B0ED  release              
+
+  script 0x0826B0EF  [ok]
+    0826B0EF  trainerbattle        type=1 trainer=0x2F5 localId=0 ptr1=0x0826C6E2 ptr2=0x0826C733 ptr3=0x0826B12D
+    0826B101  msgbox_multilang     type=0 text_0="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_1="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_2="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_3="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_4="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_5="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_6="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!"
+    0826B11F  callstd              function=MSGBOX_DEFAULT(4)
+    0826B121  release              
+
+  script 0x0826B268  [ok]
+    0826B268  addelevmenuitem      a=7 b=5632 c=32772 d=8
+    0826B270  setvar               destination=VAR_0x8005 value=1
+    0826B275  special              SPECIAL_\function=347
+    0826B278  setflag              flag=0x4B6
+    0826B27B  setflag              flag=0x886:BADGE7_VOLCANO
+    0826B27E  setrespawn           heallocation=9
+    0826B281  clearflag            flag=0x062
+    0826B284  setvar               destination=VAR_0x8008 value=7
+    0826B289  call                 destination=0x082BBD1A
+    0826B28E  goto                 destination=0x0826B154
+
+  script 0x0826B123  [ok]
+    0826B123  goto                 destination=0x0826B154
+
+  script 0x0826B12D  [ok]
+    0826B12D  speakername          name="Blaine"
+    0826B132  msgbox_multilang     type=0 text_0="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_1="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_2="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_3="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_4="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_5="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!" text_6="Awesome. I have burned out…\nBut the fire inside me is only going\pto get stronger!\pLet’s battle again sometime!"
+    0826B150  callstd              function=MSGBOX_DEFAULT(4)
+    0826B152  release              
+
+  script 0x082BBD1A  [ok]
+    082BBD1A  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    082BBD1F  compare_var_to_value var=0x8000 value=1
+    082BBD24  goto_if              condition=1 destination=0x082BBD78
+    082BBD2A  compare_var_to_value var=0x8000 value=2
+    082BBD2F  goto_if              condition=1 destination=0x082BBD7F
+    082BBD35  compare_var_to_value var=0x8000 value=3
+    082BBD3A  goto_if              condition=1 destination=0x082BBD86
+    082BBD40  compare_var_to_value var=0x8000 value=4
+    082BBD45  goto_if              condition=1 destination=0x082BBD90
+    082BBD4B  compare_var_to_value var=0x8000 value=5
+    082BBD50  goto_if              condition=1 destination=0x082BBDA6
+    082BBD56  compare_var_to_value var=0x8000 value=6
+    082BBD5B  goto_if              condition=1 destination=0x082BBDB9
+    082BBD61  compare_var_to_value var=0x8000 value=7
+    082BBD66  goto_if              condition=1 destination=0x082BBDCF
+    082BBD6C  compare_var_to_value var=0x8000 value=8
+    082BBD71  goto_if              condition=1 destination=0x082BBDE5
+    082BBD77  end                  
+
+  script 0x0826B154  [unknown-opcode:0xE9]
+    0826B154  speakername          name="Blaine"
+    0826B159  msgbox_multilang     type=0 text_0="Hah!\pThe Volcano Badge heightens the\nSpecial stats of your Pokémon.\pHere, you can have this, too!" text_1="Hah!\pThe Volcano Badge heightens the\nSpecial stats of your Pokémon.\pHere, you can have this, too!" text_2="Hah!\pThe Volcano Badge heightens the\nSpecial stats of your Pokémon.\pHere, you can have this, too!" text_3="Hah!\pThe Volcano Badge heightens the\nSpecial stats of your Pokémon.\pHere, you can have this, too!" text_4="Hah!\pThe Volcano Badge heightens the\nSpecial stats of your Pokémon.\pHere, you can have this, too!" text_5="Hah!\pThe Volcano Badge heightens the\nSpecial stats of your Pokémon.\pHere, you can have this, too!" text_6="Hah!\pThe Volcano Badge heightens the\nSpecial stats of your Pokémon.\pHere, you can have this, too!"
+    0826B177  callstd              function=MSGBOX_DEFAULT(4)
+    0826B179  checkitemspace       itemId=TM38(326) quantity=1
+    0826B17E  compare_var_to_value var=0x800D value=0
+    0826B183  goto_if              condition=1 destination=0x0826B1D5
+    0826B189  checkitemspace       itemId=TM38(326) quantity=1
+    0826B18E  additem              itemId=TM38(326) quantity=1
+
+  script 0x082BBD78  [ok]
+    082BBD78  settrainerflag       trainer=0x8E
+    082BBD7B  settrainerflag       trainer=0x147
+    082BBD7E  return               
+
+  script 0x082BBD7F  [ok]
+    082BBD7F  settrainerflag       trainer=0x96
+    082BBD82  settrainerflag       trainer=0xEA
+    082BBD85  return               
+
+  script 0x082BBD86  [ok]
+    082BBD86  settrainerflag       trainer=0x8D
+    082BBD89  settrainerflag       trainer=0xDC
+    082BBD8C  settrainerflag       trainer=0x1A7
+    082BBD8F  return               
+
+  script 0x082BBD90  [ok]
+    082BBD90  settrainerflag       trainer=0x84
+    082BBD93  settrainerflag       trainer=0x85
+    082BBD96  settrainerflag       trainer=0xA0
+    082BBD99  settrainerflag       trainer=0x109
+    082BBD9C  settrainerflag       trainer=0x10A
+    082BBD9F  settrainerflag       trainer=0x10B
+    082BBDA2  settrainerflag       trainer=0x192
+    082BBDA5  return               
+
+  script 0x082BBDA6  [ok]
+    082BBDA6  settrainerflag       trainer=0x126
+    082BBDA9  settrainerflag       trainer=0x127
+    082BBDAC  settrainerflag       trainer=0x120
+    082BBDAF  settrainerflag       trainer=0x121
+    082BBDB2  settrainerflag       trainer=0x124
+    082BBDB5  settrainerflag       trainer=0x125
+    082BBDB8  return               
+
+  script 0x082BBDB9  [ok]
+    082BBDB9  settrainerflag       trainer=0x118
+    082BBDBC  settrainerflag       trainer=0x119
+    082BBDBF  settrainerflag       trainer=0x11A
+    082BBDC2  settrainerflag       trainer=0x11B
+    082BBDC5  settrainerflag       trainer=0x1CE
+    082BBDC8  settrainerflag       trainer=0x1CF
+    082BBDCB  settrainerflag       trainer=0x1D0
+    082BBDCE  return               
+
+  script 0x082BBDCF  [ok]
+    082BBDCF  settrainerflag       trainer=0xB1
+    082BBDD2  settrainerflag       trainer=0xB2
+    082BBDD5  settrainerflag       trainer=0xB3
+    082BBDD8  settrainerflag       trainer=0xB4
+    082BBDDB  settrainerflag       trainer=0xD5
+    082BBDDE  settrainerflag       trainer=0xD6
+    082BBDE1  settrainerflag       trainer=0xD7
+    082BBDE4  return               
+
+  script 0x082BBDE5  [ok]
+    082BBDE5  settrainerflag       trainer=0x128
+    082BBDE8  settrainerflag       trainer=0x129
+    082BBDEB  settrainerflag       trainer=0x142
+    082BBDEE  settrainerflag       trainer=0x143
+    082BBDF1  settrainerflag       trainer=0x144
+    082BBDF4  settrainerflag       trainer=0x188
+    082BBDF7  settrainerflag       trainer=0x190
+    082BBDFA  settrainerflag       trainer=0x191
+    082BBDFD  return               
+
+  script 0x0826B1D5  [ok]
+    0826B1D5  goto                 destination=0x0826B294
+
+  script 0x0826B294  [ok]
+    0826B294  msgbox_multilang     type=0 text_0="Make space for this, child!" text_1="Make space for this, child!" text_2="Make space for this, child!" text_3="Make space for this, child!" text_4="Make space for this, child!" text_5="Make space for this, child!" text_6="Make space for this, child!"
+    0826B2B2  callstd              function=MSGBOX_DEFAULT(4)
+    0826B2B4  release              
+
+  object 9 (gfx 0x27, flag 0x0000) -> 0x0826B48A
+  script 0x0826B48A  [ok]
+    0826B48A  lock                 
+    0826B48B  faceplayer           
+    0826B48C  checkflag            flag=0x4B6
+    0826B48F  goto_if              condition=1 destination=0x0826B4B7
+    0826B495  msgbox_multilang     type=0 text_0="Yo!\nChamp in the making!\pThe hotheaded Blaine is a Fire\nPokémon pro.\pDouse his spirits with water!\pYou’d better take some\nBurn Heals, too." text_1="Yo!\nChamp in the making!\pThe hotheaded Blaine is a Fire\nPokémon pro.\pDouse his spirits with water!\pYou’d better take some\nBurn Heals, too." text_2="Yo!\nChamp in the making!\pThe hotheaded Blaine is a Fire\nPokémon pro.\pDouse his spirits with water!\pYou’d better take some\nBurn Heals, too." text_3="Yo!\nChamp in the making!\pThe hotheaded Blaine is a Fire\nPokémon pro.\pDouse his spirits with water!\pYou’d better take some\nBurn Heals, too." text_4="Yo!\nChamp in the making!\pThe hotheaded Blaine is a Fire\nPokémon pro.\pDouse his spirits with water!\pYou’d better take some\nBurn Heals, too." text_5="Yo!\nChamp in the making!\pThe hotheaded Blaine is a Fire\nPokémon pro.\pDouse his spirits with water!\pYou’d better take some\nBurn Heals, too." text_6="Yo!\nChamp in the making!\pThe hotheaded Blaine is a Fire\nPokémon pro.\pDouse his spirits with water!\pYou’d better take some\nBurn Heals, too."
+    0826B4B3  callstd              function=MSGBOX_DEFAULT(4)
+    0826B4B5  release              
+
+  script 0x0826B4B7  [ok]
+    0826B4B7  msgbox_multilang     type=0 text_0="{PLAYER}!\nYou beat that firebrand!" text_1="{PLAYER}!\nYou beat that firebrand!" text_2="{PLAYER}!\nYou beat that firebrand!" text_3="{PLAYER}!\nYou beat that firebrand!" text_4="{PLAYER}!\nYou beat that firebrand!" text_5="{PLAYER}!\nYou beat that firebrand!" text_6="{PLAYER}!\nYou beat that firebrand!"
+    0826B4D5  callstd              function=MSGBOX_DEFAULT(4)
+    0826B4D7  release              
+
+  sign 0 at (23,20) -> 0x0826B4D9
+  script 0x0826B4D9  [ok]
+    0826B4D9  lockall              
+    0826B4DA  checkflag            flag=0x886:BADGE7_VOLCANO
+    0826B4DD  goto_if              condition=1 destination=0x0826B505
+    0826B4E3  msgbox_multilang     type=0 text_0="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}" text_1="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}" text_2="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}" text_3="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}" text_4="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}" text_5="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}" text_6="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}"
+    0826B501  callstd              function=MSGBOX_DEFAULT(4)
+    0826B503  releaseall           
+
+  script 0x0826B505  [ok]
+    0826B505  msgbox_multilang     type=0 text_0="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_1="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_2="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_3="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_4="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_5="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_6="Cinnabar Pokémon Gym\nLeader: Blaine\pWinning Trainers:\n{RIVAL}, {PLAYER}"
+    0826B523  callstd              function=MSGBOX_DEFAULT(4)
+    0826B525  releaseall           
+
+  sign 1 at (27,20) -> 0x0826B4D9
+  sign 2 at (22,10) -> 0x0826B527
+  script 0x0826B527  [ok]
+    0826B527  lockall              
+    0826B528  setvar               destination=VAR_0x4001 value=0
+    0826B52D  goto                 destination=0x0826B53F
+
+  script 0x0826B53F  [ok]
+    0826B53F  msgbox_multilang     type=0 text_0="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_1="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_2="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_3="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_4="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_5="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_6="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!"
+    0826B55D  callstd              function=MSGBOX_DEFAULT(4)
+    0826B55F  msgbox_multilang     type=0 text_0="Caterpie evolves into Metapod?" text_1="Caterpie evolves into Metapod?" text_2="Caterpie evolves into Metapod?" text_3="Caterpie evolves into Metapod?" text_4="Caterpie evolves into Metapod?" text_5="Caterpie evolves into Metapod?" text_6="Caterpie evolves into Metapod?"
+    0826B57D  callstd              function=MSGBOX_YESNO(5)
+    0826B57F  compare_var_to_value var=0x800D value=1
+    0826B584  goto_if              condition=1 destination=0x0826B5E2
+    0826B58A  compare_var_to_value var=0x800D value=0
+    0826B58F  goto_if              condition=1 destination=0x0826B609
+    0826B595  end                  
+
+  script 0x0826B5E2  [ok]
+    0826B5E2  call                 destination=0x0826B596
+    0826B5E7  checkflag            flag=0x265
+    0826B5EA  goto_if              condition=1 destination=0x0826B607
+    0826B5F0  call                 destination=0x0826B5F7
+    0826B5F5  releaseall           
+
+  script 0x0826B609  [ok]
+    0826B609  call                 destination=0x0826B5BB
+    0826B60E  checktrainerflag     trainer=0xD5
+    0826B611  goto_if              condition=0 destination=0x0826B619
+    0826B617  releaseall           
+
+  script 0x0826B596  [ok]
+    0826B596  playfanfare          song=367
+    0826B599  waitfanfare          
+    0826B59A  msgbox_multilang     type=0 text_0="You’re absolutely correct!\pGo on through!" text_1="You’re absolutely correct!\pGo on through!" text_2="You’re absolutely correct!\pGo on through!" text_3="You’re absolutely correct!\pGo on through!" text_4="You’re absolutely correct!\pGo on through!" text_5="You’re absolutely correct!\pGo on through!" text_6="You’re absolutely correct!\pGo on through!"
+    0826B5B8  callstd              function=MSGBOX_DEFAULT(4)
+    0826B5BA  return               
+
+  script 0x0826B607  [ok]
+    0826B607  releaseall           
+
+  script 0x0826B5BB  [ok]
+    0826B5BB  waitse               
+    0826B5BC  playse               song=22
+    0826B5BF  waitse               
+    0826B5C0  msgbox_multilang     type=0 text_0="Sorry!\nBad call!" text_1="Sorry!\nBad call!" text_2="Sorry!\nBad call!" text_3="Sorry!\nBad call!" text_4="Sorry!\nBad call!" text_5="Sorry!\nBad call!" text_6="Sorry!\nBad call!"
+    0826B5DE  callstd              function=MSGBOX_DEFAULT(4)
+    0826B5E0  closemessage         
+    0826B5E1  return               
+
+  script 0x0826B619  [ok]
+    0826B619  compare_var_to_value var=0x4001 value=0
+    0826B61E  call_if              condition=1 destination=0x0826B66B
+    0826B624  compare_var_to_value var=0x4001 value=1
+    0826B629  call_if              condition=1 destination=0x0826B67D
+    0826B62F  textcolor            color=0
+    0826B631  msgbox_multilang     type=0 text_0="I was a thief, but I went straight\nas a Trainer." text_1="I was a thief, but I went straight\nas a Trainer." text_2="I was a thief, but I went straight\nas a Trainer." text_3="I was a thief, but I went straight\nas a Trainer." text_4="I was a thief, but I went straight\nas a Trainer." text_5="I was a thief, but I went straight\nas a Trainer." text_6="I was a thief, but I went straight\nas a Trainer."
+    0826B64F  callstd              function=MSGBOX_DEFAULT(4)
+    0826B651  trainerbattle        type=3 trainer=0xD5 localId=0 ptr1=0x0826C0C1
+    0826B65B  checkflag            flag=0x265
+    0826B65E  goto_if              condition=1 destination=0x0826B607
+    0826B664  call                 destination=0x0826B5F7
+    0826B669  releaseall           
+
+  script 0x0826B66B  [ok]
+    0826B66B  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826B672  applymovement        localId=1 movements=[walk_left walk_left]
+    0826B679  waitmovement         localId=0
+    0826B67C  return               
+
+  script 0x0826B67D  [ok]
+    0826B67D  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826B684  applymovement        localId=1 movements=[walk_left]
+    0826B68B  waitmovement         localId=0
+    0826B68E  return               
+
+  sign 3 at (23,10) -> 0x0826B533
+  script 0x0826B533  [ok]
+    0826B533  lockall              
+    0826B534  setvar               destination=VAR_0x4001 value=1
+    0826B539  goto                 destination=0x0826B53F
+
+  sign 4 at (15,2) -> 0x0826B694
+  script 0x0826B694  [ok]
+    0826B694  lockall              
+    0826B695  setvar               destination=VAR_0x4001 value=0
+    0826B69A  goto                 destination=0x0826B6AC
+
+  script 0x0826B6AC  [ok]
+    0826B6AC  msgbox_multilang     type=0 text_0="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_1="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_2="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_3="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_4="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_5="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_6="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!"
+    0826B6CA  callstd              function=MSGBOX_DEFAULT(4)
+    0826B6CC  msgbox_multilang     type=0 text_0="There are nine certified Pokémon\nLeague Badges?" text_1="There are nine certified Pokémon\nLeague Badges?" text_2="There are nine certified Pokémon\nLeague Badges?" text_3="There are nine certified Pokémon\nLeague Badges?" text_4="There are nine certified Pokémon\nLeague Badges?" text_5="There are nine certified Pokémon\nLeague Badges?" text_6="There are nine certified Pokémon\nLeague Badges?"
+    0826B6EA  callstd              function=MSGBOX_YESNO(5)
+    0826B6EC  compare_var_to_value var=0x800D value=1
+    0826B6F1  goto_if              condition=1 destination=0x0826B728
+    0826B6F7  compare_var_to_value var=0x800D value=0
+    0826B6FC  goto_if              condition=1 destination=0x0826B703
+    0826B702  end                  
+
+  script 0x0826B728  [ok]
+    0826B728  call                 destination=0x0826B5BB
+    0826B72D  checktrainerflag     trainer=0xB2
+    0826B730  goto_if              condition=0 destination=0x0826B738
+    0826B736  releaseall           
+
+  script 0x0826B703  [ok]
+    0826B703  call                 destination=0x0826B596
+    0826B708  checkflag            flag=0x267
+    0826B70B  goto_if              condition=1 destination=0x0826B607
+    0826B711  call                 destination=0x0826B718
+    0826B716  releaseall           
+
+  script 0x0826B738  [ok]
+    0826B738  compare_var_to_value var=0x4001 value=0
+    0826B73D  call_if              condition=1 destination=0x0826B78A
+    0826B743  compare_var_to_value var=0x4001 value=1
+    0826B748  call_if              condition=1 destination=0x0826B79C
+    0826B74E  textcolor            color=0
+    0826B750  msgbox_multilang     type=0 text_0="I’ve studied Pokémon thoroughly.\nYou can’t win!" text_1="I’ve studied Pokémon thoroughly.\nYou can’t win!" text_2="I’ve studied Pokémon thoroughly.\nYou can’t win!" text_3="I’ve studied Pokémon thoroughly.\nYou can’t win!" text_4="I’ve studied Pokémon thoroughly.\nYou can’t win!" text_5="I’ve studied Pokémon thoroughly.\nYou can’t win!" text_6="I’ve studied Pokémon thoroughly.\nYou can’t win!"
+    0826B76E  callstd              function=MSGBOX_DEFAULT(4)
+    0826B770  trainerbattle        type=3 trainer=0xB2 localId=0 ptr1=0x0826C13E
+    0826B77A  checkflag            flag=0x267
+    0826B77D  goto_if              condition=1 destination=0x0826B607
+    0826B783  call                 destination=0x0826B718
+    0826B788  releaseall           
+
+  script 0x0826B78A  [ok]
+    0826B78A  applymovement        localId=255 movements=[delay_16 delay_16 walk_in_place_faster_right]
+    0826B791  applymovement        localId=3 movements=[walk_up walk_up walk_left]
+    0826B798  waitmovement         localId=0
+    0826B79B  return               
+
+  script 0x0826B79C  [ok]
+    0826B79C  applymovement        localId=255 movements=[delay_16 delay_16 walk_in_place_faster_right]
+    0826B7A3  applymovement        localId=3 movements=[walk_up walk_up walk_in_place_faster_left]
+    0826B7AA  waitmovement         localId=0
+    0826B7AD  return               
+
+  sign 5 at (16,2) -> 0x0826B6A0
+  script 0x0826B6A0  [ok]
+    0826B6A0  lockall              
+    0826B6A1  setvar               destination=VAR_0x4001 value=1
+    0826B6A6  goto                 destination=0x0826B6AC
+
+  sign 6 at (13,10) -> 0x0826B7BA
+  script 0x0826B7BA  [ok]
+    0826B7BA  lockall              
+    0826B7BB  setvar               destination=VAR_0x4001 value=0
+    0826B7C0  goto                 destination=0x0826B7D2
+
+  script 0x0826B7D2  [ok]
+    0826B7D2  msgbox_multilang     type=0 text_0="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_1="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_2="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_3="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_4="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_5="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_6="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!"
+    0826B7F0  callstd              function=MSGBOX_DEFAULT(4)
+    0826B7F2  msgbox_multilang     type=0 text_0="Poliwag evolves three times?" text_1="Poliwag evolves three times?" text_2="Poliwag evolves three times?" text_3="Poliwag evolves three times?" text_4="Poliwag evolves three times?" text_5="Poliwag evolves three times?" text_6="Poliwag evolves three times?"
+    0826B810  callstd              function=MSGBOX_YESNO(5)
+    0826B812  compare_var_to_value var=0x800D value=1
+    0826B817  goto_if              condition=1 destination=0x0826B84E
+    0826B81D  compare_var_to_value var=0x800D value=0
+    0826B822  goto_if              condition=1 destination=0x0826B829
+    0826B828  end                  
+
+  script 0x0826B84E  [ok]
+    0826B84E  call                 destination=0x0826B5BB
+    0826B853  checktrainerflag     trainer=0xD6
+    0826B856  goto_if              condition=0 destination=0x0826B85E
+    0826B85C  releaseall           
+
+  script 0x0826B829  [ok]
+    0826B829  call                 destination=0x0826B596
+    0826B82E  checkflag            flag=0x268
+    0826B831  goto_if              condition=1 destination=0x0826B607
+    0826B837  call                 destination=0x0826B83E
+    0826B83C  releaseall           
+
+  script 0x0826B85E  [ok]
+    0826B85E  compare_var_to_value var=0x4001 value=0
+    0826B863  call_if              condition=1 destination=0x0826B8B0
+    0826B869  compare_var_to_value var=0x4001 value=1
+    0826B86E  call_if              condition=1 destination=0x0826B8C2
+    0826B874  textcolor            color=0
+    0826B876  msgbox_multilang     type=0 text_0="I like using Fire-type Pokémon.\nI just do." text_1="I like using Fire-type Pokémon.\nI just do." text_2="I like using Fire-type Pokémon.\nI just do." text_3="I like using Fire-type Pokémon.\nI just do." text_4="I like using Fire-type Pokémon.\nI just do." text_5="I like using Fire-type Pokémon.\nI just do." text_6="I like using Fire-type Pokémon.\nI just do."
+    0826B894  callstd              function=MSGBOX_DEFAULT(4)
+    0826B896  trainerbattle        type=3 trainer=0xD6 localId=0 ptr1=0x0826C1C4
+    0826B8A0  checkflag            flag=0x268
+    0826B8A3  goto_if              condition=1 destination=0x0826B607
+    0826B8A9  call                 destination=0x0826B83E
+    0826B8AE  releaseall           
+
+  script 0x0826B8B0  [ok]
+    0826B8B0  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826B8B7  applymovement        localId=4 movements=[walk_left walk_left]
+    0826B8BE  waitmovement         localId=0
+    0826B8C1  return               
+
+  script 0x0826B8C2  [ok]
+    0826B8C2  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826B8C9  applymovement        localId=4 movements=[walk_left]
+    0826B8D0  waitmovement         localId=0
+    0826B8D3  return               
+
+  sign 7 at (14,10) -> 0x0826B7C6
+  script 0x0826B7C6  [ok]
+    0826B7C6  lockall              
+    0826B7C7  setvar               destination=VAR_0x4001 value=1
+    0826B7CC  goto                 destination=0x0826B7D2
+
+  sign 8 at (13,17) -> 0x0826B8D9
+  script 0x0826B8D9  [ok]
+    0826B8D9  lockall              
+    0826B8DA  setvar               destination=VAR_0x4001 value=0
+    0826B8DF  goto                 destination=0x0826B8F1
+
+  script 0x0826B8F1  [ok]
+    0826B8F1  msgbox_multilang     type=0 text_0="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_1="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_2="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_3="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_4="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_5="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_6="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!"
+    0826B90F  callstd              function=MSGBOX_DEFAULT(4)
+    0826B911  msgbox_multilang     type=0 text_0="Are electric moves effective\nagainst Ground-type Pokémon?" text_1="Are electric moves effective\nagainst Ground-type Pokémon?" text_2="Are electric moves effective\nagainst Ground-type Pokémon?" text_3="Are electric moves effective\nagainst Ground-type Pokémon?" text_4="Are electric moves effective\nagainst Ground-type Pokémon?" text_5="Are electric moves effective\nagainst Ground-type Pokémon?" text_6="Are electric moves effective\nagainst Ground-type Pokémon?"
+    0826B92F  callstd              function=MSGBOX_YESNO(5)
+    0826B931  compare_var_to_value var=0x800D value=1
+    0826B936  goto_if              condition=1 destination=0x0826B96D
+    0826B93C  compare_var_to_value var=0x800D value=0
+    0826B941  goto_if              condition=1 destination=0x0826B948
+    0826B947  end                  
+
+  script 0x0826B96D  [ok]
+    0826B96D  call                 destination=0x0826B5BB
+    0826B972  checktrainerflag     trainer=0xB3
+    0826B975  goto_if              condition=0 destination=0x0826B97D
+    0826B97B  releaseall           
+
+  script 0x0826B948  [ok]
+    0826B948  call                 destination=0x0826B596
+    0826B94D  checkflag            flag=0x269
+    0826B950  goto_if              condition=1 destination=0x0826B607
+    0826B956  call                 destination=0x0826B95D
+    0826B95B  releaseall           
+
+  script 0x0826B97D  [ok]
+    0826B97D  compare_var_to_value var=0x4001 value=0
+    0826B982  call_if              condition=1 destination=0x0826B9CF
+    0826B988  compare_var_to_value var=0x4001 value=1
+    0826B98D  call_if              condition=1 destination=0x0826B9E1
+    0826B993  textcolor            color=0
+    0826B995  msgbox_multilang     type=0 text_0="I know why Blaine became a\nTrainer." text_1="I know why Blaine became a\nTrainer." text_2="I know why Blaine became a\nTrainer." text_3="I know why Blaine became a\nTrainer." text_4="I know why Blaine became a\nTrainer." text_5="I know why Blaine became a\nTrainer." text_6="I know why Blaine became a\nTrainer."
+    0826B9B3  callstd              function=MSGBOX_DEFAULT(4)
+    0826B9B5  trainerbattle        type=3 trainer=0xB3 localId=0 ptr1=0x0826C22C
+    0826B9BF  checkflag            flag=0x269
+    0826B9C2  goto_if              condition=1 destination=0x0826B607
+    0826B9C8  call                 destination=0x0826B95D
+    0826B9CD  releaseall           
+
+  script 0x0826B9CF  [ok]
+    0826B9CF  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826B9D6  applymovement        localId=5 movements=[walk_left walk_left]
+    0826B9DD  waitmovement         localId=0
+    0826B9E0  return               
+
+  script 0x0826B9E1  [ok]
+    0826B9E1  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826B9E8  applymovement        localId=5 movements=[walk_left]
+    0826B9EF  waitmovement         localId=0
+    0826B9F2  return               
+
+  sign 9 at (14,17) -> 0x0826B8E5
+  script 0x0826B8E5  [ok]
+    0826B8E5  lockall              
+    0826B8E6  setvar               destination=VAR_0x4001 value=1
+    0826B8EB  goto                 destination=0x0826B8F1
+
+  sign 10 at (1,18) -> 0x0826B9F8
+  script 0x0826B9F8  [ok]
+    0826B9F8  lockall              
+    0826B9F9  setvar               destination=VAR_0x4001 value=0
+    0826B9FE  goto                 destination=0x0826BA10
+
+  script 0x0826BA10  [ok]
+    0826BA10  msgbox_multilang     type=0 text_0="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_1="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_2="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_3="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_4="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_5="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_6="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!"
+    0826BA2E  callstd              function=MSGBOX_DEFAULT(4)
+    0826BA30  msgbox_multilang     type=0 text_0="Pokémon of the same kind and level\nare not identical?" text_1="Pokémon of the same kind and level\nare not identical?" text_2="Pokémon of the same kind and level\nare not identical?" text_3="Pokémon of the same kind and level\nare not identical?" text_4="Pokémon of the same kind and level\nare not identical?" text_5="Pokémon of the same kind and level\nare not identical?" text_6="Pokémon of the same kind and level\nare not identical?"
+    0826BA4E  callstd              function=MSGBOX_YESNO(5)
+    0826BA50  compare_var_to_value var=0x800D value=1
+    0826BA55  goto_if              condition=1 destination=0x0826BA67
+    0826BA5B  compare_var_to_value var=0x800D value=0
+    0826BA60  goto_if              condition=1 destination=0x0826BA8C
+    0826BA66  end                  
+
+  script 0x0826BA67  [ok]
+    0826BA67  call                 destination=0x0826B596
+    0826BA6C  checkflag            flag=0x26A
+    0826BA6F  goto_if              condition=1 destination=0x0826B607
+    0826BA75  call                 destination=0x0826BA7C
+    0826BA7A  releaseall           
+
+  script 0x0826BA8C  [ok]
+    0826BA8C  call                 destination=0x0826B5BB
+    0826BA91  checktrainerflag     trainer=0xD7
+    0826BA94  goto_if              condition=0 destination=0x0826BA9C
+    0826BA9A  releaseall           
+
+  script 0x0826BA9C  [ok]
+    0826BA9C  compare_var_to_value var=0x4001 value=0
+    0826BAA1  call_if              condition=1 destination=0x0826BAEE
+    0826BAA7  compare_var_to_value var=0x4001 value=1
+    0826BAAC  call_if              condition=1 destination=0x0826BB00
+    0826BAB2  textcolor            color=0
+    0826BAB4  msgbox_multilang     type=0 text_0="I’ve been to many Gyms, but this\none best suits my style." text_1="I’ve been to many Gyms, but this\none best suits my style." text_2="I’ve been to many Gyms, but this\none best suits my style." text_3="I’ve been to many Gyms, but this\none best suits my style." text_4="I’ve been to many Gyms, but this\none best suits my style." text_5="I’ve been to many Gyms, but this\none best suits my style." text_6="I’ve been to many Gyms, but this\none best suits my style."
+    0826BAD2  callstd              function=MSGBOX_DEFAULT(4)
+    0826BAD4  trainerbattle        type=3 trainer=0xD7 localId=0 ptr1=0x0826C30A
+    0826BADE  checkflag            flag=0x26A
+    0826BAE1  goto_if              condition=1 destination=0x0826B607
+    0826BAE7  call                 destination=0x0826BA7C
+    0826BAEC  releaseall           
+
+  script 0x0826BAEE  [ok]
+    0826BAEE  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826BAF5  applymovement        localId=6 movements=[walk_left walk_left]
+    0826BAFC  waitmovement         localId=0
+    0826BAFF  return               
+
+  script 0x0826BB00  [ok]
+    0826BB00  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826BB07  applymovement        localId=6 movements=[walk_left]
+    0826BB0E  waitmovement         localId=0
+    0826BB11  return               
+
+  sign 11 at (2,18) -> 0x0826BA04
+  script 0x0826BA04  [ok]
+    0826BA04  lockall              
+    0826BA05  setvar               destination=VAR_0x4001 value=1
+    0826BA0A  goto                 destination=0x0826BA10
+
+  sign 12 at (1,10) -> 0x0826BB17
+  script 0x0826BB17  [ok]
+    0826BB17  lockall              
+    0826BB18  setvar               destination=VAR_0x4001 value=0
+    0826BB1D  goto                 destination=0x0826BB2F
+
+  script 0x0826BB2F  [ok]
+    0826BB2F  msgbox_multilang     type=0 text_0="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_1="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_2="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_3="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_4="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_5="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!" text_6="Pokémon Quiz!\pGet it right, and the door opens to\nthe next room.\pGet it wrong, and face a Trainer!\pIf you want to conserve your\nPokémon for the Gym Leader…\pThen get it right!\nHere we go!"
+    0826BB4D  callstd              function=MSGBOX_DEFAULT(4)
+    0826BB4F  msgbox_multilang     type=0 text_0="TM28 contains Tombstony?" text_1="TM28 contains Tombstony?" text_2="TM28 contains Tombstony?" text_3="TM28 contains Tombstony?" text_4="TM28 contains Tombstony?" text_5="TM28 contains Tombstony?" text_6="TM28 contains Tombstony?"
+    0826BB6D  callstd              function=MSGBOX_YESNO(5)
+    0826BB6F  compare_var_to_value var=0x800D value=1
+    0826BB74  goto_if              condition=1 destination=0x0826BBAB
+    0826BB7A  compare_var_to_value var=0x800D value=0
+    0826BB7F  goto_if              condition=1 destination=0x0826BB86
+    0826BB85  end                  
+
+  script 0x0826BBAB  [ok]
+    0826BBAB  call                 destination=0x0826B5BB
+    0826BBB0  checktrainerflag     trainer=0xB4
+    0826BBB3  goto_if              condition=0 destination=0x0826BBBB
+    0826BBB9  releaseall           
+
+  script 0x0826BB86  [ok]
+    0826BB86  call                 destination=0x0826B596
+    0826BB8B  checkflag            flag=0x26B
+    0826BB8E  goto_if              condition=1 destination=0x0826B607
+    0826BB94  call                 destination=0x0826BB9B
+    0826BB99  releaseall           
+
+  script 0x0826BBBB  [ok]
+    0826BBBB  compare_var_to_value var=0x4001 value=0
+    0826BBC0  call_if              condition=1 destination=0x0826BC0D
+    0826BBC6  compare_var_to_value var=0x4001 value=1
+    0826BBCB  call_if              condition=1 destination=0x0826BC1F
+    0826BBD1  textcolor            color=0
+    0826BBD3  msgbox_multilang     type=0 text_0="Fire is weak against H2O." text_1="Fire is weak against H2O." text_2="Fire is weak against H2O." text_3="Fire is weak against H2O." text_4="Fire is weak against H2O." text_5="Fire is weak against H2O." text_6="Fire is weak against H2O."
+    0826BBF1  callstd              function=MSGBOX_DEFAULT(4)
+    0826BBF3  trainerbattle        type=3 trainer=0xB4 localId=0 ptr1=0x0826C367
+    0826BBFD  checkflag            flag=0x26B
+    0826BC00  goto_if              condition=1 destination=0x0826B607
+    0826BC06  call                 destination=0x0826BB9B
+    0826BC0B  releaseall           
+
+  script 0x0826BC0D  [ok]
+    0826BC0D  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826BC14  applymovement        localId=7 movements=[walk_left walk_left]
+    0826BC1B  waitmovement         localId=0
+    0826BC1E  return               
+
+  script 0x0826BC1F  [ok]
+    0826BC1F  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0826BC26  applymovement        localId=7 movements=[walk_left]
+    0826BC2D  waitmovement         localId=0
+    0826BC30  return               
+
+  sign 13 at (2,10) -> 0x0826BB23
+  script 0x0826BB23  [ok]
+    0826BB23  lockall              
+    0826BB24  setvar               destination=VAR_0x4001 value=1
+    0826BB29  goto                 destination=0x0826BB2F
+
+  sign 14 at (3,1) -> 0x081F276B
+  script 0x081F276B  [ok]
+    081F276B  lockall              
+    081F276C  setvar               destination=VAR_0x8004 value=8
+    081F2771  setvar               destination=VAR_0x8005 value=4
+    081F2776  special              SPECIAL_\function=347
+    081F2779  setvar               destination=VAR_0x8004 value=14
+    081F277E  setvar               destination=VAR_0x8005 value=4
+    081F2783  special              SPECIAL_\function=347
+    081F2786  msgbox_multilang     type=0 text_0="It’s a photo of Blaine and\nMr. Fuji.\pThey’re standing shoulder to\nshoulder with big grins." text_1="It’s a photo of Blaine and\nMr. Fuji.\pThey’re standing shoulder to\nshoulder with big grins." text_2="It’s a photo of Blaine and\nMr. Fuji.\pThey’re standing shoulder to\nshoulder with big grins." text_3="It’s a photo of Blaine and\nMr. Fuji.\pThey’re standing shoulder to\nshoulder with big grins." text_4="It’s a photo of Blaine and\nMr. Fuji.\pThey’re standing shoulder to\nshoulder with big grins." text_5="It’s a photo of Blaine and\nMr. Fuji.\pThey’re standing shoulder to\nshoulder with big grins." text_6="It’s a photo of Blaine and\nMr. Fuji.\pThey’re standing shoulder to\nshoulder with big grins."
+    081F27A4  callstd              function=MSGBOX_DEFAULT(4)
+    081F27A6  releaseall           
+
+  map script type 1 -> 0x0826B1E5
+  script 0x0826B1E5  [ok]
+    0826B1E5  checkflag            flag=0x4B6
+    0826B1E8  goto_if              condition=1 destination=0x0826B225
+    0826B1EE  checkflag            flag=0x265
+    0826B1F1  call_if              condition=1 destination=0x0826B244
+    0826B1F7  checkflag            flag=0x267
+    0826B1FA  call_if              condition=1 destination=0x0826B24A
+    0826B200  checkflag            flag=0x268
+    0826B203  call_if              condition=1 destination=0x0826B250
+    0826B209  checkflag            flag=0x269
+    0826B20C  call_if              condition=1 destination=0x0826B256
+    0826B212  checkflag            flag=0x26A
+    0826B215  call_if              condition=1 destination=0x0826B25C
+    0826B21B  checkflag            flag=0x26B
+    0826B21E  call_if              condition=1 destination=0x0826B262
+    0826B224  end                  
+
+  script 0x0826B225  [ok]
+    0826B225  call                 destination=0x0826BC36
+    0826B22A  call                 destination=0x0826BC76
+    0826B22F  call                 destination=0x0826BCB6
+    0826B234  call                 destination=0x0826BCF6
+    0826B239  call                 destination=0x0826BD12
+    0826B23E  call                 destination=0x0826BD52
+    0826B243  end                  
+
+  script 0x0826B244  [ok]
+    0826B244  call                 destination=0x0826BC36
+    0826B249  return               
+
+  script 0x0826B24A  [ok]
+    0826B24A  call                 destination=0x0826BC76
+    0826B24F  return               
+
+  script 0x0826B250  [ok]
+    0826B250  call                 destination=0x0826BCB6
+    0826B255  return               
+
+  script 0x0826B256  [ok]
+    0826B256  call                 destination=0x0826BCF6
+    0826B25B  return               
+
+  script 0x0826B25C  [ok]
+    0826B25C  call                 destination=0x0826BD12
+    0826B261  return               
+
+  script 0x0826B262  [ok]
+    0826B262  call                 destination=0x0826BD52
+    0826B267  return               
+

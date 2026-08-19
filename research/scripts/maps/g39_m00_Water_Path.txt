@@ -1,0 +1,46 @@
+Water Path  (group 39, map 0)  header 0x08B3E05C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2D, flag 0x0000) -> 0x0827F939
+  script 0x0827F939  [ok]
+    0827F939  lock                 
+    0827F93A  faceplayer           
+    0827F93B  setvar               destination=VAR_0x8004 value=214
+    0827F940  specialvar           output=32781 SPECIAL_\function=365
+    0827F945  compare_var_to_value var=0x800D value=0
+    0827F94A  goto_if              condition=1 destination=0x0827F9B8
+    0827F950  special              SPECIAL_\function=366
+    0827F953  msgbox_multilang     type=0 text_0="Eeeeek!\nThat’s a Heracross!\pPlease, please, may I measure how\nbig it is?" text_1="Eeeeek!\nThat’s a Heracross!\pPlease, please, may I measure how\nbig it is?" text_2="Eeeeek!\nThat’s a Heracross!\pPlease, please, may I measure how\nbig it is?" text_3="Eeeeek!\nThat’s a Heracross!\pPlease, please, may I measure how\nbig it is?" text_4="Eeeeek!\nThat’s a Heracross!\pPlease, please, may I measure how\nbig it is?" text_5="Eeeeek!\nThat’s a Heracross!\pPlease, please, may I measure how\nbig it is?" text_6="Eeeeek!\nThat’s a Heracross!\pPlease, please, may I measure how\nbig it is?"
+    0827F971  callstd              function=MSGBOX_DEFAULT(4)
+    0827F973  special              SPECIAL_\function=96
+    0827F976  waitstate            
+
+  script 0x0827F9B8  [ok]
+    0827F9B8  msgbox_multilang     type=0 text_0="Hera, hera, Heracross!\nBig and shiny, it’s the bug boss!\pLove it, need it, Heracross!" text_1="Hera, hera, Heracross!\nBig and shiny, it’s the bug boss!\pLove it, need it, Heracross!" text_2="Hera, hera, Heracross!\nBig and shiny, it’s the bug boss!\pLove it, need it, Heracross!" text_3="Hera, hera, Heracross!\nBig and shiny, it’s the bug boss!\pLove it, need it, Heracross!" text_4="Hera, hera, Heracross!\nBig and shiny, it’s the bug boss!\pLove it, need it, Heracross!" text_5="Hera, hera, Heracross!\nBig and shiny, it’s the bug boss!\pLove it, need it, Heracross!" text_6="Hera, hera, Heracross!\nBig and shiny, it’s the bug boss!\pLove it, need it, Heracross!"
+    0827F9D6  callstd              function=MSGBOX_DEFAULT(4)
+    0827F9D8  release              
+
+  sign 0 at (9,1) -> 0x0827FAD3
+  script 0x0827FAD3  [ok]
+    0827FAD3  lockall              
+    0827FAD4  checkflag            flag=0x2D9
+    0827FAD7  goto_if              condition=1 destination=0x0827FAFF
+    0827FADD  msgbox_multilang     type=0 text_0="It’s a blank chart of some sort.\pIt has spaces for writing in\nrecords of some kind." text_1="It’s a blank chart of some sort.\pIt has spaces for writing in\nrecords of some kind." text_2="It’s a blank chart of some sort.\pIt has spaces for writing in\nrecords of some kind." text_3="It’s a blank chart of some sort.\pIt has spaces for writing in\nrecords of some kind." text_4="It’s a blank chart of some sort.\pIt has spaces for writing in\nrecords of some kind." text_5="It’s a blank chart of some sort.\pIt has spaces for writing in\nrecords of some kind." text_6="It’s a blank chart of some sort.\pIt has spaces for writing in\nrecords of some kind."
+    0827FAFB  callstd              function=MSGBOX_DEFAULT(4)
+    0827FAFD  releaseall           
+
+  script 0x0827FAFF  [ok]
+    0827FAFF  special              SPECIAL_\function=366
+    0827FB02  msgbox_multilang     type=0 text_0="The biggest Heracross that I have\never seen measured so far is:\p{STR_VAR_3} inches!" text_1="The biggest Heracross that I have\never seen measured so far is:\p{STR_VAR_3} inches!" text_2="The biggest Heracross that I have\never seen measured so far is:\p{STR_VAR_3} inches!" text_3="The biggest Heracross that I have\never seen measured so far is:\p{STR_VAR_3} inches!" text_4="The biggest Heracross that I have\never seen measured so far is:\p{STR_VAR_3} inches!" text_5="The biggest Heracross that I have\never seen measured so far is:\p{STR_VAR_3} inches!" text_6="The biggest Heracross that I have\never seen measured so far is:\p{STR_VAR_3} inches!"
+    0827FB20  callstd              function=MSGBOX_DEFAULT(4)
+    0827FB22  releaseall           
+

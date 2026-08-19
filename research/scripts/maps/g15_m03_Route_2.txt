@@ -1,0 +1,30 @@
+Route 2  (group 15, map 3)  header 0x08B3D87C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x23, flag 0x0000) -> 0x082739E2
+  script 0x082739E2  [ok]
+    082739E2  msgbox_multilang     type=0 text_0="Many Pokémon live only in forests \nand caves.\pYou need to be persistent and look\neverywhere to get different kinds." text_1="Many Pokémon live only in forests \nand caves.\pYou need to be persistent and look\neverywhere to get different kinds." text_2="Many Pokémon live only in forests \nand caves.\pYou need to be persistent and look\neverywhere to get different kinds." text_3="Many Pokémon live only in forests \nand caves.\pYou need to be persistent and look\neverywhere to get different kinds." text_4="Many Pokémon live only in forests \nand caves.\pYou need to be persistent and look\neverywhere to get different kinds." text_5="Many Pokémon live only in forests \nand caves.\pYou need to be persistent and look\neverywhere to get different kinds." text_6="Many Pokémon live only in forests \nand caves.\pYou need to be persistent and look\neverywhere to get different kinds."
+    08273A00  callstd              function=MSGBOX_NPC(2)
+    08273A02  end                  
+
+  object 2 (gfx 0xF5, flag 0x0000) -> 0x08273A03
+  script 0x08273A03  [ok]
+    08273A03  msgbox_multilang     type=0 text_0="Have you noticed the skinny trees\non the roadside?\pThey can be cut down by a special\nPokémon move, I hear." text_1="Have you noticed the skinny trees\non the roadside?\pThey can be cut down by a special\nPokémon move, I hear." text_2="Have you noticed the skinny trees\non the roadside?\pThey can be cut down by a special\nPokémon move, I hear." text_3="Have you noticed the skinny trees\non the roadside?\pThey can be cut down by a special\nPokémon move, I hear." text_4="Have you noticed the skinny trees\non the roadside?\pThey can be cut down by a special\nPokémon move, I hear." text_5="Have you noticed the skinny trees\non the roadside?\pThey can be cut down by a special\nPokémon move, I hear." text_6="Have you noticed the skinny trees\non the roadside?\pThey can be cut down by a special\nPokémon move, I hear."
+    08273A21  callstd              function=MSGBOX_NPC(2)
+    08273A23  end                  
+
+  object 3 (gfx 0xFB, flag 0x0000) -> 0x08273A24
+  script 0x08273A24  [ok]
+    08273A24  msgbox_multilang     type=0 text_0="Do you know the evolution-cancel\ntechnique?\pWhen a Pokémon is evolving, you\ncan stop the process.\pIt’s a technique for raising\nPokémon the way they are." text_1="Do you know the evolution-cancel\ntechnique?\pWhen a Pokémon is evolving, you\ncan stop the process.\pIt’s a technique for raising\nPokémon the way they are." text_2="Do you know the evolution-cancel\ntechnique?\pWhen a Pokémon is evolving, you\ncan stop the process.\pIt’s a technique for raising\nPokémon the way they are." text_3="Do you know the evolution-cancel\ntechnique?\pWhen a Pokémon is evolving, you\ncan stop the process.\pIt’s a technique for raising\nPokémon the way they are." text_4="Do you know the evolution-cancel\ntechnique?\pWhen a Pokémon is evolving, you\ncan stop the process.\pIt’s a technique for raising\nPokémon the way they are." text_5="Do you know the evolution-cancel\ntechnique?\pWhen a Pokémon is evolving, you\ncan stop the process.\pIt’s a technique for raising\nPokémon the way they are." text_6="Do you know the evolution-cancel\ntechnique?\pWhen a Pokémon is evolving, you\ncan stop the process.\pIt’s a technique for raising\nPokémon the way they are."
+    08273A42  callstd              function=MSGBOX_NPC(2)
+    08273A44  end                  
+

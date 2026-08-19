@@ -1,0 +1,160 @@
+Victory Road  (group 1, map 41)  header 0x08B3B694
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xFA, flag 0x0000) -> 0x0820D5A2
+  script 0x0820D5A2  [ok]
+    0820D5A2  trainerbattle        type=0 trainer=0x189 localId=0 ptr1=0x0820D787 ptr2=0x0820D7AA
+    0820D5B0  msgbox_multilang     type=0 text_0="So, it was you who beat Giovanni\nof Team Rocket?" text_1="So, it was you who beat Giovanni\nof Team Rocket?" text_2="So, it was you who beat Giovanni\nof Team Rocket?" text_3="So, it was you who beat Giovanni\nof Team Rocket?" text_4="So, it was you who beat Giovanni\nof Team Rocket?" text_5="So, it was you who beat Giovanni\nof Team Rocket?" text_6="So, it was you who beat Giovanni\nof Team Rocket?"
+    0820D5CE  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D5D0  end                  
+
+  object 2 (gfx 0xFB, flag 0x0000) -> 0x0820D62F
+  script 0x0820D62F  [ok]
+    0820D62F  trainerbattle        type=0 trainer=0x194 localId=0 ptr1=0x0820D7F1 ptr2=0x0820D81B
+    0820D63D  msgbox_multilang     type=0 text_0="By fighting tough battles, you get\nstronger." text_1="By fighting tough battles, you get\nstronger." text_2="By fighting tough battles, you get\nstronger." text_3="By fighting tough battles, you get\nstronger." text_4="By fighting tough battles, you get\nstronger." text_5="By fighting tough battles, you get\nstronger." text_6="By fighting tough battles, you get\nstronger."
+    0820D65B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D65D  end                  
+
+  object 3 (gfx 0xFA, flag 0x0000) -> 0x0820D5D1
+  script 0x0820D5D1  [ok]
+    0820D5D1  trainerbattle        type=0 trainer=0x18A localId=0 ptr1=0x0820D8B1 ptr2=0x0820D8D0
+    0820D5DF  msgbox_multilang     type=0 text_0="All Trainers here are headed to\nthe Pokémon League.\pDon’t let down your guard." text_1="All Trainers here are headed to\nthe Pokémon League.\pDon’t let down your guard." text_2="All Trainers here are headed to\nthe Pokémon League.\pDon’t let down your guard." text_3="All Trainers here are headed to\nthe Pokémon League.\pDon’t let down your guard." text_4="All Trainers here are headed to\nthe Pokémon League.\pDon’t let down your guard." text_5="All Trainers here are headed to\nthe Pokémon League.\pDon’t let down your guard." text_6="All Trainers here are headed to\nthe Pokémon League.\pDon’t let down your guard."
+    0820D5FD  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D5FF  end                  
+
+  object 4 (gfx 0xFB, flag 0x0000) -> 0x0820D600
+  script 0x0820D600  [ok]
+    0820D600  trainerbattle        type=0 trainer=0x193 localId=0 ptr1=0x0820D857 ptr2=0x0820D881
+    0820D60E  msgbox_multilang     type=0 text_0="You showed me just how good\nI was…" text_1="You showed me just how good\nI was…" text_2="You showed me just how good\nI was…" text_3="You showed me just how good\nI was…" text_4="You showed me just how good\nI was…" text_5="You showed me just how good\nI was…" text_6="You showed me just how good\nI was…"
+    0820D62C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D62E  end                  
+
+  object 5 (gfx 0x35, flag 0x01AF) -> 0x082D5A44
+  script 0x082D5A44  [ok]
+    082D5A44  setorcopyvar         destination=VAR_0x8000 source=25
+    082D5A49  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5A4E  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Max Revive
+    082D5A50  end                  
+
+  object 6 (gfx 0x55, flag 0x01B0) -> 0x082D5A51
+  script 0x082D5A51  [ok]
+    082D5A51  setorcopyvar         destination=VAR_0x8000 source=338
+    082D5A56  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5A5B  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM50
+    082D5A5D  end                  
+
+  object 7 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  script 0x0820540E  [ok]
+    0820540E  lockall              
+    0820540F  checkflag            flag=0x883:BADGE4_RAINBOW
+    08205412  goto_if              condition=0 destination=0x082054BA
+    08205418  checkflag            flag=0x23A
+    0820541B  goto_if              condition=0 destination=0x082054BA
+    08205421  checkflag            flag=0x865
+    08205424  goto_if              condition=1 destination=0x082054DB
+    0820542A  checkpartymove       move=Strength(70)
+    0820542D  compare_var_to_value var=0x800D value=6
+    08205432  goto_if              condition=1 destination=0x082054AC
+    08205438  compare_var_to_value var=0x800D value=6
+    0820543D  goto_if              condition=1 destination=0x082054BA
+    08205443  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205447  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?"
+    08205465  callstd              function=MSGBOX_YESNO(5)
+    08205467  compare_var_to_value var=0x800D value=0
+    0820546C  goto_if              condition=1 destination=0x082054FC
+    08205472  closemessage         
+    08205473  dofieldeffect        animation=40
+    08205476  waitstate            
+
+  script 0x082054BA  [ok]
+    082054BA  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside."
+    082054D8  callstd              function=MSGBOX_SIGN(3)
+    082054DA  end                  
+
+  script 0x082054DB  [ok]
+    082054DB  msgbox_multilang     type=0 text_0="Strength made it possible to move\nboulders around." text_1="Strength made it possible to move\nboulders around." text_2="Strength made it possible to move\nboulders around." text_3="Strength made it possible to move\nboulders around." text_4="Strength made it possible to move\nboulders around." text_5="Strength made it possible to move\nboulders around." text_6="Strength made it possible to move\nboulders around."
+    082054F9  callstd              function=MSGBOX_SIGN(3)
+    082054FB  end                  
+
+  script 0x082054AC  [unknown-opcode:0xE5]
+
+  script 0x082054FC  [ok]
+    082054FC  closemessage         
+    082054FD  releaseall           
+
+  object 8 (gfx 0x57, flag 0x0059) -> 0x0820540E
+  object 9 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 10 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 11 (gfx 0xFA, flag 0x0000) -> 0x0820D65E
+  script 0x0820D65E  [ok]
+    0820D65E  trainerbattle        type=4 trainer=0x1E5 localId=0 ptr1=0x0820D933 ptr2=0x0820D96C ptr3=0x0820D9BD
+    0820D670  msgbox_multilang     type=0 text_0="Ray: You’ve beaten us.\nGreatness remains elusive…" text_1="Ray: You’ve beaten us.\nGreatness remains elusive…" text_2="Ray: You’ve beaten us.\nGreatness remains elusive…" text_3="Ray: You’ve beaten us.\nGreatness remains elusive…" text_4="Ray: You’ve beaten us.\nGreatness remains elusive…" text_5="Ray: You’ve beaten us.\nGreatness remains elusive…" text_6="Ray: You’ve beaten us.\nGreatness remains elusive…"
+    0820D68E  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D690  end                  
+
+  object 12 (gfx 0xFB, flag 0x0000) -> 0x0820D691
+  script 0x0820D691  [ok]
+    0820D691  trainerbattle        type=4 trainer=0x1E5 localId=0 ptr1=0x0820DA2F ptr2=0x0820DA60 ptr3=0x0820DAB4
+    0820D6A3  msgbox_multilang     type=0 text_0="Tyra: You’ve taught me that power\ncan be infinite in shape and form." text_1="Tyra: You’ve taught me that power\ncan be infinite in shape and form." text_2="Tyra: You’ve taught me that power\ncan be infinite in shape and form." text_3="Tyra: You’ve taught me that power\ncan be infinite in shape and form." text_4="Tyra: You’ve taught me that power\ncan be infinite in shape and form." text_5="Tyra: You’ve taught me that power\ncan be infinite in shape and form." text_6="Tyra: You’ve taught me that power\ncan be infinite in shape and form."
+    0820D6C1  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D6C3  end                  
+
+  coord trigger 0 (var 0x4067 == 99) -> 0x0820D56B
+  script 0x0820D56B  [ok]
+    0820D56B  lockall              
+    0820D56C  compare_var_to_value var=0x4067 value=100
+    0820D571  goto_if              condition=1 destination=0x0820D5A0
+    0820D577  setmetatile          x=12 y=12 metatileId=721 impassable=0
+    0820D580  setmetatile          x=12 y=13 metatileId=737 impassable=0
+    0820D589  playse               song=41
+    0820D58C  special              SPECIAL_\function=79
+    0820D58F  waitse               
+    0820D590  copyobjectxytoperm   localId=7
+    0820D593  copyobjectxytoperm   localId=10
+    0820D596  setvar               destination=VAR_0x4067 value=100
+    0820D59B  setflag              flag=0x136
+    0820D59E  releaseall           
+
+  script 0x0820D5A0  [ok]
+    0820D5A0  releaseall           
+
+  map script type 1 -> 0x0820D52C
+  script 0x0820D52C  [ok]
+    0820D52C  compare_var_to_value var=0x4067 value=100
+    0820D531  goto_if              condition=5 destination=0x0820D538
+    0820D537  return               
+
+  script 0x0820D538  [ok]
+    0820D538  checkflag            flag=0x136
+    0820D53B  goto_if              condition=0 destination=0x0820D542
+    0820D541  return               
+
+  script 0x0820D542  [ok]
+    0820D542  setmetatile          x=12 y=12 metatileId=775 impassable=1
+    0820D54B  setmetatile          x=12 y=13 metatileId=791 impassable=1
+    0820D554  return               
+
+  map script type 3 -> 0x0820D555
+  script 0x0820D555  [ok]
+    0820D555  checkflag            flag=0x136
+    0820D558  goto_if              condition=1 destination=0x0820D55F
+    0820D55E  end                  
+
+  script 0x0820D55F  [ok]
+    0820D55F  setobjectxyperm      localId=7 x=7 y=7
+    0820D566  goto                 destination=0x0820D55E
+
+  script 0x0820D55E  [ok]
+    0820D55E  end                  
+

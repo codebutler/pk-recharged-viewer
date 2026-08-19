@@ -1,0 +1,82 @@
+Pokémon League  (group 1, map 80)  header 0x08B3BAD8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x14, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4001 == 0) -> 0x08215AE3
+  script 0x08215AE3  [ok]
+    08215AE3  lockall              
+    08215AE4  textcolor            color=0
+    08215AE6  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up]
+    08215AED  waitmovement         localId=0
+    08215AF0  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    08215AF7  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    08215AFE  waitmovement         localId=0
+    08215B01  delay                frames=18
+    08215B04  speakername          name="Professor Oak"
+    08215B09  msgbox_multilang     type=0 text_0="Er-hem!\nCongratulations, {PLAYER}!\pThis floor is the Pokémon Hall of\nFame.\pPokémon League Champions are\nhonored for their exploits here.\pTheir Pokémon are also recorded in\nthe Hall of Fame.\p{PLAYER}!\pYou have worked hard to become\nthe new League Champion.\pCongratulations, {PLAYER}, you and\nyour Pokémon are Hall of Famers!" text_1="Er-hem!\nCongratulations, {PLAYER}!\pThis floor is the Pokémon Hall of\nFame.\pPokémon League Champions are\nhonored for their exploits here.\pTheir Pokémon are also recorded in\nthe Hall of Fame.\p{PLAYER}!\pYou have worked hard to become\nthe new League Champion.\pCongratulations, {PLAYER}, you and\nyour Pokémon are Hall of Famers!" text_2="Er-hem!\nCongratulations, {PLAYER}!\pThis floor is the Pokémon Hall of\nFame.\pPokémon League Champions are\nhonored for their exploits here.\pTheir Pokémon are also recorded in\nthe Hall of Fame.\p{PLAYER}!\pYou have worked hard to become\nthe new League Champion.\pCongratulations, {PLAYER}, you and\nyour Pokémon are Hall of Famers!" text_3="Er-hem!\nCongratulations, {PLAYER}!\pThis floor is the Pokémon Hall of\nFame.\pPokémon League Champions are\nhonored for their exploits here.\pTheir Pokémon are also recorded in\nthe Hall of Fame.\p{PLAYER}!\pYou have worked hard to become\nthe new League Champion.\pCongratulations, {PLAYER}, you and\nyour Pokémon are Hall of Famers!" text_4="Er-hem!\nCongratulations, {PLAYER}!\pThis floor is the Pokémon Hall of\nFame.\pPokémon League Champions are\nhonored for their exploits here.\pTheir Pokémon are also recorded in\nthe Hall of Fame.\p{PLAYER}!\pYou have worked hard to become\nthe new League Champion.\pCongratulations, {PLAYER}, you and\nyour Pokémon are Hall of Famers!" text_5="Er-hem!\nCongratulations, {PLAYER}!\pThis floor is the Pokémon Hall of\nFame.\pPokémon League Champions are\nhonored for their exploits here.\pTheir Pokémon are also recorded in\nthe Hall of Fame.\p{PLAYER}!\pYou have worked hard to become\nthe new League Champion.\pCongratulations, {PLAYER}, you and\nyour Pokémon are Hall of Famers!" text_6="Er-hem!\nCongratulations, {PLAYER}!\pThis floor is the Pokémon Hall of\nFame.\pPokémon League Champions are\nhonored for their exploits here.\pTheir Pokémon are also recorded in\nthe Hall of Fame.\p{PLAYER}!\pYou have worked hard to become\nthe new League Champion.\pCongratulations, {PLAYER}, you and\nyour Pokémon are Hall of Famers!"
+    08215B27  callstd              function=MSGBOX_DEFAULT(4)
+    08215B29  closemessage         
+    08215B2A  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    08215B31  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    08215B38  waitmovement         localId=0
+    08215B3B  delay                frames=20
+    08215B3E  dofieldeffect        animation=62
+    08215B41  waitfieldeffect      animation=62
+    08215B44  delay                frames=40
+    08215B47  setvar               destination=VAR_0x4001 value=1
+    08215B4C  call                 destination=0x082B785D
+    08215B51  setrespawn           heallocation=1
+    08215B54  fadescreenspeed      mode=1 speed=24
+    08215B57  special              SPECIAL_\function=187
+    08215B5A  waitstate            
+
+  script 0x082B785D  [ok]
+    082B785D  clearflag            flag=0x09D
+    082B7860  call                 destination=0x082B7891
+    082B7865  special              SPECIAL_\function=421
+    082B7868  compare_var_to_value var=0x4055 value=7
+    082B786D  goto_if              condition=0 destination=0x082B7887
+    082B7873  clearflag            flag=0x2F5
+    082B7876  clearflag            flag=0x2F6
+    082B7879  clearflag            flag=0x2F7
+    082B787C  addvar               destination=VAR_0x40ED value=1
+    082B7881  callnative           func=0x08168B79
+    082B7886  return               
+
+  script 0x082B7891  [ok]
+    082B7891  clearflag            flag=0x4B8
+    082B7894  clearflag            flag=0x4B9
+    082B7897  clearflag            flag=0x4BA
+    082B789A  clearflag            flag=0x4BB
+    082B789D  clearflag            flag=0x4BC
+    082B78A0  cleartrainerflag     trainer=0x1B6
+    082B78A3  cleartrainerflag     trainer=0x2E3
+    082B78A6  setvar               destination=VAR_0x4068 value=0
+    082B78AB  return               
+
+  script 0x082B7887  [ok]
+    082B7887  setvar               destination=VAR_0x4050 value=2
+    082B788C  goto                 destination=0x082B7873
+
+  script 0x082B7873  [ok]
+    082B7873  clearflag            flag=0x2F5
+    082B7876  clearflag            flag=0x2F6
+    082B7879  clearflag            flag=0x2F7
+    082B787C  addvar               destination=VAR_0x40ED value=1
+    082B7881  callnative           func=0x08168B79
+    082B7886  return               
+
+  map script type 4 (var 0x4001 == 0) -> 0x08215B72
+  script 0x08215B72  [ok]
+    08215B72  turnobject           localId=255 direction=2
+    08215B76  end                  
+

@@ -1,0 +1,50 @@
+Treasure Beach  (group 3, map 46)  header 0x08B3CBCC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xFD, flag 0x0000) -> 0x0823C342
+  script 0x0823C342  [ok]
+    0823C342  trainerbattle        type=0 trainer=0x222 localId=0 ptr1=0x0823C3B0 ptr2=0x0823C3E1
+    0823C350  specialvar           output=32781 SPECIAL_\function=37
+    0823C355  compare_var_to_value var=0x800D value=1
+    0823C35A  goto_if              condition=1 destination=0x0823C381
+    0823C360  msgbox_multilang     type=0 text_0="The sea is pleasantly warm in these\nparts." text_1="The sea is pleasantly warm in these\nparts." text_2="The sea is pleasantly warm in these\nparts." text_3="The sea is pleasantly warm in these\nparts." text_4="The sea is pleasantly warm in these\nparts." text_5="The sea is pleasantly warm in these\nparts." text_6="The sea is pleasantly warm in these\nparts."
+    0823C37E  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C380  end                  
+
+  script 0x0823C381  [ok]
+    0823C381  trainerbattle        type=5 trainer=0x222 localId=0 ptr1=0x082BA26D ptr2=0x0823C3E1
+    0823C38F  msgbox_multilang     type=0 text_0="The sea is pleasantly warm in these\nparts." text_1="The sea is pleasantly warm in these\nparts." text_2="The sea is pleasantly warm in these\nparts." text_3="The sea is pleasantly warm in these\nparts." text_4="The sea is pleasantly warm in these\nparts." text_5="The sea is pleasantly warm in these\nparts." text_6="The sea is pleasantly warm in these\nparts."
+    0823C3AD  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C3AF  end                  
+
+  object 2 (gfx 0xEF, flag 0x0000) -> 0x0823C321
+  script 0x0823C321  [ok]
+    0823C321  msgbox_multilang     type=0 text_0="Good things get washed up by the\nocean current onto this beach.\pThat’s why I often come here for\nsome beachcombing." text_1="Good things get washed up by the\nocean current onto this beach.\pThat’s why I often come here for\nsome beachcombing." text_2="Good things get washed up by the\nocean current onto this beach.\pThat’s why I often come here for\nsome beachcombing." text_3="Good things get washed up by the\nocean current onto this beach.\pThat’s why I often come here for\nsome beachcombing." text_4="Good things get washed up by the\nocean current onto this beach.\pThat’s why I often come here for\nsome beachcombing." text_5="Good things get washed up by the\nocean current onto this beach.\pThat’s why I often come here for\nsome beachcombing." text_6="Good things get washed up by the\nocean current onto this beach.\pThat’s why I often come here for\nsome beachcombing."
+    0823C33F  callstd              function=MSGBOX_NPC(2)
+    0823C341  end                  
+
+  hidden item at (8,20): Stardust
+
+  hidden item at (13,27): Stardust
+
+  hidden item at (11,31): Pearl
+
+  hidden item at (9,34): Pearl
+
+  hidden item at (15,22): Ultra Ball
+
+  hidden item at (16,33): Ultra Ball
+
+  hidden item at (15,29): Star Piece
+
+  hidden item at (8,27): Big Pearl
+

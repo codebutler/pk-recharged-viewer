@@ -1,0 +1,451 @@
+Vermilion City  (group 9, map 6)  header 0x08B3D25C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1F, flag 0x0000) -> 0x0825E96F
+  script 0x0825E96F  [ok]
+    0825E96F  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0825E972  goto_if              condition=1 destination=0x0825E9C2
+    0825E978  setvar               destination=VAR_0x8004 value=4
+    0825E97D  setvar               destination=VAR_0x8005 value=2
+    0825E982  special              SPECIAL_\function=348
+    0825E985  trainerbattle        type=1 trainer=0x1A0 localId=0 ptr1=0x0825EE3A ptr2=0x0825F084 ptr3=0x0825ECF6
+    0825E997  checkflag            flag=0x231
+    0825E99A  goto_if              condition=0 destination=0x0825E9F6
+    0825E9A0  msgbox_multilang     type=0 text_0="A little word of advice, kid!\pElectricity is sure powerful!\pBut, it’s useless against Ground-\ntype Pokémon!" text_1="A little word of advice, kid!\pElectricity is sure powerful!\pBut, it’s useless against Ground-\ntype Pokémon!" text_2="A little word of advice, kid!\pElectricity is sure powerful!\pBut, it’s useless against Ground-\ntype Pokémon!" text_3="A little word of advice, kid!\pElectricity is sure powerful!\pBut, it’s useless against Ground-\ntype Pokémon!" text_4="A little word of advice, kid!\pElectricity is sure powerful!\pBut, it’s useless against Ground-\ntype Pokémon!" text_5="A little word of advice, kid!\pElectricity is sure powerful!\pBut, it’s useless against Ground-\ntype Pokémon!" text_6="A little word of advice, kid!\pElectricity is sure powerful!\pBut, it’s useless against Ground-\ntype Pokémon!"
+    0825E9BE  callstd              function=MSGBOX_DEFAULT(4)
+    0825E9C0  release              
+
+  script 0x0825E9C2  [ok]
+    0825E9C2  trainerbattle        type=1 trainer=0x2F1 localId=0 ptr1=0x0825F235 ptr2=0x0825F292 ptr3=0x0825EA00
+    0825E9D4  msgbox_multilang     type=0 text_0="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_1="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_2="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_3="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_4="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_5="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_6="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!"
+    0825E9F2  callstd              function=MSGBOX_DEFAULT(4)
+    0825E9F4  release              
+
+  script 0x0825ECF6  [unknown-opcode:0xE9]
+    0825ECF6  addelevmenuitem      a=3 b=5632 c=32772 d=4
+    0825ECFE  setvar               destination=VAR_0x8005 value=1
+    0825ED03  special              SPECIAL_\function=347
+    0825ED06  checkflag            flag=0x23B
+    0825ED09  goto_if              condition=0 destination=0x0825ED8F
+    0825ED0F  clearflag            flag=0x0A0
+    0825ED12  setflag              flag=0x4B2
+    0825ED15  setflag              flag=0x882:BADGE3_THUNDER
+    0825ED18  setvar               destination=VAR_0x8008 value=3
+    0825ED1D  call                 destination=0x082BBD1A
+    0825ED22  speakername          name="Lt. Surge"
+    0825ED27  msgbox_multilang     type=0 text_0="You are special, kid!\nTake this!" text_1="You are special, kid!\nTake this!" text_2="You are special, kid!\nTake this!" text_3="You are special, kid!\nTake this!" text_4="You are special, kid!\nTake this!" text_5="You are special, kid!\nTake this!" text_6="You are special, kid!\nTake this!"
+    0825ED45  callstd              function=MSGBOX_DEFAULT(4)
+    0825ED47  additem              itemId=Autograph(227) quantity=1
+
+  script 0x0825E9F6  [ok]
+    0825E9F6  goto                 destination=0x0825ED97
+
+  script 0x0825EA00  [ok]
+    0825EA00  msgbox_multilang     type=0 text_0="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_1="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_2="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_3="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_4="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_5="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!" text_6="Looks like there’s still a gap between\nour skill levels I need to close,\pkid!\pThis is the first time I’ve felt like\nthis since I first arrived here in\pKanto!\pCome back tomorrow!"
+    0825EA1E  callstd              function=MSGBOX_DEFAULT(4)
+    0825EA20  release              
+
+  script 0x0825ED8F  [ok]
+    0825ED8F  clearflag            flag=0x0A1
+    0825ED92  goto                 destination=0x0825ED0F
+
+  script 0x082BBD1A  [ok]
+    082BBD1A  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    082BBD1F  compare_var_to_value var=0x8000 value=1
+    082BBD24  goto_if              condition=1 destination=0x082BBD78
+    082BBD2A  compare_var_to_value var=0x8000 value=2
+    082BBD2F  goto_if              condition=1 destination=0x082BBD7F
+    082BBD35  compare_var_to_value var=0x8000 value=3
+    082BBD3A  goto_if              condition=1 destination=0x082BBD86
+    082BBD40  compare_var_to_value var=0x8000 value=4
+    082BBD45  goto_if              condition=1 destination=0x082BBD90
+    082BBD4B  compare_var_to_value var=0x8000 value=5
+    082BBD50  goto_if              condition=1 destination=0x082BBDA6
+    082BBD56  compare_var_to_value var=0x8000 value=6
+    082BBD5B  goto_if              condition=1 destination=0x082BBDB9
+    082BBD61  compare_var_to_value var=0x8000 value=7
+    082BBD66  goto_if              condition=1 destination=0x082BBDCF
+    082BBD6C  compare_var_to_value var=0x8000 value=8
+    082BBD71  goto_if              condition=1 destination=0x082BBDE5
+    082BBD77  end                  
+
+  script 0x0825ED97  [unknown-opcode:0xE9]
+    0825ED97  speakername          name="Lt. Surge"
+    0825ED9C  msgbox_multilang     type=0 text_0="The ThunderBadge cranks up your\nPokémon’s Speed!\pIt also lets your Pokémon Fly\nlightning-quick anytime, kid!\pTake this!" text_1="The ThunderBadge cranks up your\nPokémon’s Speed!\pIt also lets your Pokémon Fly\nlightning-quick anytime, kid!\pTake this!" text_2="The ThunderBadge cranks up your\nPokémon’s Speed!\pIt also lets your Pokémon Fly\nlightning-quick anytime, kid!\pTake this!" text_3="The ThunderBadge cranks up your\nPokémon’s Speed!\pIt also lets your Pokémon Fly\nlightning-quick anytime, kid!\pTake this!" text_4="The ThunderBadge cranks up your\nPokémon’s Speed!\pIt also lets your Pokémon Fly\nlightning-quick anytime, kid!\pTake this!" text_5="The ThunderBadge cranks up your\nPokémon’s Speed!\pIt also lets your Pokémon Fly\nlightning-quick anytime, kid!\pTake this!" text_6="The ThunderBadge cranks up your\nPokémon’s Speed!\pIt also lets your Pokémon Fly\nlightning-quick anytime, kid!\pTake this!"
+    0825EDBA  callstd              function=MSGBOX_DEFAULT(4)
+    0825EDBC  checkitemspace       itemId=TM34(322) quantity=1
+    0825EDC1  compare_var_to_value var=0x800D value=0
+    0825EDC6  goto_if              condition=1 destination=0x0825EE13
+    0825EDCC  additem              itemId=TM34(322) quantity=1
+
+  script 0x0825ED0F  [unknown-opcode:0xE9]
+    0825ED0F  clearflag            flag=0x0A0
+    0825ED12  setflag              flag=0x4B2
+    0825ED15  setflag              flag=0x882:BADGE3_THUNDER
+    0825ED18  setvar               destination=VAR_0x8008 value=3
+    0825ED1D  call                 destination=0x082BBD1A
+    0825ED22  speakername          name="Lt. Surge"
+    0825ED27  msgbox_multilang     type=0 text_0="You are special, kid!\nTake this!" text_1="You are special, kid!\nTake this!" text_2="You are special, kid!\nTake this!" text_3="You are special, kid!\nTake this!" text_4="You are special, kid!\nTake this!" text_5="You are special, kid!\nTake this!" text_6="You are special, kid!\nTake this!"
+    0825ED45  callstd              function=MSGBOX_DEFAULT(4)
+    0825ED47  additem              itemId=Autograph(227) quantity=1
+
+  script 0x082BBD78  [ok]
+    082BBD78  settrainerflag       trainer=0x8E
+    082BBD7B  settrainerflag       trainer=0x147
+    082BBD7E  return               
+
+  script 0x082BBD7F  [ok]
+    082BBD7F  settrainerflag       trainer=0x96
+    082BBD82  settrainerflag       trainer=0xEA
+    082BBD85  return               
+
+  script 0x082BBD86  [ok]
+    082BBD86  settrainerflag       trainer=0x8D
+    082BBD89  settrainerflag       trainer=0xDC
+    082BBD8C  settrainerflag       trainer=0x1A7
+    082BBD8F  return               
+
+  script 0x082BBD90  [ok]
+    082BBD90  settrainerflag       trainer=0x84
+    082BBD93  settrainerflag       trainer=0x85
+    082BBD96  settrainerflag       trainer=0xA0
+    082BBD99  settrainerflag       trainer=0x109
+    082BBD9C  settrainerflag       trainer=0x10A
+    082BBD9F  settrainerflag       trainer=0x10B
+    082BBDA2  settrainerflag       trainer=0x192
+    082BBDA5  return               
+
+  script 0x082BBDA6  [ok]
+    082BBDA6  settrainerflag       trainer=0x126
+    082BBDA9  settrainerflag       trainer=0x127
+    082BBDAC  settrainerflag       trainer=0x120
+    082BBDAF  settrainerflag       trainer=0x121
+    082BBDB2  settrainerflag       trainer=0x124
+    082BBDB5  settrainerflag       trainer=0x125
+    082BBDB8  return               
+
+  script 0x082BBDB9  [ok]
+    082BBDB9  settrainerflag       trainer=0x118
+    082BBDBC  settrainerflag       trainer=0x119
+    082BBDBF  settrainerflag       trainer=0x11A
+    082BBDC2  settrainerflag       trainer=0x11B
+    082BBDC5  settrainerflag       trainer=0x1CE
+    082BBDC8  settrainerflag       trainer=0x1CF
+    082BBDCB  settrainerflag       trainer=0x1D0
+    082BBDCE  return               
+
+  script 0x082BBDCF  [ok]
+    082BBDCF  settrainerflag       trainer=0xB1
+    082BBDD2  settrainerflag       trainer=0xB2
+    082BBDD5  settrainerflag       trainer=0xB3
+    082BBDD8  settrainerflag       trainer=0xB4
+    082BBDDB  settrainerflag       trainer=0xD5
+    082BBDDE  settrainerflag       trainer=0xD6
+    082BBDE1  settrainerflag       trainer=0xD7
+    082BBDE4  return               
+
+  script 0x082BBDE5  [ok]
+    082BBDE5  settrainerflag       trainer=0x128
+    082BBDE8  settrainerflag       trainer=0x129
+    082BBDEB  settrainerflag       trainer=0x142
+    082BBDEE  settrainerflag       trainer=0x143
+    082BBDF1  settrainerflag       trainer=0x144
+    082BBDF4  settrainerflag       trainer=0x188
+    082BBDF7  settrainerflag       trainer=0x190
+    082BBDFA  settrainerflag       trainer=0x191
+    082BBDFD  return               
+
+  script 0x0825EE13  [ok]
+    0825EE13  speakername          name="Lt. Surge"
+    0825EE18  msgbox_multilang     type=0 text_0="Yo, kid, make room in your Bag!" text_1="Yo, kid, make room in your Bag!" text_2="Yo, kid, make room in your Bag!" text_3="Yo, kid, make room in your Bag!" text_4="Yo, kid, make room in your Bag!" text_5="Yo, kid, make room in your Bag!" text_6="Yo, kid, make room in your Bag!"
+    0825EE36  callstd              function=MSGBOX_DEFAULT(4)
+    0825EE38  release              
+
+  object 2 (gfx 0x3D, flag 0x0000) -> 0x0825F114
+  script 0x0825F114  [ok]
+    0825F114  trainerbattle        type=0 trainer=0xDC localId=0 ptr1=0x0825F5A2 ptr2=0x0825F5F2
+    0825F122  msgbox_multilang     type=0 text_0="Okay, I’ll talk!\pLt. Surge said he hid door switches\ninside something." text_1="Okay, I’ll talk!\pLt. Surge said he hid door switches\ninside something." text_2="Okay, I’ll talk!\pLt. Surge said he hid door switches\ninside something." text_3="Okay, I’ll talk!\pLt. Surge said he hid door switches\ninside something." text_4="Okay, I’ll talk!\pLt. Surge said he hid door switches\ninside something." text_5="Okay, I’ll talk!\pLt. Surge said he hid door switches\ninside something." text_6="Okay, I’ll talk!\pLt. Surge said he hid door switches\ninside something."
+    0825F140  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0825F142  end                  
+
+  object 3 (gfx 0x31, flag 0x0000) -> 0x0825F0D8
+  script 0x0825F0D8  [ok]
+    0825F0D8  trainerbattle        type=0 trainer=0x8D localId=0 ptr1=0x0825F4AB ptr2=0x0825F4DF
+    0825F0E6  setvar               destination=VAR_0x8004 value=4
+    0825F0EB  setvar               destination=VAR_0x8005 value=4
+    0825F0F0  special              SPECIAL_\function=347
+    0825F0F3  msgbox_multilang     type=0 text_0="Lt. Surge installed the traps in the\nGym himself.\pHe set up double locks everywhere.\nLet me give you a hint.\pWhen you open the first lock, the\nsecond lock is right next to it." text_1="Lt. Surge installed the traps in the\nGym himself.\pHe set up double locks everywhere.\nLet me give you a hint.\pWhen you open the first lock, the\nsecond lock is right next to it." text_2="Lt. Surge installed the traps in the\nGym himself.\pHe set up double locks everywhere.\nLet me give you a hint.\pWhen you open the first lock, the\nsecond lock is right next to it." text_3="Lt. Surge installed the traps in the\nGym himself.\pHe set up double locks everywhere.\nLet me give you a hint.\pWhen you open the first lock, the\nsecond lock is right next to it." text_4="Lt. Surge installed the traps in the\nGym himself.\pHe set up double locks everywhere.\nLet me give you a hint.\pWhen you open the first lock, the\nsecond lock is right next to it." text_5="Lt. Surge installed the traps in the\nGym himself.\pHe set up double locks everywhere.\nLet me give you a hint.\pWhen you open the first lock, the\nsecond lock is right next to it." text_6="Lt. Surge installed the traps in the\nGym himself.\pHe set up double locks everywhere.\nLet me give you a hint.\pWhen you open the first lock, the\nsecond lock is right next to it."
+    0825F111  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0825F113  end                  
+
+  object 4 (gfx 0x27, flag 0x0000) -> 0x0825F192
+  script 0x0825F192  [ok]
+    0825F192  lock                 
+    0825F193  faceplayer           
+    0825F194  checkflag            flag=0x4B2
+    0825F197  goto_if              condition=1 destination=0x0825F1BF
+    0825F19D  msgbox_multilang     type=0 text_0="Yo!\nChamp in the making!\pLt. Surge has a nickname.\pPeople refer to him as the Lightning\nAmerican!\pHe’s an expert on electric Pokémon.\pFlying/Water-type Pokémon match\npoorly against the Electric type.\pBeware of paralysis, too.\pLt. Surge is very cautious.\pHe’s locked himself in, so it won’t be\neasy getting to him." text_1="Yo!\nChamp in the making!\pLt. Surge has a nickname.\pPeople refer to him as the Lightning\nAmerican!\pHe’s an expert on electric Pokémon.\pFlying/Water-type Pokémon match\npoorly against the Electric type.\pBeware of paralysis, too.\pLt. Surge is very cautious.\pHe’s locked himself in, so it won’t be\neasy getting to him." text_2="Yo!\nChamp in the making!\pLt. Surge has a nickname.\pPeople refer to him as the Lightning\nAmerican!\pHe’s an expert on electric Pokémon.\pFlying/Water-type Pokémon match\npoorly against the Electric type.\pBeware of paralysis, too.\pLt. Surge is very cautious.\pHe’s locked himself in, so it won’t be\neasy getting to him." text_3="Yo!\nChamp in the making!\pLt. Surge has a nickname.\pPeople refer to him as the Lightning\nAmerican!\pHe’s an expert on electric Pokémon.\pFlying/Water-type Pokémon match\npoorly against the Electric type.\pBeware of paralysis, too.\pLt. Surge is very cautious.\pHe’s locked himself in, so it won’t be\neasy getting to him." text_4="Yo!\nChamp in the making!\pLt. Surge has a nickname.\pPeople refer to him as the Lightning\nAmerican!\pHe’s an expert on electric Pokémon.\pFlying/Water-type Pokémon match\npoorly against the Electric type.\pBeware of paralysis, too.\pLt. Surge is very cautious.\pHe’s locked himself in, so it won’t be\neasy getting to him." text_5="Yo!\nChamp in the making!\pLt. Surge has a nickname.\pPeople refer to him as the Lightning\nAmerican!\pHe’s an expert on electric Pokémon.\pFlying/Water-type Pokémon match\npoorly against the Electric type.\pBeware of paralysis, too.\pLt. Surge is very cautious.\pHe’s locked himself in, so it won’t be\neasy getting to him." text_6="Yo!\nChamp in the making!\pLt. Surge has a nickname.\pPeople refer to him as the Lightning\nAmerican!\pHe’s an expert on electric Pokémon.\pFlying/Water-type Pokémon match\npoorly against the Electric type.\pBeware of paralysis, too.\pLt. Surge is very cautious.\pHe’s locked himself in, so it won’t be\neasy getting to him."
+    0825F1BB  callstd              function=MSGBOX_DEFAULT(4)
+    0825F1BD  release              
+
+  script 0x0825F1BF  [ok]
+    0825F1BF  msgbox_multilang     type=0 text_0="Whew!\nThat match was electric!" text_1="Whew!\nThat match was electric!" text_2="Whew!\nThat match was electric!" text_3="Whew!\nThat match was electric!" text_4="Whew!\nThat match was electric!" text_5="Whew!\nThat match was electric!" text_6="Whew!\nThat match was electric!"
+    0825F1DD  callstd              function=MSGBOX_DEFAULT(4)
+    0825F1DF  goto                 destination=0x0825F1BD
+
+  script 0x0825F1BD  [ok]
+    0825F1BD  release              
+
+  object 5 (gfx 0x30, flag 0x0000) -> 0x0825F143
+  script 0x0825F143  [ok]
+    0825F143  trainerbattle        type=2 trainer=0x1A7 localId=0 ptr1=0x0825F640 ptr2=0x0825F68E ptr3=0x0825F183
+    0825F155  setvar               destination=VAR_0x8004 value=4
+    0825F15A  setvar               destination=VAR_0x8005 value=3
+    0825F15F  special              SPECIAL_\function=347
+    0825F162  msgbox_multilang     type=0 text_0="It’s not easy opening that door.\pLt. Surge was always famous for his\ncautious nature in the Army." text_1="It’s not easy opening that door.\pLt. Surge was always famous for his\ncautious nature in the Army." text_2="It’s not easy opening that door.\pLt. Surge was always famous for his\ncautious nature in the Army." text_3="It’s not easy opening that door.\pLt. Surge was always famous for his\ncautious nature in the Army." text_4="It’s not easy opening that door.\pLt. Surge was always famous for his\ncautious nature in the Army." text_5="It’s not easy opening that door.\pLt. Surge was always famous for his\ncautious nature in the Army." text_6="It’s not easy opening that door.\pLt. Surge was always famous for his\ncautious nature in the Army."
+    0825F180  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0825F182  end                  
+
+  script 0x0825F183  [ok]
+    0825F183  setvar               destination=VAR_0x8004 value=4
+    0825F188  setvar               destination=VAR_0x8005 value=2
+    0825F18D  special              SPECIAL_\function=347
+    0825F190  release              
+
+  sign 0 at (3,17) -> 0x0825F1E4
+  script 0x0825F1E4  [ok]
+    0825F1E4  lockall              
+    0825F1E5  checkflag            flag=0x882:BADGE3_THUNDER
+    0825F1E8  goto_if              condition=1 destination=0x0825F210
+    0825F1EE  msgbox_multilang     type=0 text_0="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}" text_1="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}" text_2="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}" text_3="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}" text_4="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}" text_5="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}" text_6="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}"
+    0825F20C  callstd              function=MSGBOX_DEFAULT(4)
+    0825F20E  releaseall           
+
+  script 0x0825F210  [ok]
+    0825F210  msgbox_multilang     type=0 text_0="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_1="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_2="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_3="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_4="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_5="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_6="Vermilion Pokémon Gym\nLeader: Lt. Surge\pWinning Trainers:\n{RIVAL}, {PLAYER}"
+    0825F22E  callstd              function=MSGBOX_DEFAULT(4)
+    0825F230  goto                 destination=0x0825F20E
+
+  script 0x0825F20E  [ok]
+    0825F20E  releaseall           
+
+  sign 1 at (7,17) -> 0x0825F1E4
+  sign 2 at (1,10) -> 0x0825EAD8
+  script 0x0825EAD8  [ok]
+    0825EAD8  lockall              
+    0825EAD9  setvar               destination=VAR_0x8008 value=1
+    0825EADE  goto                 destination=0x0825EB8C
+
+  script 0x0825EB8C  [ok]
+    0825EB8C  copyvar              destination=VAR_0x8004 source=VAR_0x4000
+    0825EB91  copyvar              destination=VAR_0x8005 source=VAR_0x4001
+    0825EB96  checkflag            flag=0x264
+    0825EB99  goto_if              condition=1 destination=0x0825EBD5
+    0825EB9F  checkflag            flag=0x001
+    0825EBA2  goto_if              condition=1 destination=0x0825EBF7
+    0825EBA8  compare_var_to_var   var1=32772 var2=32776
+    0825EBAD  goto_if              condition=1 destination=0x0825EC93
+    0825EBB3  msgbox_multilang     type=0 text_0="Nope!\nThere’s only trash here." text_1="Nope!\nThere’s only trash here." text_2="Nope!\nThere’s only trash here." text_3="Nope!\nThere’s only trash here." text_4="Nope!\nThere’s only trash here." text_5="Nope!\nThere’s only trash here." text_6="Nope!\nThere’s only trash here."
+    0825EBD1  callstd              function=MSGBOX_DEFAULT(4)
+    0825EBD3  releaseall           
+
+  script 0x0825EBD5  [ok]
+    0825EBD5  msgbox_multilang     type=0 text_0="Nope!\nThere’s only trash here." text_1="Nope!\nThere’s only trash here." text_2="Nope!\nThere’s only trash here." text_3="Nope!\nThere’s only trash here." text_4="Nope!\nThere’s only trash here." text_5="Nope!\nThere’s only trash here." text_6="Nope!\nThere’s only trash here."
+    0825EBF3  callstd              function=MSGBOX_DEFAULT(4)
+    0825EBF5  releaseall           
+
+  script 0x0825EBF7  [ok]
+    0825EBF7  compare_var_to_var   var1=32773 var2=32776
+    0825EBFC  goto_if              condition=1 destination=0x0825ECC4
+    0825EC02  msgbox_multilang     type=0 text_0="Nope!\nThere’s only trash here.\pHey!\nThe electric locks were reset!" text_1="Nope!\nThere’s only trash here.\pHey!\nThe electric locks were reset!" text_2="Nope!\nThere’s only trash here.\pHey!\nThe electric locks were reset!" text_3="Nope!\nThere’s only trash here.\pHey!\nThe electric locks were reset!" text_4="Nope!\nThere’s only trash here.\pHey!\nThe electric locks were reset!" text_5="Nope!\nThere’s only trash here.\pHey!\nThe electric locks were reset!" text_6="Nope!\nThere’s only trash here.\pHey!\nThe electric locks were reset!"
+    0825EC20  callstd              function=MSGBOX_DEFAULT(4)
+    0825EC22  clearflag            flag=0x001
+    0825EC25  special              SPECIAL_\function=369
+    0825EC28  copyvar              destination=VAR_0x4000 source=VAR_0x8004
+    0825EC2D  copyvar              destination=VAR_0x4001 source=VAR_0x8005
+    0825EC32  setmetatile          x=3 y=6 metatileId=681 impassable=1
+    0825EC3B  setmetatile          x=4 y=6 metatileId=682 impassable=1
+    0825EC44  setmetatile          x=5 y=6 metatileId=645 impassable=1
+    0825EC4D  setmetatile          x=6 y=6 metatileId=683 impassable=1
+    0825EC56  setmetatile          x=7 y=6 metatileId=684 impassable=1
+    0825EC5F  setmetatile          x=3 y=7 metatileId=689 impassable=1
+    0825EC68  setmetatile          x=4 y=7 metatileId=690 impassable=1
+    0825EC71  setmetatile          x=5 y=7 metatileId=653 impassable=1
+    0825EC7A  setmetatile          x=6 y=7 metatileId=691 impassable=1
+    0825EC83  setmetatile          x=7 y=7 metatileId=692 impassable=1
+    0825EC8C  special              SPECIAL_\function=79
+    0825EC8F  releaseall           
+
+  script 0x0825EC93  [ok]
+    0825EC93  msgbox_multilang     type=0 text_0="Hey! There’s a switch under the\ntrash! Turn it on!\pThe first electric lock opened!" text_1="Hey! There’s a switch under the\ntrash! Turn it on!\pThe first electric lock opened!" text_2="Hey! There’s a switch under the\ntrash! Turn it on!\pThe first electric lock opened!" text_3="Hey! There’s a switch under the\ntrash! Turn it on!\pThe first electric lock opened!" text_4="Hey! There’s a switch under the\ntrash! Turn it on!\pThe first electric lock opened!" text_5="Hey! There’s a switch under the\ntrash! Turn it on!\pThe first electric lock opened!" text_6="Hey! There’s a switch under the\ntrash! Turn it on!\pThe first electric lock opened!"
+    0825ECB1  callstd              function=MSGBOX_DEFAULT(4)
+    0825ECB3  playse               song=21
+    0825ECB6  waitse               
+    0825ECB7  call                 destination=0x0825EA22
+    0825ECBC  special              SPECIAL_\function=79
+    0825ECBF  setflag              flag=0x001
+    0825ECC2  releaseall           
+
+  script 0x0825ECC4  [ok]
+    0825ECC4  msgbox_multilang     type=0 text_0="The second electric lock opened!\nThe motorized door opened!" text_1="The second electric lock opened!\nThe motorized door opened!" text_2="The second electric lock opened!\nThe motorized door opened!" text_3="The second electric lock opened!\nThe motorized door opened!" text_4="The second electric lock opened!\nThe motorized door opened!" text_5="The second electric lock opened!\nThe motorized door opened!" text_6="The second electric lock opened!\nThe motorized door opened!"
+    0825ECE2  callstd              function=MSGBOX_DEFAULT(4)
+    0825ECE4  closemessage         
+    0825ECE5  call                 destination=0x0825EA7D
+    0825ECEA  special              SPECIAL_\function=79
+    0825ECED  playse               song=44
+    0825ECF0  waitse               
+    0825ECF1  setflag              flag=0x264
+    0825ECF4  releaseall           
+
+  script 0x0825EA22  [ok]
+    0825EA22  setmetatile          x=3 y=6 metatileId=699 impassable=1
+    0825EA2B  setmetatile          x=4 y=6 metatileId=700 impassable=1
+    0825EA34  setmetatile          x=5 y=6 metatileId=701 impassable=1
+    0825EA3D  setmetatile          x=6 y=6 metatileId=702 impassable=1
+    0825EA46  setmetatile          x=7 y=6 metatileId=703 impassable=1
+    0825EA4F  setmetatile          x=3 y=7 metatileId=707 impassable=1
+    0825EA58  setmetatile          x=4 y=7 metatileId=708 impassable=1
+    0825EA61  setmetatile          x=5 y=7 metatileId=709 impassable=1
+    0825EA6A  setmetatile          x=6 y=7 metatileId=710 impassable=1
+    0825EA73  setmetatile          x=7 y=7 metatileId=711 impassable=1
+    0825EA7C  return               
+
+  script 0x0825EA7D  [ok]
+    0825EA7D  setmetatile          x=3 y=6 metatileId=659 impassable=1
+    0825EA86  setmetatile          x=4 y=6 metatileId=660 impassable=0
+    0825EA8F  setmetatile          x=5 y=6 metatileId=641 impassable=0
+    0825EA98  setmetatile          x=6 y=6 metatileId=661 impassable=0
+    0825EAA1  setmetatile          x=7 y=6 metatileId=662 impassable=1
+    0825EAAA  setmetatile          x=3 y=7 metatileId=667 impassable=1
+    0825EAB3  setmetatile          x=4 y=7 metatileId=668 impassable=0
+    0825EABC  setmetatile          x=5 y=7 metatileId=641 impassable=0
+    0825EAC5  setmetatile          x=6 y=7 metatileId=669 impassable=0
+    0825EACE  setmetatile          x=7 y=7 metatileId=670 impassable=1
+    0825EAD7  return               
+
+  sign 3 at (3,10) -> 0x0825EAE4
+  script 0x0825EAE4  [ok]
+    0825EAE4  lockall              
+    0825EAE5  setvar               destination=VAR_0x8008 value=2
+    0825EAEA  goto                 destination=0x0825EB8C
+
+  sign 4 at (5,10) -> 0x0825EAF0
+  script 0x0825EAF0  [ok]
+    0825EAF0  lockall              
+    0825EAF1  setvar               destination=VAR_0x8008 value=3
+    0825EAF6  goto                 destination=0x0825EB8C
+
+  sign 5 at (7,10) -> 0x0825EAFC
+  script 0x0825EAFC  [ok]
+    0825EAFC  lockall              
+    0825EAFD  setvar               destination=VAR_0x8008 value=4
+    0825EB02  goto                 destination=0x0825EB8C
+
+  sign 6 at (9,10) -> 0x0825EB08
+  script 0x0825EB08  [ok]
+    0825EB08  lockall              
+    0825EB09  setvar               destination=VAR_0x8008 value=5
+    0825EB0E  goto                 destination=0x0825EB8C
+
+  sign 7 at (1,12) -> 0x0825EB14
+  script 0x0825EB14  [ok]
+    0825EB14  lockall              
+    0825EB15  setvar               destination=VAR_0x8008 value=6
+    0825EB1A  goto                 destination=0x0825EB8C
+
+  sign 8 at (3,12) -> 0x0825EB20
+  script 0x0825EB20  [ok]
+    0825EB20  lockall              
+    0825EB21  setvar               destination=VAR_0x8008 value=7
+    0825EB26  goto                 destination=0x0825EB8C
+
+  sign 9 at (5,12) -> 0x0825EB2C
+  script 0x0825EB2C  [ok]
+    0825EB2C  lockall              
+    0825EB2D  setvar               destination=VAR_0x8008 value=8
+    0825EB32  goto                 destination=0x0825EB8C
+
+  sign 10 at (7,12) -> 0x0825EB38
+  script 0x0825EB38  [ok]
+    0825EB38  lockall              
+    0825EB39  setvar               destination=VAR_0x8008 value=9
+    0825EB3E  goto                 destination=0x0825EB8C
+
+  sign 11 at (9,12) -> 0x0825EB44
+  script 0x0825EB44  [ok]
+    0825EB44  lockall              
+    0825EB45  setvar               destination=VAR_0x8008 value=10
+    0825EB4A  goto                 destination=0x0825EB8C
+
+  sign 12 at (1,14) -> 0x0825EB50
+  script 0x0825EB50  [ok]
+    0825EB50  lockall              
+    0825EB51  setvar               destination=VAR_0x8008 value=11
+    0825EB56  goto                 destination=0x0825EB8C
+
+  sign 13 at (3,14) -> 0x0825EB5C
+  script 0x0825EB5C  [ok]
+    0825EB5C  lockall              
+    0825EB5D  setvar               destination=VAR_0x8008 value=12
+    0825EB62  goto                 destination=0x0825EB8C
+
+  sign 14 at (5,14) -> 0x0825EB68
+  script 0x0825EB68  [ok]
+    0825EB68  lockall              
+    0825EB69  setvar               destination=VAR_0x8008 value=13
+    0825EB6E  goto                 destination=0x0825EB8C
+
+  sign 15 at (7,14) -> 0x0825EB74
+  script 0x0825EB74  [ok]
+    0825EB74  lockall              
+    0825EB75  setvar               destination=VAR_0x8008 value=14
+    0825EB7A  goto                 destination=0x0825EB8C
+
+  sign 16 at (9,14) -> 0x0825EB80
+  script 0x0825EB80  [ok]
+    0825EB80  lockall              
+    0825EB81  setvar               destination=VAR_0x8008 value=15
+    0825EB86  goto                 destination=0x0825EB8C
+
+  map script type 1 -> 0x0825E934
+  script 0x0825E934  [ok]
+    0825E934  checkflag            flag=0x001
+    0825E937  goto_if              condition=1 destination=0x0825E947
+    0825E93D  checkflag            flag=0x264
+    0825E940  goto_if              condition=1 destination=0x0825E951
+    0825E946  return               
+
+  script 0x0825E947  [ok]
+    0825E947  call                 destination=0x0825EA22
+    0825E94C  goto                 destination=0x0825E93D
+
+  script 0x0825E951  [ok]
+    0825E951  call                 destination=0x0825EA7D
+    0825E956  return               
+
+  script 0x0825E93D  [ok]
+    0825E93D  checkflag            flag=0x264
+    0825E940  goto_if              condition=1 destination=0x0825E951
+    0825E946  return               
+
+  map script type 3 -> 0x0825E957
+  script 0x0825E957  [ok]
+    0825E957  checkflag            flag=0x264
+    0825E95A  goto_if              condition=1 destination=0x0825E96E
+    0825E960  special              SPECIAL_\function=369
+    0825E963  copyvar              destination=VAR_0x4000 source=VAR_0x8004
+    0825E968  copyvar              destination=VAR_0x4001 source=VAR_0x8005
+    0825E96D  return               
+
+  script 0x0825E96E  [ok]
+    0825E96E  return               
+

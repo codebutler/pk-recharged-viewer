@@ -1,0 +1,44 @@
+S.S. Anne  (group 1, map 9)  header 0x08B3B314
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x31, flag 0x0000) -> 0x0820AFEB
+  script 0x0820AFEB  [ok]
+    0820AFEB  trainerbattle        type=0 trainer=0x87 localId=0 ptr1=0x0820B12D ptr2=0x0820B14B
+    0820AFF9  msgbox_multilang     type=0 text_0="My pa said there are 100 kinds of\nPokémon. I think there are more." text_1="My pa said there are 100 kinds of\nPokémon. I think there are more." text_2="My pa said there are 100 kinds of\nPokémon. I think there are more." text_3="My pa said there are 100 kinds of\nPokémon. I think there are more." text_4="My pa said there are 100 kinds of\nPokémon. I think there are more." text_5="My pa said there are 100 kinds of\nPokémon. I think there are more." text_6="My pa said there are 100 kinds of\nPokémon. I think there are more."
+    0820B017  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820B019  end                  
+
+  object 2 (gfx 0xF4, flag 0x0000) -> 0x0820AF7A
+  script 0x0820AF7A  [ok]
+    0820AF7A  msgbox_multilang     type=0 text_0="Urf… I feel ill…\pI got seasick, so I stepped out to\nget some air…" text_1="Urf… I feel ill…\pI got seasick, so I stepped out to\nget some air…" text_2="Urf… I feel ill…\pI got seasick, so I stepped out to\nget some air…" text_3="Urf… I feel ill…\pI got seasick, so I stepped out to\nget some air…" text_4="Urf… I feel ill…\pI got seasick, so I stepped out to\nget some air…" text_5="Urf… I feel ill…\pI got seasick, so I stepped out to\nget some air…" text_6="Urf… I feel ill…\pI got seasick, so I stepped out to\nget some air…"
+    0820AF98  callstd              function=MSGBOX_NPC(2)
+    0820AF9A  end                  
+
+  object 3 (gfx 0x31, flag 0x0000) -> 0x0820AF9B
+  script 0x0820AF9B  [ok]
+    0820AF9B  msgbox_multilang     type=0 text_0="Whew!\nScrubbing decks is hard work!" text_1="Whew!\nScrubbing decks is hard work!" text_2="Whew!\nScrubbing decks is hard work!" text_3="Whew!\nScrubbing decks is hard work!" text_4="Whew!\nScrubbing decks is hard work!" text_5="Whew!\nScrubbing decks is hard work!" text_6="Whew!\nScrubbing decks is hard work!"
+    0820AFB9  callstd              function=MSGBOX_NPC(2)
+    0820AFBB  end                  
+
+  object 4 (gfx 0x31, flag 0x0000) -> 0x0820AFBC
+  script 0x0820AFBC  [ok]
+    0820AFBC  trainerbattle        type=0 trainer=0x86 localId=0 ptr1=0x0820B0B3 ptr2=0x0820B0D6
+    0820AFCA  msgbox_multilang     type=0 text_0="How many kinds of Pokémon do you\nthink there are in this big world?" text_1="How many kinds of Pokémon do you\nthink there are in this big world?" text_2="How many kinds of Pokémon do you\nthink there are in this big world?" text_3="How many kinds of Pokémon do you\nthink there are in this big world?" text_4="How many kinds of Pokémon do you\nthink there are in this big world?" text_5="How many kinds of Pokémon do you\nthink there are in this big world?" text_6="How many kinds of Pokémon do you\nthink there are in this big world?"
+    0820AFE8  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820AFEA  end                  
+
+  object 5 (gfx 0x23, flag 0x0000) -> 0x0820AF59
+  script 0x0820AF59  [ok]
+    0820AF59  msgbox_multilang     type=0 text_0="The party’s over.\nThe ship will be departing soon." text_1="The party’s over.\nThe ship will be departing soon." text_2="The party’s over.\nThe ship will be departing soon." text_3="The party’s over.\nThe ship will be departing soon." text_4="The party’s over.\nThe ship will be departing soon." text_5="The party’s over.\nThe ship will be departing soon." text_6="The party’s over.\nThe ship will be departing soon."
+    0820AF77  callstd              function=MSGBOX_NPC(2)
+    0820AF79  end                  
+

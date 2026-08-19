@@ -1,0 +1,837 @@
+Battle Frontier  (group 41, map 28)  header 0x08B3E3C0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x5A, flag 0x0000) -> 0x082ABD49
+  script 0x082ABD49  [ok]
+    082ABD49  setvar               destination=VAR_0x8004 value=5
+    082ABD4E  special              SPECIAL_\function=155
+    082ABD51  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082ABD56  compare_var_to_value var=0x8000 value=2
+    082ABD5B  goto_if              condition=1 destination=0x082ABD77
+    082ABD61  compare_var_to_value var=0x8000 value=3
+    082ABD66  goto_if              condition=1 destination=0x082ABDA5
+    082ABD6C  compare_var_to_value var=0x8000 value=4
+    082ABD71  goto_if              condition=1 destination=0x082ABDCA
+    082ABD77  lock                 
+    082ABD78  faceplayer           
+    082ABD79  setvar               destination=VAR_0x8004 value=14
+    082ABD7E  special              SPECIAL_\function=155
+    082ABD81  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    082ABD9F  callstd              function=MSGBOX_DEFAULT(4)
+    082ABDA1  waitmessage          
+    082ABDA2  closemessage         
+    082ABDA3  release              
+
+  script 0x082ABD77  [ok]
+    082ABD77  lock                 
+    082ABD78  faceplayer           
+    082ABD79  setvar               destination=VAR_0x8004 value=14
+    082ABD7E  special              SPECIAL_\function=155
+    082ABD81  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    082ABD9F  callstd              function=MSGBOX_DEFAULT(4)
+    082ABDA1  waitmessage          
+    082ABDA2  closemessage         
+    082ABDA3  release              
+
+  script 0x082ABDA5  [ok]
+    082ABDA5  lock                 
+    082ABDA6  faceplayer           
+    082ABDA7  msgbox_multilang     type=0 text_0="I do apologize for what happened…\nI do hope your POKéMON are fine." text_1="I do apologize for what happened…\nI do hope your POKéMON are fine." text_2="I do apologize for what happened…\nI do hope your POKéMON are fine." text_3="I do apologize for what happened…\nI do hope your POKéMON are fine." text_4="I do apologize for what happened…\nI do hope your POKéMON are fine." text_5="I do apologize for what happened…\nI do hope your POKéMON are fine." text_6="I do apologize for what happened…\nI do hope your POKéMON are fine."
+    082ABDC5  callstd              function=MSGBOX_DEFAULT(4)
+    082ABDC7  closemessage         
+    082ABDC8  release              
+
+  script 0x082ABDCA  [ok]
+    082ABDCA  setvar               destination=VAR_0x8004 value=13
+    082ABDCF  special              SPECIAL_\function=155
+    082ABDD2  compare_var_to_value var=0x800D value=2
+    082ABDD7  call_if              condition=1 destination=0x082ABE3D
+    082ABDDD  compare_var_to_value var=0x800D value=1
+    082ABDE2  call_if              condition=1 destination=0x082ABE19
+    082ABDE8  playfanfare          song=368
+    082ABDEB  waitfanfare          
+    082ABDEC  msgbox_multilang     type=0 text_0="The best of luck to you.\nFarewell." text_1="The best of luck to you.\nFarewell." text_2="The best of luck to you.\nFarewell." text_3="The best of luck to you.\nFarewell." text_4="The best of luck to you.\nFarewell." text_5="The best of luck to you.\nFarewell." text_6="The best of luck to you.\nFarewell."
+    082ABE0A  callstd              function=MSGBOX_DEFAULT(4)
+    082ABE0C  closemessage         
+    082ABE0D  release              
+
+  script 0x082ABE3D  [ok]
+    082ABE3D  lock                 
+    082ABE3E  faceplayer           
+    082ABE3F  msgbox_multilang     type=0 text_0="Ah, you’re a lucky one!\nI’m in good spirits now.\pI will restore two of your POKéMON\nto full health!" text_1="Ah, you’re a lucky one!\nI’m in good spirits now.\pI will restore two of your POKéMON\nto full health!" text_2="Ah, you’re a lucky one!\nI’m in good spirits now.\pI will restore two of your POKéMON\nto full health!" text_3="Ah, you’re a lucky one!\nI’m in good spirits now.\pI will restore two of your POKéMON\nto full health!" text_4="Ah, you’re a lucky one!\nI’m in good spirits now.\pI will restore two of your POKéMON\nto full health!" text_5="Ah, you’re a lucky one!\nI’m in good spirits now.\pI will restore two of your POKéMON\nto full health!" text_6="Ah, you’re a lucky one!\nI’m in good spirits now.\pI will restore two of your POKéMON\nto full health!"
+    082ABE5D  callstd              function=MSGBOX_DEFAULT(4)
+    082ABE5F  closemessage         
+    082ABE60  return               
+
+  script 0x082ABE19  [ok]
+    082ABE19  lock                 
+    082ABE1A  faceplayer           
+    082ABE1B  msgbox_multilang     type=0 text_0="Ah, you’re a lucky one.\nI’m in somewhat-good spirits now.\pI will restore one of your POKéMON\nto full health." text_1="Ah, you’re a lucky one.\nI’m in somewhat-good spirits now.\pI will restore one of your POKéMON\nto full health." text_2="Ah, you’re a lucky one.\nI’m in somewhat-good spirits now.\pI will restore one of your POKéMON\nto full health." text_3="Ah, you’re a lucky one.\nI’m in somewhat-good spirits now.\pI will restore one of your POKéMON\nto full health." text_4="Ah, you’re a lucky one.\nI’m in somewhat-good spirits now.\pI will restore one of your POKéMON\nto full health." text_5="Ah, you’re a lucky one.\nI’m in somewhat-good spirits now.\pI will restore one of your POKéMON\nto full health." text_6="Ah, you’re a lucky one.\nI’m in somewhat-good spirits now.\pI will restore one of your POKéMON\nto full health."
+    082ABE39  callstd              function=MSGBOX_DEFAULT(4)
+    082ABE3B  closemessage         
+    082ABE3C  return               
+
+  object 2 (gfx 0x5B, flag 0x0000) -> 0x082ABE61
+  script 0x082ABE61  [ok]
+    082ABE61  lock                 
+    082ABE62  faceplayer           
+    082ABE63  msgbox_multilang     type=0 text_0="… … … … … …\n… … … … … …" text_1="… … … … … …\n… … … … … …" text_2="… … … … … …\n… … … … … …" text_3="… … … … … …\n… … … … … …" text_4="… … … … … …\n… … … … … …" text_5="… … … … … …\n… … … … … …" text_6="… … … … … …\n… … … … … …"
+    082ABE81  callstd              function=MSGBOX_DEFAULT(4)
+    082ABE83  closemessage         
+    082ABE84  release              
+
+  coord trigger 0 (var 0x4001 == 0) -> 0x082F35C2
+  script 0x082F35C2  [ok]
+    082F35C2  setvar               destination=VAR_0x8004 value=25
+    082F35C7  special              SPECIAL_\function=155
+    082F35CA  compare_var_to_value var=0x800D value=1
+    082F35CF  call_if              condition=1 destination=0x082F3648
+    082F35D5  compare_var_to_value var=0x800D value=1
+    082F35DA  call_if              condition=5 destination=0x082F3656
+    082F35E0  setvar               destination=VAR_0x8004 value=1
+    082F35E5  setvar               destination=VAR_0x8005 value=1
+    082F35EA  special              SPECIAL_\function=155
+    082F35ED  addvar               destination=VAR_0x800D value=1
+    082F35F2  setvar               destination=VAR_0x8004 value=2
+    082F35F7  setvar               destination=VAR_0x8005 value=1
+    082F35FC  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082F3601  special              SPECIAL_\function=155
+    082F3604  setvar               destination=VAR_0x8004 value=1
+    082F3609  setvar               destination=VAR_0x8005 value=2
+    082F360E  special              SPECIAL_\function=148
+    082F3611  addvar               destination=VAR_0x800D value=1
+    082F3616  setvar               destination=VAR_0x8004 value=2
+    082F361B  setvar               destination=VAR_0x8005 value=2
+    082F3620  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082F3625  special              SPECIAL_\function=148
+    082F3628  setvar               destination=VAR_0x8004 value=3
+    082F362D  special              SPECIAL_\function=155
+    082F3630  compare_var_to_value var=0x800D value=1
+    082F3635  call_if              condition=1 destination=0x082F3664
+    082F363B  compare_var_to_value var=0x800D value=0
+    082F3640  call_if              condition=1 destination=0x082F367C
+    082F3646  waitstate            
+
+  script 0x082F3648  [ok]
+    082F3648  setvar               destination=VAR_0x8004 value=24
+    082F364D  setvar               destination=VAR_0x8005 value=1
+    082F3652  special              SPECIAL_\function=155
+    082F3655  return               
+
+  script 0x082F3656  [ok]
+    082F3656  setvar               destination=VAR_0x8004 value=24
+    082F365B  setvar               destination=VAR_0x8005 value=0
+    082F3660  special              SPECIAL_\function=155
+    082F3663  return               
+
+  script 0x082F3664  [ok]
+    082F3664  applymovement        localId=255 movements=[set_invisible]
+    082F366B  waitmovement         localId=0
+    082F366E  call                 destination=0x082A9AD5
+    082F3673  warpsilent           mapGroup=41 mapNum=29 WARP_ID_NONE=255 -1=2 -1=7
+    082F367B  return               
+
+  script 0x082F367C  [ok]
+    082F367C  applymovement        localId=255 movements=[set_invisible]
+    082F3683  waitmovement         localId=0
+    082F3686  call                 destination=0x082A9AD5
+    082F368B  warpsilent           mapGroup=41 mapNum=27 WARP_ID_NONE=255 -1=6 -1=10
+    082F3693  return               
+
+  script 0x082A9AD5  [ok]
+    082A9AD5  playse               song=267
+    082A9AD8  special              SPECIAL_\function=251
+    082A9ADB  waitstate            
+
+  coord trigger 1 (var 0x4002 == 0) -> 0x082F3589
+  script 0x082F3589  [ok]
+    082F3589  setvar               destination=VAR_0x4003 value=1
+    082F358E  setvar               destination=VAR_0x4002 value=1
+    082F3593  end                  
+
+  coord trigger 2 (var 0x4003 == 1) -> 0x082F3594
+  script 0x082F3594  [ok]
+    082F3594  setvar               destination=VAR_0x4003 value=0
+    082F3599  setvar               destination=VAR_0x4002 value=0
+    082F359E  lockall              
+    082F359F  msgbox_multilang     type=0 text_0="The path is blocked!\nAnd there is no turning back…" text_1="The path is blocked!\nAnd there is no turning back…" text_2="The path is blocked!\nAnd there is no turning back…" text_3="The path is blocked!\nAnd there is no turning back…" text_4="The path is blocked!\nAnd there is no turning back…" text_5="The path is blocked!\nAnd there is no turning back…" text_6="The path is blocked!\nAnd there is no turning back…"
+    082F35BD  callstd              function=MSGBOX_DEFAULT(4)
+    082F35BF  closemessage         
+    082F35C0  releaseall           
+
+  coord trigger 3 (var 0x4002 == 0) -> 0x082F3589
+  coord trigger 4 (var 0x4002 == 0) -> 0x082F3589
+  coord trigger 5 (var 0x4003 == 1) -> 0x082F3594
+  coord trigger 6 (var 0x4003 == 1) -> 0x082F3594
+  map script type 5 -> 0x082F3777
+  script 0x082F3777  [ok]
+    082F3777  setorcopyvar         destination=VAR_0x8006 source=VAR_0x800D
+    082F377C  setvar               destination=VAR_0x8004 value=1
+    082F3781  setvar               destination=VAR_0x8005 value=0
+    082F3786  special              SPECIAL_\function=148
+    082F3789  compare_var_to_value var=0x800D value=2
+    082F378E  goto_if              condition=1 destination=0x082F37A4
+    082F3794  compare_var_to_value var=0x800D value=1
+    082F3799  goto_if              condition=1 destination=0x082F37A4
+    082F379F  call                 destination=0x082F37AA
+    082F37A4  setorcopyvar         destination=VAR_0x800D source=VAR_0x8006
+    082F37A9  end                  
+
+  script 0x082F37A4  [ok]
+    082F37A4  setorcopyvar         destination=VAR_0x800D source=VAR_0x8006
+    082F37A9  end                  
+
+  script 0x082F37AA  [ok]
+    082F37AA  setvar               destination=VAR_0x8004 value=21
+    082F37AF  special              SPECIAL_\function=148
+    082F37B2  return               
+
+  map script type 3 -> 0x082F3310
+  script 0x082F3310  [ok]
+    082F3310  setvar               destination=VAR_0x8004 value=4
+    082F3315  special              SPECIAL_\function=155
+    082F3318  setvar               destination=VAR_0x8004 value=5
+    082F331D  special              SPECIAL_\function=155
+    082F3320  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082F3325  compare_var_to_value var=0x8000 value=0
+    082F332A  goto_if              condition=1 destination=0x082F339C
+    082F3330  compare_var_to_value var=0x8000 value=1
+    082F3335  goto_if              condition=1 destination=0x082F339C
+    082F333B  compare_var_to_value var=0x8000 value=2
+    082F3340  goto_if              condition=1 destination=0x082F33AB
+    082F3346  compare_var_to_value var=0x8000 value=3
+    082F334B  goto_if              condition=1 destination=0x082F338D
+    082F3351  compare_var_to_value var=0x8000 value=4
+    082F3356  goto_if              condition=1 destination=0x082F339C
+    082F335C  compare_var_to_value var=0x8000 value=7
+    082F3361  goto_if              condition=1 destination=0x082F337E
+    082F3367  compare_var_to_value var=0x8000 value=6
+    082F336C  goto_if              condition=1 destination=0x082F338D
+    082F3372  compare_var_to_value var=0x8000 value=8
+    082F3377  goto_if              condition=1 destination=0x082F33BA
+    082F337D  end                  
+
+  script 0x082F339C  [ok]
+    082F339C  setobjectxyperm      localId=1 x=4 y=4
+    082F33A3  setobjectxyperm      localId=2 x=0 y=0
+    082F33AA  end                  
+
+  script 0x082F33AB  [ok]
+    082F33AB  setobjectxyperm      localId=1 x=5 y=5
+    082F33B2  setobjectxyperm      localId=2 x=0 y=0
+    082F33B9  end                  
+
+  script 0x082F338D  [ok]
+    082F338D  setobjectxyperm      localId=1 x=4 y=4
+    082F3394  setobjectxyperm      localId=2 x=3 y=4
+    082F339B  end                  
+
+  script 0x082F337E  [ok]
+    082F337E  setobjectxyperm      localId=1 x=2 y=5
+    082F3385  setobjectxyperm      localId=2 x=6 y=5
+    082F338C  end                  
+
+  script 0x082F33BA  [ok]
+    082F33BA  setobjectxyperm      localId=1 x=4 y=3
+    082F33C1  setobjectxyperm      localId=2 x=4 y=4
+    082F33C8  end                  
+
+  map script type 2 (var 0x4000 == 0) -> 0x082AB355
+  script 0x082AB355  [ok]
+    082AB355  setvar               destination=VAR_0x4000 value=1
+    082AB35A  setvar               destination=VAR_0x8004 value=5
+    082AB35F  special              SPECIAL_\function=155
+    082AB362  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AB367  compare_var_to_value var=0x8000 value=0
+    082AB36C  goto_if              condition=1 destination=0x082AB3AA
+    082AB372  compare_var_to_value var=0x8000 value=1
+    082AB377  goto_if              condition=1 destination=0x082AB8BA
+    082AB37D  compare_var_to_value var=0x8000 value=3
+    082AB382  goto_if              condition=1 destination=0x082ABA11
+    082AB388  compare_var_to_value var=0x8000 value=6
+    082AB38D  goto_if              condition=1 destination=0x082AB42D
+    082AB393  compare_var_to_value var=0x8000 value=7
+    082AB398  goto_if              condition=1 destination=0x082AB91A
+    082AB39E  compare_var_to_value var=0x8000 value=8
+    082AB3A3  goto_if              condition=1 destination=0x082AB51B
+    082AB3A9  end                  
+
+  script 0x082AB3AA  [ok]
+    082AB3AA  lockall              
+    082AB3AB  delay                frames=16
+    082AB3AE  applymovement        localId=1 movements=[walk_down walk_down]
+    082AB3B5  waitmovement         localId=0
+    082AB3B8  setvar               destination=VAR_0x8004 value=21
+    082AB3BD  setvar               destination=VAR_0x8005 value=0
+    082AB3C2  special              SPECIAL_\function=155
+    082AB3C5  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    082AB3E3  callstd              function=MSGBOX_DEFAULT(4)
+    082AB3E5  waitmessage          
+    082AB3E6  closemessage         
+    082AB3E7  releaseall           
+
+  script 0x082AB8BA  [ok]
+    082AB8BA  lockall              
+    082AB8BB  delay                frames=16
+    082AB8BE  applymovement        localId=1 movements=[walk_down walk_down]
+    082AB8C5  waitmovement         localId=0
+    082AB8C8  message              text="Welcome…\nYou must be commended for your luck…\pYour POKéMON shall be restored\nto full health…"
+    082AB8CD  setmetatile          x=10943 y=41480 metatileId=10943 impassable=41480
+    082AB8D6  vbufferstring        stringVarId=42 text=717201928
+    082AB8DC  gotostd              function=162
+    082AB8DE  vbufferstring        stringVarId=42 text=717201928
+    082AB8E4  gotostd              function=102
+    082AB8E6  playfanfare          song=368
+    082AB8E9  waitfanfare          
+    082AB8EA  special              SPECIAL_\function=0
+    082AB8ED  msgbox_multilang     type=0 text_0="I urge you to enjoy the rest of your\nBattle Choice challenge…" text_1="I urge you to enjoy the rest of your\nBattle Choice challenge…" text_2="I urge you to enjoy the rest of your\nBattle Choice challenge…" text_3="I urge you to enjoy the rest of your\nBattle Choice challenge…" text_4="I urge you to enjoy the rest of your\nBattle Choice challenge…" text_5="I urge you to enjoy the rest of your\nBattle Choice challenge…" text_6="I urge you to enjoy the rest of your\nBattle Choice challenge…"
+    082AB90B  callstd              function=MSGBOX_DEFAULT(4)
+    082AB90D  closemessage         
+    082AB90E  applymovement        localId=1 movements=[walk_up walk_up walk_up set_invisible walk_up]
+    082AB915  waitmovement         localId=0
+    082AB918  releaseall           
+
+  script 0x082ABA11  [ok]
+    082ABA11  lockall              
+    082ABA12  message              text="Oh, my!\pWatch out!"
+    082ABA17  vmessage             text=3171429057
+    082ABA1C  hidecoinsbox         x=42 y=8
+    082ABA1F  vmessage             text=3171429057
+    082ABA24  hidecoinsbox         x=42 y=8
+    082ABA27  vmessage             text=3171429057
+    082ABA2C  hidecoinsbox         x=42 y=8
+    082ABA2F  applymovement        localId=2 movements=[walk_fast_down walk_fast_right walk_fast_right walk_fast_down walk_fast_left face_down]
+    082ABA36  waitmovement         localId=0
+    082ABA39  setvar               destination=VAR_0x8004 value=12
+    082ABA3E  special              SPECIAL_\function=155
+    082ABA41  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082ABA46  compare_var_to_value var=0x8004 value=0
+    082ABA4B  call_if              condition=1 destination=0x082ABA7F
+    082ABA51  compare_var_to_value var=0x8004 value=1
+    082ABA56  call_if              condition=1 destination=0x082ABB59
+    082ABA5C  msgbox_multilang     type=0 text_0="It attacks without warning if it is\nstartled by another person…\pAre you and your POKéMON all right?" text_1="It attacks without warning if it is\nstartled by another person…\pAre you and your POKéMON all right?" text_2="It attacks without warning if it is\nstartled by another person…\pAre you and your POKéMON all right?" text_3="It attacks without warning if it is\nstartled by another person…\pAre you and your POKéMON all right?" text_4="It attacks without warning if it is\nstartled by another person…\pAre you and your POKéMON all right?" text_5="It attacks without warning if it is\nstartled by another person…\pAre you and your POKéMON all right?" text_6="It attacks without warning if it is\nstartled by another person…\pAre you and your POKéMON all right?"
+    082ABA7A  callstd              function=MSGBOX_DEFAULT(4)
+    082ABA7C  closemessage         
+    082ABA7D  releaseall           
+
+  script 0x082AB42D  [ok]
+    082AB42D  lockall              
+    082AB42E  delay                frames=16
+    082AB431  msgbox_multilang     type=0 text_0="Welcome…\pHere, we will have you battle\na somewhat-tough TRAINER…" text_1="Welcome…\pHere, we will have you battle\na somewhat-tough TRAINER…" text_2="Welcome…\pHere, we will have you battle\na somewhat-tough TRAINER…" text_3="Welcome…\pHere, we will have you battle\na somewhat-tough TRAINER…" text_4="Welcome…\pHere, we will have you battle\na somewhat-tough TRAINER…" text_5="Welcome…\pHere, we will have you battle\na somewhat-tough TRAINER…" text_6="Welcome…\pHere, we will have you battle\na somewhat-tough TRAINER…"
+    082AB44F  callstd              function=MSGBOX_DEFAULT(4)
+    082AB451  waitmessage          
+    082AB452  closemessage         
+    082AB453  applymovement        localId=1 movements=[walk_down walk_down]
+    082AB45A  waitmovement         localId=0
+    082AB45D  setvar               destination=VAR_0x8004 value=21
+    082AB462  setvar               destination=VAR_0x8005 value=0
+    082AB467  special              SPECIAL_\function=155
+    082AB46A  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    082AB488  callstd              function=MSGBOX_DEFAULT(4)
+    082AB48A  waitmessage          
+    082AB48B  closemessage         
+    082AB48C  releaseall           
+
+  script 0x082AB91A  [ok]
+    082AB91A  lockall              
+    082AB91B  delay                frames=16
+    082AB91E  applymovement        localId=1 movements=[walk_right]
+    082AB925  applymovement        localId=2 movements=[walk_left]
+    082AB92C  waitmovement         localId=0
+    082AB92F  applymovement        localId=1 movements=[walk_down walk_down]
+    082AB936  applymovement        localId=2 movements=[walk_down walk_down]
+    082AB93D  waitmovement         localId=0
+    082AB940  applymovement        localId=1 movements=[face_right]
+    082AB947  applymovement        localId=2 movements=[face_left]
+    082AB94E  waitmovement         localId=0
+    082AB951  applymovement        localId=255 movements=[face_left]
+    082AB958  waitmovement         localId=0
+    082AB95B  setvar               destination=VAR_0x8004 value=21
+    082AB960  setvar               destination=VAR_0x8005 value=0
+    082AB965  special              SPECIAL_\function=155
+    082AB968  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    082AB986  callstd              function=MSGBOX_DEFAULT(4)
+    082AB988  closemessage         
+    082AB989  delay                frames=16
+    082AB98C  applymovement        localId=255 movements=[face_right]
+    082AB993  waitmovement         localId=0
+    082AB996  setvar               destination=VAR_0x8004 value=21
+    082AB99B  setvar               destination=VAR_0x8005 value=1
+    082AB9A0  special              SPECIAL_\function=155
+    082AB9A3  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    082AB9C1  callstd              function=MSGBOX_DEFAULT(4)
+    082AB9C3  closemessage         
+    082AB9C4  setvar               destination=VAR_0x8004 value=9
+    082AB9C9  setvar               destination=VAR_0x8005 value=0
+    082AB9CE  special              SPECIAL_\function=152
+    082AB9D1  waitstate            
+
+  script 0x082AB51B  [ok]
+    082AB51B  delay                frames=22
+    082AB51E  lockall              
+    082AB51F  applymovement        localId=2 movements=[walk_down walk_down]
+    082AB526  waitmovement         localId=0
+    082AB529  setvar               destination=VAR_0x8004 value=23
+    082AB52E  special              SPECIAL_\function=155
+    082AB531  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AB536  compare_var_to_value var=0x8000 value=0
+    082AB53B  goto_if              condition=1 destination=0x082AB840
+    082AB541  compare_var_to_value var=0x8000 value=1
+    082AB546  goto_if              condition=1 destination=0x082AB866
+    082AB54C  compare_var_to_value var=0x8000 value=2
+    082AB551  goto_if              condition=1 destination=0x082AB890
+    082AB557  msgbox_multilang     type=0 text_0="I shall go fetch our master…" text_1="I shall go fetch our master…" text_2="I shall go fetch our master…" text_3="I shall go fetch our master…" text_4="I shall go fetch our master…" text_5="I shall go fetch our master…" text_6="I shall go fetch our master…"
+    082AB575  callstd              function=MSGBOX_DEFAULT(4)
+    082AB577  closemessage         
+    082AB578  special              SPECIAL_\function=190
+    082AB57B  applymovement        localId=127 movements=[walk_up walk_up]
+    082AB582  applymovement        localId=2 movements=[walk_up walk_up walk_up set_invisible]
+    082AB589  waitmovement         localId=0
+    082AB58C  playse               song=267
+    082AB58F  call                 destination=0x082ABED3
+    082AB594  delay                frames=4
+    082AB597  call                 destination=0x082ABE90
+    082AB59C  delay                frames=4
+    082AB59F  call                 destination=0x082ABF59
+    082AB5A4  delay                frames=4
+    082AB5A7  waitse               
+    082AB5A8  delay                frames=60
+    082AB5AB  playse               song=268
+    082AB5AE  delay                frames=65
+    082AB5B1  call                 destination=0x082ABE90
+    082AB5B6  showobjectat         localId=1 mapGroup=41 mapNum=28
+    082AB5BB  delay                frames=4
+    082AB5BE  call                 destination=0x082ABED3
+    082AB5C3  delay                frames=4
+    082AB5C6  call                 destination=0x082ABF16
+    082AB5CB  waitse               
+    082AB5CC  applymovement        localId=1 movements=[set_visible walk_down]
+    082AB5D3  waitmovement         localId=0
+    082AB5D6  setvar               destination=VAR_0x8004 value=22
+    082AB5DB  special              SPECIAL_\function=155
+    082AB5DE  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AB5E3  compare_var_to_value var=0x8000 value=2
+    082AB5E8  goto_if              condition=1 destination=0x082AB702
+    082AB5EE  compare_var_to_value var=0x8000 value=3
+    082AB5F3  goto_if              condition=1 destination=0x082AB649
+    082AB5F9  compare_var_to_value var=0x8000 value=4
+    082AB5FE  goto_if              condition=1 destination=0x082AB747
+    082AB604  setvar               destination=VAR_0x8004 value=1
+    082AB609  setvar               destination=VAR_0x8005 value=7
+    082AB60E  special              SPECIAL_\function=148
+    082AB611  compare_var_to_value var=0x800D value=0
+    082AB616  goto_if              condition=5 destination=0x082AB649
+    082AB61C  msgbox_multilang     type=0 text_0="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_1="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_2="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_3="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_4="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_5="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_6="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…"
+    082AB63A  callstd              function=MSGBOX_DEFAULT(4)
+    082AB63C  setvar               destination=VAR_0x8004 value=2
+    082AB641  setvar               destination=VAR_0x8005 value=7
+    082AB646  special              SPECIAL_\function=148
+    082AB649  msgbox_multilang     type=0 text_0="Your luck…\nI hope you didn’t use it all up here…" text_1="Your luck…\nI hope you didn’t use it all up here…" text_2="Your luck…\nI hope you didn’t use it all up here…" text_3="Your luck…\nI hope you didn’t use it all up here…" text_4="Your luck…\nI hope you didn’t use it all up here…" text_5="Your luck…\nI hope you didn’t use it all up here…" text_6="Your luck…\nI hope you didn’t use it all up here…"
+    082AB667  callstd              function=MSGBOX_DEFAULT(4)
+    082AB669  call                 destination=0x082ABCD7
+    082AB66E  compare_var_to_value var=0x800D value=1
+    082AB673  goto_if              condition=1 destination=0x082AB67E
+    082AB679  goto                 destination=0x082AB406
+
+  script 0x082ABA7F  [ok]
+    082ABA7F  msgbox_multilang     type=0 text_0="Now, now!\nKIRLIA, stop that!" text_1="Now, now!\nKIRLIA, stop that!" text_2="Now, now!\nKIRLIA, stop that!" text_3="Now, now!\nKIRLIA, stop that!" text_4="Now, now!\nKIRLIA, stop that!" text_5="Now, now!\nKIRLIA, stop that!" text_6="Now, now!\nKIRLIA, stop that!"
+    082ABA9D  callstd              function=MSGBOX_DEFAULT(4)
+    082ABA9F  closemessage         
+    082ABAA0  waitse               
+    082ABAA1  playmoncry           species=KIRLIA(393) mode=0
+    082ABAA6  waitmoncry           
+    082ABAA7  setvar               destination=VAR_0x8004 value=11
+    082ABAAC  special              SPECIAL_\function=155
+    082ABAAF  compare_var_to_value var=0x800D value=2
+    082ABAB4  call_if              condition=1 destination=0x082ABC1D
+    082ABABA  compare_var_to_value var=0x800D value=1
+    082ABABF  call_if              condition=1 destination=0x082ABC3C
+    082ABAC5  compare_var_to_value var=0x800D value=3
+    082ABACA  call_if              condition=1 destination=0x082ABC5B
+    082ABAD0  compare_var_to_value var=0x800D value=4
+    082ABAD5  call_if              condition=1 destination=0x082ABC7A
+    082ABADB  setvar               destination=VAR_0x8004 value=15
+    082ABAE0  special              SPECIAL_\function=155
+    082ABAE3  waitstate            
+
+  script 0x082ABB59  [ok]
+    082ABB59  msgbox_multilang     type=0 text_0="Now, now!\nDUSCLOPS, stop that!" text_1="Now, now!\nDUSCLOPS, stop that!" text_2="Now, now!\nDUSCLOPS, stop that!" text_3="Now, now!\nDUSCLOPS, stop that!" text_4="Now, now!\nDUSCLOPS, stop that!" text_5="Now, now!\nDUSCLOPS, stop that!" text_6="Now, now!\nDUSCLOPS, stop that!"
+    082ABB77  callstd              function=MSGBOX_DEFAULT(4)
+    082ABB79  closemessage         
+    082ABB7A  waitse               
+    082ABB7B  playmoncry           species=DUSCLOPS(362) mode=0
+    082ABB80  waitmoncry           
+    082ABB81  setvar               destination=VAR_0x8004 value=11
+    082ABB86  special              SPECIAL_\function=155
+    082ABB89  compare_var_to_value var=0x800D value=0
+    082ABB8E  call_if              condition=1 destination=0x082ABC99
+    082ABB94  compare_var_to_value var=0x800D value=1
+    082ABB99  call_if              condition=1 destination=0x082ABCB8
+    082ABB9F  setvar               destination=VAR_0x8004 value=15
+    082ABBA4  special              SPECIAL_\function=155
+    082ABBA7  waitstate            
+
+  script 0x082AB840  [ok]
+    082AB840  msgbox_multilang     type=0 text_0="I welcome you…\pGiggle…\nYou seem to be bereft of luck…\pIf only you hadn’t chosen this room,\nyour POKéMON could have been healed…" text_1="I welcome you…\pGiggle…\nYou seem to be bereft of luck…\pIf only you hadn’t chosen this room,\nyour POKéMON could have been healed…" text_2="I welcome you…\pGiggle…\nYou seem to be bereft of luck…\pIf only you hadn’t chosen this room,\nyour POKéMON could have been healed…" text_3="I welcome you…\pGiggle…\nYou seem to be bereft of luck…\pIf only you hadn’t chosen this room,\nyour POKéMON could have been healed…" text_4="I welcome you…\pGiggle…\nYou seem to be bereft of luck…\pIf only you hadn’t chosen this room,\nyour POKéMON could have been healed…" text_5="I welcome you…\pGiggle…\nYou seem to be bereft of luck…\pIf only you hadn’t chosen this room,\nyour POKéMON could have been healed…" text_6="I welcome you…\pGiggle…\nYou seem to be bereft of luck…\pIf only you hadn’t chosen this room,\nyour POKéMON could have been healed…"
+    082AB85E  callstd              function=MSGBOX_DEFAULT(4)
+    082AB860  goto                 destination=0x082AB557
+
+  script 0x082AB866  [ok]
+    082AB866  msgbox_multilang     type=0 text_0="I welcome you…\pSince you have chosen this room, I will\nrestore one POKéMON to full health…" text_1="I welcome you…\pSince you have chosen this room, I will\nrestore one POKéMON to full health…" text_2="I welcome you…\pSince you have chosen this room, I will\nrestore one POKéMON to full health…" text_3="I welcome you…\pSince you have chosen this room, I will\nrestore one POKéMON to full health…" text_4="I welcome you…\pSince you have chosen this room, I will\nrestore one POKéMON to full health…" text_5="I welcome you…\pSince you have chosen this room, I will\nrestore one POKéMON to full health…" text_6="I welcome you…\pSince you have chosen this room, I will\nrestore one POKéMON to full health…"
+    082AB884  callstd              function=MSGBOX_DEFAULT(4)
+    082AB886  playfanfare          song=368
+    082AB889  waitfanfare          
+    082AB88A  goto                 destination=0x082AB557
+
+  script 0x082AB890  [ok]
+    082AB890  msgbox_multilang     type=0 text_0="I welcome you…\pSince you have chosen this room, I will\nrestore two POKéMON to full health…" text_1="I welcome you…\pSince you have chosen this room, I will\nrestore two POKéMON to full health…" text_2="I welcome you…\pSince you have chosen this room, I will\nrestore two POKéMON to full health…" text_3="I welcome you…\pSince you have chosen this room, I will\nrestore two POKéMON to full health…" text_4="I welcome you…\pSince you have chosen this room, I will\nrestore two POKéMON to full health…" text_5="I welcome you…\pSince you have chosen this room, I will\nrestore two POKéMON to full health…" text_6="I welcome you…\pSince you have chosen this room, I will\nrestore two POKéMON to full health…"
+    082AB8AE  callstd              function=MSGBOX_DEFAULT(4)
+    082AB8B0  playfanfare          song=368
+    082AB8B3  waitfanfare          
+    082AB8B4  goto                 destination=0x082AB557
+
+  script 0x082ABED3  [ok]
+    082ABED3  setmetatile          x=4 y=1 metatileId=522 impassable=1
+    082ABEDC  setmetatile          x=3 y=2 metatileId=529 impassable=1
+    082ABEE5  setmetatile          x=4 y=2 metatileId=530 impassable=1
+    082ABEEE  setmetatile          x=5 y=2 metatileId=531 impassable=1
+    082ABEF7  setmetatile          x=3 y=3 metatileId=537 impassable=1
+    082ABF00  setmetatile          x=4 y=3 metatileId=538 impassable=0
+    082ABF09  setmetatile          x=5 y=3 metatileId=539 impassable=1
+    082ABF12  special              SPECIAL_\function=79
+    082ABF15  return               
+
+  script 0x082ABE90  [ok]
+    082ABE90  setmetatile          x=4 y=1 metatileId=554 impassable=1
+    082ABE99  setmetatile          x=3 y=2 metatileId=561 impassable=1
+    082ABEA2  setmetatile          x=4 y=2 metatileId=562 impassable=1
+    082ABEAB  setmetatile          x=5 y=2 metatileId=563 impassable=1
+    082ABEB4  setmetatile          x=3 y=3 metatileId=569 impassable=1
+    082ABEBD  setmetatile          x=4 y=3 metatileId=570 impassable=0
+    082ABEC6  setmetatile          x=5 y=3 metatileId=571 impassable=1
+    082ABECF  special              SPECIAL_\function=79
+    082ABED2  return               
+
+  script 0x082ABF59  [ok]
+    082ABF59  setmetatile          x=4 y=1 metatileId=586 impassable=1
+    082ABF62  setmetatile          x=3 y=2 metatileId=593 impassable=1
+    082ABF6B  setmetatile          x=4 y=2 metatileId=594 impassable=1
+    082ABF74  setmetatile          x=5 y=2 metatileId=595 impassable=1
+    082ABF7D  setmetatile          x=3 y=3 metatileId=601 impassable=1
+    082ABF86  setmetatile          x=4 y=3 metatileId=602 impassable=0
+    082ABF8F  setmetatile          x=5 y=3 metatileId=603 impassable=1
+    082ABF98  special              SPECIAL_\function=79
+    082ABF9B  return               
+
+  script 0x082ABF16  [ok]
+    082ABF16  setmetatile          x=4 y=1 metatileId=683 impassable=1
+    082ABF1F  setmetatile          x=3 y=2 metatileId=690 impassable=1
+    082ABF28  setmetatile          x=4 y=2 metatileId=691 impassable=1
+    082ABF31  setmetatile          x=5 y=2 metatileId=692 impassable=1
+    082ABF3A  setmetatile          x=3 y=3 metatileId=698 impassable=1
+    082ABF43  setmetatile          x=4 y=3 metatileId=699 impassable=0
+    082ABF4C  setmetatile          x=5 y=3 metatileId=700 impassable=1
+    082ABF55  special              SPECIAL_\function=79
+    082ABF58  return               
+
+  script 0x082AB702  [ok]
+    082AB702  setvar               destination=VAR_0x8004 value=1
+    082AB707  setvar               destination=VAR_0x8005 value=7
+    082AB70C  special              SPECIAL_\function=148
+    082AB70F  compare_var_to_value var=0x800D value=0
+    082AB714  goto_if              condition=5 destination=0x082AB747
+    082AB71A  msgbox_multilang     type=0 text_0="LUCY: …You again…\p… … … … … …\p…I’ve trampled flowers and braved\nstorms to get to where I am…\pI don’t feel any compulsion to keep\nlosing to the same opponent…\p… … … … … …\nFine… I’ll do it…" text_1="LUCY: …You again…\p… … … … … …\p…I’ve trampled flowers and braved\nstorms to get to where I am…\pI don’t feel any compulsion to keep\nlosing to the same opponent…\p… … … … … …\nFine… I’ll do it…" text_2="LUCY: …You again…\p… … … … … …\p…I’ve trampled flowers and braved\nstorms to get to where I am…\pI don’t feel any compulsion to keep\nlosing to the same opponent…\p… … … … … …\nFine… I’ll do it…" text_3="LUCY: …You again…\p… … … … … …\p…I’ve trampled flowers and braved\nstorms to get to where I am…\pI don’t feel any compulsion to keep\nlosing to the same opponent…\p… … … … … …\nFine… I’ll do it…" text_4="LUCY: …You again…\p… … … … … …\p…I’ve trampled flowers and braved\nstorms to get to where I am…\pI don’t feel any compulsion to keep\nlosing to the same opponent…\p… … … … … …\nFine… I’ll do it…" text_5="LUCY: …You again…\p… … … … … …\p…I’ve trampled flowers and braved\nstorms to get to where I am…\pI don’t feel any compulsion to keep\nlosing to the same opponent…\p… … … … … …\nFine… I’ll do it…" text_6="LUCY: …You again…\p… … … … … …\p…I’ve trampled flowers and braved\nstorms to get to where I am…\pI don’t feel any compulsion to keep\nlosing to the same opponent…\p… … … … … …\nFine… I’ll do it…"
+    082AB738  callstd              function=MSGBOX_DEFAULT(4)
+    082AB73A  setvar               destination=VAR_0x8004 value=2
+    082AB73F  setvar               destination=VAR_0x8005 value=7
+    082AB744  special              SPECIAL_\function=148
+    082AB747  msgbox_multilang     type=0 text_0="Now!\nCome on!" text_1="Now!\nCome on!" text_2="Now!\nCome on!" text_3="Now!\nCome on!" text_4="Now!\nCome on!" text_5="Now!\nCome on!" text_6="Now!\nCome on!"
+    082AB765  callstd              function=MSGBOX_DEFAULT(4)
+    082AB767  call                 destination=0x082ABCD7
+    082AB76C  compare_var_to_value var=0x800D value=1
+    082AB771  goto_if              condition=1 destination=0x082AB77C
+    082AB777  goto                 destination=0x082AB406
+
+  script 0x082AB649  [ok]
+    082AB649  msgbox_multilang     type=0 text_0="Your luck…\nI hope you didn’t use it all up here…" text_1="Your luck…\nI hope you didn’t use it all up here…" text_2="Your luck…\nI hope you didn’t use it all up here…" text_3="Your luck…\nI hope you didn’t use it all up here…" text_4="Your luck…\nI hope you didn’t use it all up here…" text_5="Your luck…\nI hope you didn’t use it all up here…" text_6="Your luck…\nI hope you didn’t use it all up here…"
+    082AB667  callstd              function=MSGBOX_DEFAULT(4)
+    082AB669  call                 destination=0x082ABCD7
+    082AB66E  compare_var_to_value var=0x800D value=1
+    082AB673  goto_if              condition=1 destination=0x082AB67E
+    082AB679  goto                 destination=0x082AB406
+
+  script 0x082AB747  [ok]
+    082AB747  msgbox_multilang     type=0 text_0="Now!\nCome on!" text_1="Now!\nCome on!" text_2="Now!\nCome on!" text_3="Now!\nCome on!" text_4="Now!\nCome on!" text_5="Now!\nCome on!" text_6="Now!\nCome on!"
+    082AB765  callstd              function=MSGBOX_DEFAULT(4)
+    082AB767  call                 destination=0x082ABCD7
+    082AB76C  compare_var_to_value var=0x800D value=1
+    082AB771  goto_if              condition=1 destination=0x082AB77C
+    082AB777  goto                 destination=0x082AB406
+
+  script 0x082ABCD7  [ok]
+    082ABCD7  closemessage         
+    082ABCD8  applymovement        localId=255 movements=[walk_up walk_up]
+    082ABCDF  waitmovement         localId=0
+    082ABCE2  setvar               destination=VAR_0x8004 value=7
+    082ABCE7  setvar               destination=VAR_0x8005 value=0
+    082ABCEC  special              SPECIAL_\function=152
+    082ABCEF  waitstate            
+
+  script 0x082AB67E  [ok]
+    082AB67E  setvar               destination=VAR_0x8004 value=12
+    082AB683  special              SPECIAL_\function=148
+    082AB686  compare_var_to_value var=0x800D value=0
+    082AB68B  goto_if              condition=5 destination=0x082AB801
+    082AB691  msgbox_multilang     type=0 text_0="LUCY: … … … … … …\nShow me your FRONTIER PASS…" text_1="LUCY: … … … … … …\nShow me your FRONTIER PASS…" text_2="LUCY: … … … … … …\nShow me your FRONTIER PASS…" text_3="LUCY: … … … … … …\nShow me your FRONTIER PASS…" text_4="LUCY: … … … … … …\nShow me your FRONTIER PASS…" text_5="LUCY: … … … … … …\nShow me your FRONTIER PASS…" text_6="LUCY: … … … … … …\nShow me your FRONTIER PASS…"
+    082AB6AF  callstd              function=MSGBOX_DEFAULT(4)
+    082AB6B1  waitmessage          
+    082AB6B2  playfanfare          song=466
+    082AB6B5  message              text="The Luck Symbol was embossed on\nthe FRONTIER PASS!"
+    082AB6BA  vcall_if             condition=197 destination=3317434410
+    082AB6C0  clearflag            flag=0xBC08 (temp)
+    082AB6C3  waitmoncry           
+    082AB6C4  clearflag            flag=0xBC08 (temp)
+    082AB6C7  waitmoncry           
+    082AB6C8  clearflag            flag=0xBC08 (temp)
+    082AB6CB  waitmoncry           
+    082AB6CC  clearflag            flag=0xBC08 (temp)
+    082AB6CF  waitmoncry           
+    082AB6D0  clearflag            flag=0x6608 (temp)
+    082AB6D3  waitfanfare          
+    082AB6D4  setvar               destination=VAR_0x8004 value=13
+    082AB6D9  special              SPECIAL_\function=148
+    082AB6DC  msgbox_multilang     type=0 text_0="…That’s all there is…\nDisappear already…" text_1="…That’s all there is…\nDisappear already…" text_2="…That’s all there is…\nDisappear already…" text_3="…That’s all there is…\nDisappear already…" text_4="…That’s all there is…\nDisappear already…" text_5="…That’s all there is…\nDisappear already…" text_6="…That’s all there is…\nDisappear already…"
+    082AB6FA  callstd              function=MSGBOX_DEFAULT(4)
+    082AB6FC  closemessage         
+    082AB6FD  goto                 destination=0x082AB801
+
+  script 0x082AB406  [ok]
+    082AB406  setvar               destination=VAR_0x8004 value=2
+    082AB40B  setvar               destination=VAR_0x8005 value=0
+    082AB410  setvar               destination=VAR_0x8006 value=4
+    082AB415  special              SPECIAL_\function=148
+    082AB418  warp                 mapGroup=41 mapNum=25 WARP_ID_NONE=255 -1=5 -1=6
+    082AB420  waitstate            
+
+  script 0x082ABC1D  [ok]
+    082ABC1D  message              text="KIRLIA used TOXIC!"
+    082ABC22  returnram            
+    082ABC23  updatecoinsbox       x=42 y=8
+    082ABC26  returnram            
+    082ABC27  updatecoinsbox       x=42 y=8
+    082ABC2A  returnram            
+    082ABC2B  updatecoinsbox       x=42 y=8
+    082ABC2E  returnram            
+    082ABC2F  updatecoinsbox       x=42 y=8
+    082ABC32  returnram            
+    082ABC33  updatecoinsbox       x=42 y=8
+    082ABC36  returnram            
+    082ABC37  updatecoinsbox       x=42 y=8
+    082ABC3A  waitmessage          
+    082ABC3B  return               
+
+  script 0x082ABC3C  [ok]
+    082ABC3C  message              text="KIRLIA used WILL-O-WISP!"
+    082ABC41  applymovement        localId=10946 movements=717377288
+    082ABC48  gotostd              function=79
+    082ABC4A  updatecoinsbox       x=42 y=8
+    082ABC4D  applymovement        localId=10946 movements=717377288
+    082ABC54  gotostd              function=79
+    082ABC56  updatecoinsbox       x=42 y=8
+    082ABC59  waitmessage          
+    082ABC5A  return               
+
+  script 0x082ABC5B  [ok]
+    082ABC5B  message              text="KIRLIA used THUNDER WAVE!"
+    082ABC60  fadedefaultbgm       
+    082ABC61  updatecoinsbox       x=42 y=8
+    082ABC64  fadedefaultbgm       
+    082ABC65  updatecoinsbox       x=42 y=8
+    082ABC68  fadedefaultbgm       
+    082ABC69  updatecoinsbox       x=42 y=8
+    082ABC6C  fadedefaultbgm       
+    082ABC6D  updatecoinsbox       x=42 y=8
+    082ABC70  fadedefaultbgm       
+    082ABC71  updatecoinsbox       x=42 y=8
+    082ABC74  fadedefaultbgm       
+    082ABC75  updatecoinsbox       x=42 y=8
+    082ABC78  waitmessage          
+    082ABC79  return               
+
+  script 0x082ABC7A  [ok]
+    082ABC7A  message              text="KIRLIA used HYPNOSIS!"
+    082ABC7F  compare_ptr_to_value ptr=520628930 value=194
+    082ABC85  clearflag            flag=0x1F08
+    082ABC88  updatecoinsbox       x=42 y=8
+    082ABC8B  compare_ptr_to_value ptr=520628930 value=194
+    082ABC91  clearflag            flag=0x1F08
+    082ABC94  updatecoinsbox       x=42 y=8
+    082ABC97  waitmessage          
+    082ABC98  return               
+
+  script 0x082ABC99  [ok]
+    082ABC99  message              text="DUSCLOPS used ICE BEAM!"
+    082ABC9E  buffernumberstring   stringVarId=194 input=2090
+    082ABCA2  buffernumberstring   stringVarId=194 input=2090
+    082ABCA6  buffernumberstring   stringVarId=194 input=2090
+    082ABCAA  buffernumberstring   stringVarId=194 input=2090
+    082ABCAE  buffernumberstring   stringVarId=194 input=2090
+    082ABCB2  buffernumberstring   stringVarId=194 input=2090
+    082ABCB6  waitmessage          
+    082ABCB7  return               
+
+  script 0x082ABCB8  [ok]
+    082ABCB8  message              text="DUSCLOPS used WILL-O-WISP!"
+    082ABCBD  closemessage         
+    082ABCBE  updatecoinsbox       x=42 y=8
+    082ABCC1  closemessage         
+    082ABCC2  updatecoinsbox       x=42 y=8
+    082ABCC5  closemessage         
+    082ABCC6  updatecoinsbox       x=42 y=8
+    082ABCC9  closemessage         
+    082ABCCA  updatecoinsbox       x=42 y=8
+    082ABCCD  closemessage         
+    082ABCCE  updatecoinsbox       x=42 y=8
+    082ABCD1  closemessage         
+    082ABCD2  updatecoinsbox       x=42 y=8
+    082ABCD5  waitmessage          
+    082ABCD6  return               
+
+  script 0x082AB557  [ok]
+    082AB557  msgbox_multilang     type=0 text_0="I shall go fetch our master…" text_1="I shall go fetch our master…" text_2="I shall go fetch our master…" text_3="I shall go fetch our master…" text_4="I shall go fetch our master…" text_5="I shall go fetch our master…" text_6="I shall go fetch our master…"
+    082AB575  callstd              function=MSGBOX_DEFAULT(4)
+    082AB577  closemessage         
+    082AB578  special              SPECIAL_\function=190
+    082AB57B  applymovement        localId=127 movements=[walk_up walk_up]
+    082AB582  applymovement        localId=2 movements=[walk_up walk_up walk_up set_invisible]
+    082AB589  waitmovement         localId=0
+    082AB58C  playse               song=267
+    082AB58F  call                 destination=0x082ABED3
+    082AB594  delay                frames=4
+    082AB597  call                 destination=0x082ABE90
+    082AB59C  delay                frames=4
+    082AB59F  call                 destination=0x082ABF59
+    082AB5A4  delay                frames=4
+    082AB5A7  waitse               
+    082AB5A8  delay                frames=60
+    082AB5AB  playse               song=268
+    082AB5AE  delay                frames=65
+    082AB5B1  call                 destination=0x082ABE90
+    082AB5B6  showobjectat         localId=1 mapGroup=41 mapNum=28
+    082AB5BB  delay                frames=4
+    082AB5BE  call                 destination=0x082ABED3
+    082AB5C3  delay                frames=4
+    082AB5C6  call                 destination=0x082ABF16
+    082AB5CB  waitse               
+    082AB5CC  applymovement        localId=1 movements=[set_visible walk_down]
+    082AB5D3  waitmovement         localId=0
+    082AB5D6  setvar               destination=VAR_0x8004 value=22
+    082AB5DB  special              SPECIAL_\function=155
+    082AB5DE  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082AB5E3  compare_var_to_value var=0x8000 value=2
+    082AB5E8  goto_if              condition=1 destination=0x082AB702
+    082AB5EE  compare_var_to_value var=0x8000 value=3
+    082AB5F3  goto_if              condition=1 destination=0x082AB649
+    082AB5F9  compare_var_to_value var=0x8000 value=4
+    082AB5FE  goto_if              condition=1 destination=0x082AB747
+    082AB604  setvar               destination=VAR_0x8004 value=1
+    082AB609  setvar               destination=VAR_0x8005 value=7
+    082AB60E  special              SPECIAL_\function=148
+    082AB611  compare_var_to_value var=0x800D value=0
+    082AB616  goto_if              condition=5 destination=0x082AB649
+    082AB61C  msgbox_multilang     type=0 text_0="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_1="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_2="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_3="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_4="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_5="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…" text_6="I am LUCY…\nI am the law here…\pFor I am the PIKE QUEEN…\pYou already know it, but to advance,\nyou must defeat me…\p…I’m not one for idle chatter.\nHurry. Come on…"
+    082AB63A  callstd              function=MSGBOX_DEFAULT(4)
+    082AB63C  setvar               destination=VAR_0x8004 value=2
+    082AB641  setvar               destination=VAR_0x8005 value=7
+    082AB646  special              SPECIAL_\function=148
+    082AB649  msgbox_multilang     type=0 text_0="Your luck…\nI hope you didn’t use it all up here…" text_1="Your luck…\nI hope you didn’t use it all up here…" text_2="Your luck…\nI hope you didn’t use it all up here…" text_3="Your luck…\nI hope you didn’t use it all up here…" text_4="Your luck…\nI hope you didn’t use it all up here…" text_5="Your luck…\nI hope you didn’t use it all up here…" text_6="Your luck…\nI hope you didn’t use it all up here…"
+    082AB667  callstd              function=MSGBOX_DEFAULT(4)
+    082AB669  call                 destination=0x082ABCD7
+    082AB66E  compare_var_to_value var=0x800D value=1
+    082AB673  goto_if              condition=1 destination=0x082AB67E
+    082AB679  goto                 destination=0x082AB406
+
+  script 0x082AB77C  [ok]
+    082AB77C  setvar               destination=VAR_0x8004 value=12
+    082AB781  special              SPECIAL_\function=148
+    082AB784  compare_var_to_value var=0x800D value=2
+    082AB789  goto_if              condition=1 destination=0x082AB801
+    082AB78F  msgbox_multilang     type=0 text_0="LUCY: … … … … … …\p…FRONTIER PASS…" text_1="LUCY: … … … … … …\p…FRONTIER PASS…" text_2="LUCY: … … … … … …\p…FRONTIER PASS…" text_3="LUCY: … … … … … …\p…FRONTIER PASS…" text_4="LUCY: … … … … … …\p…FRONTIER PASS…" text_5="LUCY: … … … … … …\p…FRONTIER PASS…" text_6="LUCY: … … … … … …\p…FRONTIER PASS…"
+    082AB7AD  callstd              function=MSGBOX_DEFAULT(4)
+    082AB7AF  waitmessage          
+    082AB7B0  playfanfare          song=466
+    082AB7B3  message              text="The Luck Symbol took on\na golden shine!"
+    082AB7B8  call                 destination=67644103
+    082AB7BD  textcolor            color=42
+    082AB7BF  gotostd              function=MSGBOX_DEFAULT(4)
+    082AB7C1  textcolor            color=42
+    082AB7C3  gotostd              function=MSGBOX_DEFAULT(4)
+    082AB7C5  textcolor            color=42
+    082AB7C7  gotostd              function=MSGBOX_DEFAULT(4)
+    082AB7C9  textcolor            color=42
+    082AB7CB  gotostd              function=MSGBOX_DEFAULT(4)
+    082AB7CD  textcolor            color=42
+    082AB7CF  gotostd              function=102
+    082AB7D1  waitfanfare          
+    082AB7D2  setvar               destination=VAR_0x8004 value=13
+    082AB7D7  special              SPECIAL_\function=148
+    082AB7DA  msgbox_multilang     type=0 text_0="…You, I won’t forget…\n…Ever…" text_1="…You, I won’t forget…\n…Ever…" text_2="…You, I won’t forget…\n…Ever…" text_3="…You, I won’t forget…\n…Ever…" text_4="…You, I won’t forget…\n…Ever…" text_5="…You, I won’t forget…\n…Ever…" text_6="…You, I won’t forget…\n…Ever…"
+    082AB7F8  callstd              function=MSGBOX_DEFAULT(4)
+    082AB7FA  closemessage         
+    082AB7FB  goto                 destination=0x082AB801
+
+  script 0x082AB801  [ok]
+    082AB801  applymovement        localId=1 movements=[walk_left face_right]
+    082AB808  waitmovement         localId=0
+    082AB80B  applymovement        localId=255 movements=[walk_up walk_up]
+    082AB812  waitmovement         localId=0
+    082AB815  setvar               destination=VAR_0x8004 value=1
+    082AB81A  setvar               destination=VAR_0x8005 value=1
+    082AB81F  special              SPECIAL_\function=155
+    082AB822  addvar               destination=VAR_0x800D value=1
+    082AB827  setvar               destination=VAR_0x8004 value=2
+    082AB82C  setvar               destination=VAR_0x8005 value=1
+    082AB831  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082AB836  special              SPECIAL_\function=155
+    082AB839  call                 destination=0x082F3664
+    082AB83E  waitstate            
+
+  map script type 4 (var 0x4004 == 0) -> 0x082F33D3
+  script 0x082F33D3  [ok]
+    082F33D3  setvar               destination=VAR_0x4011 value=28
+    082F33D8  setvar               destination=VAR_0x4010 value=28
+    082F33DD  setvar               destination=VAR_0x8004 value=5
+    082F33E2  special              SPECIAL_\function=155
+    082F33E5  compare_var_to_value var=0x800D value=3
+    082F33EA  goto_if              condition=1 destination=0x082F3420
+    082F33F0  compare_var_to_value var=0x800D value=6
+    082F33F5  goto_if              condition=1 destination=0x082F3420
+    082F33FB  compare_var_to_value var=0x800D value=7
+    082F3400  goto_if              condition=1 destination=0x082F3420
+    082F3406  compare_var_to_value var=0x800D value=8
+    082F340B  goto_if              condition=1 destination=0x082F342A
+    082F3411  hideobjectat         localId=2 mapGroup=41 mapNum=28
+    082F3416  setvar               destination=VAR_0x4004 value=1
+    082F341B  turnobject           localId=255 direction=2
+    082F341F  end                  
+
+  script 0x082F3420  [ok]
+    082F3420  setvar               destination=VAR_0x4004 value=1
+    082F3425  turnobject           localId=255 direction=2
+    082F3429  end                  
+
+  script 0x082F342A  [ok]
+    082F342A  setvar               destination=VAR_0x4004 value=1
+    082F342F  turnobject           localId=255 direction=2
+    082F3433  hideobjectat         localId=1 mapGroup=41 mapNum=28
+    082F3438  end                  
+

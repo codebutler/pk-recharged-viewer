@@ -1,0 +1,107 @@
+Route 21  (group 3, map 40)  header 0x08B3CB24
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x09, flag 0x0000) -> 0x081FCAA7
+  script 0x081FCAA7  [ok]
+    081FCAA7  trainerbattle        type=0 trainer=0xE6 localId=0 ptr1=0x08238831 ptr2=0x08238851
+    081FCAB5  specialvar           output=32781 SPECIAL_\function=37
+    081FCABA  compare_var_to_value var=0x800D value=1
+    081FCABF  goto_if              condition=1 destination=0x081FCAE6
+    081FCAC5  msgbox_multilang     type=0 text_0="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_1="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_2="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_3="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_4="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_5="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_6="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?"
+    081FCAE3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCAE5  end                  
+
+  script 0x081FCAE6  [ok]
+    081FCAE6  goto                 destination=0x081FCAF0
+
+  script 0x081FCAF0  [ok]
+    081FCAF0  trainerbattle        type=5 trainer=0xE6 localId=0 ptr1=0x082B9E17 ptr2=0x08238851
+    081FCAFE  msgbox_multilang     type=0 text_0="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_1="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_2="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_3="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_4="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_5="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?" text_6="Sheesh, I haven’t caught a thing.\nCould this place actually be a\pgiant pool or something?"
+    081FCB1C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCB1E  end                  
+
+  object 2 (gfx 0x09, flag 0x0000) -> 0x081FCB97
+  script 0x081FCB97  [ok]
+    081FCB97  trainerbattle        type=0 trainer=0xE8 localId=0 ptr1=0x082388E5 ptr2=0x08238907
+    081FCBA5  specialvar           output=32781 SPECIAL_\function=37
+    081FCBAA  compare_var_to_value var=0x800D value=1
+    081FCBAF  goto_if              condition=1 destination=0x081FCBD6
+    081FCBB5  msgbox_multilang     type=0 text_0="Oh wait!\nI got a bite! Yeah!" text_1="Oh wait!\nI got a bite! Yeah!" text_2="Oh wait!\nI got a bite! Yeah!" text_3="Oh wait!\nI got a bite! Yeah!" text_4="Oh wait!\nI got a bite! Yeah!" text_5="Oh wait!\nI got a bite! Yeah!" text_6="Oh wait!\nI got a bite! Yeah!"
+    081FCBD3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCBD5  end                  
+
+  script 0x081FCBD6  [ok]
+    081FCBD6  goto                 destination=0x081FCBE0
+
+  script 0x081FCBE0  [ok]
+    081FCBE0  trainerbattle        type=5 trainer=0xE8 localId=0 ptr1=0x082B9E50 ptr2=0x08238907
+    081FCBEE  msgbox_multilang     type=0 text_0="Oh wait!\nI got a bite! Yeah!" text_1="Oh wait!\nI got a bite! Yeah!" text_2="Oh wait!\nI got a bite! Yeah!" text_3="Oh wait!\nI got a bite! Yeah!" text_4="Oh wait!\nI got a bite! Yeah!" text_5="Oh wait!\nI got a bite! Yeah!" text_6="Oh wait!\nI got a bite! Yeah!"
+    081FCC0C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCC0E  end                  
+
+  object 3 (gfx 0xFC, flag 0x0000) -> 0x081FCC87
+  script 0x081FCC87  [ok]
+    081FCC87  trainerbattle        type=0 trainer=0xF6 localId=0 ptr1=0x0823872D ptr2=0x08238749
+    081FCC95  specialvar           output=32781 SPECIAL_\function=37
+    081FCC9A  compare_var_to_value var=0x800D value=1
+    081FCC9F  goto_if              condition=1 destination=0x081FCCC6
+    081FCCA5  msgbox_multilang     type=0 text_0="Where’d you catch your Pokémon?" text_1="Where’d you catch your Pokémon?" text_2="Where’d you catch your Pokémon?" text_3="Where’d you catch your Pokémon?" text_4="Where’d you catch your Pokémon?" text_5="Where’d you catch your Pokémon?" text_6="Where’d you catch your Pokémon?"
+    081FCCC3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCCC5  end                  
+
+  script 0x081FCCC6  [ok]
+    081FCCC6  goto                 destination=0x081FCCD0
+
+  script 0x081FCCD0  [ok]
+    081FCCD0  trainerbattle        type=5 trainer=0xF6 localId=0 ptr1=0x082B9D92 ptr2=0x08238749
+    081FCCDE  msgbox_multilang     type=0 text_0="Where’d you catch your Pokémon?" text_1="Where’d you catch your Pokémon?" text_2="Where’d you catch your Pokémon?" text_3="Where’d you catch your Pokémon?" text_4="Where’d you catch your Pokémon?" text_5="Where’d you catch your Pokémon?" text_6="Where’d you catch your Pokémon?"
+    081FCCFC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCCFE  end                  
+
+  object 4 (gfx 0xFC, flag 0x0000) -> 0x081FCCFF
+  script 0x081FCCFF  [ok]
+    081FCCFF  trainerbattle        type=0 trainer=0xF7 localId=0 ptr1=0x08238778 ptr2=0x0823879C
+    081FCD0D  specialvar           output=32781 SPECIAL_\function=37
+    081FCD12  compare_var_to_value var=0x800D value=1
+    081FCD17  goto_if              condition=1 destination=0x081FCD3E
+    081FCD1D  msgbox_multilang     type=0 text_0="I’m beat! But, I still have the\nbike race and marathon left!" text_1="I’m beat! But, I still have the\nbike race and marathon left!" text_2="I’m beat! But, I still have the\nbike race and marathon left!" text_3="I’m beat! But, I still have the\nbike race and marathon left!" text_4="I’m beat! But, I still have the\nbike race and marathon left!" text_5="I’m beat! But, I still have the\nbike race and marathon left!" text_6="I’m beat! But, I still have the\nbike race and marathon left!"
+    081FCD3B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCD3D  end                  
+
+  script 0x081FCD3E  [ok]
+    081FCD3E  goto                 destination=0x081FCD48
+
+  script 0x081FCD48  [ok]
+    081FCD48  trainerbattle        type=5 trainer=0xF7 localId=0 ptr1=0x082B9DCD ptr2=0x0823879C
+    081FCD56  msgbox_multilang     type=0 text_0="I’m beat! But, I still have the\nbike race and marathon left!" text_1="I’m beat! But, I still have the\nbike race and marathon left!" text_2="I’m beat! But, I still have the\nbike race and marathon left!" text_3="I’m beat! But, I still have the\nbike race and marathon left!" text_4="I’m beat! But, I still have the\nbike race and marathon left!" text_5="I’m beat! But, I still have the\nbike race and marathon left!" text_6="I’m beat! But, I still have the\nbike race and marathon left!"
+    081FCD74  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCD76  end                  
+
+  object 5 (gfx 0xFC, flag 0x0000) -> 0x081FCD77
+  script 0x081FCD77  [ok]
+    081FCD77  trainerbattle        type=0 trainer=0xF8 localId=0 ptr1=0x082387EB ptr2=0x0823880B
+    081FCD85  specialvar           output=32781 SPECIAL_\function=37
+    081FCD8A  compare_var_to_value var=0x800D value=1
+    081FCD8F  goto_if              condition=1 destination=0x081FCDB6
+    081FCD95  msgbox_multilang     type=0 text_0="I’m sunburnt to a crisp!" text_1="I’m sunburnt to a crisp!" text_2="I’m sunburnt to a crisp!" text_3="I’m sunburnt to a crisp!" text_4="I’m sunburnt to a crisp!" text_5="I’m sunburnt to a crisp!" text_6="I’m sunburnt to a crisp!"
+    081FCDB3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCDB5  end                  
+
+  script 0x081FCDB6  [ok]
+    081FCDB6  goto                 destination=0x081FCDC0
+
+  script 0x081FCDC0  [ok]
+    081FCDC0  trainerbattle        type=5 trainer=0xF8 localId=0 ptr1=0x082B9DF7 ptr2=0x0823880B
+    081FCDCE  msgbox_multilang     type=0 text_0="I’m sunburnt to a crisp!" text_1="I’m sunburnt to a crisp!" text_2="I’m sunburnt to a crisp!" text_3="I’m sunburnt to a crisp!" text_4="I’m sunburnt to a crisp!" text_5="I’m sunburnt to a crisp!" text_6="I’m sunburnt to a crisp!"
+    081FCDEC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FCDEE  end                  
+

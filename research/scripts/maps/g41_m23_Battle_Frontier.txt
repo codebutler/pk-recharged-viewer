@@ -1,0 +1,815 @@
+Battle Frontier  (group 41, map 23)  header 0x08B3E334
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2E, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x082A6E2E
+  script 0x082A6E2E  [ok]
+    082A6E2E  compare_var_to_value var=0x8006 value=1
+    082A6E33  goto_if              condition=1 destination=0x082A6EC2
+    082A6E39  setvar               destination=VAR_0x4000 value=1
+    082A6E3E  applymovement        localId=1 movements=[walk_up walk_up walk_up walk_up walk_up face_down]
+    082A6E45  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up]
+    082A6E4C  waitmovement         localId=0
+    082A6E4F  compare_var_to_value var=0x8006 value=2
+    082A6E54  goto_if              condition=1 destination=0x082A6F92
+    082A6E5A  setvar               destination=VAR_0x8004 value=13
+    082A6E5F  special              SPECIAL_\function=154
+    082A6E62  setvar               destination=VAR_0x8004 value=12
+    082A6E67  special              SPECIAL_\function=154
+    082A6E6A  setvar               destination=VAR_0x8004 value=14
+    082A6E6F  special              SPECIAL_\function=154
+    082A6E72  setorcopyvar         destination=VAR_0x8005 source=VAR_0x800D
+    082A6E77  setvar               destination=VAR_0x8004 value=15
+    082A6E7C  special              SPECIAL_\function=154
+    082A6E7F  setorcopyvar         destination=VAR_0x8006 source=VAR_0x800D
+    082A6E84  call                 destination=0x082A7AA4
+    082A6E89  msgbox_multilang     type=0 text_0="First, we will hold your Pokémon for\nsafekeeping.\pYou may then choose from our\nselection of Pokémon." text_1="First, we will hold your Pokémon for\nsafekeeping.\pYou may then choose from our\nselection of Pokémon." text_2="First, we will hold your Pokémon for\nsafekeeping.\pYou may then choose from our\nselection of Pokémon." text_3="First, we will hold your Pokémon for\nsafekeeping.\pYou may then choose from our\nselection of Pokémon." text_4="First, we will hold your Pokémon for\nsafekeeping.\pYou may then choose from our\nselection of Pokémon." text_5="First, we will hold your Pokémon for\nsafekeeping.\pYou may then choose from our\nselection of Pokémon." text_6="First, we will hold your Pokémon for\nsafekeeping.\pYou may then choose from our\nselection of Pokémon."
+    082A6EA7  callstd              function=MSGBOX_DEFAULT(4)
+    082A6EA9  fadescreen           mode=1
+    082A6EAB  setvar               destination=VAR_0x8004 value=8
+    082A6EB0  special              SPECIAL_\function=154
+    082A6EB3  setvar               destination=VAR_0x8004 value=6
+    082A6EB8  special              SPECIAL_\function=154
+    082A6EBB  waitstate            
+
+  script 0x082A6EC2  [ok]
+    082A6EC2  textcolor            color=0
+    082A6EC4  setvar               destination=VAR_0x8004 value=9
+    082A6EC9  special              SPECIAL_\function=154
+    082A6ECC  setvar               destination=VAR_0x8004 value=16
+    082A6ED1  special              SPECIAL_\function=154
+    082A6ED4  msgbox_multilang     type=0 text_0="Thank you for competing!\nLet us restore your Pokémon!" text_1="Thank you for competing!\nLet us restore your Pokémon!" text_2="Thank you for competing!\nLet us restore your Pokémon!" text_3="Thank you for competing!\nLet us restore your Pokémon!" text_4="Thank you for competing!\nLet us restore your Pokémon!" text_5="Thank you for competing!\nLet us restore your Pokémon!" text_6="Thank you for competing!\nLet us restore your Pokémon!"
+    082A6EF2  callstd              function=MSGBOX_DEFAULT(4)
+    082A6EF4  playfanfare          song=368
+    082A6EF7  waitfanfare          
+    082A6EF8  special              SPECIAL_\function=0
+    082A6EFB  setvar               destination=VAR_0x8004 value=9
+    082A6F00  special              SPECIAL_\function=148
+    082A6F03  compare_var_to_value var=0x800D value=0
+    082A6F08  goto_if              condition=1 destination=0x082A6FC1
+    082A6F0E  playse               song=263
+    082A6F11  waitse               
+    082A6F12  msgbox_multilang     type=0 text_0="Excuse me! Excuse me, please!\nMay I get you to wait a few moments?" text_1="Excuse me! Excuse me, please!\nMay I get you to wait a few moments?" text_2="Excuse me! Excuse me, please!\nMay I get you to wait a few moments?" text_3="Excuse me! Excuse me, please!\nMay I get you to wait a few moments?" text_4="Excuse me! Excuse me, please!\nMay I get you to wait a few moments?" text_5="Excuse me! Excuse me, please!\nMay I get you to wait a few moments?" text_6="Excuse me! Excuse me, please!\nMay I get you to wait a few moments?"
+    082A6F30  callstd              function=MSGBOX_DEFAULT(4)
+    082A6F32  closemessage         
+    082A6F33  applymovement        localId=1 movements=[walk_left walk_left walk_left]
+    082A6F3A  waitmovement         localId=0
+    082A6F3D  msgbox_multilang     type=0 text_0="…Uh-huh? What?! …Whoa!\nUnderstood, sir! Will do!" text_1="…Uh-huh? What?! …Whoa!\nUnderstood, sir! Will do!" text_2="…Uh-huh? What?! …Whoa!\nUnderstood, sir! Will do!" text_3="…Uh-huh? What?! …Whoa!\nUnderstood, sir! Will do!" text_4="…Uh-huh? What?! …Whoa!\nUnderstood, sir! Will do!" text_5="…Uh-huh? What?! …Whoa!\nUnderstood, sir! Will do!" text_6="…Uh-huh? What?! …Whoa!\nUnderstood, sir! Will do!"
+    082A6F5B  callstd              function=MSGBOX_DEFAULT(4)
+    082A6F5D  closemessage         
+    082A6F5E  applymovement        localId=1 movements=[walk_right walk_right walk_right face_down]
+    082A6F65  waitmovement         localId=0
+    082A6F68  msgbox_multilang     type=0 text_0="Oh, my…\nSorry to keep you waiting!\pI have a message from this facility’s\nboss, the Factory Head.\pHe says, “We’re going to do it!\nCome here right now!”" text_1="Oh, my…\nSorry to keep you waiting!\pI have a message from this facility’s\nboss, the Factory Head.\pHe says, “We’re going to do it!\nCome here right now!”" text_2="Oh, my…\nSorry to keep you waiting!\pI have a message from this facility’s\nboss, the Factory Head.\pHe says, “We’re going to do it!\nCome here right now!”" text_3="Oh, my…\nSorry to keep you waiting!\pI have a message from this facility’s\nboss, the Factory Head.\pHe says, “We’re going to do it!\nCome here right now!”" text_4="Oh, my…\nSorry to keep you waiting!\pI have a message from this facility’s\nboss, the Factory Head.\pHe says, “We’re going to do it!\nCome here right now!”" text_5="Oh, my…\nSorry to keep you waiting!\pI have a message from this facility’s\nboss, the Factory Head.\pHe says, “We’re going to do it!\nCome here right now!”" text_6="Oh, my…\nSorry to keep you waiting!\pI have a message from this facility’s\nboss, the Factory Head.\pHe says, “We’re going to do it!\nCome here right now!”"
+    082A6F86  callstd              function=MSGBOX_DEFAULT(4)
+    082A6F88  closemessage         
+    082A6F89  delay                frames=16
+    082A6F8C  goto                 destination=0x082A791C
+
+  script 0x082A6F92  [ok]
+    082A6F92  special              SPECIAL_\function=18
+    082A6F95  setvar               destination=VAR_0x8004 value=10
+    082A6F9A  setvar               destination=VAR_0x8005 value=0
+    082A6F9F  special              SPECIAL_\function=154
+    082A6FA2  setvar               destination=VAR_0x8004 value=2
+    082A6FA7  setvar               destination=VAR_0x8005 value=6
+    082A6FAC  setvar               destination=VAR_0x8006 value=1
+    082A6FB1  special              SPECIAL_\function=148
+    082A6FB4  special              SPECIAL_\function=68
+    082A6FB7  goto                 destination=0x082A7067
+
+  script 0x082A7AA4  [ok]
+    082A7AA4  textcolor            color=0
+    082A7AA6  setvar               destination=VAR_0x8004 value=1
+    082A7AAB  setvar               destination=VAR_0x8005 value=2
+    082A7AB0  special              SPECIAL_\function=148
+    082A7AB3  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A7AB8  compare_var_to_value var=0x8000 value=0
+    082A7ABD  goto_if              condition=1 destination=0x082A7B05
+    082A7AC3  compare_var_to_value var=0x8000 value=1
+    082A7AC8  goto_if              condition=1 destination=0x082A7B2B
+    082A7ACE  compare_var_to_value var=0x8000 value=2
+    082A7AD3  goto_if              condition=1 destination=0x082A7B5A
+    082A7AD9  compare_var_to_value var=0x8000 value=3
+    082A7ADE  goto_if              condition=1 destination=0x082A7B7B
+    082A7AE4  msgbox_multilang     type=0 text_0="The most common type of the 3 Pokémon" text_1="The most common type of the 3 Pokémon" text_2="The most common type of the 3 Pokémon" text_3="The most common type of the 3 Pokémon" text_4="The most common type of the 3 Pokémon" text_5="The most common type of the 3 Pokémon" text_6="The most common type of the 3 Pokémon"
+    082A7B02  callstd              function=MSGBOX_DEFAULT(4)
+    082A7B04  return               
+
+  script 0x082A6FC1  [ok]
+    082A6FC1  goto                 destination=0x082A708C
+
+  script 0x082A791C  [ok]
+    082A791C  message              text="The Factory Head is demanding you.\nAre you prepared to face him?"
+    082A7921  copyvar              destination=10887 source=6408
+    082A7926  pokemartdecoration   products=2266564650
+    082A792B  clearflag            flag=0x1908
+    082A792E  pokemartdecoration   products=2266564650
+    082A7933  clearflag            flag=0x1908
+    082A7936  pokemartdecoration   products=73795626
+    082A793B  endram               
+    082A793C  addmoney             value=220268584 disable=128
+    082A7942  nop1                 
+    082A7943  nop                  
+    082A7944  goto_if              condition=1 destination=0x082A798C
+    082A794A  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    082A794F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A7954  compare_var_to_value var=0x8000 value=0
+    082A7959  goto_if              condition=1 destination=0x082A7996
+    082A795F  compare_var_to_value var=0x8000 value=1
+    082A7964  goto_if              condition=1 destination=0x082A799C
+    082A796A  compare_var_to_value var=0x8000 value=2
+    082A796F  goto_if              condition=1 destination=0x082A79A2
+    082A7975  compare_var_to_value var=0x8000 value=3
+    082A797A  goto_if              condition=1 destination=0x082A79A8
+    082A7980  compare_var_to_value var=0x8000 value=127
+    082A7985  goto_if              condition=1 destination=0x082A79AE
+    082A798B  return               
+
+  script 0x082A7067  [ok]
+    082A7067  textcolor            color=0
+    082A7069  setvar               destination=VAR_0x8004 value=9
+    082A706E  special              SPECIAL_\function=148
+    082A7071  compare_var_to_value var=0x800D value=0
+    082A7076  goto_if              condition=5 destination=0x082A7082
+    082A707C  goto                 destination=0x082A708C
+
+  script 0x082A7B05  [ok]
+    082A7B05  callnative           func=0x08062B2D
+    082A7B0A  msgbox_multilang     type=0 text_0="You can expect to see {STR_VAR_1},\n{STR_VAR_2} and {STR_VAR_3}." text_1="You can expect to see {STR_VAR_1},\n{STR_VAR_2} and {STR_VAR_3}." text_2="You can expect to see {STR_VAR_1},\n{STR_VAR_2} and {STR_VAR_3}." text_3="You can expect to see {STR_VAR_1},\n{STR_VAR_2} and {STR_VAR_3}." text_4="You can expect to see {STR_VAR_1},\n{STR_VAR_2} and {STR_VAR_3}." text_5="You can expect to see {STR_VAR_1},\n{STR_VAR_2} and {STR_VAR_3}." text_6="You can expect to see {STR_VAR_1},\n{STR_VAR_2} and {STR_VAR_3}."
+    082A7B28  callstd              function=MSGBOX_DEFAULT(4)
+    082A7B2A  return               
+
+  script 0x082A7B2B  [ok]
+    082A7B2B  callnative           func=0x08062B2D
+    082A7B30  random               limit=3
+    082A7B33  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A7B38  compare_var_to_value var=0x8000 value=0
+    082A7B3D  goto_if              condition=1 destination=0x082A7B9C
+    082A7B43  compare_var_to_value var=0x8000 value=1
+    082A7B48  goto_if              condition=1 destination=0x082A7BBD
+    082A7B4E  compare_var_to_value var=0x8000 value=2
+    082A7B53  goto_if              condition=1 destination=0x082A7BDE
+    082A7B59  return               
+
+  script 0x082A7B5A  [ok]
+    082A7B5A  msgbox_multilang     type=0 text_0="Name of the lead Pokémon and its first move" text_1="Name of the lead Pokémon and its first move" text_2="Name of the lead Pokémon and its first move" text_3="Name of the lead Pokémon and its first move" text_4="Name of the lead Pokémon and its first move" text_5="Name of the lead Pokémon and its first move" text_6="Name of the lead Pokémon and its first move"
+    082A7B78  callstd              function=MSGBOX_DEFAULT(4)
+    082A7B7A  return               
+
+  script 0x082A7B7B  [ok]
+    082A7B7B  msgbox_multilang     type=0 text_0="The lead Pokémon’s first move" text_1="The lead Pokémon’s first move" text_2="The lead Pokémon’s first move" text_3="The lead Pokémon’s first move" text_4="The lead Pokémon’s first move" text_5="The lead Pokémon’s first move" text_6="The lead Pokémon’s first move"
+    082A7B99  callstd              function=MSGBOX_DEFAULT(4)
+    082A7B9B  return               
+
+  script 0x082A708C  [ok]
+    082A708C  textcolor            color=0
+    082A708E  setvar               destination=VAR_0x8004 value=1
+    082A7093  setvar               destination=VAR_0x8005 value=2
+    082A7098  special              SPECIAL_\function=148
+    082A709B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A70A0  compare_var_to_value var=0x8000 value=1
+    082A70A5  goto_if              condition=1 destination=0x082A713F
+    082A70AB  compare_var_to_value var=0x8000 value=2
+    082A70B0  goto_if              condition=1 destination=0x082A7161
+    082A70B6  compare_var_to_value var=0x8000 value=3
+    082A70BB  goto_if              condition=1 destination=0x082A7183
+    082A70C1  compare_var_to_value var=0x8000 value=4
+    082A70C6  goto_if              condition=1 destination=0x082A71A5
+    082A70CC  compare_var_to_value var=0x8000 value=5
+    082A70D1  goto_if              condition=1 destination=0x082A71C7
+    082A70D7  compare_var_to_value var=0x8000 value=6
+    082A70DC  goto_if              condition=1 destination=0x082A71E9
+    082A70E2  compare_var_to_value var=0x800D value=1
+    082A70E7  goto_if              condition=4 destination=0x082A7211
+    082A70ED  call                 destination=0x0828900D
+    082A70F2  compare_var_to_value var=0x800D value=1
+    082A70F7  goto_if              condition=1 destination=0x082A7221
+    082A70FD  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    082A7102  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A7107  compare_var_to_value var=0x8000 value=0
+    082A710C  goto_if              condition=1 destination=0x082A722B
+    082A7112  compare_var_to_value var=0x8000 value=1
+    082A7117  goto_if              condition=1 destination=0x082A7231
+    082A711D  compare_var_to_value var=0x8000 value=2
+    082A7122  goto_if              condition=1 destination=0x082A7237
+    082A7128  compare_var_to_value var=0x8000 value=3
+    082A712D  goto_if              condition=1 destination=0x082A723D
+    082A7133  compare_var_to_value var=0x8000 value=127
+    082A7138  goto_if              condition=1 destination=0x082A7243
+    082A713E  return               
+
+  script 0x082A798C  [ok]
+    082A798C  goto                 destination=0x082A79B4
+
+  script 0x082A7996  [ok]
+    082A7996  call                 destination=0x082A7A03
+    082A799B  return               
+
+  script 0x082A799C  [ok]
+    082A799C  call                 destination=0x082A7298
+    082A79A1  return               
+
+  script 0x082A79A2  [ok]
+    082A79A2  call                 destination=0x082A72D7
+    082A79A7  return               
+
+  script 0x082A79A8  [ok]
+    082A79A8  call                 destination=0x082A7344
+    082A79AD  return               
+
+  script 0x082A79AE  [ok]
+    082A79AE  call                 destination=0x082A791C
+    082A79B3  return               
+
+  script 0x082A7082  [ok]
+    082A7082  goto                 destination=0x082A791C
+
+  script 0x082A7B9C  [ok]
+    082A7B9C  msgbox_multilang     type=0 text_0="You can expect to see\n{STR_VAR_1} and {STR_VAR_2}." text_1="You can expect to see\n{STR_VAR_1} and {STR_VAR_2}." text_2="You can expect to see\n{STR_VAR_1} and {STR_VAR_2}." text_3="You can expect to see\n{STR_VAR_1} and {STR_VAR_2}." text_4="You can expect to see\n{STR_VAR_1} and {STR_VAR_2}." text_5="You can expect to see\n{STR_VAR_1} and {STR_VAR_2}." text_6="You can expect to see\n{STR_VAR_1} and {STR_VAR_2}."
+    082A7BBA  callstd              function=MSGBOX_DEFAULT(4)
+    082A7BBC  return               
+
+  script 0x082A7BBD  [ok]
+    082A7BBD  msgbox_multilang     type=0 text_0="You can expect to see\n{STR_VAR_2} and {STR_VAR_3}." text_1="You can expect to see\n{STR_VAR_2} and {STR_VAR_3}." text_2="You can expect to see\n{STR_VAR_2} and {STR_VAR_3}." text_3="You can expect to see\n{STR_VAR_2} and {STR_VAR_3}." text_4="You can expect to see\n{STR_VAR_2} and {STR_VAR_3}." text_5="You can expect to see\n{STR_VAR_2} and {STR_VAR_3}." text_6="You can expect to see\n{STR_VAR_2} and {STR_VAR_3}."
+    082A7BDB  callstd              function=MSGBOX_DEFAULT(4)
+    082A7BDD  return               
+
+  script 0x082A7BDE  [ok]
+    082A7BDE  msgbox_multilang     type=0 text_0="You can expect to see\n{STR_VAR_3} and {STR_VAR_1}." text_1="You can expect to see\n{STR_VAR_3} and {STR_VAR_1}." text_2="You can expect to see\n{STR_VAR_3} and {STR_VAR_1}." text_3="You can expect to see\n{STR_VAR_3} and {STR_VAR_1}." text_4="You can expect to see\n{STR_VAR_3} and {STR_VAR_1}." text_5="You can expect to see\n{STR_VAR_3} and {STR_VAR_1}." text_6="You can expect to see\n{STR_VAR_3} and {STR_VAR_1}."
+    082A7BFC  callstd              function=MSGBOX_DEFAULT(4)
+    082A7BFE  return               
+
+  script 0x082A713F  [opcode-out-of-range:0xED]
+    082A713F  message              text="The 2nd match is next!\nAre you ready?"
+    082A7144  vmessage             text=3171428989
+    082A7149  bufferspeciesname    stringVarId=42 species=?(48392)
+    082A714D  bufferspeciesname    stringVarId=42 species=?(48392)
+    082A7151  bufferspeciesname    stringVarId=42 species=?(48392)
+    082A7155  bufferspeciesname    stringVarId=42 species=?(48392)
+    082A7159  bufferspeciesname    stringVarId=42 species=?(1288)
+    082A715D  bufferitemnameplural stringVarId=112 item=2090 quantity=58215
+    082A7163  bufferspeciesname    stringVarId=42 species=?(58120)
+    082A7167  bufferspeciesname    stringVarId=42 species=?(58120)
+    082A716B  bufferspeciesname    stringVarId=42 species=?(58120)
+    082A716F  bufferspeciesname    stringVarId=42 species=?(58120)
+    082A7173  bufferspeciesname    stringVarId=42 species=?(58120)
+    082A7177  bufferspeciesname    stringVarId=42 species=?(58120)
+    082A717B  bufferspeciesname    stringVarId=42 species=?(1288)
+    082A717F  bufferitemnameplural stringVarId=112 item=2090 quantity=2407
+    082A7185  bufferleadmonspeciesname stringVarId=42
+    082A7187  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A7189  bufferleadmonspeciesname stringVarId=42
+    082A718B  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A718D  bufferleadmonspeciesname stringVarId=42
+    082A718F  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A7191  bufferleadmonspeciesname stringVarId=42
+    082A7193  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A7195  bufferleadmonspeciesname stringVarId=42
+    082A7197  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A7199  bufferleadmonspeciesname stringVarId=42
+    082A719B  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A719D  bufferleadmonspeciesname stringVarId=42
+    082A719F  gotostd              function=MSGBOX_YESNO(5)
+    082A71A1  bufferitemnameplural stringVarId=112 item=2090 quantity=12135
+    082A71A7  bufferleadmonspeciesname stringVarId=42
+    082A71A9  gotostd              function=47
+    082A71AB  bufferleadmonspeciesname stringVarId=42
+    082A71AD  gotostd              function=47
+    082A71AF  bufferleadmonspeciesname stringVarId=42
+    082A71B1  gotostd              function=47
+    082A71B3  bufferleadmonspeciesname stringVarId=42
+    082A71B5  gotostd              function=47
+    082A71B7  bufferleadmonspeciesname stringVarId=42
+    082A71B9  gotostd              function=47
+    082A71BB  bufferleadmonspeciesname stringVarId=42
+    082A71BD  gotostd              function=47
+    082A71BF  bufferleadmonspeciesname stringVarId=42
+    082A71C1  gotostd              function=MSGBOX_YESNO(5)
+    082A71C3  bufferitemnameplural stringVarId=112 item=2090 quantity=21863
+    082A71C9  bufferleadmonspeciesname stringVarId=42
+    082A71CB  gotostd              function=85
+    082A71CD  bufferleadmonspeciesname stringVarId=42
+    082A71CF  gotostd              function=85
+    082A71D1  bufferleadmonspeciesname stringVarId=42
+    082A71D3  gotostd              function=85
+    082A71D5  bufferleadmonspeciesname stringVarId=42
+    082A71D7  gotostd              function=85
+    082A71D9  bufferleadmonspeciesname stringVarId=42
+    082A71DB  gotostd              function=85
+    082A71DD  bufferleadmonspeciesname stringVarId=42
+    082A71DF  gotostd              function=85
+    082A71E1  bufferleadmonspeciesname stringVarId=42
+    082A71E3  gotostd              function=MSGBOX_YESNO(5)
+    082A71E5  bufferitemnameplural stringVarId=112 item=2090 quantity=31591
+    082A71EB  bufferleadmonspeciesname stringVarId=42
+    082A71ED  gotostd              function=123
+    082A71EF  bufferleadmonspeciesname stringVarId=42
+    082A71F1  gotostd              function=123
+    082A71F3  bufferleadmonspeciesname stringVarId=42
+    082A71F5  gotostd              function=123
+    082A71F7  bufferleadmonspeciesname stringVarId=42
+    082A71F9  gotostd              function=123
+    082A71FB  bufferleadmonspeciesname stringVarId=42
+    082A71FD  gotostd              function=123
+    082A71FF  bufferleadmonspeciesname stringVarId=42
+    082A7201  gotostd              function=123
+    082A7203  bufferleadmonspeciesname stringVarId=42
+    082A7205  gotostd              function=MSGBOX_YESNO(5)
+    082A7207  bufferitemnameplural stringVarId=112 item=2090 quantity=1382
+
+  script 0x082A7161  [unknown-opcode:0xE3]
+    082A7161  message              text="The 3rd match is next!\nAre you ready?"
+
+  script 0x082A7183  [opcode-out-of-range:0xED]
+    082A7183  message              text="The 4th match is next!\nAre you ready?"
+    082A7188  callstd              function=126
+    082A718A  clearflag            flag=0x908
+    082A718D  bufferleadmonspeciesname stringVarId=42
+    082A718F  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A7191  bufferleadmonspeciesname stringVarId=42
+    082A7193  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A7195  bufferleadmonspeciesname stringVarId=42
+    082A7197  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A7199  bufferleadmonspeciesname stringVarId=42
+    082A719B  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A719D  bufferleadmonspeciesname stringVarId=42
+    082A719F  gotostd              function=MSGBOX_YESNO(5)
+    082A71A1  bufferitemnameplural stringVarId=112 item=2090 quantity=12135
+    082A71A7  bufferleadmonspeciesname stringVarId=42
+    082A71A9  gotostd              function=47
+    082A71AB  bufferleadmonspeciesname stringVarId=42
+    082A71AD  gotostd              function=47
+    082A71AF  bufferleadmonspeciesname stringVarId=42
+    082A71B1  gotostd              function=47
+    082A71B3  bufferleadmonspeciesname stringVarId=42
+    082A71B5  gotostd              function=47
+    082A71B7  bufferleadmonspeciesname stringVarId=42
+    082A71B9  gotostd              function=47
+    082A71BB  bufferleadmonspeciesname stringVarId=42
+    082A71BD  gotostd              function=47
+    082A71BF  bufferleadmonspeciesname stringVarId=42
+    082A71C1  gotostd              function=MSGBOX_YESNO(5)
+    082A71C3  bufferitemnameplural stringVarId=112 item=2090 quantity=21863
+    082A71C9  bufferleadmonspeciesname stringVarId=42
+    082A71CB  gotostd              function=85
+    082A71CD  bufferleadmonspeciesname stringVarId=42
+    082A71CF  gotostd              function=85
+    082A71D1  bufferleadmonspeciesname stringVarId=42
+    082A71D3  gotostd              function=85
+    082A71D5  bufferleadmonspeciesname stringVarId=42
+    082A71D7  gotostd              function=85
+    082A71D9  bufferleadmonspeciesname stringVarId=42
+    082A71DB  gotostd              function=85
+    082A71DD  bufferleadmonspeciesname stringVarId=42
+    082A71DF  gotostd              function=85
+    082A71E1  bufferleadmonspeciesname stringVarId=42
+    082A71E3  gotostd              function=MSGBOX_YESNO(5)
+    082A71E5  bufferitemnameplural stringVarId=112 item=2090 quantity=31591
+    082A71EB  bufferleadmonspeciesname stringVarId=42
+    082A71ED  gotostd              function=123
+    082A71EF  bufferleadmonspeciesname stringVarId=42
+    082A71F1  gotostd              function=123
+    082A71F3  bufferleadmonspeciesname stringVarId=42
+    082A71F5  gotostd              function=123
+    082A71F7  bufferleadmonspeciesname stringVarId=42
+    082A71F9  gotostd              function=123
+    082A71FB  bufferleadmonspeciesname stringVarId=42
+    082A71FD  gotostd              function=123
+    082A71FF  bufferleadmonspeciesname stringVarId=42
+    082A7201  gotostd              function=123
+    082A7203  bufferleadmonspeciesname stringVarId=42
+    082A7205  gotostd              function=MSGBOX_YESNO(5)
+    082A7207  bufferitemnameplural stringVarId=112 item=2090 quantity=1382
+
+  script 0x082A71A5  [opcode-out-of-range:0xED]
+    082A71A5  message              text="The 5th match is next!\nAre you ready?"
+    082A71AA  playse               song=10878
+    082A71AD  gotostd              function=47
+    082A71AF  bufferleadmonspeciesname stringVarId=42
+    082A71B1  gotostd              function=47
+    082A71B3  bufferleadmonspeciesname stringVarId=42
+    082A71B5  gotostd              function=47
+    082A71B7  bufferleadmonspeciesname stringVarId=42
+    082A71B9  gotostd              function=47
+    082A71BB  bufferleadmonspeciesname stringVarId=42
+    082A71BD  gotostd              function=47
+    082A71BF  bufferleadmonspeciesname stringVarId=42
+    082A71C1  gotostd              function=MSGBOX_YESNO(5)
+    082A71C3  bufferitemnameplural stringVarId=112 item=2090 quantity=21863
+    082A71C9  bufferleadmonspeciesname stringVarId=42
+    082A71CB  gotostd              function=85
+    082A71CD  bufferleadmonspeciesname stringVarId=42
+    082A71CF  gotostd              function=85
+    082A71D1  bufferleadmonspeciesname stringVarId=42
+    082A71D3  gotostd              function=85
+    082A71D5  bufferleadmonspeciesname stringVarId=42
+    082A71D7  gotostd              function=85
+    082A71D9  bufferleadmonspeciesname stringVarId=42
+    082A71DB  gotostd              function=85
+    082A71DD  bufferleadmonspeciesname stringVarId=42
+    082A71DF  gotostd              function=85
+    082A71E1  bufferleadmonspeciesname stringVarId=42
+    082A71E3  gotostd              function=MSGBOX_YESNO(5)
+    082A71E5  bufferitemnameplural stringVarId=112 item=2090 quantity=31591
+    082A71EB  bufferleadmonspeciesname stringVarId=42
+    082A71ED  gotostd              function=123
+    082A71EF  bufferleadmonspeciesname stringVarId=42
+    082A71F1  gotostd              function=123
+    082A71F3  bufferleadmonspeciesname stringVarId=42
+    082A71F5  gotostd              function=123
+    082A71F7  bufferleadmonspeciesname stringVarId=42
+    082A71F9  gotostd              function=123
+    082A71FB  bufferleadmonspeciesname stringVarId=42
+    082A71FD  gotostd              function=123
+    082A71FF  bufferleadmonspeciesname stringVarId=42
+    082A7201  gotostd              function=123
+    082A7203  bufferleadmonspeciesname stringVarId=42
+    082A7205  gotostd              function=MSGBOX_YESNO(5)
+    082A7207  bufferitemnameplural stringVarId=112 item=2090 quantity=1382
+
+  script 0x082A71C7  [opcode-out-of-range:0xED]
+    082A71C7  message              text="The 6th match is next!\nAre you ready?"
+    082A71CC  addobject            localId=10878
+    082A71CF  gotostd              function=85
+    082A71D1  bufferleadmonspeciesname stringVarId=42
+    082A71D3  gotostd              function=85
+    082A71D5  bufferleadmonspeciesname stringVarId=42
+    082A71D7  gotostd              function=85
+    082A71D9  bufferleadmonspeciesname stringVarId=42
+    082A71DB  gotostd              function=85
+    082A71DD  bufferleadmonspeciesname stringVarId=42
+    082A71DF  gotostd              function=85
+    082A71E1  bufferleadmonspeciesname stringVarId=42
+    082A71E3  gotostd              function=MSGBOX_YESNO(5)
+    082A71E5  bufferitemnameplural stringVarId=112 item=2090 quantity=31591
+    082A71EB  bufferleadmonspeciesname stringVarId=42
+    082A71ED  gotostd              function=123
+    082A71EF  bufferleadmonspeciesname stringVarId=42
+    082A71F1  gotostd              function=123
+    082A71F3  bufferleadmonspeciesname stringVarId=42
+    082A71F5  gotostd              function=123
+    082A71F7  bufferleadmonspeciesname stringVarId=42
+    082A71F9  gotostd              function=123
+    082A71FB  bufferleadmonspeciesname stringVarId=42
+    082A71FD  gotostd              function=123
+    082A71FF  bufferleadmonspeciesname stringVarId=42
+    082A7201  gotostd              function=123
+    082A7203  bufferleadmonspeciesname stringVarId=42
+    082A7205  gotostd              function=MSGBOX_YESNO(5)
+    082A7207  bufferitemnameplural stringVarId=112 item=2090 quantity=1382
+
+  script 0x082A71E9  [opcode-out-of-range:0xED]
+    082A71E9  message              text="Finally, the 7th match is next!\nAre you ready?"
+    082A71EE  setmonmove           partyIndex=126 slot=42 move=?(31496)
+    082A71F3  bufferleadmonspeciesname stringVarId=42
+    082A71F5  gotostd              function=123
+    082A71F7  bufferleadmonspeciesname stringVarId=42
+    082A71F9  gotostd              function=123
+    082A71FB  bufferleadmonspeciesname stringVarId=42
+    082A71FD  gotostd              function=123
+    082A71FF  bufferleadmonspeciesname stringVarId=42
+    082A7201  gotostd              function=123
+    082A7203  bufferleadmonspeciesname stringVarId=42
+    082A7205  gotostd              function=MSGBOX_YESNO(5)
+    082A7207  bufferitemnameplural stringVarId=112 item=2090 quantity=1382
+
+  script 0x082A7211  [ok]
+    082A7211  compare_var_to_value var=0x800D value=6
+    082A7216  goto_if              condition=3 destination=0x082A720B
+    082A721C  goto                 destination=0x082A70ED
+
+  script 0x0828900D  [ok]
+    0828900D  setvar               destination=VAR_0x8004 value=1
+    08289012  setvar               destination=VAR_0x8005 value=6
+    08289017  special              SPECIAL_\function=148
+    0828901A  return               
+
+  script 0x082A7221  [ok]
+    082A7221  goto                 destination=0x082A7249
+
+  script 0x082A722B  [ok]
+    082A722B  call                 destination=0x082A7385
+    082A7230  return               
+
+  script 0x082A7231  [ok]
+    082A7231  call                 destination=0x082A7298
+    082A7236  return               
+
+  script 0x082A7237  [ok]
+    082A7237  call                 destination=0x082A72D7
+    082A723C  return               
+
+  script 0x082A723D  [ok]
+    082A723D  call                 destination=0x082A7344
+    082A7242  return               
+
+  script 0x082A7243  [ok]
+    082A7243  call                 destination=0x082A7067
+    082A7248  return               
+
+  script 0x082A79B4  [ok]
+    082A79B4  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    082A79B9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A79BE  compare_var_to_value var=0x8000 value=0
+    082A79C3  goto_if              condition=1 destination=0x082A79EB
+    082A79C9  compare_var_to_value var=0x8000 value=1
+    082A79CE  goto_if              condition=1 destination=0x082A79F1
+    082A79D4  compare_var_to_value var=0x8000 value=2
+    082A79D9  goto_if              condition=1 destination=0x082A79F7
+    082A79DF  compare_var_to_value var=0x8000 value=127
+    082A79E4  goto_if              condition=1 destination=0x082A79FD
+    082A79EA  return               
+
+  script 0x082A7A03  [ok]
+    082A7A03  msgbox_multilang     type=0 text_0="I’m terribly sorry, but I can’t tell\nyou anything about the Factory Head." text_1="I’m terribly sorry, but I can’t tell\nyou anything about the Factory Head." text_2="I’m terribly sorry, but I can’t tell\nyou anything about the Factory Head." text_3="I’m terribly sorry, but I can’t tell\nyou anything about the Factory Head." text_4="I’m terribly sorry, but I can’t tell\nyou anything about the Factory Head." text_5="I’m terribly sorry, but I can’t tell\nyou anything about the Factory Head." text_6="I’m terribly sorry, but I can’t tell\nyou anything about the Factory Head."
+    082A7A21  callstd              function=MSGBOX_DEFAULT(4)
+    082A7A23  msgbox_multilang     type=0 text_0="Before starting the battle, would you\nlike to swap a Pokémon?" text_1="Before starting the battle, would you\nlike to swap a Pokémon?" text_2="Before starting the battle, would you\nlike to swap a Pokémon?" text_3="Before starting the battle, would you\nlike to swap a Pokémon?" text_4="Before starting the battle, would you\nlike to swap a Pokémon?" text_5="Before starting the battle, would you\nlike to swap a Pokémon?" text_6="Before starting the battle, would you\nlike to swap a Pokémon?"
+    082A7A41  callstd              function=MSGBOX_YESNO(5)
+    082A7A43  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A7A48  compare_var_to_value var=0x8000 value=1
+    082A7A4D  goto_if              condition=1 destination=0x082A7A6A
+    082A7A53  compare_var_to_value var=0x8000 value=0
+    082A7A58  goto_if              condition=1 destination=0x082A7A70
+    082A7A5E  compare_var_to_value var=0x8000 value=127
+    082A7A63  goto_if              condition=1 destination=0x082A7A70
+    082A7A69  return               
+
+  script 0x082A7298  [ok]
+    082A7298  message              text="Would you like to record your latest\nbattle on your Frontier Pass?"
+    082A729D  createvobject        graphicsId=126 id=42 x=43528 y=10878 elevation=8 direction=170
+    082A72A6  bufferleadmonspeciesname stringVarId=42
+    082A72A8  gotostd              function=170
+    082A72AA  bufferleadmonspeciesname stringVarId=42
+    082A72AC  gotostd              function=170
+    082A72AE  bufferleadmonspeciesname stringVarId=42
+    082A72B0  gotostd              function=170
+    082A72B2  bufferleadmonspeciesname stringVarId=42
+    082A72B4  gotostd              function=102
+    082A72B6  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    082A72BC  compare_var_to_value var=0x800D value=1
+    082A72C1  goto_if              condition=1 destination=0x082A72CD
+    082A72C7  call                 destination=0x082A7067
+    082A72CC  return               
+
+  script 0x082A72D7  [ok]
+    082A72D7  textcolor            color=0
+    082A72D9  msgbox_multilang     type=0 text_0="Would you like to save and quit the\ngame?" text_1="Would you like to save and quit the\ngame?" text_2="Would you like to save and quit the\ngame?" text_3="Would you like to save and quit the\ngame?" text_4="Would you like to save and quit the\ngame?" text_5="Would you like to save and quit the\ngame?" text_6="Would you like to save and quit the\ngame?"
+    082A72F7  callstd              function=MSGBOX_YESNO(5)
+    082A72F9  compare_var_to_value var=0x800D value=1
+    082A72FE  goto_if              condition=1 destination=0x082A730A
+    082A7304  call                 destination=0x082A7067
+    082A7309  return               
+
+  script 0x082A7344  [ok]
+    082A7344  textcolor            color=0
+    082A7346  message              text="Would you like to retire from your\nBattle Swap challenge?"
+    082A734B  warpdoor             mapGroup=127 mapNum=42 WARP_ID_NONE=8 -1=32571 -1=2090
+    082A7353  warpdoor             mapGroup=127 mapNum=42 WARP_ID_NONE=8 -1=32571 -1=2090
+    082A735B  warpdoor             mapGroup=127 mapNum=42 WARP_ID_NONE=8 -1=32571 -1=2090
+    082A7363  waitmessage          
+    082A7364  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    082A736A  compare_var_to_value var=0x800D value=1
+    082A736F  goto_if              condition=1 destination=0x082A737B
+    082A7375  call                 destination=0x082A7067
+    082A737A  return               
+
+  script 0x082A720B  [ok]
+    082A720B  waitmessage          
+    082A720C  goto                 destination=0x082A70ED
+
+  script 0x082A70ED  [ok]
+    082A70ED  call                 destination=0x0828900D
+    082A70F2  compare_var_to_value var=0x800D value=1
+    082A70F7  goto_if              condition=1 destination=0x082A7221
+    082A70FD  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    082A7102  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A7107  compare_var_to_value var=0x8000 value=0
+    082A710C  goto_if              condition=1 destination=0x082A722B
+    082A7112  compare_var_to_value var=0x8000 value=1
+    082A7117  goto_if              condition=1 destination=0x082A7231
+    082A711D  compare_var_to_value var=0x8000 value=2
+    082A7122  goto_if              condition=1 destination=0x082A7237
+    082A7128  compare_var_to_value var=0x8000 value=3
+    082A712D  goto_if              condition=1 destination=0x082A723D
+    082A7133  compare_var_to_value var=0x8000 value=127
+    082A7138  goto_if              condition=1 destination=0x082A7243
+    082A713E  return               
+
+  script 0x082A7249  [ok]
+    082A7249  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    082A724E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A7253  compare_var_to_value var=0x8000 value=0
+    082A7258  goto_if              condition=1 destination=0x082A7280
+    082A725E  compare_var_to_value var=0x8000 value=1
+    082A7263  goto_if              condition=1 destination=0x082A7286
+    082A7269  compare_var_to_value var=0x8000 value=2
+    082A726E  goto_if              condition=1 destination=0x082A728C
+    082A7274  compare_var_to_value var=0x8000 value=127
+    082A7279  goto_if              condition=1 destination=0x082A7292
+    082A727F  return               
+
+  script 0x082A7385  [ok]
+    082A7385  textcolor            color=0
+    082A7387  setvar               destination=VAR_0x8004 value=12
+    082A738C  special              SPECIAL_\function=154
+    082A738F  setvar               destination=VAR_0x8004 value=14
+    082A7394  special              SPECIAL_\function=154
+    082A7397  setorcopyvar         destination=VAR_0x8005 source=VAR_0x800D
+    082A739C  setvar               destination=VAR_0x8004 value=15
+    082A73A1  special              SPECIAL_\function=154
+    082A73A4  setorcopyvar         destination=VAR_0x8006 source=VAR_0x800D
+    082A73A9  call                 destination=0x082A7AA4
+    082A73AE  msgbox_multilang     type=0 text_0="Before starting the battle, would you\nlike to swap a Pokémon?" text_1="Before starting the battle, would you\nlike to swap a Pokémon?" text_2="Before starting the battle, would you\nlike to swap a Pokémon?" text_3="Before starting the battle, would you\nlike to swap a Pokémon?" text_4="Before starting the battle, would you\nlike to swap a Pokémon?" text_5="Before starting the battle, would you\nlike to swap a Pokémon?" text_6="Before starting the battle, would you\nlike to swap a Pokémon?"
+    082A73CC  callstd              function=MSGBOX_YESNO(5)
+    082A73CE  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A73D3  compare_var_to_value var=0x8000 value=1
+    082A73D8  goto_if              condition=1 destination=0x082A73F5
+    082A73DE  compare_var_to_value var=0x8000 value=0
+    082A73E3  goto_if              condition=1 destination=0x082A73FB
+    082A73E9  compare_var_to_value var=0x8000 value=127
+    082A73EE  goto_if              condition=1 destination=0x082A73FB
+    082A73F4  return               
+
+  script 0x082A79EB  [ok]
+    082A79EB  call                 destination=0x082A7A03
+    082A79F0  return               
+
+  script 0x082A79F1  [ok]
+    082A79F1  call                 destination=0x082A72D7
+    082A79F6  return               
+
+  script 0x082A79F7  [ok]
+    082A79F7  call                 destination=0x082A7344
+    082A79FC  return               
+
+  script 0x082A79FD  [ok]
+    082A79FD  call                 destination=0x082A791C
+    082A7A02  return               
+
+  script 0x082A7A6A  [ok]
+    082A7A6A  call                 destination=0x082A7401
+    082A7A6F  return               
+
+  script 0x082A7A70  [ok]
+    082A7A70  call                 destination=0x082A6FF6
+    082A7A75  return               
+
+  script 0x082A72CD  [ok]
+    082A72CD  call                 destination=0x08288FB1
+    082A72D2  goto                 destination=0x082A72C7
+
+  script 0x082A730A  [ok]
+    082A730A  message              text="I am saving your data.\nPlease wait."
+    082A730F  addvar               destination=10879 value=5896
+    082A7314  bufferpartymonnick   stringVarId=42 slot=5896
+    082A7318  bufferpartymonnick   stringVarId=42 slot=5896
+    082A731C  bufferpartymonnick   stringVarId=42 slot=5896
+    082A7320  bufferpartymonnick   stringVarId=42 slot=5896
+    082A7324  bufferpartymonnick   stringVarId=42 slot=26120
+    082A7328  setvar               destination=VAR_0x8004 value=3
+    082A732D  setvar               destination=VAR_0x8005 value=2
+    082A7332  special              SPECIAL_\function=154
+    082A7335  playse               song=55
+    082A7338  waitse               
+    082A7339  fadescreen           mode=1
+    082A733B  setvar               destination=VAR_0x8004 value=4
+    082A7340  special              SPECIAL_\function=148
+    082A7343  end                  
+
+  script 0x082A737B  [ok]
+    082A737B  call                 destination=0x082A8CB7
+    082A7380  goto                 destination=0x082A7375
+
+  script 0x082A7280  [ok]
+    082A7280  call                 destination=0x082A7385
+    082A7285  return               
+
+  script 0x082A7286  [ok]
+    082A7286  call                 destination=0x082A72D7
+    082A728B  return               
+
+  script 0x082A728C  [ok]
+    082A728C  call                 destination=0x082A7344
+    082A7291  return               
+
+  script 0x082A7292  [ok]
+    082A7292  call                 destination=0x082A7067
+    082A7297  return               
+
+  script 0x082A73F5  [ok]
+    082A73F5  goto                 destination=0x082A7401
+
+  script 0x082A73FB  [ok]
+    082A73FB  goto                 destination=0x082A6FF6
+
+  script 0x082A7401  [ok]
+    082A7401  textcolor            color=0
+    082A7403  fadescreen           mode=1
+    082A7405  setvar               destination=VAR_0x8004 value=7
+    082A740A  special              SPECIAL_\function=154
+    082A740D  waitstate            
+
+  script 0x082A6FF6  [ok]
+    082A6FF6  textcolor            color=0
+    082A6FF8  msgbox_multilang     type=0 text_0="Right this way, please!" text_1="Right this way, please!" text_2="Right this way, please!" text_3="Right this way, please!" text_4="Right this way, please!" text_5="Right this way, please!" text_6="Right this way, please!"
+    082A7016  callstd              function=MSGBOX_DEFAULT(4)
+    082A7018  closemessage         
+    082A7019  call                 destination=0x08289DDE
+    082A701E  compare_var_to_value var=0x800D value=0
+    082A7023  goto_if              condition=1 destination=0x082A7041
+    082A7029  compare_var_to_value var=0x800D value=1
+    082A702E  goto_if              condition=1 destination=0x082A7054
+    082A7034  waitmovement         localId=0
+    082A7037  warp                 mapGroup=41 mapNum=24 WARP_ID_NONE=255 -1=6 -1=11
+    082A703F  waitstate            
+
+  script 0x08288FB1  [ok]
+    08288FB1  setvar               destination=VAR_0x8004 value=19
+    08288FB6  special              SPECIAL_\function=148
+    08288FB9  compare_var_to_value var=0x800D value=0
+    08288FBE  goto_if              condition=1 destination=0x08288FEC
+    08288FC4  playse               song=55
+    08288FC7  msgbox_multilang     type=0 text_0="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_1="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_2="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_3="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_4="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_5="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_6="{PLAYER}’s battle was recorded\non the FRONTIER PASS."
+    08288FE5  callstd              function=MSGBOX_DEFAULT(4)
+    08288FE7  goto                 destination=0x0828900C
+
+  script 0x082A72C7  [ok]
+    082A72C7  call                 destination=0x082A7067
+    082A72CC  return               
+
+  script 0x082A8CB7  [ok]
+    082A8CB7  setvar               destination=VAR_0x8004 value=2
+    082A8CBC  setvar               destination=VAR_0x8005 value=0
+    082A8CC1  setvar               destination=VAR_0x8006 value=4
+    082A8CC6  special              SPECIAL_\function=148
+    082A8CC9  goto                 destination=0x082A8E68
+
+  script 0x082A7375  [ok]
+    082A7375  call                 destination=0x082A7067
+    082A737A  return               
+
+  script 0x08289DDE  [ok]
+    08289DDE  setvar               destination=VAR_0x8004 value=1
+    08289DE3  setvar               destination=VAR_0x8005 value=1
+    08289DE8  special              SPECIAL_\function=148
+    08289DEB  return               
+
+  script 0x082A7041  [ok]
+    082A7041  applymovement        localId=1 movements=[walk_left walk_left walk_up walk_up set_invisible]
+    082A7048  applymovement        localId=255 movements=[walk_up walk_left walk_left walk_up walk_up]
+    082A704F  goto                 destination=0x082A7034
+
+  script 0x082A7054  [ok]
+    082A7054  applymovement        localId=1 movements=[walk_right walk_right walk_up walk_up set_invisible]
+    082A705B  applymovement        localId=255 movements=[walk_up walk_right walk_right walk_up walk_up]
+    082A7062  goto                 destination=0x082A7034
+
+  script 0x08288FEC  [ok]
+    08288FEC  msgbox_multilang     type=0 text_0="There was an error of some sort.\nYour record could not be saved." text_1="There was an error of some sort.\nYour record could not be saved." text_2="There was an error of some sort.\nYour record could not be saved." text_3="There was an error of some sort.\nYour record could not be saved." text_4="There was an error of some sort.\nYour record could not be saved." text_5="There was an error of some sort.\nYour record could not be saved." text_6="There was an error of some sort.\nYour record could not be saved."
+    0828900A  callstd              function=MSGBOX_DEFAULT(4)
+    0828900C  return               
+
+  script 0x0828900C  [ok]
+    0828900C  return               
+
+  script 0x082A8E68  [ok]
+    082A8E68  copyvar              destination=VAR_0x800D source=VAR_0x408C
+    082A8E6D  compare_var_to_value var=0x800D value=1
+    082A8E72  goto_if              condition=1 destination=0x082A8E82
+    082A8E78  warp                 mapGroup=41 mapNum=22 WARP_ID_NONE=255 -1=4 -1=8
+    082A8E80  waitstate            
+
+  script 0x082A7034  [ok]
+    082A7034  waitmovement         localId=0
+    082A7037  warp                 mapGroup=41 mapNum=24 WARP_ID_NONE=255 -1=6 -1=11
+    082A703F  waitstate            
+
+  script 0x082A8E82  [ok]
+    082A8E82  warp                 mapGroup=41 mapNum=22 WARP_ID_NONE=255 -1=14 -1=8
+    082A8E8A  goto                 destination=0x082A8E80
+
+  script 0x082A8E80  [ok]
+    082A8E80  waitstate            
+
+  map script type 4 (var 0x4001 == 0) -> 0x082A6FD5
+  script 0x082A6FD5  [ok]
+    082A6FD5  setvar               destination=VAR_0x4001 value=1
+    082A6FDA  turnobject           localId=255 direction=2
+    082A6FDE  compare_var_to_value var=0x8006 value=1
+    082A6FE3  goto_if              condition=5 destination=0x082A6FF5
+    082A6FE9  setobjectxy          localId=1 x=8 y=7
+    082A6FF0  turnobject           localId=1 direction=1
+    082A6FF4  end                  
+
+  script 0x082A6FF5  [ok]
+    082A6FF5  end                  
+

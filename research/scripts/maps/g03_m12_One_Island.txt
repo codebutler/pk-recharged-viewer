@@ -1,0 +1,139 @@
+One Island  (group 3, map 12)  header 0x08B3C814
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF5, flag 0x0000) -> 0x0822F170
+  script 0x0822F170  [ok]
+    0822F170  lock                 
+    0822F171  faceplayer           
+    0822F172  checkflag            flag=0x8A4
+    0822F175  goto_if              condition=1 destination=0x0822F1A6
+    0822F17B  checkflag            flag=0x2A1
+    0822F17E  goto_if              condition=1 destination=0x0822F1CB
+    0822F184  msgbox_multilang     type=0 text_0="Here we are on an island smack in the\nmiddle of nowhere.\pWe’re lucky to have an upstanding\nyoung man like Celio here.\pMy granddaughter was in a tizzy over\nCelio’s friend.\pSomething about a famous\nPokémaniac?\pI’m not sure what that means, but\nCelio is quite the man!" text_1="Here we are on an island smack in the\nmiddle of nowhere.\pWe’re lucky to have an upstanding\nyoung man like Celio here.\pMy granddaughter was in a tizzy over\nCelio’s friend.\pSomething about a famous\nPokémaniac?\pI’m not sure what that means, but\nCelio is quite the man!" text_2="Here we are on an island smack in the\nmiddle of nowhere.\pWe’re lucky to have an upstanding\nyoung man like Celio here.\pMy granddaughter was in a tizzy over\nCelio’s friend.\pSomething about a famous\nPokémaniac?\pI’m not sure what that means, but\nCelio is quite the man!" text_3="Here we are on an island smack in the\nmiddle of nowhere.\pWe’re lucky to have an upstanding\nyoung man like Celio here.\pMy granddaughter was in a tizzy over\nCelio’s friend.\pSomething about a famous\nPokémaniac?\pI’m not sure what that means, but\nCelio is quite the man!" text_4="Here we are on an island smack in the\nmiddle of nowhere.\pWe’re lucky to have an upstanding\nyoung man like Celio here.\pMy granddaughter was in a tizzy over\nCelio’s friend.\pSomething about a famous\nPokémaniac?\pI’m not sure what that means, but\nCelio is quite the man!" text_5="Here we are on an island smack in the\nmiddle of nowhere.\pWe’re lucky to have an upstanding\nyoung man like Celio here.\pMy granddaughter was in a tizzy over\nCelio’s friend.\pSomething about a famous\nPokémaniac?\pI’m not sure what that means, but\nCelio is quite the man!" text_6="Here we are on an island smack in the\nmiddle of nowhere.\pWe’re lucky to have an upstanding\nyoung man like Celio here.\pMy granddaughter was in a tizzy over\nCelio’s friend.\pSomething about a famous\nPokémaniac?\pI’m not sure what that means, but\nCelio is quite the man!"
+    0822F1A2  callstd              function=MSGBOX_DEFAULT(4)
+    0822F1A4  release              
+
+  script 0x0822F1A6  [ok]
+    0822F1A6  msgbox_multilang     type=0 text_0="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we finally have PC linkage\nwith people in Hoenn.\pI’m not sure what that means, but\nCelio is quite the man.\pHe would make a fine husband for my\ngranddaughter!" text_1="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we finally have PC linkage\nwith people in Hoenn.\pI’m not sure what that means, but\nCelio is quite the man.\pHe would make a fine husband for my\ngranddaughter!" text_2="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we finally have PC linkage\nwith people in Hoenn.\pI’m not sure what that means, but\nCelio is quite the man.\pHe would make a fine husband for my\ngranddaughter!" text_3="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we finally have PC linkage\nwith people in Hoenn.\pI’m not sure what that means, but\nCelio is quite the man.\pHe would make a fine husband for my\ngranddaughter!" text_4="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we finally have PC linkage\nwith people in Hoenn.\pI’m not sure what that means, but\nCelio is quite the man.\pHe would make a fine husband for my\ngranddaughter!" text_5="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we finally have PC linkage\nwith people in Hoenn.\pI’m not sure what that means, but\nCelio is quite the man.\pHe would make a fine husband for my\ngranddaughter!" text_6="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we finally have PC linkage\nwith people in Hoenn.\pI’m not sure what that means, but\nCelio is quite the man.\pHe would make a fine husband for my\ngranddaughter!"
+    0822F1C4  callstd              function=MSGBOX_DEFAULT(4)
+    0822F1C6  goto                 destination=0x0822F1A4
+
+  script 0x0822F1CB  [ok]
+    0822F1CB  msgbox_multilang     type=0 text_0="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we now have PC linkage with\npeople in Kanto.\pI’m not sure what that means, but\nCelio is quite the man!" text_1="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we now have PC linkage with\npeople in Kanto.\pI’m not sure what that means, but\nCelio is quite the man!" text_2="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we now have PC linkage with\npeople in Kanto.\pI’m not sure what that means, but\nCelio is quite the man!" text_3="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we now have PC linkage with\npeople in Kanto.\pI’m not sure what that means, but\nCelio is quite the man!" text_4="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we now have PC linkage with\npeople in Kanto.\pI’m not sure what that means, but\nCelio is quite the man!" text_5="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we now have PC linkage with\npeople in Kanto.\pI’m not sure what that means, but\nCelio is quite the man!" text_6="My granddaughter was in a tizzy over\na new breakthrough.\pShe said we now have PC linkage with\npeople in Kanto.\pI’m not sure what that means, but\nCelio is quite the man!"
+    0822F1E9  callstd              function=MSGBOX_DEFAULT(4)
+    0822F1EB  goto                 destination=0x0822F1A4
+
+  script 0x0822F1A4  [ok]
+    0822F1A4  release              
+
+  object 2 (gfx 0xF4, flag 0x0000) -> 0x0822F1F0
+  script 0x0822F1F0  [ok]
+    0822F1F0  msgbox_multilang     type=0 text_0="Hi, sight-seeing, are you?\nIsn’t the warm climate here great?" text_1="Hi, sight-seeing, are you?\nIsn’t the warm climate here great?" text_2="Hi, sight-seeing, are you?\nIsn’t the warm climate here great?" text_3="Hi, sight-seeing, are you?\nIsn’t the warm climate here great?" text_4="Hi, sight-seeing, are you?\nIsn’t the warm climate here great?" text_5="Hi, sight-seeing, are you?\nIsn’t the warm climate here great?" text_6="Hi, sight-seeing, are you?\nIsn’t the warm climate here great?"
+    0822F20E  callstd              function=MSGBOX_NPC(2)
+    0822F210  end                  
+
+  object 3 (gfx 0xFA, flag 0x0000) -> 0x0822F253
+  script 0x0822F253  [opcode-out-of-range:0xF8]
+    0822F253  lock                 
+    0822F254  faceplayer           
+    0822F255  msgbox_multilang     type=0 text_0="I always train hard.\pWould you like to have a friendly\nPokémon Battle?" text_1="I always train hard.\pWould you like to have a friendly\nPokémon Battle?" text_2="I always train hard.\pWould you like to have a friendly\nPokémon Battle?" text_3="I always train hard.\pWould you like to have a friendly\nPokémon Battle?" text_4="I always train hard.\pWould you like to have a friendly\nPokémon Battle?" text_5="I always train hard.\pWould you like to have a friendly\nPokémon Battle?" text_6="I always train hard.\pWould you like to have a friendly\nPokémon Battle?"
+    0822F273  callstd              function=MSGBOX_YESNO(5)
+    0822F275  compare_var_to_value var=0x800D value=0
+    0822F27A  goto_if              condition=1 destination=0x0822F32F
+    0822F280  message              text="How would you like to train?\nI can adapt to your level of\pExperience."
+    0822F285  subvar               destination=8952 value=6152
+
+  script 0x0822F32F  [ok]
+    0822F32F  msgbox_multilang     type=0 text_0="Let me know if you change your mind,\nI’m always ready to battle!" text_1="Let me know if you change your mind,\nI’m always ready to battle!" text_2="Let me know if you change your mind,\nI’m always ready to battle!" text_3="Let me know if you change your mind,\nI’m always ready to battle!" text_4="Let me know if you change your mind,\nI’m always ready to battle!" text_5="Let me know if you change your mind,\nI’m always ready to battle!" text_6="Let me know if you change your mind,\nI’m always ready to battle!"
+    0822F34D  callstd              function=MSGBOX_DEFAULT(4)
+    0822F34F  release              
+
+  object 4 (gfx 0x44, flag 0x0132) -> 0x00000000
+  coord trigger 0 (var 0x40E5 == 0) -> 0x0822F383
+  script 0x0822F383  [ok]
+    0822F383  lockall              
+    0822F384  playse               song=21
+    0822F387  setflag              flag=0x4005 (temp)
+    0822F38A  playbgm              song=415 save_song=0
+    0822F38E  applymovement        localId=4 movements=[emote_exclamation_mark]
+    0822F395  turnobject           localId=4 direction=1
+    0822F399  waitmovement         localId=0
+    0822F39C  delay                frames=48
+    0822F39F  getplayerxy          x=16384 y=16385
+    0822F3A4  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    0822F3A9  compare_var_to_value var=0x8000 value=13
+    0822F3AE  goto_if              condition=1 destination=0x0822F42C
+    0822F3B4  compare_var_to_value var=0x8000 value=14
+    0822F3B9  goto_if              condition=1 destination=0x0822F43B
+    0822F3BF  compare_var_to_value var=0x8000 value=15
+    0822F3C4  goto_if              condition=1 destination=0x0822F44A
+    0822F3CA  textcolor            color=1
+    0822F3CC  speakername          name="???"
+    0822F3D1  msgbox_multilang     type=0 text_0="Hi there! You’re the Kanto Champion,\naren’t you?" text_1="¡Hola! Eres el Campeón de Kanto,\n¿verdad?" text_2="Salut ! Tu es le Champion de Kanto,\nn’est-ce pas ?" text_3="Ciao! Sei il Campione di Kanto, vero?" text_4="Hallo! Du bist der Kanto-Champion,\nnicht wahr?" text_5="Olá! Você é o Campeぇo de Kanto, nぇo\né?" text_6="Hi there! You’re the Kanto Champion,\naren’t you?"
+    0822F3EF  callstd              function=MSGBOX_DEFAULT(4)
+    0822F3F1  speakername          name="May"
+    0822F3F6  msgbox_multilang     type=0 text_0="I’m May, a Pokémon Trainer.\nIt’s an honor to meet you!\pMy father, Professor Birch, is\nconducting research in the Sevii\pIslands.\pSeeing how amazing you are as a\nTrainer, I’m sure he can do\psomething special for your Pokédex.\pCome with me!\nI’ll take you to the lab;it may not\pbe grand, but I bet you’ll love it." text_1="Soy May, una Entrenadora Pokémon.\n¡Es un honor conocerte!\pMi padre, el Profesor Birch, está\nrealizando investigaciones en las\pIslas Sevii.\pViendo lo increíble que eres como\nEntrenador, estoy segura de que\ppodrá hacer algo especial para tu\pPokédex.\p¡Ven conmigo!\nTe llevaré al laboratorio; puede\pque no sea grandioso, pero apuesto\pa que te encantará." text_2="Je suis May, une Dresseuse Pokémon.\nC’est un honneur de te rencontrer !\pMon père, le Professeur Birch, fait\ndes recherches dans les Îles Sevii.\pVoyant à quel point tu es incroyable\nen tant que Dresseur, je suis sûre\pqu’il pourra faire quelque chose de\pspécial pour ton Pokédex.\pViens avec moi !\nJe vais te conduire au laboratoire\p; il n’est peut-être pas grandiose,\pmais je parie que tu vas l’adorer." text_3="Sono May, una Allenatrice Pokémon.\nÈ un onore conoscerti!\pMio padre, il Professor Birch, sta\nconducendo ricerche nelle Isole\pSevii.\pVedendo quanto sei incredibile come\nAllenatore, sono sicura che potrà\pfare qualcosa di speciale per il\ptuo Pokédex.\pVieni con me!\nTi porterò al laboratorio; non sarà\pgrandioso, ma scommetto che ti\ppiacerà." text_4="Ich bin May, eine Pokémon-Trainerin.\nEs ist mir eine Ehre, dich\pkennenzulernen!\pMein Vater, Professor Birch, führt\nForschungen auf den Sevii-Inseln\pdurch.\pDa du so beeindruckend als Trainer\nbist, bin ich sicher, dass er etwas\pBesonderes für dein Pokédex tun\pkann.\pKomm mit mir!\nIch werde dich ins Labor bringen;\pes ist vielleicht nicht großartig,\paber ich wette, du wirst es lieben." text_5="Eu sou a May, uma Treinadora\nPokémon.\pÉ uma honra te conhecer!\pMeu pai, o Professor Birch, está\nrealizando pesquisas nas Ilhas\pSevii.\pVendo o quぇo incrível você é como\nTreinador, tenho certeza de que\pele pode fazer algo especial para\pseu Pokédex.\pVenha comigo!\nVou te levar ao laboratório; pode\pnぇo ser grandioso, mas aposto que\pvocê vai adorar." text_6="I’m May, a Pokémon Trainer.\nIt’s an honor to meet you!\pMy father, Professor Birch, is\nconducting research in the Sevii\pIslands.\pSeeing how amazing you are as a\nTrainer, I’m sure he can do\psomething special for your Pokédex.\pCome with me!\nI’ll take you to the lab;it may not\pbe grand, but I bet you’ll love it."
+    0822F414  callstd              function=MSGBOX_DEFAULT(4)
+    0822F416  addvar               destination=VAR_0x40E5 value=1
+    0822F41B  setflag              flag=0x138
+    0822F41E  clearflag            flag=0x4005 (temp)
+    0822F421  warp                 mapGroup=30 mapNum=5 WARP_ID_NONE=0 -1=65535 -1=65535
+    0822F429  waitstate            
+
+  script 0x0822F42C  [ok]
+    0822F42C  applymovement        localId=4 movements=[walk_left walk_left walk_left walk_down]
+    0822F433  waitmovement         localId=0
+    0822F436  goto                 destination=0x0822F3CA
+
+  script 0x0822F43B  [ok]
+    0822F43B  applymovement        localId=4 movements=[walk_left walk_left walk_down]
+    0822F442  waitmovement         localId=0
+    0822F445  goto                 destination=0x0822F3CA
+
+  script 0x0822F44A  [ok]
+    0822F44A  applymovement        localId=4 movements=[walk_left walk_down]
+    0822F451  waitmovement         localId=0
+    0822F454  goto                 destination=0x0822F3CA
+
+  script 0x0822F3CA  [ok]
+    0822F3CA  textcolor            color=1
+    0822F3CC  speakername          name="???"
+    0822F3D1  msgbox_multilang     type=0 text_0="Hi there! You’re the Kanto Champion,\naren’t you?" text_1="¡Hola! Eres el Campeón de Kanto,\n¿verdad?" text_2="Salut ! Tu es le Champion de Kanto,\nn’est-ce pas ?" text_3="Ciao! Sei il Campione di Kanto, vero?" text_4="Hallo! Du bist der Kanto-Champion,\nnicht wahr?" text_5="Olá! Você é o Campeぇo de Kanto, nぇo\né?" text_6="Hi there! You’re the Kanto Champion,\naren’t you?"
+    0822F3EF  callstd              function=MSGBOX_DEFAULT(4)
+    0822F3F1  speakername          name="May"
+    0822F3F6  msgbox_multilang     type=0 text_0="I’m May, a Pokémon Trainer.\nIt’s an honor to meet you!\pMy father, Professor Birch, is\nconducting research in the Sevii\pIslands.\pSeeing how amazing you are as a\nTrainer, I’m sure he can do\psomething special for your Pokédex.\pCome with me!\nI’ll take you to the lab;it may not\pbe grand, but I bet you’ll love it." text_1="Soy May, una Entrenadora Pokémon.\n¡Es un honor conocerte!\pMi padre, el Profesor Birch, está\nrealizando investigaciones en las\pIslas Sevii.\pViendo lo increíble que eres como\nEntrenador, estoy segura de que\ppodrá hacer algo especial para tu\pPokédex.\p¡Ven conmigo!\nTe llevaré al laboratorio; puede\pque no sea grandioso, pero apuesto\pa que te encantará." text_2="Je suis May, une Dresseuse Pokémon.\nC’est un honneur de te rencontrer !\pMon père, le Professeur Birch, fait\ndes recherches dans les Îles Sevii.\pVoyant à quel point tu es incroyable\nen tant que Dresseur, je suis sûre\pqu’il pourra faire quelque chose de\pspécial pour ton Pokédex.\pViens avec moi !\nJe vais te conduire au laboratoire\p; il n’est peut-être pas grandiose,\pmais je parie que tu vas l’adorer." text_3="Sono May, una Allenatrice Pokémon.\nÈ un onore conoscerti!\pMio padre, il Professor Birch, sta\nconducendo ricerche nelle Isole\pSevii.\pVedendo quanto sei incredibile come\nAllenatore, sono sicura che potrà\pfare qualcosa di speciale per il\ptuo Pokédex.\pVieni con me!\nTi porterò al laboratorio; non sarà\pgrandioso, ma scommetto che ti\ppiacerà." text_4="Ich bin May, eine Pokémon-Trainerin.\nEs ist mir eine Ehre, dich\pkennenzulernen!\pMein Vater, Professor Birch, führt\nForschungen auf den Sevii-Inseln\pdurch.\pDa du so beeindruckend als Trainer\nbist, bin ich sicher, dass er etwas\pBesonderes für dein Pokédex tun\pkann.\pKomm mit mir!\nIch werde dich ins Labor bringen;\pes ist vielleicht nicht großartig,\paber ich wette, du wirst es lieben." text_5="Eu sou a May, uma Treinadora\nPokémon.\pÉ uma honra te conhecer!\pMeu pai, o Professor Birch, está\nrealizando pesquisas nas Ilhas\pSevii.\pVendo o quぇo incrível você é como\nTreinador, tenho certeza de que\pele pode fazer algo especial para\pseu Pokédex.\pVenha comigo!\nVou te levar ao laboratório; pode\pnぇo ser grandioso, mas aposto que\pvocê vai adorar." text_6="I’m May, a Pokémon Trainer.\nIt’s an honor to meet you!\pMy father, Professor Birch, is\nconducting research in the Sevii\pIslands.\pSeeing how amazing you are as a\nTrainer, I’m sure he can do\psomething special for your Pokédex.\pCome with me!\nI’ll take you to the lab;it may not\pbe grand, but I bet you’ll love it."
+    0822F414  callstd              function=MSGBOX_DEFAULT(4)
+    0822F416  addvar               destination=VAR_0x40E5 value=1
+    0822F41B  setflag              flag=0x138
+    0822F41E  clearflag            flag=0x4005 (temp)
+    0822F421  warp                 mapGroup=30 mapNum=5 WARP_ID_NONE=0 -1=65535 -1=65535
+    0822F429  waitstate            
+
+  coord trigger 1 (var 0x40E5 == 0) -> 0x0822F383
+  coord trigger 2 (var 0x40E5 == 0) -> 0x0822F383
+  sign 0 at (16,19) -> 0x0822F211
+  script 0x0822F211  [ok]
+    0822F211  msgbox_multilang     type=0 text_0="One Island\nFriends Gather at Knot Island" text_1="One Island\nFriends Gather at Knot Island" text_2="One Island\nFriends Gather at Knot Island" text_3="One Island\nFriends Gather at Knot Island" text_4="One Island\nFriends Gather at Knot Island" text_5="One Island\nFriends Gather at Knot Island" text_6="One Island\nFriends Gather at Knot Island"
+    0822F22F  callstd              function=MSGBOX_SIGN(3)
+    0822F231  end                  
+
+  sign 1 at (19,8) -> 0x0822F232
+  script 0x0822F232  [ok]
+    0822F232  msgbox_multilang     type=0 text_0="Knowledge happens everywhere!\nHoenn Research Lab" text_1="Knowledge happens everywhere!\nHoenn Research Lab" text_2="Knowledge happens everywhere!\nHoenn Research Lab" text_3="Knowledge happens everywhere!\nHoenn Research Lab" text_4="Knowledge happens everywhere!\nHoenn Research Lab" text_5="Knowledge happens everywhere!\nHoenn Research Lab" text_6="Knowledge happens everywhere!\nHoenn Research Lab"
+    0822F250  callstd              function=MSGBOX_SIGN(3)
+    0822F252  end                  
+
+  map script type 3 -> 0x0822F16C
+  script 0x0822F16C  [ok]
+    0822F16C  setworldmapflag      flag=0x8FB
+    0822F16F  end                  
+

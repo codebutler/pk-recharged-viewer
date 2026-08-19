@@ -1,0 +1,34 @@
+S.S. Anne  (group 1, map 21)  header 0x08B3B464
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x30, flag 0x0000) -> 0x0820C1B3
+  script 0x0820C1B3  [ok]
+    0820C1B3  trainerbattle        type=0 trainer=0x1E3 localId=0 ptr1=0x0820C211 ptr2=0x0820C24C
+    0820C1C1  msgbox_multilang     type=0 text_0="Personally, I prefer strong and rare\nPokémon." text_1="Personally, I prefer strong and rare\nPokémon." text_2="Personally, I prefer strong and rare\nPokémon." text_3="Personally, I prefer strong and rare\nPokémon." text_4="Personally, I prefer strong and rare\nPokémon." text_5="Personally, I prefer strong and rare\nPokémon." text_6="Personally, I prefer strong and rare\nPokémon."
+    0820C1DF  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820C1E1  end                  
+
+  object 2 (gfx 0x2F, flag 0x0000) -> 0x0820C1E2
+  script 0x0820C1E2  [ok]
+    0820C1E2  trainerbattle        type=0 trainer=0x7F localId=0 ptr1=0x0820C28D ptr2=0x0820C2B5
+    0820C1F0  msgbox_multilang     type=0 text_0="Oh, I adore your strong Pokémon!\nOh, how I envy you for them!" text_1="Oh, I adore your strong Pokémon!\nOh, how I envy you for them!" text_2="Oh, I adore your strong Pokémon!\nOh, how I envy you for them!" text_3="Oh, I adore your strong Pokémon!\nOh, how I envy you for them!" text_4="Oh, I adore your strong Pokémon!\nOh, how I envy you for them!" text_5="Oh, I adore your strong Pokémon!\nOh, how I envy you for them!" text_6="Oh, I adore your strong Pokémon!\nOh, how I envy you for them!"
+    0820C20E  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820C210  end                  
+
+  object 3 (gfx 0x35, flag 0x0166) -> 0x082D569C
+  script 0x082D569C  [ok]
+    082D569C  setorcopyvar         destination=VAR_0x8000 source=75
+    082D56A1  setorcopyvar         destination=VAR_0x8001 source=1
+    082D56A6  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: X Attack
+    082D56A8  end                  
+

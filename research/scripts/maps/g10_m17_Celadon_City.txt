@@ -1,0 +1,62 @@
+Celadon City  (group 10, map 17)  header 0x08B3D48C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0B, flag 0x0000) -> 0x082682CF
+  script 0x082682CF  [ok]
+    082682CF  msgbox_multilang     type=0 text_0="Hi!\pSorry, but we’re taking a break right\nnow." text_1="Hi!\pSorry, but we’re taking a break right\nnow." text_2="Hi!\pSorry, but we’re taking a break right\nnow." text_3="Hi!\pSorry, but we’re taking a break right\nnow." text_4="Hi!\pSorry, but we’re taking a break right\nnow." text_5="Hi!\pSorry, but we’re taking a break right\nnow." text_6="Hi!\pSorry, but we’re taking a break right\nnow."
+    082682ED  callstd              function=MSGBOX_NPC(2)
+    082682EF  end                  
+
+  object 2 (gfx 0x14, flag 0x0000) -> 0x082682F0
+  script 0x082682F0  [ok]
+    082682F0  msgbox_multilang     type=0 text_0="My Pokémon are weak, so I often have\nto go to the Drugstore." text_1="My Pokémon are weak, so I often have\nto go to the Drugstore." text_2="My Pokémon are weak, so I often have\nto go to the Drugstore." text_3="My Pokémon are weak, so I often have\nto go to the Drugstore." text_4="My Pokémon are weak, so I often have\nto go to the Drugstore." text_5="My Pokémon are weak, so I often have\nto go to the Drugstore." text_6="My Pokémon are weak, so I often have\nto go to the Drugstore."
+    0826830E  callstd              function=MSGBOX_NPC(2)
+    08268310  end                  
+
+  object 3 (gfx 0x11, flag 0x0000) -> 0x082683D9
+  script 0x082683D9  [ok]
+    082683D9  msgbox_multilang     type=0 text_0="Munch…\pThe man at that table lost it all at\nthe slots." text_1="Munch…\pThe man at that table lost it all at\nthe slots." text_2="Munch…\pThe man at that table lost it all at\nthe slots." text_3="Munch…\pThe man at that table lost it all at\nthe slots." text_4="Munch…\pThe man at that table lost it all at\nthe slots." text_5="Munch…\pThe man at that table lost it all at\nthe slots." text_6="Munch…\pThe man at that table lost it all at\nthe slots."
+    082683F7  callstd              function=MSGBOX_NPC(2)
+    082683F9  end                  
+
+  object 4 (gfx 0xF4, flag 0x0000) -> 0x08268311
+  script 0x08268311  [unknown-opcode:0xE9]
+    08268311  lock                 
+    08268312  faceplayer           
+    08268313  checkflag            flag=0x243
+    08268316  goto_if              condition=1 destination=0x0826836E
+    0826831C  msgbox_multilang     type=0 text_0="Go ahead! Laugh!\nI’m flat-out busted!\pNo more slots for me!\nI’m going straight!\pHere!\nI won’t be needing this anymore!" text_1="Go ahead! Laugh!\nI’m flat-out busted!\pNo more slots for me!\nI’m going straight!\pHere!\nI won’t be needing this anymore!" text_2="Go ahead! Laugh!\nI’m flat-out busted!\pNo more slots for me!\nI’m going straight!\pHere!\nI won’t be needing this anymore!" text_3="Go ahead! Laugh!\nI’m flat-out busted!\pNo more slots for me!\nI’m going straight!\pHere!\nI won’t be needing this anymore!" text_4="Go ahead! Laugh!\nI’m flat-out busted!\pNo more slots for me!\nI’m going straight!\pHere!\nI won’t be needing this anymore!" text_5="Go ahead! Laugh!\nI’m flat-out busted!\pNo more slots for me!\nI’m going straight!\pHere!\nI won’t be needing this anymore!" text_6="Go ahead! Laugh!\nI’m flat-out busted!\pNo more slots for me!\nI’m going straight!\pHere!\nI won’t be needing this anymore!"
+    0826833A  callstd              function=MSGBOX_DEFAULT(4)
+    0826833C  checkitemspace       itemId=Coin Case(260) quantity=1
+    08268341  compare_var_to_value var=0x800D value=0
+    08268346  goto_if              condition=1 destination=0x08268393
+    0826834C  additem              itemId=Coin Case(260) quantity=1
+
+  script 0x0826836E  [ok]
+    0826836E  msgbox_multilang     type=0 text_0="I always thought I was going to win\nit back…" text_1="I always thought I was going to win\nit back…" text_2="I always thought I was going to win\nit back…" text_3="I always thought I was going to win\nit back…" text_4="I always thought I was going to win\nit back…" text_5="I always thought I was going to win\nit back…" text_6="I always thought I was going to win\nit back…"
+    0826838C  callstd              function=MSGBOX_DEFAULT(4)
+    0826838E  goto                 destination=0x0826836C
+
+  script 0x08268393  [ok]
+    08268393  msgbox_multilang     type=0 text_0="Make room for this!" text_1="Make room for this!" text_2="Make room for this!" text_3="Make room for this!" text_4="Make room for this!" text_5="Make room for this!" text_6="Make room for this!"
+    082683B1  callstd              function=MSGBOX_DEFAULT(4)
+    082683B3  goto                 destination=0x0826836C
+
+  script 0x0826836C  [ok]
+    0826836C  release              
+
+  object 5 (gfx 0x00, flag 0x0000) -> 0x082683B8
+  script 0x082683B8  [ok]
+    082683B8  msgbox_multilang     type=0 text_0="Psst! There’s a basement under the\nGame Corner, I hear." text_1="Psst! There’s a basement under the\nGame Corner, I hear." text_2="Psst! There’s a basement under the\nGame Corner, I hear." text_3="Psst! There’s a basement under the\nGame Corner, I hear." text_4="Psst! There’s a basement under the\nGame Corner, I hear." text_5="Psst! There’s a basement under the\nGame Corner, I hear." text_6="Psst! There’s a basement under the\nGame Corner, I hear."
+    082683D6  callstd              function=MSGBOX_NPC(2)
+    082683D8  end                  
+

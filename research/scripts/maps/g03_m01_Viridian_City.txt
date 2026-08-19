@@ -1,0 +1,234 @@
+Viridian City  (group 3, map 1)  header 0x08B3C6E0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x52, flag 0x0301) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 2 (gfx 0xF5, flag 0x0000) -> 0x082226D8
+  script 0x082226D8  [ok]
+    082226D8  lock                 
+    082226D9  faceplayer           
+    082226DA  setflag              flag=0x4005 (temp)
+    082226DD  compare_var_to_value var=0x405A value=1
+    082226E2  goto_if              condition=1 destination=0x08222715
+    082226E8  msgbox_multilang     type=0 text_0="This Pokémon Gym is always closed.\pI wonder who the Leader is?" text_1="Este GIMNASIO POKéMON está\nsiempre cerrado.\pMe pregunto quién será su LÍDER." text_2="Cette ARENE POKéMON est\ntoujours fermée.\pMais qui en est le CHAMPION?" text_3="Questa PALESTRA POKéMON è sempre\nchiusa.\pMi domando chi ne sia il CAPO." text_4="Diese POKéMON-ARENA ist stets\ngeschlossen!\pIch frage mich, wer hier wohl der\nARENALEITER sein mag?" text_5="Este GINÁSIO POKéMON está\nsempre fechado.\pQuem será o LÍDER?" text_6="This Pokémon Gym is always closed.\pI wonder who the Leader is?"
+    08222706  callstd              function=MSGBOX_DEFAULT(4)
+    08222708  closemessage         
+    08222709  applymovement        localId=2 movements=[face_original_direction]
+    08222710  waitmovement         localId=0
+    08222713  release              
+
+  script 0x08222715  [ok]
+    08222715  msgbox_multilang     type=0 text_0="Viridian Gym’s Leader returned!" text_1="¡El LÍDER del GIMNASIO VERDE\nha vuelto!" text_2="Le CHAMPION de l’ARENE de\nJADIELLE est de retour!" text_3="È tornato il CAPOPALESTRA di\nSMERALDOPOLI!" text_4="Der ARENALEITER von VERTANIA CITY\nist zurück!" text_5="O LÍDER do GINÁSIO DE VIRIDIANA\nvoltou!" text_6="Viridian Gym’s Leader returned!"
+    08222733  callstd              function=MSGBOX_DEFAULT(4)
+    08222735  goto                 destination=0x08222713
+
+  script 0x08222713  [ok]
+    08222713  release              
+
+  object 3 (gfx 0x18, flag 0x011D) -> 0x08222514
+  script 0x08222514  [ok]
+    08222514  lock                 
+    08222515  faceplayer           
+    08222516  msgbox_multilang     type=0 text_0="I go shopping in Pewter City\noccasionally.\pI have to take the winding trail in\nViridian Forest when I go." text_1="¡Cuando voy de compras a\nCiudad Plateada, tomo el sinuoso\pcamino del Bosque Verde!" text_2="Je passe par la FORET DE JADE\npour faire mes courses à ARGENTA." text_3="Spesso vado a fare spese a\nPLUMBEOPOLI.\pPercorro il tortuoso sentiero del\nBOSCO SMERALDO!" text_4="Wenn ich zum Einkaufen nach\nMARMORIA CITY möchte, muss ich\nimmer durch den VERTANIA-WALD\pgehen." text_5="Vou às compras na CIDADE GRANITO\nocasionalmente.\pTenho que tomar o caminho sinuoso\nda FLORESTA VIRIDIANA quando vou." text_6="I go shopping in Pewter City\noccasionally.\pI have to take the winding trail in\nViridian Forest when I go."
+    08222534  callstd              function=MSGBOX_DEFAULT(4)
+    08222536  release              
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0822257D
+  script 0x0822257D  [ok]
+    0822257D  lock                 
+    0822257E  faceplayer           
+    0822257F  msgbox_multilang     type=0 text_0="You want to know about the two\nkinds of caterpillar Pokémon?" text_1="¿Quieres saber algo sobre los 2\ntipos de orugas Pokémon?" text_2="Tu veux tout savoir sur les deux\ntypes de Pokémon chenille?" text_3="Vuoi informazioni sulle due specie\ndi Pokémon simili a bruchi?" text_4="Möchtest du etwas über die zwei\nRAUPEN-POKéMON erfahren?" text_5="Queres saber sobre os dois tipos\nde Pokémon lagarta?" text_6="You want to know about the two\nkinds of caterpillar Pokémon?"
+    0822259D  callstd              function=MSGBOX_YESNO(5)
+    0822259F  compare_var_to_value var=0x800D value=1
+    082225A4  goto_if              condition=1 destination=0x082225CC
+    082225AA  msgbox_multilang     type=0 text_0="Oh, okay then!" text_1="Vale, pues nada." text_2="Bon, OK!" text_3="Oh, va bene!" text_4="O.K., alles klar!" text_5="Ah, entぇo está bem." text_6="Oh, okay then!"
+    082225C8  callstd              function=MSGBOX_DEFAULT(4)
+    082225CA  release              
+
+  script 0x082225CC  [ok]
+    082225CC  msgbox_multilang     type=0 text_0="CATERPIE has no poison,\nbut WEEDLE does.\pWatch that your POKéMON aren’t\nstabbed by WEEDLE’s POISON STING." text_1="¡CATERPIE no tiene veneno; pero\nWEEDLE, sí!\p¡Cuidado con su PICOTAZO\nVENENOSO!" text_2="Contrairement à CHENIPAN, ASPICOT\nest venimeux.\pAttention à son DARD-VENIN!" text_3="CATERPIE non ha veleno, WEEDLE\nperò sì!\pAttenzione alla sua VELENOSPINA!" text_4="RAUPY ist nicht giftig, aber\nHORNLIU!\pAchte auf seinen GIFTSTACHEL!" text_5="CATERPIE nぇo tem veneno,\nmas WEEDLE tem.\pCuidado para que os teus POKéMON\nnぇo sejam picados pelo FERRぃO\pVENENOSO do WEEDLE." text_6="CATERPIE has no poison,\nbut WEEDLE does.\pWatch that your POKéMON aren’t\nstabbed by WEEDLE’s POISON STING."
+    082225EA  callstd              function=MSGBOX_DEFAULT(4)
+    082225EC  goto                 destination=0x082225CA
+
+  script 0x082225CA  [ok]
+    082225CA  release              
+
+  object 5 (gfx 0xEF, flag 0x0000) -> 0x082226B7
+  script 0x082226B7  [ok]
+    082226B7  msgbox_multilang     type=0 text_0="Those Poké Balls at your waist!\nYou have Pokémon, don’t you?\pIt’s great that you can carry and\nuse Pokémon anytime, anywhere." text_1="¿Llevas POKé BALLS?\n¡Entonces tú tienes POKéMON!\p¡Es genial poder llevar y usar los\nPOKéMON en cualquier momento\py lugar!" text_2="C’est une POKé BALL que je vois!\nAlors t’as aussi des POKéMON?\pC’est cool de pouvoir s’en servir\nquand on veut, hein?" text_3="Nella cintura hai delle POKé BALL!\nCi tieni i POKéMON, vero?\pÈ una gran cosa poter portare i\nPOKéMON ovunque!" text_4="Diese POKéBÄLLE an deinem Gürtel\nzeigen mir, dass du POKéMON\pbesitzt!\pEs ist Klasse, dass man jederzeit\nPOKéMON tragen und einsetzen kann,\nnicht wahr?" text_5="Essas POKé BALLS na tua cintura!\nTens POKéMON, nぇo tens?\pÉ ótimo que possas levar e usar\nPOKéMON a qualquer hora e lugar." text_6="Those Poké Balls at your waist!\nYou have Pokémon, don’t you?\pIt’s great that you can carry and\nuse Pokémon anytime, anywhere."
+    082226D5  callstd              function=MSGBOX_NPC(2)
+    082226D7  return               
+
+  object 6 (gfx 0x52, flag 0x0300) -> 0x082050CF
+  object 7 (gfx 0x35, flag 0x01CD) -> 0x082D5BB0
+  script 0x082D5BB0  [ok]
+    082D5BB0  setorcopyvar         destination=VAR_0x8000 source=13
+    082D5BB5  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5BBA  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Potion
+    082D5BBC  end                  
+
+  object 8 (gfx 0x14, flag 0x0124) -> 0x08222490
+  script 0x08222490  [ok]
+    08222490  lock                 
+    08222491  speakername          name="Fan"
+    08222496  msgbox_multilang     type=0 text_0="Our idol, {RIVAL}, right here,\nright now!\pIt’s a total dream come true!" text_1="¡Nuestro ídolo, {RIVAL}, aquí\nmismo, ahora mismo!\p¡Es un sueño hecho realidad!" text_2="Notre idole, {RIVAL}, ici même, en\nce moment !\pC’est un rêve devenu réalité !" text_3="Il nostro idolo, {RIVAL}, proprio\nqui, proprio ora!\pÈ un sogno che si avvera!" text_4="Unser Idol, {RIVAL}, genau hier,\ngenau jetzt!\pEs ist ein wahr gewordener Traum!" text_5="Nosso ídolo, {RIVAL}, está bem\naqui, agora mesmo!\pÉ um grande sonho se tornando\nrealidade!" text_6="Our idol, {RIVAL}, right here,\nright now!\pIt’s a total dream come true!"
+    082224B4  callstd              function=MSGBOX_NPC(2)
+    082224B6  turnobject           localId=8 direction=2
+    082224BA  release              
+
+  object 9 (gfx 0x2F, flag 0x0124) -> 0x082224BC
+  script 0x082224BC  [ok]
+    082224BC  lock                 
+    082224BD  speakername          name="Fan"
+    082224C2  msgbox_multilang     type=0 text_0="I wonder if I could get him to sign\nmy Poké Ball…" text_1="Me pregunto si podría conseguir que\nfirme mi Poké Ball…" text_2="Je me demande si je pourrais lui\nfaire signer ma Poké Ball…" text_3="Mi chiedo se potrei convincerlo a\nfirmare la mia Poké Ball…" text_4="Ich frage mich, ob ich ihn dazu\nbringen könnte, meinen Pokéball zu\punterschreiben…" text_5="Eu me pergunto se eu poderia fazer\nele autografar minha Pokébola…" text_6="I wonder if I could get him to sign\nmy Poké Ball…"
+    082224E0  callstd              function=MSGBOX_NPC(2)
+    082224E2  turnobject           localId=9 direction=2
+    082224E6  release              
+
+  object 10 (gfx 0xFB, flag 0x0124) -> 0x082224E8
+  script 0x082224E8  [ok]
+    082224E8  lock                 
+    082224E9  speakername          name="Fan"
+    082224EE  msgbox_multilang     type=0 text_0="Such a talented trainer and such a\ncutie, too!\pNo one could resist pursuing someone\nlike him." text_1="¡Un entrenador tan talentoso y además\ntan lindo!\pNadie podría resistirse a alguien\ncomo él." text_2="Un dresseur tellement talentueux et\ntellement mignon en plus !\pPersonne ne pourrait résister à\nquelqu’un comme lui." text_3="Un allenatore così talentuoso e\nanche così carino!\pNessuno potrebbe resistere a qualcuno\ncome lui." text_4="Ein so talentierter Trainer und dazu\nauch noch so süß!\pNiemand könnte jemandem wie ihm\nwiderstehen." text_5="Um treinador tぇo talentoso e tぇo fofo\ntambém!\pNinguém poderia resistir a perseguir\nalguem como ele." text_6="Such a talented trainer and such a\ncutie, too!\pNo one could resist pursuing someone\nlike him."
+    0822250C  callstd              function=MSGBOX_NPC(2)
+    0822250E  turnobject           localId=10 direction=2
+    08222512  release              
+
+  object 11 (gfx 0x15, flag 0x0124) -> 0x00000000
+  coord trigger 0 (var 0x405A == 0) -> 0x08222538
+  script 0x08222538  [ok]
+    08222538  lockall              
+    08222539  setflag              flag=0x4005 (temp)
+    0822253C  textcolor            color=3
+    0822253E  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    08222545  waitmovement         localId=0
+    08222548  delay                frames=20
+    0822254B  msgbox_multilang     type=0 text_0="Viridian Gym’s doors are locked…" text_1="Las puertas del Gimnasio están\ncerradas..." text_2="Les portes de l’ARENE sont\nfermées…" text_3="Le porte della PALESTRA sono\nchiuse…" text_4="Die Türen der ARENA sind\nverschlossen..." text_5="As portas do GINÁSIO DE VIRIDIANA\nestぇo trancadas…" text_6="Viridian Gym’s doors are locked…"
+    08222569  callstd              function=MSGBOX_DEFAULT(4)
+    0822256B  closemessage         
+    0822256C  clearflag            flag=0x4005 (temp)
+    0822256F  applymovement        localId=255 movements=[jump_2_down]
+    08222576  waitmovement         localId=0
+    08222579  releaseall           
+
+  sign 0 at (23,1) -> 0x08222633
+  script 0x08222633  [ok]
+    08222633  msgbox_multilang     type=0 text_0="Trainer Tips\pCatch Pokémon and expand your\ncollection.\pThe more you have, the easier it\nis to battle." text_1="PISTAS ENTRENADOR\p¡Atrapa los POKéMON y amplía\ntu colección!\p¡Cuantos más tengas, más fácil\nte será luchar!" text_2="ASTUCE\pAttrapez des POKéMON et\nagrandissez votre collection!\pPlus vous en capturez, plus\nles combats sont faciles!" text_3="CONSIGLI UTILI\pCattura i POKéMON e amplia la tua\ncollezione!\pPiù ne hai, più facile sarà\ncombattere!" text_4="TIPPS FÜR TRAINER\pFange POKéMON, um deine Sammlung\nzu erweitern!\pJe mehr du besitzt, desto leichter\nwerden die Kämpfe!" text_5="DICAS DE TREINADOR\pApanha POKéMON e amplia a tua\ncoleçぇo.\pQuanto mais tiveres, mais fácil\nserá lutar." text_6="Trainer Tips\pCatch Pokémon and expand your\ncollection.\pThe more you have, the easier it\nis to battle."
+    08222651  callstd              function=MSGBOX_SIGN(3)
+    08222653  return               
+
+  sign 1 at (32,10) -> 0x08222675
+  script 0x08222675  [ok]
+    08222675  msgbox_multilang     type=0 text_0="Viridian City Pokémon Gym" text_1="GIMNASIO POKéMON DE CIUDAD VERDE" text_2="ARENE POKéMON de JADIELLE" text_3="PALESTRA POKéMON di SMERALDOPOLI" text_4="VERTANIA CITY POKéMON-ARENA" text_5="GINÁSIO POKéMON DE\nCIDADE VIRIDIANA" text_6="Viridian City Pokémon Gym"
+    08222693  callstd              function=MSGBOX_SIGN(3)
+    08222695  return               
+
+  sign 2 at (20,31) -> 0x08222654
+  script 0x08222654  [ok]
+    08222654  msgbox_multilang     type=0 text_0="Trainer Tips\pThe battle moves of Pokémon are\nlimited by their Power Points, PP.\pTo replenish PP, rest your tired\nPokémon at a Pokémon Center." text_1="PISTAS ENTRENADOR\nLos ataques de los POKéMON\ndependen de sus PUNTOS de PODER\no PP.\p¡Para rellenar tus PP, deja que\ntus cansados POKéMON descansen\nen un CENTRO POKéMON!" text_2="ASTUCE\nLes attaques sont limitées par des\nPP (Points de Pouvoir).\pPour disposer de tous vos PP,\nfaites soigner vos POKéMON dans\nun CENTRE POKéMON!" text_3="CONSIGLI UTILI\nLe mosse dei POKéMON dipendono dai\nloro PUNTI POTENZA: PP.\pPer recuperare PP fai riposare i\ntuoi POKéMON al CENTRO POKéMON!" text_4="TIPPS FÜR TRAINER\nDie Attacken der POKéMON werden\ndurch ihre ANGRIFFSPUNKTE, AP,\nlimitiert.\pUm die AP wieder aufzufüllen, musst\ndu die POKéMON in ein POKéMON-\nCENTER bringen!" text_5="DICAS DE TREINADOR\nOs ataques dos POKéMON sぇo\nlimitados pelos seus PONTOS DE\nPOTÊNCIA, PP.\pPara recuperar PP, deixa os teus\nPOKéMON cansados descansarem\nnum CENTRO POKéMON." text_6="Trainer Tips\pThe battle moves of Pokémon are\nlimited by their Power Points, PP.\pTo replenish PP, rest your tired\nPokémon at a Pokémon Center."
+    08222672  callstd              function=MSGBOX_SIGN(3)
+    08222674  return               
+
+  sign 3 at (20,16) -> 0x082225F1
+  script 0x082225F1  [ok]
+    082225F1  msgbox_multilang     type=0 text_0="Virdian City\nThe Eternally Green Paradise" text_1="Ciudad Verde\nEl paraíso del eterno verdor." text_2="JADIELLE\nVerte comme l’espérance" text_3="SMERALDOPOLI\nEterno paradiso verde" text_4="VERTANIA CITY\nDas immergrüne Paradies!" text_5="CIDADE VIRIDIANA\nO Paraíso Eternamente Verde" text_6="Virdian City\nThe Eternally Green Paradise"
+    0822260F  callstd              function=MSGBOX_SIGN(3)
+    08222611  return               
+
+  sign 4 at (36,10) -> 0x08222696
+  script 0x08222696  [ok]
+    08222696  msgbox_multilang     type=0 text_0="Viridian Gym’s doors are locked…" text_1="Las puertas del Gimnasio están\ncerradas..." text_2="Les portes de l’ARENE sont\nfermées…" text_3="Le porte della PALESTRA sono\nchiuse…" text_4="Die Türen der ARENA sind\nverschlossen..." text_5="As portas do GINÁSIO DE VIRIDIANA\nestぇo trancadas…" text_6="Viridian Gym’s doors are locked…"
+    082226B4  callstd              function=MSGBOX_SIGN(3)
+    082226B6  return               
+
+  sign 5 at (23,19) -> 0x08222612
+  script 0x08222612  [ok]
+    08222612  msgbox_multilang     type=0 text_0="Trainers’ School\nGet Schooled in School!" text_1="Escuela de entrenadores\n¡Escolízate en la escuela!" text_2="École des Dresseurs\nApprends à l’École !" text_3="Scuola Allenatori\nImpara a Scuola!" text_4="Trainerschule\nLerne in der Schule!" text_5="Escola de Treinadores\nAprenda na Escola!" text_6="Trainers’ School\nGet Schooled in School!"
+    08222630  callstd              function=MSGBOX_SIGN(3)
+    08222632  return               
+
+  map script type 3 -> 0x08222444
+  script 0x08222444  [ok]
+    08222444  setworldmapflag      flag=0x8F1
+    08222447  compare_var_to_value var=0x405A value=0
+    0822244C  goto_if              condition=1 destination=0x08222453
+    08222452  return               
+
+  script 0x08222453  [ok]
+    08222453  checkflag            flag=0x881:BADGE2_CASCADE
+    08222456  goto_if              condition=0 destination=0x0822248F
+    0822245C  checkflag            flag=0x882:BADGE3_THUNDER
+    0822245F  goto_if              condition=0 destination=0x0822248F
+    08222465  checkflag            flag=0x883:BADGE4_RAINBOW
+    08222468  goto_if              condition=0 destination=0x0822248F
+    0822246E  checkflag            flag=0x884:BADGE5_SOUL
+    08222471  goto_if              condition=0 destination=0x0822248F
+    08222477  checkflag            flag=0x885:BADGE6_MARSH
+    0822247A  goto_if              condition=0 destination=0x0822248F
+    08222480  checkflag            flag=0x886:BADGE7_VOLCANO
+    08222483  goto_if              condition=0 destination=0x0822248F
+    08222489  setvar               destination=VAR_0x405A value=1
+    0822248E  return               
+
+  script 0x0822248F  [ok]
+    0822248F  return               
+

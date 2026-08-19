@@ -1,0 +1,37 @@
+Five Island  (group 3, map 16)  header 0x08B3C884
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x09, flag 0x0000) -> 0x08230DC8
+  script 0x08230DC8  [ok]
+    08230DC8  msgbox_multilang     type=0 text_0="It’s been getting busier around\nthese parts lately.\pI haven’t been catching many good\nfish lately, either." text_1="It’s been getting busier around\nthese parts lately.\pI haven’t been catching many good\nfish lately, either." text_2="It’s been getting busier around\nthese parts lately.\pI haven’t been catching many good\nfish lately, either." text_3="It’s been getting busier around\nthese parts lately.\pI haven’t been catching many good\nfish lately, either." text_4="It’s been getting busier around\nthese parts lately.\pI haven’t been catching many good\nfish lately, either." text_5="It’s been getting busier around\nthese parts lately.\pI haven’t been catching many good\nfish lately, either." text_6="It’s been getting busier around\nthese parts lately.\pI haven’t been catching many good\nfish lately, either."
+    08230DE6  callstd              function=MSGBOX_NPC(2)
+    08230DE8  end                  
+
+  object 2 (gfx 0x24, flag 0x0000) -> 0x08230DA7
+  script 0x08230DA7  [ok]
+    08230DA7  msgbox_multilang     type=0 text_0="Oh, this stinks. I wanted to play in\nthe Meadow.\pBut they put up a weird building\non it, so I can’t play there." text_1="Oh, this stinks. I wanted to play in\nthe Meadow.\pBut they put up a weird building\non it, so I can’t play there." text_2="Oh, this stinks. I wanted to play in\nthe Meadow.\pBut they put up a weird building\non it, so I can’t play there." text_3="Oh, this stinks. I wanted to play in\nthe Meadow.\pBut they put up a weird building\non it, so I can’t play there." text_4="Oh, this stinks. I wanted to play in\nthe Meadow.\pBut they put up a weird building\non it, so I can’t play there." text_5="Oh, this stinks. I wanted to play in\nthe Meadow.\pBut they put up a weird building\non it, so I can’t play there." text_6="Oh, this stinks. I wanted to play in\nthe Meadow.\pBut they put up a weird building\non it, so I can’t play there."
+    08230DC5  callstd              function=MSGBOX_NPC(2)
+    08230DC7  end                  
+
+  object 3 (gfx 0x52, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0x52, flag 0x0000) -> 0x00000000
+  sign 0 at (20,8) -> 0x08230D86
+  script 0x08230D86  [ok]
+    08230D86  msgbox_multilang     type=0 text_0="Five Island\nChrono Island: Where Time Goes" text_1="Five Island\nChrono Island: Where Time Goes" text_2="Five Island\nChrono Island: Where Time Goes" text_3="Five Island\nChrono Island: Where Time Goes" text_4="Five Island\nChrono Island: Where Time Goes" text_5="Five Island\nChrono Island: Where Time Goes" text_6="Five Island\nChrono Island: Where Time Goes"
+    08230DA4  callstd              function=MSGBOX_SIGN(3)
+    08230DA6  end                  
+
+  map script type 3 -> 0x08230D82
+  script 0x08230D82  [ok]
+    08230D82  setworldmapflag      flag=0x8FF
+    08230D85  end                  
+

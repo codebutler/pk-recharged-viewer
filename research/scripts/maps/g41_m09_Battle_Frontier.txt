@@ -1,0 +1,477 @@
+Battle Frontier  (group 41, map 9)  header 0x08B3E1AC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x08294F80
+  script 0x08294F80  [ok]
+    08294F80  lock                 
+    08294F81  faceplayer           
+    08294F82  setvar               destination=VAR_0x40CF value=1
+    08294F87  setvar               destination=VAR_0x408C value=0
+    08294F8C  goto                 destination=0x08294FA4
+
+  script 0x08294FA4  [ok]
+    08294FA4  special              SPECIAL_\function=18
+    08294FA7  compare_var_to_value var=0x408C value=0
+    08294FAC  call_if              condition=1 destination=0x082952FA
+    08294FB2  compare_var_to_value var=0x408C value=1
+    08294FB7  call_if              condition=1 destination=0x0829531B
+    08294FBD  compare_var_to_value var=0x408C value=0
+    08294FC2  call_if              condition=1 destination=0x0829533C
+    08294FC8  compare_var_to_value var=0x408C value=1
+    08294FCD  call_if              condition=1 destination=0x0829535A
+    08294FD3  waitmessage          
+    08294FD4  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    08294FD9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08294FDE  compare_var_to_value var=0x8000 value=0
+    08294FE3  goto_if              condition=1 destination=0x0829500A
+    08294FE9  compare_var_to_value var=0x8000 value=1
+    08294FEE  goto_if              condition=1 destination=0x082951AA
+    08294FF4  compare_var_to_value var=0x8000 value=2
+    08294FF9  goto_if              condition=1 destination=0x08295249
+    08294FFF  compare_var_to_value var=0x8000 value=127
+    08295004  goto_if              condition=1 destination=0x08295249
+    0829500A  message              text="The tournament offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    0829500F  compare_local_to_ptr local=90 ptr=1511852073
+    08295015  setflag              flag=0x1D08
+    08295018  faceplayer           
+    08295019  setflag              flag=0x1D08
+    0829501C  faceplayer           
+    0829501D  setflag              flag=0x1D08
+    08295020  faceplayer           
+    08295021  setflag              flag=0x1D08
+    08295024  faceplayer           
+    08295025  setflag              flag=0x6608 (temp)
+    08295028  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    0829502D  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08295032  compare_var_to_value var=0x8000 value=2
+    08295037  goto_if              condition=1 destination=0x08295249
+    0829503D  compare_var_to_value var=0x8000 value=127
+    08295042  goto_if              condition=1 destination=0x08295249
+    08295048  setvar               destination=VAR_0x8004 value=15
+    0829504D  special              SPECIAL_\function=148
+    08295050  compare_var_to_value var=0x8004 value=1
+    08295055  goto_if              condition=1 destination=0x082951C5
+    0829505B  setvar               destination=VAR_0x8004 value=2
+    08295060  setvar               destination=VAR_0x8005 value=1
+    08295065  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    0829506A  special              SPECIAL_\function=148
+    0829506D  msgbox_multilang     type=0 text_0="Now select the three POKéMON that\nyou wish to enter, please." text_1="Now select the three POKéMON that\nyou wish to enter, please." text_2="Now select the three POKéMON that\nyou wish to enter, please." text_3="Now select the three POKéMON that\nyou wish to enter, please." text_4="Now select the three POKéMON that\nyou wish to enter, please." text_5="Now select the three POKéMON that\nyou wish to enter, please." text_6="Now select the three POKéMON that\nyou wish to enter, please."
+    0829508B  callstd              function=MSGBOX_DEFAULT(4)
+    0829508D  fadescreen           mode=1
+    0829508F  callnative           func=0x080D5995
+    08295094  call                 destination=0x08289DDE
+    08295099  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    0829509E  setvar               destination=VAR_0x8005 value=3
+    082950A3  special              SPECIAL_\function=161
+    082950A6  waitstate            
+
+  script 0x082952FA  [ok]
+    082952FA  msgbox_multilang     type=0 text_0="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the SINGLE BATTLE\nTournament." text_1="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the SINGLE BATTLE\nTournament." text_2="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the SINGLE BATTLE\nTournament." text_3="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the SINGLE BATTLE\nTournament." text_4="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the SINGLE BATTLE\nTournament." text_5="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the SINGLE BATTLE\nTournament." text_6="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the SINGLE BATTLE\nTournament."
+    08295318  callstd              function=MSGBOX_DEFAULT(4)
+    0829531A  return               
+
+  script 0x0829531B  [ok]
+    0829531B  msgbox_multilang     type=0 text_0="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the DOUBLE BATTLE\nTournament." text_1="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the DOUBLE BATTLE\nTournament." text_2="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the DOUBLE BATTLE\nTournament." text_3="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the DOUBLE BATTLE\nTournament." text_4="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the DOUBLE BATTLE\nTournament." text_5="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the DOUBLE BATTLE\nTournament." text_6="Where the strategies of TRAINERS\nare put to the test!\pWelcome to the BATTLE DOME!\pI am your guide to the DOUBLE BATTLE\nTournament."
+    08295339  callstd              function=MSGBOX_DEFAULT(4)
+    0829533B  return               
+
+  script 0x0829533C  [ok]
+    0829533C  message              text="Would you like to challenge\nthe SINGLE BATTLE Tournament?"
+    08295341  checkitem            itemId=item_10583(10583) quantity=18184
+    08295346  setobjectxy          localId=2089 x=22343 y=2089
+    0829534D  checkitem            itemId=item_10583(10583) quantity=18184
+    08295352  setobjectxy          localId=2089 x=22343 y=2089
+    08295359  return               
+
+  script 0x0829535A  [opcode-out-of-range:0xF4]
+    0829535A  message              text="Would you like to challenge\nthe DOUBLE BATTLE Tournament?"
+
+  script 0x0829500A  [ok]
+    0829500A  message              text="The tournament offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    0829500F  compare_local_to_ptr local=90 ptr=1511852073
+    08295015  setflag              flag=0x1D08
+    08295018  faceplayer           
+    08295019  setflag              flag=0x1D08
+    0829501C  faceplayer           
+    0829501D  setflag              flag=0x1D08
+    08295020  faceplayer           
+    08295021  setflag              flag=0x1D08
+    08295024  faceplayer           
+    08295025  setflag              flag=0x6608 (temp)
+    08295028  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    0829502D  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08295032  compare_var_to_value var=0x8000 value=2
+    08295037  goto_if              condition=1 destination=0x08295249
+    0829503D  compare_var_to_value var=0x8000 value=127
+    08295042  goto_if              condition=1 destination=0x08295249
+    08295048  setvar               destination=VAR_0x8004 value=15
+    0829504D  special              SPECIAL_\function=148
+    08295050  compare_var_to_value var=0x8004 value=1
+    08295055  goto_if              condition=1 destination=0x082951C5
+    0829505B  setvar               destination=VAR_0x8004 value=2
+    08295060  setvar               destination=VAR_0x8005 value=1
+    08295065  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    0829506A  special              SPECIAL_\function=148
+    0829506D  msgbox_multilang     type=0 text_0="Now select the three POKéMON that\nyou wish to enter, please." text_1="Now select the three POKéMON that\nyou wish to enter, please." text_2="Now select the three POKéMON that\nyou wish to enter, please." text_3="Now select the three POKéMON that\nyou wish to enter, please." text_4="Now select the three POKéMON that\nyou wish to enter, please." text_5="Now select the three POKéMON that\nyou wish to enter, please." text_6="Now select the three POKéMON that\nyou wish to enter, please."
+    0829508B  callstd              function=MSGBOX_DEFAULT(4)
+    0829508D  fadescreen           mode=1
+    0829508F  callnative           func=0x080D5995
+    08295094  call                 destination=0x08289DDE
+    08295099  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    0829509E  setvar               destination=VAR_0x8005 value=3
+    082950A3  special              SPECIAL_\function=161
+    082950A6  waitstate            
+
+  script 0x082951AA  [ok]
+    082951AA  compare_var_to_value var=0x408C value=0
+    082951AF  call_if              condition=1 destination=0x08295378
+    082951B5  compare_var_to_value var=0x408C value=1
+    082951BA  call_if              condition=1 destination=0x08295399
+    082951C0  goto                 destination=0x08294FBD
+
+  script 0x08295249  [ok]
+    08295249  msgbox_multilang     type=0 text_0="We hope to see you again." text_1="We hope to see you again." text_2="We hope to see you again." text_3="We hope to see you again." text_4="We hope to see you again." text_5="We hope to see you again." text_6="We hope to see you again."
+    08295267  callstd              function=MSGBOX_DEFAULT(4)
+    08295269  release              
+
+  script 0x082951C5  [ok]
+    082951C5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082951CA  compare_var_to_value var=0x8000 value=0
+    082951CF  goto_if              condition=1 destination=0x082951E0
+    082951D5  compare_var_to_value var=0x8000 value=1
+    082951DA  goto_if              condition=1 destination=0x08295205
+    082951E0  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    082951FE  callstd              function=MSGBOX_DEFAULT(4)
+    08295200  goto                 destination=0x08295269
+
+  script 0x08289DDE  [ok]
+    08289DDE  setvar               destination=VAR_0x8004 value=1
+    08289DE3  setvar               destination=VAR_0x8005 value=1
+    08289DE8  special              SPECIAL_\function=148
+    08289DEB  return               
+
+  script 0x08295378  [ok]
+    08295378  msgbox_multilang     type=0 text_0="The SINGLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of SINGLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe other two POKéMON can battle\none at a time.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_1="The SINGLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of SINGLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe other two POKéMON can battle\none at a time.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_2="The SINGLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of SINGLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe other two POKéMON can battle\none at a time.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_3="The SINGLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of SINGLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe other two POKéMON can battle\none at a time.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_4="The SINGLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of SINGLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe other two POKéMON can battle\none at a time.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_5="The SINGLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of SINGLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe other two POKéMON can battle\none at a time.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_6="The SINGLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of SINGLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe other two POKéMON can battle\none at a time.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified."
+    08295396  callstd              function=MSGBOX_DEFAULT(4)
+    08295398  return               
+
+  script 0x08295399  [ok]
+    08295399  msgbox_multilang     type=0 text_0="The DOUBLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of DOUBLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe remaining two POKéMON must take\npart in a DOUBLE BATTLE.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_1="The DOUBLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of DOUBLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe remaining two POKéMON must take\npart in a DOUBLE BATTLE.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_2="The DOUBLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of DOUBLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe remaining two POKéMON must take\npart in a DOUBLE BATTLE.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_3="The DOUBLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of DOUBLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe remaining two POKéMON must take\npart in a DOUBLE BATTLE.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_4="The DOUBLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of DOUBLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe remaining two POKéMON must take\npart in a DOUBLE BATTLE.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_5="The DOUBLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of DOUBLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe remaining two POKéMON must take\npart in a DOUBLE BATTLE.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_6="The DOUBLE BATTLE Tournament\nis exactly as the name suggests--\pa tournament of DOUBLE BATTLES.\pAll participating TRAINERS must\nenter three POKéMON each.\pIn each battle, one of the three\nPOKéMON must be held in reserve.\pThe remaining two POKéMON must take\npart in a DOUBLE BATTLE.\pChoose the two battling POKéMON after\nexamining the opponent’s trio.\pYou win the tournament by defeating\nfour TRAINERS.\pBattle Points are awarded to\nthe tournament winner.\pIf you want to interrupt your\ntournament, please save the game.\pIf you don’t save before interrupting,\nyou will be disqualified."
+    082953B7  callstd              function=MSGBOX_DEFAULT(4)
+    082953B9  return               
+
+  script 0x08294FBD  [ok]
+    08294FBD  compare_var_to_value var=0x408C value=0
+    08294FC2  call_if              condition=1 destination=0x0829533C
+    08294FC8  compare_var_to_value var=0x408C value=1
+    08294FCD  call_if              condition=1 destination=0x0829535A
+    08294FD3  waitmessage          
+    08294FD4  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    08294FD9  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08294FDE  compare_var_to_value var=0x8000 value=0
+    08294FE3  goto_if              condition=1 destination=0x0829500A
+    08294FE9  compare_var_to_value var=0x8000 value=1
+    08294FEE  goto_if              condition=1 destination=0x082951AA
+    08294FF4  compare_var_to_value var=0x8000 value=2
+    08294FF9  goto_if              condition=1 destination=0x08295249
+    08294FFF  compare_var_to_value var=0x8000 value=127
+    08295004  goto_if              condition=1 destination=0x08295249
+    0829500A  message              text="The tournament offers two levels\nof challenge, Level 50 and Open Level.\pWhich is your choice?"
+    0829500F  compare_local_to_ptr local=90 ptr=1511852073
+    08295015  setflag              flag=0x1D08
+    08295018  faceplayer           
+    08295019  setflag              flag=0x1D08
+    0829501C  faceplayer           
+    0829501D  setflag              flag=0x1D08
+    08295020  faceplayer           
+    08295021  setflag              flag=0x1D08
+    08295024  faceplayer           
+    08295025  setflag              flag=0x6608 (temp)
+    08295028  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    0829502D  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08295032  compare_var_to_value var=0x8000 value=2
+    08295037  goto_if              condition=1 destination=0x08295249
+    0829503D  compare_var_to_value var=0x8000 value=127
+    08295042  goto_if              condition=1 destination=0x08295249
+    08295048  setvar               destination=VAR_0x8004 value=15
+    0829504D  special              SPECIAL_\function=148
+    08295050  compare_var_to_value var=0x8004 value=1
+    08295055  goto_if              condition=1 destination=0x082951C5
+    0829505B  setvar               destination=VAR_0x8004 value=2
+    08295060  setvar               destination=VAR_0x8005 value=1
+    08295065  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    0829506A  special              SPECIAL_\function=148
+    0829506D  msgbox_multilang     type=0 text_0="Now select the three POKéMON that\nyou wish to enter, please." text_1="Now select the three POKéMON that\nyou wish to enter, please." text_2="Now select the three POKéMON that\nyou wish to enter, please." text_3="Now select the three POKéMON that\nyou wish to enter, please." text_4="Now select the three POKéMON that\nyou wish to enter, please." text_5="Now select the three POKéMON that\nyou wish to enter, please." text_6="Now select the three POKéMON that\nyou wish to enter, please."
+    0829508B  callstd              function=MSGBOX_DEFAULT(4)
+    0829508D  fadescreen           mode=1
+    0829508F  callnative           func=0x080D5995
+    08295094  call                 destination=0x08289DDE
+    08295099  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    0829509E  setvar               destination=VAR_0x8005 value=3
+    082950A3  special              SPECIAL_\function=161
+    082950A6  waitstate            
+
+  script 0x082951E0  [ok]
+    082951E0  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have three eligible POKéMON.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    082951FE  callstd              function=MSGBOX_DEFAULT(4)
+    08295200  goto                 destination=0x08295269
+
+  script 0x08295205  [ok]
+    08295205  msgbox_multilang     type=0 text_0="Excuse me!\pYou don’t have three eligible POKéMON.\pAlso, the POKéMON must be holding\ndifferent kinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_1="Excuse me!\pYou don’t have three eligible POKéMON.\pAlso, the POKéMON must be holding\ndifferent kinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_2="Excuse me!\pYou don’t have three eligible POKéMON.\pAlso, the POKéMON must be holding\ndifferent kinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_3="Excuse me!\pYou don’t have three eligible POKéMON.\pAlso, the POKéMON must be holding\ndifferent kinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_4="Excuse me!\pYou don’t have three eligible POKéMON.\pAlso, the POKéMON must be holding\ndifferent kinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_5="Excuse me!\pYou don’t have three eligible POKéMON.\pAlso, the POKéMON must be holding\ndifferent kinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready." text_6="Excuse me!\pYou don’t have three eligible POKéMON.\pAlso, the POKéMON must be holding\ndifferent kinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when you are ready."
+    08295223  callstd              function=MSGBOX_DEFAULT(4)
+    08295225  goto                 destination=0x08295269
+
+  script 0x08295269  [ok]
+    08295269  release              
+
+  object 2 (gfx 0xFA, flag 0x0000) -> 0x08295545
+  script 0x08295545  [ok]
+    08295545  msgbox_multilang     type=0 text_0="I would’ve won if I’d kept this POKéMON\nheld in reserve.\pYou need to check your opponent’s\nPOKéMON carefully before choosing\pyour battling POKéMON." text_1="I would’ve won if I’d kept this POKéMON\nheld in reserve.\pYou need to check your opponent’s\nPOKéMON carefully before choosing\pyour battling POKéMON." text_2="I would’ve won if I’d kept this POKéMON\nheld in reserve.\pYou need to check your opponent’s\nPOKéMON carefully before choosing\pyour battling POKéMON." text_3="I would’ve won if I’d kept this POKéMON\nheld in reserve.\pYou need to check your opponent’s\nPOKéMON carefully before choosing\pyour battling POKéMON." text_4="I would’ve won if I’d kept this POKéMON\nheld in reserve.\pYou need to check your opponent’s\nPOKéMON carefully before choosing\pyour battling POKéMON." text_5="I would’ve won if I’d kept this POKéMON\nheld in reserve.\pYou need to check your opponent’s\nPOKéMON carefully before choosing\pyour battling POKéMON." text_6="I would’ve won if I’d kept this POKéMON\nheld in reserve.\pYou need to check your opponent’s\nPOKéMON carefully before choosing\pyour battling POKéMON."
+    08295563  callstd              function=MSGBOX_NPC(2)
+    08295565  end                  
+
+  object 3 (gfx 0x2F, flag 0x0000) -> 0x08295503
+  script 0x08295503  [ok]
+    08295503  msgbox_multilang     type=0 text_0="When a TRAINER chains tournament\nwins at the BATTLE DOME, he or she\pgains a reputation as a star.\pTough TRAINERS are drawn by that\nreputation to the BATTLE DOME.\pA true superstar is a TRAINER who\ncan keep winning tournaments." text_1="When a TRAINER chains tournament\nwins at the BATTLE DOME, he or she\pgains a reputation as a star.\pTough TRAINERS are drawn by that\nreputation to the BATTLE DOME.\pA true superstar is a TRAINER who\ncan keep winning tournaments." text_2="When a TRAINER chains tournament\nwins at the BATTLE DOME, he or she\pgains a reputation as a star.\pTough TRAINERS are drawn by that\nreputation to the BATTLE DOME.\pA true superstar is a TRAINER who\ncan keep winning tournaments." text_3="When a TRAINER chains tournament\nwins at the BATTLE DOME, he or she\pgains a reputation as a star.\pTough TRAINERS are drawn by that\nreputation to the BATTLE DOME.\pA true superstar is a TRAINER who\ncan keep winning tournaments." text_4="When a TRAINER chains tournament\nwins at the BATTLE DOME, he or she\pgains a reputation as a star.\pTough TRAINERS are drawn by that\nreputation to the BATTLE DOME.\pA true superstar is a TRAINER who\ncan keep winning tournaments." text_5="When a TRAINER chains tournament\nwins at the BATTLE DOME, he or she\pgains a reputation as a star.\pTough TRAINERS are drawn by that\nreputation to the BATTLE DOME.\pA true superstar is a TRAINER who\ncan keep winning tournaments." text_6="When a TRAINER chains tournament\nwins at the BATTLE DOME, he or she\pgains a reputation as a star.\pTough TRAINERS are drawn by that\nreputation to the BATTLE DOME.\pA true superstar is a TRAINER who\ncan keep winning tournaments."
+    08295521  callstd              function=MSGBOX_NPC(2)
+    08295523  end                  
+
+  object 4 (gfx 0x11, flag 0x0000) -> 0x08295524
+  script 0x08295524  [ok]
+    08295524  msgbox_multilang     type=0 text_0="I ran into one of the tournament\nfavorites in the very first round.\pOf course I got trashed…" text_1="I ran into one of the tournament\nfavorites in the very first round.\pOf course I got trashed…" text_2="I ran into one of the tournament\nfavorites in the very first round.\pOf course I got trashed…" text_3="I ran into one of the tournament\nfavorites in the very first round.\pOf course I got trashed…" text_4="I ran into one of the tournament\nfavorites in the very first round.\pOf course I got trashed…" text_5="I ran into one of the tournament\nfavorites in the very first round.\pOf course I got trashed…" text_6="I ran into one of the tournament\nfavorites in the very first round.\pOf course I got trashed…"
+    08295542  callstd              function=MSGBOX_NPC(2)
+    08295544  end                  
+
+  object 5 (gfx 0x05, flag 0x0000) -> 0x082954DA
+  script 0x082954DA  [ok]
+    082954DA  setvar               destination=VAR_0x8004 value=20
+    082954DF  special              SPECIAL_\function=150
+    082954E2  msgbox_multilang     type=0 text_0="Did you see it?\nThe last Battle Tournament?\pThe winner, {STR_VAR_1}, was seriously\ntough.\pYou should check out the results\non the monitor beside the PC." text_1="Did you see it?\nThe last Battle Tournament?\pThe winner, {STR_VAR_1}, was seriously\ntough.\pYou should check out the results\non the monitor beside the PC." text_2="Did you see it?\nThe last Battle Tournament?\pThe winner, {STR_VAR_1}, was seriously\ntough.\pYou should check out the results\non the monitor beside the PC." text_3="Did you see it?\nThe last Battle Tournament?\pThe winner, {STR_VAR_1}, was seriously\ntough.\pYou should check out the results\non the monitor beside the PC." text_4="Did you see it?\nThe last Battle Tournament?\pThe winner, {STR_VAR_1}, was seriously\ntough.\pYou should check out the results\non the monitor beside the PC." text_5="Did you see it?\nThe last Battle Tournament?\pThe winner, {STR_VAR_1}, was seriously\ntough.\pYou should check out the results\non the monitor beside the PC." text_6="Did you see it?\nThe last Battle Tournament?\pThe winner, {STR_VAR_1}, was seriously\ntough.\pYou should check out the results\non the monitor beside the PC."
+    08295500  callstd              function=MSGBOX_NPC(2)
+    08295502  end                  
+
+  object 6 (gfx 0x55, flag 0x0000) -> 0x08294F92
+  script 0x08294F92  [ok]
+    08294F92  lock                 
+    08294F93  faceplayer           
+    08294F94  setvar               destination=VAR_0x40CF value=1
+    08294F99  setvar               destination=VAR_0x408C value=1
+    08294F9E  goto                 destination=0x08294FA4
+
+  sign 0 at (4,10) -> 0x082953DF
+  script 0x082953DF  [ok]
+    082953DF  lockall              
+    082953E0  setvar               destination=VAR_0x8004 value=7
+    082953E5  setvar               destination=VAR_0x8005 value=1
+    082953EA  setvar               destination=VAR_0x8006 value=0
+    082953EF  special              SPECIAL_\function=148
+    082953F2  waitbuttonpress      
+    082953F3  special              SPECIAL_\function=342
+    082953F6  releaseall           
+
+  sign 1 at (7,10) -> 0x08295411
+  script 0x08295411  [ok]
+    08295411  setvar               destination=VAR_0x8004 value=1
+    08295416  setvar               destination=VAR_0x8005 value=9
+    0829541B  special              SPECIAL_\function=150
+    0829541E  compare_var_to_value var=0x800D value=0
+    08295423  call_if              condition=1 destination=0x08295456
+    08295429  compare_var_to_value var=0x800D value=1
+    0829542E  call_if              condition=1 destination=0x08295477
+    08295434  compare_var_to_value var=0x800D value=2
+    08295439  call_if              condition=1 destination=0x08295498
+    0829543F  compare_var_to_value var=0x800D value=3
+    08295444  call_if              condition=1 destination=0x082954B9
+    0829544A  fadescreen           mode=1
+    0829544C  setvar               destination=VAR_0x8004 value=8
+    08295451  special              SPECIAL_\function=150
+    08295454  waitstate            
+
+  script 0x08295456  [ok]
+    08295456  msgbox_multilang     type=0 text_0="They’re the results of the last\nLevel 50 SINGLE BATTLE Tournament." text_1="They’re the results of the last\nLevel 50 SINGLE BATTLE Tournament." text_2="They’re the results of the last\nLevel 50 SINGLE BATTLE Tournament." text_3="They’re the results of the last\nLevel 50 SINGLE BATTLE Tournament." text_4="They’re the results of the last\nLevel 50 SINGLE BATTLE Tournament." text_5="They’re the results of the last\nLevel 50 SINGLE BATTLE Tournament." text_6="They’re the results of the last\nLevel 50 SINGLE BATTLE Tournament."
+    08295474  callstd              function=MSGBOX_SIGN(3)
+    08295476  return               
+
+  script 0x08295477  [ok]
+    08295477  msgbox_multilang     type=0 text_0="They’re the results of the last\nLevel 50 DOUBLE BATTLE Tournament." text_1="They’re the results of the last\nLevel 50 DOUBLE BATTLE Tournament." text_2="They’re the results of the last\nLevel 50 DOUBLE BATTLE Tournament." text_3="They’re the results of the last\nLevel 50 DOUBLE BATTLE Tournament." text_4="They’re the results of the last\nLevel 50 DOUBLE BATTLE Tournament." text_5="They’re the results of the last\nLevel 50 DOUBLE BATTLE Tournament." text_6="They’re the results of the last\nLevel 50 DOUBLE BATTLE Tournament."
+    08295495  callstd              function=MSGBOX_SIGN(3)
+    08295497  return               
+
+  script 0x08295498  [ok]
+    08295498  msgbox_multilang     type=0 text_0="They’re the results of the last\nOpen Level SINGLE BATTLE Tournament." text_1="They’re the results of the last\nOpen Level SINGLE BATTLE Tournament." text_2="They’re the results of the last\nOpen Level SINGLE BATTLE Tournament." text_3="They’re the results of the last\nOpen Level SINGLE BATTLE Tournament." text_4="They’re the results of the last\nOpen Level SINGLE BATTLE Tournament." text_5="They’re the results of the last\nOpen Level SINGLE BATTLE Tournament." text_6="They’re the results of the last\nOpen Level SINGLE BATTLE Tournament."
+    082954B6  callstd              function=MSGBOX_SIGN(3)
+    082954B8  return               
+
+  script 0x082954B9  [ok]
+    082954B9  msgbox_multilang     type=0 text_0="They’re the results of the last\nOpen Level DOUBLE BATTLE Tournament." text_1="They’re the results of the last\nOpen Level DOUBLE BATTLE Tournament." text_2="They’re the results of the last\nOpen Level DOUBLE BATTLE Tournament." text_3="They’re the results of the last\nOpen Level DOUBLE BATTLE Tournament." text_4="They’re the results of the last\nOpen Level DOUBLE BATTLE Tournament." text_5="They’re the results of the last\nOpen Level DOUBLE BATTLE Tournament." text_6="They’re the results of the last\nOpen Level DOUBLE BATTLE Tournament."
+    082954D7  callstd              function=MSGBOX_SIGN(3)
+    082954D9  return               
+
+  sign 2 at (18,10) -> 0x082953F8
+  script 0x082953F8  [ok]
+    082953F8  lockall              
+    082953F9  setvar               destination=VAR_0x8004 value=7
+    082953FE  setvar               destination=VAR_0x8005 value=1
+    08295403  setvar               destination=VAR_0x8006 value=1
+    08295408  special              SPECIAL_\function=148
+    0829540B  waitbuttonpress      
+    0829540C  special              SPECIAL_\function=342
+    0829540F  releaseall           
+
+  sign 3 at (15,10) -> 0x082955C9
+  script 0x082955C9  [ok]
+    082955C9  lockall              
+    082955CA  msgbox_multilang     type=0 text_0="The Battle Tournament rules\nare listed." text_1="The Battle Tournament rules\nare listed." text_2="The Battle Tournament rules\nare listed." text_3="The Battle Tournament rules\nare listed." text_4="The Battle Tournament rules\nare listed." text_5="The Battle Tournament rules\nare listed." text_6="The Battle Tournament rules\nare listed."
+    082955E8  callstd              function=MSGBOX_DEFAULT(4)
+    082955EA  goto                 destination=0x082955F0
+
+  script 0x082955F0  [ok]
+    082955F0  message              text="Which heading do you want to read?"
+    082955F5  fadescreenspeed      mode=102 speed=41
+    082955F8  gotostd              function=152
+    082955FA  waitmessage          
+    082955FB  setflag              flag=0x9808 (temp)
+    082955FE  waitmessage          
+    082955FF  setflag              flag=0x9808 (temp)
+    08295602  waitmessage          
+    08295603  setflag              flag=0x9808 (temp)
+    08295606  waitmessage          
+    08295607  setflag              flag=0x9808 (temp)
+    0829560A  waitmessage          
+    0829560B  setflag              flag=0x6608 (temp)
+    0829560E  multichoice          x=17 y=4 multichoiceId=98 ignoreBPress=0
+    08295613  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08295618  compare_var_to_value var=0x8000 value=0
+    0829561D  goto_if              condition=1 destination=0x08295650
+    08295623  compare_var_to_value var=0x8000 value=1
+    08295628  goto_if              condition=1 destination=0x08295676
+    0829562E  compare_var_to_value var=0x8000 value=2
+    08295633  goto_if              condition=1 destination=0x0829569C
+    08295639  compare_var_to_value var=0x8000 value=3
+    0829563E  goto_if              condition=1 destination=0x082956C2
+    08295644  compare_var_to_value var=0x8000 value=127
+    08295649  goto_if              condition=1 destination=0x082956C2
+    0829564F  end                  
+
+  script 0x08295650  [ok]
+    08295650  msgbox_multilang     type=0 text_0="The tournament matchups are drawn up\nbased on the toughness of POKéMON\pheld by TRAINERS.\pThe matchups avoid having tough\nTRAINERS face each other right away." text_1="The tournament matchups are drawn up\nbased on the toughness of POKéMON\pheld by TRAINERS.\pThe matchups avoid having tough\nTRAINERS face each other right away." text_2="The tournament matchups are drawn up\nbased on the toughness of POKéMON\pheld by TRAINERS.\pThe matchups avoid having tough\nTRAINERS face each other right away." text_3="The tournament matchups are drawn up\nbased on the toughness of POKéMON\pheld by TRAINERS.\pThe matchups avoid having tough\nTRAINERS face each other right away." text_4="The tournament matchups are drawn up\nbased on the toughness of POKéMON\pheld by TRAINERS.\pThe matchups avoid having tough\nTRAINERS face each other right away." text_5="The tournament matchups are drawn up\nbased on the toughness of POKéMON\pheld by TRAINERS.\pThe matchups avoid having tough\nTRAINERS face each other right away." text_6="The tournament matchups are drawn up\nbased on the toughness of POKéMON\pheld by TRAINERS.\pThe matchups avoid having tough\nTRAINERS face each other right away."
+    0829566E  callstd              function=MSGBOX_DEFAULT(4)
+    08295670  goto                 destination=0x082955F0
+
+  script 0x08295676  [ok]
+    08295676  msgbox_multilang     type=0 text_0="The tournament chart, or as we call it,\nthe “Tree,” is available for viewing\pin the Waiting Room from any guide.\pThe Tournament Tree will provide\nseveral kinds of data.\pThe data on view includes the previous\ntournament’s results, the POKéMON held\pby TRAINERS, and the battle styles of\pTRAINERS." text_1="The tournament chart, or as we call it,\nthe “Tree,” is available for viewing\pin the Waiting Room from any guide.\pThe Tournament Tree will provide\nseveral kinds of data.\pThe data on view includes the previous\ntournament’s results, the POKéMON held\pby TRAINERS, and the battle styles of\pTRAINERS." text_2="The tournament chart, or as we call it,\nthe “Tree,” is available for viewing\pin the Waiting Room from any guide.\pThe Tournament Tree will provide\nseveral kinds of data.\pThe data on view includes the previous\ntournament’s results, the POKéMON held\pby TRAINERS, and the battle styles of\pTRAINERS." text_3="The tournament chart, or as we call it,\nthe “Tree,” is available for viewing\pin the Waiting Room from any guide.\pThe Tournament Tree will provide\nseveral kinds of data.\pThe data on view includes the previous\ntournament’s results, the POKéMON held\pby TRAINERS, and the battle styles of\pTRAINERS." text_4="The tournament chart, or as we call it,\nthe “Tree,” is available for viewing\pin the Waiting Room from any guide.\pThe Tournament Tree will provide\nseveral kinds of data.\pThe data on view includes the previous\ntournament’s results, the POKéMON held\pby TRAINERS, and the battle styles of\pTRAINERS." text_5="The tournament chart, or as we call it,\nthe “Tree,” is available for viewing\pin the Waiting Room from any guide.\pThe Tournament Tree will provide\nseveral kinds of data.\pThe data on view includes the previous\ntournament’s results, the POKéMON held\pby TRAINERS, and the battle styles of\pTRAINERS." text_6="The tournament chart, or as we call it,\nthe “Tree,” is available for viewing\pin the Waiting Room from any guide.\pThe Tournament Tree will provide\nseveral kinds of data.\pThe data on view includes the previous\ntournament’s results, the POKéMON held\pby TRAINERS, and the battle styles of\pTRAINERS."
+    08295694  callstd              function=MSGBOX_DEFAULT(4)
+    08295696  goto                 destination=0x082955F0
+
+  script 0x0829569C  [ok]
+    0829569C  msgbox_multilang     type=0 text_0="If battling POKéMON faint at the same\ntime--a double KO--in a tournament\pmatch, the REFEREES will review\pthe match and declare the winner." text_1="If battling POKéMON faint at the same\ntime--a double KO--in a tournament\pmatch, the REFEREES will review\pthe match and declare the winner." text_2="If battling POKéMON faint at the same\ntime--a double KO--in a tournament\pmatch, the REFEREES will review\pthe match and declare the winner." text_3="If battling POKéMON faint at the same\ntime--a double KO--in a tournament\pmatch, the REFEREES will review\pthe match and declare the winner." text_4="If battling POKéMON faint at the same\ntime--a double KO--in a tournament\pmatch, the REFEREES will review\pthe match and declare the winner." text_5="If battling POKéMON faint at the same\ntime--a double KO--in a tournament\pmatch, the REFEREES will review\pthe match and declare the winner." text_6="If battling POKéMON faint at the same\ntime--a double KO--in a tournament\pmatch, the REFEREES will review\pthe match and declare the winner."
+    082956BA  callstd              function=MSGBOX_DEFAULT(4)
+    082956BC  goto                 destination=0x082955F0
+
+  script 0x082956C2  [ok]
+    082956C2  releaseall           
+
+  map script type 5 -> 0x08294C13
+  script 0x08294C13  [ok]
+    08294C13  setvar               destination=VAR_0x8004 value=21
+    08294C18  special              SPECIAL_\function=150
+    08294C1B  end                  
+
+  map script type 2 (var 0x4000 == 0) -> 0x08294C5A
+  script 0x08294C5A  [ok]
+    08294C5A  setvar               destination=VAR_0x8004 value=0
+    08294C5F  special              SPECIAL_\function=148
+    08294C62  end                  
+
+  map script type 2 (var 0x4000 == 1) -> 0x08294C63
+  script 0x08294C63  [ok]
+    08294C63  lockall              
+    08294C64  msgbox_multilang     type=0 text_0="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_1="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_2="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_3="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_4="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_5="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!" text_6="Excuse me!\pYou didn’t save before you quit your\nchallenge last time.\pBecause of that, your challenge so far\nhas been disqualified. Sorry!"
+    08294C82  callstd              function=MSGBOX_DEFAULT(4)
+    08294C84  closemessage         
+    08294C85  setvar               destination=VAR_0x8004 value=2
+    08294C8A  setvar               destination=VAR_0x8005 value=0
+    08294C8F  setvar               destination=VAR_0x8006 value=0
+    08294C94  special              SPECIAL_\function=150
+    08294C97  setvar               destination=VAR_0x8004 value=2
+    08294C9C  setvar               destination=VAR_0x8005 value=1
+    08294CA1  setvar               destination=VAR_0x8006 value=0
+    08294CA6  special              SPECIAL_\function=150
+    08294CA9  setvar               destination=VAR_0x8004 value=2
+    08294CAE  setvar               destination=VAR_0x8005 value=6
+    08294CB3  setvar               destination=VAR_0x8006 value=1
+    08294CB8  special              SPECIAL_\function=150
+    08294CBB  setvar               destination=VAR_0x8004 value=2
+    08294CC0  setvar               destination=VAR_0x8005 value=0
+    08294CC5  setvar               destination=VAR_0x8006 value=0
+    08294CCA  special              SPECIAL_\function=148
+    08294CCD  setvar               destination=VAR_0x4000 value=255
+    08294CD2  releaseall           
+
+  map script type 2 (var 0x4000 == 2) -> 0x08294F14
+  script 0x08294F14  [ok]
+    08294F14  lockall              
+    08294F15  msgbox_multilang     type=0 text_0="We’ve been waiting for you!" text_1="We’ve been waiting for you!" text_2="We’ve been waiting for you!" text_3="We’ve been waiting for you!" text_4="We’ve been waiting for you!" text_5="We’ve been waiting for you!" text_6="We’ve been waiting for you!"
+    08294F33  callstd              function=MSGBOX_DEFAULT(4)
+    08294F35  message              text="Before I show you to the BATTLE DOME,\nI must save the data. Is that okay?"
+    08294F3A  waitstate            
+
+  map script type 2 (var 0x4000 == 3) -> 0x08294CD4
+  script 0x08294CD4  [ok]
+    08294CD4  call                 destination=0x0828CCE1
+    08294CD9  lockall              
+    08294CDA  setvar               destination=VAR_0x8004 value=10
+    08294CDF  special              SPECIAL_\function=148
+    08294CE2  compare_var_to_value var=0x800D value=1
+    08294CE7  goto_if              condition=1 destination=0x08294D12
+    08294CED  msgbox_multilang     type=0 text_0="Congratulations for winning\nyour Battle Tournament!" text_1="Congratulations for winning\nyour Battle Tournament!" text_2="Congratulations for winning\nyour Battle Tournament!" text_3="Congratulations for winning\nyour Battle Tournament!" text_4="Congratulations for winning\nyour Battle Tournament!" text_5="Congratulations for winning\nyour Battle Tournament!" text_6="Congratulations for winning\nyour Battle Tournament!"
+    08294D0B  callstd              function=MSGBOX_DEFAULT(4)
+    08294D0D  goto                 destination=0x08294D32
+
+  script 0x0828CCE1  [ok]
+    0828CCE1  setvar               destination=VAR_0x8004 value=17
+    0828CCE6  special              SPECIAL_\function=148
+    0828CCE9  return               
+
+  script 0x08294D12  [unknown-opcode:0xE3]
+    08294D12  msgbox_multilang     type=0 text_0="Congratulations!\pYou defeated the DOME ACE and won\nthe Battle Tournament!" text_1="Congratulations!\pYou defeated the DOME ACE and won\nthe Battle Tournament!" text_2="Congratulations!\pYou defeated the DOME ACE and won\nthe Battle Tournament!" text_3="Congratulations!\pYou defeated the DOME ACE and won\nthe Battle Tournament!" text_4="Congratulations!\pYou defeated the DOME ACE and won\nthe Battle Tournament!" text_5="Congratulations!\pYou defeated the DOME ACE and won\nthe Battle Tournament!" text_6="Congratulations!\pYou defeated the DOME ACE and won\nthe Battle Tournament!"
+    08294D30  callstd              function=MSGBOX_DEFAULT(4)
+    08294D32  msgbox_multilang     type=0 text_0="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_1="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_2="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_3="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_4="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_5="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_6="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!"
+    08294D50  callstd              function=MSGBOX_DEFAULT(4)
+    08294D52  setvar               destination=VAR_0x8004 value=11
+    08294D57  special              SPECIAL_\function=148
+    08294D5A  msgbox_multilang     type=0 text_0="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained {STR_VAR_1} Battle Point(s)."
+    08294D78  callstd              function=11
+    08294D7A  message              text="Your record will be saved.\nPlease wait."
+
+  script 0x08294D32  [unknown-opcode:0xE3]
+    08294D32  msgbox_multilang     type=0 text_0="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_1="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_2="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_3="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_4="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_5="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!" text_6="In recognition of your strategy--\na thing of beauty it was, too--\pwe award you these Battle Point(s)!"
+    08294D50  callstd              function=MSGBOX_DEFAULT(4)
+    08294D52  setvar               destination=VAR_0x8004 value=11
+    08294D57  special              SPECIAL_\function=148
+    08294D5A  msgbox_multilang     type=0 text_0="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained {STR_VAR_1} Battle Point(s)."
+    08294D78  callstd              function=11
+    08294D7A  message              text="Your record will be saved.\nPlease wait."
+
+  map script type 2 (var 0x4000 == 4) -> 0x08294DF6
+  script 0x08294DF6  [unknown-opcode:0xE3]
+    08294DF6  lockall              
+    08294DF7  msgbox_multilang     type=0 text_0="Thank you for playing!" text_1="Thank you for playing!" text_2="Thank you for playing!" text_3="Thank you for playing!" text_4="Thank you for playing!" text_5="Thank you for playing!" text_6="Thank you for playing!"
+    08294E15  callstd              function=MSGBOX_DEFAULT(4)
+    08294E17  message              text="Your record will be saved.\nPlease wait."
+
+  map script type 4 (var 0x4001 == 0) -> 0x08294C26
+  script 0x08294C26  [ok]
+    08294C26  setvar               destination=VAR_0x4001 value=1
+    08294C2B  turnobject           localId=255 direction=2
+    08294C2F  end                  
+

@@ -1,0 +1,158 @@
+Pallet Town  (group 4, map 0)  header 0x08B3CDFC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xD7, flag 0x0000) -> 0x082432EA
+  script 0x082432EA  [ok]
+    082432EA  lock                 
+    082432EB  faceplayer           
+    082432EC  setflag              flag=0x4005 (temp)
+    082432EF  checkflag            flag=0x860:STARTER_PROGRESSION_A
+    082432F2  goto_if              condition=1 destination=0x0824332A
+    082432F8  speakername          name="Mom"
+    082432FD  msgbox_multilang     type=0 text_0="Dear! Professor Oak is waiting for\nyou!" text_1="¡Cielo! ¡El Profesor Oak te está\nesperando!" text_2="Dear! Professor Oak is waiting for\nyou!" text_3="Tesoro! Il Prof. Oak ti sta\naspettando!" text_4="Dear! Professor Oak is waiting for\nyou!" text_5="Querido! O Professor Carvalho está\nesperando por você!" text_6="こ:ÀÒÂÎ!ËÂÎœÀû!\nÁYÌ’ÀJÏÇÔrÂÔŒäÌeÌT!"
+    0824331B  callstd              function=MSGBOX_DEFAULT(4)
+    0824331D  closemessage         
+    0824331E  applymovement        localId=1 movements=[face_original_direction]
+    08243325  waitmovement         localId=0
+    08243328  release              
+
+  script 0x0824332A  [ok]
+    0824332A  speakername          name="Mom"
+    0824332F  msgbox_multilang     type=0 text_0="{PLAYER}!\nYou should take a quick rest." text_1="¡{PLAYER}!\nDeberías descansar un rato." text_2="{PLAYER}!\nYou should take a quick rest." text_3="{PLAYER}!\nDovresti riposarti un po’." text_4="{PLAYER}!\nYou should take a quick rest." text_5="{PLAYER}!\nVocê deveria tirar uma soneca." text_6="{PLAYER}!ÌeÔÎÂぷËっÈぢËペÀû!\nÇuÇuÓâÒLÓâÒLÀû!"
+    0824334D  callstd              function=MSGBOX_DEFAULT(4)
+    0824334F  closemessage         
+    08243350  call                 destination=0x082F81AB
+    08243355  speakername          name="Mom"
+    0824335A  msgbox_multilang     type=0 text_0="Oh, good! You and your\nPokémon are looking great.\pTake care now!" text_1="¡Qué bien! Ahora tus Pokémon y tú os\nveis bien.\p¡Ahora cuídate!" text_2="Oh, good! You and your\nPokémon are looking great.\pTake care now!" text_3="Perfetto! Ora tu e i tuoi\nPokémon siete in gran forma!\pFai attenzione!" text_4="Oh, good! You and your\nPokémon are looking great.\pTake care now!" text_5="Que, bom! Você e os seus\nPokémon estぇo ótimos.\pAgora se cuide!" text_6="Ñチ!ÊHこ!Ëñ\nÌeÇÜÌeÂÎÊ%ËBÌソ\pÓÂÔrÂÎŒoÏ.ÂチÈÎÀbÁSÌT!\pÌCÌぴごÈ¥ÓォÁリÂ4Àû!\nこ:ÀÒÂÎ!"
+    08243378  callstd              function=MSGBOX_DEFAULT(4)
+    0824337A  release              
+
+  script 0x082F81AB  [ok]
+    082F81AB  fadescreenswapbuffers mode=1
+    082F81AD  nop                  
+    082F81AE  playfanfare          song=368
+    082F81B1  waitfanfare          
+    082F81B2  special              SPECIAL_\function=0
+    082F81B5  callnative           func=0x080D5785
+    082F81BA  fadescreenswapbuffers mode=0
+    082F81BC  nop                  
+    082F81BD  return               
+
+  object 2 (gfx 0x08, flag 0x007F) -> 0x00000000
+  sign 0 at (6,1) -> 0x0824337C
+  script 0x0824337C  [ok]
+    0824337C  lockall              
+    0824337D  checkplayergender    
+    0824337E  compare_var_to_value var=0x800D value=0
+    08243383  goto_if              condition=1 destination=0x082433AB
+    08243389  msgbox_multilang     type=0 text_0="There’s a movie on TV.\nA girl with her hair in pigtails is\pwalking up a brick road.\p…I better go, too." text_1="Están poniendo una peli…\nSale una chica con coletas andando\ppor una calle empedrada…\pBueno, voy a ponerme en marcha." text_2="There’s a movie on TV.\nA girl with her hair in pigtails is\pwalking up a brick road.\p…I better go, too." text_3="C’è un film in TV.\nUna ragazza con le trecce\pcammina su una strada lastricata.\pAnche io farei meglio a mettermi in\nviaggio!" text_4="There’s a movie on TV.\nA girl with her hair in pigtails is\pwalking up a brick road.\p…I better go, too." text_5="Está passando um filme na TV.\nUma garota de tranças está\pcaminhando em uma estrada de\ptijolos.\p…Bem, acho melhor ir andando." text_6="Â+ÏねËトÂNŒäÔÎÀfÂ+Ôセ!\pÔÎÇタŒÔŒäÌúÒリÀ4ÂÎこÎÇN\nÓGŒäËtÓまこOÙáŒä……\p………\pÒブÔÁÓÄÙáËú!"
+    082433A7  callstd              function=MSGBOX_DEFAULT(4)
+    082433A9  releaseall           
+
+  script 0x082433AB  [ok]
+    082433AB  msgbox_multilang     type=0 text_0="There’s a movie on TV.\nFour boys are walking on railroad\ptracks.\p…I better go, too." text_1="Están poniendo una peli…\nSalen cuatro niños caminando por\plas vías del tren…\pBueno, voy a ponerme en marcha." text_2="There’s a movie on TV.\nFour boys are walking on railroad\ptracks.\p…I better go, too." text_3="C’è un film in TV.\nQuattro ragazzi camminano sui\pbinari!\pAnche io farei meglio a mettermi in\nviaggio!" text_4="There’s a movie on TV.\nFour boys are walking on railroad\ptracks.\p…I better go, too." text_5="Está passando um filme na TV.\nQuatro garotos estぇo caminhando nos\ptrilhos do trem.\p…Bem, acho melhor ir andando." text_6="Â+ÏねËトÂNŒäÔÎÀfÂ+Ôセ!\pÏヌÇタÌLÇNÈXÀCÈX\nÙáÔrÒÇËtÎ.……\p………\pÒブÔÁÂこÁリÂ4Ëペ!"
+    082433C9  callstd              function=MSGBOX_DEFAULT(4)
+    082433CB  goto                 destination=0x082433A9
+
+  script 0x082433A9  [ok]
+    082433A9  releaseall           
+
+  sign 1 at (10,1) -> 0x082433D0
+  script 0x082433D0  [ok]
+    082433D0  incrementgamestat    stat=45
+    082433D2  fadescreen           mode=1
+    082433D4  special              SPECIAL_\function=92
+    082433D7  waitstate            
+
+  map script type 2 (var 0x40E0 == 1) -> 0x08242F6C
+  script 0x08242F6C  [ok]
+    08242F6C  turnobject           localId=255 direction=1
+    08242F70  applymovement        localId=1 movements=[walk_right walk_right walk_up]
+    08242F77  waitmovement         localId=0
+    08242F7A  textcolor            color=1
+    08242F7C  checkplayergender    
+    08242F7D  speakername          name="Mom"
+    08242F82  compare_var_to_value var=0x800D value=0
+    08242F87  goto_if              condition=1 destination=0x0824300C
+    08242F8D  msgbox_multilang     type=0 text_0="{PLAYER}, did you fall asleep\nagain?\pWhat?\nIt’s not that bad?\pBut look what time it is already!" text_1="{PLAYER}, ¿te has vuelto a quedar\ndormida?\p¿Qué?\n¿Que no es para tanto?\p¡Pero mira qué hora es!" text_2="{PLAYER}, ne me dis pas que tu t’es\nrendormi ?\pComment ça ?\nCe n’est pas grave ?\pMais regarde l’heure qu’il est !" text_3="{PLAYER}, ti sei addormentato di\nnuovo?\pCome?\nNon è così grave?\pMa guarda già che ore sono!" text_4="{PLAYER}, did you fall asleep\nagain?\pWhat?\nIt’s not that bad?\pBut look what time it is already!" text_5="{PLAYER}, deixaste-te dormir\noutra vez?\pComo?\nNぇo é assim tぇo grave?\pMas já viste que horas sぇo!?" text_6="{PLAYER}!ÒブÂÎÀテÀム!\nÌeŒçÔャÏ¡ÇKÒまËペÓ5!\pÎデ?\nÌeÏクÌウÇッÒeÂÎ?\pËÂÊHÊHÀ9!\nÓÂÔrÂチÈ2ÂºËペ?"
+    08242FAB  callstd              function=MSGBOX_DEFAULT(4)
+    08242FAD  closemessage         
+    08242FAE  turnobject           localId=255 direction=2
+    08242FB2  delay                frames=32
+    08242FB5  fadescreen           mode=1
+    08242FB7  special              SPECIAL_\function=91
+    08242FBA  waitstate            
+
+  script 0x0824300C  [ok]
+    0824300C  msgbox_multilang     type=0 text_0="{PLAYER}, did you fall asleep\nagain?\pWhat?\nIt’s not that bad?\pBut look what time it is already!" text_1="{PLAYER}, ¿te has vuelto a quedar\ndormido?\p¿Qué?\n¿Que no es para tanto?\p¡Pero mira qué hora es!" text_2="{PLAYER}, ne me dis pas que tu t’es\nrendormi ?\pComment ça ?\nCe n’est pas grave ?\pMais regarde l’heure qu’il est !" text_3="{PLAYER}, ti sei addormentato di\nnuovo?\pCome?\nNon è così grave?\pMa guarda già che ore sono!" text_4="{PLAYER}, did you fall asleep\nagain?\pWhat?\nIt’s not that bad?\pBut look what time it is already!" text_5="{PLAYER}, deixaste-te dormir\noutra vez?\pComo?\nNぇo é assim tぇo grave?\pMas já viste que horas sぇo!?" text_6="{PLAYER}!ÒブÂÎÇピÇピ!\nÌeŒçÔャÏ¡ÇKÒまËペÓ5!\pÎデ?\nÈばÌウÎデÁYÀbËペÂÎ?\pËÂÊHÊH!ÊHÊHÌCÀ9\nÂチÈ2ÂºËペ?À ?"
+    0824302A  callstd              function=MSGBOX_DEFAULT(4)
+    0824302C  goto                 destination=0x08242FAD
+
+  script 0x08242FAD  [ok]
+    08242FAD  closemessage         
+    08242FAE  turnobject           localId=255 direction=2
+    08242FB2  delay                frames=32
+    08242FB5  fadescreen           mode=1
+    08242FB7  special              SPECIAL_\function=91
+    08242FBA  waitstate            
+
+  map script type 2 (var 0x40E0 == 3) -> 0x08243057
+  script 0x08243057  [unknown-opcode:0xE9]
+    08243057  lockall              
+    08243058  applymovement        localId=255 movements=[walk_up]
+    0824305F  waitmovement         localId=0
+    08243062  turnobject           localId=1 direction=1
+    08243066  playse               song=21
+    08243069  applymovement        localId=1 movements=[emote_question_mark]
+    08243070  delay                frames=30
+    08243073  waitmovement         localId=0
+    08243076  textcolor            color=1
+    08243078  speakername          name="Mom"
+    0824307D  msgbox_multilang     type=0 text_0="Hi, {PLAYER}.\nCome in." text_1="Hola, {PLAYER}.\nEntra." text_2="Coucou, {PLAYER}.\nRentre à l’intérieur." text_3="Ciao, {PLAYER}.\nEntra." text_4="Oi, {PLAYER}.\nEntre." text_5="Ñヌ!{PLAYER}!\nÊぼËñÀû!" text_6="Hi, {PLAYER}.\nCome in."
+    0824309B  callstd              function=MSGBOX_DEFAULT(4)
+    0824309D  closemessage         
+    0824309E  delay                frames=16
+    082430A1  applymovement        localId=255 movements=[walk_up walk_right walk_right walk_right walk_right walk_up]
+    082430A8  waitmovement         localId=0
+    082430AB  delay                frames=16
+    082430AE  speakername          name="Mom"
+    082430B3  msgbox_multilang     type=0 text_0="So, Professor Oak had a Pokémon for\nyou?\pThat’s awesome, honey!" text_1="Entonces, ¿el Profesor Oak tenía un\nPokémon para ti?\p¡Eso es maravilloso cielo!" text_2="Alors, le Professeur Chen avait\nencore un Pokémon pour toi ?\pC’est super mon chéri !" text_3="Allora, il Prof. Oak aveva un Pokémon\nper te?\pMa è fantastico, tesoro!" text_4="So, Professor Oak had a Pokémon for\nyou?\pThat’s awesome, honey!" text_5="Entぇo, Professor Carvalho tinha um\nPokémon para você?\pIsso é incrível, amor!" text_6="ÏピÔôごÁYÌ’ÀJÏÇÏペ\nÇツËペÌeÔÎŒザÊ%ËBごÏÏÌº?\pŒケÏÏÏ?ÀウËペ!ÒブÂÎÀテÀム!"
+    082430D1  callstd              function=MSGBOX_DEFAULT(4)
+    082430D3  closemessage         
+    082430D4  delay                frames=40
+    082430D7  clearflag            flag=0x07F
+    082430DA  playse               song=9
+    082430DD  addobject            localId=2
+    082430E0  special              SPECIAL_\function=190
+    082430E3  applymovement        localId=127 movements=[walk_down walk_down]
+    082430EA  turnobject           localId=255 direction=1
+    082430EE  waitmovement         localId=127
+    082430F1  delay                frames=16
+    082430F4  textcolor            color=0
+    082430F6  speakername          name="Scientist"
+    082430FB  msgbox_multilang     type=0 text_0="Excuse me, please!" text_1="¡Disculpe, por favor!" text_2="Excusez-moi !" text_3="Chiedo scusa! Si può?" text_4="Excuse me, please!" text_5="Com licença!" text_6="ÁXÎどËペごÀトこWが"
+    08243119  callstd              function=MSGBOX_DEFAULT(4)
+    0824311B  closemessage         
+    0824311C  applymovement        localId=2 movements=[walk_up walk_right walk_right walk_right walk_right walk_right walk_up walk_up face_left]
+    08243123  delay                frames=74
+    08243126  applymovement        localId=127 movements=[walk_up walk_up]
+    0824312D  delay                frames=20
+    08243130  turnobject           localId=255 direction=4
+    08243134  turnobject           localId=1 direction=4
+    08243138  waitmovement         localId=2
+    0824313B  special              SPECIAL_\function=191
+    0824313E  delay                frames=16
+    08243141  speakername          name="Scientist"
+    08243146  msgbox_multilang     type=0 text_0="{PLAYER}, the Professor asked you\nto go to Viridian City.\pA package has arrived at the Pokémon\nMart and we’re swamped with work.\pPlease accept this in exchange for\nthe favor." text_1="{PLAYER}, el Profesor te pidió que\nvayas a Ciudad Verde.\pUn paquete ha llegado a la Tienda\nPokémon y estamos abrumados de\ptrabajo.\pPor favor, acepta esto a cambio de\nla petición." text_2="{PLAYER}, le Professeur aimerait\nque tu te rendes à Jadielle.\pUn colis est arrivé à la Boutique\nPokémon mais nous croulons sous le\ptravail.\pAccepte ceci en échange de cette\nfaveur." text_3="{PLAYER}, il Prof. Oak chiede se\npuoi recarti a Smeraldopoli.\pÈ arrivato un pacco al Pokémon\nMarket ma siamo sommersi dal\plavoro.\pAccetta questo in cambio del favore." text_4="{PLAYER}, the Professor asked you\nto go to Viridian City.\pA package has arrived at the Pokémon\nMart and we’re swamped with work.\pPlease accept this in exchange for\nthe favor." text_5="{PLAYER}, o Professor pediu para\nvocê ir a Cidade Viridian.\pUm pacote chegou na Loja Pokémon e\nnós estamos cheios com trabalho.\pPor favor aceite isto em troca do\nfavor." text_6="{PLAYER}!ÁYÌ’ÀJÏÇÎづÌeÓÂÔr\nÌXÀbÌXÎœÔÎÏRÁœこºÏß?\pÏペÔンÇタÀ%ÇJÂNÔr\nÌCËトÂÎÊ%ËBÔァÇuÎ9Âぅご\nÁuÒブÌソÓÂÔrÎÄÔrÏ?ÌずËペ……\pÏピÔôごÀざÒぎËペ!ËFÒぼÙぁÒミÀナÁフ\nŒァÈòÒブÈホÇツÌeÓゃÂっÒCÂÎ!"
+    08243164  callstd              function=MSGBOX_DEFAULT(4)
+    08243166  closemessage         
+

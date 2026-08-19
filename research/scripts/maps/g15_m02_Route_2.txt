@@ -1,0 +1,68 @@
+Route 2  (group 15, map 2)  header 0x08B3D860
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x082736B6
+  script 0x082736B6  [unknown-opcode:0xE9]
+    082736B6  lock                 
+    082736B7  faceplayer           
+    082736B8  call                 destination=0x082737AA
+    082736BD  checkflag            flag=0x23B
+    082736C0  goto_if              condition=1 destination=0x08273771
+    082736C6  msgbox_multilang     type=0 text_0="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data on\nten species, I’m supposed to give\pyou a reward.\pProf. Oak entrusted me with HM05 for\nyou.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\nten kinds of Pokémon?" text_1="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data on\nten species, I’m supposed to give\pyou a reward.\pProf. Oak entrusted me with HM05 for\nyou.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\nten kinds of Pokémon?" text_2="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data on\nten species, I’m supposed to give\pyou a reward.\pProf. Oak entrusted me with HM05 for\nyou.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\nten kinds of Pokémon?" text_3="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data on\nten species, I’m supposed to give\pyou a reward.\pProf. Oak entrusted me with HM05 for\nyou.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\nten kinds of Pokémon?" text_4="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data on\nten species, I’m supposed to give\pyou a reward.\pProf. Oak entrusted me with HM05 for\nyou.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\nten kinds of Pokémon?" text_5="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data on\nten species, I’m supposed to give\pyou a reward.\pProf. Oak entrusted me with HM05 for\nyou.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\nten kinds of Pokémon?" text_6="Hi! Remember me?\nI’m one of Prof. Oak’s Aides.\pIf your Pokédex has complete data on\nten species, I’m supposed to give\pyou a reward.\pProf. Oak entrusted me with HM05 for\nyou.\pSo, {PLAYER}, let me ask you.\pHave you gathered data on at least\nten kinds of Pokémon?"
+    082736E4  callstd              function=MSGBOX_YESNO(5)
+    082736E6  compare_var_to_value var=0x800D value=0
+    082736EB  goto_if              condition=1 destination=0x08273796
+    082736F1  setvar               destination=VAR_0x8004 value=0
+    082736F6  specialvar           output=32781 SPECIAL_\function=133
+    082736FB  buffernumberstring   stringVarId=2 input=32774
+    082736FF  call                 destination=0x082737AA
+    08273704  compare_var_to_value var=0x8006 value=10
+    08273709  goto_if              condition=0 destination=0x082737A0
+    0827370F  msgbox_multilang     type=0 text_0="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_1="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_2="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_3="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_4="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_5="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!" text_6="Great! You have caught or owned\n{STR_VAR_3} kinds of Pokémon!\pCongratulations!\nHere you go!"
+    0827372D  callstd              function=MSGBOX_DEFAULT(4)
+    0827372F  additem              itemId=HM05(343) quantity=1
+
+  script 0x082737AA  [ok]
+    082737AA  buffernumberstring   stringVarId=0 input=10
+    082737AE  bufferitemname       stringVarId=1 item=343
+    082737B2  return               
+
+  script 0x08273771  [ok]
+    08273771  msgbox_multilang     type=0 text_0="HM05 contains the hidden move\nFlash.\pFlash lights up even the darkest of\ncaves and dungeons." text_1="HM05 contains the hidden move\nFlash.\pFlash lights up even the darkest of\ncaves and dungeons." text_2="HM05 contains the hidden move\nFlash.\pFlash lights up even the darkest of\ncaves and dungeons." text_3="HM05 contains the hidden move\nFlash.\pFlash lights up even the darkest of\ncaves and dungeons." text_4="HM05 contains the hidden move\nFlash.\pFlash lights up even the darkest of\ncaves and dungeons." text_5="HM05 contains the hidden move\nFlash.\pFlash lights up even the darkest of\ncaves and dungeons." text_6="HM05 contains the hidden move\nFlash.\pFlash lights up even the darkest of\ncaves and dungeons."
+    0827378F  callstd              function=MSGBOX_DEFAULT(4)
+    08273791  goto                 destination=0x0827376F
+
+  script 0x08273796  [ok]
+    08273796  goto                 destination=0x081FF771
+
+  script 0x082737A0  [ok]
+    082737A0  goto                 destination=0x081FF72D
+
+  script 0x0827376F  [ok]
+    0827376F  release              
+
+  script 0x081FF771  [ok]
+    081FF771  msgbox_multilang     type=0 text_0="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_1="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_2="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_3="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_4="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_5="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}." text_6="…Oh. I see.\pWhen you get {STR_VAR_1} kinds of Pokémon,\ncome back for the {STR_VAR_2}."
+    081FF78F  callstd              function=MSGBOX_DEFAULT(4)
+    081FF791  release              
+
+  script 0x081FF72D  [ok]
+    081FF72D  msgbox_multilang     type=0 text_0="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_1="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_2="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_3="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_4="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_5="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}." text_6="Let’s see…\nUh-oh! You have caught only\p{STR_VAR_3} kinds of Pokémon!\pYou need {STR_VAR_1} kinds\nif you want the {STR_VAR_2}."
+    081FF74B  callstd              function=MSGBOX_DEFAULT(4)
+    081FF74D  release              
+
+  object 2 (gfx 0xF3, flag 0x0000) -> 0x082737B3
+  script 0x082737B3  [ok]
+    082737B3  msgbox_multilang     type=0 text_0="Once a Pokémon learns Flash, you can\nget through Rock Tunnel." text_1="Once a Pokémon learns Flash, you can\nget through Rock Tunnel." text_2="Once a Pokémon learns Flash, you can\nget through Rock Tunnel." text_3="Once a Pokémon learns Flash, you can\nget through Rock Tunnel." text_4="Once a Pokémon learns Flash, you can\nget through Rock Tunnel." text_5="Once a Pokémon learns Flash, you can\nget through Rock Tunnel." text_6="Once a Pokémon learns Flash, you can\nget through Rock Tunnel."
+    082737D1  callstd              function=MSGBOX_NPC(2)
+    082737D3  end                  
+

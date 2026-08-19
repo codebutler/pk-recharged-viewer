@@ -1,0 +1,79 @@
+Navel Rock  (group 2, map 44)  header 0x08B3C45C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xED, flag 0x009B) -> 0x0821CCCB
+  script 0x0821CCCB  [ok]
+    0821CCCB  lock                 
+    0821CCCC  faceplayer           
+    0821CCCD  waitse               
+    0821CCCE  delay                frames=20
+    0821CCD1  playse               song=82
+    0821CCD4  setvar               destination=VAR_0x8004 value=0
+    0821CCD9  setvar               destination=VAR_0x8005 value=3
+    0821CCDE  setvar               destination=VAR_0x8006 value=4
+    0821CCE3  setvar               destination=VAR_0x8007 value=2
+    0821CCE8  special              SPECIAL_\function=221
+    0821CCEB  delay                frames=30
+    0821CCEE  playse               song=82
+    0821CCF1  setvar               destination=VAR_0x8004 value=0
+    0821CCF6  setvar               destination=VAR_0x8005 value=3
+    0821CCFB  setvar               destination=VAR_0x8006 value=4
+    0821CD00  setvar               destination=VAR_0x8007 value=2
+    0821CD05  special              SPECIAL_\function=221
+    0821CD08  delay                frames=30
+    0821CD0B  delay                frames=50
+    0821CD0E  waitse               
+    0821CD0F  playmoncry           species=LUGIA(249) mode=2
+    0821CD14  waitmoncry           
+    0821CD15  delay                frames=20
+    0821CD18  setvar               destination=VAR_0x8004 value=249
+    0821CD1D  setvar               destination=VAR_0x8005 value=70
+    0821CD22  setvar               destination=VAR_0x8006 value=0
+    0821CD27  special              SPECIAL_\function=317
+    0821CD2A  setflag              flag=0x867
+    0821CD2D  special              SPECIAL_\function=223
+    0821CD30  waitstate            
+
+  map script type 3 -> 0x0821CC89
+  script 0x0821CC89  [ok]
+    0821CC89  checkflag            flag=0x2F2
+    0821CC8C  call_if              condition=1 destination=0x0821CC9C
+    0821CC92  checkflag            flag=0x2F2
+    0821CC95  call_if              condition=0 destination=0x0821CCA0
+    0821CC9B  end                  
+
+  script 0x0821CC9C  [ok]
+    0821CC9C  setflag              flag=0x09B
+    0821CC9F  return               
+
+  script 0x0821CCA0  [ok]
+    0821CCA0  checkflag            flag=0x2F5
+    0821CCA3  goto_if              condition=1 destination=0x082BCF3E
+    0821CCA9  clearflag            flag=0x09B
+    0821CCAC  return               
+
+  script 0x082BCF3E  [ok]
+    082BCF3E  return               
+
+  map script type 5 -> 0x0821CCAD
+  script 0x0821CCAD  [ok]
+    0821CCAD  checkflag            flag=0x867
+    0821CCB0  call_if              condition=1 destination=0x0821CCB7
+    0821CCB6  end                  
+
+  script 0x0821CCB7  [ok]
+    0821CCB7  specialvar           output=32781 SPECIAL_\function=102
+    0821CCBC  compare_var_to_value var=0x800D value=7
+    0821CCC1  goto_if              condition=5 destination=0x082BCF3E
+    0821CCC7  removeobject         localId=1
+    0821CCCA  return               
+

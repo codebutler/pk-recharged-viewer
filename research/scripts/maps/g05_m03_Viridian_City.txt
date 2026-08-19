@@ -1,0 +1,56 @@
+Viridian City  (group 5, map 3)  header 0x08B3CEC0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x08250AE4
+  script 0x08250AE4  [opcode-out-of-range:0xFE]
+    08250AE4  lock                 
+    08250AE5  faceplayer           
+    08250AE6  call                 destination=0x082BB330
+    08250AEB  message              text="Hi, there!\nMay I help you?"
+    08250AF0  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x23, flag 0x0000) -> 0x08250B69
+  script 0x08250B69  [ok]
+    08250B69  msgbox_multilang     type=0 text_0="I’ve got to buy some Potions.\pYou never know when your Pokémon\nwill need quick healing." text_1="I’ve got to buy some Potions.\pYou never know when your Pokémon\nwill need quick healing." text_2="I’ve got to buy some Potions.\pYou never know when your Pokémon\nwill need quick healing." text_3="I’ve got to buy some Potions.\pYou never know when your Pokémon\nwill need quick healing." text_4="I’ve got to buy some Potions.\pYou never know when your Pokémon\nwill need quick healing." text_5="I’ve got to buy some Potions.\pYou never know when your Pokémon\nwill need quick healing." text_6="I’ve got to buy some Potions.\pYou never know when your Pokémon\nwill need quick healing."
+    08250B87  callstd              function=MSGBOX_NPC(2)
+    08250B89  end                  
+
+  object 3 (gfx 0x10, flag 0x0000) -> 0x08250B48
+  script 0x08250B48  [ok]
+    08250B48  msgbox_multilang     type=0 text_0="This shop does good business in\nAntidotes, I’ve heard." text_1="This shop does good business in\nAntidotes, I’ve heard." text_2="This shop does good business in\nAntidotes, I’ve heard." text_3="This shop does good business in\nAntidotes, I’ve heard." text_4="This shop does good business in\nAntidotes, I’ve heard." text_5="This shop does good business in\nAntidotes, I’ve heard." text_6="This shop does good business in\nAntidotes, I’ve heard."
+    08250B66  callstd              function=MSGBOX_NPC(2)
+    08250B68  end                  
+
+  map script type 2 (var 0x4057 == 0) -> 0x08250A2C
+  script 0x08250A2C  [unknown-opcode:0xE9]
+    08250A2C  lockall              
+    08250A2D  textcolor            color=0
+    08250A2F  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    08250A36  waitmovement         localId=0
+    08250A39  speakername          name="Clerk"
+    08250A3E  msgbox_multilang     type=0 text_0="Hey!\nYou came from Pallet Town?" text_1="Hey!\nYou came from Pallet Town?" text_2="Hey!\nYou came from Pallet Town?" text_3="Hey!\nYou came from Pallet Town?" text_4="Hey!\nYou came from Pallet Town?" text_5="Hey!\nYou came from Pallet Town?" text_6="Hey!\nYou came from Pallet Town?"
+    08250A5C  callstd              function=MSGBOX_DEFAULT(4)
+    08250A5E  closemessage         
+    08250A5F  applymovement        localId=1 movements=[delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_right]
+    08250A66  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_in_place_faster_left]
+    08250A6D  waitmovement         localId=0
+    08250A70  speakername          name="Clerk"
+    08250A75  msgbox_multilang     type=0 text_0="You know Prof. Oak, right?\pHis order came in.\nCan I get you to take it to him?" text_1="You know Prof. Oak, right?\pHis order came in.\nCan I get you to take it to him?" text_2="You know Prof. Oak, right?\pHis order came in.\nCan I get you to take it to him?" text_3="You know Prof. Oak, right?\pHis order came in.\nCan I get you to take it to him?" text_4="You know Prof. Oak, right?\pHis order came in.\nCan I get you to take it to him?" text_5="You know Prof. Oak, right?\pHis order came in.\nCan I get you to take it to him?" text_6="You know Prof. Oak, right?\pHis order came in.\nCan I get you to take it to him?"
+    08250A93  callstd              function=MSGBOX_DEFAULT(4)
+    08250A95  closemessage         
+    08250A96  setvar               destination=VAR_0x4057 value=1
+    08250A9B  additem              itemId=Oak’s Parcel(349) quantity=1
+

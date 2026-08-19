@@ -1,0 +1,347 @@
+Viridian Forest  (group 1, map 0)  header 0x08B3B218
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x23, flag 0x0000) -> 0x08205F60
+  script 0x08205F60  [ok]
+    08205F60  msgbox_multilang     type=0 text_0="I came here with some friends to\ncatch us some Bug Pokémon!\pThey’re all itching to get into some\nPokémon battles!" text_1="I came here with some friends to\ncatch us some Bug Pokémon!\pThey’re all itching to get into some\nPokémon battles!" text_2="I came here with some friends to\ncatch us some Bug Pokémon!\pThey’re all itching to get into some\nPokémon battles!" text_3="I came here with some friends to\ncatch us some Bug Pokémon!\pThey’re all itching to get into some\nPokémon battles!" text_4="I came here with some friends to\ncatch us some Bug Pokémon!\pThey’re all itching to get into some\nPokémon battles!" text_5="I came here with some friends to\ncatch us some Bug Pokémon!\pThey’re all itching to get into some\nPokémon battles!" text_6="I came here with some friends to\ncatch us some Bug Pokémon!\pThey’re all itching to get into some\nPokémon battles!"
+    08205F7E  callstd              function=MSGBOX_SIGN(3)
+    08205F80  end                  
+
+  object 2 (gfx 0xEF, flag 0x0000) -> 0x08205F81
+  script 0x08205F81  [ok]
+    08205F81  msgbox_multilang     type=0 text_0="I was throwing Poké Balls to catch\nPokémon, and I ran out.\pThat’s why you can never have too\nmany Poké Balls." text_1="I was throwing Poké Balls to catch\nPokémon, and I ran out.\pThat’s why you can never have too\nmany Poké Balls." text_2="I was throwing Poké Balls to catch\nPokémon, and I ran out.\pThat’s why you can never have too\nmany Poké Balls." text_3="I was throwing Poké Balls to catch\nPokémon, and I ran out.\pThat’s why you can never have too\nmany Poké Balls." text_4="I was throwing Poké Balls to catch\nPokémon, and I ran out.\pThat’s why you can never have too\nmany Poké Balls." text_5="I was throwing Poké Balls to catch\nPokémon, and I ran out.\pThat’s why you can never have too\nmany Poké Balls." text_6="I was throwing Poké Balls to catch\nPokémon, and I ran out.\pThat’s why you can never have too\nmany Poké Balls."
+    08205F9F  callstd              function=MSGBOX_SIGN(3)
+    08205FA1  end                  
+
+  object 3 (gfx 0x24, flag 0x0000) -> 0x08206068
+  script 0x08206068  [ok]
+    08206068  trainerbattle        type=0 trainer=0x66 localId=0 ptr1=0x0821F69A ptr2=0x0821F6CC
+    08206076  msgbox_multilang     type=0 text_0="Ssh! You’ll scare the bugs away.\nAnother time, okay?" text_1="Ssh! You’ll scare the bugs away.\nAnother time, okay?" text_2="Ssh! You’ll scare the bugs away.\nAnother time, okay?" text_3="Ssh! You’ll scare the bugs away.\nAnother time, okay?" text_4="Ssh! You’ll scare the bugs away.\nAnother time, okay?" text_5="Ssh! You’ll scare the bugs away.\nAnother time, okay?" text_6="Ssh! You’ll scare the bugs away.\nAnother time, okay?"
+    08206094  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08206096  end                  
+
+  object 4 (gfx 0x24, flag 0x0000) -> 0x08206097
+  script 0x08206097  [ok]
+    08206097  trainerbattle        type=0 trainer=0x67 localId=0 ptr1=0x0821F71D ptr2=0x0821F750
+    082060A5  msgbox_multilang     type=0 text_0="That totally stinks! I’m going to\ncatch some stronger ones!" text_1="That totally stinks! I’m going to\ncatch some stronger ones!" text_2="That totally stinks! I’m going to\ncatch some stronger ones!" text_3="That totally stinks! I’m going to\ncatch some stronger ones!" text_4="That totally stinks! I’m going to\ncatch some stronger ones!" text_5="That totally stinks! I’m going to\ncatch some stronger ones!" text_6="That totally stinks! I’m going to\ncatch some stronger ones!"
+    082060C3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082060C5  end                  
+
+  object 5 (gfx 0x24, flag 0x0000) -> 0x082060C6
+  script 0x082060C6  [ok]
+    082060C6  trainerbattle        type=0 trainer=0x68 localId=0 ptr1=0x0821F7A7 ptr2=0x0821F7D5
+    082060D4  msgbox_multilang     type=0 text_0="Sometimes, you can find stuff on the\nground.\pI’m looking for the stuff I dropped.\nCan you help me?" text_1="Sometimes, you can find stuff on the\nground.\pI’m looking for the stuff I dropped.\nCan you help me?" text_2="Sometimes, you can find stuff on the\nground.\pI’m looking for the stuff I dropped.\nCan you help me?" text_3="Sometimes, you can find stuff on the\nground.\pI’m looking for the stuff I dropped.\nCan you help me?" text_4="Sometimes, you can find stuff on the\nground.\pI’m looking for the stuff I dropped.\nCan you help me?" text_5="Sometimes, you can find stuff on the\nground.\pI’m looking for the stuff I dropped.\nCan you help me?" text_6="Sometimes, you can find stuff on the\nground.\pI’m looking for the stuff I dropped.\nCan you help me?"
+    082060F2  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082060F4  end                  
+
+  object 6 (gfx 0x35, flag 0x0156) -> 0x082D55CC
+  script 0x082D55CC  [ok]
+    082D55CC  setorcopyvar         destination=VAR_0x8000 source=4
+    082D55D1  setorcopyvar         destination=VAR_0x8001 source=1
+    082D55D6  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Poké Ball
+    082D55D8  end                  
+
+  object 7 (gfx 0x35, flag 0x0157) -> 0x082D55D9
+  script 0x082D55D9  [ok]
+    082D55D9  setorcopyvar         destination=VAR_0x8000 source=14
+    082D55DE  setorcopyvar         destination=VAR_0x8001 source=1
+    082D55E3  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Antidote
+    082D55E5  end                  
+
+  object 8 (gfx 0x35, flag 0x0158) -> 0x082D55E6
+  script 0x082D55E6  [ok]
+    082D55E6  setorcopyvar         destination=VAR_0x8000 source=13
+    082D55EB  setorcopyvar         destination=VAR_0x8001 source=1
+    082D55F0  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Potion
+    082D55F2  end                  
+
+  object 9 (gfx 0x24, flag 0x0000) -> 0x082060F5
+  script 0x082060F5  [ok]
+    082060F5  trainerbattle        type=0 trainer=0x213 localId=0 ptr1=0x0821F855 ptr2=0x0821F892
+    08206103  msgbox_multilang     type=0 text_0="I lost some of my allowance…" text_1="I lost some of my allowance…" text_2="I lost some of my allowance…" text_3="I lost some of my allowance…" text_4="I lost some of my allowance…" text_5="I lost some of my allowance…" text_6="I lost some of my allowance…"
+    08206121  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08206123  end                  
+
+  object 10 (gfx 0x24, flag 0x0000) -> 0x08206124
+  script 0x08206124  [ok]
+    08206124  trainerbattle        type=0 trainer=0x214 localId=0 ptr1=0x0821F8CC ptr2=0x0821F8EE
+    08206132  msgbox_multilang     type=0 text_0="Bug Pokémon evolve quickly. They’re\na lot of fun!" text_1="Bug Pokémon evolve quickly. They’re\na lot of fun!" text_2="Bug Pokémon evolve quickly. They’re\na lot of fun!" text_3="Bug Pokémon evolve quickly. They’re\na lot of fun!" text_4="Bug Pokémon evolve quickly. They’re\na lot of fun!" text_5="Bug Pokémon evolve quickly. They’re\na lot of fun!" text_6="Bug Pokémon evolve quickly. They’re\na lot of fun!"
+    08206150  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08206152  end                  
+
+  object 11 (gfx 0x35, flag 0x01BE) -> 0x082D5AED
+  script 0x082D5AED  [ok]
+    082D5AED  setorcopyvar         destination=VAR_0x8000 source=13
+    082D5AF2  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5AF7  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Potion
+    082D5AF9  end                  
+
+  object 12 (gfx 0x2F, flag 0x0000) -> 0x08206153
+  script 0x08206153  [ok]
+    08206153  trainerbattle        type=0 trainer=0x58 localId=0 ptr1=0x0821F92C ptr2=0x0821F947
+    08206161  msgbox_multilang     type=0 text_0="I looked forever, but I never found\na Pikachu here!" text_1="I looked forever, but I never found\na Pikachu here!" text_2="I looked forever, but I never found\na Pikachu here!" text_3="I looked forever, but I never found\na Pikachu here!" text_4="I looked forever, but I never found\na Pikachu here!" text_5="I looked forever, but I never found\na Pikachu here!" text_6="I looked forever, but I never found\na Pikachu here!"
+    0820617F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08206181  end                  
+
+  object 13 (gfx 0xF2, flag 0x0000) -> 0x08205D6D
+  script 0x08205D6D  [ok]
+    08205D6D  lock                 
+    08205D6E  checkflag            flag=0x12E
+    08205D71  goto_if              condition=1 destination=0x08205DC2
+    08205D77  msgbox_multilang     type=0 text_0="I’m not good at raising Pokémon." text_1="I’m not good at raising Pokémon." text_2="I’m not good at raising Pokémon." text_3="I’m not good at raising Pokémon." text_4="I’m not good at raising Pokémon." text_5="I’m not good at raising Pokémon." text_6="I’m not good at raising Pokémon."
+    08205D95  callstd              function=MSGBOX_NPC(2)
+    08205D97  checktrainerflag     trainer=0x66
+    08205D9A  goto_if              condition=1 destination=0x08205E3F
+    08205DA0  msgbox_multilang     type=0 text_0="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_1="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_2="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_3="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_4="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_5="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_6="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?"
+    08205DBE  callstd              function=MSGBOX_NPC(2)
+    08205DC0  release              
+
+  script 0x08205DC2  [ok]
+    08205DC2  msgbox_multilang     type=0 text_0="Is Bulbasaur doing good?" text_1="Is Bulbasaur doing good?" text_2="Is Bulbasaur doing good?" text_3="Is Bulbasaur doing good?" text_4="Is Bulbasaur doing good?" text_5="Is Bulbasaur doing good?" text_6="Is Bulbasaur doing good?"
+    08205DE0  callstd              function=MSGBOX_NPC(2)
+    08205DE2  releaseall           
+
+  script 0x08205E3F  [ok]
+    08205E3F  checktrainerflag     trainer=0x68
+    08205E42  goto_if              condition=1 destination=0x08205E31
+    08205E48  goto                 destination=0x08205DA0
+
+  script 0x08205E31  [ok]
+    08205E31  checktrainerflag     trainer=0x214
+    08205E34  goto_if              condition=1 destination=0x08205E5B
+    08205E3A  goto                 destination=0x08205DA0
+
+  script 0x08205DA0  [ok]
+    08205DA0  msgbox_multilang     type=0 text_0="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_1="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_2="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_3="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_4="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_5="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?" text_6="It seems like you could be better at\nraising Pokémon too.\pAre you able to defeat all the\nTrainers around here?"
+    08205DBE  callstd              function=MSGBOX_NPC(2)
+    08205DC0  release              
+
+  script 0x08205E5B  [ok]
+    08205E5B  checktrainerflag     trainer=0x213
+    08205E5E  goto_if              condition=1 destination=0x08205E4D
+    08205E64  goto                 destination=0x08205DA0
+
+  script 0x08205E4D  [ok]
+    08205E4D  checktrainerflag     trainer=0x67
+    08205E50  goto_if              condition=1 destination=0x08205E69
+    08205E56  goto                 destination=0x08205DA0
+
+  script 0x08205E69  [ok]
+    08205E69  checktrainerflag     trainer=0x58
+    08205E6C  goto_if              condition=1 destination=0x08205DE4
+    08205E72  goto                 destination=0x08205DA0
+
+  script 0x08205DE4  [ok]
+    08205DE4  msgbox_multilang     type=0 text_0="You defeated every Trainer in\nViridian Forest!\pBulbasaur deserves a greater Trainer,\nlike you.\pAre you interested into taking care\nof this Bulbasaur?" text_1="You defeated every Trainer in\nViridian Forest!\pBulbasaur deserves a greater Trainer,\nlike you.\pAre you interested into taking care\nof this Bulbasaur?" text_2="You defeated every Trainer in\nViridian Forest!\pBulbasaur deserves a greater Trainer,\nlike you.\pAre you interested into taking care\nof this Bulbasaur?" text_3="You defeated every Trainer in\nViridian Forest!\pBulbasaur deserves a greater Trainer,\nlike you.\pAre you interested into taking care\nof this Bulbasaur?" text_4="You defeated every Trainer in\nViridian Forest!\pBulbasaur deserves a greater Trainer,\nlike you.\pAre you interested into taking care\nof this Bulbasaur?" text_5="You defeated every Trainer in\nViridian Forest!\pBulbasaur deserves a greater Trainer,\nlike you.\pAre you interested into taking care\nof this Bulbasaur?" text_6="You defeated every Trainer in\nViridian Forest!\pBulbasaur deserves a greater Trainer,\nlike you.\pAre you interested into taking care\nof this Bulbasaur?"
+    08205E02  callstd              function=MSGBOX_YESNO(5)
+    08205E04  compare_var_to_value var=0x800D value=1
+    08205E09  goto_if              condition=1 destination=0x08205E77
+    08205E0F  msgbox_multilang     type=0 text_0="That’s fine, you don’t have to." text_1="That’s fine, you don’t have to." text_2="That’s fine, you don’t have to." text_3="That’s fine, you don’t have to." text_4="That’s fine, you don’t have to." text_5="That’s fine, you don’t have to." text_6="That’s fine, you don’t have to."
+    08205E2D  callstd              function=MSGBOX_NPC(2)
+    08205E2F  release              
+
+  script 0x08205E77  [ok]
+    08205E77  setvar               destination=VAR_0x4001 value=1
+    08205E7C  givemon              species=BULBASAUR(1) level=10 item=0 0=0 0=0 0=0
+    08205E8B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08205E90  compare_var_to_value var=0x8000 value=0
+    08205E95  goto_if              condition=1 destination=0x08205EB6
+    08205E9B  compare_var_to_value var=0x8000 value=1
+    08205EA0  goto_if              condition=1 destination=0x08205ED8
+    08205EA6  compare_var_to_value var=0x8000 value=2
+    08205EAB  goto_if              condition=1 destination=0x08205EFA
+    08205EB1  goto                 destination=0x08205DC0
+
+  script 0x08205EB6  [unknown-opcode:0xE9]
+    08205EB6  call                 destination=0x08205F19
+    08205EBB  compare_var_to_value var=0x800D value=0
+    08205EC0  goto_if              condition=1 destination=0x08205F04
+    08205EC6  call                 destination=0x082BCF8B
+    08205ECB  call                 destination=0x082F80EB
+    08205ED0  setflag              flag=0x12E
+    08205ED3  addelevmenuitem      a=11 b=27648 c=1026 d=24345
+    08205EDB  compare_ptr_to_ptr   ptr1=2148344072 ptr2=17170432
+    08205EE4  returnram            
+    08205EE5  gotobeatenscript     
+    08205EE6  compare_ptr_to_ptr   ptr1=3482780680 ptr2=2684618795
+    08205EEF  trywondercardscript  
+    08205EF0  checkflag            flag=0x2908
+    08205EF3  gettime              
+    08205EF4  nop1                 
+    08205EF5  addelevmenuitem      a=11 b=27648 c=1282 d=33026
+    08205EFD  playse               song=1288
+    08205F00  showcoinsbox         x=93 y=32
+    08205F03  gotostd              function=41
+    08205F05  gettime              
+    08205F06  nop1                 
+    08205F07  addelevmenuitem      a=11 b=27648 c=1026 d=53152
+    08205F0F  checkflag            flag=0x2908
+    08205F12  gettime              
+    08205F13  nop1                 
+    08205F14  addelevmenuitem      a=11 b=27648 c=12546 d=367
+    08205F1C  message              text="{PLAYER} obtained a Bulbasaur!"
+
+  script 0x08205ED8  [unknown-opcode:0xE9]
+    08205ED8  call                 destination=0x08205F19
+    08205EDD  compare_var_to_value var=0x800D value=0
+    08205EE2  goto_if              condition=1 destination=0x08205F0C
+    08205EE8  call                 destination=0x082BCF97
+    08205EED  call                 destination=0x082BCFA0
+    08205EF2  setflag              flag=0x12E
+    08205EF5  addelevmenuitem      a=11 b=27648 c=1282 d=33026
+    08205EFD  playse               song=1288
+    08205F00  showcoinsbox         x=93 y=32
+    08205F03  gotostd              function=41
+    08205F05  gettime              
+    08205F06  nop1                 
+    08205F07  addelevmenuitem      a=11 b=27648 c=1026 d=53152
+    08205F0F  checkflag            flag=0x2908
+    08205F12  gettime              
+    08205F13  nop1                 
+    08205F14  addelevmenuitem      a=11 b=27648 c=12546 d=367
+    08205F1C  message              text="{PLAYER} obtained a Bulbasaur!"
+
+  script 0x08205EFA  [ok]
+    08205EFA  goto                 destination=0x082F8102
+
+  script 0x08205DC0  [ok]
+    08205DC0  release              
+
+  script 0x08205F19  [unknown-opcode:0xE9]
+    08205F19  playfanfare          song=367
+    08205F1C  message              text="{PLAYER} obtained a Bulbasaur!"
+
+  script 0x08205F04  [unknown-opcode:0xE9]
+    08205F04  setflag              flag=0x12E
+    08205F07  addelevmenuitem      a=11 b=27648 c=1026 d=53152
+    08205F0F  checkflag            flag=0x2908
+    08205F12  gettime              
+    08205F13  nop1                 
+    08205F14  addelevmenuitem      a=11 b=27648 c=12546 d=367
+    08205F1C  message              text="{PLAYER} obtained a Bulbasaur!"
+
+  script 0x082BCF8B  [ok]
+    082BCF8B  getpartysize         
+    082BCF8C  subvar               destination=VAR_0x800D value=1
+    082BCF91  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082BCF96  return               
+
+  script 0x082F80EB  [ok]
+    082F80EB  fadescreen           mode=1
+    082F80ED  special              SPECIAL_\function=95
+    082F80F0  waitstate            
+
+  script 0x08205F0C  [unknown-opcode:0xE9]
+    08205F0C  call                 destination=0x082BCFA0
+    08205F11  setflag              flag=0x12E
+    08205F14  addelevmenuitem      a=11 b=27648 c=12546 d=367
+    08205F1C  message              text="{PLAYER} obtained a Bulbasaur!"
+
+  script 0x082BCF97  [ok]
+    082BCF97  fadescreen           mode=1
+    082BCF99  special              SPECIAL_\function=318
+    082BCF9C  waitstate            
+
+  script 0x082BCFA0  [ok]
+    082BCFA0  bufferboxname        stringVarId=0 box=16439
+    082BCFA4  bufferspeciesname    stringVarId=1 species=?(16385)
+    082BCFA8  checkflag            flag=0x894
+    082BCFAB  call_if              condition=0 destination=0x082BCFBB
+    082BCFB1  checkflag            flag=0x894
+    082BCFB4  call_if              condition=1 destination=0x082BD016
+    082BCFBA  return               
+
+  script 0x082F8102  [ok]
+    082F8102  textcolor            color=3
+    082F8104  msgbox_multilang     type=0 text_0="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_1="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_2="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_3="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_4="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_5="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_6="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!"
+    082F8122  callstd              function=MSGBOX_DEFAULT(4)
+    082F8124  release              
+
+  script 0x082BCFBB  [ok]
+    082BCFBB  specialvar           output=32781 SPECIAL_\function=320
+    082BCFC0  compare_var_to_value var=0x800D value=1
+    082BCFC5  goto_if              condition=1 destination=0x082BCFEC
+    082BCFCB  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BCFE9  callstd              function=MSGBOX_DEFAULT(4)
+    082BCFEB  return               
+
+  script 0x082BD016  [ok]
+    082BD016  specialvar           output=32781 SPECIAL_\function=320
+    082BD01B  compare_var_to_value var=0x800D value=1
+    082BD020  goto_if              condition=1 destination=0x082BD047
+    082BD026  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BD044  callstd              function=MSGBOX_DEFAULT(4)
+    082BD046  return               
+
+  script 0x082BCFEC  [ok]
+    082BCFEC  specialvar           output=32781 SPECIAL_\function=319
+    082BCFF1  bufferboxname        stringVarId=2 box=32781
+    082BCFF5  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD013  callstd              function=MSGBOX_DEFAULT(4)
+    082BD015  return               
+
+  script 0x082BD047  [ok]
+    082BD047  specialvar           output=32781 SPECIAL_\function=319
+    082BD04C  bufferboxname        stringVarId=2 box=32781
+    082BD050  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD06E  callstd              function=MSGBOX_DEFAULT(4)
+    082BD070  return               
+
+  sign 0 at (39,59) -> 0x08205FA2
+  script 0x08205FA2  [ok]
+    08205FA2  msgbox_multilang     type=0 text_0="Trainer Tips\pIf your Pokémon are weak and you\nwant to avoid battles, stay away\pfrom grassy areas!" text_1="Trainer Tips\pIf your Pokémon are weak and you\nwant to avoid battles, stay away\pfrom grassy areas!" text_2="Trainer Tips\pIf your Pokémon are weak and you\nwant to avoid battles, stay away\pfrom grassy areas!" text_3="Trainer Tips\pIf your Pokémon are weak and you\nwant to avoid battles, stay away\pfrom grassy areas!" text_4="Trainer Tips\pIf your Pokémon are weak and you\nwant to avoid battles, stay away\pfrom grassy areas!" text_5="Trainer Tips\pIf your Pokémon are weak and you\nwant to avoid battles, stay away\pfrom grassy areas!" text_6="Trainer Tips\pIf your Pokémon are weak and you\nwant to avoid battles, stay away\pfrom grassy areas!"
+    08205FC0  callstd              function=MSGBOX_SIGN(3)
+    08205FC2  end                  
+
+  sign 1 at (43,26) -> 0x08205FE4
+  script 0x08205FE4  [ok]
+    08205FE4  msgbox_multilang     type=0 text_0="Trainer Tips\pContact Prof. Oak via a PC to get\nyour Pokédex evaluated!" text_1="Trainer Tips\pContact Prof. Oak via a PC to get\nyour Pokédex evaluated!" text_2="Trainer Tips\pContact Prof. Oak via a PC to get\nyour Pokédex evaluated!" text_3="Trainer Tips\pContact Prof. Oak via a PC to get\nyour Pokédex evaluated!" text_4="Trainer Tips\pContact Prof. Oak via a PC to get\nyour Pokédex evaluated!" text_5="Trainer Tips\pContact Prof. Oak via a PC to get\nyour Pokédex evaluated!" text_6="Trainer Tips\pContact Prof. Oak via a PC to get\nyour Pokédex evaluated!"
+    08206002  callstd              function=MSGBOX_SIGN(3)
+    08206004  end                  
+
+  sign 2 at (9,29) -> 0x08206005
+  script 0x08206005  [ok]
+    08206005  msgbox_multilang     type=0 text_0="Trainer Tips\pYou can’t catch a Pokémon that\nbelongs to someone else.\pThrow Poké Balls only at wild\nPokémon to catch them!" text_1="Trainer Tips\pYou can’t catch a Pokémon that\nbelongs to someone else.\pThrow Poké Balls only at wild\nPokémon to catch them!" text_2="Trainer Tips\pYou can’t catch a Pokémon that\nbelongs to someone else.\pThrow Poké Balls only at wild\nPokémon to catch them!" text_3="Trainer Tips\pYou can’t catch a Pokémon that\nbelongs to someone else.\pThrow Poké Balls only at wild\nPokémon to catch them!" text_4="Trainer Tips\pYou can’t catch a Pokémon that\nbelongs to someone else.\pThrow Poké Balls only at wild\nPokémon to catch them!" text_5="Trainer Tips\pYou can’t catch a Pokémon that\nbelongs to someone else.\pThrow Poké Balls only at wild\nPokémon to catch them!" text_6="Trainer Tips\pYou can’t catch a Pokémon that\nbelongs to someone else.\pThrow Poké Balls only at wild\nPokémon to catch them!"
+    08206023  callstd              function=MSGBOX_SIGN(3)
+    08206025  end                  
+
+  sign 3 at (6,12) -> 0x08206047
+  script 0x08206047  [ok]
+    08206047  msgbox_multilang     type=0 text_0="Leaving Viridian Forest\nPewter City Ahead" text_1="Leaving Viridian Forest\nPewter City Ahead" text_2="Leaving Viridian Forest\nPewter City Ahead" text_3="Leaving Viridian Forest\nPewter City Ahead" text_4="Leaving Viridian Forest\nPewter City Ahead" text_5="Leaving Viridian Forest\nPewter City Ahead" text_6="Leaving Viridian Forest\nPewter City Ahead"
+    08206065  callstd              function=MSGBOX_SIGN(3)
+    08206067  end                  
+
+  sign 4 at (28,44) -> 0x08205FC3
+  script 0x08205FC3  [ok]
+    08205FC3  msgbox_multilang     type=0 text_0="For poison, use Antidote! Get it at\nPokémon Marts!" text_1="For poison, use Antidote! Get it at\nPokémon Marts!" text_2="For poison, use Antidote! Get it at\nPokémon Marts!" text_3="For poison, use Antidote! Get it at\nPokémon Marts!" text_4="For poison, use Antidote! Get it at\nPokémon Marts!" text_5="For poison, use Antidote! Get it at\nPokémon Marts!" text_6="For poison, use Antidote! Get it at\nPokémon Marts!"
+    08205FE1  callstd              function=MSGBOX_SIGN(3)
+    08205FE3  end                  
+
+  sign 5 at (31,60) -> 0x08206026
+  script 0x08206026  [ok]
+    08206026  msgbox_multilang     type=0 text_0="Trainer Tips\pWeaken Pokémon before attempting\ncapture!\pWhen healthy, they may escape!" text_1="Trainer Tips\pWeaken Pokémon before attempting\ncapture!\pWhen healthy, they may escape!" text_2="Trainer Tips\pWeaken Pokémon before attempting\ncapture!\pWhen healthy, they may escape!" text_3="Trainer Tips\pWeaken Pokémon before attempting\ncapture!\pWhen healthy, they may escape!" text_4="Trainer Tips\pWeaken Pokémon before attempting\ncapture!\pWhen healthy, they may escape!" text_5="Trainer Tips\pWeaken Pokémon before attempting\ncapture!\pWhen healthy, they may escape!" text_6="Trainer Tips\pWeaken Pokémon before attempting\ncapture!\pWhen healthy, they may escape!"
+    08206044  callstd              function=MSGBOX_SIGN(3)
+    08206046  end                  
+
+  hidden item at (3,22): Potion
+
+  hidden item at (28,57): Antidote
+
+  map script type 3 -> 0x08205D69
+  script 0x08205D69  [ok]
+    08205D69  setworldmapflag      flag=0x904
+    08205D6C  return               
+

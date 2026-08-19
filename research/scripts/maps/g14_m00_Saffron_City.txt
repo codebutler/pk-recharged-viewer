@@ -1,0 +1,36 @@
+Saffron City  (group 14, map 0)  header 0x08B3D710
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF4, flag 0x0000) -> 0x0826F87D
+  script 0x0826F87D  [ok]
+    0826F87D  msgbox_multilang     type=0 text_0="My daughter likes to mimic people.\nIt’s rather vexing.\pHer mimicry has earned her the\nnickname Copycat around here." text_1="My daughter likes to mimic people.\nIt’s rather vexing.\pHer mimicry has earned her the\nnickname Copycat around here." text_2="My daughter likes to mimic people.\nIt’s rather vexing.\pHer mimicry has earned her the\nnickname Copycat around here." text_3="My daughter likes to mimic people.\nIt’s rather vexing.\pHer mimicry has earned her the\nnickname Copycat around here." text_4="My daughter likes to mimic people.\nIt’s rather vexing.\pHer mimicry has earned her the\nnickname Copycat around here." text_5="My daughter likes to mimic people.\nIt’s rather vexing.\pHer mimicry has earned her the\nnickname Copycat around here." text_6="My daughter likes to mimic people.\nIt’s rather vexing.\pHer mimicry has earned her the\nnickname Copycat around here."
+    0826F89B  callstd              function=MSGBOX_NPC(2)
+    0826F89D  end                  
+
+  object 2 (gfx 0x18, flag 0x0000) -> 0x0826F85C
+  script 0x0826F85C  [ok]
+    0826F85C  msgbox_multilang     type=0 text_0="My daughter is so self-centered.\nShe has but a few friends." text_1="My daughter is so self-centered.\nShe has but a few friends." text_2="My daughter is so self-centered.\nShe has but a few friends." text_3="My daughter is so self-centered.\nShe has but a few friends." text_4="My daughter is so self-centered.\nShe has but a few friends." text_5="My daughter is so self-centered.\nShe has but a few friends." text_6="My daughter is so self-centered.\nShe has but a few friends."
+    0826F87A  callstd              function=MSGBOX_NPC(2)
+    0826F87C  end                  
+
+  object 3 (gfx 0x71, flag 0x0000) -> 0x0826F89E
+  script 0x0826F89E  [ok]
+    0826F89E  bufferspeciesname    stringVarId=0 species=CHANSEY(113)
+    0826F8A2  lock                 
+    0826F8A3  faceplayer           
+    0826F8A4  waitse               
+    0826F8A5  playmoncry           species=CHANSEY(113) mode=0
+    0826F8AA  msgbox_multilang     type=0 text_0="Chansey: Chaan! Sii!" text_1="Chansey: Chaan! Sii!" text_2="Chansey: Chaan! Sii!" text_3="Chansey: Chaan! Sii!" text_4="Chansey: Chaan! Sii!" text_5="Chansey: Chaan! Sii!" text_6="Chansey: Chaan! Sii!"
+    0826F8C8  callstd              function=MSGBOX_DEFAULT(4)
+    0826F8CA  waitmoncry           
+    0826F8CB  release              
+

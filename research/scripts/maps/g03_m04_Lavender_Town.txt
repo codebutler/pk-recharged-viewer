@@ -1,0 +1,266 @@
+Lavender Town  (group 3, map 4)  header 0x08B3C734
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0000) -> 0x0822A384
+  script 0x0822A384  [ok]
+    0822A384  lock                 
+    0822A385  faceplayer           
+    0822A386  msgbox_multilang     type=0 text_0="Do you believe in ghosts?" text_1="Do you believe in ghosts?" text_2="Do you believe in ghosts?" text_3="Do you believe in ghosts?" text_4="Do you believe in ghosts?" text_5="Do you believe in ghosts?" text_6="Do you believe in ghosts?"
+    0822A3A4  callstd              function=MSGBOX_YESNO(5)
+    0822A3A6  compare_var_to_value var=0x800D value=1
+    0822A3AB  goto_if              condition=1 destination=0x0822A3D3
+    0822A3B1  msgbox_multilang     type=0 text_0="Hahaha, I guess not.\pThat white hand on your shoulder…\nI’m just imagining it." text_1="Hahaha, I guess not.\pThat white hand on your shoulder…\nI’m just imagining it." text_2="Hahaha, I guess not.\pThat white hand on your shoulder…\nI’m just imagining it." text_3="Hahaha, I guess not.\pThat white hand on your shoulder…\nI’m just imagining it." text_4="Hahaha, I guess not.\pThat white hand on your shoulder…\nI’m just imagining it." text_5="Hahaha, I guess not.\pThat white hand on your shoulder…\nI’m just imagining it." text_6="Hahaha, I guess not.\pThat white hand on your shoulder…\nI’m just imagining it."
+    0822A3CF  callstd              function=MSGBOX_DEFAULT(4)
+    0822A3D1  release              
+
+  script 0x0822A3D3  [ok]
+    0822A3D3  msgbox_multilang     type=0 text_0="Really?\nSo there are believers…" text_1="Really?\nSo there are believers…" text_2="Really?\nSo there are believers…" text_3="Really?\nSo there are believers…" text_4="Really?\nSo there are believers…" text_5="Really?\nSo there are believers…" text_6="Really?\nSo there are believers…"
+    0822A3F1  callstd              function=MSGBOX_DEFAULT(4)
+    0822A3F3  goto                 destination=0x0822A3D1
+
+  script 0x0822A3D1  [ok]
+    0822A3D1  release              
+
+  object 2 (gfx 0x00, flag 0x0000) -> 0x0822A3F8
+  script 0x0822A3F8  [ok]
+    0822A3F8  msgbox_multilang     type=0 text_0="This town is known as the grave\nsite of Pokémon.\pMemorial services are held in\nPokémon Tower." text_1="This town is known as the grave\nsite of Pokémon.\pMemorial services are held in\nPokémon Tower." text_2="This town is known as the grave\nsite of Pokémon.\pMemorial services are held in\nPokémon Tower." text_3="This town is known as the grave\nsite of Pokémon.\pMemorial services are held in\nPokémon Tower." text_4="This town is known as the grave\nsite of Pokémon.\pMemorial services are held in\nPokémon Tower." text_5="This town is known as the grave\nsite of Pokémon.\pMemorial services are held in\nPokémon Tower." text_6="This town is known as the grave\nsite of Pokémon.\pMemorial services are held in\nPokémon Tower."
+    0822A416  callstd              function=MSGBOX_NPC(2)
+    0822A418  end                  
+
+  object 3 (gfx 0xEF, flag 0x0000) -> 0x0822A419
+  script 0x0822A419  [ok]
+    0822A419  msgbox_multilang     type=0 text_0="Ghosts appeared in Pokémon Tower.\pI think they’re the spirits of\nPokémon that the Rockets killed." text_1="Ghosts appeared in Pokémon Tower.\pI think they’re the spirits of\nPokémon that the Rockets killed." text_2="Ghosts appeared in Pokémon Tower.\pI think they’re the spirits of\nPokémon that the Rockets killed." text_3="Ghosts appeared in Pokémon Tower.\pI think they’re the spirits of\nPokémon that the Rockets killed." text_4="Ghosts appeared in Pokémon Tower.\pI think they’re the spirits of\nPokémon that the Rockets killed." text_5="Ghosts appeared in Pokémon Tower.\pI think they’re the spirits of\nPokémon that the Rockets killed." text_6="Ghosts appeared in Pokémon Tower.\pI think they’re the spirits of\nPokémon that the Rockets killed."
+    0822A437  callstd              function=MSGBOX_NPC(2)
+    0822A439  end                  
+
+  object 4 (gfx 0x41, flag 0x02E5) -> 0x00000000
+  object 5 (gfx 0x42, flag 0x02E5) -> 0x00000000
+  object 6 (gfx 0x68, flag 0x012A) -> 0x00000000
+  object 7 (gfx 0x40, flag 0x02E5) -> 0x00000000
+  object 8 (gfx 0x68, flag 0x02E5) -> 0x00000000
+  coord trigger 0 (var 0x408B == 2) -> 0x0822A4BE
+  script 0x0822A4BE  [ok]
+    0822A4BE  lockall              
+    0822A4BF  setflag              flag=0x12A
+    0822A4C2  removeobject         localId=6
+    0822A4C5  fadescreenswapbuffers mode=1
+    0822A4C7  nop                  
+    0822A4C8  setflag              flag=0x4005 (temp)
+    0822A4CB  setflag              flag=0x24C
+    0822A4CE  setvar               destination=VAR_0x8004 value=15
+    0822A4D3  setvar               destination=VAR_0x8005 value=8
+    0822A4D8  special              SPECIAL_\function=396
+    0822A4DB  delay                frames=16
+    0822A4DE  fadescreenswapbuffers mode=0
+    0822A4E0  nop                  
+    0822A4E1  addobject            localId=6
+    0822A4E4  applymovement        localId=6 movements=[walk_up walk_up walk_up walk_up walk_up walk_up walk_right walk_right walk_right walk_right face_up]
+    0822A4EB  waitmovement         localId=0
+    0822A4EE  delay                frames=16
+    0822A4F1  applymovement        localId=6 movements=[jump_in_place_up jump_in_place_up jump_in_place_up]
+    0822A4F8  waitmovement         localId=0
+    0822A4FB  delay                frames=16
+    0822A4FE  applymovement        localId=6 movements=[walk_up walk_up]
+    0822A505  waitmovement         localId=0
+    0822A508  removeobject         localId=6
+    0822A50B  playse               song=9
+    0822A50E  delay                frames=16
+    0822A511  fadescreenswapbuffers mode=1
+    0822A513  nop                  
+    0822A514  special              SPECIAL_\function=397
+    0822A517  delay                frames=16
+    0822A51A  fadescreenswapbuffers mode=0
+    0822A51C  nop                  
+    0822A51D  clearflag            flag=0x24C
+    0822A520  setvar               destination=VAR_0x408B value=3
+    0822A525  releaseall           
+
+  coord trigger 1 (var 0x408B == 2) -> 0x0822A4BE
+  coord trigger 2 (var 0x408B == 2) -> 0x0822A4BE
+  sign 0 at (12,4) -> 0x0822A45B
+  script 0x0822A45B  [ok]
+    0822A45B  msgbox_multilang     type=0 text_0="New Silph Scope!\nMake the Invisible Plain to See!\pSilph Co." text_1="New Silph Scope!\nMake the Invisible Plain to See!\pSilph Co." text_2="New Silph Scope!\nMake the Invisible Plain to See!\pSilph Co." text_3="New Silph Scope!\nMake the Invisible Plain to See!\pSilph Co." text_4="New Silph Scope!\nMake the Invisible Plain to See!\pSilph Co." text_5="New Silph Scope!\nMake the Invisible Plain to See!\pSilph Co." text_6="New Silph Scope!\nMake the Invisible Plain to See!\pSilph Co."
+    0822A479  callstd              function=MSGBOX_SIGN(3)
+    0822A47B  end                  
+
+  sign 1 at (15,11) -> 0x0822A43A
+  script 0x0822A43A  [ok]
+    0822A43A  msgbox_multilang     type=0 text_0="Lavender Town\nThe Noble Purple Town" text_1="Lavender Town\nThe Noble Purple Town" text_2="Lavender Town\nThe Noble Purple Town" text_3="Lavender Town\nThe Noble Purple Town" text_4="Lavender Town\nThe Noble Purple Town" text_5="Lavender Town\nThe Noble Purple Town" text_6="Lavender Town\nThe Noble Purple Town"
+    0822A458  callstd              function=MSGBOX_SIGN(3)
+    0822A45A  end                  
+
+  sign 2 at (21,7) -> 0x0822A49D
+  script 0x0822A49D  [ok]
+    0822A49D  msgbox_multilang     type=0 text_0="Pokémon Tower\nBecalm the Spirits of Pokémon" text_1="Pokémon Tower\nBecalm the Spirits of Pokémon" text_2="Pokémon Tower\nBecalm the Spirits of Pokémon" text_3="Pokémon Tower\nBecalm the Spirits of Pokémon" text_4="Pokémon Tower\nBecalm the Spirits of Pokémon" text_5="Pokémon Tower\nBecalm the Spirits of Pokémon" text_6="Pokémon Tower\nBecalm the Spirits of Pokémon"
+    0822A4BB  callstd              function=MSGBOX_SIGN(3)
+    0822A4BD  end                  
+
+  sign 3 at (7,12) -> 0x0822A47C
+  script 0x0822A47C  [ok]
+    0822A47C  msgbox_multilang     type=0 text_0="Lavender Volunteer\nPokémon House" text_1="Lavender Volunteer\nPokémon House" text_2="Lavender Volunteer\nPokémon House" text_3="Lavender Volunteer\nPokémon House" text_4="Lavender Volunteer\nPokémon House" text_5="Lavender Volunteer\nPokémon House" text_6="Lavender Volunteer\nPokémon House"
+    0822A49A  callstd              function=MSGBOX_SIGN(3)
+    0822A49C  end                  
+
+  map script type 3 -> 0x0822A07B
+  script 0x0822A07B  [ok]
+    0822A07B  setworldmapflag      flag=0x8F4
+    0822A07E  setvar               destination=VAR_0x405B value=1
+    0822A083  setflag              flag=0x03D
+    0822A086  end                  
+
+  map script type 2 (var 0x405D == 1) -> 0x0822A091
+  script 0x0822A091  [ok]
+    0822A091  lockall              
+    0822A092  fadescreenswapbuffers mode=1
+    0822A094  nop                  
+    0822A095  setflag              flag=0x4005 (temp)
+    0822A098  setvar               destination=VAR_0x8004 value=1
+    0822A09D  setvar               destination=VAR_0x8005 value=10
+    0822A0A2  special              SPECIAL_\function=396
+    0822A0A5  delay                frames=16
+    0822A0A8  fadescreenswapbuffers mode=0
+    0822A0AA  nop                  
+    0822A0AB  playbgm              song=495 save_song=0
+    0822A0AF  delay                frames=32
+    0822A0B2  turnobject           localId=4 direction=3
+    0822A0B6  turnobject           localId=5 direction=4
+    0822A0BA  delay                frames=32
+    0822A0BD  turnobject           localId=5 direction=2
+    0822A0C1  turnobject           localId=4 direction=1
+    0822A0C5  turnobject           localId=7 direction=3
+    0822A0C9  delay                frames=32
+    0822A0CC  applymovement        localId=4 movements=[action_0xAF]
+    0822A0D3  applymovement        localId=5 movements=[action_0xAF]
+    0822A0DA  waitmovement         localId=0
+    0822A0DD  playmoncry           species=MEOWTH(52) mode=0
+    0822A0E2  delay                frames=90
+    0822A0E5  textcolor            color=1
+    0822A0E7  speakername          name="Jessie"
+    0822A0EC  msgbox_multilang     type=0 text_0="We came all the way to Lavender\nTown on the boss’s orders, but…\pWhere in the world is this old man\nFuji supposed to be?" text_1="We came all the way to Lavender\nTown on the boss’s orders, but…\pWhere in the world is this old man\nFuji supposed to be?" text_2="We came all the way to Lavender\nTown on the boss’s orders, but…\pWhere in the world is this old man\nFuji supposed to be?" text_3="We came all the way to Lavender\nTown on the boss’s orders, but…\pWhere in the world is this old man\nFuji supposed to be?" text_4="We came all the way to Lavender\nTown on the boss’s orders, but…\pWhere in the world is this old man\nFuji supposed to be?" text_5="We came all the way to Lavender\nTown on the boss’s orders, but…\pWhere in the world is this old man\nFuji supposed to be?" text_6="We came all the way to Lavender\nTown on the boss’s orders, but…\pWhere in the world is this old man\nFuji supposed to be?"
+    0822A10A  callstd              function=MSGBOX_DEFAULT(4)
+    0822A10C  closemessage         
+    0822A10D  turnobject           localId=4 direction=4
+    0822A111  delay                frames=32
+    0822A114  textcolor            color=0
+    0822A116  speakername          name="James"
+    0822A11B  msgbox_multilang     type=0 text_0="The only place left is that spooky\nold Pokémon Tower, right?" text_1="The only place left is that spooky\nold Pokémon Tower, right?" text_2="The only place left is that spooky\nold Pokémon Tower, right?" text_3="The only place left is that spooky\nold Pokémon Tower, right?" text_4="The only place left is that spooky\nold Pokémon Tower, right?" text_5="The only place left is that spooky\nold Pokémon Tower, right?" text_6="The only place left is that spooky\nold Pokémon Tower, right?"
+    0822A139  callstd              function=MSGBOX_DEFAULT(4)
+    0822A13B  closemessage         
+    0822A13C  turnobject           localId=7 direction=1
+    0822A140  textcolor            color=1
+    0822A142  speakername          name="Jessie"
+    0822A147  msgbox_multilang     type=0 text_0="That’s right… We couldn’t get to the\ntop because of that strange ghost\pgetting in the way." text_1="That’s right… We couldn’t get to the\ntop because of that strange ghost\pgetting in the way." text_2="That’s right… We couldn’t get to the\ntop because of that strange ghost\pgetting in the way." text_3="That’s right… We couldn’t get to the\ntop because of that strange ghost\pgetting in the way." text_4="That’s right… We couldn’t get to the\ntop because of that strange ghost\pgetting in the way." text_5="That’s right… We couldn’t get to the\ntop because of that strange ghost\pgetting in the way." text_6="That’s right… We couldn’t get to the\ntop because of that strange ghost\pgetting in the way."
+    0822A165  callstd              function=MSGBOX_DEFAULT(4)
+    0822A167  closemessage         
+    0822A168  turnobject           localId=4 direction=1
+    0822A16C  applymovement        localId=4 movements=[action_0xAF]
+    0822A173  applymovement        localId=5 movements=[action_0xAF]
+    0822A17A  waitmovement         localId=0
+    0822A17D  delay                frames=32
+    0822A180  applymovement        localId=8 movements=[walk_up walk_up walk_up walk_up walk_up]
+    0822A187  delay                frames=32
+    0822A18A  applymovement        localId=7 movements=[walk_right face_down]
+    0822A191  waitmovement         localId=8
+    0822A194  playmoncry           species=MEOWTH(52) mode=0
+    0822A199  waitmoncry           
+    0822A19A  applymovement        localId=8 movements=[emote_question_mark]
+    0822A1A1  waitmoncry           
+    0822A1A2  playmoncry           species=CUBONE(104) mode=0
+    0822A1A7  waitmovement         localId=0
+    0822A1AA  waitmoncry           
+    0822A1AB  turnobject           localId=4 direction=4
+    0822A1AF  playse               song=21
+    0822A1B2  applymovement        localId=4 movements=[emote_exclamation_mark]
+    0822A1B9  waitmovement         localId=0
+    0822A1BC  textcolor            color=0
+    0822A1BE  delay                frames=64
+    0822A1C1  turnobject           localId=8 direction=3
+    0822A1C5  speakername          name="James"
+    0822A1CA  msgbox_multilang     type=0 text_0="Well, we couldn’t find that old man,\nbut at least we found this Cubone!\pLet’s get it back to our hideout. At\nleast we’ll have something to show\pfor your trouble." text_1="Well, we couldn’t find that old man,\nbut at least we found this Cubone!\pLet’s get it back to our hideout. At\nleast we’ll have something to show\pfor your trouble." text_2="Well, we couldn’t find that old man,\nbut at least we found this Cubone!\pLet’s get it back to our hideout. At\nleast we’ll have something to show\pfor your trouble." text_3="Well, we couldn’t find that old man,\nbut at least we found this Cubone!\pLet’s get it back to our hideout. At\nleast we’ll have something to show\pfor your trouble." text_4="Well, we couldn’t find that old man,\nbut at least we found this Cubone!\pLet’s get it back to our hideout. At\nleast we’ll have something to show\pfor your trouble." text_5="Well, we couldn’t find that old man,\nbut at least we found this Cubone!\pLet’s get it back to our hideout. At\nleast we’ll have something to show\pfor your trouble." text_6="Well, we couldn’t find that old man,\nbut at least we found this Cubone!\pLet’s get it back to our hideout. At\nleast we’ll have something to show\pfor your trouble."
+    0822A1E8  callstd              function=MSGBOX_DEFAULT(4)
+    0822A1EA  closemessage         
+    0822A1EB  turnobject           localId=5 direction=4
+    0822A1EF  playse               song=21
+    0822A1F2  applymovement        localId=5 movements=[emote_exclamation_mark]
+    0822A1F9  waitmovement         localId=0
+    0822A1FC  textcolor            color=1
+    0822A1FE  delay                frames=64
+    0822A201  speakername          name="Jessie"
+    0822A206  msgbox_multilang     type=0 text_0="Right! Let’s head to the Rocket Game\nCorner in Celadon City!" text_1="Right! Let’s head to the Rocket Game\nCorner in Celadon City!" text_2="Right! Let’s head to the Rocket Game\nCorner in Celadon City!" text_3="Right! Let’s head to the Rocket Game\nCorner in Celadon City!" text_4="Right! Let’s head to the Rocket Game\nCorner in Celadon City!" text_5="Right! Let’s head to the Rocket Game\nCorner in Celadon City!" text_6="Right! Let’s head to the Rocket Game\nCorner in Celadon City!"
+    0822A224  callstd              function=MSGBOX_DEFAULT(4)
+    0822A226  closemessage         
+    0822A227  applymovement        localId=8 movements=[emote_question_mark]
+    0822A22E  playmoncry           species=CUBONE(104) mode=0
+    0822A233  waitmovement         localId=0
+    0822A236  waitmoncry           
+    0822A237  textcolor            color=2
+    0822A239  speakername          name="Cubone"
+    0822A23E  msgbox_multilang     type=0 text_0="Maaa?" text_1="Maaa?" text_2="Maaa?" text_3="Maaa?" text_4="Maaa?" text_5="Maaa?" text_6="Maaa?"
+    0822A25C  callstd              function=MSGBOX_DEFAULT(4)
+    0822A25E  closemessage         
+    0822A25F  textcolor            color=1
+    0822A261  speakername          name="Jessie"
+    0822A266  msgbox_multilang     type=0 text_0="Aww, does the wittle Cubone want its\nmommy? Your mommy’s in Celadon\pCity.\pCome with us. We’ll take you there." text_1="Aww, does the wittle Cubone want its\nmommy? Your mommy’s in Celadon\pCity.\pCome with us. We’ll take you there." text_2="Aww, does the wittle Cubone want its\nmommy? Your mommy’s in Celadon\pCity.\pCome with us. We’ll take you there." text_3="Aww, does the wittle Cubone want its\nmommy? Your mommy’s in Celadon\pCity.\pCome with us. We’ll take you there." text_4="Aww, does the wittle Cubone want its\nmommy? Your mommy’s in Celadon\pCity.\pCome with us. We’ll take you there." text_5="Aww, does the wittle Cubone want its\nmommy? Your mommy’s in Celadon\pCity.\pCome with us. We’ll take you there." text_6="Aww, does the wittle Cubone want its\nmommy? Your mommy’s in Celadon\pCity.\pCome with us. We’ll take you there."
+    0822A284  callstd              function=MSGBOX_DEFAULT(4)
+    0822A286  closemessage         
+    0822A287  applymovement        localId=8 movements=[emote_exclamation_mark]
+    0822A28E  playmoncry           species=CUBONE(104) mode=0
+    0822A293  waitmovement         localId=0
+    0822A296  waitmoncry           
+    0822A297  textcolor            color=2
+    0822A299  speakername          name="Cubone"
+    0822A29E  msgbox_multilang     type=0 text_0="Maa! Maa!" text_1="Maa! Maa!" text_2="Maa! Maa!" text_3="Maa! Maa!" text_4="Maa! Maa!" text_5="Maa! Maa!" text_6="Maa! Maa!"
+    0822A2BC  callstd              function=MSGBOX_DEFAULT(4)
+    0822A2BE  closemessage         
+    0822A2BF  turnobject           localId=4 direction=1
+    0822A2C3  turnobject           localId=5 direction=2
+    0822A2C7  turnobject           localId=8 direction=2
+    0822A2CB  playmoncry           species=MEOWTH(52) mode=0
+    0822A2D0  waitmoncry           
+    0822A2D1  playse               song=21
+    0822A2D4  applymovement        localId=4 movements=[action_0xA2]
+    0822A2DB  applymovement        localId=5 movements=[action_0xA2]
+    0822A2E2  waitmovement         localId=0
+    0822A2E5  delay                frames=32
+    0822A2E8  applymovement        localId=7 movements=[walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left]
+    0822A2EF  applymovement        localId=8 movements=[walk_up walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left walk_fast_left]
+    0822A2F6  delay                frames=60
+    0822A2F9  speakername          name="Team Rocket"
+    0822A2FE  message              text="Now that that’s decided, I think we’d\nbetter blast off!"
+    0822A303  textcolor            color=167
+    0822A305  compare_var_to_var   var1=50952 var2=8871
+    0822A30A  gotostd              function=199
+    0822A30C  setmaplayoutindex    index=2082
+    0822A30F  textcolor            color=167
+    0822A311  compare_var_to_var   var1=50952 var2=8871
+    0822A316  gotostd              function=199
+    0822A318  setmaplayoutindex    index=2082
+    0822A31B  waitmessage          
+    0822A31C  applymovement        localId=4 movements=[walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left]
+    0822A323  applymovement        localId=5 movements=[walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left walk_faster_left]
+    0822A32A  waitmovement         localId=0
+    0822A32D  waitbuttonpress      
+    0822A32E  closemessage         
+    0822A32F  removeobject         localId=7
+    0822A332  removeobject         localId=8
+    0822A335  removeobject         localId=4
+    0822A338  removeobject         localId=5
+    0822A33B  fadescreenswapbuffers mode=1
+    0822A33D  nop                  
+    0822A33E  special              SPECIAL_\function=397
+    0822A341  delay                frames=16
+    0822A344  fadescreenswapbuffers mode=0
+    0822A346  nop                  
+    0822A347  fadedefaultbgm       
+    0822A348  setvar               destination=VAR_0x405D:ROCKET_STORY_COUNTER value=2
+    0822A34D  release              
+

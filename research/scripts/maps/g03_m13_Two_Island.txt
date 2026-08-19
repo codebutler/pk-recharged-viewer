@@ -1,0 +1,189 @@
+Two Island  (group 3, map 13)  header 0x08B3C830
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x08230291
+  script 0x08230291  [ok]
+    08230291  call                 destination=0x082302A9
+    08230296  pokemart             products=0x08230434
+        sells Lonely Mint
+        sells Adamant Mint
+        sells Naughty Mint
+        sells Brave Mint
+        sells Bold Mint
+        sells Impish Mint
+        sells Lax Mint
+        sells Relaxed Mint
+        sells Modest Mint
+        sells Mild Mint
+    0823029B  release              
+
+  script 0x082302A9  [opcode-out-of-range:0xFE]
+    082302A9  lock                 
+    082302AA  faceplayer           
+    082302AB  checkflag            flag=0x29D
+    082302AE  goto_if              condition=1 destination=0x082302D7
+    082302B4  setflag              flag=0x29D
+    082302B7  message              text="Oh!\nHello, welcome to our shop!\pWe’ve only opened up recently, but\nwe hope you enjoy our rare items!\pHow may I help you?"
+    082302BC  copyobjectxytoperm   localId=8964
+    082302BF  gotostd              function=100
+    082302C1  call                 destination=73664547
+    082302C6  callnative           func=587490312
+    082302CB  gotostd              function=100
+    082302CD  call                 destination=73664547
+    082302D2  callnative           func=57042440
+    082302D7  message              text="Hi, there!\nMay I help you?"
+    082302DC  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082302D7  [opcode-out-of-range:0xFE]
+    082302D7  message              text="Hi, there!\nMay I help you?"
+    082302DC  showmonpic           species=?(8190) x=8 y=117
+
+  object 2 (gfx 0x10, flag 0x007B) -> 0x0823031A
+  script 0x0823031A  [ok]
+    0823031A  msgbox_multilang     type=0 text_0="The shopkeeper’s brother took a job\nat the Game Corner.\pHe’s trying to pull together money so\nthey can buy more merchandise." text_1="The shopkeeper’s brother took a job\nat the Game Corner.\pHe’s trying to pull together money so\nthey can buy more merchandise." text_2="The shopkeeper’s brother took a job\nat the Game Corner.\pHe’s trying to pull together money so\nthey can buy more merchandise." text_3="The shopkeeper’s brother took a job\nat the Game Corner.\pHe’s trying to pull together money so\nthey can buy more merchandise." text_4="The shopkeeper’s brother took a job\nat the Game Corner.\pHe’s trying to pull together money so\nthey can buy more merchandise." text_5="The shopkeeper’s brother took a job\nat the Game Corner.\pHe’s trying to pull together money so\nthey can buy more merchandise." text_6="The shopkeeper’s brother took a job\nat the Game Corner.\pHe’s trying to pull together money so\nthey can buy more merchandise."
+    08230338  callstd              function=MSGBOX_NPC(2)
+    0823033A  end                  
+
+  object 3 (gfx 0x2D, flag 0x007C) -> 0x0823033B
+  script 0x0823033B  [ok]
+    0823033B  lock                 
+    0823033C  faceplayer           
+    0823033D  setvar               destination=VAR_0x8004 value=10
+    08230342  setvar               destination=VAR_0x8005 value=4
+    08230347  special              SPECIAL_\function=347
+    0823034A  msgbox_multilang     type=0 text_0="Listen, listen.\nDid you know?\pA famous Trainer came to the Island\na little while back.\pHe’s one of the Elite Four.\nHis name is Bruno.\pHe went away disappointed when he\nfound out that they were all sold\pout of Rage Candybars." text_1="Listen, listen.\nDid you know?\pA famous Trainer came to the Island\na little while back.\pHe’s one of the Elite Four.\nHis name is Bruno.\pHe went away disappointed when he\nfound out that they were all sold\pout of Rage Candybars." text_2="Listen, listen.\nDid you know?\pA famous Trainer came to the Island\na little while back.\pHe’s one of the Elite Four.\nHis name is Bruno.\pHe went away disappointed when he\nfound out that they were all sold\pout of Rage Candybars." text_3="Listen, listen.\nDid you know?\pA famous Trainer came to the Island\na little while back.\pHe’s one of the Elite Four.\nHis name is Bruno.\pHe went away disappointed when he\nfound out that they were all sold\pout of Rage Candybars." text_4="Listen, listen.\nDid you know?\pA famous Trainer came to the Island\na little while back.\pHe’s one of the Elite Four.\nHis name is Bruno.\pHe went away disappointed when he\nfound out that they were all sold\pout of Rage Candybars." text_5="Listen, listen.\nDid you know?\pA famous Trainer came to the Island\na little while back.\pHe’s one of the Elite Four.\nHis name is Bruno.\pHe went away disappointed when he\nfound out that they were all sold\pout of Rage Candybars." text_6="Listen, listen.\nDid you know?\pA famous Trainer came to the Island\na little while back.\pHe’s one of the Elite Four.\nHis name is Bruno.\pHe went away disappointed when he\nfound out that they were all sold\pout of Rage Candybars."
+    08230368  callstd              function=MSGBOX_DEFAULT(4)
+    0823036A  release              
+
+  object 4 (gfx 0x31, flag 0x0000) -> 0x082302F9
+  script 0x082302F9  [ok]
+    082302F9  msgbox_multilang     type=0 text_0="That fellow there, he moved here\nfrom Celadon City.\pHe started up a shop with his\nyounger brother.\pYou have to wonder if he knew what\nhe was getting into." text_1="That fellow there, he moved here\nfrom Celadon City.\pHe started up a shop with his\nyounger brother.\pYou have to wonder if he knew what\nhe was getting into." text_2="That fellow there, he moved here\nfrom Celadon City.\pHe started up a shop with his\nyounger brother.\pYou have to wonder if he knew what\nhe was getting into." text_3="That fellow there, he moved here\nfrom Celadon City.\pHe started up a shop with his\nyounger brother.\pYou have to wonder if he knew what\nhe was getting into." text_4="That fellow there, he moved here\nfrom Celadon City.\pHe started up a shop with his\nyounger brother.\pYou have to wonder if he knew what\nhe was getting into." text_5="That fellow there, he moved here\nfrom Celadon City.\pHe started up a shop with his\nyounger brother.\pYou have to wonder if he knew what\nhe was getting into." text_6="That fellow there, he moved here\nfrom Celadon City.\pHe started up a shop with his\nyounger brother.\pYou have to wonder if he knew what\nhe was getting into."
+    08230317  callstd              function=MSGBOX_NPC(2)
+    08230319  end                  
+
+  object 5 (gfx 0x05, flag 0x007D) -> 0x0823036C
+  script 0x0823036C  [ok]
+    0823036C  msgbox_multilang     type=0 text_0="The discerning Trainer knows to buy\nrare items here!" text_1="The discerning Trainer knows to buy\nrare items here!" text_2="The discerning Trainer knows to buy\nrare items here!" text_3="The discerning Trainer knows to buy\nrare items here!" text_4="The discerning Trainer knows to buy\nrare items here!" text_5="The discerning Trainer knows to buy\nrare items here!" text_6="The discerning Trainer knows to buy\nrare items here!"
+    0823038A  callstd              function=MSGBOX_NPC(2)
+    0823038C  end                  
+
+  object 6 (gfx 0x52, flag 0x031D) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 7 (gfx 0x35, flag 0x01BA) -> 0x082D5AD3
+  script 0x082D5AD3  [ok]
+    082D5AD3  setorcopyvar         destination=VAR_0x8000 source=388
+    082D5AD8  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5ADD  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Quiet Mint
+    082D5ADF  end                  
+
+  object 8 (gfx 0x0B, flag 0x0000) -> 0x082303AE
+  script 0x082303AE  [ok]
+    082303AE  msgbox_multilang     type=0 text_0="Boing! Boing!\nHave you tried the jumping game?\pThe Pokémon you can enter…\nBoing!\pSome go boing!\pAnd some go boooooooing!\pDid you know that?\nBoing!" text_1="Boing! Boing!\nHave you tried the jumping game?\pThe Pokémon you can enter…\nBoing!\pSome go boing!\pAnd some go boooooooing!\pDid you know that?\nBoing!" text_2="Boing! Boing!\nHave you tried the jumping game?\pThe Pokémon you can enter…\nBoing!\pSome go boing!\pAnd some go boooooooing!\pDid you know that?\nBoing!" text_3="Boing! Boing!\nHave you tried the jumping game?\pThe Pokémon you can enter…\nBoing!\pSome go boing!\pAnd some go boooooooing!\pDid you know that?\nBoing!" text_4="Boing! Boing!\nHave you tried the jumping game?\pThe Pokémon you can enter…\nBoing!\pSome go boing!\pAnd some go boooooooing!\pDid you know that?\nBoing!" text_5="Boing! Boing!\nHave you tried the jumping game?\pThe Pokémon you can enter…\nBoing!\pSome go boing!\pAnd some go boooooooing!\pDid you know that?\nBoing!" text_6="Boing! Boing!\nHave you tried the jumping game?\pThe Pokémon you can enter…\nBoing!\pSome go boing!\pAnd some go boooooooing!\pDid you know that?\nBoing!"
+    082303CC  callstd              function=MSGBOX_NPC(2)
+    082303CE  end                  
+
+  object 9 (gfx 0xEF, flag 0x0000) -> 0x0823038D
+  script 0x0823038D  [ok]
+    0823038D  msgbox_multilang     type=0 text_0="There’s an old woman who lives in a\ncottage out on the cape.\pShe gives the eye to Pokémon.\nIt’s a bit unnerving." text_1="There’s an old woman who lives in a\ncottage out on the cape.\pShe gives the eye to Pokémon.\nIt’s a bit unnerving." text_2="There’s an old woman who lives in a\ncottage out on the cape.\pShe gives the eye to Pokémon.\nIt’s a bit unnerving." text_3="There’s an old woman who lives in a\ncottage out on the cape.\pShe gives the eye to Pokémon.\nIt’s a bit unnerving." text_4="There’s an old woman who lives in a\ncottage out on the cape.\pShe gives the eye to Pokémon.\nIt’s a bit unnerving." text_5="There’s an old woman who lives in a\ncottage out on the cape.\pShe gives the eye to Pokémon.\nIt’s a bit unnerving." text_6="There’s an old woman who lives in a\ncottage out on the cape.\pShe gives the eye to Pokémon.\nIt’s a bit unnerving."
+    082303AB  callstd              function=MSGBOX_NPC(2)
+    082303AD  end                  
+
+  object 10 (gfx 0x11, flag 0x0000) -> 0x0823029D
+  script 0x0823029D  [ok]
+    0823029D  call                 destination=0x082302A9
+    082302A2  pokemart             products=0x0823044C
+        sells Rash Mint
+        sells Quiet Mint
+        sells Calm Mint
+        sells Gentle Mint
+        sells Careful Mint
+        sells Sassy Mint
+        sells Timid Mint
+        sells Hasty Mint
+        sells Jolly Mint
+        sells Naive Mint
+        sells Serious Mint
+    082302A7  release              
+
+  sign 0 at (29,8) -> 0x082303CF
+  script 0x082303CF  [ok]
+    082303CF  msgbox_multilang     type=0 text_0="Two Island\nBoon Island for Two" text_1="Two Island\nBoon Island for Two" text_2="Two Island\nBoon Island for Two" text_3="Two Island\nBoon Island for Two" text_4="Two Island\nBoon Island for Two" text_5="Two Island\nBoon Island for Two" text_6="Two Island\nBoon Island for Two"
+    082303ED  callstd              function=MSGBOX_SIGN(3)
+    082303EF  end                  
+
+  sign 1 at (40,10) -> 0x082303F0
+  script 0x082303F0  [ok]
+    082303F0  msgbox_multilang     type=0 text_0="Skip & Chomp!\nJoyful Game Corner" text_1="Skip & Chomp!\nJoyful Game Corner" text_2="Skip & Chomp!\nJoyful Game Corner" text_3="Skip & Chomp!\nJoyful Game Corner" text_4="Skip & Chomp!\nJoyful Game Corner" text_5="Skip & Chomp!\nJoyful Game Corner" text_6="Skip & Chomp!\nJoyful Game Corner"
+    0823040E  callstd              function=MSGBOX_SIGN(3)
+    08230410  end                  
+
+  sign 2 at (8,3) -> 0x08230411
+  script 0x08230411  [ok]
+    08230411  msgbox_multilang     type=0 text_0="Danger! Fast Current!\nFishing and surfing prohibited!" text_1="Danger! Fast Current!\nFishing and surfing prohibited!" text_2="Danger! Fast Current!\nFishing and surfing prohibited!" text_3="Danger! Fast Current!\nFishing and surfing prohibited!" text_4="Danger! Fast Current!\nFishing and surfing prohibited!" text_5="Danger! Fast Current!\nFishing and surfing prohibited!" text_6="Danger! Fast Current!\nFishing and surfing prohibited!"
+    0823042F  callstd              function=MSGBOX_SIGN(3)
+    08230431  end                  
+
+  map script type 3 -> 0x0823028D
+  script 0x0823028D  [ok]
+    0823028D  setworldmapflag      flag=0x8FC
+    08230290  end                  
+

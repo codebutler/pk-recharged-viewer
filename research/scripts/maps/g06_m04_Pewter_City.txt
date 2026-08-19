@@ -1,0 +1,51 @@
+Pewter City  (group 6, map 4)  header 0x08B3CF84
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF4, flag 0x0000) -> 0x082532C4
+  script 0x082532C4  [ok]
+    082532C4  msgbox_multilang     type=0 text_0="Our Pokémon’s an outsider, so it’s\nfinicky and hard to handle.\pAn outsider is a Pokémon that you\nget in a trade.\pIt grows fast, but it may ignore an\nunskilled Trainer in battle.\pIf only we had some Badges…" text_1="Our Pokémon’s an outsider, so it’s\nfinicky and hard to handle.\pAn outsider is a Pokémon that you\nget in a trade.\pIt grows fast, but it may ignore an\nunskilled Trainer in battle.\pIf only we had some Badges…" text_2="Our Pokémon’s an outsider, so it’s\nfinicky and hard to handle.\pAn outsider is a Pokémon that you\nget in a trade.\pIt grows fast, but it may ignore an\nunskilled Trainer in battle.\pIf only we had some Badges…" text_3="Our Pokémon’s an outsider, so it’s\nfinicky and hard to handle.\pAn outsider is a Pokémon that you\nget in a trade.\pIt grows fast, but it may ignore an\nunskilled Trainer in battle.\pIf only we had some Badges…" text_4="Our Pokémon’s an outsider, so it’s\nfinicky and hard to handle.\pAn outsider is a Pokémon that you\nget in a trade.\pIt grows fast, but it may ignore an\nunskilled Trainer in battle.\pIf only we had some Badges…" text_5="Our Pokémon’s an outsider, so it’s\nfinicky and hard to handle.\pAn outsider is a Pokémon that you\nget in a trade.\pIt grows fast, but it may ignore an\nunskilled Trainer in battle.\pIf only we had some Badges…" text_6="Our Pokémon’s an outsider, so it’s\nfinicky and hard to handle.\pAn outsider is a Pokémon that you\nget in a trade.\pIt grows fast, but it may ignore an\nunskilled Trainer in battle.\pIf only we had some Badges…"
+    082532E2  callstd              function=MSGBOX_NPC(2)
+    082532E4  end                  
+
+  object 2 (gfx 0x0B, flag 0x0000) -> 0x082532E5
+  script 0x082532E5  [ok]
+    082532E5  lock                 
+    082532E6  msgbox_multilang     type=0 text_0="Nidoran, sit!" text_1="Nidoran, sit!" text_2="Nidoran, sit!" text_3="Nidoran, sit!" text_4="Nidoran, sit!" text_5="Nidoran, sit!" text_6="Nidoran, sit!"
+    08253304  callstd              function=MSGBOX_DEFAULT(4)
+    08253306  call                 destination=0x08253327
+    0825330B  release              
+
+  script 0x08253327  [ok]
+    08253327  textcolor            color=3
+    08253329  waitse               
+    0825332A  playmoncry           species=NIDORAN♂(32) mode=0
+    0825332F  msgbox_multilang     type=0 text_0="Nidoran♂: Bowbow!" text_1="Nidoran♂: Bowbow!" text_2="Nidoran♂: Bowbow!" text_3="Nidoran♂: Bowbow!" text_4="Nidoran♂: Bowbow!" text_5="Nidoran♂: Bowbow!" text_6="Nidoran♂: Bowbow!"
+    0825334D  callstd              function=MSGBOX_DEFAULT(4)
+    0825334F  waitmoncry           
+    08253350  call                 destination=0x082BB551
+    08253355  return               
+
+  script 0x082BB551  [ok]
+    082BB551  copyvar              destination=VAR_0x8012 source=VAR_0x8013
+    082BB556  return               
+
+  object 3 (gfx 0x20, flag 0x0000) -> 0x0825330D
+  script 0x0825330D  [ok]
+    0825330D  bufferspeciesname    stringVarId=0 species=NIDORAN♂(32)
+    08253311  setflag              flag=0x4005 (temp)
+    08253314  lock                 
+    08253315  faceplayer           
+    08253316  call                 destination=0x08253327
+    0825331B  applymovement        localId=3 movements=[face_original_direction]
+    08253322  waitmovement         localId=0
+    08253325  release              
+

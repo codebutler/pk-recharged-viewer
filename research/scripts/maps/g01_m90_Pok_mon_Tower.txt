@@ -1,0 +1,41 @@
+Pokémon Tower  (group 1, map 90)  header 0x08B3BBF0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0A, flag 0x0000) -> 0x082171B8
+  script 0x082171B8  [ok]
+    082171B8  trainerbattle        type=0 trainer=0x1B9 localId=0 ptr1=0x082172DC ptr2=0x082172F8
+    082171C6  msgbox_multilang     type=0 text_0="The others above…\nThey must have been possessed." text_1="The others above…\nThey must have been possessed." text_2="The others above…\nThey must have been possessed." text_3="The others above…\nThey must have been possessed." text_4="The others above…\nThey must have been possessed." text_5="The others above…\nThey must have been possessed." text_6="The others above…\nThey must have been possessed."
+    082171E4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082171E6  end                  
+
+  object 2 (gfx 0x0A, flag 0x0000) -> 0x082171E7
+  script 0x082171E7  [ok]
+    082171E7  trainerbattle        type=0 trainer=0x1BA localId=0 ptr1=0x0821729E ptr2=0x082172AE
+    082171F5  msgbox_multilang     type=0 text_0="Sorry!\nI was possessed!" text_1="Sorry!\nI was possessed!" text_2="Sorry!\nI was possessed!" text_3="Sorry!\nI was possessed!" text_4="Sorry!\nI was possessed!" text_5="Sorry!\nI was possessed!" text_6="Sorry!\nI was possessed!"
+    08217213  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08217215  end                  
+
+  object 3 (gfx 0x0A, flag 0x0000) -> 0x08217216
+  script 0x08217216  [ok]
+    08217216  trainerbattle        type=0 trainer=0x1BB localId=0 ptr1=0x08217245 ptr2=0x0821725D
+    08217224  msgbox_multilang     type=0 text_0="The ghosts can be identified by\nthe Silph Scope." text_1="The ghosts can be identified by\nthe Silph Scope." text_2="The ghosts can be identified by\nthe Silph Scope." text_3="The ghosts can be identified by\nthe Silph Scope." text_4="The ghosts can be identified by\nthe Silph Scope." text_5="The ghosts can be identified by\nthe Silph Scope." text_6="The ghosts can be identified by\nthe Silph Scope."
+    08217242  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08217244  end                  
+
+  object 4 (gfx 0x35, flag 0x0177) -> 0x082D5779
+  script 0x082D5779  [ok]
+    082D5779  setorcopyvar         destination=VAR_0x8000 source=85
+    082D577E  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5783  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Escape Rope
+    082D5785  end                  
+

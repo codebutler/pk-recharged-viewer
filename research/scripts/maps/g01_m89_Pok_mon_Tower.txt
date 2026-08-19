@@ -1,0 +1,115 @@
+Pokémon Tower  (group 1, map 89)  header 0x08B3BBD4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x15, flag 0x0051) -> 0x00000000
+  object 2 (gfx 0x0A, flag 0x0000) -> 0x08216EB6
+  script 0x08216EB6  [ok]
+    08216EB6  msgbox_multilang     type=0 text_0="Even we could not identify the\nwayward ghosts.\pA Silph Scope might be able to\nunmask them." text_1="Even we could not identify the\nwayward ghosts.\pA Silph Scope might be able to\nunmask them." text_2="Even we could not identify the\nwayward ghosts.\pA Silph Scope might be able to\nunmask them." text_3="Even we could not identify the\nwayward ghosts.\pA Silph Scope might be able to\nunmask them." text_4="Even we could not identify the\nwayward ghosts.\pA Silph Scope might be able to\nunmask them." text_5="Even we could not identify the\nwayward ghosts.\pA Silph Scope might be able to\nunmask them." text_6="Even we could not identify the\nwayward ghosts.\pA Silph Scope might be able to\nunmask them."
+    08216ED4  callstd              function=MSGBOX_NPC(2)
+    08216ED6  end                  
+
+  coord trigger 0 (var 0x405D == 0) -> 0x08216ED7
+  script 0x08216ED7  [ok]
+    08216ED7  lockall              
+    08216ED8  setvar               destination=VAR_0x4001 value=0
+    08216EDD  goto                 destination=0x08216EEF
+
+  script 0x08216EEF  [ok]
+    08216EEF  textcolor            color=0
+    08216EF1  playbgm              song=527 save_song=0
+    08216EF5  compare_var_to_value var=0x4001 value=0
+    08216EFA  goto_if              condition=1 destination=0x08216FAF
+    08216F00  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    08216F07  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    08216F0E  waitmovement         localId=0
+    08216F11  applymovement        localId=1 movements=[emote_exclamation_mark]
+    08216F18  waitmovement         localId=0
+    08216F1B  applymovement        localId=1 movements=[delay_16 delay_16 delay_16]
+    08216F22  waitmovement         localId=0
+    08216F25  speakername          name="{RIVAL}"
+    08216F2A  msgbox_multilang     type=0 text_0="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_1="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_2="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_3="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_4="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_5="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_6="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!"
+    08216F48  callstd              function=MSGBOX_DEFAULT(4)
+    08216F4A  setvar               destination=VAR_0x800F value=1
+    08216F4F  trainerbattle        type=3 trainer=0x1AD localId=0 ptr1=0x082170AE
+    08216F59  speakername          name="{RIVAL}"
+    08216F5E  msgbox_multilang     type=0 text_0="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_1="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_2="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_3="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_4="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_5="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_6="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!"
+    08216F7C  callstd              function=MSGBOX_DEFAULT(4)
+    08216F7E  closemessage         
+    08216F7F  playbgm              song=528 save_song=0
+    08216F83  compare_var_to_value var=0x4001 value=0
+    08216F88  goto_if              condition=1 destination=0x08216FC2
+    08216F8E  applymovement        localId=1 movements=[walk_right walk_right walk_down walk_down walk_down walk_down walk_down walk_in_place_faster_right]
+    08216F95  waitmovement         localId=0
+    08216F98  playse               song=9
+    08216F9B  delay                frames=25
+    08216F9E  fadedefaultbgm       
+    08216F9F  removeobject         localId=1
+    08216FA2  setrespawn           heallocation=5
+    08216FA5  clearflag            flag=0x2E5
+    08216FA8  setvar               destination=VAR_0x405D:ROCKET_STORY_COUNTER value=1
+    08216FAD  releaseall           
+
+  script 0x08216FAF  [ok]
+    08216FAF  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    08216FB6  applymovement        localId=255 movements=[walk_in_place_faster_left]
+    08216FBD  goto                 destination=0x08216F0E
+
+  script 0x08216FC2  [ok]
+    08216FC2  applymovement        localId=1 movements=[walk_down walk_right walk_right walk_down walk_down walk_down walk_down walk_in_place_faster_right]
+    08216FC9  goto                 destination=0x08216F95
+
+  script 0x08216F0E  [ok]
+    08216F0E  waitmovement         localId=0
+    08216F11  applymovement        localId=1 movements=[emote_exclamation_mark]
+    08216F18  waitmovement         localId=0
+    08216F1B  applymovement        localId=1 movements=[delay_16 delay_16 delay_16]
+    08216F22  waitmovement         localId=0
+    08216F25  speakername          name="{RIVAL}"
+    08216F2A  msgbox_multilang     type=0 text_0="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_1="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_2="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_3="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_4="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_5="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!" text_6="Hey, {PLAYER}!\nWhat brings you here?\pIs your Pokémon dead?\pHey! It’s alive!\pI can at least make them faint!\nLet’s go!"
+    08216F48  callstd              function=MSGBOX_DEFAULT(4)
+    08216F4A  setvar               destination=VAR_0x800F value=1
+    08216F4F  trainerbattle        type=3 trainer=0x1AD localId=0 ptr1=0x082170AE
+    08216F59  speakername          name="{RIVAL}"
+    08216F5E  msgbox_multilang     type=0 text_0="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_1="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_2="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_3="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_4="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_5="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!" text_6="How’s your Pokédex coming?\nI just caught a Cubone!\pI can’t find the bigger Marowak.\nWhere could they be?\pI bet there aren’t any left!\pWell, I better get going.\nI’ve got a lot to accomplish,\punlike you.\pSmell ya later!"
+    08216F7C  callstd              function=MSGBOX_DEFAULT(4)
+    08216F7E  closemessage         
+    08216F7F  playbgm              song=528 save_song=0
+    08216F83  compare_var_to_value var=0x4001 value=0
+    08216F88  goto_if              condition=1 destination=0x08216FC2
+    08216F8E  applymovement        localId=1 movements=[walk_right walk_right walk_down walk_down walk_down walk_down walk_down walk_in_place_faster_right]
+    08216F95  waitmovement         localId=0
+    08216F98  playse               song=9
+    08216F9B  delay                frames=25
+    08216F9E  fadedefaultbgm       
+    08216F9F  removeobject         localId=1
+    08216FA2  setrespawn           heallocation=5
+    08216FA5  clearflag            flag=0x2E5
+    08216FA8  setvar               destination=VAR_0x405D:ROCKET_STORY_COUNTER value=1
+    08216FAD  releaseall           
+
+  script 0x08216F95  [ok]
+    08216F95  waitmovement         localId=0
+    08216F98  playse               song=9
+    08216F9B  delay                frames=25
+    08216F9E  fadedefaultbgm       
+    08216F9F  removeobject         localId=1
+    08216FA2  setrespawn           heallocation=5
+    08216FA5  clearflag            flag=0x2E5
+    08216FA8  setvar               destination=VAR_0x405D:ROCKET_STORY_COUNTER value=1
+    08216FAD  releaseall           
+
+  coord trigger 1 (var 0x405D == 0) -> 0x08216EE3
+  script 0x08216EE3  [ok]
+    08216EE3  lockall              
+    08216EE4  setvar               destination=VAR_0x4001 value=1
+    08216EE9  goto                 destination=0x08216EEF
+

@@ -1,0 +1,140 @@
+Battle Frontier  (group 41, map 30)  header 0x08B3E3F8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  coord trigger 0 (var 0x4001 == 0) -> 0x082F3694
+  script 0x082F3694  [ok]
+    082F3694  setvar               destination=VAR_0x8004 value=7
+    082F3699  special              SPECIAL_\function=155
+    082F369C  setvar               destination=VAR_0x8004 value=25
+    082F36A1  special              SPECIAL_\function=155
+    082F36A4  compare_var_to_value var=0x800D value=1
+    082F36A9  call_if              condition=1 destination=0x082F3648
+    082F36AF  compare_var_to_value var=0x800D value=1
+    082F36B4  call_if              condition=5 destination=0x082F3656
+    082F36BA  setvar               destination=VAR_0x8004 value=1
+    082F36BF  setvar               destination=VAR_0x8005 value=1
+    082F36C4  special              SPECIAL_\function=155
+    082F36C7  addvar               destination=VAR_0x800D value=1
+    082F36CC  setvar               destination=VAR_0x8004 value=2
+    082F36D1  setvar               destination=VAR_0x8005 value=1
+    082F36D6  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082F36DB  special              SPECIAL_\function=155
+    082F36DE  setvar               destination=VAR_0x8004 value=1
+    082F36E3  setvar               destination=VAR_0x8005 value=2
+    082F36E8  special              SPECIAL_\function=148
+    082F36EB  addvar               destination=VAR_0x800D value=1
+    082F36F0  setvar               destination=VAR_0x8004 value=2
+    082F36F5  setvar               destination=VAR_0x8005 value=2
+    082F36FA  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082F36FF  special              SPECIAL_\function=148
+    082F3702  setvar               destination=VAR_0x8004 value=3
+    082F3707  special              SPECIAL_\function=155
+    082F370A  compare_var_to_value var=0x800D value=1
+    082F370F  call_if              condition=1 destination=0x082F3664
+    082F3715  compare_var_to_value var=0x800D value=0
+    082F371A  call_if              condition=1 destination=0x082F367C
+    082F3720  waitstate            
+
+  script 0x082F3648  [ok]
+    082F3648  setvar               destination=VAR_0x8004 value=24
+    082F364D  setvar               destination=VAR_0x8005 value=1
+    082F3652  special              SPECIAL_\function=155
+    082F3655  return               
+
+  script 0x082F3656  [ok]
+    082F3656  setvar               destination=VAR_0x8004 value=24
+    082F365B  setvar               destination=VAR_0x8005 value=0
+    082F3660  special              SPECIAL_\function=155
+    082F3663  return               
+
+  script 0x082F3664  [ok]
+    082F3664  applymovement        localId=255 movements=[set_invisible]
+    082F366B  waitmovement         localId=0
+    082F366E  call                 destination=0x082A9AD5
+    082F3673  warpsilent           mapGroup=41 mapNum=29 WARP_ID_NONE=255 -1=2 -1=7
+    082F367B  return               
+
+  script 0x082F367C  [ok]
+    082F367C  applymovement        localId=255 movements=[set_invisible]
+    082F3683  waitmovement         localId=0
+    082F3686  call                 destination=0x082A9AD5
+    082F368B  warpsilent           mapGroup=41 mapNum=27 WARP_ID_NONE=255 -1=6 -1=10
+    082F3693  return               
+
+  script 0x082A9AD5  [ok]
+    082A9AD5  playse               song=267
+    082A9AD8  special              SPECIAL_\function=251
+    082A9ADB  waitstate            
+
+  coord trigger 1 (var 0x4002 == 0) -> 0x082F3722
+  script 0x082F3722  [ok]
+    082F3722  setvar               destination=VAR_0x4003 value=1
+    082F3727  setvar               destination=VAR_0x4002 value=1
+    082F372C  end                  
+
+  coord trigger 2 (var 0x4002 == 0) -> 0x082F3722
+  coord trigger 3 (var 0x4002 == 0) -> 0x082F3722
+  coord trigger 4 (var 0x4003 == 1) -> 0x082F372D
+  script 0x082F372D  [ok]
+    082F372D  setvar               destination=VAR_0x4003 value=0
+    082F3732  setvar               destination=VAR_0x4002 value=0
+    082F3737  lockall              
+    082F3738  msgbox_multilang     type=0 text_0="The path is blocked!\nAnd there is no turning back…" text_1="The path is blocked!\nAnd there is no turning back…" text_2="The path is blocked!\nAnd there is no turning back…" text_3="The path is blocked!\nAnd there is no turning back…" text_4="The path is blocked!\nAnd there is no turning back…" text_5="The path is blocked!\nAnd there is no turning back…" text_6="The path is blocked!\nAnd there is no turning back…"
+    082F3756  callstd              function=MSGBOX_DEFAULT(4)
+    082F3758  closemessage         
+    082F3759  releaseall           
+
+  coord trigger 5 (var 0x4003 == 1) -> 0x082F372D
+  coord trigger 6 (var 0x4003 == 1) -> 0x082F372D
+  map script type 5 -> 0x082ACA7E
+  script 0x082ACA7E  [ok]
+    082ACA7E  call                 destination=0x082F37AA
+    082ACA83  setvar               destination=VAR_0x8004 value=1
+    082ACA88  setvar               destination=VAR_0x8005 value=5
+    082ACA8D  special              SPECIAL_\function=148
+    082ACA90  compare_var_to_value var=0x800D value=2
+    082ACA95  goto_if              condition=1 destination=0x082ACAA7
+    082ACA9B  compare_var_to_value var=0x800D value=3
+    082ACAA0  goto_if              condition=1 destination=0x082ACAA7
+    082ACAA6  end                  
+
+  script 0x082F37AA  [ok]
+    082F37AA  setvar               destination=VAR_0x8004 value=21
+    082F37AF  special              SPECIAL_\function=148
+    082F37B2  return               
+
+  script 0x082ACAA7  [ok]
+    082ACAA7  setvar               destination=VAR_0x4001 value=1
+    082ACAAC  end                  
+
+  map script type 2 (var 0x4000 == 0) -> 0x082ACA40
+  script 0x082ACA40  [ok]
+    082ACA40  setvar               destination=VAR_0x4000 value=1
+    082ACA45  setvar               destination=VAR_0x8004 value=6
+    082ACA4A  special              SPECIAL_\function=155
+    082ACA4D  end                  
+
+  map script type 2 (var 0x4001 == 1) -> 0x082ACA4E
+  script 0x082ACA4E  [ok]
+    082ACA4E  setvar               destination=VAR_0x8004 value=2
+    082ACA53  setvar               destination=VAR_0x8005 value=0
+    082ACA58  setvar               destination=VAR_0x8006 value=4
+    082ACA5D  special              SPECIAL_\function=148
+    082ACA60  warp                 mapGroup=41 mapNum=25 WARP_ID_NONE=255 -1=5 -1=6
+    082ACA68  waitstate            
+
+  map script type 4 (var 0x4004 == 0) -> 0x082ACA74
+  script 0x082ACA74  [ok]
+    082ACA74  setvar               destination=VAR_0x4004 value=1
+    082ACA79  turnobject           localId=255 direction=2
+    082ACA7D  end                  
+

@@ -1,0 +1,30 @@
+Celadon City  (group 10, map 0)  header 0x08B3D2B0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x01, flag 0x0000) -> 0x0825FAC0
+  script 0x0825FAC0  [ok]
+    0825FAC0  msgbox_multilang     type=0 text_0="Hello!\nWelcome to Celadon Dept. Store.\pThe board on the right describes\nthe store layout." text_1="Hello!\nWelcome to Celadon Dept. Store.\pThe board on the right describes\nthe store layout." text_2="Hello!\nWelcome to Celadon Dept. Store.\pThe board on the right describes\nthe store layout." text_3="Hello!\nWelcome to Celadon Dept. Store.\pThe board on the right describes\nthe store layout." text_4="Hello!\nWelcome to Celadon Dept. Store.\pThe board on the right describes\nthe store layout." text_5="Hello!\nWelcome to Celadon Dept. Store.\pThe board on the right describes\nthe store layout." text_6="Hello!\nWelcome to Celadon Dept. Store.\pThe board on the right describes\nthe store layout."
+    0825FADE  callstd              function=MSGBOX_NPC(2)
+    0825FAE0  end                  
+
+  sign 0 at (9,11) -> 0x0825FAE1
+  script 0x0825FAE1  [ok]
+    0825FAE1  msgbox_multilang     type=0 text_0="1F: Service Counter\p2F: Trainer’s Market\p3F: TV Game Shop\p4F: Wise Man Gifts\p5F: Drugstore\pRooftop Square: Vending Machines" text_1="1F: Service Counter\p2F: Trainer’s Market\p3F: TV Game Shop\p4F: Wise Man Gifts\p5F: Drugstore\pRooftop Square: Vending Machines" text_2="1F: Service Counter\p2F: Trainer’s Market\p3F: TV Game Shop\p4F: Wise Man Gifts\p5F: Drugstore\pRooftop Square: Vending Machines" text_3="1F: Service Counter\p2F: Trainer’s Market\p3F: TV Game Shop\p4F: Wise Man Gifts\p5F: Drugstore\pRooftop Square: Vending Machines" text_4="1F: Service Counter\p2F: Trainer’s Market\p3F: TV Game Shop\p4F: Wise Man Gifts\p5F: Drugstore\pRooftop Square: Vending Machines" text_5="1F: Service Counter\p2F: Trainer’s Market\p3F: TV Game Shop\p4F: Wise Man Gifts\p5F: Drugstore\pRooftop Square: Vending Machines" text_6="1F: Service Counter\p2F: Trainer’s Market\p3F: TV Game Shop\p4F: Wise Man Gifts\p5F: Drugstore\pRooftop Square: Vending Machines"
+    0825FAFF  callstd              function=MSGBOX_SIGN(3)
+    0825FB01  end                  
+
+  sign 1 at (8,1) -> 0x0825FB02
+  script 0x0825FB02  [ok]
+    0825FB02  msgbox_multilang     type=0 text_0="1F: Service Counter" text_1="1F: Service Counter" text_2="1F: Service Counter" text_3="1F: Service Counter" text_4="1F: Service Counter" text_5="1F: Service Counter" text_6="1F: Service Counter"
+    0825FB20  callstd              function=MSGBOX_SIGN(3)
+    0825FB22  end                  
+

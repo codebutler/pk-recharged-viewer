@@ -1,0 +1,75 @@
+Southern Island  (group 2, map 4)  header 0x08B3BFFC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x31, flag 0x0000) -> 0x0828D919
+  script 0x0828D919  [ok]
+    0828D919  lock                 
+    0828D91A  faceplayer           
+    0828D91B  msgbox_multilang     type=0 text_0="Aye, mate, there’s nothing here to\nsee or do on this forgettable island.\pWhat say we sail back to LILYCOVE?" text_1="Aye, mate, there’s nothing here to\nsee or do on this forgettable island.\pWhat say we sail back to LILYCOVE?" text_2="Aye, mate, there’s nothing here to\nsee or do on this forgettable island.\pWhat say we sail back to LILYCOVE?" text_3="Aye, mate, there’s nothing here to\nsee or do on this forgettable island.\pWhat say we sail back to LILYCOVE?" text_4="Aye, mate, there’s nothing here to\nsee or do on this forgettable island.\pWhat say we sail back to LILYCOVE?" text_5="Aye, mate, there’s nothing here to\nsee or do on this forgettable island.\pWhat say we sail back to LILYCOVE?" text_6="Aye, mate, there’s nothing here to\nsee or do on this forgettable island.\pWhat say we sail back to LILYCOVE?"
+    0828D939  callstd              function=MSGBOX_YESNO(5)
+    0828D93B  compare_var_to_value var=0x800D value=0
+    0828D940  goto_if              condition=1 destination=0x0828D98E
+    0828D946  msgbox_multilang     type=0 text_0="Aye, right, then!\nSail home we will!" text_1="Aye, right, then!\nSail home we will!" text_2="Aye, right, then!\nSail home we will!" text_3="Aye, right, then!\nSail home we will!" text_4="Aye, right, then!\nSail home we will!" text_5="Aye, right, then!\nSail home we will!" text_6="Aye, right, then!\nSail home we will!"
+    0828D964  callstd              function=MSGBOX_DEFAULT(4)
+    0828D966  closemessage         
+    0828D967  applymovement        localId=32783 movements=[walk_in_place_faster_down]
+    0828D96E  waitmovement         localId=0
+    0828D971  delay                frames=30
+    0828D974  hideobjectat         localId=1 mapGroup=2 mapNum=4
+    0828D979  setvar               destination=VAR_0x8004 value=2
+    0828D97E  call                 destination=0x082BBE40
+    0828D983  warp                 mapGroup=41 mapNum=0 WARP_ID_NONE=255 -1=8 -1=11
+    0828D98B  waitstate            
+
+  script 0x0828D98E  [ok]
+    0828D98E  msgbox_multilang     type=0 text_0="Aye, right, as you like, then." text_1="Aye, right, as you like, then." text_2="Aye, right, as you like, then." text_3="Aye, right, as you like, then." text_4="Aye, right, as you like, then." text_5="Aye, right, as you like, then." text_6="Aye, right, as you like, then."
+    0828D9AC  callstd              function=MSGBOX_DEFAULT(4)
+    0828D9AE  release              
+
+  script 0x082BBE40  [ok]
+    082BBE40  compare_var_to_value var=0x800C value=1
+    082BBE45  call_if              condition=1 destination=0x0828D9B0
+    082BBE4B  compare_var_to_value var=0x800C value=3
+    082BBE50  call_if              condition=1 destination=0x0828D9BB
+    082BBE56  delay                frames=30
+    082BBE59  hideobjectat         localId=255 mapGroup=0 mapNum=0
+    082BBE5E  call                 destination=0x082BBE03
+    082BBE63  return               
+
+  script 0x0828D9B0  [ok]
+    0828D9B0  applymovement        localId=255 movements=[walk_down]
+    0828D9B7  waitmovement         localId=0
+    0828D9BA  return               
+
+  script 0x0828D9BB  [ok]
+    0828D9BB  applymovement        localId=255 movements=[walk_left walk_in_place_faster_down]
+    0828D9C2  waitmovement         localId=0
+    0828D9C5  return               
+
+  script 0x082BBE03  [ok]
+    082BBE03  delay                frames=60
+    082BBE06  applymovement        localId=32772 movements=[walk_slow_right walk_slow_right walk_slow_right walk_right walk_right walk_right walk_right]
+    082BBE0D  waitmovement         localId=0
+    082BBE10  return               
+
+  object 2 (gfx 0x8C, flag 0x0000) -> 0x00000000
+  sign 0 at (16,7) -> 0x0828D9CB
+  script 0x0828D9CB  [ok]
+    0828D9CB  msgbox_multilang     type=0 text_0="“Those whose memories fade seek to\ncarve them in their hearts…”" text_1="“Those whose memories fade seek to\ncarve them in their hearts…”" text_2="“Those whose memories fade seek to\ncarve them in their hearts…”" text_3="“Those whose memories fade seek to\ncarve them in their hearts…”" text_4="“Those whose memories fade seek to\ncarve them in their hearts…”" text_5="“Those whose memories fade seek to\ncarve them in their hearts…”" text_6="“Those whose memories fade seek to\ncarve them in their hearts…”"
+    0828D9E9  callstd              function=MSGBOX_SIGN(3)
+    0828D9EB  end                  
+
+  map script type 3 -> 0x0828D915
+  script 0x0828D915  [ok]
+    0828D915  setflag              flag=0x878
+    0828D918  end                  
+

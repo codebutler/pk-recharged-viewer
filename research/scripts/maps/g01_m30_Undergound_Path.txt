@@ -1,0 +1,75 @@
+Undergound Path  (group 1, map 30)  header 0x08B3B560
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xEF, flag 0x0000) -> 0x0820CB1B
+  script 0x0820CB1B  [ok]
+    0820CB1B  lock                 
+    0820CB1C  faceplayer           
+    0820CB1D  setvar               destination=VAR_0x8008 value=2
+    0820CB22  call                 destination=0x082F80DB
+    0820CB27  checkflag            flag=0x24B
+    0820CB2A  goto_if              condition=1 destination=0x0820CBED
+    0820CB30  msgbox_multilang     type=0 text_0="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_1="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_2="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_3="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_4="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_5="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_6="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?"
+    0820CB4E  callstd              function=MSGBOX_YESNO(5)
+    0820CB50  compare_var_to_value var=0x800D value=0
+    0820CB55  goto_if              condition=1 destination=0x0820CBA5
+    0820CB5B  call                 destination=0x082F814F
+    0820CB60  compare_var_to_value var=0x8004 value=6
+    0820CB65  goto_if              condition=4 destination=0x0820CBA5
+    0820CB6B  call                 destination=0x082F80F2
+    0820CB70  compare_var_to_var   var1=32781 var2=32777
+    0820CB75  goto_if              condition=5 destination=0x0820CBC7
+    0820CB7B  call                 destination=0x082F813B
+    0820CB80  msgbox_multilang     type=0 text_0="Thanks, you’re a pal!" text_1="Thanks, you’re a pal!" text_2="Thanks, you’re a pal!" text_3="Thanks, you’re a pal!" text_4="Thanks, you’re a pal!" text_5="Thanks, you’re a pal!" text_6="Thanks, you’re a pal!"
+    0820CB9E  callstd              function=MSGBOX_DEFAULT(4)
+    0820CBA0  setflag              flag=0x24B
+    0820CBA3  release              
+
+  script 0x082F80DB  [ok]
+    082F80DB  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    082F80E0  specialvar           output=32781 SPECIAL_\function=167
+    082F80E5  copyvar              destination=VAR_0x8009 source=VAR_0x800D
+    082F80EA  return               
+
+  script 0x0820CBED  [ok]
+    0820CBED  msgbox_multilang     type=0 text_0="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_1="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_2="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_3="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_4="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_5="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_6="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!"
+    0820CC0B  callstd              function=MSGBOX_DEFAULT(4)
+    0820CC0D  release              
+
+  script 0x0820CBA5  [ok]
+    0820CBA5  msgbox_multilang     type=0 text_0="That’s too bad." text_1="That’s too bad." text_2="That’s too bad." text_3="That’s too bad." text_4="That’s too bad." text_5="That’s too bad." text_6="That’s too bad."
+    0820CBC3  callstd              function=MSGBOX_DEFAULT(4)
+    0820CBC5  release              
+
+  script 0x082F814F  [ok]
+    082F814F  special              SPECIAL_\function=96
+    082F8152  waitstate            
+
+  script 0x082F80F2  [ok]
+    082F80F2  copyvar              destination=VAR_0x8005 source=VAR_0x800A
+    082F80F7  specialvar           output=32781 SPECIAL_\function=170
+    082F80FC  copyvar              destination=VAR_0x800B source=VAR_0x800D
+    082F8101  return               
+
+  script 0x0820CBC7  [ok]
+    0820CBC7  bufferspeciesname    stringVarId=0 species=?(32777)
+    0820CBCB  msgbox_multilang     type=0 text_0="…This is no {STR_VAR_1}.\pIf you get one, trade it with me." text_1="…This is no {STR_VAR_1}.\pIf you get one, trade it with me." text_2="…This is no {STR_VAR_1}.\pIf you get one, trade it with me." text_3="…This is no {STR_VAR_1}.\pIf you get one, trade it with me." text_4="…This is no {STR_VAR_1}.\pIf you get one, trade it with me." text_5="…This is no {STR_VAR_1}.\pIf you get one, trade it with me." text_6="…This is no {STR_VAR_1}.\pIf you get one, trade it with me."
+    0820CBE9  callstd              function=MSGBOX_DEFAULT(4)
+    0820CBEB  release              
+
+  script 0x082F813B  [ok]
+    082F813B  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    082F8140  copyvar              destination=VAR_0x8005 source=VAR_0x800A
+    082F8145  special              SPECIAL_\function=168
+    082F8148  special              SPECIAL_\function=169
+    082F814B  waitstate            
+

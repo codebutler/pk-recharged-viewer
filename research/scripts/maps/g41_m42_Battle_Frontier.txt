@@ -1,0 +1,30 @@
+Battle Frontier  (group 41, map 42)  header 0x08B3E548
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x05, flag 0x0000) -> 0x082B6AAC
+  script 0x082B6AAC  [ok]
+    082B6AAC  msgbox_multilang     type=0 text_0="At the BATTLE TOWER, an older girl\ntold me that I have a lot of talent\pfor battling!\pI like POKéMON CONTESTS more!\pBut I’m no good at CONTESTS!\pI guess having talent and liking\nsomething aren’t the same." text_1="At the BATTLE TOWER, an older girl\ntold me that I have a lot of talent\pfor battling!\pI like POKéMON CONTESTS more!\pBut I’m no good at CONTESTS!\pI guess having talent and liking\nsomething aren’t the same." text_2="At the BATTLE TOWER, an older girl\ntold me that I have a lot of talent\pfor battling!\pI like POKéMON CONTESTS more!\pBut I’m no good at CONTESTS!\pI guess having talent and liking\nsomething aren’t the same." text_3="At the BATTLE TOWER, an older girl\ntold me that I have a lot of talent\pfor battling!\pI like POKéMON CONTESTS more!\pBut I’m no good at CONTESTS!\pI guess having talent and liking\nsomething aren’t the same." text_4="At the BATTLE TOWER, an older girl\ntold me that I have a lot of talent\pfor battling!\pI like POKéMON CONTESTS more!\pBut I’m no good at CONTESTS!\pI guess having talent and liking\nsomething aren’t the same." text_5="At the BATTLE TOWER, an older girl\ntold me that I have a lot of talent\pfor battling!\pI like POKéMON CONTESTS more!\pBut I’m no good at CONTESTS!\pI guess having talent and liking\nsomething aren’t the same." text_6="At the BATTLE TOWER, an older girl\ntold me that I have a lot of talent\pfor battling!\pI like POKéMON CONTESTS more!\pBut I’m no good at CONTESTS!\pI guess having talent and liking\nsomething aren’t the same."
+    082B6ACA  callstd              function=MSGBOX_NPC(2)
+    082B6ACC  end                  
+
+  object 2 (gfx 0xFA, flag 0x0000) -> 0x082B6A6A
+  script 0x082B6A6A  [ok]
+    082B6A6A  msgbox_multilang     type=0 text_0="What a TRAINER needs…\pKnowledge…\nStrategy…\pLuck…\pGuts…\pSpirit…\pBravery…\pAnd ability…\pWell, I’m all set in every way!\nI’ll be unstoppable at every building!\pHuh? POKéMON?\nWhat’s that?" text_1="What a TRAINER needs…\pKnowledge…\nStrategy…\pLuck…\pGuts…\pSpirit…\pBravery…\pAnd ability…\pWell, I’m all set in every way!\nI’ll be unstoppable at every building!\pHuh? POKéMON?\nWhat’s that?" text_2="What a TRAINER needs…\pKnowledge…\nStrategy…\pLuck…\pGuts…\pSpirit…\pBravery…\pAnd ability…\pWell, I’m all set in every way!\nI’ll be unstoppable at every building!\pHuh? POKéMON?\nWhat’s that?" text_3="What a TRAINER needs…\pKnowledge…\nStrategy…\pLuck…\pGuts…\pSpirit…\pBravery…\pAnd ability…\pWell, I’m all set in every way!\nI’ll be unstoppable at every building!\pHuh? POKéMON?\nWhat’s that?" text_4="What a TRAINER needs…\pKnowledge…\nStrategy…\pLuck…\pGuts…\pSpirit…\pBravery…\pAnd ability…\pWell, I’m all set in every way!\nI’ll be unstoppable at every building!\pHuh? POKéMON?\nWhat’s that?" text_5="What a TRAINER needs…\pKnowledge…\nStrategy…\pLuck…\pGuts…\pSpirit…\pBravery…\pAnd ability…\pWell, I’m all set in every way!\nI’ll be unstoppable at every building!\pHuh? POKéMON?\nWhat’s that?" text_6="What a TRAINER needs…\pKnowledge…\nStrategy…\pLuck…\pGuts…\pSpirit…\pBravery…\pAnd ability…\pWell, I’m all set in every way!\nI’ll be unstoppable at every building!\pHuh? POKéMON?\nWhat’s that?"
+    082B6A88  callstd              function=MSGBOX_NPC(2)
+    082B6A8A  end                  
+
+  object 3 (gfx 0x22, flag 0x0000) -> 0x082B6A8B
+  script 0x082B6A8B  [ok]
+    082B6A8B  msgbox_multilang     type=0 text_0="Do you know about the FRONTIER\nBRAINS?\pThat’s what SCOTT calls the seven\nspecial TRAINERS that run the seven\pfacilities in the BATTLE FRONTIER." text_1="Do you know about the FRONTIER\nBRAINS?\pThat’s what SCOTT calls the seven\nspecial TRAINERS that run the seven\pfacilities in the BATTLE FRONTIER." text_2="Do you know about the FRONTIER\nBRAINS?\pThat’s what SCOTT calls the seven\nspecial TRAINERS that run the seven\pfacilities in the BATTLE FRONTIER." text_3="Do you know about the FRONTIER\nBRAINS?\pThat’s what SCOTT calls the seven\nspecial TRAINERS that run the seven\pfacilities in the BATTLE FRONTIER." text_4="Do you know about the FRONTIER\nBRAINS?\pThat’s what SCOTT calls the seven\nspecial TRAINERS that run the seven\pfacilities in the BATTLE FRONTIER." text_5="Do you know about the FRONTIER\nBRAINS?\pThat’s what SCOTT calls the seven\nspecial TRAINERS that run the seven\pfacilities in the BATTLE FRONTIER." text_6="Do you know about the FRONTIER\nBRAINS?\pThat’s what SCOTT calls the seven\nspecial TRAINERS that run the seven\pfacilities in the BATTLE FRONTIER."
+    082B6AA9  callstd              function=MSGBOX_NPC(2)
+    082B6AAB  end                  
+

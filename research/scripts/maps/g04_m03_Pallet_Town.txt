@@ -1,0 +1,649 @@
+Pallet Town  (group 4, map 3)  header 0x08B3CE50
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x0824D671
+  script 0x0824D671  [ok]
+    0824D671  lock                 
+    0824D672  faceplayer           
+    0824D673  speakername          name="Scientist"
+    0824D678  msgbox_multilang     type=0 text_0="I also study Pokémon as Professor\nOak’s assistant." text_1="También estudio Pokémon como\nasistente del Profesor Oak." text_2="J’étudie aussi les Pokémon en tant\nqu’assistant du Professeur Chen." text_3="Studio anche i Pokémon come\nassistente del Professor Oak." text_4="Ich studiere auch Pokémon als\nAssistent von Professor Eich." text_5="Eu também estudo Pokémon como\nassistente do Professor Carvalho." text_6="ÒブÙぁÒミÁYÌ’ÀJÏÇÂÎŒQÏé\nÔÁÔrÓ×ÊíÊ%ËBÌソが"
+    0824D696  callstd              function=MSGBOX_DEFAULT(4)
+    0824D698  release              
+
+  object 2 (gfx 0x01, flag 0x0000) -> 0x0824D60D
+  script 0x0824D60D  [ok]
+    0824D60D  lock                 
+    0824D60E  faceplayer           
+    0824D60F  speakername          name="Aide"
+    0824D614  checkflag            flag=0x861:STARTER_PROGRESSION_B
+    0824D617  goto_if              condition=1 destination=0x0824D63F
+    0824D61D  msgbox_multilang     type=0 text_0="Professor Oak may not look like much,\nbut he’s the authority on Pokémon.\pMany Pokémon Trainers think highly of\nhim." text_1="El Profesor Oak puede que no lo\nparezca, pero es una autoridad en\pPokémon.\pMuchos Entrenadores Pokémon lo tienen\nen alta estima." text_2="Le Professeur Chen ne paie peut-être\npas de mine, mais c’est une autorité\pen matière de Pokémon.\pBeaucoup de Dresseurs Pokémon ont\nune grande estime pour lui." text_3="Il Professor Oak potrebbe non\nsembrare molto, ma è un’autorità in\pfatto di Pokémon.\pMolti Allenatori di Pokémon lo\nconsiderano altamente." text_4="Professor Eich mag vielleicht nicht\nviel hermachen, aber er ist eine\pAutorität in Sachen Pokémon.\pViele Pokémon-Trainer schätzen ihn\nsehr." text_5="O Professor Carvalho pode nぇo\nparecer muito, mas ele é uma\pautoridade em Pokémon.\pMuitos Treinadores de Pokémon têm\ngrande consideraçぇo por ele." text_6="Ê¿Ç3ÊHÎ.ÎœŒザÏÏÇタ\nこリこリÒ3こ0ÂÎÓわËでÒま……\pÁYÌ’ÀJÏÇÏペごÊcÏÏÁハÒ♂ÓわÊ%ËB\nÓ×ÊíËEÔッÂÎÎûÒニÌT!\pÔrÓペËゲÎnÌソŒ0ÈÎÔンÌヅ!"
+    0824D63B  callstd              function=MSGBOX_DEFAULT(4)
+    0824D63D  release              
+
+  script 0x0824D63F  [ok]
+    0824D63F  setvar               destination=VAR_0x8004 value=1
+    0824D644  setvar               destination=VAR_0x8005 value=0
+    0824D649  special              SPECIAL_\function=347
+    0824D64C  msgbox_multilang     type=0 text_0="Hi, {PLAYER}. I bet you’ve become\ngood friends with your Pokémon.\pBy the way, did you know about\nDaisy?\pIf you show Daisy your Pokémon, she\ncan tell how much it likes you.\pOccasionally, she will even groom a\nPokémon for you.\pThis is a secret, so please don’t tell\nanyone." text_1="Hi, {PLAYER}. I bet you’ve become\ngood friends with your Pokémon.\pBy the way, did you know about\nDaisy?\pIf you show Daisy your Pokémon, she\ncan tell how much it likes you.\pOccasionally, she will even groom a\nPokémon for you.\pThis is a secret, so please don’t tell\nanyone." text_2="Hi, {PLAYER}. I bet you’ve become\ngood friends with your Pokémon.\pBy the way, did you know about\nDaisy?\pIf you show Daisy your Pokémon, she\ncan tell how much it likes you.\pOccasionally, she will even groom a\nPokémon for you.\pThis is a secret, so please don’t tell\nanyone." text_3="Hi, {PLAYER}. I bet you’ve become\ngood friends with your Pokémon.\pBy the way, did you know about\nDaisy?\pIf you show Daisy your Pokémon, she\ncan tell how much it likes you.\pOccasionally, she will even groom a\nPokémon for you.\pThis is a secret, so please don’t tell\nanyone." text_4="Hi, {PLAYER}. I bet you’ve become\ngood friends with your Pokémon.\pBy the way, did you know about\nDaisy?\pIf you show Daisy your Pokémon, she\ncan tell how much it likes you.\pOccasionally, she will even groom a\nPokémon for you.\pThis is a secret, so please don’t tell\nanyone." text_5="Hi, {PLAYER}. I bet you’ve become\ngood friends with your Pokémon.\pBy the way, did you know about\nDaisy?\pIf you show Daisy your Pokémon, she\ncan tell how much it likes you.\pOccasionally, she will even groom a\nPokémon for you.\pThis is a secret, so please don’t tell\nanyone." text_6="ÈË!{PLAYER}!ÒブÀiÌeÓÂÔr\nÔïÊ)ÇÜÌeÂÎÊ%ËBÌソ\pÁぱÒミÇuこっÔァËペÀû?\pËFÒぼごÌeÔエÇ&ŒロÂÊ\nÒブÏヂこÎÌJÌJÌクÀû?\pÎヌÇIÌeÎœŒどÏッごÀぃÌeÂÎÊ%ËB\nÌ×ÇツÏッÊHÊHÂÎÈじごÏッÊヲÈホ\nÇっÏェÌeごÏポÌソÇÜÌeこ:ÊぺÂÎÁぺÂヘÂÎ!\pÔンÎyÈïごÏッÈばÈホÏカÁdŒä\nÇツÌeÂÎÊ%ËBÌソËツÇタÂ4が\pÌeÊcÂこÏsÒブÀタÌヤご\nÈ”ÂこÀ.ÇっÏェこポÏペÎぱÀ が"
+    0824D66A  callstd              function=MSGBOX_DEFAULT(4)
+    0824D66C  goto                 destination=0x0824D63D
+
+  script 0x0824D63D  [ok]
+    0824D63D  release              
+
+  object 3 (gfx 0x08, flag 0x0000) -> 0x0824D5D9
+  script 0x0824D5D9  [ok]
+    0824D5D9  lock                 
+    0824D5DA  setvar               destination=VAR_0x8004 value=0
+    0824D5DF  setvar               destination=VAR_0x8005 value=2
+    0824D5E4  special              SPECIAL_\function=347
+    0824D5E7  speakername          name="Scientist"
+    0824D5EC  msgbox_multilang     type=0 text_0="I try to help Professor Oak as much\nas possible.\pPokémon help us a lot in our tasks." text_1="Trato de ayudar al Profesor Oak\ntanto como puedo.\pLos Pokémon nos ayudan mucho en\nnuestras tareas." text_2="J’essaie d’aider le Professeur Chen\nautant que possible.\pLes Pokémon nous aident beaucoup\ndans nos tâches." text_3="Cerco di aiutare il Professor Oak il\npiù possibile.\pI Pokémon ci aiutano molto nei nostri\ncompiti." text_4="Ich versuche, Professor Eich so gut\nwie möglich zu helfen.\pPokémon helfen uns sehr bei unseren\nAufgaben." text_5="Eu tento ajudar o Professor Carvalho\no máximo possível.\pOs Pokémon nos ajudam muito em\nnossas tarefas." text_6="ÒブŒミÔrÊ¿ÒブÏピÌXÂま\nÀぺŒQÁYÌ’ÀJÏÇ!ËFÒぼÊ%ËBÌソ\pÔrÒブÌソÂÎÓ×ÊíŒ0ÔÁÀぺËペÁYÌず!"
+    0824D60A  callstd              function=MSGBOX_NPC(2)
+    0824D60C  return               
+
+  object 4 (gfx 0x14, flag 0x002B) -> 0x0824D812
+  script 0x0824D812  [ok]
+    0824D812  lock                 
+    0824D813  checkflag            flag=0x860:STARTER_PROGRESSION_A
+    0824D816  goto_if              condition=0 destination=0x0824D86B
+    0824D81C  compare_var_to_value var=0x40E0 value=3
+    0824D821  goto_if              condition=1 destination=0x0824D895
+    0824D827  compare_var_to_value var=0x4057 value=0
+    0824D82C  goto_if              condition=1 destination=0x0824D8BF
+    0824D832  setvar               destination=VAR_0x8004 value=0
+    0824D837  specialvar           output=32781 SPECIAL_\function=133
+    0824D83C  copyvar              destination=VAR_0x8008 source=VAR_0x8005
+    0824D841  copyvar              destination=VAR_0x8009 source=VAR_0x8006
+    0824D846  buffernumberstring   stringVarId=0 input=32776
+    0824D84A  buffernumberstring   stringVarId=1 input=32777
+    0824D84E  compare_var_to_value var=0x8009 value=1
+    0824D853  goto_if              condition=1 destination=0x0824D8E9
+    0824D859  call                 destination=0x082D75D6
+    0824D85E  checkflag            flag=0x2F4
+    0824D861  goto_if              condition=1 destination=0x0824D913
+    0824D867  release              
+
+  script 0x0824D86B  [ok]
+    0824D86B  speakername          name="Prof. Oak"
+    0824D870  msgbox_multilang     type=0 text_0="Check what’s inside that Poké Ball!" text_1="¡Comprueba lo que hay dentro de esa\nPoké Ball!" text_2="Regarde ce qu’il y a à l’intérieur de\ncette Poké Ball !" text_3="Controlla cosa c’è dentro quella Poké\nBall!" text_4="Schau nach, was in diesem Pokéball\nist!" text_5="Veja o que tem dentro daquela Poké\nBola!" text_6="ÊHÊHŒ▶Î.ÂÎÊ%ËBÎÑËト\nŒkËペÎzÌぴÊ%ËBÀû!"
+    0824D88E  callstd              function=MSGBOX_NPC(2)
+    0824D890  goto                 destination=0x0824D869
+
+  script 0x0824D895  [ok]
+    0824D895  speakername          name="Prof. Oak"
+    0824D89A  msgbox_multilang     type=0 text_0="{PLAYER}, you should tell your\nmother that you’ve got your first\pPokémon!" text_1="{PLAYER}, ¡deberías decirle a tu\nmadre que has conseguido tu primer\pPokémon!" text_2="{PLAYER}, tu devrais dire à ta mère\nque tu as obtenu ton premier\pPokémon !" text_3="{PLAYER}, dovresti dire a tua madre\nche hai ottenuto il tuo primo\pPokémon!" text_4="{PLAYER}, du solltest deiner Mutter\nsagen, dass du dein erstes Pokémon\pbekommen hast!" text_5="{PLAYER}, você deveria contar à\nsua mぇe que conseguiu seu primeiro\pPokémon!" text_6="{PLAYER}!ÎœÈナÈCÇっÏェÌòÌòÌe\nÈンÂこËペÙùÁラÂÎÈワÀぶÂÎÏÊÀû!"
+    0824D8B8  callstd              function=MSGBOX_NPC(2)
+    0824D8BA  goto                 destination=0x0824D869
+
+  script 0x0824D8BF  [ok]
+    0824D8BF  speakername          name="Prof. Oak"
+    0824D8C4  msgbox_multilang     type=0 text_0="My parcel is in Viridian City, at the\nPokémon Mart." text_1="Mi paquete está en Ciudad Verde, en\nla Tienda Pokémon." text_2="Mon colis est à Jadielle, à la\nBoutique Pokémon." text_3="Il mio pacco è a Smeraldopoli, al\nPoké Market." text_4="Mein Paket ist in Vertania City, im\nPokémon-Markt." text_5="Meu pacote está em Cidade de\nViridian, na Loja Pokémon." text_6="ÒブÂÎÀ%ÇJÂNÔrÁœこºÏß\nÂÎÔァÇuÊ%ËBÎ9ÂぅËトÌン!"
+    0824D8E2  callstd              function=MSGBOX_NPC(2)
+    0824D8E4  goto                 destination=0x0824D869
+
+  script 0x0824D8E9  [ok]
+    0824D8E9  speakername          name="Prof. Oak"
+    0824D8EE  msgbox_multilang     type=0 text_0="You should try catching Pokémon.\pThat way, your Pokédex will be\nfilled in no time!" text_1="Deberías intentar capturar Pokémon.\p¡De esa manera, tu Pokédex se\ncompletará muy rápido!" text_2="Vous devriez essayer d’attraper des\nPokémon.\pDe cette façon, votre Pokédex sera\nrempli en un rien de temps!" text_3="Dovresti provare a catturare\nPokémon.\pIn questo modo, il tuo Pokédex sarà\npieno in un attimo!" text_4="Du solltest versuchen, Pokémon zu\nfangen.\pAuf diese Weise wird dein Pokédex im\nHandumdrehen gefüllt sein!" text_5="Você deveria tentar capturar\nPokémon.\pDessa forma, sua Pokédex será\npreenchida em pouco tempo!" text_6="ÌeÔエÇ&ÁôÏçŒäÎœ\nÔムÊ%ËBÎÑŒZŒZÊ%ËB!\pŒオÓnÂÎÈじごÌeÂÎÊ%ËBÒôÈo\nÊヲÌXÈÎËÂÀリÏ▶ÌゃËペ!"
+    0824D90C  callstd              function=MSGBOX_NPC(2)
+    0824D90E  goto                 destination=0x0824D869
+
+  script 0x082D75D6  [ok]
+    082D75D6  checkflag            flag=0x2F4
+    082D75D9  call_if              condition=1 destination=0x082D75EE
+    082D75DF  checkflag            flag=0x2F4
+    082D75E2  call_if              condition=0 destination=0x082D760F
+    082D75E8  call                 destination=0x082D765A
+    082D75ED  return               
+
+  script 0x0824D913  [ok]
+    0824D913  closemessage         
+    0824D914  delay                frames=40
+    0824D917  speakername          name="Prof. Oak"
+    0824D91C  message              text="Wroooooooaaaaaarrrr!"
+    0824D921  lockfortrainer       
+    0824D922  bufferitemname       stringVarId=36 item=26888
+    0824D926  checkmoney           value=2736392228 disable=36
+    0824D92C  gotostd              function=171
+    0824D92E  addcoins             count=2084
+    0824D931  drawboxtext          left=197 top=36 multichoiceId=8 ignoreBPress=113
+    0824D936  normalmsg            
+    0824D937  gotonative           func=1664520
+    0824D93C  bufferitemname       stringVarId=12 item=8576
+    0824D940  nop                  
+    0824D941  bufferitemname       stringVarId=2 item=1536
+    0824D945  nop1                 
+    0824D946  setstepcallback      stepCbId=217
+    0824D948  gotonative           func=2147492104
+    0824D94D  nop1                 
+    0824D94E  nop                  
+    0824D94F  goto_if              condition=1 destination=0x0824D9B2
+    0824D955  compare_var_to_value var=0x8000 value=4
+    0824D95A  goto_if              condition=1 destination=0x0824D9BE
+    0824D960  compare_var_to_value var=0x8000 value=3
+    0824D965  goto_if              condition=1 destination=0x0824D9CA
+    0824D96B  waitmovement         localId=0
+    0824D96E  applymovement        localId=4 movements=[face_player]
+    0824D975  waitmovement         localId=0
+    0824D978  closemessage         
+    0824D979  delay                frames=70
+    0824D97C  speakername          name="Prof. Oak"
+    0824D981  msgbox_multilang     type=0 text_0="Thank you, {PLAYER}!\nSincerely, thank you!\pYou’ve made my dream a reality!" text_1="¡Gracias, {PLAYER}!\nSinceramente, ¡gracias!\p¡Has hecho mi sueño realidad!" text_2="Merci, {PLAYER} !\nSincèrement, merci !\pTu as fait de mon rêve une réalité !" text_3="Grazie, {PLAYER}!\nSinceramente, grazie!\pHai reso il mio sogno una realtà!" text_4="Danke, {PLAYER}!\nEhrlich, danke!\pDu hast meinen Traum wahr werden\plassen!" text_5="Obrigado, {PLAYER}!\nSinceramente, obrigado!\pVocê tornou meu sonho uma realidade!" text_6="ÓばÓばÌe!{PLAYER}!\nŒwÎがÂまËñÏク!ŒケÂÎÂPÁœÇげÓば!\pÏÏÌeÎづÒブÔrÔンÎdŒァÌlËト\pÎÄÓÂËペÔÎŒェÔôËñÂÎÌニÓね!"
+    0824D99F  callstd              function=MSGBOX_DEFAULT(4)
+    0824D9A1  setflag              flag=0x002
+    0824D9A4  release              
+
+  script 0x0824D869  [ok]
+    0824D869  release              
+
+  script 0x082D75EE  [ok]
+    082D75EE  msgbox_multilang     type=0 text_0="Oak: Ah, welcome!\pTell me, how is your Pokédex\ncoming along?\pWahaha!\pActually, I know how it is, but I\nlove seeing it anyway!\pLet’s see…" text_1="Oak: Ah, welcome!\pTell me, how is your Pokédex\ncoming along?\pWahaha!\pActually, I know how it is, but I\nlove seeing it anyway!\pLet’s see…" text_2="Oak: Ah, welcome!\pTell me, how is your Pokédex\ncoming along?\pWahaha!\pActually, I know how it is, but I\nlove seeing it anyway!\pLet’s see…" text_3="Oak: Ah, welcome!\pTell me, how is your Pokédex\ncoming along?\pWahaha!\pActually, I know how it is, but I\nlove seeing it anyway!\pLet’s see…" text_4="Oak: Ah, welcome!\pTell me, how is your Pokédex\ncoming along?\pWahaha!\pActually, I know how it is, but I\nlove seeing it anyway!\pLet’s see…" text_5="Oak: Ah, welcome!\pTell me, how is your Pokédex\ncoming along?\pWahaha!\pActually, I know how it is, but I\nlove seeing it anyway!\pLet’s see…" text_6="Oak: Ah, welcome!\pTell me, how is your Pokédex\ncoming along?\pWahaha!\pActually, I know how it is, but I\nlove seeing it anyway!\pLet’s see…"
+    082D760C  callstd              function=MSGBOX_DEFAULT(4)
+    082D760E  return               
+
+  script 0x082D760F  [ok]
+    082D760F  msgbox_multilang     type=0 text_0="Oak: Good to see you!\nHow is your Pokédex coming along?\pHere, let me take a look." text_1="Oak: Good to see you!\nHow is your Pokédex coming along?\pHere, let me take a look." text_2="Oak: Good to see you!\nHow is your Pokédex coming along?\pHere, let me take a look." text_3="Oak: Good to see you!\nHow is your Pokédex coming along?\pHere, let me take a look." text_4="Oak: Good to see you!\nHow is your Pokédex coming along?\pHere, let me take a look." text_5="Oak: Good to see you!\nHow is your Pokédex coming along?\pHere, let me take a look." text_6="Oak: Good to see you!\nHow is your Pokédex coming along?\pHere, let me take a look."
+    082D762D  callstd              function=MSGBOX_DEFAULT(4)
+    082D762F  return               
+
+  script 0x082D765A  [ok]
+    082D765A  setvar               destination=VAR_0x8004 value=0
+    082D765F  specialvar           output=32781 SPECIAL_\function=133
+    082D7664  copyvar              destination=VAR_0x8008 source=VAR_0x8005
+    082D7669  copyvar              destination=VAR_0x8009 source=VAR_0x8006
+    082D766E  copyvar              destination=VAR_0x800A source=VAR_0x800D
+    082D7673  buffernumberstring   stringVarId=0 input=32776
+    082D7677  buffernumberstring   stringVarId=1 input=32777
+    082D767B  msgbox_multilang     type=0 text_0="The amount of progress you’ve made\non your Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned.\p{CTRL_06}Prof. Oak’s rating:" text_1="The amount of progress you’ve made\non your Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned.\p{CTRL_06}Prof. Oak’s rating:" text_2="The amount of progress you’ve made\non your Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned.\p{CTRL_06}Prof. Oak’s rating:" text_3="The amount of progress you’ve made\non your Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned.\p{CTRL_06}Prof. Oak’s rating:" text_4="The amount of progress you’ve made\non your Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned.\p{CTRL_06}Prof. Oak’s rating:" text_5="The amount of progress you’ve made\non your Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned.\p{CTRL_06}Prof. Oak’s rating:" text_6="The amount of progress you’ve made\non your Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned.\p{CTRL_06}Prof. Oak’s rating:"
+    082D7699  callstd              function=MSGBOX_DEFAULT(4)
+    082D769B  checkflag            flag=0x2FF
+    082D769E  call_if              condition=0 destination=0x082D770C
+    082D76A4  call                 destination=0x082D7630
+    082D76A9  compare_var_to_value var=0x800A value=0
+    082D76AE  goto_if              condition=1 destination=0x082D775E
+    082D76B4  setvar               destination=VAR_0x8004 value=1
+    082D76B9  specialvar           output=32781 SPECIAL_\function=133
+    082D76BE  copyvar              destination=VAR_0x8008 source=VAR_0x8005
+    082D76C3  copyvar              destination=VAR_0x8009 source=VAR_0x8006
+    082D76C8  buffernumberstring   stringVarId=0 input=32776
+    082D76CC  buffernumberstring   stringVarId=1 input=32777
+    082D76D0  msgbox_multilang     type=0 text_0="And your National Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned." text_1="And your National Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned." text_2="And your National Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned." text_3="And your National Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned." text_4="And your National Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned." text_5="And your National Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned." text_6="And your National Pokédex is:\p{STR_VAR_1} Pokémon seen and\n{STR_VAR_2} Pokémon owned."
+    082D76EE  callstd              function=MSGBOX_DEFAULT(4)
+    082D76F0  specialvar           output=32781 SPECIAL_\function=346
+    082D76F5  compare_var_to_value var=0x800D value=0
+    082D76FA  goto_if              condition=1 destination=0x082D770F
+    082D7700  compare_var_to_value var=0x800D value=1
+    082D7705  goto_if              condition=1 destination=0x082D7735
+    082D770B  end                  
+
+  script 0x0824D9B2  [ok]
+    0824D9B2  applymovement        localId=4 movements=[walk_in_place_up walk_in_place_fast_up walk_in_place_up walk_in_place_up walk_in_place_fast_up walk_in_place_up]
+    0824D9B9  goto                 destination=0x0824D96B
+
+  script 0x0824D9BE  [ok]
+    0824D9BE  applymovement        localId=4 movements=[walk_in_place_left walk_in_place_fast_left walk_in_place_left walk_in_place_left walk_in_place_fast_left walk_in_place_left]
+    0824D9C5  goto                 destination=0x0824D96B
+
+  script 0x0824D9CA  [ok]
+    0824D9CA  applymovement        localId=4 movements=[walk_in_place_right walk_in_place_fast_right walk_in_place_right walk_in_place_right walk_in_place_fast_right walk_in_place_right]
+    0824D9D1  goto                 destination=0x0824D96B
+
+  script 0x082D770C  [ok]
+    082D770C  textcolor            color=0
+    082D770E  return               
+
+  script 0x082D7630  [ok]
+    082D7630  copyvar              destination=VAR_0x8004 source=VAR_0x8009
+    082D7635  special              SPECIAL_\function=389
+    082D7638  waitmessage          
+    082D7639  compare_var_to_value var=0x800D value=0
+    082D763E  call_if              condition=1 destination=0x082D7652
+    082D7644  compare_var_to_value var=0x800D value=1
+    082D7649  call_if              condition=1 destination=0x082D7656
+    082D764F  waitfanfare          
+    082D7650  waitbuttonpress      
+    082D7651  return               
+
+  script 0x082D775E  [ok]
+    082D775E  return               
+
+  script 0x082D770F  [ok]
+    082D770F  msgbox_multilang     type=0 text_0="I’ll be looking forward to seeing\nyou fill the National Pokédex!" text_1="I’ll be looking forward to seeing\nyou fill the National Pokédex!" text_2="I’ll be looking forward to seeing\nyou fill the National Pokédex!" text_3="I’ll be looking forward to seeing\nyou fill the National Pokédex!" text_4="I’ll be looking forward to seeing\nyou fill the National Pokédex!" text_5="I’ll be looking forward to seeing\nyou fill the National Pokédex!" text_6="I’ll be looking forward to seeing\nyou fill the National Pokédex!"
+    082D772D  callstd              function=MSGBOX_DEFAULT(4)
+    082D772F  goto                 destination=0x082D775E
+
+  script 0x082D7735  [ok]
+    082D7735  setflag              flag=0x2F4
+    082D7738  msgbox_multilang     type=0 text_0="Finally…\pYou’ve finally completed the\nPokédex!\pIt’s magnificent!\nTruly, this is a fantastic feat!" text_1="Finally…\pYou’ve finally completed the\nPokédex!\pIt’s magnificent!\nTruly, this is a fantastic feat!" text_2="Finally…\pYou’ve finally completed the\nPokédex!\pIt’s magnificent!\nTruly, this is a fantastic feat!" text_3="Finally…\pYou’ve finally completed the\nPokédex!\pIt’s magnificent!\nTruly, this is a fantastic feat!" text_4="Finally…\pYou’ve finally completed the\nPokédex!\pIt’s magnificent!\nTruly, this is a fantastic feat!" text_5="Finally…\pYou’ve finally completed the\nPokédex!\pIt’s magnificent!\nTruly, this is a fantastic feat!" text_6="Finally…\pYou’ve finally completed the\nPokédex!\pIt’s magnificent!\nTruly, this is a fantastic feat!"
+    082D7756  callstd              function=MSGBOX_DEFAULT(4)
+    082D7758  goto                 destination=0x082D775E
+
+  script 0x0824D96B  [ok]
+    0824D96B  waitmovement         localId=0
+    0824D96E  applymovement        localId=4 movements=[face_player]
+    0824D975  waitmovement         localId=0
+    0824D978  closemessage         
+    0824D979  delay                frames=70
+    0824D97C  speakername          name="Prof. Oak"
+    0824D981  msgbox_multilang     type=0 text_0="Thank you, {PLAYER}!\nSincerely, thank you!\pYou’ve made my dream a reality!" text_1="¡Gracias, {PLAYER}!\nSinceramente, ¡gracias!\p¡Has hecho mi sueño realidad!" text_2="Merci, {PLAYER} !\nSincèrement, merci !\pTu as fait de mon rêve une réalité !" text_3="Grazie, {PLAYER}!\nSinceramente, grazie!\pHai reso il mio sogno una realtà!" text_4="Danke, {PLAYER}!\nEhrlich, danke!\pDu hast meinen Traum wahr werden\plassen!" text_5="Obrigado, {PLAYER}!\nSinceramente, obrigado!\pVocê tornou meu sonho uma realidade!" text_6="ÓばÓばÌe!{PLAYER}!\nŒwÎがÂまËñÏク!ŒケÂÎÂPÁœÇげÓば!\pÏÏÌeÎづÒブÔrÔンÎdŒァÌlËト\pÎÄÓÂËペÔÎŒェÔôËñÂÎÌニÓね!"
+    0824D99F  callstd              function=MSGBOX_DEFAULT(4)
+    0824D9A1  setflag              flag=0x002
+    0824D9A4  release              
+
+  script 0x082D7652  [ok]
+    082D7652  playfanfare          song=529
+    082D7655  return               
+
+  script 0x082D7656  [ok]
+    082D7656  playfanfare          song=371
+    082D7659  return               
+
+  object 5 (gfx 0x35, flag 0x0078) -> 0x0824D6EB
+  script 0x0824D6EB  [opcode-out-of-range:0xEB]
+    0824D6EB  lockall              
+    0824D6EC  turnobject           localId=4 direction=4
+    0824D6F0  addelevmenuitem      a=0 b=9472 c=409 d=6517
+    0824D6F8  nop                  
+    0824D6F9  gotostd_if           condition=3 function=161
+    0824D6FC  copyvar              destination=0 source=VAR_0xE800
+
+  object 6 (gfx 0x15, flag 0x002D) -> 0x0824DEDA
+  script 0x0824DEDA  [ok]
+    0824DEDA  lock                 
+    0824DEDB  speakername          name="{RIVAL}"
+    0824DEE0  msgbox_multilang     type=0 text_0="My Pokémon looks a lot tougher than\nyours." text_1="Mi Pokémon se ve mucho más fuerte\nque el tuyo." text_2="Mon Pokémon a l’air beaucoup plus\nfort que le tien." text_3="Il mio Pokémon sembra molto più forte\ndel tuo." text_4="Mein Pokémon sieht viel stärker aus\nals deins." text_5="Meu Pokémon parece muito mais forte\nque o seu." text_6="ÒブÂÎÊ%ËBÊHÎ.Îœ\nÊcÀ<ÌeÂÎこdÂ<ËペÀ !"
+    0824DEFE  callstd              function=MSGBOX_NPC(2)
+    0824DF00  release              
+
+  object 7 (gfx 0x29, flag 0x003A) -> 0x0824DF66
+  script 0x0824DF66  [ok]
+    0824DF66  msgbox_multilang     type=0 text_0="It’s like an encyclopedia, but the\npages are blank." text_1="Es como una enciclopedia, pero las\npáginas están en blanco." text_2="C’est comme une encyclopédie, mais\nles pages sont blanches." text_3="È come un’enciclopedia, ma le pagine\nsono vuote." text_4="Es ist wie eine Enzyklopädie, aber\ndie Seiten sind leer." text_5="É como uma enciclopédia, mas as\npáginas estぇo em branco." text_6="ŒオÏÏÇタÊHÎ.ÎœÓìÊ%ËBÒôÈoÂÎŒkŒデ\nÁuËトÌンÂÎÔÂÌンÂチÏÏÊoÀ;ÂÎ!"
+    0824DF84  callstd              function=MSGBOX_NPC(2)
+    0824DF86  end                  
+
+  object 8 (gfx 0x29, flag 0x003A) -> 0x0824DF66
+  object 9 (gfx 0x51, flag 0x0000) -> 0x0824D5A1
+  script 0x0824D5A1  [ok]
+    0824D5A1  bufferspeciesname    stringVarId=0 species=MAGNEMITE(81)
+    0824D5A5  lock                 
+    0824D5A6  faceplayer           
+    0824D5A7  waitse               
+    0824D5A8  playmoncry           species=MAGNEMITE(81) mode=0
+    0824D5AD  speakername          name="Magnemite"
+    0824D5B2  msgbox_multilang     type=0 text_0="Maaaagne!" text_1="¡Maaaagne!" text_2="Maaaagne !" text_3="Maaaagne!" text_4="Maaaagne!" text_5="Maaaagne!" text_6="ÌôぜぜÇわぜぜ"
+    0824D5D0  callstd              function=MSGBOX_DEFAULT(4)
+    0824D5D2  waitmoncry           
+    0824D5D3  turnobject           localId=9 direction=3
+    0824D5D7  release              
+
+  coord trigger 0 (var 0x4055 == 2) -> 0x0824D6AC
+  script 0x0824D6AC  [ok]
+    0824D6AC  lockall              
+    0824D6AD  textcolor            color=0
+    0824D6AF  applymovement        localId=4 movements=[face_down]
+    0824D6B6  waitmovement         localId=0
+    0824D6B9  speakername          name="Prof. Oak"
+    0824D6BE  msgbox_multilang     type=0 text_0="Hey {PLAYER}!\nCheck the Poké Ball!" text_1="¡Oye {PLAYER}!\n¡Comprueba la Poké Ball!" text_2="Hé {PLAYER} !\nRegarde la Poké Ball !" text_3="Ehi {PLAYER}!\nGuarda la Poké Ball!" text_4="Hey {PLAYER}!\nSchau dir den Pokéball an!" text_5="Ei {PLAYER}!\nConfira a Poké Bola!" text_6="À !{PLAYER}!\nÊHÊHŒオÇタÊ%ËBÎÑ!"
+    0824D6DC  callstd              function=MSGBOX_DEFAULT(4)
+    0824D6DE  closemessage         
+    0824D6DF  applymovement        localId=255 movements=[walk_up]
+    0824D6E6  waitmovement         localId=0
+    0824D6E9  releaseall           
+
+  coord trigger 1 (var 0x4055 == 2) -> 0x0824D6AC
+  coord trigger 2 (var 0x4055 == 2) -> 0x0824D6AC
+  coord trigger 3 (var 0x4055 == 5) -> 0x0824DCA5
+  script 0x0824DCA5  [bad-trainerbattle]
+    0824DCA5  lockall              
+    0824DCA6  textcolor            color=0
+    0824DCA8  playbgm              song=527 save_song=0
+    0824DCAC  turnobject           localId=4 direction=1
+    0824DCB0  turnobject           localId=6 direction=1
+    0824DCB4  playse               song=21
+    0824DCB7  applymovement        localId=6 movements=[emote_exclamation_mark]
+    0824DCBE  waitmovement         localId=6
+    0824DCC1  delay                frames=30
+    0824DCC4  getplayerxy          x=16384 y=16385
+    0824DCC9  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    0824DCCE  compare_var_to_value var=0x8000 value=5
+    0824DCD3  goto_if              condition=1 destination=0x0824DDDA
+    0824DCD9  compare_var_to_value var=0x8000 value=6
+    0824DCDE  goto_if              condition=1 destination=0x0824DDE9
+    0824DCE4  compare_var_to_value var=0x8000 value=7
+    0824DCE9  goto_if              condition=1 destination=0x0824DDF8
+    0824DCEF  delay                frames=16
+    0824DCF2  turnobject           localId=255 direction=2
+    0824DCF6  delay                frames=16
+    0824DCF9  textcolor            color=0
+    0824DCFB  speakername          name="{RIVAL}"
+    0824DD00  msgbox_multilang     type=0 text_0="Not so fast!\pWe have Pokémon!\nLet’s see whose is stronger!" text_1="¡No tan rápido!\p¡Tenemos Pokémon!\n¡Vamos a ver quién es más fuerte!" text_2="Pas si vite !\pNous avons des Pokémon !\nVoyons lequel de nous est le plus\pfort !" text_3="Non così in fretta!\pAbbiamo dei Pokémon!\nVediamo quale dei due è più forte!" text_4="Nicht so schnell!\pWir haben Pokémon!\nMal sehen, welcher von uns ist\pstärker!" text_5="Nぇo tぇo rápido!\pNós temos Pokémon!\nVamos ver qual de nós é mais forte!" text_6="ÈばÌウÔンÊぉÏじÌT!\pÈ‘ÎごÓÂÔrÒブÌソÂチÔンËペÊ%ËB\nÊヲËñÁXÔÎÁóÊHÊHÏっÂÇÂìÇニこd!"
+    0824DD1E  callstd              function=MSGBOX_DEFAULT(4)
+    0824DD20  closemessage         
+
+  script 0x0824DDDA  [ok]
+    0824DDDA  applymovement        localId=6 movements=[walk_down walk_down walk_down]
+    0824DDE1  waitmovement         localId=6
+    0824DDE4  goto                 destination=0x0824DCEF
+
+  script 0x0824DDE9  [ok]
+    0824DDE9  applymovement        localId=6 movements=[walk_right walk_down walk_down walk_down]
+    0824DDF0  waitmovement         localId=6
+    0824DDF3  goto                 destination=0x0824DCEF
+
+  script 0x0824DDF8  [ok]
+    0824DDF8  applymovement        localId=6 movements=[walk_right walk_right walk_down walk_down walk_down]
+    0824DDFF  waitmovement         localId=6
+    0824DE02  goto                 destination=0x0824DCEF
+
+  script 0x0824DCEF  [bad-trainerbattle]
+    0824DCEF  delay                frames=16
+    0824DCF2  turnobject           localId=255 direction=2
+    0824DCF6  delay                frames=16
+    0824DCF9  textcolor            color=0
+    0824DCFB  speakername          name="{RIVAL}"
+    0824DD00  msgbox_multilang     type=0 text_0="Not so fast!\pWe have Pokémon!\nLet’s see whose is stronger!" text_1="¡No tan rápido!\p¡Tenemos Pokémon!\n¡Vamos a ver quién es más fuerte!" text_2="Pas si vite !\pNous avons des Pokémon !\nVoyons lequel de nous est le plus\pfort !" text_3="Non così in fretta!\pAbbiamo dei Pokémon!\nVediamo quale dei due è più forte!" text_4="Nicht so schnell!\pWir haben Pokémon!\nMal sehen, welcher von uns ist\pstärker!" text_5="Nぇo tぇo rápido!\pNós temos Pokémon!\nVamos ver qual de nós é mais forte!" text_6="ÈばÌウÔンÊぉÏじÌT!\pÈ‘ÎごÓÂÔrÒブÌソÂチÔンËペÊ%ËB\nÊヲËñÁXÔÎÁóÊHÊHÏっÂÇÂìÇニこd!"
+    0824DD1E  callstd              function=MSGBOX_DEFAULT(4)
+    0824DD20  closemessage         
+
+  coord trigger 4 (var 0x4055 == 5) -> 0x0824DCA5
+  coord trigger 5 (var 0x4055 == 5) -> 0x0824DCA5
+  coord trigger 6 (var 0x4055 == 4) -> 0x0824D9D6
+  script 0x0824D9D6  [unknown-opcode:0xE9]
+    0824D9D6  lockall              
+    0824D9D7  textcolor            color=0
+    0824D9D9  getplayerxy          x=16384 y=16385
+    0824D9DE  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    0824D9E3  compare_var_to_value var=0x8000 value=5
+    0824D9E8  goto_if              condition=1 destination=0x0824DC51
+    0824D9EE  compare_var_to_value var=0x8000 value=6
+    0824D9F3  goto_if              condition=1 destination=0x0824DC60
+    0824D9F9  compare_var_to_value var=0x8000 value=7
+    0824D9FE  goto_if              condition=1 destination=0x0824DC6F
+    0824DA04  speakername          name="Prof. Oak"
+    0824DA09  msgbox_multilang     type=0 text_0="Are you back already, {PLAYER}?\pThank you very much for your help." text_1="¿Ya has vuelto, {PLAYER}?\pMuchas gracias por tu ayuda." text_2="Tu es déjà de retour, {PLAYER} ?\pMerci beaucoup pour ton aide." text_3="Sei già tornato, {PLAYER}?\pGrazie mille per il tuo aiuto." text_4="Bist du schon zurück, {PLAYER}?\pVielen Dank für deine Hilfe." text_5="Você já voltou, {PLAYER}?\pMuito obrigado pela sua ajuda." text_6="ÌeÔïÊ)ÈナËñËペËペÀ ?{PLAYER}?\pÂPÁœÇげÓばÌeÌXÀぺÒブÌず!"
+    0824DA27  callstd              function=MSGBOX_DEFAULT(4)
+    0824DA29  closemessage         
+    0824DA2A  setvar               destination=VAR_0x8004 value=349
+    0824DA2F  call                 destination=0x082BBFAD
+    0824DA34  speakername          name="Prof. Oak"
+    0824DA39  msgbox_multilang     type=0 text_0="Take this, please." text_1="Acepta esto, por favor." text_2="Prends ceci, s’il te plaît." text_3="Prendi questo, per favore." text_4="Nimm das bitte." text_5="Pegue isto, por favor." text_6="ËñごÌ×Î.ŒオÇタ!"
+    0824DA57  callstd              function=MSGBOX_DEFAULT(4)
+    0824DA59  closemessage         
+
+  script 0x0824DC51  [ok]
+    0824DC51  applymovement        localId=255 movements=[walk_up walk_up walk_right walk_up walk_up]
+    0824DC58  waitmovement         localId=255
+    0824DC5B  goto                 destination=0x0824DA04
+
+  script 0x0824DC60  [ok]
+    0824DC60  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up]
+    0824DC67  waitmovement         localId=255
+    0824DC6A  goto                 destination=0x0824DA04
+
+  script 0x0824DC6F  [ok]
+    0824DC6F  applymovement        localId=255 movements=[walk_up walk_up walk_left walk_up walk_up]
+    0824DC76  waitmovement         localId=255
+    0824DC79  goto                 destination=0x0824DA04
+
+  script 0x082BBFAD  [ok]
+    082BBFAD  textcolor            color=3
+    082BBFAF  bufferitemname       stringVarId=0 item=32772
+    082BBFB3  playfanfare          song=372
+    082BBFB6  message              text="{PLAYER} handed over the\n{STR_VAR_1}."
+    082BBFBB  showcontestresults   
+    082BBFBC  loadhelp             
+    082BBFBD  checkflag            flag=0x8D08 (temp)
+    082BBFC0  loadhelp             
+    082BBFC1  checkflag            flag=0x8D08 (temp)
+    082BBFC4  loadhelp             
+    082BBFC5  checkflag            flag=0x8D08 (temp)
+    082BBFC8  loadhelp             
+    082BBFC9  checkflag            flag=0x8D08 (temp)
+    082BBFCC  loadhelp             
+    082BBFCD  checkflag            flag=0x8D08 (temp)
+    082BBFD0  loadhelp             
+    082BBFD1  checkflag            flag=0x6608 (temp)
+    082BBFD4  waitfanfare          
+    082BBFD5  removeitem           itemId=item_32772(32772) quantity=1
+    082BBFDA  copyvar              destination=VAR_0x8012 source=VAR_0x8013
+    082BBFDF  return               
+
+  script 0x0824DA04  [unknown-opcode:0xE9]
+    0824DA04  speakername          name="Prof. Oak"
+    0824DA09  msgbox_multilang     type=0 text_0="Are you back already, {PLAYER}?\pThank you very much for your help." text_1="¿Ya has vuelto, {PLAYER}?\pMuchas gracias por tu ayuda." text_2="Tu es déjà de retour, {PLAYER} ?\pMerci beaucoup pour ton aide." text_3="Sei già tornato, {PLAYER}?\pGrazie mille per il tuo aiuto." text_4="Bist du schon zurück, {PLAYER}?\pVielen Dank für deine Hilfe." text_5="Você já voltou, {PLAYER}?\pMuito obrigado pela sua ajuda." text_6="ÌeÔïÊ)ÈナËñËペËペÀ ?{PLAYER}?\pÂPÁœÇげÓばÌeÌXÀぺÒブÌず!"
+    0824DA27  callstd              function=MSGBOX_DEFAULT(4)
+    0824DA29  closemessage         
+    0824DA2A  setvar               destination=VAR_0x8004 value=349
+    0824DA2F  call                 destination=0x082BBFAD
+    0824DA34  speakername          name="Prof. Oak"
+    0824DA39  msgbox_multilang     type=0 text_0="Take this, please." text_1="Acepta esto, por favor." text_2="Prends ceci, s’il te plaît." text_3="Prendi questo, per favore." text_4="Nimm das bitte." text_5="Pegue isto, por favor." text_6="ËñごÌ×Î.ŒオÇタ!"
+    0824DA57  callstd              function=MSGBOX_DEFAULT(4)
+    0824DA59  closemessage         
+
+  coord trigger 7 (var 0x4055 == 4) -> 0x0824D9D6
+  coord trigger 8 (var 0x4055 == 4) -> 0x0824D9D6
+  sign 0 at (2,1) -> 0x0824DF87
+  script 0x0824DF87  [ok]
+    0824DF87  msgbox_multilang     type=0 text_0="There’s an e-mail message here.\p…\pFinally!\nThe ultimate TRAINERS of the\pPokémon League are ready to\ptake on all comers!\pBring your best Pokémon and see\nhow you rate as a Trainer!\pPokémon League HQ\nIndigo Plateau\pProf. Oak, please visit us!\n…" text_1="There’s an e-mail message here.\p…\pFinally!\nThe ultimate TRAINERS of the\pPokémon League are ready to\ptake on all comers!\pBring your best Pokémon and see\nhow you rate as a Trainer!\pPokémon League HQ\nIndigo Plateau\pProf. Oak, please visit us!\n…" text_2="There’s an e-mail message here.\p…\pFinally!\nThe ultimate TRAINERS of the\pPokémon League are ready to\ptake on all comers!\pBring your best Pokémon and see\nhow you rate as a Trainer!\pPokémon League HQ\nIndigo Plateau\pProf. Oak, please visit us!\n…" text_3="There’s an e-mail message here.\p…\pFinally!\nThe ultimate TRAINERS of the\pPokémon League are ready to\ptake on all comers!\pBring your best Pokémon and see\nhow you rate as a Trainer!\pPokémon League HQ\nIndigo Plateau\pProf. Oak, please visit us!\n…" text_4="There’s an e-mail message here.\p…\pFinally!\nThe ultimate TRAINERS of the\pPokémon League are ready to\ptake on all comers!\pBring your best Pokémon and see\nhow you rate as a Trainer!\pPokémon League HQ\nIndigo Plateau\pProf. Oak, please visit us!\n…" text_5="There’s an e-mail message here.\p…\pFinally!\nThe ultimate TRAINERS of the\pPokémon League are ready to\ptake on all comers!\pBring your best Pokémon and see\nhow you rate as a Trainer!\pPokémon League HQ\nIndigo Plateau\pProf. Oak, please visit us!\n…" text_6="ŒオËトËñËペÂqÂ+ÙÎÔリÈu……\pŒ5ÔギÂÇËペ!\nÒゥÔギÊ%ËBËヲÌテÂÎ\pこdÁYÂÎÓペËゲÈCÌソ!\pÔïÊ)ŒwÀユÇuÔ%Êœ\pÏピÔンÂÎÏöŒぃŒ¡Ëペ!\pËñÀû!ËÂÁdÎ.ÌeÂÎÈワÀぶÌソ!\nÏワÏワËñÂÇŒオËト!\pÈcÓXÌeÙぁÒミÔÎÌヅÊ%ËBÓペËゲÎnÂÎ\pŒケÎÄÎÄËルÀû!\pÎwÔっÇべÔ×\nÊ%ËBËヲÌテÙÑÀf ÊトÎ.!\pÁYÌ’ÀJÏÇ!\nこドÁiŒäÌ:ÂÎÛñË?!…"
+    0824DFA5  callstd              function=MSGBOX_SIGN(3)
+    0824DFA7  end                  
+
+  sign 1 at (3,1) -> 0x0824DF87
+  sign 2 at (6,1) -> 0x0824DFA8
+  script 0x0824DFA8  [ok]
+    0824DFA8  msgbox_multilang     type=0 text_0="Press Start to open the Menu!" text_1="¡Presiona Start para abrir el Menú!" text_2="Appuie sur Start pour ouvrir le Menu\n!" text_3="Premi Start per aprire il Menu!" text_4="Drücke Start, um das Menü zu öffnen!" text_5="Pressione Start para abrir o Menu!" text_6="ÀÛÒrÊ,ÏÀÈs\nÊcÔôÁXÊ,Ê,ÏÀÀrÁo!"
+    0824DFC6  callstd              function=MSGBOX_SIGN(3)
+    0824DFC8  end                  
+
+  sign 3 at (7,1) -> 0x0824DFC9
+  script 0x0824DFC9  [ok]
+    0824DFC9  lockall              
+    0824DFCA  compare_var_to_value var=0x4055 value=6
+    0824DFCF  goto_if              condition=4 destination=0x0824DFF7
+    0824DFD5  msgbox_multilang     type=0 text_0="The Save option is on the Menu.\nUse it regularly." text_1="La opción Guardar está en el Menú.\nÚsala con regularidad." text_2="L’option Sauvegarder se trouve dans\nle Menu.\pUtilise-la régulièrement." text_3="L’opzione Salva si trova nel Menu.\nUsala regolarmente." text_4="Die Option Speichern befindet sich im\nMenü.\pNutze sie regelmäßig." text_5="A opçぇo Salvar está no Menu.\nUse-a regularmente." text_6="ÙùÇuÎyÁœÔムÀタÁLÈ”ËyÂÎÇホÌX\nÈ”ËyÙÏÈ4ÂÎÌぶÓÁÊぼÂヘ!"
+    0824DFF3  callstd              function=MSGBOX_DEFAULT(4)
+    0824DFF5  releaseall           
+
+  script 0x0824DFF7  [ok]
+    0824DFF7  msgbox_multilang     type=0 text_0="All Pokémon types have strong and\nweak points against others." text_1="Todos los tipos de Pokémon tienen\npuntos fuertes y débiles contra\potros." text_2="Tous les types de Pokémon ont des\npoints forts et faibles contre\pd’autres." text_3="Tutti i tipi di Pokémon hanno punti di\nforza e debolezza contro gli altri." text_4="Alle Pokémon-Typen haben Stärken und\nSchwächen gegenüber anderen." text_5="Todos os tipos de Pokémon têm pontos\nfortes e fracos contra os outros." text_6="ÎぺÇäÒeÀ.ÂÎÊ%ËBÔrÂルŒぃÎy\nÂチÔンÙÏÈ4ÂÎÔモÏÎÇÜÎユÏÎが"
+    0824E015  callstd              function=MSGBOX_DEFAULT(4)
+    0824E017  goto                 destination=0x0824DFF5
+
+  script 0x0824DFF5  [ok]
+    0824DFF5  releaseall           
+
+  map script type 3 -> 0x0824D1D9
+  script 0x0824D1D9  [ok]
+    0824D1D9  setflag              flag=0x2CF
+    0824D1DC  copyvar              destination=VAR_0x8000 source=VAR_0x4055
+    0824D1E1  compare_var_to_value var=0x8000 value=1
+    0824D1E6  goto_if              condition=1 destination=0x0824D20C
+    0824D1EC  compare_var_to_value var=0x8000 value=7
+    0824D1F1  goto_if              condition=1 destination=0x0824D21B
+    0824D1F7  compare_var_to_value var=0x8000 value=8
+    0824D1FC  goto_if              condition=1 destination=0x0824D22B
+    0824D202  checkflag            flag=0x247
+    0824D205  goto_if              condition=1 destination=0x0824D235
+    0824D20B  end                  
+
+  script 0x0824D20C  [ok]
+    0824D20C  setobjectxyperm      localId=4 x=6 y=11
+    0824D213  savebgm              song=514
+    0824D216  goto                 destination=0x0824D202
+
+  script 0x0824D21B  [ok]
+    0824D21B  setobjectxyperm      localId=4 x=6 y=11
+    0824D222  setobjectmovementtype localId=4 movementType=7
+    0824D226  goto                 destination=0x0824D202
+
+  script 0x0824D22B  [ok]
+    0824D22B  setvar               destination=VAR_0x4055 value=9
+    0824D230  goto                 destination=0x0824D202
+
+  script 0x0824D235  [ok]
+    0824D235  setflag              flag=0x24F
+    0824D238  goto                 destination=0x0824D20B
+
+  script 0x0824D202  [ok]
+    0824D202  checkflag            flag=0x247
+    0824D205  goto_if              condition=1 destination=0x0824D235
+    0824D20B  end                  
+
+  script 0x0824D20B  [ok]
+    0824D20B  end                  
+
+  map script type 4 (var 0x4055 == 1) -> 0x0824D247
+  script 0x0824D247  [ok]
+    0824D247  turnobject           localId=255 direction=2
+    0824D24B  end                  
+
+  map script type 2 (var 0x4055 == 1) -> 0x0824D25E
+  script 0x0824D25E  [ok]
+    0824D25E  lockall              
+    0824D25F  textcolor            color=0
+    0824D261  clearflag            flag=0x02B
+    0824D264  clearflag            flag=0x4001 (temp)
+    0824D267  savebgm              song=0
+    0824D26A  fadedefaultbgm       
+    0824D26B  bufferspeciesname    stringVarId=0 species=PIKACHU(25)
+    0824D26F  speakername          name="Prof. Oak"
+    0824D274  msgbox_multilang     type=0 text_0="I wonder where that little\n{STR_VAR_1} went…" text_1="Me pregunto dónde se habrá metido\nese pequeño {STR_VAR_1}…" text_2="I wonder where that little\n{STR_VAR_1} went…" text_3="I wonder where that little\n{STR_VAR_1} went…" text_4="I wonder where that little\n{STR_VAR_1} went…" text_5="I wonder where that little\n{STR_VAR_1} went…" text_6="ÒブÓねŒロÂÊÌCŒザ\n{STR_VAR_1}こぐÌ/ÎœËペ……"
+    0824D292  callstd              function=MSGBOX_DEFAULT(4)
+    0824D294  closemessage         
+    0824D295  applymovement        localId=4 movements=[walk_up walk_up walk_up walk_up walk_up walk_up walk_up face_right]
+    0824D29C  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up walk_up face_right]
+    0824D2A3  waitmovement         localId=0
+    0824D2A6  delay                frames=80
+    0824D2A9  applymovement        localId=5 movements=[jump_in_place_down jump_in_place_down jump_in_place_down]
+    0824D2B0  waitmovement         localId=5
+    0824D2B3  delay                frames=80
+    0824D2B6  playse               song=21
+    0824D2B9  applymovement        localId=4 movements=[action_0xAF]
+    0824D2C0  waitmovement         localId=0
+    0824D2C3  delay                frames=80
+    0824D2C6  turnobject           localId=4 direction=1
+    0824D2CA  turnobject           localId=255 direction=2
+    0824D2CE  checkplayergender    
+    0824D2CF  bufferspeciesname    stringVarId=0 species=PIKACHU(25)
+    0824D2D3  speakername          name="Prof. Oak"
+    0824D2D8  compare_var_to_value var=0x800D value=0
+    0824D2DD  goto_if              condition=1 destination=0x0824D312
+    0824D2E3  msgbox_multilang     type=0 text_0="{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_1="{PLAYER}, por algún motivo parece\nque ese {STR_VAR_1} te quiere\pcomo entrenadora.\pAdelante, ¡es tu última oportunidad\nde ser Entrenadora Pokémon!" text_2="{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_3="{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_4="{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_5="{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_6="{PLAYER}!ÊHËñŒオ{STR_VAR_1}\nÂ ÏÏÈÎÒbÈづ\pÇÜÌeÔrÔÎこ!À !\pÁdÎ.ÏポÁリÂ4Àû!ÀザÊノŒオÊcÏÏÌe\nÁぱÒミÓペËゲÎnÙùÈòÂÎÈガÈホËペ!"
+    0824D301  callstd              function=MSGBOX_DEFAULT(4)
+    0824D303  addvar               destination=VAR_0x40E0 value=1
+    0824D308  setvar               destination=VAR_0x4055 value=2
+    0824D30D  clearflag            flag=0x24C
+    0824D310  releaseall           
+
+  script 0x0824D312  [ok]
+    0824D312  msgbox_multilang     type=0 text_0="{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_1="{PLAYER}, por algún motivo parece\nque ese {STR_VAR_1} te quiere\pcomo entrenador.\pAdelante, ¡es tu última oportunidad\nde ser Entrenador Pokémon!" text_2="{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_3="{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_4="P{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_5="{PLAYER}, it seems like that\n{STR_VAR_1} really wants you as\pa trainer for some reason.\pGo ahead, it’s your last chance to\nbecome a Pokémon Trainer!" text_6="{PLAYER}!ÊHËñŒオ{STR_VAR_1}\nÂ ÏÏÈÎÓねÎづÌe\pÙ+ÏポÂÎŒNÎぱÀ !\pÁdÎ.ÏポÁリÂ4Àû!ÀザÊノŒオÊcÏÏÌe\nÁぱÒミÓペËゲÎnÙùÈòÂÎÈガÈホËペ!"
+    0824D330  callstd              function=MSGBOX_DEFAULT(4)
+    0824D332  goto                 destination=0x0824D303
+
+  script 0x0824D303  [ok]
+    0824D303  addvar               destination=VAR_0x40E0 value=1
+    0824D308  setvar               destination=VAR_0x4055 value=2
+    0824D30D  clearflag            flag=0x24C
+    0824D310  releaseall           
+
+  map script type 2 (var 0x4055 == 7) -> 0x0824D337
+  script 0x0824D337  [ok]
+    0824D337  lockall              
+    0824D338  setvar               destination=VAR_0x800C value=2
+    0824D33D  textcolor            color=0
+    0824D33F  applymovement        localId=4 movements=[walk_up walk_up walk_up walk_up walk_up walk_up]
+    0824D346  waitmovement         localId=0
+    0824D349  removeobject         localId=4
+    0824D34C  setobjectxyperm      localId=4 x=6 y=3
+    0824D353  setobjectmovementtype localId=4 movementType=8
+    0824D357  clearflag            flag=0x02B
+    0824D35A  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up]
+    0824D361  waitmovement         localId=0
+    0824D364  speakername          name="Prof. Oak"
+    0824D369  msgbox_multilang     type=0 text_0="This seems a more appropriate place\nto talk than outside." text_1="Ese sitio parece más apropiado para\nhablar que ahí fuera." text_2="This seems a more appropriate place\nto talk than outside." text_3="This seems a more appropriate place\nto talk than outside." text_4="This seems a more appropriate place\nto talk than outside." text_5="This seems a more appropriate place\nto talk than outside." text_6="ÓÒÀ<こ!ÒぼÌン\nŒオËトÔÁÓリÇニÏÔÇöÏクÈじÀû!"
+    0824D387  callstd              function=MSGBOX_DEFAULT(4)
+    0824D389  closemessage         
+    0824D38A  setobjectxyperm      localId=6 x=5 y=10
+    0824D391  addobject            localId=6
+    0824D394  playbgm              song=527 save_song=0
+    0824D398  applymovement        localId=255 movements=[walk_in_place_faster_down delay_16 delay_16 delay_16 delay_16 delay_16 delay_8 walk_in_place_faster_left]
+    0824D39F  applymovement        localId=6 movements=[walk_up walk_up walk_up walk_up walk_up walk_up]
+    0824D3A6  waitmovement         localId=0
+    0824D3A9  speakername          name="{RIVAL}"
+    0824D3AE  msgbox_multilang     type=0 text_0="Hey grandpa!\nWhat are you planning without me?" text_1="¡Oye abuelo!\n¿Qué estás planeando sin mí?" text_2="Hey grandpa!\nWhat are you planning without me?" text_3="Hey grandpa!\nWhat are you planning without me?" text_4="Hey grandpa!\nWhat are you planning without me?" text_5="Hey grandpa!\nWhat are you planning without me?" text_6="ÈË!ÓüÓü!\nÌeÇ&ÀbÈホÀぃÒブÒトËペÀû?"
+    0824D3CC  callstd              function=MSGBOX_DEFAULT(4)
+    0824D3CE  closemessage         
+    0824D3CF  turnobject           localId=255 direction=2
+    0824D3D3  fadedefaultbgm       
+    0824D3D4  delay                frames=16
+    0824D3D7  speakername          name="Prof. Oak"
+    0824D3DC  msgbox_multilang     type=0 text_0="I didn’t forget about you\n{RIVAL}.\pGetting information for the Pokédex is\nsuper important. You both have\pcome a long way as trainers.\pAt this point, you shouldn’t be\nconfined to the Kanto region, so I\pask that you explore further." text_1="I didn’t forget about you\n{RIVAL}.\pGetting information for the Pokédex is\nsuper important. You both have\pcome a long way as trainers.\pAt this point, you shouldn’t be\nconfined to the Kanto region, so I\pask that you explore further." text_2="I didn’t forget about you\n{RIVAL}.\pGetting information for the Pokédex is\nsuper important. You both have\pcome a long way as trainers.\pAt this point, you shouldn’t be\nconfined to the Kanto region, so I\pask that you explore further." text_3="I didn’t forget about you\n{RIVAL}.\pGetting information for the Pokédex is\nsuper important. You both have\pcome a long way as trainers.\pAt this point, you shouldn’t be\nconfined to the Kanto region, so I\pask that you explore further." text_4="I didn’t forget about you\n{RIVAL}.\pGetting information for the Pokédex is\nsuper important. You both have\pcome a long way as trainers.\pAt this point, you shouldn’t be\nconfined to the Kanto region, so I\pask that you explore further." text_5="I didn’t forget about you\n{RIVAL}.\pGetting information for the Pokédex is\nsuper important. You both have\pcome a long way as trainers.\pAt this point, you shouldn’t be\nconfined to the Kanto region, so I\pask that you explore further." text_6="ÒブÊcÌウÒトËペÌeÀ !\n{RIVAL}!\pÏèÈボÀCÀZÎªÊ%ËBÒôÈoÂÎÎÎÀナ\nÏÏÈuÂPÁœÈYÊzÂÎÇフÙぁが\pÓÂÎヌÊづごÔôÌeÌソËゾÇタÂÎÁぺÂヘ\pÀbÔエÇ&ŒザÊ>ÓÎÔギÇッÂチŒオÔÎÇタÂまÎè\nÏピÔôÒブÊ4ÂこごÔÁÓリÊcÔô\pÎづÌeÌソÎœÇニÔHÂÎÂまÂFÏDÏボ……"
+    0824D3FA  callstd              function=MSGBOX_DEFAULT(4)
+    0824D3FC  applymovement        localId=4 movements=[walk_in_place_down]
+    0824D403  waitmovement         localId=0
+    0824D406  delay                frames=16
+    0824D409  textcolor            color=3
+    0824D40B  specialvar           output=32781 SPECIAL_\function=425
+    0824D410  bufferitemname       stringVarId=0 item=367
+    0824D414  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0824D419  compare_var_to_value var=0x8000 value=0
+    0824D41E  goto_if              condition=1 destination=0x0824D4D1
+    0824D424  compare_var_to_value var=0x8000 value=1
+    0824D429  goto_if              condition=1 destination=0x0824D4F3
+    0824D42F  compare_var_to_value var=0x8000 value=2
+    0824D434  goto_if              condition=1 destination=0x0824D515
+    0824D43A  compare_var_to_value var=0x8000 value=3
+    0824D43F  goto_if              condition=1 destination=0x0824D537
+    0824D445  compare_var_to_value var=0x8000 value=4
+    0824D44A  goto_if              condition=1 destination=0x0824D559
+    0824D450  compare_var_to_value var=0x8000 value=5
+    0824D455  goto_if              condition=1 destination=0x0824D57B
+    0824D45B  closemessage         
+    0824D45C  textcolor            color=0
+    0824D45E  speakername          name="{RIVAL}"
+    0824D463  msgbox_multilang     type=0 text_0="All this trouble for this?\pI will go ahead since I’m faster,\nsmell ya!" text_1="¿Tantos problemas para esto?\pMe adelantaré ya que soy más rápido,\n¡hasta luego!" text_2="Tout ce mal pour ça ?\pJe vais partir en avant puisque je\nsuis plus rapide, à plus !" text_3="Tutto questo casino per questo?\pVado avanti visto che sono più\nveloce, ci vediamo!" text_4="All dieser Aufwand für das?\pIch gehe voran, da ich schneller bin.\nRiech’ dich später!" text_5="Todo esse esforço para isso?\pVou na frente, já que sou mais\nrápido. Até mais!" text_6="ÂZËペŒオÌぴÁYÊ¡?\nÊヲÒミËペŒオÈuÏÊ?\pÓ%Àû!ÒブÒxÙáËペ!\nÀザÊノÒブÀlÏÏÂïÔÎ!\pÀざËペ!"
+    0824D481  callstd              function=MSGBOX_DEFAULT(4)
+    0824D483  closemessage         
+    0824D484  playbgm              song=528 save_song=0
+    0824D488  applymovement        localId=255 movements=[delay_4 walk_in_place_faster_down]
+    0824D48F  applymovement        localId=6 movements=[walk_down walk_down walk_down walk_down walk_down walk_down]
+    0824D496  waitmovement         localId=0
+    0824D499  fadedefaultbgm       
+    0824D49A  removeobject         localId=6
+    0824D49D  turnobject           localId=255 direction=2
+    0824D4A1  delay                frames=16
+    0824D4A4  speakername          name="Prof. Oak"
+    0824D4A9  msgbox_multilang     type=0 text_0="Show it to the Ferry Sailor in\nVermilion Island, he will take you\pto the Sevii Islands in no time." text_1="Muéstraselo al Marinero del Ferry en\nla Isla Carmín, él te llevará a las\pIslas Sevii en un instante." text_2="Montre-le au Marin du Ferry sur l’Île\nCarmin, il t’emmènera aux Îles Sevii\pen un rien de temps." text_3="Mostralo al Marinaio del Traghetto\nsull’Isola Arancio, ti porterà alle\pIsole Sevii in un attimo." text_4="Zeig es dem Fährmann auf der\nOrania-Insel, er wird dich in\pkürzester Zeit zu den Sevii-Inseln\pbringen." text_5="Mostre-o ao Marinheiro da Balsa na\nIlha Vermilion, ele te levará para\pas Ilhas Sevii em um instante." text_6="ÀぃŒオÇタÌ×ÇツÊwÔÉÏßÇどÊt\nÂÎÏ¿ÏéÊHÀû!\pÏペÊHÂÇŒァÈòご\nÔエÇ&ÈホÁdÌeÎœこボÂÀÂÎが"
+    0824D4C7  callstd              function=MSGBOX_DEFAULT(4)
+    0824D4C9  closemessage         
+    0824D4CA  setvar               destination=VAR_0x4055 value=8
+    0824D4CF  releaseall           
+
+  script 0x0824D4D1  [unknown-opcode:0xE9]
+    0824D4D1  additem              itemId=Tri-Pass(367) quantity=1
+
+  script 0x0824D4F3  [unknown-opcode:0xE9]
+    0824D4F3  additem              itemId=Tri-Pass(367) quantity=1
+
+  script 0x0824D515  [unknown-opcode:0xE9]
+    0824D515  additem              itemId=Tri-Pass(367) quantity=1
+
+  script 0x0824D537  [unknown-opcode:0xE9]
+    0824D537  additem              itemId=Tri-Pass(367) quantity=1
+
+  script 0x0824D559  [unknown-opcode:0xE9]
+    0824D559  additem              itemId=Tri-Pass(367) quantity=1
+
+  script 0x0824D57B  [unknown-opcode:0xE9]
+    0824D57B  additem              itemId=Tri-Pass(367) quantity=1
+

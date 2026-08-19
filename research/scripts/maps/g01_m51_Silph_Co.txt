@@ -1,0 +1,427 @@
+Silph Co.  (group 1, map 51)  header 0x08B3B7AC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x0053) -> 0x0820F53B
+  script 0x0820F53B  [ok]
+    0820F53B  trainerbattle        type=0 trainer=0x17B localId=0 ptr1=0x0820F751 ptr2=0x0820F774
+    0820F549  msgbox_multilang     type=0 text_0="Which reminds me.\pKoffing evolves into Weezing!" text_1="Which reminds me.\pKoffing evolves into Weezing!" text_2="Which reminds me.\pKoffing evolves into Weezing!" text_3="Which reminds me.\pKoffing evolves into Weezing!" text_4="Which reminds me.\pKoffing evolves into Weezing!" text_5="Which reminds me.\pKoffing evolves into Weezing!" text_6="Which reminds me.\pKoffing evolves into Weezing!"
+    0820F567  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820F569  end                  
+
+  object 2 (gfx 0x46, flag 0x0053) -> 0x0820F56A
+  script 0x0820F56A  [ok]
+    0820F56A  trainerbattle        type=0 trainer=0x11E localId=0 ptr1=0x0820F6E6 ptr2=0x0820F714
+    0820F578  msgbox_multilang     type=0 text_0="You’re only on 5F.\nIt’s a long way to my Boss!" text_1="You’re only on 5F.\nIt’s a long way to my Boss!" text_2="You’re only on 5F.\nIt’s a long way to my Boss!" text_3="You’re only on 5F.\nIt’s a long way to my Boss!" text_4="You’re only on 5F.\nIt’s a long way to my Boss!" text_5="You’re only on 5F.\nIt’s a long way to my Boss!" text_6="You’re only on 5F.\nIt’s a long way to my Boss!"
+    0820F596  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820F598  end                  
+
+  object 3 (gfx 0x00, flag 0x0000) -> 0x0820F408
+  script 0x0820F408  [ok]
+    0820F408  lock                 
+    0820F409  faceplayer           
+    0820F40A  compare_var_to_value var=0x4060 value=1
+    0820F40F  goto_if              condition=4 destination=0x0820F437
+    0820F415  msgbox_multilang     type=0 text_0="Team Rocket is in an uproar over\nsome intruder.\pThat’s you, right?" text_1="Team Rocket is in an uproar over\nsome intruder.\pThat’s you, right?" text_2="Team Rocket is in an uproar over\nsome intruder.\pThat’s you, right?" text_3="Team Rocket is in an uproar over\nsome intruder.\pThat’s you, right?" text_4="Team Rocket is in an uproar over\nsome intruder.\pThat’s you, right?" text_5="Team Rocket is in an uproar over\nsome intruder.\pThat’s you, right?" text_6="Team Rocket is in an uproar over\nsome intruder.\pThat’s you, right?"
+    0820F433  callstd              function=MSGBOX_DEFAULT(4)
+    0820F435  release              
+
+  script 0x0820F437  [ok]
+    0820F437  msgbox_multilang     type=0 text_0="Team Rocket took off!\nYou’re our hero! Thank you!" text_1="Team Rocket took off!\nYou’re our hero! Thank you!" text_2="Team Rocket took off!\nYou’re our hero! Thank you!" text_3="Team Rocket took off!\nYou’re our hero! Thank you!" text_4="Team Rocket took off!\nYou’re our hero! Thank you!" text_5="Team Rocket took off!\nYou’re our hero! Thank you!" text_6="Team Rocket took off!\nYou’re our hero! Thank you!"
+    0820F455  callstd              function=MSGBOX_DEFAULT(4)
+    0820F457  release              
+
+  object 4 (gfx 0x08, flag 0x0053) -> 0x0820F4DD
+  script 0x0820F4DD  [ok]
+    0820F4DD  trainerbattle        type=0 trainer=0x154 localId=0 ptr1=0x0820F669 ptr2=0x0820F696
+    0820F4EB  msgbox_multilang     type=0 text_0="We worked on the ultimate Poké\nBall which would catch anything." text_1="We worked on the ultimate Poké\nBall which would catch anything." text_2="We worked on the ultimate Poké\nBall which would catch anything." text_3="We worked on the ultimate Poké\nBall which would catch anything." text_4="We worked on the ultimate Poké\nBall which would catch anything." text_5="We worked on the ultimate Poké\nBall which would catch anything." text_6="We worked on the ultimate Poké\nBall which would catch anything."
+    0820F509  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820F50B  end                  
+
+  object 5 (gfx 0x02, flag 0x0053) -> 0x0820F50C
+  script 0x0820F50C  [ok]
+    0820F50C  trainerbattle        type=0 trainer=0x17A localId=0 ptr1=0x0820F60E ptr2=0x0820F632
+    0820F51A  msgbox_multilang     type=0 text_0="It’s not smart to pick a fight with\nTeam Rocket!" text_1="It’s not smart to pick a fight with\nTeam Rocket!" text_2="It’s not smart to pick a fight with\nTeam Rocket!" text_3="It’s not smart to pick a fight with\nTeam Rocket!" text_4="It’s not smart to pick a fight with\nTeam Rocket!" text_5="It’s not smart to pick a fight with\nTeam Rocket!" text_6="It’s not smart to pick a fight with\nTeam Rocket!"
+    0820F538  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820F53A  end                  
+
+  object 6 (gfx 0x35, flag 0x0190) -> 0x082D58BE
+  script 0x082D58BE  [ok]
+    082D58BE  setorcopyvar         destination=VAR_0x8000 source=64
+    082D58C3  setorcopyvar         destination=VAR_0x8001 source=1
+    082D58C8  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Protein
+    082D58CA  end                  
+
+  object 7 (gfx 0x55, flag 0x0191) -> 0x082D58CB
+  script 0x082D58CB  [ok]
+    082D58CB  setorcopyvar         destination=VAR_0x8000 source=289
+    082D58D0  setorcopyvar         destination=VAR_0x8001 source=1
+    082D58D5  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM01
+    082D58D7  end                  
+
+  object 8 (gfx 0x35, flag 0x0192) -> 0x082D58D8
+  script 0x082D58D8  [ok]
+    082D58D8  setorcopyvar         destination=VAR_0x8000 source=355
+    082D58DD  setorcopyvar         destination=VAR_0x8001 source=1
+    082D58E2  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Card Key
+    082D58E4  end                  
+
+  object 9 (gfx 0x08, flag 0x0000) -> 0x081F2A9F
+  script 0x081F2A9F  [ok]
+    081F2A9F  lock                 
+    081F2AA0  faceplayer           
+    081F2AA1  setvar               destination=VAR_0x8004 value=15
+    081F2AA6  setvar               destination=VAR_0x8005 value=1
+    081F2AAB  special              SPECIAL_\function=347
+    081F2AAE  msgbox_multilang     type=0 text_0="Those thugs that took over our\nbuilding…\pTheir Boss said he was looking for\nstrong Pokémon.\pI hope our President managed to\navoid trouble…" text_1="Those thugs that took over our\nbuilding…\pTheir Boss said he was looking for\nstrong Pokémon.\pI hope our President managed to\navoid trouble…" text_2="Those thugs that took over our\nbuilding…\pTheir Boss said he was looking for\nstrong Pokémon.\pI hope our President managed to\navoid trouble…" text_3="Those thugs that took over our\nbuilding…\pTheir Boss said he was looking for\nstrong Pokémon.\pI hope our President managed to\navoid trouble…" text_4="Those thugs that took over our\nbuilding…\pTheir Boss said he was looking for\nstrong Pokémon.\pI hope our President managed to\navoid trouble…" text_5="Those thugs that took over our\nbuilding…\pTheir Boss said he was looking for\nstrong Pokémon.\pI hope our President managed to\navoid trouble…" text_6="Those thugs that took over our\nbuilding…\pTheir Boss said he was looking for\nstrong Pokémon.\pI hope our President managed to\navoid trouble…"
+    081F2ACC  callstd              function=MSGBOX_DEFAULT(4)
+    081F2ACE  release              
+
+  hidden item at (13,16): Elixir
+
+  sign 1 at (8,9) -> 0x081FF4A5
+  script 0x081FF4A5  [ok]
+    081FF4A5  lockall              
+    081FF4A6  setvar               destination=VAR_0x4001 value=7
+    081FF4AB  setvar               destination=VAR_0x8004 value=640
+    081FF4B0  checkflag            flag=0x280
+    081FF4B3  goto_if              condition=1 destination=0x081FEC71
+    081FF4B9  goto                 destination=0x081FF611
+
+  script 0x081FEC71  [ok]
+    081FEC71  msgbox_multilang     type=0 text_0="The door is open…" text_1="The door is open…" text_2="The door is open…" text_3="The door is open…" text_4="The door is open…" text_5="The door is open…" text_6="The door is open…"
+    081FEC8F  callstd              function=MSGBOX_DEFAULT(4)
+    081FEC91  releaseall           
+
+  script 0x081FF611  [ok]
+    081FF611  checkflag            flag=0x192
+    081FF614  goto_if              condition=1 destination=0x081FF620
+    081FF61A  goto                 destination=0x081FEC4F
+
+  script 0x081FF620  [ok]
+    081FF620  playfanfare          song=367
+    081FF623  msgbox_multilang     type=0 text_0="Bingo!\nThe Card Key opened the door!" text_1="Bingo!\nThe Card Key opened the door!" text_2="Bingo!\nThe Card Key opened the door!" text_3="Bingo!\nThe Card Key opened the door!" text_4="Bingo!\nThe Card Key opened the door!" text_5="Bingo!\nThe Card Key opened the door!" text_6="Bingo!\nThe Card Key opened the door!"
+    081FF641  callstd              function=MSGBOX_DEFAULT(4)
+    081FF643  waitfanfare          
+    081FF644  compare_var_to_value var=0x4001 value=1
+    081FF649  call_if              condition=1 destination=0x081FF020
+    081FF64F  compare_var_to_value var=0x4001 value=2
+    081FF654  call_if              condition=1 destination=0x081FF04E
+    081FF65A  compare_var_to_value var=0x4001 value=3
+    081FF65F  call_if              condition=1 destination=0x081FF07C
+    081FF665  compare_var_to_value var=0x4001 value=4
+    081FF66A  call_if              condition=1 destination=0x081FF0B3
+    081FF670  compare_var_to_value var=0x4001 value=5
+    081FF675  call_if              condition=1 destination=0x081FF0EA
+    081FF67B  compare_var_to_value var=0x4001 value=6
+    081FF680  call_if              condition=1 destination=0x081FF118
+    081FF686  compare_var_to_value var=0x4001 value=7
+    081FF68B  call_if              condition=1 destination=0x081FF146
+    081FF691  compare_var_to_value var=0x4001 value=8
+    081FF696  call_if              condition=1 destination=0x081FF17D
+    081FF69C  compare_var_to_value var=0x4001 value=9
+    081FF6A1  call_if              condition=1 destination=0x081FF1B4
+    081FF6A7  compare_var_to_value var=0x4001 value=10
+    081FF6AC  call_if              condition=1 destination=0x081FF1EB
+    081FF6B2  compare_var_to_value var=0x4001 value=11
+    081FF6B7  call_if              condition=1 destination=0x081FF222
+    081FF6BD  compare_var_to_value var=0x4001 value=12
+    081FF6C2  call_if              condition=1 destination=0x081FF250
+    081FF6C8  compare_var_to_value var=0x4001 value=13
+    081FF6CD  call_if              condition=1 destination=0x081FF27E
+    081FF6D3  compare_var_to_value var=0x4001 value=14
+    081FF6D8  call_if              condition=1 destination=0x081FF2AC
+    081FF6DE  compare_var_to_value var=0x4001 value=15
+    081FF6E3  call_if              condition=1 destination=0x081FF2E3
+    081FF6E9  compare_var_to_value var=0x4001 value=16
+    081FF6EE  call_if              condition=1 destination=0x081FF31A
+    081FF6F4  compare_var_to_value var=0x4001 value=17
+    081FF6F9  call_if              condition=1 destination=0x081FF351
+    081FF6FF  compare_var_to_value var=0x4001 value=18
+    081FF704  call_if              condition=1 destination=0x081FF37F
+    081FF70A  compare_var_to_value var=0x4001 value=19
+    081FF70F  call_if              condition=1 destination=0x081FF3AD
+    081FF715  compare_var_to_value var=0x4001 value=20
+    081FF71A  call_if              condition=1 destination=0x081FF3DB
+    081FF720  waitse               
+    081FF721  playse               song=44
+    081FF724  special              SPECIAL_\function=79
+    081FF727  waitse               
+    081FF728  special              SPECIAL_\function=87
+    081FF72B  releaseall           
+
+  script 0x081FEC4F  [ok]
+    081FEC4F  msgbox_multilang     type=0 text_0="No!\nIt needs a Card Key!" text_1="No!\nIt needs a Card Key!" text_2="No!\nIt needs a Card Key!" text_3="No!\nIt needs a Card Key!" text_4="No!\nIt needs a Card Key!" text_5="No!\nIt needs a Card Key!" text_6="No!\nIt needs a Card Key!"
+    081FEC6D  callstd              function=MSGBOX_DEFAULT(4)
+    081FEC6F  releaseall           
+
+  script 0x081FF020  [ok]
+    081FF020  setmetatile          x=5 y=8 metatileId=821 impassable=0
+    081FF029  setmetatile          x=6 y=8 metatileId=820 impassable=0
+    081FF032  setmetatile          x=5 y=9 metatileId=821 impassable=0
+    081FF03B  setmetatile          x=6 y=9 metatileId=820 impassable=0
+    081FF044  setmetatile          x=6 y=10 metatileId=820 impassable=0
+    081FF04D  return               
+
+  script 0x081FF04E  [ok]
+    081FF04E  setmetatile          x=5 y=15 metatileId=821 impassable=0
+    081FF057  setmetatile          x=6 y=15 metatileId=820 impassable=0
+    081FF060  setmetatile          x=5 y=16 metatileId=821 impassable=0
+    081FF069  setmetatile          x=6 y=16 metatileId=820 impassable=0
+    081FF072  setmetatile          x=6 y=17 metatileId=820 impassable=0
+    081FF07B  return               
+
+  script 0x081FF07C  [ok]
+    081FF07C  setmetatile          x=9 y=11 metatileId=839 impassable=1
+    081FF085  setmetatile          x=10 y=11 metatileId=838 impassable=1
+    081FF08E  setmetatile          x=9 y=12 metatileId=821 impassable=0
+    081FF097  setmetatile          x=10 y=12 metatileId=821 impassable=0
+    081FF0A0  setmetatile          x=9 y=13 metatileId=825 impassable=0
+    081FF0A9  setmetatile          x=10 y=13 metatileId=826 impassable=0
+    081FF0B2  return               
+
+  script 0x081FF0B3  [ok]
+    081FF0B3  setmetatile          x=20 y=11 metatileId=839 impassable=1
+    081FF0BC  setmetatile          x=21 y=11 metatileId=838 impassable=1
+    081FF0C5  setmetatile          x=20 y=12 metatileId=821 impassable=0
+    081FF0CE  setmetatile          x=21 y=12 metatileId=821 impassable=0
+    081FF0D7  setmetatile          x=20 y=13 metatileId=825 impassable=0
+    081FF0E0  setmetatile          x=21 y=13 metatileId=826 impassable=0
+    081FF0E9  return               
+
+  script 0x081FF0EA  [ok]
+    081FF0EA  setmetatile          x=3 y=16 metatileId=821 impassable=0
+    081FF0F3  setmetatile          x=4 y=16 metatileId=820 impassable=0
+    081FF0FC  setmetatile          x=3 y=17 metatileId=821 impassable=0
+    081FF105  setmetatile          x=4 y=17 metatileId=820 impassable=0
+    081FF10E  setmetatile          x=4 y=18 metatileId=820 impassable=0
+    081FF117  return               
+
+  script 0x081FF118  [ok]
+    081FF118  setmetatile          x=14 y=11 metatileId=821 impassable=0
+    081FF121  setmetatile          x=15 y=11 metatileId=820 impassable=0
+    081FF12A  setmetatile          x=14 y=12 metatileId=821 impassable=0
+    081FF133  setmetatile          x=15 y=12 metatileId=820 impassable=0
+    081FF13C  setmetatile          x=15 y=13 metatileId=820 impassable=0
+    081FF145  return               
+
+  script 0x081FF146  [ok]
+    081FF146  setmetatile          x=7 y=8 metatileId=839 impassable=1
+    081FF14F  setmetatile          x=8 y=8 metatileId=838 impassable=1
+    081FF158  setmetatile          x=7 y=9 metatileId=821 impassable=0
+    081FF161  setmetatile          x=8 y=9 metatileId=821 impassable=0
+    081FF16A  setmetatile          x=7 y=10 metatileId=825 impassable=0
+    081FF173  setmetatile          x=8 y=10 metatileId=826 impassable=0
+    081FF17C  return               
+
+  script 0x081FF17D  [ok]
+    081FF17D  setmetatile          x=7 y=17 metatileId=839 impassable=1
+    081FF186  setmetatile          x=8 y=17 metatileId=838 impassable=1
+    081FF18F  setmetatile          x=7 y=18 metatileId=821 impassable=0
+    081FF198  setmetatile          x=8 y=18 metatileId=821 impassable=0
+    081FF1A1  setmetatile          x=7 y=19 metatileId=825 impassable=0
+    081FF1AA  setmetatile          x=8 y=19 metatileId=826 impassable=0
+    081FF1B3  return               
+
+  script 0x081FF1B4  [ok]
+    081FF1B4  setmetatile          x=18 y=12 metatileId=839 impassable=1
+    081FF1BD  setmetatile          x=19 y=12 metatileId=838 impassable=1
+    081FF1C6  setmetatile          x=18 y=13 metatileId=821 impassable=0
+    081FF1CF  setmetatile          x=19 y=13 metatileId=821 impassable=0
+    081FF1D8  setmetatile          x=18 y=14 metatileId=825 impassable=0
+    081FF1E1  setmetatile          x=19 y=14 metatileId=826 impassable=0
+    081FF1EA  return               
+
+  script 0x081FF1EB  [ok]
+    081FF1EB  setmetatile          x=5 y=14 metatileId=839 impassable=1
+    081FF1F4  setmetatile          x=6 y=14 metatileId=838 impassable=1
+    081FF1FD  setmetatile          x=5 y=15 metatileId=821 impassable=0
+    081FF206  setmetatile          x=6 y=15 metatileId=821 impassable=0
+    081FF20F  setmetatile          x=5 y=16 metatileId=825 impassable=0
+    081FF218  setmetatile          x=6 y=16 metatileId=826 impassable=0
+    081FF221  return               
+
+  script 0x081FF222  [ok]
+    081FF222  setmetatile          x=11 y=8 metatileId=821 impassable=0
+    081FF22B  setmetatile          x=12 y=8 metatileId=820 impassable=0
+    081FF234  setmetatile          x=11 y=9 metatileId=821 impassable=0
+    081FF23D  setmetatile          x=12 y=9 metatileId=820 impassable=0
+    081FF246  setmetatile          x=12 y=10 metatileId=820 impassable=0
+    081FF24F  return               
+
+  script 0x081FF250  [ok]
+    081FF250  setmetatile          x=24 y=7 metatileId=821 impassable=0
+    081FF259  setmetatile          x=25 y=7 metatileId=820 impassable=0
+    081FF262  setmetatile          x=24 y=8 metatileId=821 impassable=0
+    081FF26B  setmetatile          x=25 y=8 metatileId=820 impassable=0
+    081FF274  setmetatile          x=25 y=9 metatileId=820 impassable=0
+    081FF27D  return               
+
+  script 0x081FF27E  [ok]
+    081FF27E  setmetatile          x=25 y=13 metatileId=821 impassable=0
+    081FF287  setmetatile          x=26 y=13 metatileId=820 impassable=0
+    081FF290  setmetatile          x=25 y=14 metatileId=821 impassable=0
+    081FF299  setmetatile          x=26 y=14 metatileId=820 impassable=0
+    081FF2A2  setmetatile          x=26 y=15 metatileId=820 impassable=0
+    081FF2AB  return               
+
+  script 0x081FF2AC  [ok]
+    081FF2AC  setmetatile          x=5 y=9 metatileId=839 impassable=1
+    081FF2B5  setmetatile          x=6 y=9 metatileId=838 impassable=1
+    081FF2BE  setmetatile          x=5 y=10 metatileId=821 impassable=0
+    081FF2C7  setmetatile          x=6 y=10 metatileId=821 impassable=0
+    081FF2D0  setmetatile          x=5 y=11 metatileId=825 impassable=0
+    081FF2D9  setmetatile          x=6 y=11 metatileId=826 impassable=0
+    081FF2E2  return               
+
+  script 0x081FF2E3  [ok]
+    081FF2E3  setmetatile          x=2 y=9 metatileId=839 impassable=1
+    081FF2EC  setmetatile          x=3 y=9 metatileId=838 impassable=1
+    081FF2F5  setmetatile          x=2 y=10 metatileId=821 impassable=0
+    081FF2FE  setmetatile          x=3 y=10 metatileId=821 impassable=0
+    081FF307  setmetatile          x=2 y=11 metatileId=825 impassable=0
+    081FF310  setmetatile          x=3 y=11 metatileId=826 impassable=0
+    081FF319  return               
+
+  script 0x081FF31A  [ok]
+    081FF31A  setmetatile          x=12 y=15 metatileId=839 impassable=1
+    081FF323  setmetatile          x=13 y=15 metatileId=838 impassable=1
+    081FF32C  setmetatile          x=12 y=16 metatileId=821 impassable=0
+    081FF335  setmetatile          x=13 y=16 metatileId=821 impassable=0
+    081FF33E  setmetatile          x=12 y=17 metatileId=825 impassable=0
+    081FF347  setmetatile          x=13 y=17 metatileId=826 impassable=0
+    081FF350  return               
+
+  script 0x081FF351  [ok]
+    081FF351  setmetatile          x=21 y=6 metatileId=821 impassable=0
+    081FF35A  setmetatile          x=22 y=6 metatileId=820 impassable=0
+    081FF363  setmetatile          x=21 y=7 metatileId=821 impassable=0
+    081FF36C  setmetatile          x=22 y=7 metatileId=820 impassable=0
+    081FF375  setmetatile          x=22 y=8 metatileId=820 impassable=0
+    081FF37E  return               
+
+  script 0x081FF37F  [ok]
+    081FF37F  setmetatile          x=21 y=12 metatileId=821 impassable=0
+    081FF388  setmetatile          x=22 y=12 metatileId=820 impassable=0
+    081FF391  setmetatile          x=21 y=13 metatileId=821 impassable=0
+    081FF39A  setmetatile          x=22 y=13 metatileId=820 impassable=0
+    081FF3A3  setmetatile          x=22 y=14 metatileId=820 impassable=0
+    081FF3AC  return               
+
+  script 0x081FF3AD  [ok]
+    081FF3AD  setmetatile          x=12 y=11 metatileId=821 impassable=0
+    081FF3B6  setmetatile          x=13 y=11 metatileId=820 impassable=0
+    081FF3BF  setmetatile          x=12 y=12 metatileId=821 impassable=0
+    081FF3C8  setmetatile          x=13 y=12 metatileId=820 impassable=0
+    081FF3D1  setmetatile          x=13 y=13 metatileId=820 impassable=0
+    081FF3DA  return               
+
+  script 0x081FF3DB  [ok]
+    081FF3DB  setmetatile          x=5 y=16 metatileId=821 impassable=0
+    081FF3E4  setmetatile          x=6 y=16 metatileId=820 impassable=0
+    081FF3ED  setmetatile          x=5 y=17 metatileId=821 impassable=0
+    081FF3F6  setmetatile          x=6 y=17 metatileId=820 impassable=0
+    081FF3FF  setmetatile          x=6 y=18 metatileId=820 impassable=0
+    081FF408  return               
+
+  sign 2 at (8,10) -> 0x081FF4A5
+  sign 3 at (8,18) -> 0x081FF4BF
+  script 0x081FF4BF  [ok]
+    081FF4BF  lockall              
+    081FF4C0  setvar               destination=VAR_0x4001 value=8
+    081FF4C5  setvar               destination=VAR_0x8004 value=641
+    081FF4CA  checkflag            flag=0x281
+    081FF4CD  goto_if              condition=1 destination=0x081FEC71
+    081FF4D3  goto                 destination=0x081FF611
+
+  sign 4 at (8,19) -> 0x081FF4BF
+  sign 5 at (19,13) -> 0x081FF4D9
+  script 0x081FF4D9  [ok]
+    081FF4D9  lockall              
+    081FF4DA  setvar               destination=VAR_0x4001 value=9
+    081FF4DF  setvar               destination=VAR_0x8004 value=642
+    081FF4E4  checkflag            flag=0x282
+    081FF4E7  goto_if              condition=1 destination=0x081FEC71
+    081FF4ED  goto                 destination=0x081FF611
+
+  sign 6 at (19,14) -> 0x081FF4D9
+  sign 7 at (7,9) -> 0x081FF4A5
+  sign 8 at (7,10) -> 0x081FF4A5
+  sign 9 at (7,19) -> 0x081FF4BF
+  sign 10 at (7,18) -> 0x081FF4BF
+  sign 11 at (18,13) -> 0x081FF4D9
+  sign 12 at (18,14) -> 0x081FF4D9
+  sign 13 at (28,11) -> 0x0820F49B
+  script 0x0820F49B  [ok]
+    0820F49B  msgbox_multilang     type=0 text_0="It’s a Pokémon Report!\pSome Pokémon have been confirmed\nto evolve when they are traded." text_1="It’s a Pokémon Report!\pSome Pokémon have been confirmed\nto evolve when they are traded." text_2="It’s a Pokémon Report!\pSome Pokémon have been confirmed\nto evolve when they are traded." text_3="It’s a Pokémon Report!\pSome Pokémon have been confirmed\nto evolve when they are traded." text_4="It’s a Pokémon Report!\pSome Pokémon have been confirmed\nto evolve when they are traded." text_5="It’s a Pokémon Report!\pSome Pokémon have been confirmed\nto evolve when they are traded." text_6="It’s a Pokémon Report!\pSome Pokémon have been confirmed\nto evolve when they are traded."
+    0820F4B9  callstd              function=MSGBOX_SIGN(3)
+    0820F4BB  end                  
+
+  sign 14 at (30,13) -> 0x0820F47A
+  script 0x0820F47A  [ok]
+    0820F47A  msgbox_multilang     type=0 text_0="It’s a Pokémon Report!\pOver 350 Pokémon techniques have\nbeen confirmed." text_1="It’s a Pokémon Report!\pOver 350 Pokémon techniques have\nbeen confirmed." text_2="It’s a Pokémon Report!\pOver 350 Pokémon techniques have\nbeen confirmed." text_3="It’s a Pokémon Report!\pOver 350 Pokémon techniques have\nbeen confirmed." text_4="It’s a Pokémon Report!\pOver 350 Pokémon techniques have\nbeen confirmed." text_5="It’s a Pokémon Report!\pOver 350 Pokémon techniques have\nbeen confirmed." text_6="It’s a Pokémon Report!\pOver 350 Pokémon techniques have\nbeen confirmed."
+    0820F498  callstd              function=MSGBOX_SIGN(3)
+    0820F49A  end                  
+
+  sign 15 at (25,15) -> 0x0820F459
+  script 0x0820F459  [ok]
+    0820F459  msgbox_multilang     type=0 text_0="It’s a Pokémon Report!\pPokémon Lab created Porygon,\nthe first virtual-reality Pokémon." text_1="It’s a Pokémon Report!\pPokémon Lab created Porygon,\nthe first virtual-reality Pokémon." text_2="It’s a Pokémon Report!\pPokémon Lab created Porygon,\nthe first virtual-reality Pokémon." text_3="It’s a Pokémon Report!\pPokémon Lab created Porygon,\nthe first virtual-reality Pokémon." text_4="It’s a Pokémon Report!\pPokémon Lab created Porygon,\nthe first virtual-reality Pokémon." text_5="It’s a Pokémon Report!\pPokémon Lab created Porygon,\nthe first virtual-reality Pokémon." text_6="It’s a Pokémon Report!\pPokémon Lab created Porygon,\nthe first virtual-reality Pokémon."
+    0820F477  callstd              function=MSGBOX_SIGN(3)
+    0820F479  end                  
+
+  hidden item at (32,9): PP Up
+
+  sign 17 at (29,1) -> 0x0820F4BC
+  script 0x0820F4BC  [ok]
+    0820F4BC  msgbox_multilang     type=0 text_0="Silph Co. Head Office\n5F" text_1="Silph Co. Head Office\n5F" text_2="Silph Co. Head Office\n5F" text_3="Silph Co. Head Office\n5F" text_4="Silph Co. Head Office\n5F" text_5="Silph Co. Head Office\n5F" text_6="Silph Co. Head Office\n5F"
+    0820F4DA  callstd              function=MSGBOX_SIGN(3)
+    0820F4DC  end                  
+
+  map script type 1 -> 0x0820F3EC
+  script 0x0820F3EC  [ok]
+    0820F3EC  checkflag            flag=0x280
+    0820F3EF  call_if              condition=0 destination=0x081FED5D
+    0820F3F5  checkflag            flag=0x281
+    0820F3F8  call_if              condition=0 destination=0x081FED94
+    0820F3FE  checkflag            flag=0x282
+    0820F401  call_if              condition=0 destination=0x081FEDCB
+    0820F407  end                  
+
+  script 0x081FED5D  [ok]
+    081FED5D  setmetatile          x=7 y=8 metatileId=960 impassable=1
+    081FED66  setmetatile          x=8 y=8 metatileId=961 impassable=1
+    081FED6F  setmetatile          x=7 y=9 metatileId=962 impassable=1
+    081FED78  setmetatile          x=8 y=9 metatileId=963 impassable=1
+    081FED81  setmetatile          x=7 y=10 metatileId=964 impassable=1
+    081FED8A  setmetatile          x=8 y=10 metatileId=965 impassable=1
+    081FED93  return               
+
+  script 0x081FED94  [ok]
+    081FED94  setmetatile          x=7 y=17 metatileId=960 impassable=1
+    081FED9D  setmetatile          x=8 y=17 metatileId=961 impassable=1
+    081FEDA6  setmetatile          x=7 y=18 metatileId=962 impassable=1
+    081FEDAF  setmetatile          x=8 y=18 metatileId=963 impassable=1
+    081FEDB8  setmetatile          x=7 y=19 metatileId=964 impassable=1
+    081FEDC1  setmetatile          x=8 y=19 metatileId=965 impassable=1
+    081FEDCA  return               
+
+  script 0x081FEDCB  [ok]
+    081FEDCB  setmetatile          x=18 y=12 metatileId=960 impassable=1
+    081FEDD4  setmetatile          x=19 y=12 metatileId=961 impassable=1
+    081FEDDD  setmetatile          x=18 y=13 metatileId=962 impassable=1
+    081FEDE6  setmetatile          x=19 y=13 metatileId=963 impassable=1
+    081FEDEF  setmetatile          x=18 y=14 metatileId=964 impassable=1
+    081FEDF8  setmetatile          x=19 y=14 metatileId=965 impassable=1
+    081FEE01  return               
+

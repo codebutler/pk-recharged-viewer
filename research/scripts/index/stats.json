@@ -1,0 +1,48 @@
+{
+ "counts": {
+  "scripts": 8880,
+  "maps": 491,
+  "ground-item": 170,
+  "hidden_items": 187,
+  "trainer_post_battle": 29
+ },
+ "stop_reasons": {
+  "ok": 8493,
+  "unknown-opcode:0xE3": 11,
+  "unknown-opcode:0xE4": 6,
+  "unknown-opcode:0xE9": 91,
+  "unknown-opcode:0xE7": 46,
+  "unknown-opcode:0xE5": 56,
+  "opcode-out-of-range:0xFB": 1,
+  "bad-trainerbattle": 5,
+  "opcode-out-of-range:0xFF": 22,
+  "opcode-out-of-range:0xFE": 47,
+  "opcode-out-of-range:0xF8": 6,
+  "opcode-out-of-range:0xEF": 24,
+  "opcode-out-of-range:0xEE": 25,
+  "opcode-out-of-range:0xF0": 8,
+  "opcode-out-of-range:0xEB": 2,
+  "opcode-out-of-range:0xFA": 21,
+  "opcode-out-of-range:0xF6": 3,
+  "opcode-out-of-range:0xFC": 2,
+  "opcode-out-of-range:0xFD": 3,
+  "opcode-out-of-range:0xF3": 1,
+  "opcode-out-of-range:0xF4": 1,
+  "opcode-out-of-range:0xED": 5,
+  "opcode-out-of-range:0xEC": 1
+ },
+ "unresolved_opcodes": [
+  "0xE3",
+  "0xE4",
+  "0xE5",
+  "0xE7",
+  "0xE9"
+ ],
+ "unknown_opcode_hits": {
+  "0xE3": 11,
+  "0xE4": 6,
+  "0xE9": 91,
+  "0xE7": 46,
+  "0xE5": 56
+ }
+}

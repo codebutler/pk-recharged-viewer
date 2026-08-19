@@ -1,0 +1,18 @@
+Five Island  (group 34, map 4)  header 0x08B3DF60
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF5, flag 0x0000) -> 0x0827E222
+  script 0x0827E222  [ok]
+    0827E222  msgbox_multilang     type=0 text_0="That Meadow has belonged to our\nfamily for generations.\pI should have had a giant mansion\nbuilt on it.\pIt would be preferable to having\nthose thugs run wild on it!" text_1="That Meadow has belonged to our\nfamily for generations.\pI should have had a giant mansion\nbuilt on it.\pIt would be preferable to having\nthose thugs run wild on it!" text_2="That Meadow has belonged to our\nfamily for generations.\pI should have had a giant mansion\nbuilt on it.\pIt would be preferable to having\nthose thugs run wild on it!" text_3="That Meadow has belonged to our\nfamily for generations.\pI should have had a giant mansion\nbuilt on it.\pIt would be preferable to having\nthose thugs run wild on it!" text_4="That Meadow has belonged to our\nfamily for generations.\pI should have had a giant mansion\nbuilt on it.\pIt would be preferable to having\nthose thugs run wild on it!" text_5="That Meadow has belonged to our\nfamily for generations.\pI should have had a giant mansion\nbuilt on it.\pIt would be preferable to having\nthose thugs run wild on it!" text_6="That Meadow has belonged to our\nfamily for generations.\pI should have had a giant mansion\nbuilt on it.\pIt would be preferable to having\nthose thugs run wild on it!"
+    0827E240  callstd              function=MSGBOX_NPC(2)
+    0827E242  end                  
+

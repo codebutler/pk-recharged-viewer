@@ -1,0 +1,290 @@
+Pokémon Mansion  (group 1, map 60)  header 0x08B3B8A8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x48, flag 0x0000) -> 0x082120BC
+  script 0x082120BC  [ok]
+    082120BC  trainerbattle        type=0 trainer=0xD8 localId=0 ptr1=0x08212123 ptr2=0x08212156
+    082120CA  msgbox_multilang     type=0 text_0="The switches here open and close\nalternating sets of doors." text_1="The switches here open and close\nalternating sets of doors." text_2="The switches here open and close\nalternating sets of doors." text_3="The switches here open and close\nalternating sets of doors." text_4="The switches here open and close\nalternating sets of doors." text_5="The switches here open and close\nalternating sets of doors." text_6="The switches here open and close\nalternating sets of doors."
+    082120E8  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082120EA  end                  
+
+  object 2 (gfx 0x35, flag 0x01A1) -> 0x082D599B
+  script 0x082D599B  [ok]
+    082D599B  setorcopyvar         destination=VAR_0x8000 source=67
+    082D59A0  setorcopyvar         destination=VAR_0x8001 source=1
+    082D59A5  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Calcium
+    082D59A7  end                  
+
+  object 3 (gfx 0x35, flag 0x01CB) -> 0x082D5B96
+  script 0x082D5B96  [ok]
+    082D5B96  setorcopyvar         destination=VAR_0x8000 source=70
+    082D5B9B  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5BA0  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Zinc
+    082D5BA2  end                  
+
+  object 4 (gfx 0x35, flag 0x01CC) -> 0x082D5BA3
+  script 0x082D5BA3  [ok]
+    082D5BA3  setorcopyvar         destination=VAR_0x8000 source=63
+    082D5BA8  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5BAD  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: HP Up
+    082D5BAF  end                  
+
+  sign 0 at (2,16) -> 0x08212066
+  script 0x08212066  [ok]
+    08212066  lockall              
+    08212067  setvar               destination=VAR_0x8004 value=1
+    0821206C  call                 destination=0x082011F5
+    08212071  playse               song=44
+    08212074  special              SPECIAL_\function=79
+    08212077  waitse               
+    08212078  releaseall           
+
+  script 0x082011F5  [ok]
+    082011F5  msgbox_multilang     type=0 text_0="A secret switch!\pPress it?" text_1="A secret switch!\pPress it?" text_2="A secret switch!\pPress it?" text_3="A secret switch!\pPress it?" text_4="A secret switch!\pPress it?" text_5="A secret switch!\pPress it?" text_6="A secret switch!\pPress it?"
+    08201213  callstd              function=MSGBOX_YESNO(5)
+    08201215  compare_var_to_value var=0x800D value=0
+    0820121A  goto_if              condition=1 destination=0x082012B3
+    08201220  msgbox_multilang     type=0 text_0="Who wouldn’t?" text_1="Who wouldn’t?" text_2="Who wouldn’t?" text_3="Who wouldn’t?" text_4="Who wouldn’t?" text_5="Who wouldn’t?" text_6="Who wouldn’t?"
+    0820123E  callstd              function=MSGBOX_DEFAULT(4)
+    08201240  checkflag            flag=0x26C
+    08201243  goto_if              condition=1 destination=0x0820127E
+    08201249  setflag              flag=0x26C
+    0820124C  copyvar              destination=VAR_0x8000 source=VAR_0x8004
+    08201251  compare_var_to_value var=0x8000 value=0
+    08201256  goto_if              condition=1 destination=0x082012D5
+    0820125C  compare_var_to_value var=0x8000 value=1
+    08201261  goto_if              condition=1 destination=0x08201499
+    08201267  compare_var_to_value var=0x8000 value=2
+    0820126C  goto_if              condition=1 destination=0x082015CD
+    08201272  compare_var_to_value var=0x8000 value=3
+    08201277  goto_if              condition=1 destination=0x082016A7
+    0820127D  end                  
+
+  script 0x082012B3  [ok]
+    082012B3  msgbox_multilang     type=0 text_0="Not quite yet!" text_1="Not quite yet!" text_2="Not quite yet!" text_3="Not quite yet!" text_4="Not quite yet!" text_5="Not quite yet!" text_6="Not quite yet!"
+    082012D1  callstd              function=MSGBOX_DEFAULT(4)
+    082012D3  releaseall           
+
+  script 0x0820127E  [ok]
+    0820127E  clearflag            flag=0x26C
+    08201281  copyvar              destination=VAR_0x8000 source=VAR_0x8004
+    08201286  compare_var_to_value var=0x8000 value=0
+    0820128B  goto_if              condition=1 destination=0x082013B7
+    08201291  compare_var_to_value var=0x8000 value=1
+    08201296  goto_if              condition=1 destination=0x08201533
+    0820129C  compare_var_to_value var=0x8000 value=2
+    082012A1  goto_if              condition=1 destination=0x0820163A
+    082012A7  compare_var_to_value var=0x8000 value=3
+    082012AC  goto_if              condition=1 destination=0x08201780
+    082012B2  end                  
+
+  script 0x082012D5  [ok]
+    082012D5  setmetatile          x=22 y=10 metatileId=645 impassable=0
+    082012DE  setmetatile          x=23 y=10 metatileId=644 impassable=0
+    082012E7  setmetatile          x=24 y=10 metatileId=644 impassable=0
+    082012F0  setmetatile          x=22 y=11 metatileId=645 impassable=0
+    082012F9  setmetatile          x=23 y=11 metatileId=644 impassable=0
+    08201302  setmetatile          x=24 y=11 metatileId=644 impassable=0
+    0820130B  setmetatile          x=27 y=25 metatileId=645 impassable=0
+    08201314  setmetatile          x=28 y=25 metatileId=644 impassable=0
+    0820131D  setmetatile          x=29 y=25 metatileId=644 impassable=0
+    08201326  setmetatile          x=27 y=26 metatileId=645 impassable=0
+    0820132F  setmetatile          x=28 y=26 metatileId=644 impassable=0
+    08201338  setmetatile          x=29 y=26 metatileId=644 impassable=0
+    08201341  setmetatile          x=32 y=25 metatileId=645 impassable=0
+    0820134A  setmetatile          x=33 y=25 metatileId=644 impassable=0
+    08201353  setmetatile          x=34 y=25 metatileId=644 impassable=0
+    0820135C  setmetatile          x=32 y=26 metatileId=645 impassable=0
+    08201365  setmetatile          x=33 y=26 metatileId=644 impassable=0
+    0820136E  setmetatile          x=34 y=26 metatileId=644 impassable=0
+    08201377  setmetatile          x=31 y=18 metatileId=760 impassable=1
+    08201380  setmetatile          x=32 y=18 metatileId=761 impassable=1
+    08201389  setmetatile          x=33 y=18 metatileId=762 impassable=1
+    08201392  setmetatile          x=31 y=19 metatileId=768 impassable=1
+    0820139B  setmetatile          x=32 y=19 metatileId=769 impassable=1
+    082013A4  setmetatile          x=33 y=19 metatileId=770 impassable=1
+    082013AD  setmetatile          x=5 y=4 metatileId=845 impassable=0
+    082013B6  return               
+
+  script 0x08201499  [ok]
+    08201499  setmetatile          x=24 y=14 metatileId=645 impassable=0
+    082014A2  setmetatile          x=25 y=14 metatileId=644 impassable=0
+    082014AB  setmetatile          x=26 y=14 metatileId=644 impassable=0
+    082014B4  setmetatile          x=24 y=15 metatileId=645 impassable=0
+    082014BD  setmetatile          x=25 y=15 metatileId=644 impassable=0
+    082014C6  setmetatile          x=26 y=15 metatileId=644 impassable=0
+    082014CF  setmetatile          x=10 y=28 metatileId=677 impassable=1
+    082014D8  setmetatile          x=10 y=29 metatileId=685 impassable=1
+    082014E1  setmetatile          x=10 y=30 metatileId=645 impassable=0
+    082014EA  setmetatile          x=10 y=31 metatileId=644 impassable=0
+    082014F3  setmetatile          x=10 y=32 metatileId=693 impassable=0
+    082014FC  setmetatile          x=12 y=4 metatileId=848 impassable=1
+    08201505  setmetatile          x=12 y=5 metatileId=856 impassable=1
+    0820150E  setmetatile          x=12 y=6 metatileId=864 impassable=1
+    08201517  setmetatile          x=12 y=7 metatileId=872 impassable=1
+    08201520  setmetatile          x=12 y=8 metatileId=880 impassable=1
+    08201529  setmetatile          x=2 y=15 metatileId=845 impassable=0
+    08201532  return               
+
+  script 0x082015CD  [ok]
+    082015CD  setmetatile          x=17 y=11 metatileId=645 impassable=0
+    082015D6  setmetatile          x=18 y=11 metatileId=644 impassable=0
+    082015DF  setmetatile          x=19 y=11 metatileId=644 impassable=0
+    082015E8  setmetatile          x=17 y=12 metatileId=645 impassable=0
+    082015F1  setmetatile          x=18 y=12 metatileId=644 impassable=0
+    082015FA  setmetatile          x=19 y=12 metatileId=644 impassable=0
+    08201603  setmetatile          x=21 y=4 metatileId=848 impassable=1
+    0820160C  setmetatile          x=21 y=5 metatileId=856 impassable=1
+    08201615  setmetatile          x=21 y=6 metatileId=864 impassable=1
+    0820161E  setmetatile          x=21 y=7 metatileId=872 impassable=1
+    08201627  setmetatile          x=21 y=8 metatileId=880 impassable=1
+    08201630  setmetatile          x=12 y=4 metatileId=845 impassable=0
+    08201639  return               
+
+  script 0x082016A7  [ok]
+    082016A7  setmetatile          x=33 y=20 metatileId=760 impassable=1
+    082016B0  setmetatile          x=34 y=20 metatileId=761 impassable=1
+    082016B9  setmetatile          x=35 y=20 metatileId=762 impassable=1
+    082016C2  setmetatile          x=33 y=21 metatileId=852 impassable=1
+    082016CB  setmetatile          x=34 y=21 metatileId=853 impassable=1
+    082016D4  setmetatile          x=35 y=21 metatileId=854 impassable=1
+    082016DD  setmetatile          x=16 y=26 metatileId=848 impassable=1
+    082016E6  setmetatile          x=16 y=27 metatileId=856 impassable=1
+    082016EF  setmetatile          x=16 y=28 metatileId=866 impassable=1
+    082016F8  setmetatile          x=16 y=29 metatileId=874 impassable=1
+    08201701  setmetatile          x=16 y=30 metatileId=882 impassable=1
+    0820170A  setmetatile          x=12 y=8 metatileId=677 impassable=1
+    08201713  setmetatile          x=12 y=9 metatileId=685 impassable=1
+    0820171C  setmetatile          x=12 y=10 metatileId=647 impassable=0
+    08201725  setmetatile          x=12 y=11 metatileId=646 impassable=0
+    0820172E  setmetatile          x=12 y=12 metatileId=688 impassable=0
+    08201737  setmetatile          x=20 y=22 metatileId=647 impassable=0
+    08201740  setmetatile          x=21 y=22 metatileId=646 impassable=0
+    08201749  setmetatile          x=22 y=22 metatileId=646 impassable=0
+    08201752  setmetatile          x=20 y=23 metatileId=647 impassable=0
+    0820175B  setmetatile          x=21 y=23 metatileId=646 impassable=0
+    08201764  setmetatile          x=22 y=23 metatileId=646 impassable=0
+    0820176D  setmetatile          x=24 y=28 metatileId=847 impassable=0
+    08201776  setmetatile          x=27 y=4 metatileId=847 impassable=0
+    0820177F  return               
+
+  script 0x082013B7  [ok]
+    082013B7  setmetatile          x=22 y=10 metatileId=760 impassable=1
+    082013C0  setmetatile          x=23 y=10 metatileId=761 impassable=1
+    082013C9  setmetatile          x=24 y=10 metatileId=762 impassable=1
+    082013D2  setmetatile          x=22 y=11 metatileId=768 impassable=1
+    082013DB  setmetatile          x=23 y=11 metatileId=769 impassable=1
+    082013E4  setmetatile          x=24 y=11 metatileId=770 impassable=1
+    082013ED  setmetatile          x=27 y=25 metatileId=760 impassable=1
+    082013F6  setmetatile          x=28 y=25 metatileId=761 impassable=1
+    082013FF  setmetatile          x=29 y=25 metatileId=762 impassable=1
+    08201408  setmetatile          x=27 y=26 metatileId=768 impassable=1
+    08201411  setmetatile          x=28 y=26 metatileId=769 impassable=1
+    0820141A  setmetatile          x=29 y=26 metatileId=770 impassable=1
+    08201423  setmetatile          x=32 y=25 metatileId=760 impassable=1
+    0820142C  setmetatile          x=33 y=25 metatileId=761 impassable=1
+    08201435  setmetatile          x=34 y=25 metatileId=762 impassable=1
+    0820143E  setmetatile          x=32 y=26 metatileId=768 impassable=1
+    08201447  setmetatile          x=33 y=26 metatileId=769 impassable=1
+    08201450  setmetatile          x=34 y=26 metatileId=770 impassable=1
+    08201459  setmetatile          x=31 y=18 metatileId=645 impassable=0
+    08201462  setmetatile          x=32 y=18 metatileId=644 impassable=0
+    0820146B  setmetatile          x=33 y=18 metatileId=644 impassable=0
+    08201474  setmetatile          x=31 y=19 metatileId=645 impassable=0
+    0820147D  setmetatile          x=32 y=19 metatileId=644 impassable=0
+    08201486  setmetatile          x=33 y=19 metatileId=644 impassable=0
+    0820148F  setmetatile          x=5 y=4 metatileId=788 impassable=0
+    08201498  return               
+
+  script 0x08201533  [ok]
+    08201533  setmetatile          x=24 y=14 metatileId=760 impassable=1
+    0820153C  setmetatile          x=25 y=14 metatileId=761 impassable=1
+    08201545  setmetatile          x=26 y=14 metatileId=762 impassable=1
+    0820154E  setmetatile          x=24 y=15 metatileId=768 impassable=1
+    08201557  setmetatile          x=25 y=15 metatileId=769 impassable=1
+    08201560  setmetatile          x=26 y=15 metatileId=770 impassable=1
+    08201569  setmetatile          x=10 y=28 metatileId=848 impassable=1
+    08201572  setmetatile          x=10 y=29 metatileId=856 impassable=1
+    0820157B  setmetatile          x=10 y=30 metatileId=864 impassable=1
+    08201584  setmetatile          x=10 y=31 metatileId=872 impassable=1
+    0820158D  setmetatile          x=10 y=32 metatileId=880 impassable=1
+    08201596  setmetatile          x=12 y=4 metatileId=677 impassable=1
+    0820159F  setmetatile          x=12 y=5 metatileId=685 impassable=1
+    082015A8  setmetatile          x=12 y=6 metatileId=645 impassable=0
+    082015B1  setmetatile          x=12 y=7 metatileId=644 impassable=0
+    082015BA  setmetatile          x=12 y=8 metatileId=693 impassable=0
+    082015C3  setmetatile          x=2 y=15 metatileId=788 impassable=0
+    082015CC  return               
+
+  script 0x0820163A  [ok]
+    0820163A  setmetatile          x=17 y=11 metatileId=760 impassable=1
+    08201643  setmetatile          x=18 y=11 metatileId=761 impassable=1
+    0820164C  setmetatile          x=19 y=11 metatileId=762 impassable=1
+    08201655  setmetatile          x=17 y=12 metatileId=768 impassable=1
+    0820165E  setmetatile          x=18 y=12 metatileId=769 impassable=1
+    08201667  setmetatile          x=19 y=12 metatileId=770 impassable=1
+    08201670  setmetatile          x=21 y=4 metatileId=677 impassable=1
+    08201679  setmetatile          x=21 y=5 metatileId=685 impassable=1
+    08201682  setmetatile          x=21 y=6 metatileId=645 impassable=0
+    0820168B  setmetatile          x=21 y=7 metatileId=644 impassable=0
+    08201694  setmetatile          x=21 y=8 metatileId=693 impassable=0
+    0820169D  setmetatile          x=12 y=4 metatileId=788 impassable=0
+    082016A6  return               
+
+  script 0x08201780  [ok]
+    08201780  setmetatile          x=33 y=20 metatileId=647 impassable=0
+    08201789  setmetatile          x=34 y=20 metatileId=646 impassable=0
+    08201792  setmetatile          x=35 y=20 metatileId=646 impassable=0
+    0820179B  setmetatile          x=33 y=21 metatileId=647 impassable=0
+    082017A4  setmetatile          x=34 y=21 metatileId=646 impassable=0
+    082017AD  setmetatile          x=35 y=21 metatileId=646 impassable=0
+    082017B6  setmetatile          x=16 y=26 metatileId=677 impassable=1
+    082017BF  setmetatile          x=16 y=27 metatileId=685 impassable=1
+    082017C8  setmetatile          x=16 y=28 metatileId=647 impassable=0
+    082017D1  setmetatile          x=16 y=29 metatileId=646 impassable=0
+    082017DA  setmetatile          x=16 y=30 metatileId=688 impassable=0
+    082017E3  setmetatile          x=12 y=8 metatileId=848 impassable=1
+    082017EC  setmetatile          x=12 y=9 metatileId=856 impassable=1
+    082017F5  setmetatile          x=12 y=10 metatileId=866 impassable=1
+    082017FE  setmetatile          x=12 y=11 metatileId=874 impassable=1
+    08201807  setmetatile          x=12 y=12 metatileId=882 impassable=1
+    08201810  setmetatile          x=20 y=22 metatileId=760 impassable=1
+    08201819  setmetatile          x=21 y=22 metatileId=761 impassable=1
+    08201822  setmetatile          x=22 y=22 metatileId=762 impassable=1
+    0820182B  setmetatile          x=20 y=23 metatileId=852 impassable=1
+    08201834  setmetatile          x=21 y=23 metatileId=853 impassable=1
+    0820183D  setmetatile          x=22 y=23 metatileId=854 impassable=1
+    08201846  setmetatile          x=24 y=28 metatileId=790 impassable=0
+    0820184F  setmetatile          x=27 y=4 metatileId=790 impassable=0
+    08201858  return               
+
+  sign 1 at (6,31) -> 0x0821209B
+  script 0x0821209B  [ok]
+    0821209B  msgbox_multilang     type=0 text_0="Diary: July 10\nWe christened the newly discovered\pPokémon, Mew." text_1="Diary: July 10\nWe christened the newly discovered\pPokémon, Mew." text_2="Diary: July 10\nWe christened the newly discovered\pPokémon, Mew." text_3="Diary: July 10\nWe christened the newly discovered\pPokémon, Mew." text_4="Diary: July 10\nWe christened the newly discovered\pPokémon, Mew." text_5="Diary: July 10\nWe christened the newly discovered\pPokémon, Mew." text_6="Diary: July 10\nWe christened the newly discovered\pPokémon, Mew."
+    082120B9  callstd              function=MSGBOX_SIGN(3)
+    082120BB  end                  
+
+  sign 2 at (25,4) -> 0x0821207A
+  script 0x0821207A  [ok]
+    0821207A  msgbox_multilang     type=0 text_0="Diary: July 5\nGuyana, South America\pA new Pokémon was discovered deep\nin the jungle." text_1="Diary: July 5\nGuyana, South America\pA new Pokémon was discovered deep\nin the jungle." text_2="Diary: July 5\nGuyana, South America\pA new Pokémon was discovered deep\nin the jungle." text_3="Diary: July 5\nGuyana, South America\pA new Pokémon was discovered deep\nin the jungle." text_4="Diary: July 5\nGuyana, South America\pA new Pokémon was discovered deep\nin the jungle." text_5="Diary: July 5\nGuyana, South America\pA new Pokémon was discovered deep\nin the jungle." text_6="Diary: July 5\nGuyana, South America\pA new Pokémon was discovered deep\nin the jungle."
+    08212098  callstd              function=MSGBOX_SIGN(3)
+    0821209A  end                  
+
+  map script type 1 -> 0x0821205C
+  script 0x0821205C  [ok]
+    0821205C  checkflag            flag=0x26C
+    0821205F  call_if              condition=1 destination=0x08201499
+    08212065  end                  
+

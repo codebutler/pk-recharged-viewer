@@ -1,0 +1,19 @@
+Lost Cave  (group 2, map 22)  header 0x08B3C1F4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x4E, flag 0x0000) -> 0x0821C37D
+  script 0x0821C37D  [ok]
+    0821C37D  trainerbattle        type=0 trainer=0x260 localId=0 ptr1=0x0821C3AC ptr2=0x0821C3E6
+    0821C38B  msgbox_multilang     type=0 text_0="Earlier, a lady went into the caves\nahead." text_1="Earlier, a lady went into the caves\nahead." text_2="Earlier, a lady went into the caves\nahead." text_3="Earlier, a lady went into the caves\nahead." text_4="Earlier, a lady went into the caves\nahead." text_5="Earlier, a lady went into the caves\nahead." text_6="Earlier, a lady went into the caves\nahead."
+    0821C3A9  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821C3AB  end                  
+

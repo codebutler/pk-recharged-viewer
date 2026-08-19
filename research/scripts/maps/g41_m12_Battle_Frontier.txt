@@ -1,0 +1,1460 @@
+Battle Frontier  (group 41, map 12)  header 0x08B3E200
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x43, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x06, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x07, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0xEF, flag 0x0000) -> 0x00000000
+  object 5 (gfx 0x05, flag 0x0000) -> 0x00000000
+  object 6 (gfx 0xF4, flag 0x0000) -> 0x00000000
+  object 7 (gfx 0x15, flag 0x0000) -> 0x00000000
+  object 8 (gfx 0x1F, flag 0x0000) -> 0x00000000
+  object 9 (gfx 0x17, flag 0x0000) -> 0x00000000
+  object 10 (gfx 0x11, flag 0x0000) -> 0x00000000
+  object 11 (gfx 0x0A, flag 0x0000) -> 0x00000000
+  object 12 (gfx 0x08, flag 0x0000) -> 0x00000000
+  object 13 (gfx 0x5B, flag 0x0000) -> 0x00000000
+  object 14 (gfx 0x18, flag 0x0000) -> 0x00000000
+  object 15 (gfx 0x5A, flag 0x0000) -> 0x00000000
+  map script type 3 -> 0x082976D6
+  script 0x082976D6  [ok]
+    082976D6  setflag              flag=0x00E
+    082976D9  setvar               destination=VAR_0x8004 value=10
+    082976DE  special              SPECIAL_\function=150
+    082976E1  setvar               destination=VAR_0x8004 value=1
+    082976E6  setvar               destination=VAR_0x8005 value=2
+    082976EB  special              SPECIAL_\function=148
+    082976EE  copyvar              destination=VAR_0x400F source=VAR_0x800D
+    082976F3  compare_var_to_value var=0x800D value=0
+    082976F8  call_if              condition=1 destination=0x082987D4
+    082976FE  call                 destination=0x08297704
+    08297703  end                  
+
+  script 0x082987D4  [ok]
+    082987D4  random               limit=2
+    082987D7  copyvar              destination=VAR_0x400D source=VAR_0x800D
+    082987DC  compare_var_to_value var=0x400D value=0
+    082987E1  goto_if              condition=1 destination=0x082BCF3E
+    082987E7  setobjectxyperm      localId=6 x=2 y=0
+    082987EE  setobjectmovementtype localId=6 movementType=10
+    082987F2  return               
+
+  script 0x08297704  [ok]
+    08297704  checkplayergender    
+    08297705  compare_var_to_value var=0x800D value=0
+    0829770A  goto_if              condition=1 destination=0x0829771C
+    08297710  compare_var_to_value var=0x800D value=1
+    08297715  goto_if              condition=1 destination=0x08297722
+    0829771B  return               
+
+  script 0x082BCF3E  [ok]
+    082BCF3E  return               
+
+  script 0x0829771C  [ok]
+    0829771C  setvar               destination=VAR_0x4011 value=0
+    08297721  return               
+
+  script 0x08297722  [ok]
+    08297722  setvar               destination=VAR_0x4011 value=89
+    08297727  return               
+
+  map script type 2 (var 0x4000 == 0) -> 0x08297732
+  script 0x08297732  [ok]
+    08297732  lockall              
+    08297733  call                 destination=0x08297E9D
+    08297738  compare_var_to_value var=0x800D value=0
+    0829773D  call_if              condition=1 destination=0x082987F3
+    08297743  applymovement        localId=1 movements=[walk_in_place_down]
+    0829774A  waitmovement         localId=0
+    0829774D  call                 destination=0x08297B05
+    08297752  msgbox_multilang     type=0 text_0="{PLAYER} has entered the BATTLE DOME!" text_1="{PLAYER} has entered the BATTLE DOME!" text_2="{PLAYER} has entered the BATTLE DOME!" text_3="{PLAYER} has entered the BATTLE DOME!" text_4="{PLAYER} has entered the BATTLE DOME!" text_5="{PLAYER} has entered the BATTLE DOME!" text_6="{PLAYER} has entered the BATTLE DOME!"
+    08297770  callstd              function=MSGBOX_DEFAULT(4)
+    08297772  closemessage         
+    08297773  showobjectat         localId=13 mapGroup=41 mapNum=12
+    08297778  compare_var_to_value var=0x400F value=3
+    0829777D  goto_if              condition=5 destination=0x0829778E
+    08297783  compare_var_to_value var=0x400E value=0
+    08297788  goto_if              condition=5 destination=0x0829779A
+    0829778E  applymovement        localId=13 movements=[set_visible delay_16 walk_up walk_up walk_up walk_right walk_right]
+    08297795  goto                 destination=0x082977A1
+
+  script 0x08297E9D  [ok]
+    08297E9D  setvar               destination=VAR_0x8004 value=1
+    08297EA2  setvar               destination=VAR_0x8005 value=2
+    08297EA7  special              SPECIAL_\function=148
+    08297EAA  return               
+
+  script 0x082987F3  [ok]
+    082987F3  compare_var_to_value var=0x400D value=0
+    082987F8  goto_if              condition=1 destination=0x082BCF3E
+    082987FE  applymovement        localId=6 movements=[walk_down walk_down walk_right walk_right walk_in_place_faster_down]
+    08298805  return               
+
+  script 0x08297B05  [ok]
+    08297B05  setvar               destination=VAR_0x8004 value=1
+    08297B0A  setvar               destination=VAR_0x8005 value=6
+    08297B0F  special              SPECIAL_\function=150
+    08297B12  compare_var_to_value var=0x800D value=0
+    08297B17  goto_if              condition=1 destination=0x08297B53
+    08297B1D  setvar               destination=VAR_0x8004 value=1
+    08297B22  setvar               destination=VAR_0x8005 value=7
+    08297B27  special              SPECIAL_\function=150
+    08297B2A  compare_var_to_value var=0x800D value=0
+    08297B2F  goto_if              condition=1 destination=0x08297C06
+    08297B35  setvar               destination=VAR_0x8004 value=1
+    08297B3A  setvar               destination=VAR_0x8005 value=1
+    08297B3F  special              SPECIAL_\function=150
+    08297B42  compare_var_to_value var=0x800D value=0
+    08297B47  goto_if              condition=1 destination=0x08297DEA
+    08297B4D  goto                 destination=0x08297CB9
+
+  script 0x0829778E  [ok]
+    0829778E  applymovement        localId=13 movements=[set_visible delay_16 walk_up walk_up walk_up walk_right walk_right]
+    08297795  goto                 destination=0x082977A1
+
+  script 0x0829779A  [ok]
+    0829779A  applymovement        localId=13 movements=[set_visible delay_16 walk_up walk_up walk_up walk_right walk_right]
+    082977A1  playse               song=223
+    082977A4  call                 destination=0x082986E9
+    082977A9  waitmovement         localId=0
+    082977AC  compare_var_to_value var=0x400F value=3
+    082977B1  goto_if              condition=5 destination=0x082977C2
+    082977B7  compare_var_to_value var=0x400E value=0
+    082977BC  goto_if              condition=5 destination=0x08297EAB
+    082977C2  setvar               destination=VAR_0x8004 value=4
+    082977C7  special              SPECIAL_\function=150
+    082977CA  msgbox_multilang     type=0 text_0="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_1="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_2="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_3="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_4="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_5="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_6="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!"
+    082977E8  callstd              function=MSGBOX_DEFAULT(4)
+    082977EA  closemessage         
+    082977EB  applymovement        localId=13 movements=[walk_right]
+    082977F2  applymovement        localId=15 movements=[walk_left]
+    082977F9  waitmovement         localId=0
+    082977FC  setvar               destination=VAR_0x8004 value=7
+    08297801  setvar               destination=VAR_0x8005 value=0
+    08297806  special              SPECIAL_\function=149
+    08297809  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    08297827  callstd              function=MSGBOX_DEFAULT(4)
+    08297829  closemessage         
+    0829782A  setvar               destination=VAR_0x8004 value=5
+    0829782F  special              SPECIAL_\function=150
+    08297832  call                 destination=0x082982B8
+    08297837  setvar               destination=VAR_0x4002 value=0
+    0829783C  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297841  compare_var_to_value var=0x8000 value=1
+    08297846  goto_if              condition=1 destination=0x082979B0
+    0829784C  compare_var_to_value var=0x8000 value=2
+    08297851  goto_if              condition=1 destination=0x082978D7
+    08297857  compare_var_to_value var=0x8000 value=9
+    0829785C  goto_if              condition=1 destination=0x082978D7
+    08297862  setvar               destination=VAR_0x4002 value=1
+    08297867  msgbox_multilang     type=0 text_0="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_1="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_2="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_3="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_4="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_5="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_6="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way."
+    08297885  callstd              function=MSGBOX_DEFAULT(4)
+    08297887  closemessage         
+    08297888  playse               song=223
+    0829788B  call                 destination=0x082986E9
+    08297890  delay                frames=60
+    08297893  applymovement        localId=9 movements=[walk_right walk_right walk_right walk_right]
+    0829789A  waitmovement         localId=0
+    0829789D  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    082978A4  waitmovement         localId=0
+    082978A7  delay                frames=180
+    082978AA  applymovement        localId=9 movements=[walk_left walk_left walk_left walk_left]
+    082978B1  waitmovement         localId=0
+    082978B4  compare_var_to_value var=0x4002 value=2
+    082978B9  goto_if              condition=1 destination=0x082978D7
+    082978BF  setvar               destination=VAR_0x8004 value=19
+    082978C4  special              SPECIAL_\function=150
+    082978C7  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082978CC  compare_var_to_value var=0x8000 value=1
+    082978D1  goto_if              condition=1 destination=0x082979B0
+    082978D7  applymovement        localId=1 movements=[walk_in_place_down]
+    082978DE  waitmovement         localId=0
+    082978E1  setvar               destination=VAR_0x8004 value=4
+    082978E6  special              SPECIAL_\function=150
+    082978E9  compare_var_to_value var=0x4002 value=0
+    082978EE  call_if              condition=1 destination=0x08297939
+    082978F4  compare_var_to_value var=0x4002 value=1
+    082978F9  call_if              condition=1 destination=0x08297965
+    082978FF  compare_var_to_value var=0x4002 value=2
+    08297904  call_if              condition=1 destination=0x08297991
+    0829790A  playse               song=223
+    0829790D  call                 destination=0x082986E9
+    08297912  delay                frames=60
+    08297915  setvar               destination=VAR_0x8004 value=12
+    0829791A  setvar               destination=VAR_0x8005 value=2
+    0829791F  special              SPECIAL_\function=150
+    08297922  setvar               destination=VAR_0x8004 value=2
+    08297927  setvar               destination=VAR_0x8005 value=0
+    0829792C  setvar               destination=VAR_0x8006 value=4
+    08297931  special              SPECIAL_\function=148
+    08297934  goto                 destination=0x082987B0
+
+  script 0x082977A1  [ok]
+    082977A1  playse               song=223
+    082977A4  call                 destination=0x082986E9
+    082977A9  waitmovement         localId=0
+    082977AC  compare_var_to_value var=0x400F value=3
+    082977B1  goto_if              condition=5 destination=0x082977C2
+    082977B7  compare_var_to_value var=0x400E value=0
+    082977BC  goto_if              condition=5 destination=0x08297EAB
+    082977C2  setvar               destination=VAR_0x8004 value=4
+    082977C7  special              SPECIAL_\function=150
+    082977CA  msgbox_multilang     type=0 text_0="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_1="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_2="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_3="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_4="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_5="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_6="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!"
+    082977E8  callstd              function=MSGBOX_DEFAULT(4)
+    082977EA  closemessage         
+    082977EB  applymovement        localId=13 movements=[walk_right]
+    082977F2  applymovement        localId=15 movements=[walk_left]
+    082977F9  waitmovement         localId=0
+    082977FC  setvar               destination=VAR_0x8004 value=7
+    08297801  setvar               destination=VAR_0x8005 value=0
+    08297806  special              SPECIAL_\function=149
+    08297809  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    08297827  callstd              function=MSGBOX_DEFAULT(4)
+    08297829  closemessage         
+    0829782A  setvar               destination=VAR_0x8004 value=5
+    0829782F  special              SPECIAL_\function=150
+    08297832  call                 destination=0x082982B8
+    08297837  setvar               destination=VAR_0x4002 value=0
+    0829783C  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297841  compare_var_to_value var=0x8000 value=1
+    08297846  goto_if              condition=1 destination=0x082979B0
+    0829784C  compare_var_to_value var=0x8000 value=2
+    08297851  goto_if              condition=1 destination=0x082978D7
+    08297857  compare_var_to_value var=0x8000 value=9
+    0829785C  goto_if              condition=1 destination=0x082978D7
+    08297862  setvar               destination=VAR_0x4002 value=1
+    08297867  msgbox_multilang     type=0 text_0="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_1="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_2="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_3="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_4="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_5="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_6="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way."
+    08297885  callstd              function=MSGBOX_DEFAULT(4)
+    08297887  closemessage         
+    08297888  playse               song=223
+    0829788B  call                 destination=0x082986E9
+    08297890  delay                frames=60
+    08297893  applymovement        localId=9 movements=[walk_right walk_right walk_right walk_right]
+    0829789A  waitmovement         localId=0
+    0829789D  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    082978A4  waitmovement         localId=0
+    082978A7  delay                frames=180
+    082978AA  applymovement        localId=9 movements=[walk_left walk_left walk_left walk_left]
+    082978B1  waitmovement         localId=0
+    082978B4  compare_var_to_value var=0x4002 value=2
+    082978B9  goto_if              condition=1 destination=0x082978D7
+    082978BF  setvar               destination=VAR_0x8004 value=19
+    082978C4  special              SPECIAL_\function=150
+    082978C7  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082978CC  compare_var_to_value var=0x8000 value=1
+    082978D1  goto_if              condition=1 destination=0x082979B0
+    082978D7  applymovement        localId=1 movements=[walk_in_place_down]
+    082978DE  waitmovement         localId=0
+    082978E1  setvar               destination=VAR_0x8004 value=4
+    082978E6  special              SPECIAL_\function=150
+    082978E9  compare_var_to_value var=0x4002 value=0
+    082978EE  call_if              condition=1 destination=0x08297939
+    082978F4  compare_var_to_value var=0x4002 value=1
+    082978F9  call_if              condition=1 destination=0x08297965
+    082978FF  compare_var_to_value var=0x4002 value=2
+    08297904  call_if              condition=1 destination=0x08297991
+    0829790A  playse               song=223
+    0829790D  call                 destination=0x082986E9
+    08297912  delay                frames=60
+    08297915  setvar               destination=VAR_0x8004 value=12
+    0829791A  setvar               destination=VAR_0x8005 value=2
+    0829791F  special              SPECIAL_\function=150
+    08297922  setvar               destination=VAR_0x8004 value=2
+    08297927  setvar               destination=VAR_0x8005 value=0
+    0829792C  setvar               destination=VAR_0x8006 value=4
+    08297931  special              SPECIAL_\function=148
+    08297934  goto                 destination=0x082987B0
+
+  script 0x08297B53  [ok]
+    08297B53  call                 destination=0x08297E9D
+    08297B58  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297B5D  compare_var_to_value var=0x8000 value=0
+    08297B62  goto_if              condition=1 destination=0x08297B8A
+    08297B68  compare_var_to_value var=0x8000 value=1
+    08297B6D  goto_if              condition=1 destination=0x08297BA9
+    08297B73  compare_var_to_value var=0x8000 value=2
+    08297B78  goto_if              condition=1 destination=0x08297BC8
+    08297B7E  compare_var_to_value var=0x8000 value=3
+    08297B83  goto_if              condition=1 destination=0x08297BE7
+    08297B89  return               
+
+  script 0x08297C06  [ok]
+    08297C06  call                 destination=0x08297E9D
+    08297C0B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297C10  compare_var_to_value var=0x8000 value=0
+    08297C15  goto_if              condition=1 destination=0x08297C3D
+    08297C1B  compare_var_to_value var=0x8000 value=1
+    08297C20  goto_if              condition=1 destination=0x08297C5C
+    08297C26  compare_var_to_value var=0x8000 value=2
+    08297C2B  goto_if              condition=1 destination=0x08297C7B
+    08297C31  compare_var_to_value var=0x8000 value=3
+    08297C36  goto_if              condition=1 destination=0x08297C9A
+    08297C3C  return               
+
+  script 0x08297DEA  [ok]
+    08297DEA  call                 destination=0x08297E9D
+    08297DEF  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297DF4  compare_var_to_value var=0x8000 value=0
+    08297DF9  goto_if              condition=1 destination=0x08297E21
+    08297DFF  compare_var_to_value var=0x8000 value=1
+    08297E04  goto_if              condition=1 destination=0x08297E40
+    08297E0A  compare_var_to_value var=0x8000 value=2
+    08297E0F  goto_if              condition=1 destination=0x08297E5F
+    08297E15  compare_var_to_value var=0x8000 value=3
+    08297E1A  goto_if              condition=1 destination=0x08297E7E
+    08297E20  return               
+
+  script 0x08297CB9  [ok]
+    08297CB9  compare_var_to_value var=0x400F value=3
+    08297CBE  goto_if              condition=5 destination=0x08297CF5
+    08297CC4  copyvar              destination=VAR_0x8000 source=VAR_0x400E
+    08297CC9  compare_var_to_value var=0x8000 value=1
+    08297CCE  goto_if              condition=1 destination=0x08297DA8
+    08297CD4  compare_var_to_value var=0x8000 value=2
+    08297CD9  goto_if              condition=1 destination=0x08297DC9
+    08297CDF  compare_var_to_value var=0x8000 value=3
+    08297CE4  goto_if              condition=1 destination=0x08297DA8
+    08297CEA  compare_var_to_value var=0x8000 value=4
+    08297CEF  goto_if              condition=1 destination=0x08297DC9
+    08297CF5  call                 destination=0x08297E9D
+    08297CFA  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297CFF  compare_var_to_value var=0x8000 value=0
+    08297D04  goto_if              condition=1 destination=0x08297D2C
+    08297D0A  compare_var_to_value var=0x8000 value=1
+    08297D0F  goto_if              condition=1 destination=0x08297D4B
+    08297D15  compare_var_to_value var=0x8000 value=2
+    08297D1A  goto_if              condition=1 destination=0x08297D6A
+    08297D20  compare_var_to_value var=0x8000 value=3
+    08297D25  goto_if              condition=1 destination=0x08297D89
+    08297D2B  return               
+
+  script 0x082986E9  [ok]
+    082986E9  turnvobject          id=0 direction=4
+    082986EC  turnvobject          id=2 direction=4
+    082986EF  turnvobject          id=4 direction=4
+    082986F2  turnvobject          id=6 direction=4
+    082986F5  turnvobject          id=8 direction=4
+    082986F8  turnvobject          id=10 direction=3
+    082986FB  turnvobject          id=12 direction=3
+    082986FE  turnvobject          id=14 direction=3
+    08298701  turnvobject          id=16 direction=3
+    08298704  turnvobject          id=18 direction=3
+    08298707  turnvobject          id=20 direction=4
+    0829870A  turnvobject          id=22 direction=4
+    0829870D  turnvobject          id=24 direction=4
+    08298710  turnvobject          id=26 direction=4
+    08298713  turnvobject          id=28 direction=4
+    08298716  turnvobject          id=30 direction=4
+    08298719  delay                frames=20
+    0829871C  turnvobject          id=0 direction=1
+    0829871F  turnvobject          id=2 direction=1
+    08298722  turnvobject          id=4 direction=1
+    08298725  turnvobject          id=6 direction=1
+    08298728  turnvobject          id=8 direction=1
+    0829872B  turnvobject          id=10 direction=1
+    0829872E  turnvobject          id=12 direction=1
+    08298731  turnvobject          id=14 direction=1
+    08298734  turnvobject          id=16 direction=1
+    08298737  turnvobject          id=18 direction=1
+    0829873A  turnvobject          id=20 direction=1
+    0829873D  turnvobject          id=22 direction=1
+    08298740  turnvobject          id=24 direction=1
+    08298743  turnvobject          id=26 direction=1
+    08298746  turnvobject          id=28 direction=1
+    08298749  turnvobject          id=30 direction=1
+    0829874C  delay                frames=20
+    0829874F  turnvobject          id=1 direction=4
+    08298752  turnvobject          id=3 direction=4
+    08298755  turnvobject          id=5 direction=4
+    08298758  turnvobject          id=7 direction=4
+    0829875B  turnvobject          id=9 direction=4
+    0829875E  turnvobject          id=11 direction=3
+    08298761  turnvobject          id=13 direction=3
+    08298764  turnvobject          id=15 direction=3
+    08298767  turnvobject          id=17 direction=3
+    0829876A  turnvobject          id=19 direction=3
+    0829876D  turnvobject          id=21 direction=4
+    08298770  turnvobject          id=23 direction=4
+    08298773  turnvobject          id=25 direction=4
+    08298776  turnvobject          id=27 direction=3
+    08298779  turnvobject          id=31 direction=3
+    0829877C  delay                frames=20
+    0829877F  turnvobject          id=1 direction=1
+    08298782  turnvobject          id=3 direction=1
+    08298785  turnvobject          id=5 direction=1
+    08298788  turnvobject          id=7 direction=1
+    0829878B  turnvobject          id=9 direction=1
+    0829878E  turnvobject          id=11 direction=1
+    08298791  turnvobject          id=13 direction=1
+    08298794  turnvobject          id=15 direction=1
+    08298797  turnvobject          id=17 direction=1
+    0829879A  turnvobject          id=19 direction=1
+    0829879D  turnvobject          id=21 direction=1
+    082987A0  turnvobject          id=23 direction=1
+    082987A3  turnvobject          id=25 direction=1
+    082987A6  turnvobject          id=27 direction=1
+    082987A9  turnvobject          id=31 direction=1
+    082987AC  delay                frames=20
+    082987AF  return               
+
+  script 0x082977C2  [ok]
+    082977C2  setvar               destination=VAR_0x8004 value=4
+    082977C7  special              SPECIAL_\function=150
+    082977CA  msgbox_multilang     type=0 text_0="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_1="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_2="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_3="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_4="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_5="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!" text_6="{STR_VAR_1}\nmatch!\p{PLAYER} versus {STR_VAR_2}!\pLet the battle begin!"
+    082977E8  callstd              function=MSGBOX_DEFAULT(4)
+    082977EA  closemessage         
+    082977EB  applymovement        localId=13 movements=[walk_right]
+    082977F2  applymovement        localId=15 movements=[walk_left]
+    082977F9  waitmovement         localId=0
+    082977FC  setvar               destination=VAR_0x8004 value=7
+    08297801  setvar               destination=VAR_0x8005 value=0
+    08297806  special              SPECIAL_\function=149
+    08297809  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    08297827  callstd              function=MSGBOX_DEFAULT(4)
+    08297829  closemessage         
+    0829782A  setvar               destination=VAR_0x8004 value=5
+    0829782F  special              SPECIAL_\function=150
+    08297832  call                 destination=0x082982B8
+    08297837  setvar               destination=VAR_0x4002 value=0
+    0829783C  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297841  compare_var_to_value var=0x8000 value=1
+    08297846  goto_if              condition=1 destination=0x082979B0
+    0829784C  compare_var_to_value var=0x8000 value=2
+    08297851  goto_if              condition=1 destination=0x082978D7
+    08297857  compare_var_to_value var=0x8000 value=9
+    0829785C  goto_if              condition=1 destination=0x082978D7
+    08297862  setvar               destination=VAR_0x4002 value=1
+    08297867  msgbox_multilang     type=0 text_0="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_1="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_2="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_3="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_4="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_5="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_6="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way."
+    08297885  callstd              function=MSGBOX_DEFAULT(4)
+    08297887  closemessage         
+    08297888  playse               song=223
+    0829788B  call                 destination=0x082986E9
+    08297890  delay                frames=60
+    08297893  applymovement        localId=9 movements=[walk_right walk_right walk_right walk_right]
+    0829789A  waitmovement         localId=0
+    0829789D  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    082978A4  waitmovement         localId=0
+    082978A7  delay                frames=180
+    082978AA  applymovement        localId=9 movements=[walk_left walk_left walk_left walk_left]
+    082978B1  waitmovement         localId=0
+    082978B4  compare_var_to_value var=0x4002 value=2
+    082978B9  goto_if              condition=1 destination=0x082978D7
+    082978BF  setvar               destination=VAR_0x8004 value=19
+    082978C4  special              SPECIAL_\function=150
+    082978C7  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082978CC  compare_var_to_value var=0x8000 value=1
+    082978D1  goto_if              condition=1 destination=0x082979B0
+    082978D7  applymovement        localId=1 movements=[walk_in_place_down]
+    082978DE  waitmovement         localId=0
+    082978E1  setvar               destination=VAR_0x8004 value=4
+    082978E6  special              SPECIAL_\function=150
+    082978E9  compare_var_to_value var=0x4002 value=0
+    082978EE  call_if              condition=1 destination=0x08297939
+    082978F4  compare_var_to_value var=0x4002 value=1
+    082978F9  call_if              condition=1 destination=0x08297965
+    082978FF  compare_var_to_value var=0x4002 value=2
+    08297904  call_if              condition=1 destination=0x08297991
+    0829790A  playse               song=223
+    0829790D  call                 destination=0x082986E9
+    08297912  delay                frames=60
+    08297915  setvar               destination=VAR_0x8004 value=12
+    0829791A  setvar               destination=VAR_0x8005 value=2
+    0829791F  special              SPECIAL_\function=150
+    08297922  setvar               destination=VAR_0x8004 value=2
+    08297927  setvar               destination=VAR_0x8005 value=0
+    0829792C  setvar               destination=VAR_0x8006 value=4
+    08297931  special              SPECIAL_\function=148
+    08297934  goto                 destination=0x082987B0
+
+  script 0x08297EAB  [ok]
+    08297EAB  copyvar              destination=VAR_0x8000 source=VAR_0x400E
+    08297EB0  compare_var_to_value var=0x8000 value=1
+    08297EB5  goto_if              condition=1 destination=0x08297EDC
+    08297EBB  compare_var_to_value var=0x8000 value=2
+    08297EC0  goto_if              condition=1 destination=0x08297F01
+    08297EC6  compare_var_to_value var=0x8000 value=3
+    08297ECB  goto_if              condition=1 destination=0x08297EDC
+    08297ED1  compare_var_to_value var=0x8000 value=4
+    08297ED6  goto_if              condition=1 destination=0x08297F01
+    08297EDC  msgbox_multilang     type=0 text_0="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_1="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_2="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_3="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_4="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_5="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_6="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!"
+    08297EFA  callstd              function=MSGBOX_DEFAULT(4)
+    08297EFC  goto                 destination=0x08297F21
+
+  script 0x082982B8  [ok]
+    082982B8  setvar               destination=VAR_0x8004 value=2
+    082982BD  setvar               destination=VAR_0x8005 value=6
+    082982C2  setvar               destination=VAR_0x8006 value=0
+    082982C7  special              SPECIAL_\function=148
+    082982CA  special              SPECIAL_\function=0
+    082982CD  setvar               destination=VAR_0x8004 value=3
+    082982D2  setvar               destination=VAR_0x8005 value=0
+    082982D7  setvar               destination=VAR_0x4009 value=1
+    082982DC  special              SPECIAL_\function=152
+    082982DF  waitstate            
+
+  script 0x082979B0  [ok]
+    082979B0  applymovement        localId=1 movements=[walk_in_place_down]
+    082979B7  waitmovement         localId=0
+    082979BA  compare_var_to_value var=0x4002 value=0
+    082979BF  call_if              condition=1 destination=0x08297AC3
+    082979C5  compare_var_to_value var=0x4002 value=1
+    082979CA  call_if              condition=1 destination=0x08297AE4
+    082979D0  playse               song=223
+    082979D3  call                 destination=0x082986E9
+    082979D8  delay                frames=60
+    082979DB  setvar               destination=VAR_0x8004 value=3
+    082979E0  special              SPECIAL_\function=150
+    082979E3  setvar               destination=VAR_0x8004 value=12
+    082979E8  setvar               destination=VAR_0x8005 value=1
+    082979ED  special              SPECIAL_\function=150
+    082979F0  setvar               destination=VAR_0x8004 value=1
+    082979F5  setvar               destination=VAR_0x8005 value=2
+    082979FA  special              SPECIAL_\function=148
+    082979FD  addvar               destination=VAR_0x800D value=1
+    08297A02  setvar               destination=VAR_0x8004 value=2
+    08297A07  setvar               destination=VAR_0x8005 value=2
+    08297A0C  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08297A11  special              SPECIAL_\function=148
+    08297A14  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297A19  compare_var_to_value var=0x8000 value=4
+    08297A1E  goto_if              condition=1 destination=0x08297A32
+    08297A24  setvar               destination=VAR_0x8006 value=1
+    08297A29  warp                 mapGroup=41 mapNum=11 WARP_ID_NONE=255 -1=5 -1=3
+    08297A31  waitstate            
+
+  script 0x082978D7  [ok]
+    082978D7  applymovement        localId=1 movements=[walk_in_place_down]
+    082978DE  waitmovement         localId=0
+    082978E1  setvar               destination=VAR_0x8004 value=4
+    082978E6  special              SPECIAL_\function=150
+    082978E9  compare_var_to_value var=0x4002 value=0
+    082978EE  call_if              condition=1 destination=0x08297939
+    082978F4  compare_var_to_value var=0x4002 value=1
+    082978F9  call_if              condition=1 destination=0x08297965
+    082978FF  compare_var_to_value var=0x4002 value=2
+    08297904  call_if              condition=1 destination=0x08297991
+    0829790A  playse               song=223
+    0829790D  call                 destination=0x082986E9
+    08297912  delay                frames=60
+    08297915  setvar               destination=VAR_0x8004 value=12
+    0829791A  setvar               destination=VAR_0x8005 value=2
+    0829791F  special              SPECIAL_\function=150
+    08297922  setvar               destination=VAR_0x8004 value=2
+    08297927  setvar               destination=VAR_0x8005 value=0
+    0829792C  setvar               destination=VAR_0x8006 value=4
+    08297931  special              SPECIAL_\function=148
+    08297934  goto                 destination=0x082987B0
+
+  script 0x08297939  [opcode-out-of-range:0xEF]
+    08297939  setvar               destination=VAR_0x8004 value=20
+    0829793E  setvar               destination=VAR_0x8005 value=1
+    08297943  special              SPECIAL_\function=148
+    08297946  message              text="{STR_VAR_2} is the winner!\nCongratulations!"
+    0829794B  dofieldeffect        animation=10632
+    0829794E  gotostd              function=156
+    08297950  pokemartdecoration2  products=2291927081
+    08297955  setflag              flag=0x9C08 (temp)
+    08297958  pokemartdecoration2  products=2291927081
+    0829795D  setflag              flag=0x9C08 (temp)
+    08297960  pokemartdecoration2  products=57018409
+    08297965  setvar               destination=VAR_0x8004 value=20
+    0829796A  setvar               destination=VAR_0x8005 value=0
+    0829796F  special              SPECIAL_\function=148
+    08297972  message              text="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is {STR_VAR_1}!\pCongratulations!"
+
+  script 0x08297965  [opcode-out-of-range:0xEF]
+    08297965  setvar               destination=VAR_0x8004 value=20
+    0829796A  setvar               destination=VAR_0x8005 value=0
+    0829796F  special              SPECIAL_\function=148
+    08297972  message              text="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is {STR_VAR_1}!\pCongratulations!"
+
+  script 0x08297991  [ok]
+    08297991  message              text="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is our very own DOME ACE!\pIt’s TUCKER!\pCongratulations! And thank you!\nLet’s hear it for the DOME ACE, TUCKER!"
+    08297996  givemon              species=?(10645) level=8 item=38265 0=2507737129 0=2507737129 0=41
+    082979A5  gotostd              function=121
+    082979A7  updatemoneybox       0=41 0=8 disable=121
+    082979AB  updatemoneybox       0=41 0=8 disable=102
+    082979AF  return               
+
+  script 0x082987B0  [ok]
+    082987B0  copyvar              destination=VAR_0x800D source=VAR_0x408C
+    082987B5  compare_var_to_value var=0x800D value=1
+    082987BA  goto_if              condition=1 destination=0x082987CA
+    082987C0  warp                 mapGroup=41 mapNum=9 WARP_ID_NONE=255 -1=5 -1=11
+    082987C8  waitstate            
+
+  script 0x08297B8A  [ok]
+    08297B8A  message              text="The bright new hope!\p"
+    08297B8F  hidecoinsbox         x=138 y=41
+    08297B92  gotostd              function=193
+    08297B94  setberrytree         treeId=41 berry=8 growthStage=193
+    08297B98  setberrytree         treeId=41 berry=8 growthStage=193
+    08297B9C  setberrytree         treeId=41 berry=8 growthStage=193
+    08297BA0  setberrytree         treeId=41 berry=8 growthStage=193
+    08297BA4  setberrytree         treeId=41 berry=8 growthStage=102
+    08297BA8  return               
+
+  script 0x08297BA9  [ok]
+    08297BA9  message              text="The rising star!\p"
+    08297BAE  warpmossdeepgym      mapGroup=138 mapNum=41 WARP_ID_NONE=8 -1=35543 -1=2089
+    08297BB6  warpmossdeepgym      mapGroup=138 mapNum=41 WARP_ID_NONE=8 -1=35543 -1=2089
+    08297BBE  warpmossdeepgym      mapGroup=138 mapNum=41 WARP_ID_NONE=8 -1=35543 -1=2089
+    08297BC6  waitmessage          
+    08297BC7  return               
+
+  script 0x08297BC8  [unknown-opcode:0xE9]
+    08297BC8  message              text="Will this TRAINER race to\nthe championship?\p"
+
+  script 0x08297BE7  [ok]
+    08297BE7  message              text="Can the feat of a championship\non the first try be achieved?\p"
+    08297BEC  setvar               destination=10635 value=5640
+    08297BF1  choosecontestmon     
+    08297BF2  setflag              flag=0x1608
+    08297BF5  choosecontestmon     
+    08297BF6  setflag              flag=0x1608
+    08297BF9  choosecontestmon     
+    08297BFA  setflag              flag=0x1608
+    08297BFD  choosecontestmon     
+    08297BFE  setflag              flag=0x1608
+    08297C01  choosecontestmon     
+    08297C02  setflag              flag=0x6608 (temp)
+    08297C05  return               
+
+  script 0x08297C3D  [ok]
+    08297C3D  message              text="Can the loss of the last match\nbe avenged?\p"
+    08297C42  removeobject         localId=10635 mapGroup=8 mapNum=84
+    08297C47  choosecontestmon     
+    08297C48  setflag              flag=0x5408 (temp)
+    08297C4B  choosecontestmon     
+    08297C4C  setflag              flag=0x5408 (temp)
+    08297C4F  choosecontestmon     
+    08297C50  setflag              flag=0x5408 (temp)
+    08297C53  choosecontestmon     
+    08297C54  setflag              flag=0x5408 (temp)
+    08297C57  choosecontestmon     
+    08297C58  setflag              flag=0x6608 (temp)
+    08297C5B  return               
+
+  script 0x08297C5C  [ok]
+    08297C5C  message              text="The TRAINER is on fire for\nthe first championship try!\p"
+    08297C61  bufferitemname       stringVarId=139 item=2089
+    08297C65  bufferitemname       stringVarId=139 item=2089
+    08297C69  bufferitemname       stringVarId=139 item=2089
+    08297C6D  bufferitemname       stringVarId=139 item=2089
+    08297C71  bufferitemname       stringVarId=139 item=2089
+    08297C75  bufferitemname       stringVarId=139 item=2089
+    08297C79  waitmessage          
+    08297C7A  return               
+
+  script 0x08297C7B  [ok]
+    08297C7B  message              text="A win here means this TRAINER\nadvances to the final!\p"
+    08297C80  setvaddress          pointer=3087542667
+    08297C85  choosecontestmon     
+    08297C86  setflag              flag=0xB808 (temp)
+    08297C89  choosecontestmon     
+    08297C8A  setflag              flag=0xB808 (temp)
+    08297C8D  choosecontestmon     
+    08297C8E  setflag              flag=0xB808 (temp)
+    08297C91  choosecontestmon     
+    08297C92  setflag              flag=0xB808 (temp)
+    08297C95  choosecontestmon     
+    08297C96  setflag              flag=0x6608 (temp)
+    08297C99  return               
+
+  script 0x08297C9A  [opcode-out-of-range:0xEE]
+    08297C9A  message              text="Will the long-held dream of\na championship finally come true?\p"
+
+  script 0x08297E21  [ok]
+    08297E21  message              text="The former champion has returned!\p"
+    08297E26  normalmsg            
+    08297E27  startcontest         
+    08297E28  setflag              flag=0xCB08 (temp)
+    08297E2B  startcontest         
+    08297E2C  setflag              flag=0xCB08 (temp)
+    08297E2F  startcontest         
+    08297E30  setflag              flag=0xCB08 (temp)
+    08297E33  startcontest         
+    08297E34  setflag              flag=0xCB08 (temp)
+    08297E37  startcontest         
+    08297E38  setflag              flag=0xCB08 (temp)
+    08297E3B  startcontest         
+    08297E3C  setflag              flag=0x6608 (temp)
+    08297E3F  return               
+
+  script 0x08297E40  [opcode-out-of-range:0xEE]
+    08297E40  message              text="The former toughness has returned!\p"
+
+  script 0x08297E5F  [ok]
+    08297E5F  message              text="Will this TRAINER do as expected\nand advance to the finals?\p"
+    08297E64  loadbytefromptr      destIndex=141 source=2366769193
+    08297E6A  setflag              flag=0x1208
+    08297E6D  showcontestresults   
+    08297E6E  setflag              flag=0x1208
+    08297E71  showcontestresults   
+    08297E72  setflag              flag=0x1208
+    08297E75  showcontestresults   
+    08297E76  setflag              flag=0x1208
+    08297E79  showcontestresults   
+    08297E7A  setflag              flag=0x6608 (temp)
+    08297E7D  return               
+
+  script 0x08297E7E  [ok]
+    08297E7E  message              text="Will the former champ regain\nlost glory?\p"
+    08297E83  applymovement        localId=10637 movements=697126664
+    08297E8A  gotostd              function=79
+    08297E8C  showcontestresults   
+    08297E8D  setflag              flag=0x4F08 (temp)
+    08297E90  showcontestresults   
+    08297E91  setflag              flag=0x4F08 (temp)
+    08297E94  showcontestresults   
+    08297E95  setflag              flag=0x4F08 (temp)
+    08297E98  showcontestresults   
+    08297E99  setflag              flag=0x6608 (temp)
+    08297E9C  return               
+
+  script 0x08297CF5  [ok]
+    08297CF5  call                 destination=0x08297E9D
+    08297CFA  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297CFF  compare_var_to_value var=0x8000 value=0
+    08297D04  goto_if              condition=1 destination=0x08297D2C
+    08297D0A  compare_var_to_value var=0x8000 value=1
+    08297D0F  goto_if              condition=1 destination=0x08297D4B
+    08297D15  compare_var_to_value var=0x8000 value=2
+    08297D1A  goto_if              condition=1 destination=0x08297D6A
+    08297D20  compare_var_to_value var=0x8000 value=3
+    08297D25  goto_if              condition=1 destination=0x08297D89
+    08297D2B  return               
+
+  script 0x08297DA8  [ok]
+    08297DA8  msgbox_multilang     type=0 text_0="Feel the glow of a true master!" text_1="Feel the glow of a true master!" text_2="Feel the glow of a true master!" text_3="Feel the glow of a true master!" text_4="Feel the glow of a true master!" text_5="Feel the glow of a true master!" text_6="Feel the glow of a true master!"
+    08297DC6  callstd              function=MSGBOX_DEFAULT(4)
+    08297DC8  return               
+
+  script 0x08297DC9  [ok]
+    08297DC9  msgbox_multilang     type=0 text_0="Can the win streak be stretched?\nThe confidence is there!" text_1="Can the win streak be stretched?\nThe confidence is there!" text_2="Can the win streak be stretched?\nThe confidence is there!" text_3="Can the win streak be stretched?\nThe confidence is there!" text_4="Can the win streak be stretched?\nThe confidence is there!" text_5="Can the win streak be stretched?\nThe confidence is there!" text_6="Can the win streak be stretched?\nThe confidence is there!"
+    08297DE7  callstd              function=MSGBOX_DEFAULT(4)
+    08297DE9  return               
+
+  script 0x08297D2C  [ok]
+    08297D2C  message              text="The invincible champion!\p"
+    08297D31  dotimebasedevents    
+    08297D32  startcontest         
+    08297D33  setflag              flag=0x2D08
+    08297D36  startcontest         
+    08297D37  setflag              flag=0x2D08
+    08297D3A  startcontest         
+    08297D3B  setflag              flag=0x2D08
+    08297D3E  startcontest         
+    08297D3F  setflag              flag=0x2D08
+    08297D42  startcontest         
+    08297D43  setflag              flag=0x2D08
+    08297D46  startcontest         
+    08297D47  setflag              flag=0x6608 (temp)
+    08297D4A  return               
+
+  script 0x08297D4B  [ok]
+    08297D4B  message              text="Can anyone hope to beat this\nTRAINER?\p"
+    08297D50  checkitem            itemId=item_10636(10636) quantity=18184
+    08297D55  startcontest         
+    08297D56  setflag              flag=0x4708 (temp)
+    08297D59  startcontest         
+    08297D5A  setflag              flag=0x4708 (temp)
+    08297D5D  startcontest         
+    08297D5E  setflag              flag=0x4708 (temp)
+    08297D61  startcontest         
+    08297D62  setflag              flag=0x4708 (temp)
+    08297D65  startcontest         
+    08297D66  setflag              flag=0x6608 (temp)
+    08297D69  return               
+
+  script 0x08297D6A  [ok]
+    08297D6A  message              text="Do battles exist solely for\nthis TRAINER?\p"
+    08297D6F  yesnobox             x=140 y=41
+    08297D72  gotostd              function=110
+    08297D74  startcontest         
+    08297D75  setflag              flag=0x6E08 (temp)
+    08297D78  startcontest         
+    08297D79  setflag              flag=0x6E08 (temp)
+    08297D7C  startcontest         
+    08297D7D  setflag              flag=0x6E08 (temp)
+    08297D80  startcontest         
+    08297D81  setflag              flag=0x6E08 (temp)
+    08297D84  startcontest         
+    08297D85  setflag              flag=0x6608 (temp)
+    08297D88  return               
+
+  script 0x08297D89  [ok]
+    08297D89  message              text="The current champion aiming to\nretain the title!\p"
+    08297D8E  setflashlevel        level=10636
+    08297D91  gotostd              function=153
+    08297D93  startcontest         
+    08297D94  setflag              flag=0x9908 (temp)
+    08297D97  startcontest         
+    08297D98  setflag              flag=0x9908 (temp)
+    08297D9B  startcontest         
+    08297D9C  setflag              flag=0x9908 (temp)
+    08297D9F  startcontest         
+    08297DA0  setflag              flag=0x9908 (temp)
+    08297DA3  startcontest         
+    08297DA4  setflag              flag=0x6608 (temp)
+    08297DA7  return               
+
+  script 0x08297EDC  [ok]
+    08297EDC  msgbox_multilang     type=0 text_0="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_1="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_2="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_3="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_4="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_5="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!" text_6="And now… The TRAINER standing in\n{PLAYER}’s record-setting path…\pYes! The one and only!\nThe BATTLE DOME COMMISSIONER!\pOur very own DOME ACE!\pMake way for TUCKER!"
+    08297EFA  callstd              function=MSGBOX_DEFAULT(4)
+    08297EFC  goto                 destination=0x08297F21
+
+  script 0x08297F01  [ok]
+    08297F01  msgbox_multilang     type=0 text_0="Ladies and gentlemen!\nBoys, girls, and POKéMON!\pFinally!\nFinally, the legend has returned!\pYes, the name of that legend!\nOur very own DOME ACE!\pIt’s none other than TUCKER!" text_1="Ladies and gentlemen!\nBoys, girls, and POKéMON!\pFinally!\nFinally, the legend has returned!\pYes, the name of that legend!\nOur very own DOME ACE!\pIt’s none other than TUCKER!" text_2="Ladies and gentlemen!\nBoys, girls, and POKéMON!\pFinally!\nFinally, the legend has returned!\pYes, the name of that legend!\nOur very own DOME ACE!\pIt’s none other than TUCKER!" text_3="Ladies and gentlemen!\nBoys, girls, and POKéMON!\pFinally!\nFinally, the legend has returned!\pYes, the name of that legend!\nOur very own DOME ACE!\pIt’s none other than TUCKER!" text_4="Ladies and gentlemen!\nBoys, girls, and POKéMON!\pFinally!\nFinally, the legend has returned!\pYes, the name of that legend!\nOur very own DOME ACE!\pIt’s none other than TUCKER!" text_5="Ladies and gentlemen!\nBoys, girls, and POKéMON!\pFinally!\nFinally, the legend has returned!\pYes, the name of that legend!\nOur very own DOME ACE!\pIt’s none other than TUCKER!" text_6="Ladies and gentlemen!\nBoys, girls, and POKéMON!\pFinally!\nFinally, the legend has returned!\pYes, the name of that legend!\nOur very own DOME ACE!\pIt’s none other than TUCKER!"
+    08297F1F  callstd              function=MSGBOX_DEFAULT(4)
+    08297F21  closemessage         
+    08297F22  applymovement        localId=2 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_8 disable_jump_landing_ground_effect jump_in_place_down delay_4 jump_in_place_down enable_jump_landing_ground_effect]
+    08297F29  applymovement        localId=1 movements=[delay_16 delay_16 walk_left walk_left walk_in_place_faster_right delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 ...]
+    08297F30  applymovement        localId=15 movements=[set_visible walk_up walk_up walk_up face_left delay_8 delay_4 face_down delay_8 delay_4 face_right delay_8 delay_4 face_up delay_8 delay_4 face_left delay_16 walk_fast_up walk_fast_up face_left delay_8 delay_4 face_down delay_8 delay_4 face_right delay_8 delay_4 face_up delay_8 delay_4 ...]
+    08297F37  playse               song=223
+    08297F3A  call                 destination=0x082986E9
+    08297F3F  waitse               
+    08297F40  playse               song=223
+    08297F43  call                 destination=0x082986E9
+    08297F48  waitse               
+    08297F49  playse               song=223
+    08297F4C  call                 destination=0x082986E9
+    08297F51  waitse               
+    08297F52  playse               song=223
+    08297F55  call                 destination=0x082986E9
+    08297F5A  waitse               
+    08297F5B  playse               song=223
+    08297F5E  call                 destination=0x082986E9
+    08297F63  waitse               
+    08297F64  waitmovement         localId=0
+    08297F67  message              text="Spectators: TUCKER! TUCKER!\nTUCKER! TUCKER! TUCKER!"
+    08297F6C  fadedefaultbgm       
+    08297F6D  contestlinktransfer  
+    08297F6E  setflag              flag=0x3508
+    08297F71  contestlinktransfer  
+    08297F72  setflag              flag=0x3508
+    08297F75  contestlinktransfer  
+    08297F76  setflag              flag=0x3508
+    08297F79  contestlinktransfer  
+    08297F7A  setflag              flag=0x3508
+    08297F7D  contestlinktransfer  
+    08297F7E  setflag              flag=0x3508
+    08297F81  contestlinktransfer  
+    08297F82  setflag              flag=0x6608 (temp)
+    08297F85  playse               song=223
+    08297F88  call                 destination=0x082986E9
+    08297F8D  waitse               
+    08297F8E  copyvar              destination=VAR_0x8000 source=VAR_0x400E
+    08297F93  compare_var_to_value var=0x8000 value=2
+    08297F98  goto_if              condition=1 destination=0x082980FE
+    08297F9E  compare_var_to_value var=0x8000 value=3
+    08297FA3  goto_if              condition=1 destination=0x08297FF9
+    08297FA9  compare_var_to_value var=0x8000 value=4
+    08297FAE  goto_if              condition=1 destination=0x08298143
+    08297FB4  setvar               destination=VAR_0x8004 value=1
+    08297FB9  setvar               destination=VAR_0x8005 value=7
+    08297FBE  special              SPECIAL_\function=148
+    08297FC1  compare_var_to_value var=0x800D value=0
+    08297FC6  goto_if              condition=5 destination=0x08297FF9
+    08297FCC  msgbox_multilang     type=0 text_0="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_1="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_2="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_3="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_4="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_5="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_6="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!"
+    08297FEA  callstd              function=MSGBOX_DEFAULT(4)
+    08297FEC  setvar               destination=VAR_0x8004 value=2
+    08297FF1  setvar               destination=VAR_0x8005 value=7
+    08297FF6  special              SPECIAL_\function=148
+    08297FF9  msgbox_multilang     type=0 text_0="Your strategy!\nLet’s see it!" text_1="Your strategy!\nLet’s see it!" text_2="Your strategy!\nLet’s see it!" text_3="Your strategy!\nLet’s see it!" text_4="Your strategy!\nLet’s see it!" text_5="Your strategy!\nLet’s see it!" text_6="Your strategy!\nLet’s see it!"
+    08298017  callstd              function=MSGBOX_DEFAULT(4)
+    08298019  call                 destination=0x08298248
+    0829801E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08298023  compare_var_to_value var=0x8000 value=2
+    08298028  goto_if              condition=1 destination=0x08298280
+    0829802E  compare_var_to_value var=0x8000 value=9
+    08298033  goto_if              condition=1 destination=0x08298280
+    08298039  compare_var_to_value var=0x8000 value=3
+    0829803E  goto_if              condition=1 destination=0x082982AE
+    08298044  msgbox_multilang     type=0 text_0="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_1="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_2="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_3="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_4="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_5="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_6="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!"
+    08298062  callstd              function=MSGBOX_DEFAULT(4)
+    08298064  setvar               destination=VAR_0x8004 value=12
+    08298069  setvar               destination=VAR_0x8005 value=1
+    0829806E  special              SPECIAL_\function=150
+    08298071  setvar               destination=VAR_0x8004 value=12
+    08298076  special              SPECIAL_\function=148
+    08298079  compare_var_to_value var=0x800D value=0
+    0829807E  goto_if              condition=5 destination=0x08297A32
+    08298084  closemessage         
+    08298085  applymovement        localId=15 movements=[walk_left walk_left]
+    0829808C  waitmovement         localId=0
+    0829808F  msgbox_multilang     type=0 text_0="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_1="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_2="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_3="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_4="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_5="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_6="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS."
+    082980AD  callstd              function=MSGBOX_DEFAULT(4)
+    082980AF  playfanfare          song=466
+    082980B2  message              text="The Tactics Symbol was embossed on\nthe FRONTIER PASS!"
+    082980B7  setobjectmovementtype localId=10640 movementType=8
+    082980BB  setobjectmovementtype localId=10640 movementType=8
+    082980BF  setobjectmovementtype localId=10640 movementType=8
+    082980C3  setobjectmovementtype localId=10640 movementType=8
+    082980C7  setobjectmovementtype localId=10640 movementType=8
+    082980CB  setobjectmovementtype localId=10640 movementType=8
+    082980CF  waitmessage          
+    082980D0  waitfanfare          
+    082980D1  setvar               destination=VAR_0x8004 value=13
+    082980D6  special              SPECIAL_\function=148
+    082980D9  msgbox_multilang     type=0 text_0="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_1="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_2="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_3="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_4="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_5="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_6="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…"
+    082980F7  callstd              function=MSGBOX_DEFAULT(4)
+    082980F9  goto                 destination=0x08297A32
+
+  script 0x08297F21  [ok]
+    08297F21  closemessage         
+    08297F22  applymovement        localId=2 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_8 disable_jump_landing_ground_effect jump_in_place_down delay_4 jump_in_place_down enable_jump_landing_ground_effect]
+    08297F29  applymovement        localId=1 movements=[delay_16 delay_16 walk_left walk_left walk_in_place_faster_right delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 ...]
+    08297F30  applymovement        localId=15 movements=[set_visible walk_up walk_up walk_up face_left delay_8 delay_4 face_down delay_8 delay_4 face_right delay_8 delay_4 face_up delay_8 delay_4 face_left delay_16 walk_fast_up walk_fast_up face_left delay_8 delay_4 face_down delay_8 delay_4 face_right delay_8 delay_4 face_up delay_8 delay_4 ...]
+    08297F37  playse               song=223
+    08297F3A  call                 destination=0x082986E9
+    08297F3F  waitse               
+    08297F40  playse               song=223
+    08297F43  call                 destination=0x082986E9
+    08297F48  waitse               
+    08297F49  playse               song=223
+    08297F4C  call                 destination=0x082986E9
+    08297F51  waitse               
+    08297F52  playse               song=223
+    08297F55  call                 destination=0x082986E9
+    08297F5A  waitse               
+    08297F5B  playse               song=223
+    08297F5E  call                 destination=0x082986E9
+    08297F63  waitse               
+    08297F64  waitmovement         localId=0
+    08297F67  message              text="Spectators: TUCKER! TUCKER!\nTUCKER! TUCKER! TUCKER!"
+    08297F6C  fadedefaultbgm       
+    08297F6D  contestlinktransfer  
+    08297F6E  setflag              flag=0x3508
+    08297F71  contestlinktransfer  
+    08297F72  setflag              flag=0x3508
+    08297F75  contestlinktransfer  
+    08297F76  setflag              flag=0x3508
+    08297F79  contestlinktransfer  
+    08297F7A  setflag              flag=0x3508
+    08297F7D  contestlinktransfer  
+    08297F7E  setflag              flag=0x3508
+    08297F81  contestlinktransfer  
+    08297F82  setflag              flag=0x6608 (temp)
+    08297F85  playse               song=223
+    08297F88  call                 destination=0x082986E9
+    08297F8D  waitse               
+    08297F8E  copyvar              destination=VAR_0x8000 source=VAR_0x400E
+    08297F93  compare_var_to_value var=0x8000 value=2
+    08297F98  goto_if              condition=1 destination=0x082980FE
+    08297F9E  compare_var_to_value var=0x8000 value=3
+    08297FA3  goto_if              condition=1 destination=0x08297FF9
+    08297FA9  compare_var_to_value var=0x8000 value=4
+    08297FAE  goto_if              condition=1 destination=0x08298143
+    08297FB4  setvar               destination=VAR_0x8004 value=1
+    08297FB9  setvar               destination=VAR_0x8005 value=7
+    08297FBE  special              SPECIAL_\function=148
+    08297FC1  compare_var_to_value var=0x800D value=0
+    08297FC6  goto_if              condition=5 destination=0x08297FF9
+    08297FCC  msgbox_multilang     type=0 text_0="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_1="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_2="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_3="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_4="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_5="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!" text_6="TUCKER: Ahahah!\pDo you hear it? This crowd!\nThey’re all itching to see our match!\pAhahah!\pI bet you’re twitching all over from\nthe tension of getting to battle me!\pBut don’t you worry about a thing!\pI’m the no. 1 star of the BATTLE DOME!\nI, TUCKER the DOME ACE, will bathe you\pin my brilliant glow!"
+    08297FEA  callstd              function=MSGBOX_DEFAULT(4)
+    08297FEC  setvar               destination=VAR_0x8004 value=2
+    08297FF1  setvar               destination=VAR_0x8005 value=7
+    08297FF6  special              SPECIAL_\function=148
+    08297FF9  msgbox_multilang     type=0 text_0="Your strategy!\nLet’s see it!" text_1="Your strategy!\nLet’s see it!" text_2="Your strategy!\nLet’s see it!" text_3="Your strategy!\nLet’s see it!" text_4="Your strategy!\nLet’s see it!" text_5="Your strategy!\nLet’s see it!" text_6="Your strategy!\nLet’s see it!"
+    08298017  callstd              function=MSGBOX_DEFAULT(4)
+    08298019  call                 destination=0x08298248
+    0829801E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08298023  compare_var_to_value var=0x8000 value=2
+    08298028  goto_if              condition=1 destination=0x08298280
+    0829802E  compare_var_to_value var=0x8000 value=9
+    08298033  goto_if              condition=1 destination=0x08298280
+    08298039  compare_var_to_value var=0x8000 value=3
+    0829803E  goto_if              condition=1 destination=0x082982AE
+    08298044  msgbox_multilang     type=0 text_0="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_1="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_2="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_3="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_4="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_5="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_6="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!"
+    08298062  callstd              function=MSGBOX_DEFAULT(4)
+    08298064  setvar               destination=VAR_0x8004 value=12
+    08298069  setvar               destination=VAR_0x8005 value=1
+    0829806E  special              SPECIAL_\function=150
+    08298071  setvar               destination=VAR_0x8004 value=12
+    08298076  special              SPECIAL_\function=148
+    08298079  compare_var_to_value var=0x800D value=0
+    0829807E  goto_if              condition=5 destination=0x08297A32
+    08298084  closemessage         
+    08298085  applymovement        localId=15 movements=[walk_left walk_left]
+    0829808C  waitmovement         localId=0
+    0829808F  msgbox_multilang     type=0 text_0="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_1="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_2="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_3="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_4="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_5="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_6="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS."
+    082980AD  callstd              function=MSGBOX_DEFAULT(4)
+    082980AF  playfanfare          song=466
+    082980B2  message              text="The Tactics Symbol was embossed on\nthe FRONTIER PASS!"
+    082980B7  setobjectmovementtype localId=10640 movementType=8
+    082980BB  setobjectmovementtype localId=10640 movementType=8
+    082980BF  setobjectmovementtype localId=10640 movementType=8
+    082980C3  setobjectmovementtype localId=10640 movementType=8
+    082980C7  setobjectmovementtype localId=10640 movementType=8
+    082980CB  setobjectmovementtype localId=10640 movementType=8
+    082980CF  waitmessage          
+    082980D0  waitfanfare          
+    082980D1  setvar               destination=VAR_0x8004 value=13
+    082980D6  special              SPECIAL_\function=148
+    082980D9  msgbox_multilang     type=0 text_0="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_1="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_2="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_3="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_4="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_5="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_6="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…"
+    082980F7  callstd              function=MSGBOX_DEFAULT(4)
+    082980F9  goto                 destination=0x08297A32
+
+  script 0x08297AC3  [ok]
+    08297AC3  msgbox_multilang     type=0 text_0="{PLAYER} is the winner!\nCongratulations!" text_1="{PLAYER} is the winner!\nCongratulations!" text_2="{PLAYER} is the winner!\nCongratulations!" text_3="{PLAYER} is the winner!\nCongratulations!" text_4="{PLAYER} is the winner!\nCongratulations!" text_5="{PLAYER} is the winner!\nCongratulations!" text_6="{PLAYER} is the winner!\nCongratulations!"
+    08297AE1  callstd              function=MSGBOX_DEFAULT(4)
+    08297AE3  return               
+
+  script 0x08297AE4  [ok]
+    08297AE4  msgbox_multilang     type=0 text_0="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is {PLAYER}!\pCongratulations!" text_1="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is {PLAYER}!\pCongratulations!" text_2="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is {PLAYER}!\pCongratulations!" text_3="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is {PLAYER}!\pCongratulations!" text_4="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is {PLAYER}!\pCongratulations!" text_5="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is {PLAYER}!\pCongratulations!" text_6="The REFEREES have reached\na decision!\pThe winner is…\nOh, my goodness!\pThe winner is {PLAYER}!\pCongratulations!"
+    08297B02  callstd              function=MSGBOX_DEFAULT(4)
+    08297B04  return               
+
+  script 0x08297A32  [ok]
+    08297A32  applymovement        localId=13 movements=[walk_up]
+    08297A39  waitmovement         localId=0
+    08297A3C  setvar               destination=VAR_0x8004 value=1
+    08297A41  setvar               destination=VAR_0x8005 value=1
+    08297A46  special              SPECIAL_\function=148
+    08297A49  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08297A4E  compare_var_to_value var=0x8000 value=1
+    08297A53  goto_if              condition=1 destination=0x08297A7E
+    08297A59  msgbox_multilang     type=0 text_0="{PLAYER} is the Level 50\nBattle Tournament Champion!\pCongratulations!" text_1="{PLAYER} is the Level 50\nBattle Tournament Champion!\pCongratulations!" text_2="{PLAYER} is the Level 50\nBattle Tournament Champion!\pCongratulations!" text_3="{PLAYER} is the Level 50\nBattle Tournament Champion!\pCongratulations!" text_4="{PLAYER} is the Level 50\nBattle Tournament Champion!\pCongratulations!" text_5="{PLAYER} is the Level 50\nBattle Tournament Champion!\pCongratulations!" text_6="{PLAYER} is the Level 50\nBattle Tournament Champion!\pCongratulations!"
+    08297A77  callstd              function=MSGBOX_DEFAULT(4)
+    08297A79  goto                 destination=0x08297A9E
+
+  script 0x082987CA  [ok]
+    082987CA  warp                 mapGroup=41 mapNum=9 WARP_ID_NONE=255 -1=17 -1=11
+    082987D2  waitstate            
+
+  script 0x082980FE  [ok]
+    082980FE  setvar               destination=VAR_0x8004 value=1
+    08298103  setvar               destination=VAR_0x8005 value=7
+    08298108  special              SPECIAL_\function=148
+    0829810B  compare_var_to_value var=0x800D value=0
+    08298110  goto_if              condition=5 destination=0x08298143
+    08298116  msgbox_multilang     type=0 text_0="TUCKER: Ah…\nThe pummeling roar of the crowd…\pTheir furnace-like heat of excitement…\pThis is a wonderful place…\pTo the crowd, I am the DOME ACE…\nI represent their hopes and dreams…\pI must never fade from their sight…\pI must burn!\nBrighter and more brilliant!\pI must light all that gather here!" text_1="TUCKER: Ah…\nThe pummeling roar of the crowd…\pTheir furnace-like heat of excitement…\pThis is a wonderful place…\pTo the crowd, I am the DOME ACE…\nI represent their hopes and dreams…\pI must never fade from their sight…\pI must burn!\nBrighter and more brilliant!\pI must light all that gather here!" text_2="TUCKER: Ah…\nThe pummeling roar of the crowd…\pTheir furnace-like heat of excitement…\pThis is a wonderful place…\pTo the crowd, I am the DOME ACE…\nI represent their hopes and dreams…\pI must never fade from their sight…\pI must burn!\nBrighter and more brilliant!\pI must light all that gather here!" text_3="TUCKER: Ah…\nThe pummeling roar of the crowd…\pTheir furnace-like heat of excitement…\pThis is a wonderful place…\pTo the crowd, I am the DOME ACE…\nI represent their hopes and dreams…\pI must never fade from their sight…\pI must burn!\nBrighter and more brilliant!\pI must light all that gather here!" text_4="TUCKER: Ah…\nThe pummeling roar of the crowd…\pTheir furnace-like heat of excitement…\pThis is a wonderful place…\pTo the crowd, I am the DOME ACE…\nI represent their hopes and dreams…\pI must never fade from their sight…\pI must burn!\nBrighter and more brilliant!\pI must light all that gather here!" text_5="TUCKER: Ah…\nThe pummeling roar of the crowd…\pTheir furnace-like heat of excitement…\pThis is a wonderful place…\pTo the crowd, I am the DOME ACE…\nI represent their hopes and dreams…\pI must never fade from their sight…\pI must burn!\nBrighter and more brilliant!\pI must light all that gather here!" text_6="TUCKER: Ah…\nThe pummeling roar of the crowd…\pTheir furnace-like heat of excitement…\pThis is a wonderful place…\pTo the crowd, I am the DOME ACE…\nI represent their hopes and dreams…\pI must never fade from their sight…\pI must burn!\nBrighter and more brilliant!\pI must light all that gather here!"
+    08298134  callstd              function=MSGBOX_DEFAULT(4)
+    08298136  setvar               destination=VAR_0x8004 value=2
+    0829813B  setvar               destination=VAR_0x8005 value=7
+    08298140  special              SPECIAL_\function=148
+    08298143  msgbox_multilang     type=0 text_0="I will unleash all the power that\nI possess! Right here and now!" text_1="I will unleash all the power that\nI possess! Right here and now!" text_2="I will unleash all the power that\nI possess! Right here and now!" text_3="I will unleash all the power that\nI possess! Right here and now!" text_4="I will unleash all the power that\nI possess! Right here and now!" text_5="I will unleash all the power that\nI possess! Right here and now!" text_6="I will unleash all the power that\nI possess! Right here and now!"
+    08298161  callstd              function=MSGBOX_DEFAULT(4)
+    08298163  call                 destination=0x08298248
+    08298168  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829816D  compare_var_to_value var=0x8000 value=2
+    08298172  goto_if              condition=1 destination=0x08298280
+    08298178  compare_var_to_value var=0x8000 value=9
+    0829817D  goto_if              condition=1 destination=0x08298280
+    08298183  compare_var_to_value var=0x8000 value=3
+    08298188  goto_if              condition=1 destination=0x082982AE
+    0829818E  msgbox_multilang     type=0 text_0="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_1="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_2="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_3="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_4="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_5="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_6="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!"
+    082981AC  callstd              function=MSGBOX_DEFAULT(4)
+    082981AE  setvar               destination=VAR_0x8004 value=12
+    082981B3  setvar               destination=VAR_0x8005 value=1
+    082981B8  special              SPECIAL_\function=150
+    082981BB  setvar               destination=VAR_0x8004 value=12
+    082981C0  special              SPECIAL_\function=148
+    082981C3  compare_var_to_value var=0x800D value=2
+    082981C8  goto_if              condition=1 destination=0x08297A32
+    082981CE  closemessage         
+    082981CF  applymovement        localId=15 movements=[walk_left walk_left]
+    082981D6  waitmovement         localId=0
+    082981D9  msgbox_multilang     type=0 text_0="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_1="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_2="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_3="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_4="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_5="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_6="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?"
+    082981F7  callstd              function=MSGBOX_DEFAULT(4)
+    082981F9  playfanfare          song=466
+    082981FC  message              text="The Tactics Symbol took on\na golden shine!"
+    08298201  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298205  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298209  buffertrainerclassname stringVarId=147 trainerId=2089
+    0829820D  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298211  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298215  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298219  waitmessage          
+    0829821A  waitfanfare          
+    0829821B  setvar               destination=VAR_0x8004 value=13
+    08298220  special              SPECIAL_\function=148
+    08298223  msgbox_multilang     type=0 text_0="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_1="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_2="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_3="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_4="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_5="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_6="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!"
+    08298241  callstd              function=MSGBOX_DEFAULT(4)
+    08298243  goto                 destination=0x08297A32
+
+  script 0x08297FF9  [ok]
+    08297FF9  msgbox_multilang     type=0 text_0="Your strategy!\nLet’s see it!" text_1="Your strategy!\nLet’s see it!" text_2="Your strategy!\nLet’s see it!" text_3="Your strategy!\nLet’s see it!" text_4="Your strategy!\nLet’s see it!" text_5="Your strategy!\nLet’s see it!" text_6="Your strategy!\nLet’s see it!"
+    08298017  callstd              function=MSGBOX_DEFAULT(4)
+    08298019  call                 destination=0x08298248
+    0829801E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08298023  compare_var_to_value var=0x8000 value=2
+    08298028  goto_if              condition=1 destination=0x08298280
+    0829802E  compare_var_to_value var=0x8000 value=9
+    08298033  goto_if              condition=1 destination=0x08298280
+    08298039  compare_var_to_value var=0x8000 value=3
+    0829803E  goto_if              condition=1 destination=0x082982AE
+    08298044  msgbox_multilang     type=0 text_0="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_1="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_2="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_3="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_4="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_5="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_6="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!"
+    08298062  callstd              function=MSGBOX_DEFAULT(4)
+    08298064  setvar               destination=VAR_0x8004 value=12
+    08298069  setvar               destination=VAR_0x8005 value=1
+    0829806E  special              SPECIAL_\function=150
+    08298071  setvar               destination=VAR_0x8004 value=12
+    08298076  special              SPECIAL_\function=148
+    08298079  compare_var_to_value var=0x800D value=0
+    0829807E  goto_if              condition=5 destination=0x08297A32
+    08298084  closemessage         
+    08298085  applymovement        localId=15 movements=[walk_left walk_left]
+    0829808C  waitmovement         localId=0
+    0829808F  msgbox_multilang     type=0 text_0="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_1="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_2="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_3="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_4="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_5="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS." text_6="TUCKER: Rules are rules!\nLet me see your FRONTIER PASS."
+    082980AD  callstd              function=MSGBOX_DEFAULT(4)
+    082980AF  playfanfare          song=466
+    082980B2  message              text="The Tactics Symbol was embossed on\nthe FRONTIER PASS!"
+    082980B7  setobjectmovementtype localId=10640 movementType=8
+    082980BB  setobjectmovementtype localId=10640 movementType=8
+    082980BF  setobjectmovementtype localId=10640 movementType=8
+    082980C3  setobjectmovementtype localId=10640 movementType=8
+    082980C7  setobjectmovementtype localId=10640 movementType=8
+    082980CB  setobjectmovementtype localId=10640 movementType=8
+    082980CF  waitmessage          
+    082980D0  waitfanfare          
+    082980D1  setvar               destination=VAR_0x8004 value=13
+    082980D6  special              SPECIAL_\function=148
+    082980D9  msgbox_multilang     type=0 text_0="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_1="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_2="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_3="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_4="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_5="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…" text_6="… … … … … …\pI sorely underestimated you. I won’t\nmake the same mistake next time…"
+    082980F7  callstd              function=MSGBOX_DEFAULT(4)
+    082980F9  goto                 destination=0x08297A32
+
+  script 0x08298143  [ok]
+    08298143  msgbox_multilang     type=0 text_0="I will unleash all the power that\nI possess! Right here and now!" text_1="I will unleash all the power that\nI possess! Right here and now!" text_2="I will unleash all the power that\nI possess! Right here and now!" text_3="I will unleash all the power that\nI possess! Right here and now!" text_4="I will unleash all the power that\nI possess! Right here and now!" text_5="I will unleash all the power that\nI possess! Right here and now!" text_6="I will unleash all the power that\nI possess! Right here and now!"
+    08298161  callstd              function=MSGBOX_DEFAULT(4)
+    08298163  call                 destination=0x08298248
+    08298168  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829816D  compare_var_to_value var=0x8000 value=2
+    08298172  goto_if              condition=1 destination=0x08298280
+    08298178  compare_var_to_value var=0x8000 value=9
+    0829817D  goto_if              condition=1 destination=0x08298280
+    08298183  compare_var_to_value var=0x8000 value=3
+    08298188  goto_if              condition=1 destination=0x082982AE
+    0829818E  msgbox_multilang     type=0 text_0="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_1="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_2="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_3="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_4="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_5="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!" text_6="Unbelievable! It’s incredible!\nThe victor is {PLAYER}!"
+    082981AC  callstd              function=MSGBOX_DEFAULT(4)
+    082981AE  setvar               destination=VAR_0x8004 value=12
+    082981B3  setvar               destination=VAR_0x8005 value=1
+    082981B8  special              SPECIAL_\function=150
+    082981BB  setvar               destination=VAR_0x8004 value=12
+    082981C0  special              SPECIAL_\function=148
+    082981C3  compare_var_to_value var=0x800D value=2
+    082981C8  goto_if              condition=1 destination=0x08297A32
+    082981CE  closemessage         
+    082981CF  applymovement        localId=15 movements=[walk_left walk_left]
+    082981D6  waitmovement         localId=0
+    082981D9  msgbox_multilang     type=0 text_0="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_1="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_2="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_3="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_4="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_5="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?" text_6="TUCKER: You’re genuinely fantastic!\pNever before! I haven’t ever lost in the\ntimes I’ve had to unleash my power.\pYes, quite fantastic!\nYour FRONTIER PASS, please?"
+    082981F7  callstd              function=MSGBOX_DEFAULT(4)
+    082981F9  playfanfare          song=466
+    082981FC  message              text="The Tactics Symbol took on\na golden shine!"
+    08298201  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298205  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298209  buffertrainerclassname stringVarId=147 trainerId=2089
+    0829820D  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298211  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298215  buffertrainerclassname stringVarId=147 trainerId=2089
+    08298219  waitmessage          
+    0829821A  waitfanfare          
+    0829821B  setvar               destination=VAR_0x8004 value=13
+    08298220  special              SPECIAL_\function=148
+    08298223  msgbox_multilang     type=0 text_0="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_1="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_2="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_3="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_4="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_5="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!" text_6="You’re strong, but above all,\nyou have a unique charm!\pIn you, I see a definite potential for\na superstar like me.\pI will very much look forward to\nour next encounter!"
+    08298241  callstd              function=MSGBOX_DEFAULT(4)
+    08298243  goto                 destination=0x08297A32
+
+  script 0x08298248  [ok]
+    08298248  msgbox_multilang     type=0 text_0="The final match!\p{PLAYER} versus the DOME ACE, TUCKER!\pLet the battle begin!" text_1="The final match!\p{PLAYER} versus the DOME ACE, TUCKER!\pLet the battle begin!" text_2="The final match!\p{PLAYER} versus the DOME ACE, TUCKER!\pLet the battle begin!" text_3="The final match!\p{PLAYER} versus the DOME ACE, TUCKER!\pLet the battle begin!" text_4="The final match!\p{PLAYER} versus the DOME ACE, TUCKER!\pLet the battle begin!" text_5="The final match!\p{PLAYER} versus the DOME ACE, TUCKER!\pLet the battle begin!" text_6="The final match!\p{PLAYER} versus the DOME ACE, TUCKER!\pLet the battle begin!"
+    08298266  callstd              function=MSGBOX_DEFAULT(4)
+    08298268  closemessage         
+    08298269  applymovement        localId=13 movements=[walk_right]
+    08298270  applymovement        localId=15 movements=[walk_left]
+    08298277  waitmovement         localId=0
+    0829827A  call                 destination=0x082982B8
+    0829827F  return               
+
+  script 0x08298280  [ok]
+    08298280  msgbox_multilang     type=0 text_0="The winner is TUCKER!\nThe DOME ACE has prevailed!\pCongratulations, TUCKER!" text_1="The winner is TUCKER!\nThe DOME ACE has prevailed!\pCongratulations, TUCKER!" text_2="The winner is TUCKER!\nThe DOME ACE has prevailed!\pCongratulations, TUCKER!" text_3="The winner is TUCKER!\nThe DOME ACE has prevailed!\pCongratulations, TUCKER!" text_4="The winner is TUCKER!\nThe DOME ACE has prevailed!\pCongratulations, TUCKER!" text_5="The winner is TUCKER!\nThe DOME ACE has prevailed!\pCongratulations, TUCKER!" text_6="The winner is TUCKER!\nThe DOME ACE has prevailed!\pCongratulations, TUCKER!"
+    0829829E  callstd              function=MSGBOX_DEFAULT(4)
+    082982A0  playse               song=223
+    082982A3  call                 destination=0x082986E9
+    082982A8  waitse               
+    082982A9  goto                 destination=0x08297915
+
+  script 0x082982AE  [ok]
+    082982AE  setvar               destination=VAR_0x4002 value=2
+    082982B3  goto                 destination=0x08297867
+
+  script 0x08297A7E  [ok]
+    08297A7E  msgbox_multilang     type=0 text_0="{PLAYER} is the Open Level\nBattle Tournament Champion!\pCongratulations!" text_1="{PLAYER} is the Open Level\nBattle Tournament Champion!\pCongratulations!" text_2="{PLAYER} is the Open Level\nBattle Tournament Champion!\pCongratulations!" text_3="{PLAYER} is the Open Level\nBattle Tournament Champion!\pCongratulations!" text_4="{PLAYER} is the Open Level\nBattle Tournament Champion!\pCongratulations!" text_5="{PLAYER} is the Open Level\nBattle Tournament Champion!\pCongratulations!" text_6="{PLAYER} is the Open Level\nBattle Tournament Champion!\pCongratulations!"
+    08297A9C  callstd              function=MSGBOX_DEFAULT(4)
+    08297A9E  special              SPECIAL_\function=321
+    08297AA1  playse               song=223
+    08297AA4  call                 destination=0x082986E9
+    08297AA9  delay                frames=60
+    08297AAC  setvar               destination=VAR_0x8004 value=2
+    08297AB1  setvar               destination=VAR_0x8005 value=0
+    08297AB6  setvar               destination=VAR_0x8006 value=3
+    08297ABB  special              SPECIAL_\function=148
+    08297ABE  goto                 destination=0x082987B0
+
+  script 0x08297A9E  [ok]
+    08297A9E  special              SPECIAL_\function=321
+    08297AA1  playse               song=223
+    08297AA4  call                 destination=0x082986E9
+    08297AA9  delay                frames=60
+    08297AAC  setvar               destination=VAR_0x8004 value=2
+    08297AB1  setvar               destination=VAR_0x8005 value=0
+    08297AB6  setvar               destination=VAR_0x8006 value=3
+    08297ABB  special              SPECIAL_\function=148
+    08297ABE  goto                 destination=0x082987B0
+
+  script 0x08297915  [ok]
+    08297915  setvar               destination=VAR_0x8004 value=12
+    0829791A  setvar               destination=VAR_0x8005 value=2
+    0829791F  special              SPECIAL_\function=150
+    08297922  setvar               destination=VAR_0x8004 value=2
+    08297927  setvar               destination=VAR_0x8005 value=0
+    0829792C  setvar               destination=VAR_0x8006 value=4
+    08297931  special              SPECIAL_\function=148
+    08297934  goto                 destination=0x082987B0
+
+  script 0x08297867  [ok]
+    08297867  msgbox_multilang     type=0 text_0="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_1="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_2="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_3="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_4="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_5="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way." text_6="What an unbelievable finish!\nWe have a double knockout!\pIn this event, the Battle Tournament\nrules call for a REFEREE’S decision.\pPlease wait while the judging\nis under way."
+    08297885  callstd              function=MSGBOX_DEFAULT(4)
+    08297887  closemessage         
+    08297888  playse               song=223
+    0829788B  call                 destination=0x082986E9
+    08297890  delay                frames=60
+    08297893  applymovement        localId=9 movements=[walk_right walk_right walk_right walk_right]
+    0829789A  waitmovement         localId=0
+    0829789D  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    082978A4  waitmovement         localId=0
+    082978A7  delay                frames=180
+    082978AA  applymovement        localId=9 movements=[walk_left walk_left walk_left walk_left]
+    082978B1  waitmovement         localId=0
+    082978B4  compare_var_to_value var=0x4002 value=2
+    082978B9  goto_if              condition=1 destination=0x082978D7
+    082978BF  setvar               destination=VAR_0x8004 value=19
+    082978C4  special              SPECIAL_\function=150
+    082978C7  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082978CC  compare_var_to_value var=0x8000 value=1
+    082978D1  goto_if              condition=1 destination=0x082979B0
+    082978D7  applymovement        localId=1 movements=[walk_in_place_down]
+    082978DE  waitmovement         localId=0
+    082978E1  setvar               destination=VAR_0x8004 value=4
+    082978E6  special              SPECIAL_\function=150
+    082978E9  compare_var_to_value var=0x4002 value=0
+    082978EE  call_if              condition=1 destination=0x08297939
+    082978F4  compare_var_to_value var=0x4002 value=1
+    082978F9  call_if              condition=1 destination=0x08297965
+    082978FF  compare_var_to_value var=0x4002 value=2
+    08297904  call_if              condition=1 destination=0x08297991
+    0829790A  playse               song=223
+    0829790D  call                 destination=0x082986E9
+    08297912  delay                frames=60
+    08297915  setvar               destination=VAR_0x8004 value=12
+    0829791A  setvar               destination=VAR_0x8005 value=2
+    0829791F  special              SPECIAL_\function=150
+    08297922  setvar               destination=VAR_0x8004 value=2
+    08297927  setvar               destination=VAR_0x8005 value=0
+    0829792C  setvar               destination=VAR_0x8006 value=4
+    08297931  special              SPECIAL_\function=148
+    08297934  goto                 destination=0x082987B0
+
+  map script type 4 (var 0x4001 == 0) -> 0x08298303
+  script 0x08298303  [ok]
+    08298303  hideobjectat         localId=13 mapGroup=41 mapNum=12
+    08298308  call                 destination=0x0829837D
+    0829830D  call                 destination=0x08297704
+    08298312  setvar               destination=VAR_0x4001 value=1
+    08298317  applymovement        localId=255 movements=[set_invisible]
+    0829831E  setvar               destination=VAR_0x8004 value=1
+    08298323  setvar               destination=VAR_0x8005 value=2
+    08298328  special              SPECIAL_\function=148
+    0829832B  compare_var_to_value var=0x800D value=3
+    08298330  goto_if              condition=5 destination=0x0829836A
+    08298336  setvar               destination=VAR_0x8004 value=9
+    0829833B  special              SPECIAL_\function=148
+    0829833E  copyvar              destination=VAR_0x400E source=VAR_0x800D
+    08298343  compare_var_to_value var=0x800D value=0
+    08298348  goto_if              condition=1 destination=0x0829836A
+    0829834E  call                 destination=0x0828D0B7
+    08298353  setobjectxyperm      localId=15 x=13 y=9
+    0829835A  removeobject         localId=15
+    0829835D  delay                frames=1
+    08298360  addobject            localId=15
+    08298363  applymovement        localId=15 movements=[face_up set_invisible]
+    0829836A  end                  
+
+  script 0x0829837D  [ok]
+    0829837D  compare_var_to_value var=0x400F value=0
+    08298382  call_if              condition=1 destination=0x082983AA
+    08298388  compare_var_to_value var=0x400F value=1
+    0829838D  call_if              condition=1 destination=0x082983AB
+    08298393  compare_var_to_value var=0x400F value=2
+    08298398  call_if              condition=1 destination=0x0829841A
+    0829839E  compare_var_to_value var=0x400F value=3
+    082983A3  call_if              condition=1 destination=0x082984ED
+    082983A9  return               
+
+  script 0x0829836A  [ok]
+    0829836A  end                  
+
+  script 0x0828D0B7  [ok]
+    0828D0B7  setvar               destination=VAR_0x8004 value=22
+    0828D0BC  special              SPECIAL_\function=148
+    0828D0BF  return               
+
+  script 0x082983AA  [ok]
+    082983AA  return               
+
+  script 0x082983AB  [ok]
+    082983AB  createvobject        graphicsId=8 id=1 x=769 y=0 elevation=0 direction=3
+    082983B4  nop1                 
+    082983B5  createvobject        graphicsId=22 id=0 x=1540 y=0 elevation=0 direction=3
+    082983BE  nop1                 
+    082983BF  createvobject        graphicsId=5 id=0 x=2054 y=0 elevation=0 direction=3
+    082983C8  nop1                 
+    082983C9  createvobject        graphicsId=12 id=0 x=2825 y=0 elevation=0 direction=3
+    082983D2  nop1                 
+    082983D3  createvobject        graphicsId=8 id=1 x=3339 y=0 elevation=0 direction=3
+    082983DC  nop1                 
+    082983DD  createvobject        graphicsId=243 id=0 x=3853 y=0 elevation=0 direction=3
+    082983E6  nop1                 
+    082983E7  createvobject        graphicsId=45 id=0 x=1811 y=256 elevation=0 direction=3
+    082983F0  nop1                 
+    082983F1  createvobject        graphicsId=34 id=0 x=2838 y=256 elevation=0 direction=3
+    082983FA  nop1                 
+    082983FB  createvobject        graphicsId=11 id=0 x=3865 y=256 elevation=0 direction=3
+    08298404  nop1                 
+    08298405  createvobject        graphicsId=35 id=0 x=538 y=512 elevation=0 direction=3
+    0829840E  nop1                 
+    0829840F  createvobject        graphicsId=38 id=0 x=1309 y=256 elevation=0 direction=3
+    08298418  nop1                 
+    08298419  return               
+
+  script 0x0829841A  [ok]
+    0829841A  createvobject        graphicsId=8 id=1 x=769 y=0 elevation=0 direction=3
+    08298423  nop1                 
+    08298424  createvobject        graphicsId=22 id=0 x=1540 y=0 elevation=0 direction=3
+    0829842D  nop1                 
+    0829842E  createvobject        graphicsId=5 id=0 x=2054 y=0 elevation=0 direction=3
+    08298437  nop1                 
+    08298438  createvobject        graphicsId=20 id=0 x=2311 y=0 elevation=0 direction=3
+    08298441  nop1                 
+    08298442  createvobject        graphicsId=12 id=0 x=2825 y=0 elevation=0 direction=3
+    0829844B  nop1                 
+    0829844C  createvobject        graphicsId=47 id=0 x=3082 y=0 elevation=0 direction=3
+    08298455  nop1                 
+    08298456  createvobject        graphicsId=8 id=1 x=3339 y=0 elevation=0 direction=3
+    0829845F  nop1                 
+    08298460  createvobject        graphicsId=243 id=0 x=3853 y=0 elevation=0 direction=3
+    08298469  nop1                 
+    0829846A  createvobject        graphicsId=48 id=0 x=527 y=256 elevation=0 direction=3
+    08298473  nop1                 
+    08298474  createvobject        graphicsId=5 id=0 x=784 y=256 elevation=0 direction=3
+    0829847D  nop1                 
+    0829847E  createvobject        graphicsId=20 id=0 x=1041 y=256 elevation=0 direction=3
+    08298487  nop1                 
+    08298488  createvobject        graphicsId=45 id=0 x=1811 y=256 elevation=0 direction=3
+    08298491  nop1                 
+    08298492  createvobject        graphicsId=22 id=0 x=2324 y=256 elevation=0 direction=3
+    0829849B  nop1                 
+    0829849C  createvobject        graphicsId=34 id=0 x=2838 y=256 elevation=0 direction=3
+    082984A5  nop1                 
+    082984A6  createvobject        graphicsId=8 id=1 x=3351 y=256 elevation=0 direction=3
+    082984AF  nop1                 
+    082984B0  createvobject        graphicsId=11 id=0 x=3865 y=256 elevation=0 direction=3
+    082984B9  nop1                 
+    082984BA  createvobject        graphicsId=35 id=0 x=538 y=512 elevation=0 direction=3
+    082984C3  nop1                 
+    082984C4  createvobject        graphicsId=10 id=1 x=1308 y=512 elevation=0 direction=3
+    082984CD  nop1                 
+    082984CE  createvobject        graphicsId=38 id=0 x=1309 y=256 elevation=0 direction=3
+    082984D7  nop1                 
+    082984D8  createvobject        graphicsId=17 id=1 x=1566 y=512 elevation=0 direction=3
+    082984E1  nop1                 
+    082984E2  createvobject        graphicsId=34 id=0 x=2079 y=512 elevation=0 direction=3
+    082984EB  nop1                 
+    082984EC  return               
+
+  script 0x082984ED  [ok]
+    082984ED  createvobject        graphicsId=5 id=0 x=512 y=0 elevation=0 direction=3
+    082984F6  nop1                 
+    082984F7  createvobject        graphicsId=8 id=1 x=769 y=0 elevation=0 direction=3
+    08298500  nop1                 
+    08298501  createvobject        graphicsId=45 id=0 x=3842 y=0 elevation=0 direction=3
+    0829850A  nop1                 
+    0829850B  createvobject        graphicsId=243 id=0 x=1283 y=0 elevation=0 direction=3
+    08298514  nop1                 
+    08298515  createvobject        graphicsId=22 id=0 x=1540 y=0 elevation=0 direction=3
+    0829851E  nop1                 
+    0829851F  createvobject        graphicsId=8 id=1 x=1797 y=0 elevation=0 direction=3
+    08298528  nop1                 
+    08298529  createvobject        graphicsId=5 id=0 x=2054 y=0 elevation=0 direction=3
+    08298532  nop1                 
+    08298533  createvobject        graphicsId=20 id=0 x=2311 y=0 elevation=0 direction=3
+    0829853C  nop1                 
+    0829853D  createvobject        graphicsId=24 id=0 x=2568 y=0 elevation=0 direction=3
+    08298546  nop1                 
+    08298547  createvobject        graphicsId=12 id=0 x=2825 y=0 elevation=0 direction=3
+    08298550  nop1                 
+    08298551  createvobject        graphicsId=47 id=0 x=3082 y=0 elevation=0 direction=3
+    0829855A  nop1                 
+    0829855B  createvobject        graphicsId=8 id=1 x=3339 y=0 elevation=0 direction=3
+    08298564  nop1                 
+    08298565  createvobject        graphicsId=45 id=0 x=3596 y=0 elevation=0 direction=3
+    0829856E  nop1                 
+    0829856F  createvobject        graphicsId=243 id=0 x=3853 y=512 elevation=0 direction=3
+    08298578  nop1                 
+    08298579  createvobject        graphicsId=55 id=0 x=3086 y=512 elevation=0 direction=3
+    08298582  nop1                 
+    08298583  createvobject        graphicsId=48 id=0 x=527 y=256 elevation=0 direction=3
+    0829858C  nop1                 
+    0829858D  createvobject        graphicsId=5 id=0 x=784 y=256 elevation=0 direction=3
+    08298596  nop1                 
+    08298597  createvobject        graphicsId=20 id=0 x=1041 y=256 elevation=0 direction=3
+    082985A0  nop1                 
+    082985A1  createvobject        graphicsId=24 id=0 x=1554 y=256 elevation=0 direction=3
+    082985AA  nop1                 
+    082985AB  createvobject        graphicsId=45 id=0 x=1811 y=256 elevation=0 direction=3
+    082985B4  nop1                 
+    082985B5  createvobject        graphicsId=22 id=0 x=2324 y=256 elevation=0 direction=3
+    082985BE  nop1                 
+    082985BF  createvobject        graphicsId=23 id=0 x=2581 y=256 elevation=0 direction=3
+    082985C8  nop1                 
+    082985C9  createvobject        graphicsId=34 id=0 x=2838 y=256 elevation=0 direction=3
+    082985D2  nop1                 
+    082985D3  createvobject        graphicsId=8 id=1 x=3351 y=256 elevation=0 direction=3
+    082985DC  nop1                 
+    082985DD  createvobject        graphicsId=48 id=0 x=3608 y=256 elevation=0 direction=3
+    082985E6  nop1                 
+    082985E7  createvobject        graphicsId=11 id=0 x=3865 y=256 elevation=0 direction=3
+    082985F0  nop1                 
+    082985F1  createvobject        graphicsId=35 id=0 x=538 y=512 elevation=0 direction=3
+    082985FA  nop1                 
+    082985FB  createvobject        graphicsId=17 id=0 x=795 y=512 elevation=0 direction=3
+    08298604  nop1                 
+    08298605  createvobject        graphicsId=10 id=1 x=1308 y=512 elevation=0 direction=3
+    0829860E  nop1                 
+    0829860F  createvobject        graphicsId=38 id=0 x=1309 y=256 elevation=0 direction=3
+    08298618  nop1                 
+    08298619  createvobject        graphicsId=17 id=1 x=1566 y=512 elevation=0 direction=3
+    08298622  nop1                 
+    08298623  createvobject        graphicsId=34 id=0 x=2079 y=512 elevation=0 direction=3
+    0829862C  nop1                 
+    0829862D  return               
+
+  map script type 5 -> 0x0829836B
+  script 0x0829836B  [ok]
+    0829836B  compare_var_to_value var=0x4009 value=1
+    08298370  call_if              condition=1 destination=0x08298377
+    08298376  end                  
+
+  script 0x08298377  [ok]
+    08298377  call                 destination=0x0829837D
+    0829837C  return               
+

@@ -1,0 +1,156 @@
+Fuchsia City  (group 11, map 0)  header 0x08B3D4E0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x00, flag 0x0000) -> 0x08268BA7
+  script 0x08268BA7  [ok]
+    08268BA7  lock                 
+    08268BA8  faceplayer           
+    08268BA9  msgbox_multilang     type=0 text_0="Hi! Is it your first time here at\nthe Safari Zone?" text_1="Hi! Is it your first time here at\nthe Safari Zone?" text_2="Hi! Is it your first time here at\nthe Safari Zone?" text_3="Hi! Is it your first time here at\nthe Safari Zone?" text_4="Hi! Is it your first time here at\nthe Safari Zone?" text_5="Hi! Is it your first time here at\nthe Safari Zone?" text_6="Hi! Is it your first time here at\nthe Safari Zone?"
+    08268BC7  callstd              function=MSGBOX_YESNO(5)
+    08268BC9  compare_var_to_value var=0x800D value=1
+    08268BCE  goto_if              condition=1 destination=0x08268BF6
+    08268BD4  msgbox_multilang     type=0 text_0="Sorry, you’re a regular here!" text_1="Sorry, you’re a regular here!" text_2="Sorry, you’re a regular here!" text_3="Sorry, you’re a regular here!" text_4="Sorry, you’re a regular here!" text_5="Sorry, you’re a regular here!" text_6="Sorry, you’re a regular here!"
+    08268BF2  callstd              function=MSGBOX_DEFAULT(4)
+    08268BF4  release              
+
+  script 0x08268BF6  [ok]
+    08268BF6  msgbox_multilang     type=0 text_0="The Safari Zone actually has\nfour zones in it.\pEach zone has different kinds of\nPokémon, even some rare ones.\pUse the supplied Safari Balls to\ncatch them.\pYou can also throw Bait or Rocks\nbesides the Safari Balls.\pIf you throw Bait, the Pokémon\nbecomes less likely to flee, but\pharder to catch.\pIf you throw Rocks, the Pokémon\nbecomes more likely to flee, but\peasier to catch.\pWhen you run out of time or Safari\nBalls, it’s game over for you!" text_1="The Safari Zone actually has\nfour zones in it.\pEach zone has different kinds of\nPokémon, even some rare ones.\pUse the supplied Safari Balls to\ncatch them.\pYou can also throw Bait or Rocks\nbesides the Safari Balls.\pIf you throw Bait, the Pokémon\nbecomes less likely to flee, but\pharder to catch.\pIf you throw Rocks, the Pokémon\nbecomes more likely to flee, but\peasier to catch.\pWhen you run out of time or Safari\nBalls, it’s game over for you!" text_2="The Safari Zone actually has\nfour zones in it.\pEach zone has different kinds of\nPokémon, even some rare ones.\pUse the supplied Safari Balls to\ncatch them.\pYou can also throw Bait or Rocks\nbesides the Safari Balls.\pIf you throw Bait, the Pokémon\nbecomes less likely to flee, but\pharder to catch.\pIf you throw Rocks, the Pokémon\nbecomes more likely to flee, but\peasier to catch.\pWhen you run out of time or Safari\nBalls, it’s game over for you!" text_3="The Safari Zone actually has\nfour zones in it.\pEach zone has different kinds of\nPokémon, even some rare ones.\pUse the supplied Safari Balls to\ncatch them.\pYou can also throw Bait or Rocks\nbesides the Safari Balls.\pIf you throw Bait, the Pokémon\nbecomes less likely to flee, but\pharder to catch.\pIf you throw Rocks, the Pokémon\nbecomes more likely to flee, but\peasier to catch.\pWhen you run out of time or Safari\nBalls, it’s game over for you!" text_4="The Safari Zone actually has\nfour zones in it.\pEach zone has different kinds of\nPokémon, even some rare ones.\pUse the supplied Safari Balls to\ncatch them.\pYou can also throw Bait or Rocks\nbesides the Safari Balls.\pIf you throw Bait, the Pokémon\nbecomes less likely to flee, but\pharder to catch.\pIf you throw Rocks, the Pokémon\nbecomes more likely to flee, but\peasier to catch.\pWhen you run out of time or Safari\nBalls, it’s game over for you!" text_5="The Safari Zone actually has\nfour zones in it.\pEach zone has different kinds of\nPokémon, even some rare ones.\pUse the supplied Safari Balls to\ncatch them.\pYou can also throw Bait or Rocks\nbesides the Safari Balls.\pIf you throw Bait, the Pokémon\nbecomes less likely to flee, but\pharder to catch.\pIf you throw Rocks, the Pokémon\nbecomes more likely to flee, but\peasier to catch.\pWhen you run out of time or Safari\nBalls, it’s game over for you!" text_6="The Safari Zone actually has\nfour zones in it.\pEach zone has different kinds of\nPokémon, even some rare ones.\pUse the supplied Safari Balls to\ncatch them.\pYou can also throw Bait or Rocks\nbesides the Safari Balls.\pIf you throw Bait, the Pokémon\nbecomes less likely to flee, but\pharder to catch.\pIf you throw Rocks, the Pokémon\nbecomes more likely to flee, but\peasier to catch.\pWhen you run out of time or Safari\nBalls, it’s game over for you!"
+    08268C14  callstd              function=MSGBOX_DEFAULT(4)
+    08268C16  release              
+
+  coord trigger 0 (var 0x4001 == 0) -> 0x0826899D
+  script 0x0826899D  [ok]
+    0826899D  lockall              
+    0826899E  setvar               destination=VAR_0x4002 value=0
+    082689A3  goto                 destination=0x082689C1
+
+  script 0x082689C1  [ok]
+    082689C1  textcolor            color=0
+    082689C3  msgbox_multilang     type=0 text_0="Welcome to the Safari Zone!" text_1="Welcome to the Safari Zone!" text_2="Welcome to the Safari Zone!" text_3="Welcome to the Safari Zone!" text_4="Welcome to the Safari Zone!" text_5="Welcome to the Safari Zone!" text_6="Welcome to the Safari Zone!"
+    082689E1  callstd              function=MSGBOX_DEFAULT(4)
+    082689E3  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    082689EA  waitmovement         localId=0
+    082689ED  showmoneybox         x=0 y=0 disable=0
+    082689F1  msgbox_multilang     type=0 text_0="For just ¥500, you can play the\nSafari Game.\pYou can roam the wide-open safari\nand catch what you like.\pWould you like to play?" text_1="For just ¥500, you can play the\nSafari Game.\pYou can roam the wide-open safari\nand catch what you like.\pWould you like to play?" text_2="For just ¥500, you can play the\nSafari Game.\pYou can roam the wide-open safari\nand catch what you like.\pWould you like to play?" text_3="For just ¥500, you can play the\nSafari Game.\pYou can roam the wide-open safari\nand catch what you like.\pWould you like to play?" text_4="For just ¥500, you can play the\nSafari Game.\pYou can roam the wide-open safari\nand catch what you like.\pWould you like to play?" text_5="For just ¥500, you can play the\nSafari Game.\pYou can roam the wide-open safari\nand catch what you like.\pWould you like to play?" text_6="For just ¥500, you can play the\nSafari Game.\pYou can roam the wide-open safari\nand catch what you like.\pWould you like to play?"
+    08268A0F  callstd              function=MSGBOX_YESNO(5)
+    08268A11  compare_var_to_value var=0x800D value=1
+    08268A16  goto_if              condition=1 destination=0x08268A42
+    08268A1C  msgbox_multilang     type=0 text_0="Okay.\nPlease come again!" text_1="Okay.\nPlease come again!" text_2="Okay.\nPlease come again!" text_3="Okay.\nPlease come again!" text_4="Okay.\nPlease come again!" text_5="Okay.\nPlease come again!" text_6="Okay.\nPlease come again!"
+    08268A3A  callstd              function=MSGBOX_DEFAULT(4)
+    08268A3C  goto                 destination=0x08268B8A
+
+  script 0x08268A42  [opcode-out-of-range:0xFD]
+    08268A42  call                 destination=0x08268B22
+    08268A47  checkmoney           value=500 disable=0
+    08268A4D  compare_var_to_value var=0x800D value=0
+    08268A52  goto_if              condition=1 destination=0x08268B64
+    08268A58  removemoney          value=500 disable=0
+    08268A5E  updatemoneybox       0=0 0=0 disable=0
+    08268A62  msgbox_multilang     type=0 text_0="That’ll be ¥500, please!\pWe only use a special kind of \nPoké Balls here." text_1="That’ll be ¥500, please!\pWe only use a special kind of \nPoké Balls here." text_2="That’ll be ¥500, please!\pWe only use a special kind of \nPoké Balls here." text_3="That’ll be ¥500, please!\pWe only use a special kind of \nPoké Balls here." text_4="That’ll be ¥500, please!\pWe only use a special kind of \nPoké Balls here." text_5="That’ll be ¥500, please!\pWe only use a special kind of \nPoké Balls here." text_6="That’ll be ¥500, please!\pWe only use a special kind of \nPoké Balls here."
+    08268A80  callstd              function=MSGBOX_DEFAULT(4)
+    08268A82  textcolor            color=3
+    08268A84  playfanfare          song=367
+    08268A87  message              text="{PLAYER} received 30 Safari Balls\nfrom the attendant."
+
+  script 0x08268B8A  [ok]
+    08268B8A  closemessage         
+    08268B8B  hidemoneybox         0=0 0=0
+    08268B8E  applymovement        localId=255 movements=[walk_down]
+    08268B95  waitmovement         localId=0
+    08268B98  releaseall           
+
+  script 0x08268B22  [ok]
+    08268B22  getpartysize         
+    08268B23  compare_var_to_value var=0x800D value=6
+    08268B28  goto_if              condition=5 destination=0x082BCF3E
+    08268B2E  specialvar           output=32781 SPECIAL_\function=384
+    08268B33  compare_var_to_value var=0x800D value=1
+    08268B38  goto_if              condition=1 destination=0x082BCF3E
+    08268B3E  msgbox_multilang     type=0 text_0="Excuse me!\nYour PC BOX is full." text_1="Excuse me!\nYour PC BOX is full." text_2="Excuse me!\nYour PC BOX is full." text_3="Excuse me!\nYour PC BOX is full." text_4="Excuse me!\nYour PC BOX is full." text_5="Excuse me!\nYour PC BOX is full." text_6="Excuse me!\nYour PC BOX is full."
+    08268B5C  callstd              function=MSGBOX_DEFAULT(4)
+    08268B5E  goto                 destination=0x08268B8A
+
+  script 0x08268B64  [ok]
+    08268B64  msgbox_multilang     type=0 text_0="Oops!\nNot enough money!" text_1="Oops!\nNot enough money!" text_2="Oops!\nNot enough money!" text_3="Oops!\nNot enough money!" text_4="Oops!\nNot enough money!" text_5="Oops!\nNot enough money!" text_6="Oops!\nNot enough money!"
+    08268B82  callstd              function=MSGBOX_DEFAULT(4)
+    08268B84  goto                 destination=0x08268B8A
+
+  script 0x082BCF3E  [ok]
+    082BCF3E  return               
+
+  coord trigger 1 (var 0x4001 == 0) -> 0x082689A9
+  script 0x082689A9  [ok]
+    082689A9  lockall              
+    082689AA  setvar               destination=VAR_0x4002 value=1
+    082689AF  goto                 destination=0x082689C1
+
+  coord trigger 2 (var 0x4001 == 0) -> 0x082689B5
+  script 0x082689B5  [ok]
+    082689B5  lockall              
+    082689B6  setvar               destination=VAR_0x4002 value=2
+    082689BB  goto                 destination=0x082689C1
+
+  map script type 2 (var 0x406E == 1) -> 0x082688C2
+  script 0x082688C2  [ok]
+    082688C2  lockall              
+    082688C3  textcolor            color=0
+    082688C5  msgbox_multilang     type=0 text_0="Did you catch your fair share?\nCome again!" text_1="Did you catch your fair share?\nCome again!" text_2="Did you catch your fair share?\nCome again!" text_3="Did you catch your fair share?\nCome again!" text_4="Did you catch your fair share?\nCome again!" text_5="Did you catch your fair share?\nCome again!" text_6="Did you catch your fair share?\nCome again!"
+    082688E3  callstd              function=MSGBOX_DEFAULT(4)
+    082688E5  closemessage         
+    082688E6  applymovement        localId=255 movements=[walk_down walk_down]
+    082688ED  waitmovement         localId=0
+    082688F0  special              SPECIAL_\function=128
+    082688F3  setvar               destination=VAR_0x406E value=0
+    082688F8  releaseall           
+
+  map script type 2 (var 0x406E == 2) -> 0x082688FA
+  script 0x082688FA  [ok]
+    082688FA  lockall              
+    082688FB  textcolor            color=0
+    082688FD  msgbox_multilang     type=0 text_0="Are you going to leave the\nSafari Zone early?" text_1="Are you going to leave the\nSafari Zone early?" text_2="Are you going to leave the\nSafari Zone early?" text_3="Are you going to leave the\nSafari Zone early?" text_4="Are you going to leave the\nSafari Zone early?" text_5="Are you going to leave the\nSafari Zone early?" text_6="Are you going to leave the\nSafari Zone early?"
+    0826891B  callstd              function=MSGBOX_YESNO(5)
+    0826891D  compare_var_to_value var=0x800D value=0
+    08268922  goto_if              condition=1 destination=0x0826895D
+    08268928  msgbox_multilang     type=0 text_0="Please return any Safari Balls\nyou may have left." text_1="Please return any Safari Balls\nyou may have left." text_2="Please return any Safari Balls\nyou may have left." text_3="Please return any Safari Balls\nyou may have left." text_4="Please return any Safari Balls\nyou may have left." text_5="Please return any Safari Balls\nyou may have left." text_6="Please return any Safari Balls\nyou may have left."
+    08268946  callstd              function=MSGBOX_DEFAULT(4)
+    08268948  closemessage         
+    08268949  applymovement        localId=255 movements=[walk_down walk_down]
+    08268950  waitmovement         localId=0
+    08268953  special              SPECIAL_\function=128
+    08268956  setvar               destination=VAR_0x406E value=0
+    0826895B  releaseall           
+
+  script 0x0826895D  [ok]
+    0826895D  msgbox_multilang     type=0 text_0="Good luck!" text_1="Good luck!" text_2="Good luck!" text_3="Good luck!" text_4="Good luck!" text_5="Good luck!" text_6="Good luck!"
+    0826897B  callstd              function=MSGBOX_DEFAULT(4)
+    0826897D  closemessage         
+    0826897E  applymovement        localId=255 movements=[walk_up]
+    08268985  waitmovement         localId=0
+    08268988  warp                 mapGroup=1 mapNum=63 WARP_ID_NONE=255 -1=26 -1=30
+    08268990  waitstate            
+
+  map script type 2 (var 0x406E == 3) -> 0x08268880
+  script 0x08268880  [ok]
+    08268880  lockall              
+    08268881  textcolor            color=0
+    08268883  applymovement        localId=255 movements=[walk_down delay_8]
+    0826888A  waitmovement         localId=0
+    0826888D  msgbox_multilang     type=0 text_0="Did you catch your fair share?\nCome again!" text_1="Did you catch your fair share?\nCome again!" text_2="Did you catch your fair share?\nCome again!" text_3="Did you catch your fair share?\nCome again!" text_4="Did you catch your fair share?\nCome again!" text_5="Did you catch your fair share?\nCome again!" text_6="Did you catch your fair share?\nCome again!"
+    082688AB  callstd              function=MSGBOX_DEFAULT(4)
+    082688AD  closemessage         
+    082688AE  applymovement        localId=255 movements=[walk_down walk_down]
+    082688B5  waitmovement         localId=0
+    082688B8  special              SPECIAL_\function=128
+    082688BB  setvar               destination=VAR_0x406E value=0
+    082688C0  releaseall           
+

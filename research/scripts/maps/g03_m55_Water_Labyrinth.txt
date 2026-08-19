@@ -1,0 +1,112 @@
+Water Labyrinth  (group 3, map 55)  header 0x08B3CCC8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x30, flag 0x0000) -> 0x0823D111
+  script 0x0823D111  [ok]
+    0823D111  lock                 
+    0823D112  faceplayer           
+    0823D113  checkflag            flag=0x2DA
+    0823D116  goto_if              condition=1 destination=0x0823D20D
+    0823D11C  checkflag            flag=0x2DB
+    0823D11F  goto_if              condition=1 destination=0x0823D286
+    0823D125  msgbox_multilang     type=0 text_0="You travel all over the place,\ndon’t you?\pYou’re not driving your Pokémon\ntoo harshly, are you?\pLet me take a look.\n… … …   … … …" text_1="You travel all over the place,\ndon’t you?\pYou’re not driving your Pokémon\ntoo harshly, are you?\pLet me take a look.\n… … …   … … …" text_2="You travel all over the place,\ndon’t you?\pYou’re not driving your Pokémon\ntoo harshly, are you?\pLet me take a look.\n… … …   … … …" text_3="You travel all over the place,\ndon’t you?\pYou’re not driving your Pokémon\ntoo harshly, are you?\pLet me take a look.\n… … …   … … …" text_4="You travel all over the place,\ndon’t you?\pYou’re not driving your Pokémon\ntoo harshly, are you?\pLet me take a look.\n… … …   … … …" text_5="You travel all over the place,\ndon’t you?\pYou’re not driving your Pokémon\ntoo harshly, are you?\pLet me take a look.\n… … …   … … …" text_6="You travel all over the place,\ndon’t you?\pYou’re not driving your Pokémon\ntoo harshly, are you?\pLet me take a look.\n… … …   … … …"
+    0823D143  callstd              function=MSGBOX_DEFAULT(4)
+    0823D145  specialvar           output=32781 SPECIAL_\function=147
+    0823D14A  compare_var_to_value var=0x800D value=6
+    0823D14F  goto_if              condition=1 destination=0x0823D1A6
+    0823D155  msgbox_multilang     type=0 text_0="Ah, hmm…\nI see, I see…" text_1="Ah, hmm…\nI see, I see…" text_2="Ah, hmm…\nI see, I see…" text_3="Ah, hmm…\nI see, I see…" text_4="Ah, hmm…\nI see, I see…" text_5="Ah, hmm…\nI see, I see…" text_6="Ah, hmm…\nI see, I see…"
+    0823D173  callstd              function=MSGBOX_DEFAULT(4)
+    0823D175  release              
+
+  script 0x0823D20D  [ok]
+    0823D20D  bufferspeciesname    stringVarId=1 species=TOGEPI(175)
+    0823D211  setvar               destination=VAR_0x8004 value=175
+    0823D216  specialvar           output=32781 SPECIAL_\function=371
+    0823D21B  compare_var_to_value var=0x800D value=1
+    0823D220  goto_if              condition=1 destination=0x0823D177
+    0823D226  bufferspeciesname    stringVarId=1 species=TOGETIC(176)
+    0823D22A  setvar               destination=VAR_0x8004 value=176
+    0823D22F  specialvar           output=32781 SPECIAL_\function=371
+    0823D234  compare_var_to_value var=0x800D value=1
+    0823D239  goto_if              condition=1 destination=0x0823D177
+    0823D23F  msgbox_multilang     type=0 text_0="I received that Egg while I was\ntraveling.\pI’m glad I met someone like you." text_1="I received that Egg while I was\ntraveling.\pI’m glad I met someone like you." text_2="I received that Egg while I was\ntraveling.\pI’m glad I met someone like you." text_3="I received that Egg while I was\ntraveling.\pI’m glad I met someone like you." text_4="I received that Egg while I was\ntraveling.\pI’m glad I met someone like you." text_5="I received that Egg while I was\ntraveling.\pI’m glad I met someone like you." text_6="I received that Egg while I was\ntraveling.\pI’m glad I met someone like you."
+    0823D25D  callstd              function=MSGBOX_DEFAULT(4)
+    0823D25F  release              
+
+  script 0x0823D286  [ok]
+    0823D286  goto                 destination=0x0823D1CC
+
+  script 0x0823D1A6  [ok]
+    0823D1A6  msgbox_multilang     type=0 text_0="Oh, impressive.\nYou treat your Pokémon right.\pI think you can be entrusted with\nthis.\pPlease, I’d like you to have this." text_1="Oh, impressive.\nYou treat your Pokémon right.\pI think you can be entrusted with\nthis.\pPlease, I’d like you to have this." text_2="Oh, impressive.\nYou treat your Pokémon right.\pI think you can be entrusted with\nthis.\pPlease, I’d like you to have this." text_3="Oh, impressive.\nYou treat your Pokémon right.\pI think you can be entrusted with\nthis.\pPlease, I’d like you to have this." text_4="Oh, impressive.\nYou treat your Pokémon right.\pI think you can be entrusted with\nthis.\pPlease, I’d like you to have this." text_5="Oh, impressive.\nYou treat your Pokémon right.\pI think you can be entrusted with\nthis.\pPlease, I’d like you to have this." text_6="Oh, impressive.\nYou treat your Pokémon right.\pI think you can be entrusted with\nthis.\pPlease, I’d like you to have this."
+    0823D1C4  callstd              function=MSGBOX_DEFAULT(4)
+    0823D1C6  goto                 destination=0x0823D1CC
+
+  script 0x0823D177  [ok]
+    0823D177  setvar               destination=VAR_0x8004 value=1
+    0823D17C  setvar               destination=VAR_0x8005 value=2
+    0823D181  special              SPECIAL_\function=347
+    0823D184  msgbox_multilang     type=0 text_0="Oh, hello.\nThat’s a cute {STR_VAR_2}.\pSeeing it reminds me of a sweet \nlittle girl I met while traveling.\pShe was gently grooming Pokémon…\nShe was a little angel.\pThat little girl’s name…\nI think it was Daisy." text_1="Oh, hello.\nThat’s a cute {STR_VAR_2}.\pSeeing it reminds me of a sweet \nlittle girl I met while traveling.\pShe was gently grooming Pokémon…\nShe was a little angel.\pThat little girl’s name…\nI think it was Daisy." text_2="Oh, hello.\nThat’s a cute {STR_VAR_2}.\pSeeing it reminds me of a sweet \nlittle girl I met while traveling.\pShe was gently grooming Pokémon…\nShe was a little angel.\pThat little girl’s name…\nI think it was Daisy." text_3="Oh, hello.\nThat’s a cute {STR_VAR_2}.\pSeeing it reminds me of a sweet \nlittle girl I met while traveling.\pShe was gently grooming Pokémon…\nShe was a little angel.\pThat little girl’s name…\nI think it was Daisy." text_4="Oh, hello.\nThat’s a cute {STR_VAR_2}.\pSeeing it reminds me of a sweet \nlittle girl I met while traveling.\pShe was gently grooming Pokémon…\nShe was a little angel.\pThat little girl’s name…\nI think it was Daisy." text_5="Oh, hello.\nThat’s a cute {STR_VAR_2}.\pSeeing it reminds me of a sweet \nlittle girl I met while traveling.\pShe was gently grooming Pokémon…\nShe was a little angel.\pThat little girl’s name…\nI think it was Daisy." text_6="Oh, hello.\nThat’s a cute {STR_VAR_2}.\pSeeing it reminds me of a sweet \nlittle girl I met while traveling.\pShe was gently grooming Pokémon…\nShe was a little angel.\pThat little girl’s name…\nI think it was Daisy."
+    0823D1A2  callstd              function=MSGBOX_DEFAULT(4)
+    0823D1A4  release              
+
+  script 0x0823D1CC  [ok]
+    0823D1CC  getpartysize         
+    0823D1CD  compare_var_to_value var=0x800D value=6
+    0823D1D2  goto_if              condition=1 destination=0x0823D261
+    0823D1D8  setflag              flag=0x2DA
+    0823D1DB  giveegg              species=TOGEPI(175)
+    0823D1DE  textcolor            color=3
+    0823D1E0  playfanfare          song=367
+    0823D1E3  message              text="{PLAYER} received an Egg\nfrom the man!"
+    0823D1E8  waitfieldeffect      animation=9171
+    0823D1EB  gotostd              function=158
+    0823D1ED  moverotatingtileobjects puzzleNumber=2083
+    0823D1F0  waitfieldeffect      animation=9171
+    0823D1F3  gotostd              function=158
+    0823D1F5  moverotatingtileobjects puzzleNumber=2083
+    0823D1F8  waitfieldeffect      animation=9171
+    0823D1FB  gotostd              function=158
+    0823D1FD  moverotatingtileobjects puzzleNumber=2083
+    0823D200  waitfanfare          
+    0823D201  waitmessage          
+    0823D202  call                 destination=0x082BB551
+    0823D207  goto                 destination=0x0823D20D
+
+  script 0x0823D261  [ok]
+    0823D261  setflag              flag=0x2DB
+    0823D264  msgbox_multilang     type=0 text_0="…Unfortunately, you don’t have\nspace for this in your party.\pYou’d better come back for it\nanother time." text_1="…Unfortunately, you don’t have\nspace for this in your party.\pYou’d better come back for it\nanother time." text_2="…Unfortunately, you don’t have\nspace for this in your party.\pYou’d better come back for it\nanother time." text_3="…Unfortunately, you don’t have\nspace for this in your party.\pYou’d better come back for it\nanother time." text_4="…Unfortunately, you don’t have\nspace for this in your party.\pYou’d better come back for it\nanother time." text_5="…Unfortunately, you don’t have\nspace for this in your party.\pYou’d better come back for it\nanother time." text_6="…Unfortunately, you don’t have\nspace for this in your party.\pYou’d better come back for it\nanother time."
+    0823D282  callstd              function=MSGBOX_DEFAULT(4)
+    0823D284  release              
+
+  script 0x082BB551  [ok]
+    082BB551  copyvar              destination=VAR_0x8012 source=VAR_0x8013
+    082BB556  return               
+
+  object 2 (gfx 0x50, flag 0x0000) -> 0x081FD85F
+  script 0x081FD85F  [ok]
+    081FD85F  trainerbattle        type=0 trainer=0x208 localId=0 ptr1=0x0823D554 ptr2=0x0823D58A
+    081FD86D  specialvar           output=32781 SPECIAL_\function=37
+    081FD872  compare_var_to_value var=0x800D value=1
+    081FD877  goto_if              condition=1 destination=0x081FD89E
+    081FD87D  msgbox_multilang     type=0 text_0="You know, I think you have the\ntalent to be a good Breeder." text_1="You know, I think you have the\ntalent to be a good Breeder." text_2="You know, I think you have the\ntalent to be a good Breeder." text_3="You know, I think you have the\ntalent to be a good Breeder." text_4="You know, I think you have the\ntalent to be a good Breeder." text_5="You know, I think you have the\ntalent to be a good Breeder." text_6="You know, I think you have the\ntalent to be a good Breeder."
+    081FD89B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD89D  end                  
+
+  script 0x081FD89E  [ok]
+    081FD89E  goto                 destination=0x081FD8A8
+
+  script 0x081FD8A8  [ok]
+    081FD8A8  trainerbattle        type=5 trainer=0x208 localId=0 ptr1=0x082BA6B1 ptr2=0x0823D58A
+    081FD8B6  msgbox_multilang     type=0 text_0="You know, I think you have the\ntalent to be a good Breeder." text_1="You know, I think you have the\ntalent to be a good Breeder." text_2="You know, I think you have the\ntalent to be a good Breeder." text_3="You know, I think you have the\ntalent to be a good Breeder." text_4="You know, I think you have the\ntalent to be a good Breeder." text_5="You know, I think you have the\ntalent to be a good Breeder." text_6="You know, I think you have the\ntalent to be a good Breeder."
+    081FD8D4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD8D6  end                  
+

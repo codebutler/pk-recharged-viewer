@@ -1,0 +1,211 @@
+Celadon City  (group 3, map 6)  header 0x08B3C76C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x005F) -> 0x0822B964
+  script 0x0822B964  [ok]
+    0822B964  speakername          name="Grunt"
+    0822B969  msgbox_multilang     type=0 text_0="Keep out of Team Rocket’s way!" text_1="¡No te cruces en el camino del\nTEAM ROCKET!" text_2="Keep out of Team Rocket’s way!" text_3="Keep out of Team Rocket’s way!" text_4="Keep out of Team Rocket’s way!" text_5="Keep out of Team Rocket’s way!" text_6="Keep out of Team Rocket’s way!"
+    0822B987  callstd              function=MSGBOX_NPC(2)
+    0822B989  end                  
+
+  object 2 (gfx 0x11, flag 0x0000) -> 0x0822B8F5
+  script 0x0822B8F5  [ok]
+    0822B8F5  lock                 
+    0822B8F6  faceplayer           
+    0822B8F7  msgbox_multilang     type=0 text_0="This is my trusted pal, Poliwrath.\pIt evolved from a Poliwhirl when I\nused a Water Stone." text_1="¡Éste es mi fiel compañero,\nPOLIWRATH!\p¡Evolucionó del POLIWHIRL al usar\nla PIEDRA AGUA!" text_2="This is my trusted pal, Poliwrath.\pIt evolved from a Poliwhirl when I\nused a Water Stone." text_3="This is my trusted pal, Poliwrath.\pIt evolved from a Poliwhirl when I\nused a Water Stone." text_4="This is my trusted pal, Poliwrath.\pIt evolved from a Poliwhirl when I\nused a Water Stone." text_5="This is my trusted pal, Poliwrath.\pIt evolved from a Poliwhirl when I\nused a Water Stone." text_6="This is my trusted pal, Poliwrath.\pIt evolved from a Poliwhirl when I\nused a Water Stone."
+    0822B915  callstd              function=MSGBOX_DEFAULT(4)
+    0822B917  closemessage         
+    0822B918  setflag              flag=0x4005 (temp)
+    0822B91B  applymovement        localId=2 movements=[face_original_direction]
+    0822B922  waitmovement         localId=0
+    0822B925  release              
+
+  object 3 (gfx 0x3E, flag 0x0000) -> 0x0822B927
+  script 0x0822B927  [ok]
+    0822B927  bufferspeciesname    stringVarId=0 species=POLIWRATH(62)
+    0822B92B  lock                 
+    0822B92C  faceplayer           
+    0822B92D  waitse               
+    0822B92E  playmoncry           species=POLIWRATH(62) mode=0
+    0822B933  msgbox_multilang     type=0 text_0="Poliwrath: Ribi ribit!" text_1="POLIWRATH: ¡Poli, poli!" text_2="Poliwrath: Ribi ribit!" text_3="Poliwrath: Ribi ribit!" text_4="Poliwrath: Ribi ribit!" text_5="Poliwrath: Ribi ribit!" text_6="Poliwrath: Ribi ribit!"
+    0822B951  callstd              function=MSGBOX_DEFAULT(4)
+    0822B953  closemessage         
+    0822B954  waitmoncry           
+    0822B955  setflag              flag=0x4005 (temp)
+    0822B958  applymovement        localId=3 movements=[face_original_direction]
+    0822B95F  waitmovement         localId=0
+    0822B962  release              
+
+  object 4 (gfx 0x0C, flag 0x0000) -> 0x0822B86F
+  script 0x0822B86F  [ok]
+    0822B86F  msgbox_multilang     type=0 text_0="I got my Koffing in Cinnabar.\pIt’s usually nice, but it breathes\npoison when it’s angry." text_1="¡Conseguí a mi KOFFING en\nCIUDAD CANELA!\p¡Es muy simpático, pero echa\nveneno cuando se enfada!" text_2="I got my Koffing in Cinnabar.\pIt’s usually nice, but it breathes\npoison when it’s angry." text_3="I got my Koffing in Cinnabar.\pIt’s usually nice, but it breathes\npoison when it’s angry." text_4="I got my Koffing in Cinnabar.\pIt’s usually nice, but it breathes\npoison when it’s angry." text_5="I got my Koffing in Cinnabar.\pIt’s usually nice, but it breathes\npoison when it’s angry." text_6="I got my Koffing in Cinnabar.\pIt’s usually nice, but it breathes\npoison when it’s angry."
+    0822B88D  callstd              function=MSGBOX_NPC(2)
+    0822B88F  end                  
+
+  object 5 (gfx 0x14, flag 0x0000) -> 0x0822B8B3
+  script 0x0822B8B3  [ok]
+    0822B8B3  msgbox_multilang     type=0 text_0="Celadon takes pride in its efforts to\nkeep the city beautiful.\pThat’s why the new Game Corner is\nbad for our city’s image." text_1="AZULONA presume de estar bonita\ny cuidada.\p¡El CASINO no es bueno para la\nimagen de nuestra ciudad!" text_2="Celadon takes pride in its efforts to\nkeep the city beautiful.\pThat’s why the new Game Corner is\nbad for our city’s image." text_3="Celadon takes pride in its efforts to\nkeep the city beautiful.\pThat’s why the new Game Corner is\nbad for our city’s image." text_4="Celadon takes pride in its efforts to\nkeep the city beautiful.\pThat’s why the new Game Corner is\nbad for our city’s image." text_5="Celadon takes pride in its efforts to\nkeep the city beautiful.\pThat’s why the new Game Corner is\nbad for our city’s image." text_6="Celadon takes pride in its efforts to\nkeep the city beautiful.\pThat’s why the new Game Corner is\nbad for our city’s image."
+    0822B8D1  callstd              function=MSGBOX_NPC(2)
+    0822B8D3  end                  
+
+  object 6 (gfx 0xF5, flag 0x0000) -> 0x0822B8D4
+  script 0x0822B8D4  [ok]
+    0822B8D4  msgbox_multilang     type=0 text_0="Moan…\nI blew it all at the slots!\pI knew I should have cashed in my\nCoins for prizes!" text_1="¡Ayyy! ¡Lo he perdido todo\nen las tragaperras!\p¡Debería haber cambiado todas\nmis fichas por premios!" text_2="Moan…\nI blew it all at the slots!\pI knew I should have cashed in my\nCoins for prizes!" text_3="Moan…\nI blew it all at the slots!\pI knew I should have cashed in my\nCoins for prizes!" text_4="Moan…\nI blew it all at the slots!\pI knew I should have cashed in my\nCoins for prizes!" text_5="Moan…\nI blew it all at the slots!\pI knew I should have cashed in my\nCoins for prizes!" text_6="Moan…\nI blew it all at the slots!\pI knew I should have cashed in my\nCoins for prizes!"
+    0822B8F2  callstd              function=MSGBOX_NPC(2)
+    0822B8F4  end                  
+
+  object 7 (gfx 0x02, flag 0x005F) -> 0x0822B98A
+  script 0x0822B98A  [ok]
+    0822B98A  speakername          name="Grunt"
+    0822B98F  msgbox_multilang     type=0 text_0="What are you staring at?\nGet lost, or I’ll punch you." text_1="¿Qué estás mirando?" text_2="What are you staring at?\nGet lost, or I’ll punch you." text_3="What are you staring at?\nGet lost, or I’ll punch you." text_4="What are you staring at?\nGet lost, or I’ll punch you." text_5="What are you staring at?\nGet lost, or I’ll punch you." text_6="What are you staring at?\nGet lost, or I’ll punch you."
+    0822B9AD  callstd              function=MSGBOX_NPC(2)
+    0822B9AF  end                  
+
+  object 8 (gfx 0xF5, flag 0x0000) -> 0x0822B890
+  script 0x0822B890  [ok]
+    0822B890  lock                 
+    0822B891  msgbox_multilang     type=0 text_0="Heheh! This Gym is great!\nIt’s full of women!" text_1="¡Jeje! ¡Este GIMNASIO es genial!\n¡Está lleno de chicas!" text_2="Heheh! This Gym is great!\nIt’s full of women!" text_3="Heheh! This Gym is great!\nIt’s full of women!" text_4="Heheh! This Gym is great!\nIt’s full of women!" text_5="Heheh! This Gym is great!\nIt’s full of women!" text_6="Heheh! This Gym is great!\nIt’s full of women!"
+    0822B8AF  callstd              function=MSGBOX_DEFAULT(4)
+    0822B8B1  release              
+
+  object 9 (gfx 0x52, flag 0x0310) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 10 (gfx 0x52, flag 0x0311) -> 0x082050CF
+  object 11 (gfx 0xEF, flag 0x0000) -> 0x0822B9B0
+  script 0x0822B9B0  [ok]
+    0822B9B0  msgbox_multilang     type=0 text_0="Aaaagh, ow…\nI scalded my tongue!\pThis nice old lady in the Mansion\ngave me some Tea.\pBut it was boiling hot!\nGotta cool it to drink it." text_1="¡Aaaagh, ayyyy...!\n¡Me he achicharrado la lengua!\pLa ancianita tan agradable que hay\nen la MANSIÓN, me ha dado un TÉ.\p¡Pero está hirviendo!\nVoy a esperar a ver si se enfría..." text_2="Aaaagh, ow…\nI scalded my tongue!\pThis nice old lady in the Mansion\ngave me some Tea.\pBut it was boiling hot!\nGotta cool it to drink it." text_3="Aaaagh, ow…\nI scalded my tongue!\pThis nice old lady in the Mansion\ngave me some Tea.\pBut it was boiling hot!\nGotta cool it to drink it." text_4="Aaaagh, ow…\nI scalded my tongue!\pThis nice old lady in the Mansion\ngave me some Tea.\pBut it was boiling hot!\nGotta cool it to drink it." text_5="Aaaagh, ow…\nI scalded my tongue!\pThis nice old lady in the Mansion\ngave me some Tea.\pBut it was boiling hot!\nGotta cool it to drink it." text_6="Aaaagh, ow…\nI scalded my tongue!\pThis nice old lady in the Mansion\ngave me some Tea.\pBut it was boiling hot!\nGotta cool it to drink it."
+    0822B9CE  callstd              function=MSGBOX_NPC(2)
+    0822B9D0  end                  
+
+  object 12 (gfx 0x35, flag 0x01D1) -> 0x082D5BE4
+  script 0x082D5BE4  [ok]
+    082D5BE4  setorcopyvar         destination=VAR_0x8000 source=34
+    082D5BE9  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5BEE  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Ether
+    082D5BF0  end                  
+
+  object 13 (gfx 0x08, flag 0x005F) -> 0x0822B9D1
+  script 0x0822B9D1  [ok]
+    0822B9D1  msgbox_multilang     type=0 text_0="Oh, what am I to do…\pSomeone stole our Silph Scope.\pThe thief came running this way,\nI’m sure of it.\pBut I lost sight of him!\nWhere’d he go?" text_1="¿Qué voy a hacer ahora?...\p¡Nos han robado el SILPH SCOPE!\pQuien haya sido, vino por aquí.\nDe eso no me cabe duda.\p¡Pero no sé por dónde se fue!\n¡No tengo ni idea!" text_2="Oh, what am I to do…\pSomeone stole our Silph Scope.\pThe thief came running this way,\nI’m sure of it.\pBut I lost sight of him!\nWhere’d he go?" text_3="Oh, what am I to do…\pSomeone stole our Silph Scope.\pThe thief came running this way,\nI’m sure of it.\pBut I lost sight of him!\nWhere’d he go?" text_4="Oh, what am I to do…\pSomeone stole our Silph Scope.\pThe thief came running this way,\nI’m sure of it.\pBut I lost sight of him!\nWhere’d he go?" text_5="Oh, what am I to do…\pSomeone stole our Silph Scope.\pThe thief came running this way,\nI’m sure of it.\pBut I lost sight of him!\nWhere’d he go?" text_6="Oh, what am I to do…\pSomeone stole our Silph Scope.\pThe thief came running this way,\nI’m sure of it.\pBut I lost sight of him!\nWhere’d he go?"
+    0822B9EF  callstd              function=MSGBOX_NPC(2)
+    0822B9F1  end                  
+
+  object 14 (gfx 0x52, flag 0x0000) -> 0x00000000
+  sign 0 at (45,23) -> 0x0822BA85
+  script 0x0822BA85  [ok]
+    0822BA85  msgbox_multilang     type=0 text_0="Trainer Tips\pGuard Spec. protects Pokémon from\nstatus-reduction moves during\pbattle.\pGet your items at the Celadon Dept.\nStore!" text_1="PISTAS ENTRENADOR\p¡PROTECCIÓN ESP. protege a tus\nPOKéMON de ataques como el agua y\pel fuego!\p¡Compra tus objetos en el CENTRO\nCOMERCIAL de AZULONA!" text_2="Trainer Tips\pGuard Spec. protects Pokémon from\nstatus-reduction moves during\pbattle.\pGet your items at the Celadon Dept.\nStore!" text_3="Trainer Tips\pGuard Spec. protects Pokémon from\nstatus-reduction moves during\pbattle.\pGet your items at the Celadon Dept.\nStore!" text_4="Trainer Tips\pGuard Spec. protects Pokémon from\nstatus-reduction moves during\pbattle.\pGet your items at the Celadon Dept.\nStore!" text_5="Trainer Tips\pGuard Spec. protects Pokémon from\nstatus-reduction moves during\pbattle.\pGet your items at the Celadon Dept.\nStore!" text_6="Trainer Tips\pGuard Spec. protects Pokémon from\nstatus-reduction moves during\pbattle.\pGet your items at the Celadon Dept.\nStore!"
+    0822BAA3  callstd              function=MSGBOX_SIGN(3)
+    0822BAA5  end                  
+
+  sign 1 at (38,23) -> 0x0822BAA6
+  script 0x0822BAA6  [ok]
+    0822BAA6  msgbox_multilang     type=0 text_0="Coins exchanged for prizes!\nPrize Exchange" text_1="PISTAS ENTRENADOR\p¡PROTECCIÓN ESP. protege a tus\nPOKéMON de ataques como el agua y\pel fuego!\p¡Compra tus objetos en el CENTRO\nCOMERCIAL de AZULONA!" text_2="Coins exchanged for prizes!\nPrize Exchange" text_3="Coins exchanged for prizes!\nPrize Exchange" text_4="Coins exchanged for prizes!\nPrize Exchange" text_5="Coins exchanged for prizes!\nPrize Exchange" text_6="Coins exchanged for prizes!\nPrize Exchange"
+    0822BAC4  callstd              function=MSGBOX_SIGN(3)
+    0822BAC6  end                  
+
+  sign 2 at (33,23) -> 0x0822BAC7
+  script 0x0822BAC7  [ok]
+    0822BAC7  msgbox_multilang     type=0 text_0="Rocket Game Corner\nThe playground for grown-ups!" text_1="CASINO ROCKET\n¡El parque de los adultos!" text_2="Rocket Game Corner\nThe playground for grown-ups!" text_3="Rocket Game Corner\nThe playground for grown-ups!" text_4="Rocket Game Corner\nThe playground for grown-ups!" text_5="Rocket Game Corner\nThe playground for grown-ups!" text_6="Rocket Game Corner\nThe playground for grown-ups!"
+    0822BAE5  callstd              function=MSGBOX_SIGN(3)
+    0822BAE7  end                  
+
+  sign 3 at (22,18) -> 0x0822B9F2
+  script 0x0822B9F2  [ok]
+    0822B9F2  msgbox_multilang     type=0 text_0="Celadon City\nThe City of Rainbow Dreams" text_1="CIUDAD AZULONA\nLa ciudad de los sueños de\parco iris." text_2="Celadon City\nThe City of Rainbow Dreams" text_3="Celadon City\nThe City of Rainbow Dreams" text_4="Celadon City\nThe City of Rainbow Dreams" text_5="Celadon City\nThe City of Rainbow Dreams" text_6="Celadon City\nThe City of Rainbow Dreams"
+    0822BA10  callstd              function=MSGBOX_SIGN(3)
+    0822BA12  end                  
+
+  sign 4 at (26,11) -> 0x0822BA43
+  script 0x0822BA43  [ok]
+    0822BA43  msgbox_multilang     type=0 text_0="Celadon Mansion" text_1="MANSIÓN AZULONA" text_2="Celadon Mansion" text_3="Celadon Mansion" text_4="Celadon Mansion" text_5="Celadon Mansion" text_6="Celadon Mansion"
+    0822BA61  callstd              function=MSGBOX_SIGN(3)
+    0822BA63  end                  
+
+  sign 5 at (33,16) -> 0x082FA064
+  script 0x082FA064  [ok]
+    082FA064  msgbox_multilang     type=0 text_0="Trainer Tips\pGet all sorts of technical machines\nfrom the rooftop of the Celadon\pDept. Store!" text_1="Trainer Tips\pGet all sorts of technical machines\nfrom the rooftop of the Celadon\pDept. Store!" text_2="Trainer Tips\pGet all sorts of technical machines\nfrom the rooftop of the Celadon\pDept. Store!" text_3="Trainer Tips\pGet all sorts of technical machines\nfrom the rooftop of the Celadon\pDept. Store!" text_4="Trainer Tips\pGet all sorts of technical machines\nfrom the rooftop of the Celadon\pDept. Store!" text_5="Trainer Tips\pGet all sorts of technical machines\nfrom the rooftop of the Celadon\pDept. Store!" text_6="Trainer Tips\pGet all sorts of technical machines\nfrom the rooftop of the Celadon\pDept. Store!"
+    082FA082  callstd              function=MSGBOX_SIGN(3)
+    082FA084  end                  
+
+  sign 6 at (18,14) -> 0x0822BA64
+  script 0x0822BA64  [ok]
+    0822BA64  msgbox_multilang     type=0 text_0="Find what you need at the\nCeladon Dept. Store!" text_1="¡Compra lo que necesites en el\nCENTRO COMERCIAL de AZULONA!" text_2="Find what you need at the\nCeladon Dept. Store!" text_3="Find what you need at the\nCeladon Dept. Store!" text_4="Find what you need at the\nCeladon Dept. Store!" text_5="Find what you need at the\nCeladon Dept. Store!" text_6="Find what you need at the\nCeladon Dept. Store!"
+    0822BA82  callstd              function=MSGBOX_SIGN(3)
+    0822BA84  end                  
+
+  sign 7 at (16,31) -> 0x0822BA13
+  script 0x0822BA13  [ok]
+    0822BA13  lockall              
+    0822BA14  setvar               destination=VAR_0x8004 value=5
+    0822BA19  setvar               destination=VAR_0x8005 value=0
+    0822BA1E  special              SPECIAL_\function=347
+    0822BA21  msgbox_multilang     type=0 text_0="Celadon City Pokémon Gym\nLeader: Erika\pThe Nature-Loving Princess!" text_1="LÍDER del GIMNASIO POKéMON\nde AZULONA: ERIKA\p¡Princesa amante de la Naturaleza!" text_2="Celadon City Pokémon Gym\nLeader: Erika\pThe Nature-Loving Princess!" text_3="Celadon City Pokémon Gym\nLeader: Erika\pThe Nature-Loving Princess!" text_4="Celadon City Pokémon Gym\nLeader: Erika\pThe Nature-Loving Princess!" text_5="Celadon City Pokémon Gym\nLeader: Erika\pThe Nature-Loving Princess!" text_6="Celadon City Pokémon Gym\nLeader: Erika\pThe Nature-Loving Princess!"
+    0822BA3F  callstd              function=MSGBOX_DEFAULT(4)
+    0822BA41  releaseall           
+
+  hidden item at (55,20): PP Up
+
+  map script type 3 -> 0x0822B86B
+  script 0x0822B86B  [ok]
+    0822B86B  setworldmapflag      flag=0x8F6
+    0822B86E  end                  
+

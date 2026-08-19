@@ -1,0 +1,30 @@
+Cinnabar Island  (group 12, map 3)  header 0x08B3D64C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x0826CE0E
+  script 0x0826CE0E  [ok]
+    0826CE0E  msgbox_multilang     type=0 text_0="Eevee can evolve into one of three\nkinds of Pokémon." text_1="Eevee can evolve into one of three\nkinds of Pokémon." text_2="Eevee can evolve into one of three\nkinds of Pokémon." text_3="Eevee can evolve into one of three\nkinds of Pokémon." text_4="Eevee can evolve into one of three\nkinds of Pokémon." text_5="Eevee can evolve into one of three\nkinds of Pokémon." text_6="Eevee can evolve into one of three\nkinds of Pokémon."
+    0826CE2C  callstd              function=MSGBOX_NPC(2)
+    0826CE2E  end                  
+
+  sign 0 at (6,1) -> 0x0826CE50
+  script 0x0826CE50  [ok]
+    0826CE50  msgbox_multilang     type=0 text_0="An amber pipe!" text_1="An amber pipe!" text_2="An amber pipe!" text_3="An amber pipe!" text_4="An amber pipe!" text_5="An amber pipe!" text_6="An amber pipe!"
+    0826CE6E  callstd              function=MSGBOX_SIGN(3)
+    0826CE70  end                  
+
+  sign 1 at (3,1) -> 0x0826CE2F
+  script 0x0826CE2F  [ok]
+    0826CE2F  msgbox_multilang     type=0 text_0="There’s an e-mail message.\p… … …\pThere are three legendary bird\nPokémon.\pThey are Articuno, Zapdos, and\nMoltres.\pTheir whereabouts are unknown.\pWe plan to explore the cavern\nclose to Cerulean.\pFrom: Pokémon Research Team…" text_1="There’s an e-mail message.\p… … …\pThere are three legendary bird\nPokémon.\pThey are Articuno, Zapdos, and\nMoltres.\pTheir whereabouts are unknown.\pWe plan to explore the cavern\nclose to Cerulean.\pFrom: Pokémon Research Team…" text_2="There’s an e-mail message.\p… … …\pThere are three legendary bird\nPokémon.\pThey are Articuno, Zapdos, and\nMoltres.\pTheir whereabouts are unknown.\pWe plan to explore the cavern\nclose to Cerulean.\pFrom: Pokémon Research Team…" text_3="There’s an e-mail message.\p… … …\pThere are three legendary bird\nPokémon.\pThey are Articuno, Zapdos, and\nMoltres.\pTheir whereabouts are unknown.\pWe plan to explore the cavern\nclose to Cerulean.\pFrom: Pokémon Research Team…" text_4="There’s an e-mail message.\p… … …\pThere are three legendary bird\nPokémon.\pThey are Articuno, Zapdos, and\nMoltres.\pTheir whereabouts are unknown.\pWe plan to explore the cavern\nclose to Cerulean.\pFrom: Pokémon Research Team…" text_5="There’s an e-mail message.\p… … …\pThere are three legendary bird\nPokémon.\pThey are Articuno, Zapdos, and\nMoltres.\pTheir whereabouts are unknown.\pWe plan to explore the cavern\nclose to Cerulean.\pFrom: Pokémon Research Team…" text_6="There’s an e-mail message.\p… … …\pThere are three legendary bird\nPokémon.\pThey are Articuno, Zapdos, and\nMoltres.\pTheir whereabouts are unknown.\pWe plan to explore the cavern\nclose to Cerulean.\pFrom: Pokémon Research Team…"
+    0826CE4D  callstd              function=MSGBOX_SIGN(3)
+    0826CE4F  end                  
+

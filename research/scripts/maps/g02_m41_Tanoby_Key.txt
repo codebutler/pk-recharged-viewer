@@ -1,0 +1,197 @@
+Tanoby Key  (group 2, map 41)  header 0x08B3C408
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  script 0x0820540E  [ok]
+    0820540E  lockall              
+    0820540F  checkflag            flag=0x883:BADGE4_RAINBOW
+    08205412  goto_if              condition=0 destination=0x082054BA
+    08205418  checkflag            flag=0x23A
+    0820541B  goto_if              condition=0 destination=0x082054BA
+    08205421  checkflag            flag=0x865
+    08205424  goto_if              condition=1 destination=0x082054DB
+    0820542A  checkpartymove       move=Strength(70)
+    0820542D  compare_var_to_value var=0x800D value=6
+    08205432  goto_if              condition=1 destination=0x082054AC
+    08205438  compare_var_to_value var=0x800D value=6
+    0820543D  goto_if              condition=1 destination=0x082054BA
+    08205443  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205447  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?"
+    08205465  callstd              function=MSGBOX_YESNO(5)
+    08205467  compare_var_to_value var=0x800D value=0
+    0820546C  goto_if              condition=1 destination=0x082054FC
+    08205472  closemessage         
+    08205473  dofieldeffect        animation=40
+    08205476  waitstate            
+
+  script 0x082054BA  [ok]
+    082054BA  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside."
+    082054D8  callstd              function=MSGBOX_SIGN(3)
+    082054DA  end                  
+
+  script 0x082054DB  [ok]
+    082054DB  msgbox_multilang     type=0 text_0="Strength made it possible to move\nboulders around." text_1="Strength made it possible to move\nboulders around." text_2="Strength made it possible to move\nboulders around." text_3="Strength made it possible to move\nboulders around." text_4="Strength made it possible to move\nboulders around." text_5="Strength made it possible to move\nboulders around." text_6="Strength made it possible to move\nboulders around."
+    082054F9  callstd              function=MSGBOX_SIGN(3)
+    082054FB  end                  
+
+  script 0x082054AC  [unknown-opcode:0xE5]
+
+  script 0x082054FC  [ok]
+    082054FC  closemessage         
+    082054FD  releaseall           
+
+  object 2 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 3 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 4 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 5 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 6 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 7 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  coord trigger 0 (var 0x4001 == 99) -> 0x0821C99A
+  script 0x0821C99A  [ok]
+    0821C99A  lockall              
+    0821C99B  compare_var_to_value var=0x4001 value=100
+    0821C9A0  goto_if              condition=1 destination=0x0821CAEB
+    0821C9A6  call                 destination=0x0821CA8F
+    0821C9AB  setvar               destination=VAR_0x4001 value=100
+    0821C9B0  compare_var_to_value var=0x4008 value=7
+    0821C9B5  goto_if              condition=1 destination=0x0821CAED
+    0821C9BB  releaseall           
+
+  script 0x0821CAEB  [ok]
+    0821CAEB  releaseall           
+
+  script 0x0821CA8F  [ok]
+    0821CA8F  addvar               destination=VAR_0x4008 value=1
+    0821CA94  playse               song=49
+    0821CA97  setvar               destination=VAR_0x8004 value=1
+    0821CA9C  setvar               destination=VAR_0x8005 value=1
+    0821CAA1  setvar               destination=VAR_0x8006 value=8
+    0821CAA6  setvar               destination=VAR_0x8007 value=3
+    0821CAAB  special              SPECIAL_\function=221
+    0821CAAE  delay                frames=60
+    0821CAB1  return               
+
+  script 0x0821CAED  [ok]
+    0821CAED  call                 destination=0x0821CAB2
+    0821CAF2  msgbox_multilang     type=0 text_0="A mysterious rumble echoed\nsomewhere far away." text_1="A mysterious rumble echoed\nsomewhere far away." text_2="A mysterious rumble echoed\nsomewhere far away." text_3="A mysterious rumble echoed\nsomewhere far away." text_4="A mysterious rumble echoed\nsomewhere far away." text_5="A mysterious rumble echoed\nsomewhere far away." text_6="A mysterious rumble echoed\nsomewhere far away."
+    0821CB10  callstd              function=MSGBOX_DEFAULT(4)
+    0821CB12  setflag              flag=0x8A9
+    0821CB15  releaseall           
+
+  script 0x0821CAB2  [ok]
+    0821CAB2  setvar               destination=VAR_0x8004 value=2
+    0821CAB7  setvar               destination=VAR_0x8005 value=2
+    0821CABC  setvar               destination=VAR_0x8006 value=10
+    0821CAC1  setvar               destination=VAR_0x8007 value=3
+    0821CAC6  special              SPECIAL_\function=221
+    0821CAC9  delay                frames=60
+    0821CACC  setvar               destination=VAR_0x8004 value=3
+    0821CAD1  setvar               destination=VAR_0x8005 value=3
+    0821CAD6  setvar               destination=VAR_0x8006 value=12
+    0821CADB  setvar               destination=VAR_0x8007 value=2
+    0821CAE0  special              SPECIAL_\function=221
+    0821CAE3  delay                frames=60
+    0821CAE6  playse               song=39
+    0821CAE9  waitse               
+    0821CAEA  return               
+
+  coord trigger 1 (var 0x4007 == 99) -> 0x0821CA6C
+  script 0x0821CA6C  [ok]
+    0821CA6C  lockall              
+    0821CA6D  compare_var_to_value var=0x4007 value=100
+    0821CA72  goto_if              condition=1 destination=0x0821CAEB
+    0821CA78  call                 destination=0x0821CA8F
+    0821CA7D  setvar               destination=VAR_0x4007 value=100
+    0821CA82  compare_var_to_value var=0x4008 value=7
+    0821CA87  goto_if              condition=1 destination=0x0821CAED
+    0821CA8D  releaseall           
+
+  coord trigger 2 (var 0x4006 == 99) -> 0x0821CA49
+  script 0x0821CA49  [ok]
+    0821CA49  lockall              
+    0821CA4A  compare_var_to_value var=0x4006 value=100
+    0821CA4F  goto_if              condition=1 destination=0x0821CAEB
+    0821CA55  call                 destination=0x0821CA8F
+    0821CA5A  setvar               destination=VAR_0x4006 value=100
+    0821CA5F  compare_var_to_value var=0x4008 value=7
+    0821CA64  goto_if              condition=1 destination=0x0821CAED
+    0821CA6A  releaseall           
+
+  coord trigger 3 (var 0x4005 == 99) -> 0x0821CA26
+  script 0x0821CA26  [ok]
+    0821CA26  lockall              
+    0821CA27  compare_var_to_value var=0x4005 value=100
+    0821CA2C  goto_if              condition=1 destination=0x0821CAEB
+    0821CA32  call                 destination=0x0821CA8F
+    0821CA37  setvar               destination=VAR_0x4005 value=100
+    0821CA3C  compare_var_to_value var=0x4008 value=7
+    0821CA41  goto_if              condition=1 destination=0x0821CAED
+    0821CA47  releaseall           
+
+  coord trigger 4 (var 0x4004 == 99) -> 0x0821CA03
+  script 0x0821CA03  [ok]
+    0821CA03  lockall              
+    0821CA04  compare_var_to_value var=0x4004 value=100
+    0821CA09  goto_if              condition=1 destination=0x0821CAEB
+    0821CA0F  call                 destination=0x0821CA8F
+    0821CA14  setvar               destination=VAR_0x4004 value=100
+    0821CA19  compare_var_to_value var=0x4008 value=7
+    0821CA1E  goto_if              condition=1 destination=0x0821CAED
+    0821CA24  releaseall           
+
+  coord trigger 5 (var 0x4003 == 99) -> 0x0821C9E0
+  script 0x0821C9E0  [ok]
+    0821C9E0  lockall              
+    0821C9E1  compare_var_to_value var=0x4003 value=100
+    0821C9E6  goto_if              condition=1 destination=0x0821CAEB
+    0821C9EC  call                 destination=0x0821CA8F
+    0821C9F1  setvar               destination=VAR_0x4003 value=100
+    0821C9F6  compare_var_to_value var=0x4008 value=7
+    0821C9FB  goto_if              condition=1 destination=0x0821CAED
+    0821CA01  releaseall           
+
+  coord trigger 6 (var 0x4002 == 99) -> 0x0821C9BD
+  script 0x0821C9BD  [ok]
+    0821C9BD  lockall              
+    0821C9BE  compare_var_to_value var=0x4002 value=100
+    0821C9C3  goto_if              condition=1 destination=0x0821CAEB
+    0821C9C9  call                 destination=0x0821CA8F
+    0821C9CE  setvar               destination=VAR_0x4002 value=100
+    0821C9D3  compare_var_to_value var=0x4008 value=7
+    0821C9D8  goto_if              condition=1 destination=0x0821CAED
+    0821C9DE  releaseall           
+
+  map script type 3 -> 0x0821C933
+  script 0x0821C933  [ok]
+    0821C933  setworldmapflag      flag=0x921
+    0821C936  checkflag            flag=0x8A9
+    0821C939  call_if              condition=1 destination=0x0821C968
+    0821C93F  setvar               destination=VAR_0x4001 value=0
+    0821C944  setvar               destination=VAR_0x4002 value=0
+    0821C949  setvar               destination=VAR_0x4003 value=0
+    0821C94E  setvar               destination=VAR_0x4004 value=0
+    0821C953  setvar               destination=VAR_0x4005 value=0
+    0821C958  setvar               destination=VAR_0x4006 value=0
+    0821C95D  setvar               destination=VAR_0x4007 value=0
+    0821C962  setvar               destination=VAR_0x4008 value=0
+    0821C967  end                  
+
+  script 0x0821C968  [ok]
+    0821C968  setobjectxyperm      localId=1 x=7 y=2
+    0821C96F  setobjectxyperm      localId=2 x=4 y=4
+    0821C976  setobjectxyperm      localId=3 x=10 y=4
+    0821C97D  setobjectxyperm      localId=4 x=5 y=6
+    0821C984  setobjectxyperm      localId=5 x=9 y=6
+    0821C98B  setobjectxyperm      localId=6 x=5 y=8
+    0821C992  setobjectxyperm      localId=7 x=9 y=8
+    0821C999  return               
+

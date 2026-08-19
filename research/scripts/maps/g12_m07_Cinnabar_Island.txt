@@ -1,0 +1,36 @@
+Cinnabar Island  (group 12, map 7)  header 0x08B3D6BC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0826F230
+  script 0x0826F230  [opcode-out-of-range:0xFE]
+    0826F230  lock                 
+    0826F231  faceplayer           
+    0826F232  call                 destination=0x082BB330
+    0826F237  message              text="Hi, there!\nMay I help you?"
+    0826F23C  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x14, flag 0x0000) -> 0x0826F1EE
+  script 0x0826F1EE  [ok]
+    0826F1EE  msgbox_multilang     type=0 text_0="Don’t they have X Attack?\pI like it because it raises the\nAttack stat in battle." text_1="Don’t they have X Attack?\pI like it because it raises the\nAttack stat in battle." text_2="Don’t they have X Attack?\pI like it because it raises the\nAttack stat in battle." text_3="Don’t they have X Attack?\pI like it because it raises the\nAttack stat in battle." text_4="Don’t they have X Attack?\pI like it because it raises the\nAttack stat in battle." text_5="Don’t they have X Attack?\pI like it because it raises the\nAttack stat in battle." text_6="Don’t they have X Attack?\pI like it because it raises the\nAttack stat in battle."
+    0826F20C  callstd              function=MSGBOX_NPC(2)
+    0826F20E  end                  
+
+  object 3 (gfx 0x08, flag 0x0000) -> 0x0826F20F
+  script 0x0826F20F  [ok]
+    0826F20F  msgbox_multilang     type=0 text_0="It never hurts to have extra items.\nYou never know what might happen." text_1="It never hurts to have extra items.\nYou never know what might happen." text_2="It never hurts to have extra items.\nYou never know what might happen." text_3="It never hurts to have extra items.\nYou never know what might happen." text_4="It never hurts to have extra items.\nYou never know what might happen." text_5="It never hurts to have extra items.\nYou never know what might happen." text_6="It never hurts to have extra items.\nYou never know what might happen."
+    0826F22D  callstd              function=MSGBOX_NPC(2)
+    0826F22F  end                  
+

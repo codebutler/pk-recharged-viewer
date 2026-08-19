@@ -1,0 +1,125 @@
+Southern Island  (group 2, map 5)  header 0x08B3C018
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x5A, flag 0x00E3) -> 0x00000000
+  object 2 (gfx 0x5B, flag 0x00E1) -> 0x00000000
+  sign 0 at (13,11) -> 0x0828DA6B
+  script 0x0828DA6B  [ok]
+    0828DA6B  lockall              
+    0828DA6C  setvar               destination=VAR_0x8008 value=12
+    0828DA71  goto                 destination=0x0828DA77
+
+  script 0x0828DA77  [ok]
+    0828DA77  checkflag            flag=0x002
+    0828DA7A  goto_if              condition=1 destination=0x0828DB41
+    0828DA80  checkflag            flag=0x0F5
+    0828DA83  goto_if              condition=1 destination=0x0828DB41
+    0828DA89  checkflag            flag=0x10B
+    0828DA8C  goto_if              condition=1 destination=0x0828DB41
+    0828DA92  checkflag            flag=0x8B3
+    0828DA95  goto_if              condition=0 destination=0x0828DB41
+    0828DA9B  setflag              flag=0x10C
+    0828DA9E  setflag              flag=0x002
+    0828DAA1  special              SPECIAL_\function=190
+    0828DAA4  applymovement        localId=127 movements=[walk_up walk_up walk_up]
+    0828DAAB  waitmovement         localId=0
+    0828DAAE  delay                frames=50
+    0828DAB1  waitse               
+    0828DAB2  playmoncry           species=?(16388) mode=0
+    0828DAB7  delay                frames=30
+    0828DABA  waitmoncry           
+    0828DABB  addobject            localId=2
+    0828DABE  delay                frames=30
+    0828DAC1  applymovement        localId=127 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 walk_down walk_down walk_down walk_in_place_faster_up]
+    0828DAC8  applymovement        localId=2 movements=[walk_down walk_down walk_down walk_down walk_down delay_16 delay_16 walk_down walk_down walk_down walk_down]
+    0828DACF  waitmovement         localId=0
+    0828DAD2  delay                frames=50
+    0828DAD5  special              SPECIAL_\function=191
+    0828DAD8  setvar               destination=VAR_0x800F value=2
+    0828DADD  compare_var_to_value var=0x40DC value=0
+    0828DAE2  call_if              condition=1 destination=0x0828DB63
+    0828DAE8  compare_var_to_value var=0x40DC value=0
+    0828DAED  call_if              condition=5 destination=0x0828DB76
+    0828DAF3  setflag              flag=0x8C1
+    0828DAF6  special              SPECIAL_\function=233
+    0828DAF9  waitstate            
+
+  script 0x0828DB41  [ok]
+    0828DB41  msgbox_multilang     type=0 text_0="“All dreams are but another reality.\nNever forget…”" text_1="“All dreams are but another reality.\nNever forget…”" text_2="“All dreams are but another reality.\nNever forget…”" text_3="“All dreams are but another reality.\nNever forget…”" text_4="“All dreams are but another reality.\nNever forget…”" text_5="“All dreams are but another reality.\nNever forget…”" text_6="“All dreams are but another reality.\nNever forget…”"
+    0828DB5F  callstd              function=MSGBOX_DEFAULT(4)
+    0828DB61  releaseall           
+
+  script 0x0828DB63  [ok]
+    0828DB63  setvar               destination=VAR_0x8004 value=408
+    0828DB68  setvar               destination=VAR_0x8005 value=50
+    0828DB6D  setvar               destination=VAR_0x8006 value=191
+    0828DB72  special              SPECIAL_\function=317
+    0828DB75  return               
+
+  script 0x0828DB76  [ok]
+    0828DB76  setvar               destination=VAR_0x8004 value=407
+    0828DB7B  setvar               destination=VAR_0x8005 value=50
+    0828DB80  setvar               destination=VAR_0x8006 value=191
+    0828DB85  special              SPECIAL_\function=317
+    0828DB88  return               
+
+  map script type 5 -> 0x0828D9F7
+  script 0x0828D9F7  [ok]
+    0828D9F7  checkflag            flag=0x8C1
+    0828D9FA  call_if              condition=1 destination=0x0828DA01
+    0828DA00  end                  
+
+  script 0x0828DA01  [ok]
+    0828DA01  specialvar           output=32781 SPECIAL_\function=102
+    0828DA06  compare_var_to_value var=0x800D value=7
+    0828DA0B  goto_if              condition=5 destination=0x082BCF3E
+    0828DA11  removeobject         localId=2
+    0828DA14  return               
+
+  script 0x082BCF3E  [ok]
+    082BCF3E  return               
+
+  map script type 3 -> 0x0828DA15
+  script 0x0828DA15  [ok]
+    0828DA15  compare_var_to_value var=0x40DC value=0
+    0828DA1A  call_if              condition=1 destination=0x0828DA31
+    0828DA20  compare_var_to_value var=0x40DC value=0
+    0828DA25  call_if              condition=5 destination=0x0828DA3C
+    0828DA2B  call                 destination=0x0828DA47
+    0828DA30  end                  
+
+  script 0x0828DA31  [ok]
+    0828DA31  setvar               destination=VAR_0x4011 value=188
+    0828DA36  setvar               destination=VAR_0x4004 value=408
+    0828DA3B  return               
+
+  script 0x0828DA3C  [ok]
+    0828DA3C  setvar               destination=VAR_0x4011 value=187
+    0828DA41  setvar               destination=VAR_0x4004 value=407
+    0828DA46  return               
+
+  script 0x0828DA47  [ok]
+    0828DA47  checkplayergender    
+    0828DA48  compare_var_to_value var=0x800D value=0
+    0828DA4D  goto_if              condition=1 destination=0x0828DA5F
+    0828DA53  compare_var_to_value var=0x800D value=1
+    0828DA58  goto_if              condition=1 destination=0x0828DA65
+    0828DA5E  end                  
+
+  script 0x0828DA5F  [ok]
+    0828DA5F  setvar               destination=VAR_0x4010 value=0
+    0828DA64  return               
+
+  script 0x0828DA65  [ok]
+    0828DA65  setvar               destination=VAR_0x4010 value=89
+    0828DA6A  return               
+

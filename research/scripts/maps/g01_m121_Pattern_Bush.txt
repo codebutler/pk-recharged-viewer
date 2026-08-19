@@ -1,0 +1,114 @@
+Pattern Bush  (group 1, map 121)  header 0x08B3BF54
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x14, flag 0x0000) -> 0x0821A9F3
+  script 0x0821A9F3  [ok]
+    0821A9F3  trainerbattle        type=0 trainer=0x261 localId=0 ptr1=0x0821AC27 ptr2=0x0821AC53
+    0821AA01  msgbox_multilang     type=0 text_0="In the same way your mother raised\nyou full of love, you should raise\pyour Pokémon." text_1="In the same way your mother raised\nyou full of love, you should raise\pyour Pokémon." text_2="In the same way your mother raised\nyou full of love, you should raise\pyour Pokémon." text_3="In the same way your mother raised\nyou full of love, you should raise\pyour Pokémon." text_4="In the same way your mother raised\nyou full of love, you should raise\pyour Pokémon." text_5="In the same way your mother raised\nyou full of love, you should raise\pyour Pokémon." text_6="In the same way your mother raised\nyou full of love, you should raise\pyour Pokémon."
+    0821AA1F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AA21  end                  
+
+  object 2 (gfx 0x50, flag 0x0000) -> 0x0821AA22
+  script 0x0821AA22  [ok]
+    0821AA22  trainerbattle        type=0 trainer=0x262 localId=0 ptr1=0x0821ACD8 ptr2=0x0821AD15
+    0821AA30  msgbox_multilang     type=0 text_0="I’m not saying that you shouldn’t\ncatch Pokémon.\pI just want people to raise their\nPokémon responsibly." text_1="I’m not saying that you shouldn’t\ncatch Pokémon.\pI just want people to raise their\nPokémon responsibly." text_2="I’m not saying that you shouldn’t\ncatch Pokémon.\pI just want people to raise their\nPokémon responsibly." text_3="I’m not saying that you shouldn’t\ncatch Pokémon.\pI just want people to raise their\nPokémon responsibly." text_4="I’m not saying that you shouldn’t\ncatch Pokémon.\pI just want people to raise their\nPokémon responsibly." text_5="I’m not saying that you shouldn’t\ncatch Pokémon.\pI just want people to raise their\nPokémon responsibly." text_6="I’m not saying that you shouldn’t\ncatch Pokémon.\pI just want people to raise their\nPokémon responsibly."
+    0821AA4E  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AA50  end                  
+
+  object 3 (gfx 0x24, flag 0x0000) -> 0x0821AA51
+  script 0x0821AA51  [ok]
+    0821AA51  trainerbattle        type=0 trainer=0x263 localId=0 ptr1=0x0821ADAB ptr2=0x0821ADDF
+    0821AA5F  msgbox_multilang     type=0 text_0="There’s a girl near the Bush who\nmeasures Heracross for Trainers." text_1="There’s a girl near the Bush who\nmeasures Heracross for Trainers." text_2="There’s a girl near the Bush who\nmeasures Heracross for Trainers." text_3="There’s a girl near the Bush who\nmeasures Heracross for Trainers." text_4="There’s a girl near the Bush who\nmeasures Heracross for Trainers." text_5="There’s a girl near the Bush who\nmeasures Heracross for Trainers." text_6="There’s a girl near the Bush who\nmeasures Heracross for Trainers."
+    0821AA7D  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AA7F  end                  
+
+  object 4 (gfx 0x24, flag 0x0000) -> 0x0821AA80
+  script 0x0821AA80  [ok]
+    0821AA80  trainerbattle        type=0 trainer=0x264 localId=0 ptr1=0x0821AE42 ptr2=0x0821AE83
+    0821AA8E  msgbox_multilang     type=0 text_0="By the way, “appeal” is a weird\nword, if you think about it.\pLike, is it like an orange peel?\nOr like a ringing bell?" text_1="By the way, “appeal” is a weird\nword, if you think about it.\pLike, is it like an orange peel?\nOr like a ringing bell?" text_2="By the way, “appeal” is a weird\nword, if you think about it.\pLike, is it like an orange peel?\nOr like a ringing bell?" text_3="By the way, “appeal” is a weird\nword, if you think about it.\pLike, is it like an orange peel?\nOr like a ringing bell?" text_4="By the way, “appeal” is a weird\nword, if you think about it.\pLike, is it like an orange peel?\nOr like a ringing bell?" text_5="By the way, “appeal” is a weird\nword, if you think about it.\pLike, is it like an orange peel?\nOr like a ringing bell?" text_6="By the way, “appeal” is a weird\nword, if you think about it.\pLike, is it like an orange peel?\nOr like a ringing bell?"
+    0821AAAC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AAAE  end                  
+
+  object 5 (gfx 0x24, flag 0x0000) -> 0x0821AAAF
+  script 0x0821AAAF  [ok]
+    0821AAAF  trainerbattle        type=0 trainer=0x265 localId=0 ptr1=0x0821AF33 ptr2=0x0821AF62
+    0821AABD  msgbox_multilang     type=0 text_0="I’m going to bring my little brother\nhere next time." text_1="I’m going to bring my little brother\nhere next time." text_2="I’m going to bring my little brother\nhere next time." text_3="I’m going to bring my little brother\nhere next time." text_4="I’m going to bring my little brother\nhere next time." text_5="I’m going to bring my little brother\nhere next time." text_6="I’m going to bring my little brother\nhere next time."
+    0821AADB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AADD  end                  
+
+  object 6 (gfx 0x23, flag 0x0000) -> 0x0821AADE
+  script 0x0821AADE  [ok]
+    0821AADE  trainerbattle        type=0 trainer=0x266 localId=0 ptr1=0x0821AFC6 ptr2=0x0821AFFA
+    0821AAEC  msgbox_multilang     type=0 text_0="The funny patterns on the ground…\pThey look like the patterns on my\ngrandpa’s clothes." text_1="The funny patterns on the ground…\pThey look like the patterns on my\ngrandpa’s clothes." text_2="The funny patterns on the ground…\pThey look like the patterns on my\ngrandpa’s clothes." text_3="The funny patterns on the ground…\pThey look like the patterns on my\ngrandpa’s clothes." text_4="The funny patterns on the ground…\pThey look like the patterns on my\ngrandpa’s clothes." text_5="The funny patterns on the ground…\pThey look like the patterns on my\ngrandpa’s clothes." text_6="The funny patterns on the ground…\pThey look like the patterns on my\ngrandpa’s clothes."
+    0821AB0A  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AB0C  end                  
+
+  object 7 (gfx 0x23, flag 0x0000) -> 0x0821AB0D
+  script 0x0821AB0D  [ok]
+    0821AB0D  trainerbattle        type=0 trainer=0x267 localId=0 ptr1=0x0821B060 ptr2=0x0821B092
+    0821AB1B  msgbox_multilang     type=0 text_0="Ayup, you townies come around all\nso dandy with a hat that flashy…\pHow about giving me that?" text_1="Ayup, you townies come around all\nso dandy with a hat that flashy…\pHow about giving me that?" text_2="Ayup, you townies come around all\nso dandy with a hat that flashy…\pHow about giving me that?" text_3="Ayup, you townies come around all\nso dandy with a hat that flashy…\pHow about giving me that?" text_4="Ayup, you townies come around all\nso dandy with a hat that flashy…\pHow about giving me that?" text_5="Ayup, you townies come around all\nso dandy with a hat that flashy…\pHow about giving me that?" text_6="Ayup, you townies come around all\nso dandy with a hat that flashy…\pHow about giving me that?"
+    0821AB39  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AB3B  end                  
+
+  object 8 (gfx 0x2F, flag 0x0000) -> 0x0821AB3C
+  script 0x0821AB3C  [ok]
+    0821AB3C  trainerbattle        type=0 trainer=0x268 localId=0 ptr1=0x0821B118 ptr2=0x0821B145
+    0821AB4A  msgbox_multilang     type=0 text_0="First, exhale.\nBlow everything out.\pWhen you can’t exhale anymore,\ninhale the clean air!\pIsn’t it refreshing?" text_1="First, exhale.\nBlow everything out.\pWhen you can’t exhale anymore,\ninhale the clean air!\pIsn’t it refreshing?" text_2="First, exhale.\nBlow everything out.\pWhen you can’t exhale anymore,\ninhale the clean air!\pIsn’t it refreshing?" text_3="First, exhale.\nBlow everything out.\pWhen you can’t exhale anymore,\ninhale the clean air!\pIsn’t it refreshing?" text_4="First, exhale.\nBlow everything out.\pWhen you can’t exhale anymore,\ninhale the clean air!\pIsn’t it refreshing?" text_5="First, exhale.\nBlow everything out.\pWhen you can’t exhale anymore,\ninhale the clean air!\pIsn’t it refreshing?" text_6="First, exhale.\nBlow everything out.\pWhen you can’t exhale anymore,\ninhale the clean air!\pIsn’t it refreshing?"
+    0821AB68  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AB6A  end                  
+
+  object 9 (gfx 0x2F, flag 0x0000) -> 0x0821AB6B
+  script 0x0821AB6B  [ok]
+    0821AB6B  trainerbattle        type=0 trainer=0x269 localId=0 ptr1=0x0821B1EB ptr2=0x0821B23F
+    0821AB79  msgbox_multilang     type=0 text_0="I’m going to keep on collecting\nBug Pokémon.\pAm I the only girl like that?" text_1="I’m going to keep on collecting\nBug Pokémon.\pAm I the only girl like that?" text_2="I’m going to keep on collecting\nBug Pokémon.\pAm I the only girl like that?" text_3="I’m going to keep on collecting\nBug Pokémon.\pAm I the only girl like that?" text_4="I’m going to keep on collecting\nBug Pokémon.\pAm I the only girl like that?" text_5="I’m going to keep on collecting\nBug Pokémon.\pAm I the only girl like that?" text_6="I’m going to keep on collecting\nBug Pokémon.\pAm I the only girl like that?"
+    0821AB97  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AB99  end                  
+
+  object 10 (gfx 0x1F, flag 0x0000) -> 0x0821AB9A
+  script 0x0821AB9A  [ok]
+    0821AB9A  trainerbattle        type=0 trainer=0x26A localId=0 ptr1=0x0821B2C8 ptr2=0x0821B2F6
+    0821ABA8  msgbox_multilang     type=0 text_0="I’m going to observe the night sky\nhere." text_1="I’m going to observe the night sky\nhere." text_2="I’m going to observe the night sky\nhere." text_3="I’m going to observe the night sky\nhere." text_4="I’m going to observe the night sky\nhere." text_5="I’m going to observe the night sky\nhere." text_6="I’m going to observe the night sky\nhere."
+    0821ABC6  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821ABC8  end                  
+
+  object 11 (gfx 0x20, flag 0x0000) -> 0x0821ABC9
+  script 0x0821ABC9  [ok]
+    0821ABC9  trainerbattle        type=0 trainer=0x26B localId=0 ptr1=0x0821B32B ptr2=0x0821B34D
+    0821ABD7  msgbox_multilang     type=0 text_0="A little cut like that…\nA little spit’s enough to cure it!" text_1="A little cut like that…\nA little spit’s enough to cure it!" text_2="A little cut like that…\nA little spit’s enough to cure it!" text_3="A little cut like that…\nA little spit’s enough to cure it!" text_4="A little cut like that…\nA little spit’s enough to cure it!" text_5="A little cut like that…\nA little spit’s enough to cure it!" text_6="A little cut like that…\nA little spit’s enough to cure it!"
+    0821ABF5  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821ABF7  end                  
+
+  object 12 (gfx 0x4B, flag 0x0000) -> 0x0821ABF8
+  script 0x0821ABF8  [ok]
+    0821ABF8  trainerbattle        type=0 trainer=0x26C localId=0 ptr1=0x0821B3B6 ptr2=0x0821B3E8
+    0821AC06  msgbox_multilang     type=0 text_0="There are places here in Pattern\nBush where grass won’t grow.\pWhat could be the cause of such\na phenomenon?" text_1="There are places here in Pattern\nBush where grass won’t grow.\pWhat could be the cause of such\na phenomenon?" text_2="There are places here in Pattern\nBush where grass won’t grow.\pWhat could be the cause of such\na phenomenon?" text_3="There are places here in Pattern\nBush where grass won’t grow.\pWhat could be the cause of such\na phenomenon?" text_4="There are places here in Pattern\nBush where grass won’t grow.\pWhat could be the cause of such\na phenomenon?" text_5="There are places here in Pattern\nBush where grass won’t grow.\pWhat could be the cause of such\na phenomenon?" text_6="There are places here in Pattern\nBush where grass won’t grow.\pWhat could be the cause of such\na phenomenon?"
+    0821AC24  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821AC26  end                  
+
+  map script type 3 -> 0x0821A9C2
+  script 0x0821A9C2  [ok]
+    0821A9C2  setworldmapflag      flag=0x91D
+    0821A9C5  getplayerxy          x=16385 y=16386
+    0821A9CA  compare_var_to_value var=0x4001 value=50
+    0821A9CF  call_if              condition=4 destination=0x0821A9E1
+    0821A9D5  compare_var_to_value var=0x4001 value=49
+    0821A9DA  call_if              condition=3 destination=0x0821A9EA
+    0821A9E0  end                  
+
+  script 0x0821A9E1  [ok]
+    0821A9E1  setescapewarp        mapGroup=3 mapNum=59 WARP_ID_NONE=255 -1=64 -1=10
+    0821A9E9  return               
+
+  script 0x0821A9EA  [ok]
+    0821A9EA  setescapewarp        mapGroup=3 mapNum=59 WARP_ID_NONE=255 -1=45 -1=10
+    0821A9F2  return               
+

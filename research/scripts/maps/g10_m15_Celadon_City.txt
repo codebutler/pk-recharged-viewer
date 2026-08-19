@@ -1,0 +1,261 @@
+Celadon City  (group 10, map 15)  header 0x08B3D454
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF4, flag 0x0000) -> 0x08266E0F
+  script 0x08266E0F  [ok]
+    08266E0F  msgbox_multilang     type=0 text_0="I sure do fancy that Porygon!\nBut, it’s hard to win at slots!" text_1="I sure do fancy that Porygon!\nBut, it’s hard to win at slots!" text_2="I sure do fancy that Porygon!\nBut, it’s hard to win at slots!" text_3="I sure do fancy that Porygon!\nBut, it’s hard to win at slots!" text_4="I sure do fancy that Porygon!\nBut, it’s hard to win at slots!" text_5="I sure do fancy that Porygon!\nBut, it’s hard to win at slots!" text_6="I sure do fancy that Porygon!\nBut, it’s hard to win at slots!"
+    08266E2D  callstd              function=MSGBOX_NPC(2)
+    08266E2F  end                  
+
+  object 2 (gfx 0xF6, flag 0x0000) -> 0x08266E30
+  script 0x08266E30  [ok]
+    08266E30  msgbox_multilang     type=0 text_0="Gahaha! I raked it in today!\nIf only every day were like this…" text_1="Gahaha! I raked it in today!\nIf only every day were like this…" text_2="Gahaha! I raked it in today!\nIf only every day were like this…" text_3="Gahaha! I raked it in today!\nIf only every day were like this…" text_4="Gahaha! I raked it in today!\nIf only every day were like this…" text_5="Gahaha! I raked it in today!\nIf only every day were like this…" text_6="Gahaha! I raked it in today!\nIf only every day were like this…"
+    08266E4E  callstd              function=MSGBOX_NPC(2)
+    08266E50  end                  
+
+  object 3 (gfx 0x00, flag 0x0000) -> 0x08266E51
+  script 0x08266E51  [unknown-opcode:0xE3]
+    08266E51  lock                 
+    08266E52  faceplayer           
+    08266E53  checkflag            flag=0x243
+    08266E56  goto_if              condition=0 destination=0x08266FC4
+    08266E5C  showcoinsbox         x=0 y=0
+    08266E5F  msgbox_multilang     type=0 text_0="We exchange your Coins for prizes." text_1="We exchange your Coins for prizes." text_2="We exchange your Coins for prizes." text_3="We exchange your Coins for prizes." text_4="We exchange your Coins for prizes." text_5="We exchange your Coins for prizes." text_6="We exchange your Coins for prizes."
+    08266E7D  callstd              function=MSGBOX_DEFAULT(4)
+    08266E7F  message              text="Which prize would you like?"
+    08266E84  waitmoncry           
+    08266E85  hidemonpic           
+    08266E86  specialvar           output=50440 SPECIAL_\function=9846
+    08266E8B  gotostd              function=197
+    08266E8D  hidemonpic           
+    08266E8E  specialvar           output=50440 SPECIAL_\function=9846
+    08266E93  gotostd              function=197
+    08266E95  hidemonpic           
+    08266E96  specialvar           output=50440 SPECIAL_\function=9846
+    08266E9B  gotostd              function=102
+
+  script 0x08266FC4  [ok]
+    08266FC4  goto                 destination=0x082671B8
+
+  script 0x082671B8  [ok]
+    082671B8  textcolor            color=3
+    082671BA  msgbox_multilang     type=0 text_0="A Coin Case is required…" text_1="A Coin Case is required…" text_2="A Coin Case is required…" text_3="A Coin Case is required…" text_4="A Coin Case is required…" text_5="A Coin Case is required…" text_6="A Coin Case is required…"
+    082671D8  callstd              function=MSGBOX_DEFAULT(4)
+    082671DA  release              
+
+  object 4 (gfx 0x00, flag 0x0000) -> 0x0826720B
+  script 0x0826720B  [ok]
+    0826720B  lock                 
+    0826720C  faceplayer           
+    0826720D  checkflag            flag=0x243
+    08267210  goto_if              condition=0 destination=0x082672DF
+    08267216  showcoinsbox         x=0 y=0
+    08267219  msgbox_multilang     type=0 text_0="We exchange your Coins for prizes." text_1="We exchange your Coins for prizes." text_2="We exchange your Coins for prizes." text_3="We exchange your Coins for prizes." text_4="We exchange your Coins for prizes." text_5="We exchange your Coins for prizes." text_6="We exchange your Coins for prizes."
+    08267237  callstd              function=MSGBOX_DEFAULT(4)
+    08267239  message              text="Which prize would you like?"
+    0826723E  waitmoncry           
+    0826723F  hidemonpic           
+    08267240  specialvar           output=50440 SPECIAL_\function=9846
+    08267245  gotostd              function=197
+    08267247  hidemonpic           
+    08267248  specialvar           output=50440 SPECIAL_\function=9846
+    0826724D  gotostd              function=197
+    0826724F  hidemonpic           
+    08267250  specialvar           output=50440 SPECIAL_\function=9846
+    08267255  gotostd              function=102
+    08267257  multichoice          x=11 y=0 multichoiceId=30 ignoreBPress=0
+    0826725C  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08267261  compare_var_to_value var=0x8000 value=0
+    08267266  goto_if              condition=1 destination=0x082672E9
+    0826726C  compare_var_to_value var=0x8000 value=1
+    08267271  goto_if              condition=1 destination=0x082672FC
+    08267277  compare_var_to_value var=0x8000 value=2
+    0826727C  goto_if              condition=1 destination=0x0826730F
+    08267282  compare_var_to_value var=0x8000 value=3
+    08267287  goto_if              condition=1 destination=0x08267322
+    0826728D  compare_var_to_value var=0x8000 value=4
+    08267292  goto_if              condition=1 destination=0x08267335
+    08267298  compare_var_to_value var=0x8000 value=5
+    0826729D  goto_if              condition=1 destination=0x08267348
+    082672A3  compare_var_to_value var=0x8000 value=127
+    082672A8  goto_if              condition=1 destination=0x08267348
+    082672AE  msgbox_multilang     type=0 text_0="Okay, a TM of {STR_VAR_2}\nis what you want?" text_1="Okay, a TM of {STR_VAR_2}\nis what you want?" text_2="Okay, a TM of {STR_VAR_2}\nis what you want?" text_3="Okay, a TM of {STR_VAR_2}\nis what you want?" text_4="Okay, a TM of {STR_VAR_2}\nis what you want?" text_5="Okay, a TM of {STR_VAR_2}\nis what you want?" text_6="Okay, a TM of {STR_VAR_2}\nis what you want?"
+    082672CC  callstd              function=MSGBOX_YESNO(5)
+    082672CE  compare_var_to_value var=0x800D value=0
+    082672D3  goto_if              condition=1 destination=0x0826734D
+    082672D9  goto                 destination=0x08267352
+
+  script 0x082672DF  [ok]
+    082672DF  goto                 destination=0x082671B8
+
+  script 0x082672E9  [ok]
+    082672E9  setvar               destination=VAR_0x4001 value=301
+    082672EE  setvar               destination=VAR_0x4002 value=4000
+    082672F3  buffermovename       stringVarId=1 move=Ice Beam(58)
+    082672F7  goto                 destination=0x082672AE
+
+  script 0x082672FC  [ok]
+    082672FC  setvar               destination=VAR_0x4001 value=311
+    08267301  setvar               destination=VAR_0x4002 value=3500
+    08267306  buffermovename       stringVarId=1 move=Iron Tail(231)
+    0826730A  goto                 destination=0x082672AE
+
+  script 0x0826730F  [ok]
+    0826730F  setvar               destination=VAR_0x4001 value=312
+    08267314  setvar               destination=VAR_0x4002 value=4000
+    08267319  buffermovename       stringVarId=1 move=Thunderbolt(85)
+    0826731D  goto                 destination=0x082672AE
+
+  script 0x08267322  [ok]
+    08267322  setvar               destination=VAR_0x4001 value=318
+    08267327  setvar               destination=VAR_0x4002 value=4500
+    0826732C  buffermovename       stringVarId=1 move=Shadow Ball(247)
+    08267330  goto                 destination=0x082672AE
+
+  script 0x08267335  [ok]
+    08267335  setvar               destination=VAR_0x4001 value=323
+    0826733A  setvar               destination=VAR_0x4002 value=4000
+    0826733F  buffermovename       stringVarId=1 move=Flamethrower(53)
+    08267343  goto                 destination=0x082672AE
+
+  script 0x08267348  [ok]
+    08267348  hidecoinsbox         x=0 y=0
+    0826734B  release              
+
+  script 0x0826734D  [ok]
+    0826734D  hidecoinsbox         x=0 y=0
+    08267350  release              
+
+  script 0x08267352  [unknown-opcode:0xE9]
+    08267352  bufferitemname       stringVarId=0 item=16385
+    08267356  checkcoins           out=32781
+    08267359  compare_var_to_var   var1=32781 var2=16386
+    0826735E  goto_if              condition=0 destination=0x0826738C
+    08267364  checkitemspace       itemId=item_16385(16385) quantity=1
+    08267369  compare_var_to_value var=0x800D value=0
+    0826736E  goto_if              condition=1 destination=0x08267396
+    08267374  removecoins          count=16386
+    08267377  updatecoinsbox       x=0 y=5
+
+  script 0x082672AE  [ok]
+    082672AE  msgbox_multilang     type=0 text_0="Okay, a TM of {STR_VAR_2}\nis what you want?" text_1="Okay, a TM of {STR_VAR_2}\nis what you want?" text_2="Okay, a TM of {STR_VAR_2}\nis what you want?" text_3="Okay, a TM of {STR_VAR_2}\nis what you want?" text_4="Okay, a TM of {STR_VAR_2}\nis what you want?" text_5="Okay, a TM of {STR_VAR_2}\nis what you want?" text_6="Okay, a TM of {STR_VAR_2}\nis what you want?"
+    082672CC  callstd              function=MSGBOX_YESNO(5)
+    082672CE  compare_var_to_value var=0x800D value=0
+    082672D3  goto_if              condition=1 destination=0x0826734D
+    082672D9  goto                 destination=0x08267352
+
+  script 0x0826738C  [ok]
+    0826738C  goto                 destination=0x082671DC
+
+  script 0x08267396  [ok]
+    08267396  textcolor            color=3
+    08267398  msgbox_multilang     type=0 text_0="Too bad!\nThe BAG is full…" text_1="Too bad!\nThe BAG is full…" text_2="Too bad!\nThe BAG is full…" text_3="Too bad!\nThe BAG is full…" text_4="Too bad!\nThe BAG is full…" text_5="Too bad!\nThe BAG is full…" text_6="Too bad!\nThe BAG is full…"
+    082673B6  callstd              function=MSGBOX_DEFAULT(4)
+    082673B8  hidecoinsbox         x=0 y=0
+    082673BB  release              
+
+  script 0x082671DC  [ok]
+    082671DC  msgbox_multilang     type=0 text_0="Sorry, you’ll need more Coins than\nthat." text_1="Sorry, you’ll need more Coins than\nthat." text_2="Sorry, you’ll need more Coins than\nthat." text_3="Sorry, you’ll need more Coins than\nthat." text_4="Sorry, you’ll need more Coins than\nthat." text_5="Sorry, you’ll need more Coins than\nthat." text_6="Sorry, you’ll need more Coins than\nthat."
+    082671FA  callstd              function=MSGBOX_DEFAULT(4)
+    082671FC  hidecoinsbox         x=0 y=0
+    082671FF  release              
+
+  object 5 (gfx 0x00, flag 0x0000) -> 0x082673BD
+  script 0x082673BD  [ok]
+    082673BD  lock                 
+    082673BE  faceplayer           
+    082673BF  checkflag            flag=0x243
+    082673C2  goto_if              condition=0 destination=0x082673F1
+    082673C8  showcoinsbox         x=0 y=0
+    082673CB  msgbox_multilang     type=0 text_0="We exchange your Coins for prizes." text_1="We exchange your Coins for prizes." text_2="We exchange your Coins for prizes." text_3="We exchange your Coins for prizes." text_4="We exchange your Coins for prizes." text_5="We exchange your Coins for prizes." text_6="We exchange your Coins for prizes."
+    082673E9  callstd              function=MSGBOX_DEFAULT(4)
+    082673EB  goto                 destination=0x082673FB
+
+  script 0x082673F1  [ok]
+    082673F1  goto                 destination=0x082671B8
+
+  script 0x082673FB  [ok]
+    082673FB  message              text="Which prize would you like?"
+    08267400  waitmoncry           
+    08267401  hidemonpic           
+    08267402  specialvar           output=50440 SPECIAL_\function=9846
+    08267407  gotostd              function=197
+    08267409  hidemonpic           
+    0826740A  specialvar           output=50440 SPECIAL_\function=9846
+    0826740F  gotostd              function=197
+    08267411  hidemonpic           
+    08267412  specialvar           output=50440 SPECIAL_\function=9846
+    08267417  gotostd              function=102
+    08267419  multichoice          x=10 y=0 multichoiceId=41 ignoreBPress=0
+    0826741E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08267423  compare_var_to_value var=0x8000 value=0
+    08267428  goto_if              condition=1 destination=0x082674A5
+    0826742E  compare_var_to_value var=0x8000 value=1
+    08267433  goto_if              condition=1 destination=0x082674B4
+    08267439  compare_var_to_value var=0x8000 value=2
+    0826743E  goto_if              condition=1 destination=0x082674C3
+    08267444  compare_var_to_value var=0x8000 value=3
+    08267449  goto_if              condition=1 destination=0x082674D2
+    0826744F  compare_var_to_value var=0x8000 value=4
+    08267454  goto_if              condition=1 destination=0x082674E1
+    0826745A  compare_var_to_value var=0x8000 value=5
+    0826745F  goto_if              condition=1 destination=0x082674F0
+    08267465  compare_var_to_value var=0x8000 value=127
+    0826746A  goto_if              condition=1 destination=0x082674F0
+    08267470  bufferitemname       stringVarId=0 item=16385
+    08267474  msgbox_multilang     type=0 text_0="So, you want the {STR_VAR_1}?" text_1="So, you want the {STR_VAR_1}?" text_2="So, you want the {STR_VAR_1}?" text_3="So, you want the {STR_VAR_1}?" text_4="So, you want the {STR_VAR_1}?" text_5="So, you want the {STR_VAR_1}?" text_6="So, you want the {STR_VAR_1}?"
+    08267492  callstd              function=MSGBOX_YESNO(5)
+    08267494  compare_var_to_value var=0x800D value=0
+    08267499  goto_if              condition=1 destination=0x082674F5
+    0826749F  goto                 destination=0x08267352
+
+  script 0x082674A5  [ok]
+    082674A5  setvar               destination=VAR_0x4001 value=194
+    082674AA  setvar               destination=VAR_0x4002 value=800
+    082674AF  goto                 destination=0x08267470
+
+  script 0x082674B4  [ok]
+    082674B4  setvar               destination=VAR_0x4001 value=205
+    082674B9  setvar               destination=VAR_0x4002 value=1000
+    082674BE  goto                 destination=0x08267470
+
+  script 0x082674C3  [ok]
+    082674C3  setvar               destination=VAR_0x4001 value=215
+    082674C8  setvar               destination=VAR_0x4002 value=1000
+    082674CD  goto                 destination=0x08267470
+
+  script 0x082674D2  [ok]
+    082674D2  setvar               destination=VAR_0x4001 value=209
+    082674D7  setvar               destination=VAR_0x4002 value=1000
+    082674DC  goto                 destination=0x08267470
+
+  script 0x082674E1  [ok]
+    082674E1  setvar               destination=VAR_0x4001 value=40
+    082674E6  setvar               destination=VAR_0x4002 value=1600
+    082674EB  goto                 destination=0x08267470
+
+  script 0x082674F0  [ok]
+    082674F0  hidecoinsbox         x=0 y=0
+    082674F3  release              
+
+  script 0x082674F5  [ok]
+    082674F5  hidecoinsbox         x=0 y=0
+    082674F8  release              
+
+  script 0x08267470  [ok]
+    08267470  bufferitemname       stringVarId=0 item=16385
+    08267474  msgbox_multilang     type=0 text_0="So, you want the {STR_VAR_1}?" text_1="So, you want the {STR_VAR_1}?" text_2="So, you want the {STR_VAR_1}?" text_3="So, you want the {STR_VAR_1}?" text_4="So, you want the {STR_VAR_1}?" text_5="So, you want the {STR_VAR_1}?" text_6="So, you want the {STR_VAR_1}?"
+    08267492  callstd              function=MSGBOX_YESNO(5)
+    08267494  compare_var_to_value var=0x800D value=0
+    08267499  goto_if              condition=1 destination=0x082674F5
+    0826749F  goto                 destination=0x08267352
+

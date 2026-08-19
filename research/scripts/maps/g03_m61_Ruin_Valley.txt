@@ -1,0 +1,225 @@
+Ruin Valley  (group 3, map 61)  header 0x08B3CD70
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x008E) -> 0x0823EBFF
+  script 0x0823EBFF  [ok]
+    0823EBFF  lock                 
+    0823EC00  msgbox_multilang     type=0 text_0="I can’t figure out how I’m supposed\nto get inside." text_1="I can’t figure out how I’m supposed\nto get inside." text_2="I can’t figure out how I’m supposed\nto get inside." text_3="I can’t figure out how I’m supposed\nto get inside." text_4="I can’t figure out how I’m supposed\nto get inside." text_5="I can’t figure out how I’m supposed\nto get inside." text_6="I can’t figure out how I’m supposed\nto get inside."
+    0823EC1E  callstd              function=MSGBOX_DEFAULT(4)
+    0823EC20  applymovement        localId=1 movements=[face_player]
+    0823EC27  waitmovement         localId=0
+    0823EC2A  msgbox_multilang     type=0 text_0="Let me tell you, I found this\nplace.\pDon’t look so envious, will you?" text_1="Let me tell you, I found this\nplace.\pDon’t look so envious, will you?" text_2="Let me tell you, I found this\nplace.\pDon’t look so envious, will you?" text_3="Let me tell you, I found this\nplace.\pDon’t look so envious, will you?" text_4="Let me tell you, I found this\nplace.\pDon’t look so envious, will you?" text_5="Let me tell you, I found this\nplace.\pDon’t look so envious, will you?" text_6="Let me tell you, I found this\nplace.\pDon’t look so envious, will you?"
+    0823EC48  callstd              function=MSGBOX_DEFAULT(4)
+    0823EC4A  applymovement        localId=1 movements=[face_original_direction]
+    0823EC51  waitmovement         localId=0
+    0823EC54  release              
+
+  object 2 (gfx 0x4B, flag 0x0000) -> 0x081FE077
+  script 0x081FE077  [ok]
+    081FE077  trainerbattle        type=0 trainer=0x20C localId=0 ptr1=0x0823EE0D ptr2=0x0823EE4B
+    081FE085  specialvar           output=32781 SPECIAL_\function=37
+    081FE08A  compare_var_to_value var=0x800D value=1
+    081FE08F  goto_if              condition=1 destination=0x081FE0B6
+    081FE095  msgbox_multilang     type=0 text_0="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_1="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_2="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_3="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_4="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_5="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_6="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day."
+    081FE0B3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE0B5  end                  
+
+  script 0x081FE0B6  [ok]
+    081FE0B6  goto                 destination=0x081FE0C0
+
+  script 0x081FE0C0  [ok]
+    081FE0C0  trainerbattle        type=5 trainer=0x20C localId=0 ptr1=0x082BAC90 ptr2=0x0823EE4B
+    081FE0CE  msgbox_multilang     type=0 text_0="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_1="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_2="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_3="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_4="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_5="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day." text_6="I suggest to you that you, too,\ngive a thought to the secrets and\pmysteries of our world once a day."
+    081FE0EC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE0EE  end                  
+
+  object 3 (gfx 0x4B, flag 0x0000) -> 0x081FE0EF
+  script 0x081FE0EF  [ok]
+    081FE0EF  trainerbattle        type=0 trainer=0x246 localId=0 ptr1=0x0823EEB5 ptr2=0x0823EEE3
+    081FE0FD  specialvar           output=32781 SPECIAL_\function=37
+    081FE102  compare_var_to_value var=0x800D value=1
+    081FE107  goto_if              condition=1 destination=0x081FE12E
+    081FE10D  msgbox_multilang     type=0 text_0="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_1="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_2="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_3="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_4="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_5="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_6="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way."
+    081FE12B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE12D  end                  
+
+  script 0x081FE12E  [ok]
+    081FE12E  goto                 destination=0x081FE138
+
+  script 0x081FE138  [ok]
+    081FE138  trainerbattle        type=5 trainer=0x246 localId=0 ptr1=0x082BACCE ptr2=0x0823EEE3
+    081FE146  msgbox_multilang     type=0 text_0="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_1="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_2="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_3="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_4="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_5="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way." text_6="There are several ruins on the\nSevii Islands.\pThe majority of them date back\na long way."
+    081FE164  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE166  end                  
+
+  object 4 (gfx 0x4B, flag 0x0000) -> 0x081FE167
+  script 0x081FE167  [ok]
+    081FE167  trainerbattle        type=0 trainer=0x247 localId=0 ptr1=0x0823EF75 ptr2=0x0823EFEB
+    081FE175  specialvar           output=32781 SPECIAL_\function=37
+    081FE17A  compare_var_to_value var=0x800D value=1
+    081FE17F  goto_if              condition=1 destination=0x081FE1A6
+    081FE185  msgbox_multilang     type=0 text_0="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_1="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_2="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_3="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_4="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_5="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_6="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside."
+    081FE1A3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE1A5  end                  
+
+  script 0x081FE1A6  [ok]
+    081FE1A6  goto                 destination=0x081FE1B0
+
+  script 0x081FE1B0  [ok]
+    081FE1B0  trainerbattle        type=5 trainer=0x247 localId=0 ptr1=0x082BAD0A ptr2=0x0823EFEB
+    081FE1BE  msgbox_multilang     type=0 text_0="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_1="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_2="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_3="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_4="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_5="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside." text_6="Those ruins over there…\pI haven’t had any luck in finding\nhow I can get inside."
+    081FE1DC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE1DE  end                  
+
+  object 5 (gfx 0x37, flag 0x0000) -> 0x081FE1DF
+  script 0x081FE1DF  [ok]
+    081FE1DF  trainerbattle        type=0 trainer=0x248 localId=0 ptr1=0x0823F04C ptr2=0x0823F06B
+    081FE1ED  specialvar           output=32781 SPECIAL_\function=37
+    081FE1F2  compare_var_to_value var=0x800D value=1
+    081FE1F7  goto_if              condition=1 destination=0x081FE21E
+    081FE1FD  msgbox_multilang     type=0 text_0="Experience the joy of climbing!" text_1="Experience the joy of climbing!" text_2="Experience the joy of climbing!" text_3="Experience the joy of climbing!" text_4="Experience the joy of climbing!" text_5="Experience the joy of climbing!" text_6="Experience the joy of climbing!"
+    081FE21B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE21D  end                  
+
+  script 0x081FE21E  [ok]
+    081FE21E  goto                 destination=0x081FE228
+
+  script 0x081FE228  [ok]
+    081FE228  trainerbattle        type=5 trainer=0x248 localId=0 ptr1=0x082BAD7A ptr2=0x0823F06B
+    081FE236  msgbox_multilang     type=0 text_0="Experience the joy of climbing!" text_1="Experience the joy of climbing!" text_2="Experience the joy of climbing!" text_3="Experience the joy of climbing!" text_4="Experience the joy of climbing!" text_5="Experience the joy of climbing!" text_6="Experience the joy of climbing!"
+    081FE254  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE256  end                  
+
+  object 6 (gfx 0x4C, flag 0x0000) -> 0x081FE257
+  script 0x081FE257  [ok]
+    081FE257  trainerbattle        type=0 trainer=0x249 localId=0 ptr1=0x0823F0BA ptr2=0x0823F0F0
+    081FE265  specialvar           output=32781 SPECIAL_\function=37
+    081FE26A  compare_var_to_value var=0x800D value=1
+    081FE26F  goto_if              condition=1 destination=0x081FE296
+    081FE275  msgbox_multilang     type=0 text_0="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_1="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_2="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_3="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_4="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_5="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_6="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough."
+    081FE293  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE295  end                  
+
+  script 0x081FE296  [ok]
+    081FE296  goto                 destination=0x081FE2A0
+
+  script 0x081FE2A0  [ok]
+    081FE2A0  trainerbattle        type=5 trainer=0x249 localId=0 ptr1=0x082BAD9A ptr2=0x0823F0F0
+    081FE2AE  msgbox_multilang     type=0 text_0="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_1="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_2="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_3="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_4="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_5="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough." text_6="The door to the ruins…\nIt has these strange patterns\pengraved on the outside.\pI don’t know what they mean,\nthough."
+    081FE2CC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE2CE  end                  
+
+  object 7 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  script 0x0820540E  [ok]
+    0820540E  lockall              
+    0820540F  checkflag            flag=0x883:BADGE4_RAINBOW
+    08205412  goto_if              condition=0 destination=0x082054BA
+    08205418  checkflag            flag=0x23A
+    0820541B  goto_if              condition=0 destination=0x082054BA
+    08205421  checkflag            flag=0x865
+    08205424  goto_if              condition=1 destination=0x082054DB
+    0820542A  checkpartymove       move=Strength(70)
+    0820542D  compare_var_to_value var=0x800D value=6
+    08205432  goto_if              condition=1 destination=0x082054AC
+    08205438  compare_var_to_value var=0x800D value=6
+    0820543D  goto_if              condition=1 destination=0x082054BA
+    08205443  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205447  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?"
+    08205465  callstd              function=MSGBOX_YESNO(5)
+    08205467  compare_var_to_value var=0x800D value=0
+    0820546C  goto_if              condition=1 destination=0x082054FC
+    08205472  closemessage         
+    08205473  dofieldeffect        animation=40
+    08205476  waitstate            
+
+  script 0x082054BA  [ok]
+    082054BA  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside."
+    082054D8  callstd              function=MSGBOX_SIGN(3)
+    082054DA  end                  
+
+  script 0x082054DB  [ok]
+    082054DB  msgbox_multilang     type=0 text_0="Strength made it possible to move\nboulders around." text_1="Strength made it possible to move\nboulders around." text_2="Strength made it possible to move\nboulders around." text_3="Strength made it possible to move\nboulders around." text_4="Strength made it possible to move\nboulders around." text_5="Strength made it possible to move\nboulders around." text_6="Strength made it possible to move\nboulders around."
+    082054F9  callstd              function=MSGBOX_SIGN(3)
+    082054FB  end                  
+
+  script 0x082054AC  [unknown-opcode:0xE5]
+
+  script 0x082054FC  [ok]
+    082054FC  closemessage         
+    082054FD  releaseall           
+
+  object 8 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 9 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 10 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 11 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 12 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 13 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 14 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 15 (gfx 0x35, flag 0x01E5) -> 0x082D5CE8
+  script 0x082D5CE8  [ok]
+    082D5CE8  setorcopyvar         destination=VAR_0x8000 source=63
+    082D5CED  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5CF2  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: HP Up
+    082D5CF4  end                  
+
+  object 16 (gfx 0x35, flag 0x01E4) -> 0x082D5CDB
+  script 0x082D5CDB  [ok]
+    082D5CDB  setorcopyvar         destination=VAR_0x8000 source=19
+    082D5CE0  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5CE5  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Full Restore
+    082D5CE7  end                  
+
+  object 17 (gfx 0x35, flag 0x01E6) -> 0x082D5CF5
+  script 0x082D5CF5  [ok]
+    082D5CF5  setorcopyvar         destination=VAR_0x8000 source=93
+    082D5CFA  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5CFF  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Sun Stone
+    082D5D01  end                  
+
+  sign 0 at (24,24) -> 0x0823EC56
+  script 0x0823EC56  [ok]
+    0823EC56  lockall              
+    0823EC57  checkflag            flag=0x2E3
+    0823EC5A  goto_if              condition=1 destination=0x0823ECB3
+    0823EC60  msgbox_multilang     type=0 text_0="The door doesn’t budge at all.\nCheck it more thoroughly?" text_1="The door doesn’t budge at all.\nCheck it more thoroughly?" text_2="The door doesn’t budge at all.\nCheck it more thoroughly?" text_3="The door doesn’t budge at all.\nCheck it more thoroughly?" text_4="The door doesn’t budge at all.\nCheck it more thoroughly?" text_5="The door doesn’t budge at all.\nCheck it more thoroughly?" text_6="The door doesn’t budge at all.\nCheck it more thoroughly?"
+    0823EC7E  callstd              function=MSGBOX_YESNO(5)
+    0823EC80  compare_var_to_value var=0x800D value=0
+    0823EC85  goto_if              condition=1 destination=0x0823ECD5
+    0823EC8B  msgbox_multilang     type=0 text_0="On closer inspection, there are\nseveral dots on the door…" text_1="On closer inspection, there are\nseveral dots on the door…" text_2="On closer inspection, there are\nseveral dots on the door…" text_3="On closer inspection, there are\nseveral dots on the door…" text_4="On closer inspection, there are\nseveral dots on the door…" text_5="On closer inspection, there are\nseveral dots on the door…" text_6="On closer inspection, there are\nseveral dots on the door…"
+    0823ECA9  callstd              function=MSGBOX_DEFAULT(4)
+    0823ECAB  braillemessage       text="Âぅì"
+    0823ECB0  waitbuttonpress      
+    0823ECB1  releaseall           
+
+  script 0x0823ECB3  [ok]
+    0823ECB3  msgbox_multilang     type=0 text_0="The door is open." text_1="The door is open." text_2="The door is open." text_3="The door is open." text_4="The door is open." text_5="The door is open." text_6="The door is open."
+    0823ECD1  callstd              function=MSGBOX_DEFAULT(4)
+    0823ECD3  releaseall           
+
+  script 0x0823ECD5  [ok]
+    0823ECD5  msgbox_multilang     type=0 text_0="{PLAYER} left the door alone." text_1="{PLAYER} left the door alone." text_2="{PLAYER} left the door alone." text_3="{PLAYER} left the door alone." text_4="{PLAYER} left the door alone." text_5="{PLAYER} left the door alone." text_6="{PLAYER} left the door alone."
+    0823ECF3  callstd              function=MSGBOX_DEFAULT(4)
+    0823ECF5  releaseall           
+
+  map script type 1 -> 0x0823EBEB
+  script 0x0823EBEB  [ok]
+    0823EBEB  checkflag            flag=0x2E3
+    0823EBEE  call_if              condition=1 destination=0x0823EBF5
+    0823EBF4  end                  
+
+  script 0x0823EBF5  [ok]
+    0823EBF5  setmetatile          x=24 y=24 metatileId=856 impassable=0
+    0823EBFE  return               
+

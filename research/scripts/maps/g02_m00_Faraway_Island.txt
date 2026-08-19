@@ -1,0 +1,88 @@
+Faraway Island  (group 2, map 0)  header 0x08B3BF8C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x31, flag 0x0000) -> 0x082B7170
+  script 0x082B7170  [ok]
+    082B7170  lock                 
+    082B7171  faceplayer           
+    082B7172  msgbox_multilang     type=0 text_0="CAPT. BRINEY can be so maddeningly\nfickle…\pDo you want to return to LILYCOVE?" text_1="CAPT. BRINEY can be so maddeningly\nfickle…\pDo you want to return to LILYCOVE?" text_2="CAPT. BRINEY can be so maddeningly\nfickle…\pDo you want to return to LILYCOVE?" text_3="CAPT. BRINEY can be so maddeningly\nfickle…\pDo you want to return to LILYCOVE?" text_4="CAPT. BRINEY can be so maddeningly\nfickle…\pDo you want to return to LILYCOVE?" text_5="CAPT. BRINEY can be so maddeningly\nfickle…\pDo you want to return to LILYCOVE?" text_6="CAPT. BRINEY can be so maddeningly\nfickle…\pDo you want to return to LILYCOVE?"
+    082B7190  callstd              function=MSGBOX_YESNO(5)
+    082B7192  compare_var_to_value var=0x800D value=0
+    082B7197  goto_if              condition=1 destination=0x082B71E5
+    082B719D  msgbox_multilang     type=0 text_0="Aye, right, then!\nSail home we will!" text_1="Aye, right, then!\nSail home we will!" text_2="Aye, right, then!\nSail home we will!" text_3="Aye, right, then!\nSail home we will!" text_4="Aye, right, then!\nSail home we will!" text_5="Aye, right, then!\nSail home we will!" text_6="Aye, right, then!\nSail home we will!"
+    082B71BB  callstd              function=MSGBOX_DEFAULT(4)
+    082B71BD  closemessage         
+    082B71BE  applymovement        localId=32783 movements=[walk_in_place_faster_down]
+    082B71C5  waitmovement         localId=0
+    082B71C8  delay                frames=30
+    082B71CB  hideobjectat         localId=1 mapGroup=2 mapNum=0
+    082B71D0  setvar               destination=VAR_0x8004 value=2
+    082B71D5  call                 destination=0x082BBE40
+    082B71DA  warp                 mapGroup=41 mapNum=0 WARP_ID_NONE=255 -1=8 -1=11
+    082B71E2  waitstate            
+
+  script 0x082B71E5  [ok]
+    082B71E5  msgbox_multilang     type=0 text_0="Aye, right, as you like, then." text_1="Aye, right, as you like, then." text_2="Aye, right, as you like, then." text_3="Aye, right, as you like, then." text_4="Aye, right, as you like, then." text_5="Aye, right, as you like, then." text_6="Aye, right, as you like, then."
+    082B7203  callstd              function=MSGBOX_DEFAULT(4)
+    082B7205  release              
+
+  script 0x082BBE40  [ok]
+    082BBE40  compare_var_to_value var=0x800C value=1
+    082BBE45  call_if              condition=1 destination=0x0828D9B0
+    082BBE4B  compare_var_to_value var=0x800C value=3
+    082BBE50  call_if              condition=1 destination=0x0828D9BB
+    082BBE56  delay                frames=30
+    082BBE59  hideobjectat         localId=255 mapGroup=0 mapNum=0
+    082BBE5E  call                 destination=0x082BBE03
+    082BBE63  return               
+
+  script 0x0828D9B0  [ok]
+    0828D9B0  applymovement        localId=255 movements=[walk_down]
+    0828D9B7  waitmovement         localId=0
+    0828D9BA  return               
+
+  script 0x0828D9BB  [ok]
+    0828D9BB  applymovement        localId=255 movements=[walk_left walk_in_place_faster_down]
+    0828D9C2  waitmovement         localId=0
+    0828D9C5  return               
+
+  script 0x082BBE03  [ok]
+    082BBE03  delay                frames=60
+    082BBE06  applymovement        localId=32772 movements=[walk_slow_right walk_slow_right walk_slow_right walk_right walk_right walk_right walk_right]
+    082BBE0D  waitmovement         localId=0
+    082BBE10  return               
+
+  object 2 (gfx 0x8C, flag 0x0000) -> 0x00000000
+  coord trigger 0 (var 0x0000 == 0) -> 0x082B7166
+  script 0x082B7166  [ok]
+    082B7166  setweather           type=1
+    082B7169  doweather            
+    082B716A  end                  
+
+  coord trigger 1 (var 0x0000 == 0) -> 0x082B716B
+  script 0x082B716B  [ok]
+    082B716B  setweather           type=0
+    082B716E  doweather            
+    082B716F  end                  
+
+  coord trigger 2 (var 0x0000 == 0) -> 0x082B7166
+  sign 0 at (3,32) -> 0x082B7207
+  script 0x082B7207  [ok]
+    082B7207  msgbox_multilang     type=0 text_0="The writing is fading as if it was\nwritten a long time ago…\p“…ber, 6th day\nIf any human…sets foot here…\pagain…et it be a kindhearted pers…\p…ith that hope, I depar…”" text_1="The writing is fading as if it was\nwritten a long time ago…\p“…ber, 6th day\nIf any human…sets foot here…\pagain…et it be a kindhearted pers…\p…ith that hope, I depar…”" text_2="The writing is fading as if it was\nwritten a long time ago…\p“…ber, 6th day\nIf any human…sets foot here…\pagain…et it be a kindhearted pers…\p…ith that hope, I depar…”" text_3="The writing is fading as if it was\nwritten a long time ago…\p“…ber, 6th day\nIf any human…sets foot here…\pagain…et it be a kindhearted pers…\p…ith that hope, I depar…”" text_4="The writing is fading as if it was\nwritten a long time ago…\p“…ber, 6th day\nIf any human…sets foot here…\pagain…et it be a kindhearted pers…\p…ith that hope, I depar…”" text_5="The writing is fading as if it was\nwritten a long time ago…\p“…ber, 6th day\nIf any human…sets foot here…\pagain…et it be a kindhearted pers…\p…ith that hope, I depar…”" text_6="The writing is fading as if it was\nwritten a long time ago…\p“…ber, 6th day\nIf any human…sets foot here…\pagain…et it be a kindhearted pers…\p…ith that hope, I depar…”"
+    082B7225  callstd              function=MSGBOX_SIGN(3)
+    082B7227  end                  
+
+  map script type 3 -> 0x082B7162
+  script 0x082B7162  [ok]
+    082B7162  setflag              flag=0x8D8
+    082B7165  end                  
+

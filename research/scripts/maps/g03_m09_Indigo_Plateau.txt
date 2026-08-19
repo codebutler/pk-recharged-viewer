@@ -1,0 +1,71 @@
+Indigo Plateau  (group 3, map 9)  header 0x08B3C7C0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x15, flag 0x00A3) -> 0x00000000
+  object 2 (gfx 0x14, flag 0x00A4) -> 0x00000000
+  map script type 3 -> 0x0822E6A1
+  script 0x0822E6A1  [ok]
+    0822E6A1  setworldmapflag      flag=0x8F9
+    0822E6A4  compare_var_to_value var=0x4085 value=1
+    0822E6A9  call_if              condition=1 destination=0x0822E6B0
+    0822E6AF  end                  
+
+  script 0x0822E6B0  [ok]
+    0822E6B0  playbgm              song=502 save_song=0
+    0822E6B4  return               
+
+  map script type 2 (var 0x4085 == 1) -> 0x0822E6BF
+  script 0x0822E6BF  [ok]
+    0822E6BF  lockall              
+    0822E6C0  delay                frames=105
+    0822E6C3  opendoor             x=11 y=6
+    0822E6C8  waitdooranim         
+    0822E6C9  special              SPECIAL_\function=190
+    0822E6CC  addobject            localId=1
+    0822E6CF  applymovement        localId=1 movements=[walk_fast_down]
+    0822E6D6  applymovement        localId=255 movements=[face_right lock_facing_direction walk_left unlock_facing_direction]
+    0822E6DD  waitmovement         localId=0
+    0822E6E0  closedoor            x=11 y=6
+    0822E6E5  waitdooranim         
+    0822E6E6  applymovement        localId=255 movements=[delay_16 delay_4 walk_in_place_faster_down]
+    0822E6ED  applymovement        localId=1 movements=[walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down]
+    0822E6F4  waitmovement         localId=0
+    0822E6F7  delay                frames=100
+    0822E6FA  opendoor             x=11 y=6
+    0822E6FF  waitdooranim         
+    0822E700  addobject            localId=2
+    0822E703  applymovement        localId=2 movements=[walk_down]
+    0822E70A  waitmovement         localId=0
+    0822E70D  closedoor            x=11 y=6
+    0822E712  waitdooranim         
+    0822E713  delay                frames=160
+    0822E716  applymovement        localId=255 movements=[delay_8 walk_in_place_faster_right delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_down]
+    0822E71D  applymovement        localId=2 movements=[walk_in_place_faster_left delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_down delay_16 walk_down walk_down walk_down walk_down walk_down walk_down walk_down]
+    0822E724  waitmovement         localId=0
+    0822E727  delay                frames=100
+    0822E72A  applymovement        localId=255 movements=[walk_right delay_16 walk_down walk_down delay_16 delay_16]
+    0822E731  waitmovement         localId=0
+    0822E734  delay                frames=155
+    0822E737  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    0822E73E  waitmovement         localId=0
+    0822E741  delay                frames=90
+    0822E744  applymovement        localId=255 movements=[walk_in_place_faster_down]
+    0822E74B  waitmovement         localId=0
+    0822E74E  applymovement        localId=255 movements=[player_run_down player_run_down player_run_down player_run_down player_run_down player_run_down]
+    0822E755  waitmovement         localId=0
+    0822E758  special              SPECIAL_\function=191
+    0822E75B  setvar               destination=VAR_0x4085 value=0
+    0822E760  removeobject         localId=1
+    0822E763  removeobject         localId=2
+    0822E766  special              SPECIAL_\function=408
+    0822E769  waitstate            
+

@@ -1,0 +1,30 @@
+Safari Zone  (group 1, map 68)  header 0x08B3B988
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x08212AAD
+  script 0x08212AAD  [ok]
+    08212AAD  msgbox_multilang     type=0 text_0="How many did you catch?\nI’m bushed from the effort!" text_1="How many did you catch?\nI’m bushed from the effort!" text_2="How many did you catch?\nI’m bushed from the effort!" text_3="How many did you catch?\nI’m bushed from the effort!" text_4="How many did you catch?\nI’m bushed from the effort!" text_5="How many did you catch?\nI’m bushed from the effort!" text_6="How many did you catch?\nI’m bushed from the effort!"
+    08212ACB  callstd              function=MSGBOX_NPC(2)
+    08212ACD  end                  
+
+  object 2 (gfx 0xF3, flag 0x0000) -> 0x08212A8C
+  script 0x08212A8C  [ok]
+    08212A8C  msgbox_multilang     type=0 text_0="I caught a Chansey!\pThat makes this all worthwhile." text_1="I caught a Chansey!\pThat makes this all worthwhile." text_2="I caught a Chansey!\pThat makes this all worthwhile." text_3="I caught a Chansey!\pThat makes this all worthwhile." text_4="I caught a Chansey!\pThat makes this all worthwhile." text_5="I caught a Chansey!\pThat makes this all worthwhile." text_6="I caught a Chansey!\pThat makes this all worthwhile."
+    08212AAA  callstd              function=MSGBOX_NPC(2)
+    08212AAC  end                  
+
+  object 3 (gfx 0xF4, flag 0x0000) -> 0x08212ACE
+  script 0x08212ACE  [ok]
+    08212ACE  msgbox_multilang     type=0 text_0="Whew!\nI’m tired from all the fun!" text_1="Whew!\nI’m tired from all the fun!" text_2="Whew!\nI’m tired from all the fun!" text_3="Whew!\nI’m tired from all the fun!" text_4="Whew!\nI’m tired from all the fun!" text_5="Whew!\nI’m tired from all the fun!" text_6="Whew!\nI’m tired from all the fun!"
+    08212AEC  callstd              function=MSGBOX_NPC(2)
+    08212AEE  end                  
+

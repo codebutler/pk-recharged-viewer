@@ -1,0 +1,111 @@
+Route 5  (group 3, map 23)  header 0x08B3C948
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF5, flag 0x0000) -> 0x0827426A
+  script 0x0827426A  [ok]
+    0827426A  lock                 
+    0827426B  faceplayer           
+    0827426C  special              SPECIAL_\function=103
+    0827426F  specialvar           output=32781 SPECIAL_\function=104
+    08274274  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08274279  compare_var_to_value var=0x8000 value=1
+    0827427E  goto_if              condition=1 destination=0x082742C1
+    08274284  compare_var_to_value var=0x8000 value=2
+    08274289  goto_if              condition=1 destination=0x0827434E
+    0827428F  compare_var_to_value var=0x8000 value=3
+    08274294  goto_if              condition=1 destination=0x08274378
+    0827429A  speakername          name="Day-Care Man"
+    0827429F  msgbox_multilang     type=0 text_0="I’m the Day-Care Man.\pI help take care of the precious\nPokémon of Trainers.\pIf you’d like me to raise your\nPokémon, have a word with my wife." text_1="I’m the Day-Care Man.\pI help take care of the precious\nPokémon of Trainers.\pIf you’d like me to raise your\nPokémon, have a word with my wife." text_2="I’m the Day-Care Man.\pI help take care of the precious\nPokémon of Trainers.\pIf you’d like me to raise your\nPokémon, have a word with my wife." text_3="I’m the Day-Care Man.\pI help take care of the precious\nPokémon of Trainers.\pIf you’d like me to raise your\nPokémon, have a word with my wife." text_4="I’m the Day-Care Man.\pI help take care of the precious\nPokémon of Trainers.\pIf you’d like me to raise your\nPokémon, have a word with my wife." text_5="I’m the Day-Care Man.\pI help take care of the precious\nPokémon of Trainers.\pIf you’d like me to raise your\nPokémon, have a word with my wife." text_6="I’m the Day-Care Man.\pI help take care of the precious\nPokémon of Trainers.\pIf you’d like me to raise your\nPokémon, have a word with my wife."
+    082742BD  callstd              function=MSGBOX_DEFAULT(4)
+    082742BF  release              
+
+  script 0x082742C1  [ok]
+    082742C1  speakername          name="Day-Care Man"
+    082742C6  msgbox_multilang     type=0 text_0="Ah, it’s you!\pWe were raising your Pokémon, and my\ngoodness, were we surprised!\pYour Pokémon had an Egg!\pWe don’t know how it got there, but\nyour Pokémon had it.\pYou do want it, yes?" text_1="Ah, it’s you!\pWe were raising your Pokémon, and my\ngoodness, were we surprised!\pYour Pokémon had an Egg!\pWe don’t know how it got there, but\nyour Pokémon had it.\pYou do want it, yes?" text_2="Ah, it’s you!\pWe were raising your Pokémon, and my\ngoodness, were we surprised!\pYour Pokémon had an Egg!\pWe don’t know how it got there, but\nyour Pokémon had it.\pYou do want it, yes?" text_3="Ah, it’s you!\pWe were raising your Pokémon, and my\ngoodness, were we surprised!\pYour Pokémon had an Egg!\pWe don’t know how it got there, but\nyour Pokémon had it.\pYou do want it, yes?" text_4="Ah, it’s you!\pWe were raising your Pokémon, and my\ngoodness, were we surprised!\pYour Pokémon had an Egg!\pWe don’t know how it got there, but\nyour Pokémon had it.\pYou do want it, yes?" text_5="Ah, it’s you!\pWe were raising your Pokémon, and my\ngoodness, were we surprised!\pYour Pokémon had an Egg!\pWe don’t know how it got there, but\nyour Pokémon had it.\pYou do want it, yes?" text_6="Ah, it’s you!\pWe were raising your Pokémon, and my\ngoodness, were we surprised!\pYour Pokémon had an Egg!\pWe don’t know how it got there, but\nyour Pokémon had it.\pYou do want it, yes?"
+    082742E4  callstd              function=MSGBOX_YESNO(5)
+    082742E6  compare_var_to_value var=0x800D value=1
+    082742EB  goto_if              condition=1 destination=0x082743AA
+    082742F1  speakername          name="Day-Care Man"
+    082742F6  msgbox_multilang     type=0 text_0="I really will keep it.\nYou do want this, yes?" text_1="I really will keep it.\nYou do want this, yes?" text_2="I really will keep it.\nYou do want this, yes?" text_3="I really will keep it.\nYou do want this, yes?" text_4="I really will keep it.\nYou do want this, yes?" text_5="I really will keep it.\nYou do want this, yes?" text_6="I really will keep it.\nYou do want this, yes?"
+    08274314  callstd              function=MSGBOX_YESNO(5)
+    08274316  compare_var_to_value var=0x800D value=1
+    0827431B  goto_if              condition=1 destination=0x082743B4
+    08274321  speakername          name="Day-Care Man"
+    08274326  msgbox_multilang     type=0 text_0="Well then, I’ll keep it.\nThanks!" text_1="Well then, I’ll keep it.\nThanks!" text_2="Well then, I’ll keep it.\nThanks!" text_3="Well then, I’ll keep it.\nThanks!" text_4="Well then, I’ll keep it.\nThanks!" text_5="Well then, I’ll keep it.\nThanks!" text_6="Well then, I’ll keep it.\nThanks!"
+    08274344  callstd              function=MSGBOX_DEFAULT(4)
+    08274346  clearflag            flag=0x266
+    08274349  special              SPECIAL_\function=105
+    0827434C  release              
+
+  script 0x0827434E  [ok]
+    0827434E  special              SPECIAL_\function=103
+    08274351  speakername          name="Day-Care Man"
+    08274356  msgbox_multilang     type=0 text_0="Ah, it’s you! Good to see you.\nYour {STR_VAR_1}’s doing fine." text_1="Ah, it’s you! Good to see you.\nYour {STR_VAR_1}’s doing fine." text_2="Ah, it’s you! Good to see you.\nYour {STR_VAR_1}’s doing fine." text_3="Ah, it’s you! Good to see you.\nYour {STR_VAR_1}’s doing fine." text_4="Ah, it’s you! Good to see you.\nYour {STR_VAR_1}’s doing fine." text_5="Ah, it’s you! Good to see you.\nYour {STR_VAR_1}’s doing fine." text_6="Ah, it’s you! Good to see you.\nYour {STR_VAR_1}’s doing fine."
+    08274374  callstd              function=MSGBOX_DEFAULT(4)
+    08274376  release              
+
+  script 0x08274378  [ok]
+    08274378  special              SPECIAL_\function=103
+    0827437B  speakername          name="Day-Care Man"
+    08274380  msgbox_multilang     type=0 text_0="Ah, it’s you! Your {STR_VAR_1} and\n{STR_VAR_2} are doing fine." text_1="Ah, it’s you! Your {STR_VAR_1} and\n{STR_VAR_2} are doing fine." text_2="Ah, it’s you! Your {STR_VAR_1} and\n{STR_VAR_2} are doing fine." text_3="Ah, it’s you! Your {STR_VAR_1} and\n{STR_VAR_2} are doing fine." text_4="Ah, it’s you! Your {STR_VAR_1} and\n{STR_VAR_2} are doing fine." text_5="Ah, it’s you! Your {STR_VAR_1} and\n{STR_VAR_2} are doing fine." text_6="Ah, it’s you! Your {STR_VAR_1} and\n{STR_VAR_2} are doing fine."
+    0827439E  callstd              function=MSGBOX_DEFAULT(4)
+    082743A0  special              SPECIAL_\function=107
+    082743A3  special              SPECIAL_\function=78
+    082743A6  waitmessage          
+    082743A7  waitbuttonpress      
+    082743A8  release              
+
+  script 0x082743AA  [ok]
+    082743AA  goto                 destination=0x082743BE
+
+  script 0x082743B4  [ok]
+    082743B4  goto                 destination=0x082743BE
+
+  script 0x082743BE  [ok]
+    082743BE  specialvar           output=32781 SPECIAL_\function=68
+    082743C3  compare_var_to_value var=0x800D value=6
+    082743C8  goto_if              condition=5 destination=0x082743F5
+    082743CE  speakername          name="Day-Care Man"
+    082743D3  msgbox_multilang     type=0 text_0="You have no room for it…\nCome back when you’ve made room." text_1="You have no room for it…\nCome back when you’ve made room." text_2="You have no room for it…\nCome back when you’ve made room." text_3="You have no room for it…\nCome back when you’ve made room." text_4="You have no room for it…\nCome back when you’ve made room." text_5="You have no room for it…\nCome back when you’ve made room." text_6="You have no room for it…\nCome back when you’ve made room."
+    082743F1  callstd              function=MSGBOX_DEFAULT(4)
+    082743F3  release              
+
+  script 0x082743F5  [ok]
+    082743F5  textcolor            color=3
+    082743F7  message              text="{PLAYER} received the Egg from the Day-Care Man."
+    082743FC  contestlinktransfer  
+    082743FD  showobjectat         localId=2087 mapGroup=185 mapNum=88
+    08274402  waitstate            
+
+  object 2 (gfx 0x5A, flag 0x0001) -> 0x00000000
+  object 3 (gfx 0x5B, flag 0x0002) -> 0x00000000
+  sign 0 at (32,32) -> 0x082331C3
+  script 0x082331C3  [ok]
+    082331C3  msgbox_multilang     type=0 text_0="Underground Path\nCerulean City - Vermilion City" text_1="PASADIZO SUBTERRÁNEO\nCELESTE - CARMÍN" text_2="PASSAGE SOUTERRAIN\nAZURIA - CARAMEL" text_3="PASSAGGIO SOTTERRANEO\nCELESTOPOLI - ARANCIOPOLI" text_4="UNTERGRUNDPFAD\nAZURIA CITY - ORANIA CITY" text_5="Caminho Subterrâneo\nCidade Cerulean - Cidade Vermilion" text_6="Underground Path\nCerulean City - Vermilion City"
+    082331E1  callstd              function=MSGBOX_SIGN(3)
+    082331E3  end                  
+
+  map script type 3 -> 0x08233124
+  script 0x08233124  [unknown-opcode:0xE7]
+    08233124  checkflag            flag=0x266
+    08233127  goto_if              condition=1 destination=0x0823315C
+    0823312D  setflag              flag=0x001
+    08233130  setflag              flag=0x002
+
+  script 0x0823315C  [ok]
+    0823315C  setobjectxyperm      localId=1 x=17 y=24
+    08233163  goto                 destination=0x0823312D
+
+  script 0x0823312D  [unknown-opcode:0xE7]
+    0823312D  setflag              flag=0x001
+    08233130  setflag              flag=0x002
+

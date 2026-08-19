@@ -1,0 +1,238 @@
+Viridian City  (group 5, map 1)  header 0x08B3CE88
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x07, flag 0x0000) -> 0x0824E8B7
+  script 0x0824E8B7  [ok]
+    0824E8B7  trainerbattle        type=0 trainer=0x144 localId=0 ptr1=0x0824EFF9 ptr2=0x0824F027
+    0824E8C5  msgbox_multilang     type=0 text_0="The Pokémon League?\nYou? Don’t get cocky!" text_1="The Pokémon League?\nYou? Don’t get cocky!" text_2="The Pokémon League?\nYou? Don’t get cocky!" text_3="The Pokémon League?\nYou? Don’t get cocky!" text_4="The Pokémon League?\nYou? Don’t get cocky!" text_5="The Pokémon League?\nYou? Don’t get cocky!" text_6="The Pokémon League?\nYou? Don’t get cocky!"
+    0824E8E3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0824E8E5  end                  
+
+  object 2 (gfx 0xFA, flag 0x0000) -> 0x0824E915
+  script 0x0824E915  [ok]
+    0824E915  trainerbattle        type=0 trainer=0x190 localId=0 ptr1=0x0824EE08 ptr2=0x0824EE36
+    0824E923  msgbox_multilang     type=0 text_0="You’ll need power to keep up with\nour Gym Leader." text_1="You’ll need power to keep up with\nour Gym Leader." text_2="You’ll need power to keep up with\nour Gym Leader." text_3="You’ll need power to keep up with\nour Gym Leader." text_4="You’ll need power to keep up with\nour Gym Leader." text_5="You’ll need power to keep up with\nour Gym Leader." text_6="You’ll need power to keep up with\nour Gym Leader."
+    0824E941  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0824E943  end                  
+
+  object 3 (gfx 0x07, flag 0x0000) -> 0x0824E859
+  script 0x0824E859  [ok]
+    0824E859  trainerbattle        type=0 trainer=0x142 localId=0 ptr1=0x0824EE7A ptr2=0x0824EEA3
+    0824E867  msgbox_multilang     type=0 text_0="I’m still not worthy!" text_1="I’m still not worthy!" text_2="I’m still not worthy!" text_3="I’m still not worthy!" text_4="I’m still not worthy!" text_5="I’m still not worthy!" text_6="I’m still not worthy!"
+    0824E885  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0824E887  end                  
+
+  object 4 (gfx 0x4D, flag 0x0000) -> 0x0824E7FB
+  script 0x0824E7FB  [ok]
+    0824E7FB  trainerbattle        type=0 trainer=0x128 localId=0 ptr1=0x0824EEC0 ptr2=0x0824EEF1
+    0824E809  msgbox_multilang     type=0 text_0="Do you know the identity of our\nGym Leader?" text_1="Do you know the identity of our\nGym Leader?" text_2="Do you know the identity of our\nGym Leader?" text_3="Do you know the identity of our\nGym Leader?" text_4="Do you know the identity of our\nGym Leader?" text_5="Do you know the identity of our\nGym Leader?" text_6="Do you know the identity of our\nGym Leader?"
+    0824E827  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0824E829  end                  
+
+  object 5 (gfx 0x4D, flag 0x0000) -> 0x0824E82A
+  script 0x0824E82A  [ok]
+    0824E82A  trainerbattle        type=0 trainer=0x129 localId=0 ptr1=0x0824F057 ptr2=0x0824F088
+    0824E838  msgbox_multilang     type=0 text_0="Wait!\nI was just careless!" text_1="Wait!\nI was just careless!" text_2="Wait!\nI was just careless!" text_3="Wait!\nI was just careless!" text_4="Wait!\nI was just careless!" text_5="Wait!\nI was just careless!" text_6="Wait!\nI was just careless!"
+    0824E856  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0824E858  end                  
+
+  object 6 (gfx 0x07, flag 0x0000) -> 0x0824E888
+  script 0x0824E888  [ok]
+    0824E888  trainerbattle        type=0 trainer=0x143 localId=0 ptr1=0x0824EF39 ptr2=0x0824EF66
+    0824E896  msgbox_multilang     type=0 text_0="If my Pokémon were as good at\nkarate as I…" text_1="If my Pokémon were as good at\nkarate as I…" text_2="If my Pokémon were as good at\nkarate as I…" text_3="If my Pokémon were as good at\nkarate as I…" text_4="If my Pokémon were as good at\nkarate as I…" text_5="If my Pokémon were as good at\nkarate as I…" text_6="If my Pokémon were as good at\nkarate as I…"
+    0824E8B4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0824E8B6  end                  
+
+  object 7 (gfx 0xFA, flag 0x0000) -> 0x0824E8E6
+  script 0x0824E8E6  [ok]
+    0824E8E6  trainerbattle        type=0 trainer=0x188 localId=0 ptr1=0x0824F0B4 ptr2=0x0824F0FA
+    0824E8F4  msgbox_multilang     type=0 text_0="You can go on to the Pokémon\nLeague only by defeating our Gym\pLeader!" text_1="You can go on to the Pokémon\nLeague only by defeating our Gym\pLeader!" text_2="You can go on to the Pokémon\nLeague only by defeating our Gym\pLeader!" text_3="You can go on to the Pokémon\nLeague only by defeating our Gym\pLeader!" text_4="You can go on to the Pokémon\nLeague only by defeating our Gym\pLeader!" text_5="You can go on to the Pokémon\nLeague only by defeating our Gym\pLeader!" text_6="You can go on to the Pokémon\nLeague only by defeating our Gym\pLeader!"
+    0824E912  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0824E914  end                  
+
+  object 8 (gfx 0x24, flag 0x0055) -> 0x0824E6CC
+  script 0x0824E6CC  [ok]
+    0824E6CC  setvar               destination=VAR_0x8004 value=15
+    0824E6D1  setvar               destination=VAR_0x8005 value=2
+    0824E6D6  special              SPECIAL_\function=348
+    0824E6D9  trainerbattle        type=1 trainer=0x15E localId=0 ptr1=0x0824EA1D ptr2=0x0824EB0A ptr3=0x0824E7AB
+    0824E6EB  checkflag            flag=0x298
+    0824E6EE  goto_if              condition=0 destination=0x0824E720
+    0824E6F4  msgbox_multilang     type=0 text_0="Having lost in this fashion, \nI can’t face my followers.\pI have betrayed their trust.\pAs of today, Team Rocket is\nfinished forever!\pAs for myself, I shall dedicate\nmy life to training again.\pLet us meet again someday!\nFarewell!" text_1="Having lost in this fashion, \nI can’t face my followers.\pI have betrayed their trust.\pAs of today, Team Rocket is\nfinished forever!\pAs for myself, I shall dedicate\nmy life to training again.\pLet us meet again someday!\nFarewell!" text_2="Having lost in this fashion, \nI can’t face my followers.\pI have betrayed their trust.\pAs of today, Team Rocket is\nfinished forever!\pAs for myself, I shall dedicate\nmy life to training again.\pLet us meet again someday!\nFarewell!" text_3="Having lost in this fashion, \nI can’t face my followers.\pI have betrayed their trust.\pAs of today, Team Rocket is\nfinished forever!\pAs for myself, I shall dedicate\nmy life to training again.\pLet us meet again someday!\nFarewell!" text_4="Having lost in this fashion, \nI can’t face my followers.\pI have betrayed their trust.\pAs of today, Team Rocket is\nfinished forever!\pAs for myself, I shall dedicate\nmy life to training again.\pLet us meet again someday!\nFarewell!" text_5="Having lost in this fashion, \nI can’t face my followers.\pI have betrayed their trust.\pAs of today, Team Rocket is\nfinished forever!\pAs for myself, I shall dedicate\nmy life to training again.\pLet us meet again someday!\nFarewell!" text_6="Having lost in this fashion, \nI can’t face my followers.\pI have betrayed their trust.\pAs of today, Team Rocket is\nfinished forever!\pAs for myself, I shall dedicate\nmy life to training again.\pLet us meet again someday!\nFarewell!"
+    0824E712  callstd              function=MSGBOX_DEFAULT(4)
+    0824E714  closemessage         
+    0824E715  fadescreenswapbuffers mode=1
+    0824E717  nop                  
+    0824E718  removeobject         localId=8
+    0824E71B  fadescreenswapbuffers mode=0
+    0824E71D  nop                  
+    0824E71E  release              
+
+  script 0x0824E7AB  [ok]
+    0824E7AB  addelevmenuitem      a=8 b=5632 c=32772 d=15
+    0824E7B3  setvar               destination=VAR_0x8005 value=3
+    0824E7B8  special              SPECIAL_\function=347
+    0824E7BB  setflag              flag=0x0AD
+    0824E7BE  setflag              flag=0x4B7
+    0824E7C1  setflag              flag=0x887:BADGE8_EARTH
+    0824E7C4  setvar               destination=VAR_0x4054 value=3
+    0824E7C9  setvar               destination=VAR_0x8008 value=8
+    0824E7CE  call                 destination=0x082BBD1A
+    0824E7D3  goto                 destination=0x0824E72A
+
+  script 0x0824E720  [ok]
+    0824E720  goto                 destination=0x0824E72A
+
+  script 0x082BBD1A  [ok]
+    082BBD1A  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    082BBD1F  compare_var_to_value var=0x8000 value=1
+    082BBD24  goto_if              condition=1 destination=0x082BBD78
+    082BBD2A  compare_var_to_value var=0x8000 value=2
+    082BBD2F  goto_if              condition=1 destination=0x082BBD7F
+    082BBD35  compare_var_to_value var=0x8000 value=3
+    082BBD3A  goto_if              condition=1 destination=0x082BBD86
+    082BBD40  compare_var_to_value var=0x8000 value=4
+    082BBD45  goto_if              condition=1 destination=0x082BBD90
+    082BBD4B  compare_var_to_value var=0x8000 value=5
+    082BBD50  goto_if              condition=1 destination=0x082BBDA6
+    082BBD56  compare_var_to_value var=0x8000 value=6
+    082BBD5B  goto_if              condition=1 destination=0x082BBDB9
+    082BBD61  compare_var_to_value var=0x8000 value=7
+    082BBD66  goto_if              condition=1 destination=0x082BBDCF
+    082BBD6C  compare_var_to_value var=0x8000 value=8
+    082BBD71  goto_if              condition=1 destination=0x082BBDE5
+    082BBD77  end                  
+
+  script 0x0824E72A  [unknown-opcode:0xE9]
+    0824E72A  msgbox_multilang     type=0 text_0="The Earth Badge makes Pokémon of\nany level obey without question.\pIt is evidence of your mastery as\na Pokémon Trainer.\pWith it, you can challenge the\nPokémon League.\pAlso, take this TM.\pConsider it a gift for your Pokémon\nLeague challenge." text_1="The Earth Badge makes Pokémon of\nany level obey without question.\pIt is evidence of your mastery as\na Pokémon Trainer.\pWith it, you can challenge the\nPokémon League.\pAlso, take this TM.\pConsider it a gift for your Pokémon\nLeague challenge." text_2="The Earth Badge makes Pokémon of\nany level obey without question.\pIt is evidence of your mastery as\na Pokémon Trainer.\pWith it, you can challenge the\nPokémon League.\pAlso, take this TM.\pConsider it a gift for your Pokémon\nLeague challenge." text_3="The Earth Badge makes Pokémon of\nany level obey without question.\pIt is evidence of your mastery as\na Pokémon Trainer.\pWith it, you can challenge the\nPokémon League.\pAlso, take this TM.\pConsider it a gift for your Pokémon\nLeague challenge." text_4="The Earth Badge makes Pokémon of\nany level obey without question.\pIt is evidence of your mastery as\na Pokémon Trainer.\pWith it, you can challenge the\nPokémon League.\pAlso, take this TM.\pConsider it a gift for your Pokémon\nLeague challenge." text_5="The Earth Badge makes Pokémon of\nany level obey without question.\pIt is evidence of your mastery as\na Pokémon Trainer.\pWith it, you can challenge the\nPokémon League.\pAlso, take this TM.\pConsider it a gift for your Pokémon\nLeague challenge." text_6="The Earth Badge makes Pokémon of\nany level obey without question.\pIt is evidence of your mastery as\na Pokémon Trainer.\pWith it, you can challenge the\nPokémon League.\pAlso, take this TM.\pConsider it a gift for your Pokémon\nLeague challenge."
+    0824E748  callstd              function=MSGBOX_DEFAULT(4)
+    0824E74A  checkitemspace       itemId=TM26(314) quantity=1
+    0824E74F  compare_var_to_value var=0x800D value=0
+    0824E754  goto_if              condition=1 destination=0x0824E7A1
+    0824E75A  additem              itemId=TM26(314) quantity=1
+
+  script 0x082BBD78  [ok]
+    082BBD78  settrainerflag       trainer=0x8E
+    082BBD7B  settrainerflag       trainer=0x147
+    082BBD7E  return               
+
+  script 0x082BBD7F  [ok]
+    082BBD7F  settrainerflag       trainer=0x96
+    082BBD82  settrainerflag       trainer=0xEA
+    082BBD85  return               
+
+  script 0x082BBD86  [ok]
+    082BBD86  settrainerflag       trainer=0x8D
+    082BBD89  settrainerflag       trainer=0xDC
+    082BBD8C  settrainerflag       trainer=0x1A7
+    082BBD8F  return               
+
+  script 0x082BBD90  [ok]
+    082BBD90  settrainerflag       trainer=0x84
+    082BBD93  settrainerflag       trainer=0x85
+    082BBD96  settrainerflag       trainer=0xA0
+    082BBD99  settrainerflag       trainer=0x109
+    082BBD9C  settrainerflag       trainer=0x10A
+    082BBD9F  settrainerflag       trainer=0x10B
+    082BBDA2  settrainerflag       trainer=0x192
+    082BBDA5  return               
+
+  script 0x082BBDA6  [ok]
+    082BBDA6  settrainerflag       trainer=0x126
+    082BBDA9  settrainerflag       trainer=0x127
+    082BBDAC  settrainerflag       trainer=0x120
+    082BBDAF  settrainerflag       trainer=0x121
+    082BBDB2  settrainerflag       trainer=0x124
+    082BBDB5  settrainerflag       trainer=0x125
+    082BBDB8  return               
+
+  script 0x082BBDB9  [ok]
+    082BBDB9  settrainerflag       trainer=0x118
+    082BBDBC  settrainerflag       trainer=0x119
+    082BBDBF  settrainerflag       trainer=0x11A
+    082BBDC2  settrainerflag       trainer=0x11B
+    082BBDC5  settrainerflag       trainer=0x1CE
+    082BBDC8  settrainerflag       trainer=0x1CF
+    082BBDCB  settrainerflag       trainer=0x1D0
+    082BBDCE  return               
+
+  script 0x082BBDCF  [ok]
+    082BBDCF  settrainerflag       trainer=0xB1
+    082BBDD2  settrainerflag       trainer=0xB2
+    082BBDD5  settrainerflag       trainer=0xB3
+    082BBDD8  settrainerflag       trainer=0xB4
+    082BBDDB  settrainerflag       trainer=0xD5
+    082BBDDE  settrainerflag       trainer=0xD6
+    082BBDE1  settrainerflag       trainer=0xD7
+    082BBDE4  return               
+
+  script 0x082BBDE5  [ok]
+    082BBDE5  settrainerflag       trainer=0x128
+    082BBDE8  settrainerflag       trainer=0x129
+    082BBDEB  settrainerflag       trainer=0x142
+    082BBDEE  settrainerflag       trainer=0x143
+    082BBDF1  settrainerflag       trainer=0x144
+    082BBDF4  settrainerflag       trainer=0x188
+    082BBDF7  settrainerflag       trainer=0x190
+    082BBDFA  settrainerflag       trainer=0x191
+    082BBDFD  return               
+
+  script 0x0824E7A1  [ok]
+    0824E7A1  goto                 destination=0x0824E7D9
+
+  script 0x0824E7D9  [ok]
+    0824E7D9  msgbox_multilang     type=0 text_0="You do not have space for this!" text_1="You do not have space for this!" text_2="You do not have space for this!" text_3="You do not have space for this!" text_4="You do not have space for this!" text_5="You do not have space for this!" text_6="You do not have space for this!"
+    0824E7F7  callstd              function=MSGBOX_DEFAULT(4)
+    0824E7F9  release              
+
+  object 9 (gfx 0xFA, flag 0x0000) -> 0x0824E944
+  script 0x0824E944  [ok]
+    0824E944  trainerbattle        type=0 trainer=0x191 localId=0 ptr1=0x0824EF98 ptr2=0x0824EFBB
+    0824E952  msgbox_multilang     type=0 text_0="The Leader will scold me for\nlosing this way…" text_1="The Leader will scold me for\nlosing this way…" text_2="The Leader will scold me for\nlosing this way…" text_3="The Leader will scold me for\nlosing this way…" text_4="The Leader will scold me for\nlosing this way…" text_5="The Leader will scold me for\nlosing this way…" text_6="The Leader will scold me for\nlosing this way…"
+    0824E970  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0824E972  end                  
+
+  object 10 (gfx 0x27, flag 0x0000) -> 0x0824E973
+  script 0x0824E973  [ok]
+    0824E973  lock                 
+    0824E974  faceplayer           
+    0824E975  checkflag            flag=0x4B7
+    0824E978  goto_if              condition=1 destination=0x0824E9A0
+    0824E97E  msgbox_multilang     type=0 text_0="Yo!\nChamp in the making!\pEven I don’t know the Viridian\nLeader’s identity.\pBut one thing’s certain.\nThis will be the toughest of all\pthe Gym Leaders.\pAlso, I heard that the Trainers\nhere like Ground-type Pokémon." text_1="Yo!\nChamp in the making!\pEven I don’t know the Viridian\nLeader’s identity.\pBut one thing’s certain.\nThis will be the toughest of all\pthe Gym Leaders.\pAlso, I heard that the Trainers\nhere like Ground-type Pokémon." text_2="Yo!\nChamp in the making!\pEven I don’t know the Viridian\nLeader’s identity.\pBut one thing’s certain.\nThis will be the toughest of all\pthe Gym Leaders.\pAlso, I heard that the Trainers\nhere like Ground-type Pokémon." text_3="Yo!\nChamp in the making!\pEven I don’t know the Viridian\nLeader’s identity.\pBut one thing’s certain.\nThis will be the toughest of all\pthe Gym Leaders.\pAlso, I heard that the Trainers\nhere like Ground-type Pokémon." text_4="Yo!\nChamp in the making!\pEven I don’t know the Viridian\nLeader’s identity.\pBut one thing’s certain.\nThis will be the toughest of all\pthe Gym Leaders.\pAlso, I heard that the Trainers\nhere like Ground-type Pokémon." text_5="Yo!\nChamp in the making!\pEven I don’t know the Viridian\nLeader’s identity.\pBut one thing’s certain.\nThis will be the toughest of all\pthe Gym Leaders.\pAlso, I heard that the Trainers\nhere like Ground-type Pokémon." text_6="Yo!\nChamp in the making!\pEven I don’t know the Viridian\nLeader’s identity.\pBut one thing’s certain.\nThis will be the toughest of all\pthe Gym Leaders.\pAlso, I heard that the Trainers\nhere like Ground-type Pokémon."
+    0824E99C  callstd              function=MSGBOX_DEFAULT(4)
+    0824E99E  release              
+
+  script 0x0824E9A0  [ok]
+    0824E9A0  setvar               destination=VAR_0x8004 value=15
+    0824E9A5  setvar               destination=VAR_0x8005 value=4
+    0824E9AA  special              SPECIAL_\function=347
+    0824E9AD  msgbox_multilang     type=0 text_0="Blow me away! Giovanni was the\nGym Leader of Viridian?" text_1="Blow me away! Giovanni was the\nGym Leader of Viridian?" text_2="Blow me away! Giovanni was the\nGym Leader of Viridian?" text_3="Blow me away! Giovanni was the\nGym Leader of Viridian?" text_4="Blow me away! Giovanni was the\nGym Leader of Viridian?" text_5="Blow me away! Giovanni was the\nGym Leader of Viridian?" text_6="Blow me away! Giovanni was the\nGym Leader of Viridian?"
+    0824E9CB  callstd              function=MSGBOX_DEFAULT(4)
+    0824E9CD  release              
+
+  sign 0 at (15,20) -> 0x0824E9CF
+  script 0x0824E9CF  [ok]
+    0824E9CF  lockall              
+    0824E9D0  checkflag            flag=0x887:BADGE8_EARTH
+    0824E9D3  goto_if              condition=1 destination=0x0824E9FB
+    0824E9D9  msgbox_multilang     type=0 text_0="Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}" text_1="Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}" text_2="Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}" text_3="Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}" text_4="Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}" text_5="Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}" text_6="Viridian Pokémon Gym\nLeader: ?\pWinning Trainers:\n{RIVAL}"
+    0824E9F7  callstd              function=MSGBOX_DEFAULT(4)
+    0824E9F9  releaseall           
+
+  script 0x0824E9FB  [ok]
+    0824E9FB  msgbox_multilang     type=0 text_0="Viridian Pokémon Gym\nLeader: Giovanni\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_1="Viridian Pokémon Gym\nLeader: Giovanni\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_2="Viridian Pokémon Gym\nLeader: Giovanni\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_3="Viridian Pokémon Gym\nLeader: Giovanni\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_4="Viridian Pokémon Gym\nLeader: Giovanni\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_5="Viridian Pokémon Gym\nLeader: Giovanni\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_6="Viridian Pokémon Gym\nLeader: Giovanni\pWinning Trainers:\n{RIVAL}, {PLAYER}"
+    0824EA19  callstd              function=MSGBOX_DEFAULT(4)
+    0824EA1B  releaseall           
+
+  sign 1 at (19,20) -> 0x0824E9CF
+  hidden item at (2,2): Macho Brace
+

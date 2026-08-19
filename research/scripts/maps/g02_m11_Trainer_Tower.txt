@@ -1,0 +1,472 @@
+Trainer Tower  (group 2, map 11)  header 0x08B3C0C0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x13, flag 0x0006) -> 0x0821B4BD
+  script 0x0821B4BD  [ok]
+    0821B4BD  call                 destination=0x081FFB7D
+    0821B4C2  end                  
+
+  script 0x081FFB7D  [ok]
+    081FFB7D  lock                 
+    081FFB7E  faceplayer           
+    081FFB7F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFB84  compare_var_to_value var=0x8000 value=0
+    081FFB89  goto_if              condition=1 destination=0x081FFBA5
+    081FFB8F  compare_var_to_value var=0x8000 value=1
+    081FFB94  goto_if              condition=1 destination=0x081FFBC5
+    081FFB9A  compare_var_to_value var=0x8000 value=2
+    081FFB9F  goto_if              condition=1 destination=0x081FFD0D
+    081FFBA5  msgbox_multilang     type=0 text_0="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_1="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_2="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_3="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_4="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_5="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_6="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…"
+    081FFBC3  callstd              function=MSGBOX_DEFAULT(4)
+    081FFBC5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFBCA  compare_var_to_value var=0x8000 value=0
+    081FFBCF  goto_if              condition=1 destination=0x081FFBEB
+    081FFBD5  compare_var_to_value var=0x8000 value=1
+    081FFBDA  goto_if              condition=1 destination=0x081FFC5D
+    081FFBE0  compare_var_to_value var=0x8000 value=2
+    081FFBE5  goto_if              condition=1 destination=0x081FFCA2
+    081FFBEB  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC09  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC0B  textcolor            color=3
+    081FFC0D  playfanfare          song=367
+    081FFC10  message              text="Obtained the {STR_VAR_2}!"
+    081FFC15  special              SPECIAL_\function=11204
+    081FFC18  gotostd              function=37
+    081FFC1A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC22  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC2A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=50 -1=33894 -1=7682
+    081FFC32  nop                  
+    081FFC33  msgbox_multilang     type=0 text_0="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_1="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_2="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_3="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_4="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_5="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_6="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}."
+    081FFC51  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC53  call                 destination=0x082BB551
+    081FFC58  goto                 destination=0x081FFCA2
+
+  script 0x081FFBA5  [ok]
+    081FFBA5  msgbox_multilang     type=0 text_0="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_1="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_2="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_3="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_4="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_5="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…" text_6="Hello…\pI am the owner of this TOWER…\pHow the sky soars above this\nrooftop…\pThe caress of the winds up here…\pIt’s all so perfect…\pThe way you battled…\nIt, too, was perfection…"
+    081FFBC3  callstd              function=MSGBOX_DEFAULT(4)
+    081FFBC5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFBCA  compare_var_to_value var=0x8000 value=0
+    081FFBCF  goto_if              condition=1 destination=0x081FFBEB
+    081FFBD5  compare_var_to_value var=0x8000 value=1
+    081FFBDA  goto_if              condition=1 destination=0x081FFC5D
+    081FFBE0  compare_var_to_value var=0x8000 value=2
+    081FFBE5  goto_if              condition=1 destination=0x081FFCA2
+    081FFBEB  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC09  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC0B  textcolor            color=3
+    081FFC0D  playfanfare          song=367
+    081FFC10  message              text="Obtained the {STR_VAR_2}!"
+    081FFC15  special              SPECIAL_\function=11204
+    081FFC18  gotostd              function=37
+    081FFC1A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC22  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC2A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=50 -1=33894 -1=7682
+    081FFC32  nop                  
+    081FFC33  msgbox_multilang     type=0 text_0="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_1="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_2="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_3="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_4="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_5="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_6="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}."
+    081FFC51  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC53  call                 destination=0x082BB551
+    081FFC58  goto                 destination=0x081FFCA2
+
+  script 0x081FFBC5  [ok]
+    081FFBC5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFBCA  compare_var_to_value var=0x8000 value=0
+    081FFBCF  goto_if              condition=1 destination=0x081FFBEB
+    081FFBD5  compare_var_to_value var=0x8000 value=1
+    081FFBDA  goto_if              condition=1 destination=0x081FFC5D
+    081FFBE0  compare_var_to_value var=0x8000 value=2
+    081FFBE5  goto_if              condition=1 destination=0x081FFCA2
+    081FFBEB  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC09  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC0B  textcolor            color=3
+    081FFC0D  playfanfare          song=367
+    081FFC10  message              text="Obtained the {STR_VAR_2}!"
+    081FFC15  special              SPECIAL_\function=11204
+    081FFC18  gotostd              function=37
+    081FFC1A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC22  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC2A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=50 -1=33894 -1=7682
+    081FFC32  nop                  
+    081FFC33  msgbox_multilang     type=0 text_0="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_1="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_2="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_3="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_4="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_5="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_6="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}."
+    081FFC51  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC53  call                 destination=0x082BB551
+    081FFC58  goto                 destination=0x081FFCA2
+
+  script 0x081FFD0D  [ok]
+    081FFD0D  msgbox_multilang     type=0 text_0="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_1="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_2="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_3="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_4="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_5="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_6="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…"
+    081FFD2B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFD2D  release              
+
+  script 0x081FFBEB  [ok]
+    081FFBEB  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC09  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC0B  textcolor            color=3
+    081FFC0D  playfanfare          song=367
+    081FFC10  message              text="Obtained the {STR_VAR_2}!"
+    081FFC15  special              SPECIAL_\function=11204
+    081FFC18  gotostd              function=37
+    081FFC1A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC22  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=37 -1=11204 -1=9480
+    081FFC2A  setescapewarp        mapGroup=43 mapNum=8 WARP_ID_NONE=50 -1=33894 -1=7682
+    081FFC32  nop                  
+    081FFC33  msgbox_multilang     type=0 text_0="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_1="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_2="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_3="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_4="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_5="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}." text_6="{PLAYER} put the {STR_VAR_2}\nin the {STR_VAR_3}."
+    081FFC51  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC53  call                 destination=0x082BB551
+    081FFC58  goto                 destination=0x081FFCA2
+
+  script 0x081FFC5D  [ok]
+    081FFC5D  msgbox_multilang     type=0 text_0="This is for you…" text_1="This is for you…" text_2="This is for you…" text_3="This is for you…" text_4="This is for you…" text_5="This is for you…" text_6="This is for you…"
+    081FFC7B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC7D  msgbox_multilang     type=0 text_0="The BAG is full…" text_1="The BAG is full…" text_2="The BAG is full…" text_3="The BAG is full…" text_4="The BAG is full…" text_5="The BAG is full…" text_6="The BAG is full…"
+    081FFC9B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFC9D  goto                 destination=0x081FFCA2
+
+  script 0x081FFCA2  [ok]
+    081FFCA2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFCA7  compare_var_to_value var=0x8000 value=0
+    081FFCAC  goto_if              condition=1 destination=0x081FFCC8
+    081FFCB2  compare_var_to_value var=0x8000 value=1
+    081FFCB7  goto_if              condition=1 destination=0x081FFCED
+    081FFCBD  compare_var_to_value var=0x8000 value=2
+    081FFCC2  goto_if              condition=1 destination=0x081FFD0D
+    081FFCC8  msgbox_multilang     type=0 text_0="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_1="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_2="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_3="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_4="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_5="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_6="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter."
+    081FFCE6  callstd              function=MSGBOX_DEFAULT(4)
+    081FFCE8  goto                 destination=0x081FFD0D
+
+  script 0x082BB551  [ok]
+    082BB551  copyvar              destination=VAR_0x8012 source=VAR_0x8013
+    082BB556  return               
+
+  script 0x081FFCC8  [ok]
+    081FFCC8  msgbox_multilang     type=0 text_0="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_1="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_2="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_3="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_4="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_5="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter." text_6="Oh!\nStupendous!\pIt’s marvelous how you’ve come up\nhere so quickly.\pThe fact is, you’ve done it in\nrecord time…\pI’ll have your record posted at\nthe reception counter."
+    081FFCE6  callstd              function=MSGBOX_DEFAULT(4)
+    081FFCE8  goto                 destination=0x081FFD0D
+
+  script 0x081FFCED  [ok]
+    081FFCED  msgbox_multilang     type=0 text_0="You seem to have taken your sweet\ntime getting here…" text_1="You seem to have taken your sweet\ntime getting here…" text_2="You seem to have taken your sweet\ntime getting here…" text_3="You seem to have taken your sweet\ntime getting here…" text_4="You seem to have taken your sweet\ntime getting here…" text_5="You seem to have taken your sweet\ntime getting here…" text_6="You seem to have taken your sweet\ntime getting here…"
+    081FFD0B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFD0D  msgbox_multilang     type=0 text_0="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_1="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_2="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_3="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_4="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_5="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…" text_6="What I would like to see is a\nbetter time out of you…\pI’m counting on you.\pUntil then, farewell…"
+    081FFD2B  callstd              function=MSGBOX_DEFAULT(4)
+    081FFD2D  release              
+
+  object 2 (gfx 0x5A, flag 0x0002) -> 0x0821B4A5
+  script 0x0821B4A5  [ok]
+    0821B4A5  call                 destination=0x081FFAD6
+    0821B4AA  end                  
+
+  script 0x081FFAD6  [ok]
+    081FFAD6  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFADB  compare_var_to_value var=0x8000 value=0
+    081FFAE0  goto_if              condition=1 destination=0x081FFAFC
+    081FFAE6  compare_var_to_value var=0x8000 value=1
+    081FFAEB  goto_if              condition=1 destination=0x081FFAFC
+    081FFAF1  compare_var_to_value var=0x8000 value=2
+    081FFAF6  goto_if              condition=1 destination=0x081FFB06
+    081FFAFC  setvar               destination=VAR_0x8006 value=0
+    081FFB01  goto                 destination=0x081FFB59
+
+  script 0x081FFAFC  [ok]
+    081FFAFC  setvar               destination=VAR_0x8006 value=0
+    081FFB01  goto                 destination=0x081FFB59
+
+  script 0x081FFB06  [ok]
+    081FFB06  setvar               destination=VAR_0x8006 value=1
+    081FFB0B  goto                 destination=0x081FFB59
+
+  script 0x081FFB59  [ok]
+    081FFB59  lock                 
+    081FFB5A  faceplayer           
+    081FFB5B  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    081FFB79  callstd              function=MSGBOX_DEFAULT(4)
+    081FFB7B  release              
+
+  object 3 (gfx 0x5B, flag 0x0003) -> 0x0821B4AB
+  script 0x0821B4AB  [ok]
+    0821B4AB  call                 destination=0x081FFB10
+    0821B4B0  end                  
+
+  script 0x081FFB10  [ok]
+    081FFB10  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FFB15  compare_var_to_value var=0x8000 value=0
+    081FFB1A  goto_if              condition=1 destination=0x081FFB36
+    081FFB20  compare_var_to_value var=0x8000 value=1
+    081FFB25  goto_if              condition=1 destination=0x081FFB36
+    081FFB2B  compare_var_to_value var=0x8000 value=2
+    081FFB30  goto_if              condition=1 destination=0x081FFB40
+    081FFB36  setvar               destination=VAR_0x8006 value=0
+    081FFB3B  goto                 destination=0x081FFB59
+
+  script 0x081FFB36  [ok]
+    081FFB36  setvar               destination=VAR_0x8006 value=0
+    081FFB3B  goto                 destination=0x081FFB59
+
+  script 0x081FFB40  [ok]
+    081FFB40  setvar               destination=VAR_0x8006 value=2
+    081FFB45  goto                 destination=0x081FFB59
+
+  object 4 (gfx 0x5C, flag 0x0004) -> 0x0821B4B1
+  script 0x0821B4B1  [ok]
+    0821B4B1  call                 destination=0x081FFB4A
+    0821B4B6  end                  
+
+  script 0x081FFB4A  [ok]
+    081FFB4A  setvar               destination=VAR_0x8006 value=0
+    081FFB4F  goto                 destination=0x081FFB59
+
+  object 5 (gfx 0x5D, flag 0x0005) -> 0x0821B4B7
+  script 0x0821B4B7  [ok]
+    0821B4B7  call                 destination=0x081FFB54
+    0821B4BC  end                  
+
+  script 0x081FFB54  [ok]
+    081FFB54  setvar               destination=VAR_0x8006 value=1
+    081FFB59  lock                 
+    081FFB5A  faceplayer           
+    081FFB5B  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    081FFB79  callstd              function=MSGBOX_DEFAULT(4)
+    081FFB7B  release              
+
+  coord trigger 0 (var 0x400E == 0) -> 0x081FFD52
+  script 0x081FFD52  [ok]
+    081FFD52  goto                 destination=0x081FF8A6
+
+  script 0x081FF8A6  [ok]
+    081FF8A6  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FF8AB  compare_var_to_value var=0x8000 value=0
+    081FF8B0  goto_if              condition=1 destination=0x081FF8CC
+    081FF8B6  compare_var_to_value var=0x8000 value=1
+    081FF8BB  goto_if              condition=1 destination=0x081FF915
+    081FF8C1  compare_var_to_value var=0x8000 value=2
+    081FF8C6  goto_if              condition=1 destination=0x081FF97A
+    081FF8CC  applymovement        localId=3 movements=[emote_exclamation_mark]
+    081FF8D3  waitmovement         localId=0
+    081FF8D6  applymovement        localId=3 movements=[delay_16 delay_16 delay_16]
+    081FF8DD  waitmovement         localId=0
+    081FF8E0  setvar               destination=VAR_0x400E value=1
+    081FF8E5  applymovement        localId=3 movements=[walk_left walk_left walk_left walk_left]
+    081FF8EC  waitmovement         localId=0
+    081FF8EF  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    081FF90D  callstd              function=MSGBOX_DEFAULT(4)
+    081FF90F  closemessage         
+    081FF910  goto                 destination=0x081FFA25
+
+  script 0x081FF8CC  [ok]
+    081FF8CC  applymovement        localId=3 movements=[emote_exclamation_mark]
+    081FF8D3  waitmovement         localId=0
+    081FF8D6  applymovement        localId=3 movements=[delay_16 delay_16 delay_16]
+    081FF8DD  waitmovement         localId=0
+    081FF8E0  setvar               destination=VAR_0x400E value=1
+    081FF8E5  applymovement        localId=3 movements=[walk_left walk_left walk_left walk_left]
+    081FF8EC  waitmovement         localId=0
+    081FF8EF  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    081FF90D  callstd              function=MSGBOX_DEFAULT(4)
+    081FF90F  closemessage         
+    081FF910  goto                 destination=0x081FFA25
+
+  script 0x081FF915  [ok]
+    081FF915  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    081FF933  callstd              function=MSGBOX_DEFAULT(4)
+    081FF935  setvar               destination=VAR_0x8004 value=1
+    081FF93A  addvar               destination=VAR_0x4003 value=1
+    081FF93F  compare_var_to_value var=0x4003 value=1
+    081FF944  goto_if              condition=1 destination=0x081FF94F
+    081FF94A  setvar               destination=VAR_0x4003 value=0
+    081FF94F  copyvar              destination=VAR_0x8006 source=VAR_0x4003
+    081FF954  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    081FF972  callstd              function=MSGBOX_DEFAULT(4)
+    081FF974  closemessage         
+    081FF975  goto                 destination=0x081FFA25
+
+  script 0x081FF97A  [ok]
+    081FF97A  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    081FF97F  compare_var_to_value var=0x8000 value=0
+    081FF984  goto_if              condition=1 destination=0x081FF9A0
+    081FF98A  compare_var_to_value var=0x8000 value=1
+    081FF98F  goto_if              condition=1 destination=0x081FF9C3
+    081FF995  compare_var_to_value var=0x8000 value=2
+    081FF99A  goto_if              condition=1 destination=0x081FF9E6
+    081FF9A0  applymovement        localId=4 movements=[emote_exclamation_mark]
+    081FF9A7  waitmovement         localId=0
+    081FF9AA  applymovement        localId=4 movements=[delay_16 delay_16 delay_16]
+    081FF9B1  waitmovement         localId=0
+    081FF9B4  applymovement        localId=4 movements=[walk_up walk_up]
+    081FF9BB  waitmovement         localId=0
+    081FF9BE  goto                 destination=0x081FFA04
+
+  script 0x081FFA25  [ok]
+    081FFA25  waitstate            
+
+  script 0x081FF94F  [ok]
+    081FF94F  copyvar              destination=VAR_0x8006 source=VAR_0x4003
+    081FF954  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    081FF972  callstd              function=MSGBOX_DEFAULT(4)
+    081FF974  closemessage         
+    081FF975  goto                 destination=0x081FFA25
+
+  script 0x081FF9A0  [ok]
+    081FF9A0  applymovement        localId=4 movements=[emote_exclamation_mark]
+    081FF9A7  waitmovement         localId=0
+    081FF9AA  applymovement        localId=4 movements=[delay_16 delay_16 delay_16]
+    081FF9B1  waitmovement         localId=0
+    081FF9B4  applymovement        localId=4 movements=[walk_up walk_up]
+    081FF9BB  waitmovement         localId=0
+    081FF9BE  goto                 destination=0x081FFA04
+
+  script 0x081FF9C3  [ok]
+    081FF9C3  applymovement        localId=2 movements=[emote_exclamation_mark]
+    081FF9CA  waitmovement         localId=0
+    081FF9CD  applymovement        localId=2 movements=[delay_16 delay_16 delay_16]
+    081FF9D4  waitmovement         localId=0
+    081FF9D7  applymovement        localId=2 movements=[walk_down walk_down]
+    081FF9DE  waitmovement         localId=0
+    081FF9E1  goto                 destination=0x081FFA04
+
+  script 0x081FF9E6  [ok]
+    081FF9E6  applymovement        localId=3 movements=[emote_exclamation_mark]
+    081FF9ED  waitmovement         localId=0
+    081FF9F0  applymovement        localId=3 movements=[delay_16 delay_16 delay_16]
+    081FF9F7  waitmovement         localId=0
+    081FF9FA  applymovement        localId=3 movements=[walk_left walk_left walk_left]
+    081FFA01  waitmovement         localId=0
+    081FFA04  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    081FFA22  callstd              function=MSGBOX_DEFAULT(4)
+    081FFA24  closemessage         
+    081FFA25  waitstate            
+
+  script 0x081FFA04  [ok]
+    081FFA04  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    081FFA22  callstd              function=MSGBOX_DEFAULT(4)
+    081FFA24  closemessage         
+    081FFA25  waitstate            
+
+  coord trigger 1 (var 0x400F == 0) -> 0x081FFD57
+  script 0x081FFD57  [ok]
+    081FFD57  setvar               destination=VAR_0x4003 value=0
+    081FFD5C  compare_var_to_value var=0x800D value=0
+    081FFD61  goto_if              condition=5 destination=0x081FFDAB
+    081FFD67  applymovement        localId=2 movements=[emote_exclamation_mark]
+    081FFD6E  waitmovement         localId=0
+    081FFD71  applymovement        localId=2 movements=[delay_16 delay_16 delay_16]
+    081FFD78  goto                 destination=0x081FFD9E
+
+  script 0x081FFDAB  [ok]
+    081FFDAB  lockall              
+    081FFDAC  playse               song=73
+    081FFDAF  msgbox_multilang     type=0 text_0="This is a two-on-two battle.\pYou may not battle unless you have\nat least two POKéMON." text_1="This is a two-on-two battle.\pYou may not battle unless you have\nat least two POKéMON." text_2="This is a two-on-two battle.\pYou may not battle unless you have\nat least two POKéMON." text_3="This is a two-on-two battle.\pYou may not battle unless you have\nat least two POKéMON." text_4="This is a two-on-two battle.\pYou may not battle unless you have\nat least two POKéMON." text_5="This is a two-on-two battle.\pYou may not battle unless you have\nat least two POKéMON." text_6="This is a two-on-two battle.\pYou may not battle unless you have\nat least two POKéMON."
+    081FFDCD  callstd              function=MSGBOX_DEFAULT(4)
+    081FFDCF  closemessage         
+    081FFDD0  applymovement        localId=255 movements=[walk_left]
+    081FFDD7  waitmovement         localId=0
+    081FFDDA  releaseall           
+
+  script 0x081FFD9E  [ok]
+    081FFD9E  waitmovement         localId=0
+    081FFDA1  setvar               destination=VAR_0x400F value=1
+    081FFDA6  goto                 destination=0x081FF8A6
+
+  coord trigger 2 (var 0x400F == 0) -> 0x081FFD7D
+  script 0x081FFD7D  [ok]
+    081FFD7D  setvar               destination=VAR_0x4003 value=1
+    081FFD82  compare_var_to_value var=0x800D value=0
+    081FFD87  goto_if              condition=5 destination=0x081FFDAB
+    081FFD8D  applymovement        localId=5 movements=[emote_exclamation_mark]
+    081FFD94  waitmovement         localId=0
+    081FFD97  applymovement        localId=5 movements=[delay_16 delay_16 delay_16]
+    081FFD9E  waitmovement         localId=0
+    081FFDA1  setvar               destination=VAR_0x400F value=1
+    081FFDA6  goto                 destination=0x081FF8A6
+
+  map script type 5 -> 0x081FF793
+  script 0x081FF793  [ok]
+    081FF793  setvar               destination=VAR_0x4002 value=0
+    081FF798  end                  
+
+  map script type 3 -> 0x081FF799
+  script 0x081FF799  [ok]
+    081FF799  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081FF79E  compare_var_to_value var=0x8000 value=0
+    081FF7A3  goto_if              condition=1 destination=0x081FF7D6
+    081FF7A9  compare_var_to_value var=0x8000 value=1
+    081FF7AE  goto_if              condition=1 destination=0x081FF7F4
+    081FF7B4  compare_var_to_value var=0x8000 value=2
+    081FF7B9  goto_if              condition=1 destination=0x081FF840
+    081FF7BF  setflag              flag=0x002
+    081FF7C2  setflag              flag=0x003
+    081FF7C5  setflag              flag=0x004
+    081FF7C8  setflag              flag=0x005
+    081FF7CB  setvar               destination=VAR_0x400E value=1
+    081FF7D0  setvar               destination=VAR_0x400F value=1
+    081FF7D5  end                  
+
+  script 0x081FF7D6  [ok]
+    081FF7D6  setflag              flag=0x002
+    081FF7D9  setflag              flag=0x004
+    081FF7DC  setflag              flag=0x005
+    081FF7DF  setvar               destination=VAR_0x400F value=1
+    081FF7E4  setobjectxyperm      localId=3 x=15 y=13
+    081FF7EB  setobjectmovementtype localId=3 movementType=9
+    081FF7EF  goto                 destination=0x081FF869
+
+  script 0x081FF7F4  [ok]
+    081FF7F4  setflag              flag=0x003
+    081FF7F7  setflag              flag=0x004
+    081FF7FA  setvar               destination=VAR_0x400E value=1
+    081FF7FF  compare_var_to_value var=0x800D value=1
+    081FF804  goto_if              condition=1 destination=0x081FF825
+    081FF80A  setobjectxyperm      localId=2 x=10 y=12
+    081FF811  setobjectmovementtype localId=2 movementType=9
+    081FF815  setobjectxyperm      localId=5 x=10 y=13
+    081FF81C  setobjectmovementtype localId=5 movementType=9
+    081FF820  goto                 destination=0x081FF869
+
+  script 0x081FF840  [ok]
+    081FF840  setflag              flag=0x005
+    081FF843  setvar               destination=VAR_0x400F value=1
+    081FF848  setobjectxyperm      localId=2 x=10 y=10
+    081FF84F  setobjectmovementtype localId=2 movementType=8
+    081FF853  setobjectxyperm      localId=3 x=14 y=13
+    081FF85A  setobjectmovementtype localId=3 movementType=9
+    081FF85E  setobjectxyperm      localId=4 x=10 y=16
+    081FF865  setobjectmovementtype localId=4 movementType=7
+    081FF869  setflag              flag=0x006
+    081FF86C  end                  
+
+  script 0x081FF869  [ok]
+    081FF869  setflag              flag=0x006
+    081FF86C  end                  
+
+  script 0x081FF825  [ok]
+    081FF825  setobjectxyperm      localId=2 x=10 y=12
+    081FF82C  setobjectmovementtype localId=2 movementType=8
+    081FF830  setobjectxyperm      localId=5 x=11 y=12
+    081FF837  setobjectmovementtype localId=5 movementType=8
+    081FF83B  goto                 destination=0x081FF869
+
+  map script type 2 (var 0x4002 == 0) -> 0x081FF877
+  script 0x081FF877  [ok]
+    081FF877  setvar               destination=VAR_0x4002 value=1
+    081FF87C  compare_var_to_value var=0x800D value=0
+    081FF881  goto_if              condition=1 destination=0x081FF891
+    081FF887  setvar               destination=VAR_0x400E value=1
+    081FF88C  setvar               destination=VAR_0x400F value=1
+    081FF891  compare_var_to_value var=0x800D value=1
+    081FF896  goto_if              condition=1 destination=0x081FF89D
+    081FF89C  end                  
+
+  script 0x081FF891  [ok]
+    081FF891  compare_var_to_value var=0x800D value=1
+    081FF896  goto_if              condition=1 destination=0x081FF89D
+    081FF89C  end                  
+
+  script 0x081FF89D  [ok]
+    081FF89D  warp                 mapGroup=2 mapNum=16 WARP_ID_NONE=255 -1=9 -1=7
+    081FF8A5  waitstate            
+

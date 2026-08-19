@@ -1,0 +1,240 @@
+Battle Frontier  (group 41, map 35)  header 0x08B3E484
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x37, flag 0x0000) -> 0x082B0A6F
+  script 0x082B0A6F  [ok]
+    082B0A6F  lock                 
+    082B0A70  faceplayer           
+    082B0A71  checkflag            flag=0x110
+    082B0A74  goto_if              condition=1 destination=0x082B0CA5
+    082B0A7A  call                 destination=0x082B0C34
+    082B0A7F  compare_var_to_value var=0x8004 value=2
+    082B0A84  goto_if              condition=3 destination=0x082B0C7F
+    082B0A8A  setflag              flag=0x110
+    082B0A8D  msgbox_multilang     type=0 text_0="…Huh?\nYou look to me like a tough TRAINER.\pHeheh…\nListen, I have this proposition.\pWe have a little group going here,\nand we play a little game with what\pgoes on in the BATTLE FRONTIER.\pThe rules are really simple.\pFirst, we pick one of the facilities\nin the BATTLE FRONTIER.\pThen, we each pick a different TRAINER\nwho’s taking that facility’s challenge,\pand bet with our Battle Points.\pThe guy who bet on the TRAINER with\nthe best record takes all the Battle\pPoints in the pool.\pSounds simple, huh?\nSo, anyway…" text_1="…Huh?\nYou look to me like a tough TRAINER.\pHeheh…\nListen, I have this proposition.\pWe have a little group going here,\nand we play a little game with what\pgoes on in the BATTLE FRONTIER.\pThe rules are really simple.\pFirst, we pick one of the facilities\nin the BATTLE FRONTIER.\pThen, we each pick a different TRAINER\nwho’s taking that facility’s challenge,\pand bet with our Battle Points.\pThe guy who bet on the TRAINER with\nthe best record takes all the Battle\pPoints in the pool.\pSounds simple, huh?\nSo, anyway…" text_2="…Huh?\nYou look to me like a tough TRAINER.\pHeheh…\nListen, I have this proposition.\pWe have a little group going here,\nand we play a little game with what\pgoes on in the BATTLE FRONTIER.\pThe rules are really simple.\pFirst, we pick one of the facilities\nin the BATTLE FRONTIER.\pThen, we each pick a different TRAINER\nwho’s taking that facility’s challenge,\pand bet with our Battle Points.\pThe guy who bet on the TRAINER with\nthe best record takes all the Battle\pPoints in the pool.\pSounds simple, huh?\nSo, anyway…" text_3="…Huh?\nYou look to me like a tough TRAINER.\pHeheh…\nListen, I have this proposition.\pWe have a little group going here,\nand we play a little game with what\pgoes on in the BATTLE FRONTIER.\pThe rules are really simple.\pFirst, we pick one of the facilities\nin the BATTLE FRONTIER.\pThen, we each pick a different TRAINER\nwho’s taking that facility’s challenge,\pand bet with our Battle Points.\pThe guy who bet on the TRAINER with\nthe best record takes all the Battle\pPoints in the pool.\pSounds simple, huh?\nSo, anyway…" text_4="…Huh?\nYou look to me like a tough TRAINER.\pHeheh…\nListen, I have this proposition.\pWe have a little group going here,\nand we play a little game with what\pgoes on in the BATTLE FRONTIER.\pThe rules are really simple.\pFirst, we pick one of the facilities\nin the BATTLE FRONTIER.\pThen, we each pick a different TRAINER\nwho’s taking that facility’s challenge,\pand bet with our Battle Points.\pThe guy who bet on the TRAINER with\nthe best record takes all the Battle\pPoints in the pool.\pSounds simple, huh?\nSo, anyway…" text_5="…Huh?\nYou look to me like a tough TRAINER.\pHeheh…\nListen, I have this proposition.\pWe have a little group going here,\nand we play a little game with what\pgoes on in the BATTLE FRONTIER.\pThe rules are really simple.\pFirst, we pick one of the facilities\nin the BATTLE FRONTIER.\pThen, we each pick a different TRAINER\nwho’s taking that facility’s challenge,\pand bet with our Battle Points.\pThe guy who bet on the TRAINER with\nthe best record takes all the Battle\pPoints in the pool.\pSounds simple, huh?\nSo, anyway…" text_6="…Huh?\nYou look to me like a tough TRAINER.\pHeheh…\nListen, I have this proposition.\pWe have a little group going here,\nand we play a little game with what\pgoes on in the BATTLE FRONTIER.\pThe rules are really simple.\pFirst, we pick one of the facilities\nin the BATTLE FRONTIER.\pThen, we each pick a different TRAINER\nwho’s taking that facility’s challenge,\pand bet with our Battle Points.\pThe guy who bet on the TRAINER with\nthe best record takes all the Battle\pPoints in the pool.\pSounds simple, huh?\nSo, anyway…"
+    082B0AAB  callstd              function=MSGBOX_DEFAULT(4)
+    082B0AAD  goto                 destination=0x082B0AB3
+
+  script 0x082B0CA5  [ok]
+    082B0CA5  msgbox_multilang     type=0 text_0="Oh…" text_1="Oh…" text_2="Oh…" text_3="Oh…" text_4="Oh…" text_5="Oh…" text_6="Oh…"
+    082B0CC3  callstd              function=MSGBOX_DEFAULT(4)
+    082B0CC5  compare_var_to_value var=0x409B value=1
+    082B0CCA  goto_if              condition=4 destination=0x082B0CD6
+    082B0CD0  goto                 destination=0x082B0AB3
+
+  script 0x082B0C34  [ok]
+    082B0C34  setvar               destination=VAR_0x8004 value=0
+    082B0C39  checkflag            flag=0x8C4
+    082B0C3C  call_if              condition=1 destination=0x082B0C79
+    082B0C42  checkflag            flag=0x8C6
+    082B0C45  call_if              condition=1 destination=0x082B0C79
+    082B0C4B  checkflag            flag=0x8C8
+    082B0C4E  call_if              condition=1 destination=0x082B0C79
+    082B0C54  checkflag            flag=0x8CA
+    082B0C57  call_if              condition=1 destination=0x082B0C79
+    082B0C5D  checkflag            flag=0x8CC
+    082B0C60  call_if              condition=1 destination=0x082B0C79
+    082B0C66  checkflag            flag=0x8CE
+    082B0C69  call_if              condition=1 destination=0x082B0C79
+    082B0C6F  checkflag            flag=0x8D0
+    082B0C72  call_if              condition=1 destination=0x082B0C79
+    082B0C78  return               
+
+  script 0x082B0C7F  [ok]
+    082B0C7F  msgbox_multilang     type=0 text_0="…What’s that you want?\pCan’t you see we’re kind of busy here?\nCan’t your business wait till later?" text_1="…What’s that you want?\pCan’t you see we’re kind of busy here?\nCan’t your business wait till later?" text_2="…What’s that you want?\pCan’t you see we’re kind of busy here?\nCan’t your business wait till later?" text_3="…What’s that you want?\pCan’t you see we’re kind of busy here?\nCan’t your business wait till later?" text_4="…What’s that you want?\pCan’t you see we’re kind of busy here?\nCan’t your business wait till later?" text_5="…What’s that you want?\pCan’t you see we’re kind of busy here?\nCan’t your business wait till later?" text_6="…What’s that you want?\pCan’t you see we’re kind of busy here?\nCan’t your business wait till later?"
+    082B0C9D  callstd              function=MSGBOX_DEFAULT(4)
+    082B0C9F  goto                 destination=0x082B0E8D
+
+  script 0x082B0AB3  [ok]
+    082B0AB3  special              SPECIAL_\function=306
+    082B0AB6  waitmessage          
+    082B0AB7  waitbuttonpress      
+    082B0AB8  msgbox_multilang     type=0 text_0="I’ll see to it that you benefit, too.\nSo how about it?\pHow about entering that event for me?" text_1="I’ll see to it that you benefit, too.\nSo how about it?\pHow about entering that event for me?" text_2="I’ll see to it that you benefit, too.\nSo how about it?\pHow about entering that event for me?" text_3="I’ll see to it that you benefit, too.\nSo how about it?\pHow about entering that event for me?" text_4="I’ll see to it that you benefit, too.\nSo how about it?\pHow about entering that event for me?" text_5="I’ll see to it that you benefit, too.\nSo how about it?\pHow about entering that event for me?" text_6="I’ll see to it that you benefit, too.\nSo how about it?\pHow about entering that event for me?"
+    082B0AD6  callstd              function=MSGBOX_YESNO(5)
+    082B0AD8  compare_var_to_value var=0x800D value=0
+    082B0ADD  goto_if              condition=1 destination=0x082B0DC9
+    082B0AE3  msgbox_multilang     type=0 text_0="All right, that’s perfect.\nSo, uh… How about spotting me some\pof your Battle Points?\pTrust me, I’ll show you my gratitude\nafterward." text_1="All right, that’s perfect.\nSo, uh… How about spotting me some\pof your Battle Points?\pTrust me, I’ll show you my gratitude\nafterward." text_2="All right, that’s perfect.\nSo, uh… How about spotting me some\pof your Battle Points?\pTrust me, I’ll show you my gratitude\nafterward." text_3="All right, that’s perfect.\nSo, uh… How about spotting me some\pof your Battle Points?\pTrust me, I’ll show you my gratitude\nafterward." text_4="All right, that’s perfect.\nSo, uh… How about spotting me some\pof your Battle Points?\pTrust me, I’ll show you my gratitude\nafterward." text_5="All right, that’s perfect.\nSo, uh… How about spotting me some\pof your Battle Points?\pTrust me, I’ll show you my gratitude\nafterward." text_6="All right, that’s perfect.\nSo, uh… How about spotting me some\pof your Battle Points?\pTrust me, I’ll show you my gratitude\nafterward."
+    082B0B01  callstd              function=MSGBOX_YESNO(5)
+    082B0B03  compare_var_to_value var=0x800D value=0
+    082B0B08  goto_if              condition=1 destination=0x082B0DC9
+    082B0B0E  message              text="Great, great!\nSo, how much can you spot me?"
+    082B0B13  buffertrainername    stringVarId=25 trainerId=2091
+    082B0B17  buffertrainername    stringVarId=25 trainerId=2091
+    082B0B1B  buffertrainername    stringVarId=25 trainerId=2091
+    082B0B1F  buffertrainername    stringVarId=25 trainerId=2091
+    082B0B23  buffertrainername    stringVarId=25 trainerId=2091
+    082B0B27  buffertrainername    stringVarId=25 trainerId=2091
+    082B0B2B  waitmessage          
+    082B0B2C  special              SPECIAL_\function=293
+    082B0B2F  goto                 destination=0x082B0B35
+
+  script 0x082B0CD6  [ok]
+    082B0CD6  compare_var_to_value var=0x409B value=1
+    082B0CDB  goto_if              condition=1 destination=0x082B0DC2
+    082B0CE1  compare_var_to_value var=0x409B value=2
+    082B0CE6  goto_if              condition=1 destination=0x082B0CF2
+    082B0CEC  goto                 destination=0x082B0D7D
+
+  script 0x082B0C79  [ok]
+    082B0C79  addvar               destination=VAR_0x8004 value=1
+    082B0C7E  return               
+
+  script 0x082B0E8D  [ok]
+    082B0E8D  closemessage         
+    082B0E8E  applymovement        localId=32783 movements=[face_original_direction]
+    082B0E95  waitmovement         localId=0
+    082B0E98  release              
+
+  script 0x082B0DC9  [ok]
+    082B0DC9  msgbox_multilang     type=0 text_0="Not interested?! You shouldn’t be\nso afraid to take a chance!" text_1="Not interested?! You shouldn’t be\nso afraid to take a chance!" text_2="Not interested?! You shouldn’t be\nso afraid to take a chance!" text_3="Not interested?! You shouldn’t be\nso afraid to take a chance!" text_4="Not interested?! You shouldn’t be\nso afraid to take a chance!" text_5="Not interested?! You shouldn’t be\nso afraid to take a chance!" text_6="Not interested?! You shouldn’t be\nso afraid to take a chance!"
+    082B0DE7  callstd              function=MSGBOX_DEFAULT(4)
+    082B0DE9  release              
+
+  script 0x082B0B35  [ok]
+    082B0B35  multichoice          x=20 y=4 multichoiceId=87 ignoreBPress=0
+    082B0B3A  copyvar              destination=VAR_0x40DD source=VAR_0x800D
+    082B0B3F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082B0B44  compare_var_to_value var=0x8000 value=0
+    082B0B49  goto_if              condition=1 destination=0x082B0B7C
+    082B0B4F  compare_var_to_value var=0x8000 value=1
+    082B0B54  goto_if              condition=1 destination=0x082B0B87
+    082B0B5A  compare_var_to_value var=0x8000 value=2
+    082B0B5F  goto_if              condition=1 destination=0x082B0B92
+    082B0B65  compare_var_to_value var=0x8000 value=3
+    082B0B6A  goto_if              condition=1 destination=0x082B0DEB
+    082B0B70  compare_var_to_value var=0x8000 value=127
+    082B0B75  goto_if              condition=1 destination=0x082B0DEB
+    082B0B7B  end                  
+
+  script 0x082B0DC2  [ok]
+    082B0DC2  special              SPECIAL_\function=307
+    082B0DC5  waitmessage          
+    082B0DC6  waitbuttonpress      
+    082B0DC7  release              
+
+  script 0x082B0CF2  [ok]
+    082B0CF2  msgbox_multilang     type=0 text_0="Oh, yes!\nHello there, champ!\pI knew you could!\nI knew you would!\pWe’re both big winners!\pI’ll return your Battle Points and,\nof course, a little extra from me!" text_1="Oh, yes!\nHello there, champ!\pI knew you could!\nI knew you would!\pWe’re both big winners!\pI’ll return your Battle Points and,\nof course, a little extra from me!" text_2="Oh, yes!\nHello there, champ!\pI knew you could!\nI knew you would!\pWe’re both big winners!\pI’ll return your Battle Points and,\nof course, a little extra from me!" text_3="Oh, yes!\nHello there, champ!\pI knew you could!\nI knew you would!\pWe’re both big winners!\pI’ll return your Battle Points and,\nof course, a little extra from me!" text_4="Oh, yes!\nHello there, champ!\pI knew you could!\nI knew you would!\pWe’re both big winners!\pI’ll return your Battle Points and,\nof course, a little extra from me!" text_5="Oh, yes!\nHello there, champ!\pI knew you could!\nI knew you would!\pWe’re both big winners!\pI’ll return your Battle Points and,\nof course, a little extra from me!" text_6="Oh, yes!\nHello there, champ!\pI knew you could!\nI knew you would!\pWe’re both big winners!\pI’ll return your Battle Points and,\nof course, a little extra from me!"
+    082B0D10  callstd              function=MSGBOX_DEFAULT(4)
+    082B0D12  compare_var_to_value var=0x40DD value=0
+    082B0D17  call_if              condition=1 destination=0x082B0DA4
+    082B0D1D  compare_var_to_value var=0x40DD value=1
+    082B0D22  call_if              condition=1 destination=0x082B0DAE
+    082B0D28  compare_var_to_value var=0x40DD value=2
+    082B0D2D  call_if              condition=1 destination=0x082B0DB8
+    082B0D33  msgbox_multilang     type=0 text_0="{PLAYER} obtained\n{STR_VAR_1} Battle Points." text_1="{PLAYER} obtained\n{STR_VAR_1} Battle Points." text_2="{PLAYER} obtained\n{STR_VAR_1} Battle Points." text_3="{PLAYER} obtained\n{STR_VAR_1} Battle Points." text_4="{PLAYER} obtained\n{STR_VAR_1} Battle Points." text_5="{PLAYER} obtained\n{STR_VAR_1} Battle Points." text_6="{PLAYER} obtained\n{STR_VAR_1} Battle Points."
+    082B0D51  callstd              function=11
+    082B0D53  special              SPECIAL_\function=296
+    082B0D56  msgbox_multilang     type=0 text_0="If you’re up for another challenge,\nplease do think of me!" text_1="If you’re up for another challenge,\nplease do think of me!" text_2="If you’re up for another challenge,\nplease do think of me!" text_3="If you’re up for another challenge,\nplease do think of me!" text_4="If you’re up for another challenge,\nplease do think of me!" text_5="If you’re up for another challenge,\nplease do think of me!" text_6="If you’re up for another challenge,\nplease do think of me!"
+    082B0D74  callstd              function=MSGBOX_DEFAULT(4)
+    082B0D76  setvar               destination=VAR_0x409B value=0
+    082B0D7B  release              
+
+  script 0x082B0D7D  [ok]
+    082B0D7D  msgbox_multilang     type=0 text_0="Oh, it’s you…\nNice try…\pI hate to break it to you, but I can’t\nreturn your Battle Points…\pI guess we’ll have to let it motivate\nus to try harder next time!" text_1="Oh, it’s you…\nNice try…\pI hate to break it to you, but I can’t\nreturn your Battle Points…\pI guess we’ll have to let it motivate\nus to try harder next time!" text_2="Oh, it’s you…\nNice try…\pI hate to break it to you, but I can’t\nreturn your Battle Points…\pI guess we’ll have to let it motivate\nus to try harder next time!" text_3="Oh, it’s you…\nNice try…\pI hate to break it to you, but I can’t\nreturn your Battle Points…\pI guess we’ll have to let it motivate\nus to try harder next time!" text_4="Oh, it’s you…\nNice try…\pI hate to break it to you, but I can’t\nreturn your Battle Points…\pI guess we’ll have to let it motivate\nus to try harder next time!" text_5="Oh, it’s you…\nNice try…\pI hate to break it to you, but I can’t\nreturn your Battle Points…\pI guess we’ll have to let it motivate\nus to try harder next time!" text_6="Oh, it’s you…\nNice try…\pI hate to break it to you, but I can’t\nreturn your Battle Points…\pI guess we’ll have to let it motivate\nus to try harder next time!"
+    082B0D9B  callstd              function=MSGBOX_DEFAULT(4)
+    082B0D9D  setvar               destination=VAR_0x409B value=0
+    082B0DA2  release              
+
+  script 0x082B0B7C  [ok]
+    082B0B7C  setvar               destination=VAR_0x8008 value=5
+    082B0B81  goto                 destination=0x082B0B9D
+
+  script 0x082B0B87  [ok]
+    082B0B87  setvar               destination=VAR_0x8008 value=10
+    082B0B8C  goto                 destination=0x082B0B9D
+
+  script 0x082B0B92  [ok]
+    082B0B92  setvar               destination=VAR_0x8008 value=15
+    082B0B97  goto                 destination=0x082B0B9D
+
+  script 0x082B0DEB  [ok]
+    082B0DEB  special              SPECIAL_\function=295
+    082B0DEE  goto                 destination=0x082B0DC9
+
+  script 0x082B0DA4  [ok]
+    082B0DA4  buffernumberstring   stringVarId=0 input=10
+    082B0DA8  setvar               destination=VAR_0x8004 value=10
+    082B0DAD  return               
+
+  script 0x082B0DAE  [ok]
+    082B0DAE  buffernumberstring   stringVarId=0 input=20
+    082B0DB2  setvar               destination=VAR_0x8004 value=20
+    082B0DB7  return               
+
+  script 0x082B0DB8  [ok]
+    082B0DB8  buffernumberstring   stringVarId=0 input=30
+    082B0DBC  setvar               destination=VAR_0x8004 value=30
+    082B0DC1  return               
+
+  script 0x082B0B9D  [ok]
+    082B0B9D  specialvar           output=16385 SPECIAL_\function=298
+    082B0BA2  compare_var_to_var   var1=16385 var2=32776
+    082B0BA7  goto_if              condition=4 destination=0x082B0BF1
+    082B0BAD  msgbox_multilang     type=0 text_0="Oh, no, no, no!\nYou don’t have enough Battle Points!\pI wish you wouldn’t monkey around and\nwaste everyone’s time!" text_1="Oh, no, no, no!\nYou don’t have enough Battle Points!\pI wish you wouldn’t monkey around and\nwaste everyone’s time!" text_2="Oh, no, no, no!\nYou don’t have enough Battle Points!\pI wish you wouldn’t monkey around and\nwaste everyone’s time!" text_3="Oh, no, no, no!\nYou don’t have enough Battle Points!\pI wish you wouldn’t monkey around and\nwaste everyone’s time!" text_4="Oh, no, no, no!\nYou don’t have enough Battle Points!\pI wish you wouldn’t monkey around and\nwaste everyone’s time!" text_5="Oh, no, no, no!\nYou don’t have enough Battle Points!\pI wish you wouldn’t monkey around and\nwaste everyone’s time!" text_6="Oh, no, no, no!\nYou don’t have enough Battle Points!\pI wish you wouldn’t monkey around and\nwaste everyone’s time!"
+    082B0BCB  callstd              function=MSGBOX_DEFAULT(4)
+    082B0BCD  message              text="Great, great!\nSo, how much can you spot me?"
+    082B0BD2  buffertrainername    stringVarId=25 trainerId=2091
+    082B0BD6  buffertrainername    stringVarId=25 trainerId=2091
+    082B0BDA  buffertrainername    stringVarId=25 trainerId=2091
+    082B0BDE  buffertrainername    stringVarId=25 trainerId=2091
+    082B0BE2  buffertrainername    stringVarId=25 trainerId=2091
+    082B0BE6  buffertrainername    stringVarId=25 trainerId=2091
+    082B0BEA  waitmessage          
+    082B0BEB  goto                 destination=0x082B0B35
+
+  script 0x082B0BF1  [ok]
+    082B0BF1  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    082B0BF6  special              SPECIAL_\function=297
+    082B0BF9  setvar               destination=VAR_0x409B value=1
+    082B0BFE  special              SPECIAL_\function=294
+    082B0C01  playse               song=255
+    082B0C04  msgbox_multilang     type=0 text_0="Heheh! Thanks much!\nSo, off you go!" text_1="Heheh! Thanks much!\nSo, off you go!" text_2="Heheh! Thanks much!\nSo, off you go!" text_3="Heheh! Thanks much!\nSo, off you go!" text_4="Heheh! Thanks much!\nSo, off you go!" text_5="Heheh! Thanks much!\nSo, off you go!" text_6="Heheh! Thanks much!\nSo, off you go!"
+    082B0C22  callstd              function=MSGBOX_DEFAULT(4)
+    082B0C24  goto                 destination=0x082B0C2A
+
+  script 0x082B0C2A  [ok]
+    082B0C2A  special              SPECIAL_\function=307
+    082B0C2D  waitmessage          
+    082B0C2E  waitbuttonpress      
+    082B0C2F  special              SPECIAL_\function=295
+    082B0C32  release              
+
+  object 2 (gfx 0x11, flag 0x0000) -> 0x082B0E65
+  script 0x082B0E65  [ok]
+    082B0E65  lock                 
+    082B0E66  faceplayer           
+    082B0E67  msgbox_multilang     type=0 text_0="That TRAINER…\pHe’s good, but he gets rattled too\neasily to survive the BATTLE DOME…" text_1="That TRAINER…\pHe’s good, but he gets rattled too\neasily to survive the BATTLE DOME…" text_2="That TRAINER…\pHe’s good, but he gets rattled too\neasily to survive the BATTLE DOME…" text_3="That TRAINER…\pHe’s good, but he gets rattled too\neasily to survive the BATTLE DOME…" text_4="That TRAINER…\pHe’s good, but he gets rattled too\neasily to survive the BATTLE DOME…" text_5="That TRAINER…\pHe’s good, but he gets rattled too\neasily to survive the BATTLE DOME…" text_6="That TRAINER…\pHe’s good, but he gets rattled too\neasily to survive the BATTLE DOME…"
+    082B0E85  callstd              function=MSGBOX_DEFAULT(4)
+    082B0E87  goto                 destination=0x082B0E8D
+
+  object 3 (gfx 0x14, flag 0x0000) -> 0x082B0E15
+  script 0x082B0E15  [ok]
+    082B0E15  lock                 
+    082B0E16  faceplayer           
+    082B0E17  msgbox_multilang     type=0 text_0="I backed the wrong TRAINER again!\pMaybe I should be battling normally\nlike everyone else…" text_1="I backed the wrong TRAINER again!\pMaybe I should be battling normally\nlike everyone else…" text_2="I backed the wrong TRAINER again!\pMaybe I should be battling normally\nlike everyone else…" text_3="I backed the wrong TRAINER again!\pMaybe I should be battling normally\nlike everyone else…" text_4="I backed the wrong TRAINER again!\pMaybe I should be battling normally\nlike everyone else…" text_5="I backed the wrong TRAINER again!\pMaybe I should be battling normally\nlike everyone else…" text_6="I backed the wrong TRAINER again!\pMaybe I should be battling normally\nlike everyone else…"
+    082B0E35  callstd              function=MSGBOX_DEFAULT(4)
+    082B0E37  goto                 destination=0x082B0E8D
+
+  object 4 (gfx 0x12, flag 0x0000) -> 0x082B0E3D
+  script 0x082B0E3D  [ok]
+    082B0E3D  lock                 
+    082B0E3E  faceplayer           
+    082B0E3F  msgbox_multilang     type=0 text_0="Giggle!\nI know a winner when I see one!" text_1="Giggle!\nI know a winner when I see one!" text_2="Giggle!\nI know a winner when I see one!" text_3="Giggle!\nI know a winner when I see one!" text_4="Giggle!\nI know a winner when I see one!" text_5="Giggle!\nI know a winner when I see one!" text_6="Giggle!\nI know a winner when I see one!"
+    082B0E5D  callstd              function=MSGBOX_DEFAULT(4)
+    082B0E5F  goto                 destination=0x082B0E8D
+
+  object 5 (gfx 0xFA, flag 0x0000) -> 0x082B0DF4
+  script 0x082B0DF4  [ok]
+    082B0DF4  msgbox_multilang     type=0 text_0="Those TRAINERS…\nWhat are they doing?\pThey should be taking challenges." text_1="Those TRAINERS…\nWhat are they doing?\pThey should be taking challenges." text_2="Those TRAINERS…\nWhat are they doing?\pThey should be taking challenges." text_3="Those TRAINERS…\nWhat are they doing?\pThey should be taking challenges." text_4="Those TRAINERS…\nWhat are they doing?\pThey should be taking challenges." text_5="Those TRAINERS…\nWhat are they doing?\pThey should be taking challenges." text_6="Those TRAINERS…\nWhat are they doing?\pThey should be taking challenges."
+    082B0E12  callstd              function=MSGBOX_NPC(2)
+    082B0E14  end                  
+

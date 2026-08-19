@@ -1,0 +1,86 @@
+Navel Rock  (group 2, map 43)  header 0x08B3C440
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xEE, flag 0x009C) -> 0x00000000
+  coord trigger 0 (var 0x4001 == 0) -> 0x0821CBA3
+  script 0x0821CBA3  [ok]
+    0821CBA3  lockall              
+    0821CBA4  setvar               destination=VAR_0x4001 value=1
+    0821CBA9  special              SPECIAL_\function=190
+    0821CBAC  setvar               destination=VAR_0x8004 value=3
+    0821CBB1  setvar               destination=VAR_0x8005 value=35
+    0821CBB6  special              SPECIAL_\function=333
+    0821CBB9  applymovement        localId=1 movements=[delay_16 delay_16 walk_in_place_down walk_in_place_down walk_in_place_down walk_in_place_down]
+    0821CBC0  applymovement        localId=127 movements=[walk_up walk_up walk_up]
+    0821CBC7  waitmovement         localId=0
+    0821CBCA  delay                frames=50
+    0821CBCD  setweather           type=0
+    0821CBD0  doweather            
+    0821CBD1  waitse               
+    0821CBD2  playmoncry           species=HO-OH(250) mode=2
+    0821CBD7  delay                frames=30
+    0821CBDA  waitmoncry           
+    0821CBDB  delay                frames=60
+    0821CBDE  setvar               destination=VAR_0x8004 value=3
+    0821CBE3  setvar               destination=VAR_0x8005 value=35
+    0821CBE8  special              SPECIAL_\function=333
+    0821CBEB  applymovement        localId=127 movements=[delay_16 delay_16 walk_down walk_down walk_down]
+    0821CBF2  applymovement        localId=1 movements=[walk_down walk_down walk_down walk_down walk_down walk_in_place_down delay_16 delay_16]
+    0821CBF9  waitmovement         localId=0
+    0821CBFC  special              SPECIAL_\function=191
+    0821CBFF  setvar               destination=VAR_0x8004 value=250
+    0821CC04  setvar               destination=VAR_0x8005 value=70
+    0821CC09  setvar               destination=VAR_0x8006 value=0
+    0821CC0E  special              SPECIAL_\function=317
+    0821CC11  setflag              flag=0x867
+    0821CC14  special              SPECIAL_\function=223
+    0821CC17  waitstate            
+
+  hidden item at (9,11): Sacred Ash
+
+  map script type 3 -> 0x0821CB52
+  script 0x0821CB52  [ok]
+    0821CB52  checkflag            flag=0x2F3
+    0821CB55  call_if              condition=1 destination=0x0821CB65
+    0821CB5B  checkflag            flag=0x2F3
+    0821CB5E  call_if              condition=0 destination=0x0821CB6E
+    0821CB64  end                  
+
+  script 0x0821CB65  [ok]
+    0821CB65  setvar               destination=VAR_0x4001 value=1
+    0821CB6A  setflag              flag=0x09C
+    0821CB6D  return               
+
+  script 0x0821CB6E  [ok]
+    0821CB6E  setvar               destination=VAR_0x4001 value=1
+    0821CB73  checkflag            flag=0x2F6
+    0821CB76  goto_if              condition=1 destination=0x082BCF3E
+    0821CB7C  setvar               destination=VAR_0x4001 value=0
+    0821CB81  clearflag            flag=0x09C
+    0821CB84  return               
+
+  script 0x082BCF3E  [ok]
+    082BCF3E  return               
+
+  map script type 5 -> 0x0821CB85
+  script 0x0821CB85  [ok]
+    0821CB85  checkflag            flag=0x867
+    0821CB88  call_if              condition=1 destination=0x0821CB8F
+    0821CB8E  end                  
+
+  script 0x0821CB8F  [ok]
+    0821CB8F  specialvar           output=32781 SPECIAL_\function=102
+    0821CB94  compare_var_to_value var=0x800D value=7
+    0821CB99  goto_if              condition=5 destination=0x082BCF3E
+    0821CB9F  removeobject         localId=1
+    0821CBA2  return               
+

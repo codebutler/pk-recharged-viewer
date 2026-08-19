@@ -1,0 +1,595 @@
+Pokémon League  (group 1, map 79)  header 0x08B3BABC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x15, flag 0x0130) -> 0x00000000
+  object 2 (gfx 0x14, flag 0x005A) -> 0x00000000
+  object 3 (gfx 0x5B, flag 0x0000) -> 0x00000000
+  map script type 3 -> 0x082142E7
+  script 0x082142E7  [ok]
+    082142E7  copyvar              destination=VAR_0x8000 source=VAR_0x40EC
+    082142EC  compare_var_to_value var=0x8000 value=1
+    082142F1  goto_if              condition=1 destination=0x0821432F
+    082142F7  compare_var_to_value var=0x8000 value=2
+    082142FC  goto_if              condition=1 destination=0x08214339
+    08214302  compare_var_to_value var=0x8000 value=3
+    08214307  goto_if              condition=1 destination=0x08214343
+    0821430D  compare_var_to_value var=0x8000 value=4
+    08214312  goto_if              condition=1 destination=0x08214359
+    08214318  compare_var_to_value var=0x8000 value=5
+    0821431D  goto_if              condition=1 destination=0x08214363
+    08214323  compare_var_to_value var=0x8000 value=6
+    08214328  goto_if              condition=1 destination=0x0821436D
+    0821432E  end                  
+
+  script 0x0821432F  [ok]
+    0821432F  setvar               destination=VAR_0x4011 value=321
+    08214334  goto                 destination=0x0821432E
+
+  script 0x08214339  [ok]
+    08214339  setvar               destination=VAR_0x4011 value=276
+    0821433E  goto                 destination=0x0821432E
+
+  script 0x08214343  [ok]
+    08214343  checkplayergender    
+    08214344  compare_var_to_value var=0x800D value=0
+    08214349  goto_if              condition=1 destination=0x08214377
+    0821434F  setvar               destination=VAR_0x4011 value=0
+    08214354  goto                 destination=0x0821432E
+
+  script 0x08214359  [ok]
+    08214359  setvar               destination=VAR_0x4011 value=344
+    0821435E  goto                 destination=0x0821432E
+
+  script 0x08214363  [ok]
+    08214363  setvar               destination=VAR_0x4011 value=343
+    08214368  goto                 destination=0x0821432E
+
+  script 0x0821436D  [ok]
+    0821436D  setvar               destination=VAR_0x4011 value=278
+    08214372  goto                 destination=0x0821432E
+
+  script 0x0821432E  [ok]
+    0821432E  end                  
+
+  script 0x08214377  [ok]
+    08214377  setvar               destination=VAR_0x4011 value=89
+    0821437C  goto                 destination=0x0821432E
+
+  map script type 5 -> 0x08214381
+  script 0x08214381  [ok]
+    08214381  setvar               destination=VAR_0x8004 value=4
+    08214386  call                 destination=0x082011F1
+    0821438B  checktrainerflag     trainer=0x1B6
+    0821438E  goto_if              condition=1 destination=0x0821439E
+    08214394  checktrainerflag     trainer=0x2E3
+    08214397  goto_if              condition=1 destination=0x0821439E
+    0821439D  return               
+
+  script 0x082011F1  [ok]
+    082011F1  special              SPECIAL_\function=368
+    082011F4  return               
+
+  script 0x0821439E  [ok]
+    0821439E  setvar               destination=VAR_0x4001 value=1
+    082143A3  return               
+
+  map script type 4 (var 0x4001 == 0) -> 0x082143AE
+  script 0x082143AE  [ok]
+    082143AE  compare_var_to_value var=0x40EC value=0
+    082143B3  goto_if              condition=1 destination=0x082143BA
+    082143B9  end                  
+
+  script 0x082143BA  [ok]
+    082143BA  turnobject           localId=255 direction=2
+    082143BE  goto                 destination=0x082143B9
+
+  script 0x082143B9  [ok]
+    082143B9  end                  
+
+  map script type 2 (var 0x4001 == 0) -> 0x082143CD
+  script 0x082143CD  [ok]
+    082143CD  lockall              
+    082143CE  textcolor            color=0
+    082143D0  setflag              flag=0x002
+    082143D3  compare_var_to_value var=0x40EC value=0
+    082143D8  goto_if              condition=1 destination=0x0821453B
+    082143DE  setvar               destination=VAR_0x4001 value=1
+    082143E3  applymovement        localId=3 movements=[face_up set_visible walk_up walk_up walk_up walk_up walk_up]
+    082143EA  waitmovement         localId=0
+    082143ED  delay                frames=32
+    082143F0  special              SPECIAL_\function=190
+    082143F3  applymovement        localId=127 movements=[walk_down]
+    082143FA  waitmovement         localId=0
+    082143FD  delay                frames=32
+    08214400  copyvar              destination=VAR_0x8000 source=VAR_0x40EC
+    08214405  compare_var_to_value var=0x8000 value=1
+    0821440A  goto_if              condition=1 destination=0x082146D7
+    08214410  compare_var_to_value var=0x8000 value=2
+    08214415  goto_if              condition=1 destination=0x08214701
+    0821441B  compare_var_to_value var=0x8000 value=3
+    08214420  goto_if              condition=1 destination=0x0821472B
+    08214426  compare_var_to_value var=0x8000 value=4
+    0821442B  goto_if              condition=1 destination=0x08214761
+    08214431  compare_var_to_value var=0x8000 value=5
+    08214436  goto_if              condition=1 destination=0x0821478D
+    0821443C  compare_var_to_value var=0x8000 value=6
+    08214441  goto_if              condition=1 destination=0x082147B9
+    08214447  closemessage         
+    08214448  applymovement        localId=255 movements=[walk_down]
+    0821444F  waitmovement         localId=0
+    08214452  delay                frames=32
+    08214455  savebgm              song=354
+    08214458  copyvar              destination=VAR_0x8000 source=VAR_0x40EC
+    0821445D  compare_var_to_value var=0x8000 value=1
+    08214462  goto_if              condition=1 destination=0x082147F4
+    08214468  compare_var_to_value var=0x8000 value=2
+    0821446D  goto_if              condition=1 destination=0x08214808
+    08214473  compare_var_to_value var=0x8000 value=3
+    08214478  goto_if              condition=1 destination=0x0821481C
+    0821447E  compare_var_to_value var=0x8000 value=4
+    08214483  goto_if              condition=1 destination=0x0821483C
+    08214489  compare_var_to_value var=0x8000 value=5
+    0821448E  goto_if              condition=1 destination=0x08214850
+    08214494  compare_var_to_value var=0x8000 value=6
+    08214499  goto_if              condition=1 destination=0x08214864
+    0821449F  addelevmenuitem      a=10 b=6400 c=32768 d=16620
+    082144A7  compare_var_to_value var=0x8000 value=1
+    082144AC  goto_if              condition=1 destination=0x082148A4
+    082144B2  compare_var_to_value var=0x8000 value=2
+    082144B7  goto_if              condition=1 destination=0x082148CE
+    082144BD  compare_var_to_value var=0x8000 value=3
+    082144C2  goto_if              condition=1 destination=0x082148F8
+    082144C8  compare_var_to_value var=0x8000 value=4
+    082144CD  goto_if              condition=1 destination=0x0821492E
+    082144D3  compare_var_to_value var=0x8000 value=5
+    082144D8  goto_if              condition=1 destination=0x08214958
+    082144DE  compare_var_to_value var=0x8000 value=6
+    082144E3  goto_if              condition=1 destination=0x08214982
+    082144E9  closemessage         
+    082144EA  turnobject           localId=255 direction=2
+    082144EE  delay                frames=32
+    082144F1  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up]
+    082144F8  delay                frames=80
+    082144FB  fadescreen           mode=1
+    082144FD  specialvar           output=16388 SPECIAL_\function=403
+    08214502  compare_var_to_value var=0x4004 value=1
+    08214507  goto_if              condition=1 destination=0x082146AA
+    0821450D  setvar               destination=VAR_0x4001 value=1
+    08214512  setflag              flag=0x004
+    08214515  clearflag            flag=0x005
+    08214518  setflag              flag=0x4BC
+    0821451B  setflag              flag=0x004
+    0821451E  callnative           func=0x08102A61
+    08214523  callnative           func=0x08168869
+    08214528  callnative           func=0x0809FA39
+    0821452D  setflag              flag=0x130
+    08214530  warp                 mapGroup=1 mapNum=80 WARP_ID_NONE=255 -1=5 -1=12
+    08214538  waitstate            
+
+  script 0x0821453B  [ok]
+    0821453B  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up]
+    08214542  waitmovement         localId=0
+    08214545  delay                frames=20
+    08214548  speakername          name="{RIVAL}"
+    0821454D  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08214550  goto_if              condition=0 destination=0x082146B2
+    08214556  msgbox_multilang     type=0 text_0="Hey, {PLAYER}!\pYou came back, {PLAYER}!\nHahah, that is so great!\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_1="Hey, {PLAYER}!\pYou came back, {PLAYER}!\nHahah, that is so great!\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_2="Hey, {PLAYER}!\pYou came back, {PLAYER}!\nHahah, that is so great!\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_3="Hey, {PLAYER}!\pYou came back, {PLAYER}!\nHahah, that is so great!\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_4="Hey, {PLAYER}!\pYou came back, {PLAYER}!\nHahah, that is so great!\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_5="Hey, {PLAYER}!\pYou came back, {PLAYER}!\nHahah, that is so great!\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_6="Hey, {PLAYER}!\pYou came back, {PLAYER}!\nHahah, that is so great!\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!"
+    08214574  callstd              function=MSGBOX_DEFAULT(4)
+    08214576  setflag              flag=0x003
+    08214579  setflag              flag=0x005
+    0821457C  savebgm              song=354
+    0821457F  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08214582  goto_if              condition=1 destination=0x082147E5
+    08214588  trainerbattle        type=3 trainer=0x1B6 localId=0 ptr1=0x08215A5F
+    08214592  addelevmenuitem      a=9 b=59392 c=19006 d=2081
+    0821459A  msgbox_multilang     type=0 text_0="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_1="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_2="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_3="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_4="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_5="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_6="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…"
+    082145B8  callstd              function=MSGBOX_DEFAULT(4)
+    082145BA  playbgm              song=557 save_song=0
+    082145BE  addobject            localId=2
+    082145C1  speakername          name="Prof. Oak"
+    082145C6  msgbox_multilang     type=0 text_0="{PLAYER}!" text_1="{PLAYER}!" text_2="{PLAYER}!" text_3="{PLAYER}!" text_4="{PLAYER}!" text_5="{PLAYER}!" text_6="{PLAYER}!"
+    082145E4  callstd              function=MSGBOX_DEFAULT(4)
+    082145E6  closemessage         
+    082145E7  applymovement        localId=255 movements=[delay_8 walk_in_place_faster_down delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_left]
+    082145EE  applymovement        localId=1 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_left]
+    082145F5  applymovement        localId=2 movements=[delay_16 delay_16 walk_up walk_up walk_up walk_up walk_up walk_left walk_up walk_up walk_in_place_faster_down delay_16]
+    082145FC  waitmovement         localId=0
+    082145FF  delay                frames=25
+    08214602  speakername          name="Prof. Oak"
+    08214607  msgbox_multilang     type=0 text_0="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_1="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_2="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_3="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_4="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_5="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_6="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!"
+    08214625  callstd              function=MSGBOX_DEFAULT(4)
+    08214627  applymovement        localId=2 movements=[walk_in_place_faster_right]
+    0821462E  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    08214635  waitmovement         localId=0
+    08214638  speakername          name="Prof. Oak"
+    0821463D  msgbox_multilang     type=0 text_0="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_1="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_2="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_3="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_4="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_5="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_6="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!"
+    0821465B  callstd              function=MSGBOX_DEFAULT(4)
+    0821465D  closemessage         
+    0821465E  applymovement        localId=2 movements=[walk_in_place_faster_down]
+    08214665  waitmovement         localId=0
+    08214668  delay                frames=20
+    0821466B  speakername          name="Prof. Oak"
+    08214670  msgbox_multilang     type=0 text_0="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_1="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_2="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_3="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_4="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_5="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_6="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!"
+    0821468E  callstd              function=MSGBOX_DEFAULT(4)
+    08214690  closemessage         
+    08214691  delay                frames=13
+    08214694  applymovement        localId=2 movements=[walk_up walk_up walk_right walk_up walk_up walk_up walk_up delay_8 set_invisible]
+    0821469B  applymovement        localId=255 movements=[delay_16 walk_left walk_up walk_up walk_up walk_right walk_up walk_up walk_up walk_up delay_8 set_invisible]
+    082146A2  waitmovement         localId=0
+    082146A5  goto                 destination=0x082144FD
+
+  script 0x082146D7  [ok]
+    082146D7  speakername          name="James"
+    082146DC  msgbox_multilang     type=0 text_0="Well, well, well, if it isn’t my old\nnemesis!\pYou’ve come a long way since our\plast encounter.\pJessie couldn’t make it this time, so\nit’s just me, James of Team Rocket!\pDon’t think for a second that means\nI’ll go easy on you.\pPrepare yourself, because I’m here\nto take that Champion title for\pTeam Rocket!" text_1="Well, well, well, if it isn’t my old\nnemesis!\pYou’ve come a long way since our\plast encounter.\pJessie couldn’t make it this time, so\nit’s just me, James of Team Rocket!\pDon’t think for a second that means\nI’ll go easy on you.\pPrepare yourself, because I’m here\nto take that Champion title for\pTeam Rocket!" text_2="Well, well, well, if it isn’t my old\nnemesis!\pYou’ve come a long way since our\plast encounter.\pJessie couldn’t make it this time, so\nit’s just me, James of Team Rocket!\pDon’t think for a second that means\nI’ll go easy on you.\pPrepare yourself, because I’m here\nto take that Champion title for\pTeam Rocket!" text_3="Well, well, well, if it isn’t my old\nnemesis!\pYou’ve come a long way since our\plast encounter.\pJessie couldn’t make it this time, so\nit’s just me, James of Team Rocket!\pDon’t think for a second that means\nI’ll go easy on you.\pPrepare yourself, because I’m here\nto take that Champion title for\pTeam Rocket!" text_4="Well, well, well, if it isn’t my old\nnemesis!\pYou’ve come a long way since our\plast encounter.\pJessie couldn’t make it this time, so\nit’s just me, James of Team Rocket!\pDon’t think for a second that means\nI’ll go easy on you.\pPrepare yourself, because I’m here\nto take that Champion title for\pTeam Rocket!" text_5="Well, well, well, if it isn’t my old\nnemesis!\pYou’ve come a long way since our\plast encounter.\pJessie couldn’t make it this time, so\nit’s just me, James of Team Rocket!\pDon’t think for a second that means\nI’ll go easy on you.\pPrepare yourself, because I’m here\nto take that Champion title for\pTeam Rocket!" text_6="Well, well, well, if it isn’t my old\nnemesis!\pYou’ve come a long way since our\plast encounter.\pJessie couldn’t make it this time, so\nit’s just me, James of Team Rocket!\pDon’t think for a second that means\nI’ll go easy on you.\pPrepare yourself, because I’m here\nto take that Champion title for\pTeam Rocket!"
+    082146FA  callstd              function=MSGBOX_DEFAULT(4)
+    082146FC  goto                 destination=0x08214447
+
+  script 0x08214701  [ok]
+    08214701  speakername          name="Prof. Oak"
+    08214706  msgbox_multilang     type=0 text_0="Hello, {PLAYER}.\nIt’s been quite a journey since I\pfirst gave you that Pokédex, hasn’t\pit?\pWatching you grow and become the\pChampion has been truly rewarding.\pBut now, it’s time for a new\nchallenge.\pLet’s see how far you’ve come.\pShow me the strength and wisdom\nyou’ve gained!" text_1="Hello, {PLAYER}.\nIt’s been quite a journey since I\pfirst gave you that Pokédex, hasn’t\pit?\pWatching you grow and become the\pChampion has been truly rewarding.\pBut now, it’s time for a new\nchallenge.\pLet’s see how far you’ve come.\pShow me the strength and wisdom\nyou’ve gained!" text_2="Hello, {PLAYER}.\nIt’s been quite a journey since I\pfirst gave you that Pokédex, hasn’t\pit?\pWatching you grow and become the\pChampion has been truly rewarding.\pBut now, it’s time for a new\nchallenge.\pLet’s see how far you’ve come.\pShow me the strength and wisdom\nyou’ve gained!" text_3="Hello, {PLAYER}.\nIt’s been quite a journey since I\pfirst gave you that Pokédex, hasn’t\pit?\pWatching you grow and become the\pChampion has been truly rewarding.\pBut now, it’s time for a new\nchallenge.\pLet’s see how far you’ve come.\pShow me the strength and wisdom\nyou’ve gained!" text_4="Hello, {PLAYER}.\nIt’s been quite a journey since I\pfirst gave you that Pokédex, hasn’t\pit?\pWatching you grow and become the\pChampion has been truly rewarding.\pBut now, it’s time for a new\nchallenge.\pLet’s see how far you’ve come.\pShow me the strength and wisdom\nyou’ve gained!" text_5="Hello, {PLAYER}.\nIt’s been quite a journey since I\pfirst gave you that Pokédex, hasn’t\pit?\pWatching you grow and become the\pChampion has been truly rewarding.\pBut now, it’s time for a new\nchallenge.\pLet’s see how far you’ve come.\pShow me the strength and wisdom\nyou’ve gained!" text_6="Hello, {PLAYER}.\nIt’s been quite a journey since I\pfirst gave you that Pokédex, hasn’t\pit?\pWatching you grow and become the\pChampion has been truly rewarding.\pBut now, it’s time for a new\nchallenge.\pLet’s see how far you’ve come.\pShow me the strength and wisdom\nyou’ve gained!"
+    08214724  callstd              function=MSGBOX_DEFAULT(4)
+    08214726  goto                 destination=0x08214447
+
+  script 0x0821472B  [ok]
+    0821472B  checkplayergender    
+    0821472C  compare_var_to_value var=0x800D value=0
+    08214731  goto_if              condition=1 destination=0x08214878
+    08214737  speakername          name="Red"
+    0821473C  msgbox_multilang     type=0 text_0="…" text_1="…" text_2="…" text_3="…" text_4="…" text_5="…" text_6="…"
+    0821475A  callstd              function=MSGBOX_DEFAULT(4)
+    0821475C  goto                 destination=0x08214447
+
+  script 0x08214761  [ok]
+    08214761  textcolor            color=1
+    08214763  speakername          name="Yellow"
+    08214768  msgbox_multilang     type=0 text_0="Hi! I’m Yellow.\nI’ve traveled far to challenge you.\pLet’s have a great battle and see\nwho deserves to be Champion!" text_1="Hi! I’m Yellow.\nI’ve traveled far to challenge you.\pLet’s have a great battle and see\nwho deserves to be Champion!" text_2="Hi! I’m Yellow.\nI’ve traveled far to challenge you.\pLet’s have a great battle and see\nwho deserves to be Champion!" text_3="Hi! I’m Yellow.\nI’ve traveled far to challenge you.\pLet’s have a great battle and see\nwho deserves to be Champion!" text_4="Hi! I’m Yellow.\nI’ve traveled far to challenge you.\pLet’s have a great battle and see\nwho deserves to be Champion!" text_5="Hi! I’m Yellow.\nI’ve traveled far to challenge you.\pLet’s have a great battle and see\nwho deserves to be Champion!" text_6="Hi! I’m Yellow.\nI’ve traveled far to challenge you.\pLet’s have a great battle and see\nwho deserves to be Champion!"
+    08214786  callstd              function=MSGBOX_DEFAULT(4)
+    08214788  goto                 destination=0x08214447
+
+  script 0x0821478D  [ok]
+    0821478D  textcolor            color=1
+    0821478F  speakername          name="Cynthia"
+    08214794  msgbox_multilang     type=0 text_0="I’ve heard great things about your\nskills, Champion.\pAs the Champion of Sinnoh, I am\peager to see if you live up to\pyour reputation.\pLet’s battle!" text_1="I’ve heard great things about your\nskills, Champion.\pAs the Champion of Sinnoh, I am\peager to see if you live up to\pyour reputation.\pLet’s battle!" text_2="I’ve heard great things about your\nskills, Champion.\pAs the Champion of Sinnoh, I am\peager to see if you live up to\pyour reputation.\pLet’s battle!" text_3="I’ve heard great things about your\nskills, Champion.\pAs the Champion of Sinnoh, I am\peager to see if you live up to\pyour reputation.\pLet’s battle!" text_4="I’ve heard great things about your\nskills, Champion.\pAs the Champion of Sinnoh, I am\peager to see if you live up to\pyour reputation.\pLet’s battle!" text_5="I’ve heard great things about your\nskills, Champion.\pAs the Champion of Sinnoh, I am\peager to see if you live up to\pyour reputation.\pLet’s battle!" text_6="I’ve heard great things about your\nskills, Champion.\pAs the Champion of Sinnoh, I am\peager to see if you live up to\pyour reputation.\pLet’s battle!"
+    082147B2  callstd              function=MSGBOX_DEFAULT(4)
+    082147B4  goto                 destination=0x08214447
+
+  script 0x082147B9  [ok]
+    082147B9  speakername          name="Bill"
+    082147BE  textcolor            color=0
+    082147C0  msgbox_multilang     type=0 text_0="Huh? Hey, if it isn’t {PLAYER}!\pI hope you’re still using my PC\nsystem.\pYou probably wouldn’t be Champion\nwithout it!\pI’m here because I’d love to take a\nlook at the Hall of Fame PC.\pDon’t look so surprised I made it\phere, I’m a PokéManiac before\panything else!\pLet my try out some of my collection\non your Pokémon!" text_1="Huh? Hey, if it isn’t {PLAYER}!\pI hope you’re still using my PC\nsystem.\pYou probably wouldn’t be Champion\nwithout it!\pI’m here because I’d love to take a\nlook at the Hall of Fame PC.\pDon’t look so surprised I made it\phere, I’m a PokéManiac before\panything else!\pLet my try out some of my collection\non your Pokémon!" text_2="Huh? Hey, if it isn’t {PLAYER}!\pI hope you’re still using my PC\nsystem.\pYou probably wouldn’t be Champion\nwithout it!\pI’m here because I’d love to take a\nlook at the Hall of Fame PC.\pDon’t look so surprised I made it\phere, I’m a PokéManiac before\panything else!\pLet my try out some of my collection\non your Pokémon!" text_3="Huh? Hey, if it isn’t {PLAYER}!\pI hope you’re still using my PC\nsystem.\pYou probably wouldn’t be Champion\nwithout it!\pI’m here because I’d love to take a\nlook at the Hall of Fame PC.\pDon’t look so surprised I made it\phere, I’m a PokéManiac before\panything else!\pLet my try out some of my collection\non your Pokémon!" text_4="Huh? Hey, if it isn’t {PLAYER}!\pI hope you’re still using my PC\nsystem.\pYou probably wouldn’t be Champion\nwithout it!\pI’m here because I’d love to take a\nlook at the Hall of Fame PC.\pDon’t look so surprised I made it\phere, I’m a PokéManiac before\panything else!\pLet my try out some of my collection\non your Pokémon!" text_5="Huh? Hey, if it isn’t {PLAYER}!\pI hope you’re still using my PC\nsystem.\pYou probably wouldn’t be Champion\nwithout it!\pI’m here because I’d love to take a\nlook at the Hall of Fame PC.\pDon’t look so surprised I made it\phere, I’m a PokéManiac before\panything else!\pLet my try out some of my collection\non your Pokémon!" text_6="Huh? Hey, if it isn’t {PLAYER}!\pI hope you’re still using my PC\nsystem.\pYou probably wouldn’t be Champion\nwithout it!\pI’m here because I’d love to take a\nlook at the Hall of Fame PC.\pDon’t look so surprised I made it\phere, I’m a PokéManiac before\panything else!\pLet my try out some of my collection\non your Pokémon!"
+    082147DE  callstd              function=MSGBOX_DEFAULT(4)
+    082147E0  goto                 destination=0x08214447
+
+  script 0x082147F4  [ok]
+    082147F4  speakername          name="James"
+    082147F9  trainerbattle        type=3 trainer=0x361 localId=0 ptr1=0x08215526
+    08214803  goto                 destination=0x0821449F
+
+  script 0x08214808  [ok]
+    08214808  speakername          name="Prof. Oak"
+    0821480D  trainerbattle        type=3 trainer=0x362 localId=0 ptr1=0x08215568
+    08214817  goto                 destination=0x0821449F
+
+  script 0x0821481C  [ok]
+    0821481C  checkplayergender    
+    0821481D  compare_var_to_value var=0x800D value=0
+    08214822  goto_if              condition=1 destination=0x082149AC
+    08214828  speakername          name="Red"
+    0821482D  trainerbattle        type=3 trainer=0x363 localId=0 ptr1=0x082155E4
+    08214837  goto                 destination=0x0821449F
+
+  script 0x0821483C  [ok]
+    0821483C  speakername          name="Yellow"
+    08214841  trainerbattle        type=3 trainer=0x365 localId=0 ptr1=0x082155E8
+    0821484B  goto                 destination=0x0821449F
+
+  script 0x08214850  [ok]
+    08214850  speakername          name="Cynthia"
+    08214855  trainerbattle        type=3 trainer=0x366 localId=0 ptr1=0x08215625
+    0821485F  goto                 destination=0x0821449F
+
+  script 0x08214864  [ok]
+    08214864  speakername          name="Bill"
+    08214869  trainerbattle        type=3 trainer=0x367 localId=0 ptr1=0x08215668
+    08214873  goto                 destination=0x0821449F
+
+  script 0x082148A4  [ok]
+    082148A4  speakername          name="James"
+    082148A9  msgbox_multilang     type=0 text_0="Well, you got me again, {PLAYER}.\nI guess this means you’re really\pthe top dog.\pBut don’t get too comfortable-we’ll\nbe back! Until then, keep an eye\pout for Team Rocket!" text_1="Well, you got me again, {PLAYER}.\nI guess this means you’re really\pthe top dog.\pBut don’t get too comfortable-we’ll\nbe back! Until then, keep an eye\pout for Team Rocket!" text_2="Well, you got me again, {PLAYER}.\nI guess this means you’re really\pthe top dog.\pBut don’t get too comfortable-we’ll\nbe back! Until then, keep an eye\pout for Team Rocket!" text_3="Well, you got me again, {PLAYER}.\nI guess this means you’re really\pthe top dog.\pBut don’t get too comfortable-we’ll\nbe back! Until then, keep an eye\pout for Team Rocket!" text_4="Well, you got me again, {PLAYER}.\nI guess this means you’re really\pthe top dog.\pBut don’t get too comfortable-we’ll\nbe back! Until then, keep an eye\pout for Team Rocket!" text_5="Well, you got me again, {PLAYER}.\nI guess this means you’re really\pthe top dog.\pBut don’t get too comfortable-we’ll\nbe back! Until then, keep an eye\pout for Team Rocket!" text_6="Well, you got me again, {PLAYER}.\nI guess this means you’re really\pthe top dog.\pBut don’t get too comfortable-we’ll\nbe back! Until then, keep an eye\pout for Team Rocket!"
+    082148C7  callstd              function=MSGBOX_DEFAULT(4)
+    082148C9  goto                 destination=0x082144E9
+
+  script 0x082148CE  [ok]
+    082148CE  speakername          name="Prof. Oak"
+    082148D3  msgbox_multilang     type=0 text_0="Magnificent, {PLAYER}!\nYou’ve proven yourself beyond a\pdoubt.\pNow, head into the Hall of Fame and\nrecord your achievement.\pI couldn’t be more proud of you." text_1="Magnificent, {PLAYER}!\nYou’ve proven yourself beyond a\pdoubt.\pNow, head into the Hall of Fame and\nrecord your achievement.\pI couldn’t be more proud of you." text_2="Magnificent, {PLAYER}!\nYou’ve proven yourself beyond a\pdoubt.\pNow, head into the Hall of Fame and\nrecord your achievement.\pI couldn’t be more proud of you." text_3="Magnificent, {PLAYER}!\nYou’ve proven yourself beyond a\pdoubt.\pNow, head into the Hall of Fame and\nrecord your achievement.\pI couldn’t be more proud of you." text_4="Magnificent, {PLAYER}!\nYou’ve proven yourself beyond a\pdoubt.\pNow, head into the Hall of Fame and\nrecord your achievement.\pI couldn’t be more proud of you." text_5="Magnificent, {PLAYER}!\nYou’ve proven yourself beyond a\pdoubt.\pNow, head into the Hall of Fame and\nrecord your achievement.\pI couldn’t be more proud of you." text_6="Magnificent, {PLAYER}!\nYou’ve proven yourself beyond a\pdoubt.\pNow, head into the Hall of Fame and\nrecord your achievement.\pI couldn’t be more proud of you."
+    082148F1  callstd              function=MSGBOX_DEFAULT(4)
+    082148F3  goto                 destination=0x082144E9
+
+  script 0x082148F8  [ok]
+    082148F8  checkplayergender    
+    082148F9  compare_var_to_value var=0x800D value=0
+    082148FE  goto_if              condition=1 destination=0x082149C0
+    08214904  speakername          name="Red"
+    08214909  msgbox_multilang     type=0 text_0="… … …" text_1="… … …" text_2="… … …" text_3="… … …" text_4="… … …" text_5="… … …" text_6="… … …"
+    08214927  callstd              function=MSGBOX_DEFAULT(4)
+    08214929  goto                 destination=0x082144E9
+
+  script 0x0821492E  [ok]
+    0821492E  speakername          name="Yellow"
+    08214933  msgbox_multilang     type=0 text_0="You’re really something, {PLAYER}!\nThat was an incredible battle.\pNow go on, walk to the Hall of\pFame and enjoy your victory.\pYou deserve it!" text_1="You’re really something, {PLAYER}!\nThat was an incredible battle.\pNow go on, walk to the Hall of\pFame and enjoy your victory.\pYou deserve it!" text_2="You’re really something, {PLAYER}!\nThat was an incredible battle.\pNow go on, walk to the Hall of\pFame and enjoy your victory.\pYou deserve it!" text_3="You’re really something, {PLAYER}!\nThat was an incredible battle.\pNow go on, walk to the Hall of\pFame and enjoy your victory.\pYou deserve it!" text_4="You’re really something, {PLAYER}!\nThat was an incredible battle.\pNow go on, walk to the Hall of\pFame and enjoy your victory.\pYou deserve it!" text_5="You’re really something, {PLAYER}!\nThat was an incredible battle.\pNow go on, walk to the Hall of\pFame and enjoy your victory.\pYou deserve it!" text_6="You’re really something, {PLAYER}!\nThat was an incredible battle.\pNow go on, walk to the Hall of\pFame and enjoy your victory.\pYou deserve it!"
+    08214951  callstd              function=MSGBOX_DEFAULT(4)
+    08214953  goto                 destination=0x082144E9
+
+  script 0x08214958  [ok]
+    08214958  speakername          name="Cynthia"
+    0821495D  msgbox_multilang     type=0 text_0="That was an exceptional battle,\n{PLAYER}.\pYou truly deserve the title of\pChampion.\pNow, walk proudly to the Hall of\nFame and let your name be etched\pin history." text_1="That was an exceptional battle,\n{PLAYER}.\pYou truly deserve the title of\pChampion.\pNow, walk proudly to the Hall of\nFame and let your name be etched\pin history." text_2="That was an exceptional battle,\n{PLAYER}.\pYou truly deserve the title of\pChampion.\pNow, walk proudly to the Hall of\nFame and let your name be etched\pin history." text_3="That was an exceptional battle,\n{PLAYER}.\pYou truly deserve the title of\pChampion.\pNow, walk proudly to the Hall of\nFame and let your name be etched\pin history." text_4="That was an exceptional battle,\n{PLAYER}.\pYou truly deserve the title of\pChampion.\pNow, walk proudly to the Hall of\nFame and let your name be etched\pin history." text_5="That was an exceptional battle,\n{PLAYER}.\pYou truly deserve the title of\pChampion.\pNow, walk proudly to the Hall of\nFame and let your name be etched\pin history." text_6="That was an exceptional battle,\n{PLAYER}.\pYou truly deserve the title of\pChampion.\pNow, walk proudly to the Hall of\nFame and let your name be etched\pin history."
+    0821497B  callstd              function=MSGBOX_DEFAULT(4)
+    0821497D  goto                 destination=0x082144E9
+
+  script 0x08214982  [ok]
+    08214982  speakername          name="Bill"
+    08214987  msgbox_multilang     type=0 text_0="Wow, what a battle. No wonder you\nwere such a good contender for\pPokémon Champ!\pMaybe one day I’ll get to tinker with\nthe Hall of Fame PC, but only when\pI’ve earned it!\pGo on ahead, {PLAYER}!" text_1="Wow, what a battle. No wonder you\nwere such a good contender for\pPokémon Champ!\pMaybe one day I’ll get to tinker with\nthe Hall of Fame PC, but only when\pI’ve earned it!\pGo on ahead, {PLAYER}!" text_2="Wow, what a battle. No wonder you\nwere such a good contender for\pPokémon Champ!\pMaybe one day I’ll get to tinker with\nthe Hall of Fame PC, but only when\pI’ve earned it!\pGo on ahead, {PLAYER}!" text_3="Wow, what a battle. No wonder you\nwere such a good contender for\pPokémon Champ!\pMaybe one day I’ll get to tinker with\nthe Hall of Fame PC, but only when\pI’ve earned it!\pGo on ahead, {PLAYER}!" text_4="Wow, what a battle. No wonder you\nwere such a good contender for\pPokémon Champ!\pMaybe one day I’ll get to tinker with\nthe Hall of Fame PC, but only when\pI’ve earned it!\pGo on ahead, {PLAYER}!" text_5="Wow, what a battle. No wonder you\nwere such a good contender for\pPokémon Champ!\pMaybe one day I’ll get to tinker with\nthe Hall of Fame PC, but only when\pI’ve earned it!\pGo on ahead, {PLAYER}!" text_6="Wow, what a battle. No wonder you\nwere such a good contender for\pPokémon Champ!\pMaybe one day I’ll get to tinker with\nthe Hall of Fame PC, but only when\pI’ve earned it!\pGo on ahead, {PLAYER}!"
+    082149A5  callstd              function=MSGBOX_DEFAULT(4)
+    082149A7  goto                 destination=0x082144E9
+
+  script 0x082146AA  [ok]
+    082146AA  setflag              flag=0x139
+    082146AD  goto                 destination=0x0821450D
+
+  script 0x082146B2  [ok]
+    082146B2  msgbox_multilang     type=0 text_0="Hey, {PLAYER}!\pI was looking forward to seeing you,\n{PLAYER}.\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_1="Hey, {PLAYER}!\pI was looking forward to seeing you,\n{PLAYER}.\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_2="Hey, {PLAYER}!\pI was looking forward to seeing you,\n{PLAYER}.\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_3="Hey, {PLAYER}!\pI was looking forward to seeing you,\n{PLAYER}.\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_4="Hey, {PLAYER}!\pI was looking forward to seeing you,\n{PLAYER}.\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_5="Hey, {PLAYER}!\pI was looking forward to seeing you,\n{PLAYER}.\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!" text_6="Hey, {PLAYER}!\pI was looking forward to seeing you,\n{PLAYER}.\pMy rival should be strong to keep me\nsharp.\pWhile working on my Pokédex, I\nlooked all over for Pokémon.\pNot only that, I assembled teams\nthat would beat any Pokémon type.\pAnd now…\pI’m the Pokémon League Champion!\p{PLAYER}!\nDo you know what that means?\pI’ll tell you.\pI am the most powerful Trainer in the\nworld!"
+    082146D0  callstd              function=MSGBOX_DEFAULT(4)
+    082146D2  goto                 destination=0x08214576
+
+  script 0x082147E5  [ok]
+    082147E5  trainerbattle        type=3 trainer=0x2E3 localId=0 ptr1=0x08215A5F
+    082147EF  goto                 destination=0x08214592
+
+  script 0x082144FD  [ok]
+    082144FD  specialvar           output=16388 SPECIAL_\function=403
+    08214502  compare_var_to_value var=0x4004 value=1
+    08214507  goto_if              condition=1 destination=0x082146AA
+    0821450D  setvar               destination=VAR_0x4001 value=1
+    08214512  setflag              flag=0x004
+    08214515  clearflag            flag=0x005
+    08214518  setflag              flag=0x4BC
+    0821451B  setflag              flag=0x004
+    0821451E  callnative           func=0x08102A61
+    08214523  callnative           func=0x08168869
+    08214528  callnative           func=0x0809FA39
+    0821452D  setflag              flag=0x130
+    08214530  warp                 mapGroup=1 mapNum=80 WARP_ID_NONE=255 -1=5 -1=12
+    08214538  waitstate            
+
+  script 0x08214447  [ok]
+    08214447  closemessage         
+    08214448  applymovement        localId=255 movements=[walk_down]
+    0821444F  waitmovement         localId=0
+    08214452  delay                frames=32
+    08214455  savebgm              song=354
+    08214458  copyvar              destination=VAR_0x8000 source=VAR_0x40EC
+    0821445D  compare_var_to_value var=0x8000 value=1
+    08214462  goto_if              condition=1 destination=0x082147F4
+    08214468  compare_var_to_value var=0x8000 value=2
+    0821446D  goto_if              condition=1 destination=0x08214808
+    08214473  compare_var_to_value var=0x8000 value=3
+    08214478  goto_if              condition=1 destination=0x0821481C
+    0821447E  compare_var_to_value var=0x8000 value=4
+    08214483  goto_if              condition=1 destination=0x0821483C
+    08214489  compare_var_to_value var=0x8000 value=5
+    0821448E  goto_if              condition=1 destination=0x08214850
+    08214494  compare_var_to_value var=0x8000 value=6
+    08214499  goto_if              condition=1 destination=0x08214864
+    0821449F  addelevmenuitem      a=10 b=6400 c=32768 d=16620
+    082144A7  compare_var_to_value var=0x8000 value=1
+    082144AC  goto_if              condition=1 destination=0x082148A4
+    082144B2  compare_var_to_value var=0x8000 value=2
+    082144B7  goto_if              condition=1 destination=0x082148CE
+    082144BD  compare_var_to_value var=0x8000 value=3
+    082144C2  goto_if              condition=1 destination=0x082148F8
+    082144C8  compare_var_to_value var=0x8000 value=4
+    082144CD  goto_if              condition=1 destination=0x0821492E
+    082144D3  compare_var_to_value var=0x8000 value=5
+    082144D8  goto_if              condition=1 destination=0x08214958
+    082144DE  compare_var_to_value var=0x8000 value=6
+    082144E3  goto_if              condition=1 destination=0x08214982
+    082144E9  closemessage         
+    082144EA  turnobject           localId=255 direction=2
+    082144EE  delay                frames=32
+    082144F1  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up]
+    082144F8  delay                frames=80
+    082144FB  fadescreen           mode=1
+    082144FD  specialvar           output=16388 SPECIAL_\function=403
+    08214502  compare_var_to_value var=0x4004 value=1
+    08214507  goto_if              condition=1 destination=0x082146AA
+    0821450D  setvar               destination=VAR_0x4001 value=1
+    08214512  setflag              flag=0x004
+    08214515  clearflag            flag=0x005
+    08214518  setflag              flag=0x4BC
+    0821451B  setflag              flag=0x004
+    0821451E  callnative           func=0x08102A61
+    08214523  callnative           func=0x08168869
+    08214528  callnative           func=0x0809FA39
+    0821452D  setflag              flag=0x130
+    08214530  warp                 mapGroup=1 mapNum=80 WARP_ID_NONE=255 -1=5 -1=12
+    08214538  waitstate            
+
+  script 0x08214878  [ok]
+    08214878  textcolor            color=1
+    0821487A  speakername          name="Green"
+    0821487F  msgbox_multilang     type=0 text_0="Hey, Champ!\nDon’t get too comfortable with that\ptitle.\pI’m Green, and I’m here to show you\nwhat a real Champion looks like!" text_1="Hey, Champ!\nDon’t get too comfortable with that\ptitle.\pI’m Green, and I’m here to show you\nwhat a real Champion looks like!" text_2="Hey, Champ!\nDon’t get too comfortable with that\ptitle.\pI’m Green, and I’m here to show you\nwhat a real Champion looks like!" text_3="Hey, Champ!\nDon’t get too comfortable with that\ptitle.\pI’m Green, and I’m here to show you\nwhat a real Champion looks like!" text_4="Hey, Champ!\nDon’t get too comfortable with that\ptitle.\pI’m Green, and I’m here to show you\nwhat a real Champion looks like!" text_5="Hey, Champ!\nDon’t get too comfortable with that\ptitle.\pI’m Green, and I’m here to show you\nwhat a real Champion looks like!" text_6="Hey, Champ!\nDon’t get too comfortable with that\ptitle.\pI’m Green, and I’m here to show you\nwhat a real Champion looks like!"
+    0821489D  callstd              function=MSGBOX_DEFAULT(4)
+    0821489F  goto                 destination=0x08214447
+
+  script 0x0821449F  [ok]
+    0821449F  addelevmenuitem      a=10 b=6400 c=32768 d=16620
+    082144A7  compare_var_to_value var=0x8000 value=1
+    082144AC  goto_if              condition=1 destination=0x082148A4
+    082144B2  compare_var_to_value var=0x8000 value=2
+    082144B7  goto_if              condition=1 destination=0x082148CE
+    082144BD  compare_var_to_value var=0x8000 value=3
+    082144C2  goto_if              condition=1 destination=0x082148F8
+    082144C8  compare_var_to_value var=0x8000 value=4
+    082144CD  goto_if              condition=1 destination=0x0821492E
+    082144D3  compare_var_to_value var=0x8000 value=5
+    082144D8  goto_if              condition=1 destination=0x08214958
+    082144DE  compare_var_to_value var=0x8000 value=6
+    082144E3  goto_if              condition=1 destination=0x08214982
+    082144E9  closemessage         
+    082144EA  turnobject           localId=255 direction=2
+    082144EE  delay                frames=32
+    082144F1  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up]
+    082144F8  delay                frames=80
+    082144FB  fadescreen           mode=1
+    082144FD  specialvar           output=16388 SPECIAL_\function=403
+    08214502  compare_var_to_value var=0x4004 value=1
+    08214507  goto_if              condition=1 destination=0x082146AA
+    0821450D  setvar               destination=VAR_0x4001 value=1
+    08214512  setflag              flag=0x004
+    08214515  clearflag            flag=0x005
+    08214518  setflag              flag=0x4BC
+    0821451B  setflag              flag=0x004
+    0821451E  callnative           func=0x08102A61
+    08214523  callnative           func=0x08168869
+    08214528  callnative           func=0x0809FA39
+    0821452D  setflag              flag=0x130
+    08214530  warp                 mapGroup=1 mapNum=80 WARP_ID_NONE=255 -1=5 -1=12
+    08214538  waitstate            
+
+  script 0x082149AC  [ok]
+    082149AC  speakername          name="Green"
+    082149B1  trainerbattle        type=3 trainer=0x364 localId=0 ptr1=0x082155A6
+    082149BB  goto                 destination=0x0821449F
+
+  script 0x082144E9  [ok]
+    082144E9  closemessage         
+    082144EA  turnobject           localId=255 direction=2
+    082144EE  delay                frames=32
+    082144F1  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up]
+    082144F8  delay                frames=80
+    082144FB  fadescreen           mode=1
+    082144FD  specialvar           output=16388 SPECIAL_\function=403
+    08214502  compare_var_to_value var=0x4004 value=1
+    08214507  goto_if              condition=1 destination=0x082146AA
+    0821450D  setvar               destination=VAR_0x4001 value=1
+    08214512  setflag              flag=0x004
+    08214515  clearflag            flag=0x005
+    08214518  setflag              flag=0x4BC
+    0821451B  setflag              flag=0x004
+    0821451E  callnative           func=0x08102A61
+    08214523  callnative           func=0x08168869
+    08214528  callnative           func=0x0809FA39
+    0821452D  setflag              flag=0x130
+    08214530  warp                 mapGroup=1 mapNum=80 WARP_ID_NONE=255 -1=5 -1=12
+    08214538  waitstate            
+
+  script 0x082149C0  [ok]
+    082149C0  speakername          name="Green"
+    082149C5  msgbox_multilang     type=0 text_0="Alright, you got me this time,\n{PLAYER}.\pYou’ve earned it fair and square.\pGo on, head to the Hall of Fame and\nbask in your glory… for now.\pI’ll be back for a rematch!" text_1="Alright, you got me this time,\n{PLAYER}.\pYou’ve earned it fair and square.\pGo on, head to the Hall of Fame and\nbask in your glory… for now.\pI’ll be back for a rematch!" text_2="Alright, you got me this time,\n{PLAYER}.\pYou’ve earned it fair and square.\pGo on, head to the Hall of Fame and\nbask in your glory… for now.\pI’ll be back for a rematch!" text_3="Alright, you got me this time,\n{PLAYER}.\pYou’ve earned it fair and square.\pGo on, head to the Hall of Fame and\nbask in your glory… for now.\pI’ll be back for a rematch!" text_4="Alright, you got me this time,\n{PLAYER}.\pYou’ve earned it fair and square.\pGo on, head to the Hall of Fame and\nbask in your glory… for now.\pI’ll be back for a rematch!" text_5="Alright, you got me this time,\n{PLAYER}.\pYou’ve earned it fair and square.\pGo on, head to the Hall of Fame and\nbask in your glory… for now.\pI’ll be back for a rematch!" text_6="Alright, you got me this time,\n{PLAYER}.\pYou’ve earned it fair and square.\pGo on, head to the Hall of Fame and\nbask in your glory… for now.\pI’ll be back for a rematch!"
+    082149E3  callstd              function=MSGBOX_DEFAULT(4)
+    082149E5  goto                 destination=0x082144E9
+
+  script 0x0821450D  [ok]
+    0821450D  setvar               destination=VAR_0x4001 value=1
+    08214512  setflag              flag=0x004
+    08214515  clearflag            flag=0x005
+    08214518  setflag              flag=0x4BC
+    0821451B  setflag              flag=0x004
+    0821451E  callnative           func=0x08102A61
+    08214523  callnative           func=0x08168869
+    08214528  callnative           func=0x0809FA39
+    0821452D  setflag              flag=0x130
+    08214530  warp                 mapGroup=1 mapNum=80 WARP_ID_NONE=255 -1=5 -1=12
+    08214538  waitstate            
+
+  script 0x08214576  [ok]
+    08214576  setflag              flag=0x003
+    08214579  setflag              flag=0x005
+    0821457C  savebgm              song=354
+    0821457F  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08214582  goto_if              condition=1 destination=0x082147E5
+    08214588  trainerbattle        type=3 trainer=0x1B6 localId=0 ptr1=0x08215A5F
+    08214592  addelevmenuitem      a=9 b=59392 c=19006 d=2081
+    0821459A  msgbox_multilang     type=0 text_0="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_1="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_2="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_3="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_4="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_5="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_6="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…"
+    082145B8  callstd              function=MSGBOX_DEFAULT(4)
+    082145BA  playbgm              song=557 save_song=0
+    082145BE  addobject            localId=2
+    082145C1  speakername          name="Prof. Oak"
+    082145C6  msgbox_multilang     type=0 text_0="{PLAYER}!" text_1="{PLAYER}!" text_2="{PLAYER}!" text_3="{PLAYER}!" text_4="{PLAYER}!" text_5="{PLAYER}!" text_6="{PLAYER}!"
+    082145E4  callstd              function=MSGBOX_DEFAULT(4)
+    082145E6  closemessage         
+    082145E7  applymovement        localId=255 movements=[delay_8 walk_in_place_faster_down delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_left]
+    082145EE  applymovement        localId=1 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_left]
+    082145F5  applymovement        localId=2 movements=[delay_16 delay_16 walk_up walk_up walk_up walk_up walk_up walk_left walk_up walk_up walk_in_place_faster_down delay_16]
+    082145FC  waitmovement         localId=0
+    082145FF  delay                frames=25
+    08214602  speakername          name="Prof. Oak"
+    08214607  msgbox_multilang     type=0 text_0="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_1="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_2="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_3="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_4="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_5="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_6="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!"
+    08214625  callstd              function=MSGBOX_DEFAULT(4)
+    08214627  applymovement        localId=2 movements=[walk_in_place_faster_right]
+    0821462E  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    08214635  waitmovement         localId=0
+    08214638  speakername          name="Prof. Oak"
+    0821463D  msgbox_multilang     type=0 text_0="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_1="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_2="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_3="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_4="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_5="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_6="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!"
+    0821465B  callstd              function=MSGBOX_DEFAULT(4)
+    0821465D  closemessage         
+    0821465E  applymovement        localId=2 movements=[walk_in_place_faster_down]
+    08214665  waitmovement         localId=0
+    08214668  delay                frames=20
+    0821466B  speakername          name="Prof. Oak"
+    08214670  msgbox_multilang     type=0 text_0="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_1="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_2="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_3="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_4="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_5="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_6="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!"
+    0821468E  callstd              function=MSGBOX_DEFAULT(4)
+    08214690  closemessage         
+    08214691  delay                frames=13
+    08214694  applymovement        localId=2 movements=[walk_up walk_up walk_right walk_up walk_up walk_up walk_up delay_8 set_invisible]
+    0821469B  applymovement        localId=255 movements=[delay_16 walk_left walk_up walk_up walk_up walk_right walk_up walk_up walk_up walk_up delay_8 set_invisible]
+    082146A2  waitmovement         localId=0
+    082146A5  goto                 destination=0x082144FD
+
+  script 0x08214592  [ok]
+    08214592  addelevmenuitem      a=9 b=59392 c=19006 d=2081
+    0821459A  msgbox_multilang     type=0 text_0="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_1="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_2="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_3="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_4="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_5="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…" text_6="Why?\nWhy did I lose?\pI never made any mistakes raising my\nPokémon…\pDarn it! You’re the new Pokémon\nLeague Champion!\pAlthough I don’t like to admit it…"
+    082145B8  callstd              function=MSGBOX_DEFAULT(4)
+    082145BA  playbgm              song=557 save_song=0
+    082145BE  addobject            localId=2
+    082145C1  speakername          name="Prof. Oak"
+    082145C6  msgbox_multilang     type=0 text_0="{PLAYER}!" text_1="{PLAYER}!" text_2="{PLAYER}!" text_3="{PLAYER}!" text_4="{PLAYER}!" text_5="{PLAYER}!" text_6="{PLAYER}!"
+    082145E4  callstd              function=MSGBOX_DEFAULT(4)
+    082145E6  closemessage         
+    082145E7  applymovement        localId=255 movements=[delay_8 walk_in_place_faster_down delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_left]
+    082145EE  applymovement        localId=1 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 walk_in_place_faster_left]
+    082145F5  applymovement        localId=2 movements=[delay_16 delay_16 walk_up walk_up walk_up walk_up walk_up walk_left walk_up walk_up walk_in_place_faster_down delay_16]
+    082145FC  waitmovement         localId=0
+    082145FF  delay                frames=25
+    08214602  speakername          name="Prof. Oak"
+    08214607  msgbox_multilang     type=0 text_0="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_1="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_2="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_3="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_4="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_5="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!" text_6="So, you’ve won!\nSincerely, congratulations!\pYou’re the new Pokémon League\nChampion!\pYou’ve grown up so much since you\nfirst left with Pikachu to work on\pthe Pokédex.\p{PLAYER}, you have come of age!"
+    08214625  callstd              function=MSGBOX_DEFAULT(4)
+    08214627  applymovement        localId=2 movements=[walk_in_place_faster_right]
+    0821462E  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    08214635  waitmovement         localId=0
+    08214638  speakername          name="Prof. Oak"
+    0821463D  msgbox_multilang     type=0 text_0="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_1="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_2="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_3="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_4="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_5="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!" text_6="{RIVAL}…\nI’m disappointed in you.\pI came when I heard you’d beaten the\nElite Four.\pBut, when I got here, you had\nalready lost!\p{RIVAL}, do you understand why\nyou lost?\pYou have forgotten to treat your\nPokémon with love and trust.\pWithout them, you will never become\na Champ again!"
+    0821465B  callstd              function=MSGBOX_DEFAULT(4)
+    0821465D  closemessage         
+    0821465E  applymovement        localId=2 movements=[walk_in_place_faster_down]
+    08214665  waitmovement         localId=0
+    08214668  delay                frames=20
+    0821466B  speakername          name="Prof. Oak"
+    08214670  msgbox_multilang     type=0 text_0="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_1="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_2="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_3="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_4="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_5="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!" text_6="{PLAYER}.\pYou understand that your victory was\nnot just your own doing.\pThe bond you share with your\nPokémon is marvelous.\p{PLAYER}!\nCome with me!"
+    0821468E  callstd              function=MSGBOX_DEFAULT(4)
+    08214690  closemessage         
+    08214691  delay                frames=13
+    08214694  applymovement        localId=2 movements=[walk_up walk_up walk_right walk_up walk_up walk_up walk_up delay_8 set_invisible]
+    0821469B  applymovement        localId=255 movements=[delay_16 walk_left walk_up walk_up walk_up walk_right walk_up walk_up walk_up walk_up delay_8 set_invisible]
+    082146A2  waitmovement         localId=0
+    082146A5  goto                 destination=0x082144FD
+

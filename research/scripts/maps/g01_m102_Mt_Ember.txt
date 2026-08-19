@@ -1,0 +1,28 @@
+Mt. Ember  (group 1, map 102)  header 0x08B3BD40
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2B, flag 0x008A) -> 0x08218D42
+  script 0x08218D42  [unknown-opcode:0xE9]
+    08218D42  lock                 
+    08218D43  faceplayer           
+    08218D44  setflag              flag=0x2DD
+    08218D47  removeobject         localId=1
+    08218D4A  additem              itemId=Ruby(373) quantity=1
+
+  sign 0 at (7,2) -> 0x08218D30
+  script 0x08218D30  [ok]
+    08218D30  lockall              
+    08218D31  setvar               destination=VAR_0x8005 value=130
+    08218D36  braillemessage       text="ぅàÌ áç+Ìëわ"
+    08218D3B  waitbuttonpress      
+    08218D3C  releaseall           
+

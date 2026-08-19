@@ -1,0 +1,43 @@
+Saffron City  (group 14, map 4)  header 0x08B3D780
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x10, flag 0x0000) -> 0x08271256
+  script 0x08271256  [ok]
+    08271256  bufferspeciesname    stringVarId=0 species=PIDGEY(16)
+    0827125A  lock                 
+    0827125B  faceplayer           
+    0827125C  waitse               
+    0827125D  playmoncry           species=PIDGEY(16) mode=0
+    08271262  msgbox_multilang     type=0 text_0="Pidgey: Kurukkoo!" text_1="Pidgey: Kurukkoo!" text_2="Pidgey: Kurukkoo!" text_3="Pidgey: Kurukkoo!" text_4="Pidgey: Kurukkoo!" text_5="Pidgey: Kurukkoo!" text_6="Pidgey: Kurukkoo!"
+    08271280  callstd              function=MSGBOX_DEFAULT(4)
+    08271282  waitmoncry           
+    08271283  release              
+
+  object 2 (gfx 0x2F, flag 0x0000) -> 0x08271214
+  script 0x08271214  [ok]
+    08271214  msgbox_multilang     type=0 text_0="…Thank you for writing.\nI hope to see you soon!\p…Hey!\nDon’t look at my letter!" text_1="…Thank you for writing.\nI hope to see you soon!\p…Hey!\nDon’t look at my letter!" text_2="…Thank you for writing.\nI hope to see you soon!\p…Hey!\nDon’t look at my letter!" text_3="…Thank you for writing.\nI hope to see you soon!\p…Hey!\nDon’t look at my letter!" text_4="…Thank you for writing.\nI hope to see you soon!\p…Hey!\nDon’t look at my letter!" text_5="…Thank you for writing.\nI hope to see you soon!\p…Hey!\nDon’t look at my letter!" text_6="…Thank you for writing.\nI hope to see you soon!\p…Hey!\nDon’t look at my letter!"
+    08271232  callstd              function=MSGBOX_NPC(2)
+    08271234  end                  
+
+  object 3 (gfx 0x23, flag 0x0000) -> 0x08271235
+  script 0x08271235  [ok]
+    08271235  msgbox_multilang     type=0 text_0="The Copycat is cute!\nI’m getting her a Poké Doll." text_1="The Copycat is cute!\nI’m getting her a Poké Doll." text_2="The Copycat is cute!\nI’m getting her a Poké Doll." text_3="The Copycat is cute!\nI’m getting her a Poké Doll." text_4="The Copycat is cute!\nI’m getting her a Poké Doll." text_5="The Copycat is cute!\nI’m getting her a Poké Doll." text_6="The Copycat is cute!\nI’m getting her a Poké Doll."
+    08271253  callstd              function=MSGBOX_NPC(2)
+    08271255  end                  
+
+  object 4 (gfx 0x31, flag 0x0000) -> 0x00000000
+  sign 0 at (5,4) -> 0x08271285
+  script 0x08271285  [ok]
+    08271285  msgbox_multilang     type=0 text_0="I was given a PP UP as a gift.\pIt’s used to increase the PP of\na Pokémon’s move.\pI should use it on a powerful move\nwith only a few PP." text_1="I was given a PP UP as a gift.\pIt’s used to increase the PP of\na Pokémon’s move.\pI should use it on a powerful move\nwith only a few PP." text_2="I was given a PP UP as a gift.\pIt’s used to increase the PP of\na Pokémon’s move.\pI should use it on a powerful move\nwith only a few PP." text_3="I was given a PP UP as a gift.\pIt’s used to increase the PP of\na Pokémon’s move.\pI should use it on a powerful move\nwith only a few PP." text_4="I was given a PP UP as a gift.\pIt’s used to increase the PP of\na Pokémon’s move.\pI should use it on a powerful move\nwith only a few PP." text_5="I was given a PP UP as a gift.\pIt’s used to increase the PP of\na Pokémon’s move.\pI should use it on a powerful move\nwith only a few PP." text_6="I was given a PP UP as a gift.\pIt’s used to increase the PP of\na Pokémon’s move.\pI should use it on a powerful move\nwith only a few PP."
+    082712A3  callstd              function=MSGBOX_SIGN(3)
+    082712A5  end                  
+

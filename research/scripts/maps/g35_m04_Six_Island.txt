@@ -1,0 +1,41 @@
+Six Island  (group 35, map 4)  header 0x08B3DFEC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0827E823
+  script 0x0827E823  [opcode-out-of-range:0xFE]
+    0827E823  lock                 
+    0827E824  faceplayer           
+    0827E825  call                 destination=0x082BB330
+    0827E82A  message              text="Hi, there!\nMay I help you?"
+    0827E82F  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x1E, flag 0x0000) -> 0x081F2913
+  script 0x081F2913  [ok]
+    081F2913  lock                 
+    081F2914  faceplayer           
+    081F2915  setvar               destination=VAR_0x8004 value=11
+    081F291A  setvar               destination=VAR_0x8005 value=5
+    081F291F  special              SPECIAL_\function=347
+    081F2922  msgbox_multilang     type=0 text_0="Play with Pokémon lots and live\na long life!\pTake Agatha, for example.\pShe set a record for being the\noldest-ever Elite Four member.\pShe spurs me to do bigger things." text_1="Play with Pokémon lots and live\na long life!\pTake Agatha, for example.\pShe set a record for being the\noldest-ever Elite Four member.\pShe spurs me to do bigger things." text_2="Play with Pokémon lots and live\na long life!\pTake Agatha, for example.\pShe set a record for being the\noldest-ever Elite Four member.\pShe spurs me to do bigger things." text_3="Play with Pokémon lots and live\na long life!\pTake Agatha, for example.\pShe set a record for being the\noldest-ever Elite Four member.\pShe spurs me to do bigger things." text_4="Play with Pokémon lots and live\na long life!\pTake Agatha, for example.\pShe set a record for being the\noldest-ever Elite Four member.\pShe spurs me to do bigger things." text_5="Play with Pokémon lots and live\na long life!\pTake Agatha, for example.\pShe set a record for being the\noldest-ever Elite Four member.\pShe spurs me to do bigger things." text_6="Play with Pokémon lots and live\na long life!\pTake Agatha, for example.\pShe set a record for being the\noldest-ever Elite Four member.\pShe spurs me to do bigger things."
+    081F2940  callstd              function=MSGBOX_DEFAULT(4)
+    081F2942  release              
+
+  object 3 (gfx 0x20, flag 0x0000) -> 0x0827E88A
+  script 0x0827E88A  [ok]
+    0827E88A  msgbox_multilang     type=0 text_0="I should buy some Mail and write\nhim a letter…" text_1="I should buy some Mail and write\nhim a letter…" text_2="I should buy some Mail and write\nhim a letter…" text_3="I should buy some Mail and write\nhim a letter…" text_4="I should buy some Mail and write\nhim a letter…" text_5="I should buy some Mail and write\nhim a letter…" text_6="I should buy some Mail and write\nhim a letter…"
+    0827E8A8  callstd              function=MSGBOX_NPC(2)
+    0827E8AA  end                  
+

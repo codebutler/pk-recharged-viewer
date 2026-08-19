@@ -1,0 +1,61 @@
+Cerulean City  (group 7, map 8)  header 0x08B3D0D4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF5, flag 0x0000) -> 0x0825B5BB
+  script 0x0825B5BB  [ok]
+    0825B5BB  setflag              flag=0x4005 (temp)
+    0825B5BE  lockall              
+    0825B5BF  applymovement        localId=1 movements=[face_player]
+    0825B5C6  waitmovement         localId=0
+    0825B5C9  checkflag            flag=0x001
+    0825B5CC  goto_if              condition=1 destination=0x0825B600
+    0825B5D2  speakername          name="Move Tutor"
+    0825B5D7  msgbox_multilang     type=0 text_0="I’m a Move Tutor.\pI know all the moves that Pokémon\nlearn--every one of them--and I\pcan teach Pokémon those moves.\pI can teach a move to a Pokémon of\nyours if you’d like.\pI’ll do it for ¥5000." text_1="I’m a Move Tutor.\pI know all the moves that Pokémon\nlearn--every one of them--and I\pcan teach Pokémon those moves.\pI can teach a move to a Pokémon of\nyours if you’d like.\pI’ll do it for ¥5000." text_2="I’m a Move Tutor.\pI know all the moves that Pokémon\nlearn--every one of them--and I\pcan teach Pokémon those moves.\pI can teach a move to a Pokémon of\nyours if you’d like.\pI’ll do it for ¥5000." text_3="I’m a Move Tutor.\pI know all the moves that Pokémon\nlearn--every one of them--and I\pcan teach Pokémon those moves.\pI can teach a move to a Pokémon of\nyours if you’d like.\pI’ll do it for ¥5000." text_4="I’m a Move Tutor.\pI know all the moves that Pokémon\nlearn--every one of them--and I\pcan teach Pokémon those moves.\pI can teach a move to a Pokémon of\nyours if you’d like.\pI’ll do it for ¥5000." text_5="I’m a Move Tutor.\pI know all the moves that Pokémon\nlearn--every one of them--and I\pcan teach Pokémon those moves.\pI can teach a move to a Pokémon of\nyours if you’d like.\pI’ll do it for ¥5000." text_6="I’m a Move Tutor.\pI know all the moves that Pokémon\nlearn--every one of them--and I\pcan teach Pokémon those moves.\pI can teach a move to a Pokémon of\nyours if you’d like.\pI’ll do it for ¥5000."
+    0825B5F5  callstd              function=MSGBOX_DEFAULT(4)
+    0825B5F7  setflag              flag=0x001
+    0825B5FA  goto                 destination=0x0825B60A
+
+  script 0x0825B600  [ok]
+    0825B600  goto                 destination=0x0825B60A
+
+  script 0x0825B60A  [ok]
+    0825B60A  showmoneybox         x=0 y=0 disable=0
+    0825B60E  checkmoney           value=5000 disable=0
+    0825B614  compare_var_to_value var=0x800D value=0
+    0825B619  goto_if              condition=1 destination=0x0825B655
+    0825B61F  speakername          name="Move Tutor"
+    0825B624  msgbox_multilang     type=0 text_0="I see that you got enough money!\pLet me guess, you want me to teach a\nmove?" text_1="I see that you got enough money!\pLet me guess, you want me to teach a\nmove?" text_2="I see that you got enough money!\pLet me guess, you want me to teach a\nmove?" text_3="I see that you got enough money!\pLet me guess, you want me to teach a\nmove?" text_4="I see that you got enough money!\pLet me guess, you want me to teach a\nmove?" text_5="I see that you got enough money!\pLet me guess, you want me to teach a\nmove?" text_6="I see that you got enough money!\pLet me guess, you want me to teach a\nmove?"
+    0825B642  callstd              function=MSGBOX_YESNO(5)
+    0825B644  compare_var_to_value var=0x800D value=0
+    0825B649  goto_if              condition=1 destination=0x0825B65F
+    0825B64F  goto                 destination=0x0825B669
+
+  script 0x0825B655  [ok]
+    0825B655  goto                 destination=0x0825B78B
+
+  script 0x0825B65F  [ok]
+    0825B65F  goto                 destination=0x0825B78B
+
+  script 0x0825B669  [ok]
+    0825B669  speakername          name="Move Tutor"
+    0825B66E  msgbox_multilang     type=0 text_0="Which Pokémon needs tutoring?" text_1="Which Pokémon needs tutoring?" text_2="Which Pokémon needs tutoring?" text_3="Which Pokémon needs tutoring?" text_4="Which Pokémon needs tutoring?" text_5="Which Pokémon needs tutoring?" text_6="Which Pokémon needs tutoring?"
+    0825B68C  callstd              function=MSGBOX_DEFAULT(4)
+    0825B68E  special              SPECIAL_\function=138
+    0825B691  waitstate            
+
+  script 0x0825B78B  [ok]
+    0825B78B  speakername          name="Move Tutor"
+    0825B790  msgbox_multilang     type=0 text_0="If your Pokémon need to learn a\nmove, come back with ¥5000." text_1="If your Pokémon need to learn a\nmove, come back with ¥5000." text_2="If your Pokémon need to learn a\nmove, come back with ¥5000." text_3="If your Pokémon need to learn a\nmove, come back with ¥5000." text_4="If your Pokémon need to learn a\nmove, come back with ¥5000." text_5="If your Pokémon need to learn a\nmove, come back with ¥5000." text_6="If your Pokémon need to learn a\nmove, come back with ¥5000."
+    0825B7AE  callstd              function=MSGBOX_DEFAULT(4)
+    0825B7B0  hidemoneybox         0=0 0=0
+    0825B7B3  releaseall           
+

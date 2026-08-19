@@ -1,0 +1,248 @@
+Route 17  (group 3, map 35)  header 0x08B3CA98
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x06, flag 0x0000) -> 0x081FBDEF
+  script 0x081FBDEF  [ok]
+    081FBDEF  trainerbattle        type=0 trainer=0x1D6 localId=0 ptr1=0x08237417 ptr2=0x0823742F
+    081FBDFD  specialvar           output=32781 SPECIAL_\function=37
+    081FBE02  compare_var_to_value var=0x800D value=1
+    081FBE07  goto_if              condition=1 destination=0x081FBE2E
+    081FBE0D  msgbox_multilang     type=0 text_0="I love racing downhill!" text_1="I love racing downhill!" text_2="I love racing downhill!" text_3="I love racing downhill!" text_4="I love racing downhill!" text_5="I love racing downhill!" text_6="I love racing downhill!"
+    081FBE2B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBE2D  end                  
+
+  script 0x081FBE2E  [ok]
+    081FBE2E  goto                 destination=0x081FBE38
+
+  script 0x081FBE38  [ok]
+    081FBE38  trainerbattle        type=5 trainer=0x1D6 localId=0 ptr1=0x082B95EA ptr2=0x0823742F
+    081FBE46  msgbox_multilang     type=0 text_0="I love racing downhill!" text_1="I love racing downhill!" text_2="I love racing downhill!" text_3="I love racing downhill!" text_4="I love racing downhill!" text_5="I love racing downhill!" text_6="I love racing downhill!"
+    081FBE64  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBE66  end                  
+
+  object 2 (gfx 0x45, flag 0x0000) -> 0x081FBC0F
+  script 0x081FBC0F  [ok]
+    081FBC0F  trainerbattle        type=0 trainer=0xFD localId=0 ptr1=0x082373C2 ptr2=0x082373EE
+    081FBC1D  specialvar           output=32781 SPECIAL_\function=37
+    081FBC22  compare_var_to_value var=0x800D value=1
+    081FBC27  goto_if              condition=1 destination=0x081FBC4E
+    081FBC2D  msgbox_multilang     type=0 text_0="I could belly-bump you outta\nhere!" text_1="I could belly-bump you outta\nhere!" text_2="I could belly-bump you outta\nhere!" text_3="I could belly-bump you outta\nhere!" text_4="I could belly-bump you outta\nhere!" text_5="I could belly-bump you outta\nhere!" text_6="I could belly-bump you outta\nhere!"
+    081FBC4B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBC4D  end                  
+
+  script 0x081FBC4E  [ok]
+    081FBC4E  goto                 destination=0x081FBC58
+
+  script 0x081FBC58  [ok]
+    081FBC58  trainerbattle        type=5 trainer=0xFD localId=0 ptr1=0x082B95BE ptr2=0x082373EE
+    081FBC66  msgbox_multilang     type=0 text_0="I could belly-bump you outta\nhere!" text_1="I could belly-bump you outta\nhere!" text_2="I could belly-bump you outta\nhere!" text_3="I could belly-bump you outta\nhere!" text_4="I could belly-bump you outta\nhere!" text_5="I could belly-bump you outta\nhere!" text_6="I could belly-bump you outta\nhere!"
+    081FBC84  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBC86  end                  
+
+  object 3 (gfx 0x45, flag 0x0000) -> 0x081FBB97
+  script 0x081FBB97  [ok]
+    081FBB97  trainerbattle        type=0 trainer=0xFC localId=0 ptr1=0x08237318 ptr2=0x08237348
+    081FBBA5  specialvar           output=32781 SPECIAL_\function=37
+    081FBBAA  compare_var_to_value var=0x800D value=1
+    081FBBAF  goto_if              condition=1 destination=0x081FBBD6
+    081FBBB5  msgbox_multilang     type=0 text_0="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_1="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_2="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_3="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_4="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_5="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_6="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them."
+    081FBBD3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBBD5  end                  
+
+  script 0x081FBBD6  [ok]
+    081FBBD6  goto                 destination=0x081FBBE0
+
+  script 0x081FBBE0  [ok]
+    081FBBE0  trainerbattle        type=5 trainer=0xFC localId=0 ptr1=0x082B9582 ptr2=0x08237348
+    081FBBEE  msgbox_multilang     type=0 text_0="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_1="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_2="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_3="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_4="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_5="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them." text_6="You can find good stuff lying\naround on Cycling Road.\pThere’s good money in picking them\nup and selling them."
+    081FBC0C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBC0E  end                  
+
+  object 4 (gfx 0x06, flag 0x0000) -> 0x081FBA2F
+  script 0x081FBA2F  [ok]
+    081FBA2F  trainerbattle        type=0 trainer=0xCC localId=0 ptr1=0x082374A4 ptr2=0x082374BF
+    081FBA3D  specialvar           output=32781 SPECIAL_\function=37
+    081FBA42  compare_var_to_value var=0x800D value=1
+    081FBA47  goto_if              condition=1 destination=0x081FBA6E
+    081FBA4D  msgbox_multilang     type=0 text_0="I got my Voltorb at the abandoned\nPower Plant." text_1="I got my Voltorb at the abandoned\nPower Plant." text_2="I got my Voltorb at the abandoned\nPower Plant." text_3="I got my Voltorb at the abandoned\nPower Plant." text_4="I got my Voltorb at the abandoned\nPower Plant." text_5="I got my Voltorb at the abandoned\nPower Plant." text_6="I got my Voltorb at the abandoned\nPower Plant."
+    081FBA6B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBA6D  end                  
+
+  script 0x081FBA6E  [ok]
+    081FBA6E  goto                 destination=0x081FBA78
+
+  script 0x081FBA78  [ok]
+    081FBA78  trainerbattle        type=5 trainer=0xCC localId=0 ptr1=0x082B9626 ptr2=0x082374BF
+    081FBA86  msgbox_multilang     type=0 text_0="I got my Voltorb at the abandoned\nPower Plant." text_1="I got my Voltorb at the abandoned\nPower Plant." text_2="I got my Voltorb at the abandoned\nPower Plant." text_3="I got my Voltorb at the abandoned\nPower Plant." text_4="I got my Voltorb at the abandoned\nPower Plant." text_5="I got my Voltorb at the abandoned\nPower Plant." text_6="I got my Voltorb at the abandoned\nPower Plant."
+    081FBAA4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBAA6  end                  
+
+  object 5 (gfx 0x06, flag 0x0000) -> 0x081FB9B7
+  script 0x081FB9B7  [ok]
+    081FB9B7  trainerbattle        type=0 trainer=0xCB localId=0 ptr1=0x08237457 ptr2=0x0823747D
+    081FB9C5  specialvar           output=32781 SPECIAL_\function=37
+    081FB9CA  compare_var_to_value var=0x800D value=1
+    081FB9CF  goto_if              condition=1 destination=0x081FB9F6
+    081FB9D5  msgbox_multilang     type=0 text_0="Are you looking for adventure?" text_1="Are you looking for adventure?" text_2="Are you looking for adventure?" text_3="Are you looking for adventure?" text_4="Are you looking for adventure?" text_5="Are you looking for adventure?" text_6="Are you looking for adventure?"
+    081FB9F3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB9F5  end                  
+
+  script 0x081FB9F6  [ok]
+    081FB9F6  goto                 destination=0x081FBA00
+
+  script 0x081FBA00  [ok]
+    081FBA00  trainerbattle        type=5 trainer=0xCB localId=0 ptr1=0x082B9600 ptr2=0x0823747D
+    081FBA0E  msgbox_multilang     type=0 text_0="Are you looking for adventure?" text_1="Are you looking for adventure?" text_2="Are you looking for adventure?" text_3="Are you looking for adventure?" text_4="Are you looking for adventure?" text_5="Are you looking for adventure?" text_6="Are you looking for adventure?"
+    081FBA2C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBA2E  end                  
+
+  object 6 (gfx 0x45, flag 0x0000) -> 0x081FBCFF
+  script 0x081FBCFF  [ok]
+    081FBCFF  trainerbattle        type=0 trainer=0xFF localId=0 ptr1=0x0823756B ptr2=0x08237585
+    081FBD0D  specialvar           output=32781 SPECIAL_\function=37
+    081FBD12  compare_var_to_value var=0x800D value=1
+    081FBD17  goto_if              condition=1 destination=0x081FBD3E
+    081FBD1D  msgbox_multilang     type=0 text_0="I’m sure I lost weight there!" text_1="I’m sure I lost weight there!" text_2="I’m sure I lost weight there!" text_3="I’m sure I lost weight there!" text_4="I’m sure I lost weight there!" text_5="I’m sure I lost weight there!" text_6="I’m sure I lost weight there!"
+    081FBD3B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBD3D  end                  
+
+  script 0x081FBD3E  [ok]
+    081FBD3E  goto                 destination=0x081FBD48
+
+  script 0x081FBD48  [ok]
+    081FBD48  trainerbattle        type=5 trainer=0xFF localId=0 ptr1=0x082B9696 ptr2=0x08237585
+    081FBD56  msgbox_multilang     type=0 text_0="I’m sure I lost weight there!" text_1="I’m sure I lost weight there!" text_2="I’m sure I lost weight there!" text_3="I’m sure I lost weight there!" text_4="I’m sure I lost weight there!" text_5="I’m sure I lost weight there!" text_6="I’m sure I lost weight there!"
+    081FBD74  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBD76  end                  
+
+  object 7 (gfx 0x45, flag 0x0000) -> 0x081FBC87
+  script 0x081FBC87  [ok]
+    081FBC87  trainerbattle        type=0 trainer=0xFE localId=0 ptr1=0x082374FC ptr2=0x0823752F
+    081FBC95  specialvar           output=32781 SPECIAL_\function=37
+    081FBC9A  compare_var_to_value var=0x800D value=1
+    081FBC9F  goto_if              condition=1 destination=0x081FBCC6
+    081FBCA5  msgbox_multilang     type=0 text_0="Maybe some Pokémon need element\nStones to evolve." text_1="Maybe some Pokémon need element\nStones to evolve." text_2="Maybe some Pokémon need element\nStones to evolve." text_3="Maybe some Pokémon need element\nStones to evolve." text_4="Maybe some Pokémon need element\nStones to evolve." text_5="Maybe some Pokémon need element\nStones to evolve." text_6="Maybe some Pokémon need element\nStones to evolve."
+    081FBCC3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBCC5  end                  
+
+  script 0x081FBCC6  [ok]
+    081FBCC6  goto                 destination=0x081FBCD0
+
+  script 0x081FBCD0  [ok]
+    081FBCD0  trainerbattle        type=5 trainer=0xFE localId=0 ptr1=0x082B9658 ptr2=0x0823752F
+    081FBCDE  msgbox_multilang     type=0 text_0="Maybe some Pokémon need element\nStones to evolve." text_1="Maybe some Pokémon need element\nStones to evolve." text_2="Maybe some Pokémon need element\nStones to evolve." text_3="Maybe some Pokémon need element\nStones to evolve." text_4="Maybe some Pokémon need element\nStones to evolve." text_5="Maybe some Pokémon need element\nStones to evolve." text_6="Maybe some Pokémon need element\nStones to evolve."
+    081FBCFC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBCFE  end                  
+
+  object 8 (gfx 0x45, flag 0x0000) -> 0x081FBD77
+  script 0x081FBD77  [ok]
+    081FBD77  trainerbattle        type=0 trainer=0x100 localId=0 ptr1=0x082375B7 ptr2=0x082375C3
+    081FBD85  specialvar           output=32781 SPECIAL_\function=37
+    081FBD8A  compare_var_to_value var=0x800D value=1
+    081FBD8F  goto_if              condition=1 destination=0x081FBDB6
+    081FBD95  msgbox_multilang     type=0 text_0="Be ready to fight for your beliefs!" text_1="Be ready to fight for your beliefs!" text_2="Be ready to fight for your beliefs!" text_3="Be ready to fight for your beliefs!" text_4="Be ready to fight for your beliefs!" text_5="Be ready to fight for your beliefs!" text_6="Be ready to fight for your beliefs!"
+    081FBDB3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBDB5  end                  
+
+  script 0x081FBDB6  [ok]
+    081FBDB6  goto                 destination=0x081FBDC0
+
+  script 0x081FBDC0  [ok]
+    081FBDC0  trainerbattle        type=5 trainer=0x100 localId=0 ptr1=0x082B96D4 ptr2=0x082375C3
+    081FBDCE  msgbox_multilang     type=0 text_0="Be ready to fight for your beliefs!" text_1="Be ready to fight for your beliefs!" text_2="Be ready to fight for your beliefs!" text_3="Be ready to fight for your beliefs!" text_4="Be ready to fight for your beliefs!" text_5="Be ready to fight for your beliefs!" text_6="Be ready to fight for your beliefs!"
+    081FBDEC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBDEE  end                  
+
+  object 9 (gfx 0x06, flag 0x0000) -> 0x081FBB1F
+  script 0x081FBB1F  [ok]
+    081FBB1F  trainerbattle        type=0 trainer=0xCE localId=0 ptr1=0x08237635 ptr2=0x08237650
+    081FBB2D  specialvar           output=32781 SPECIAL_\function=37
+    081FBB32  compare_var_to_value var=0x800D value=1
+    081FBB37  goto_if              condition=1 destination=0x081FBB5E
+    081FBB3D  msgbox_multilang     type=0 text_0="I need to catch a few z’s!" text_1="I need to catch a few z’s!" text_2="I need to catch a few z’s!" text_3="I need to catch a few z’s!" text_4="I need to catch a few z’s!" text_5="I need to catch a few z’s!" text_6="I need to catch a few z’s!"
+    081FBB5B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBB5D  end                  
+
+  script 0x081FBB5E  [ok]
+    081FBB5E  goto                 destination=0x081FBB68
+
+  script 0x081FBB68  [ok]
+    081FBB68  trainerbattle        type=5 trainer=0xCE localId=0 ptr1=0x082B970A ptr2=0x08237650
+    081FBB76  msgbox_multilang     type=0 text_0="I need to catch a few z’s!" text_1="I need to catch a few z’s!" text_2="I need to catch a few z’s!" text_3="I need to catch a few z’s!" text_4="I need to catch a few z’s!" text_5="I need to catch a few z’s!" text_6="I need to catch a few z’s!"
+    081FBB94  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBB96  end                  
+
+  object 10 (gfx 0x06, flag 0x0000) -> 0x081FBAA7
+  script 0x081FBAA7  [ok]
+    081FBAA7  trainerbattle        type=0 trainer=0xCD localId=0 ptr1=0x082375F0 ptr2=0x0823760C
+    081FBAB5  specialvar           output=32781 SPECIAL_\function=37
+    081FBABA  compare_var_to_value var=0x800D value=1
+    081FBABF  goto_if              condition=1 destination=0x081FBAE6
+    081FBAC5  msgbox_multilang     type=0 text_0="The slope makes it hard to steer." text_1="The slope makes it hard to steer." text_2="The slope makes it hard to steer." text_3="The slope makes it hard to steer." text_4="The slope makes it hard to steer." text_5="The slope makes it hard to steer." text_6="The slope makes it hard to steer."
+    081FBAE3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBAE5  end                  
+
+  script 0x081FBAE6  [ok]
+    081FBAE6  goto                 destination=0x081FBAF0
+
+  script 0x081FBAF0  [ok]
+    081FBAF0  trainerbattle        type=5 trainer=0xCD localId=0 ptr1=0x082B96E0 ptr2=0x0823760C
+    081FBAFE  msgbox_multilang     type=0 text_0="The slope makes it hard to steer." text_1="The slope makes it hard to steer." text_2="The slope makes it hard to steer." text_3="The slope makes it hard to steer." text_4="The slope makes it hard to steer." text_5="The slope makes it hard to steer." text_6="The slope makes it hard to steer."
+    081FBB1C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FBB1E  end                  
+
+  sign 0 at (12,97) -> 0x082372B5
+  script 0x082372B5  [ok]
+    082372B5  msgbox_multilang     type=0 text_0="Route 17\nCeladon City - Fuchsia City" text_1="Route 17\nCeladon City - Fuchsia City" text_2="Route 17\nCeladon City - Fuchsia City" text_3="Route 17\nCeladon City - Fuchsia City" text_4="Route 17\nCeladon City - Fuchsia City" text_5="Route 17\nCeladon City - Fuchsia City" text_6="Route 17\nCeladon City - Fuchsia City"
+    082372D3  callstd              function=MSGBOX_SIGN(3)
+    082372D5  end                  
+
+  sign 1 at (12,83) -> 0x08237294
+  script 0x08237294  [ok]
+    08237294  msgbox_multilang     type=0 text_0="Trainer Tips\pPress the B Button to stay in place\nwhile on a slope." text_1="Trainer Tips\pPress the B Button to stay in place\nwhile on a slope." text_2="Trainer Tips\pPress the B Button to stay in place\nwhile on a slope." text_3="Trainer Tips\pPress the B Button to stay in place\nwhile on a slope." text_4="Trainer Tips\pPress the B Button to stay in place\nwhile on a slope." text_5="Trainer Tips\pPress the B Button to stay in place\nwhile on a slope." text_6="Trainer Tips\pPress the B Button to stay in place\nwhile on a slope."
+    082372B2  callstd              function=MSGBOX_SIGN(3)
+    082372B4  end                  
+
+  sign 2 at (12,68) -> 0x08237273
+  script 0x08237273  [ok]
+    08237273  msgbox_multilang     type=0 text_0="Trainer Tips\pAll Pokémon are unique.\pEven Pokémon of the same species\nand level grow at different rates." text_1="Trainer Tips\pAll Pokémon are unique.\pEven Pokémon of the same species\nand level grow at different rates." text_2="Trainer Tips\pAll Pokémon are unique.\pEven Pokémon of the same species\nand level grow at different rates." text_3="Trainer Tips\pAll Pokémon are unique.\pEven Pokémon of the same species\nand level grow at different rates." text_4="Trainer Tips\pAll Pokémon are unique.\pEven Pokémon of the same species\nand level grow at different rates." text_5="Trainer Tips\pAll Pokémon are unique.\pEven Pokémon of the same species\nand level grow at different rates." text_6="Trainer Tips\pAll Pokémon are unique.\pEven Pokémon of the same species\nand level grow at different rates."
+    08237291  callstd              function=MSGBOX_SIGN(3)
+    08237293  end                  
+
+  sign 3 at (12,53) -> 0x08237252
+  script 0x08237252  [ok]
+    08237252  msgbox_multilang     type=0 text_0="It’s a notice.\pWatch out for discarded items." text_1="It’s a notice.\pWatch out for discarded items." text_2="It’s a notice.\pWatch out for discarded items." text_3="It’s a notice.\pWatch out for discarded items." text_4="It’s a notice.\pWatch out for discarded items." text_5="It’s a notice.\pWatch out for discarded items." text_6="It’s a notice.\pWatch out for discarded items."
+    08237270  callstd              function=MSGBOX_SIGN(3)
+    08237272  end                  
+
+  sign 4 at (12,125) -> 0x082372D6
+  script 0x082372D6  [ok]
+    082372D6  msgbox_multilang     type=0 text_0="It’s a notice!\pDon’t throw the game, throw Poké\nBalls instead!" text_1="It’s a notice!\pDon’t throw the game, throw Poké\nBalls instead!" text_2="It’s a notice!\pDon’t throw the game, throw Poké\nBalls instead!" text_3="It’s a notice!\pDon’t throw the game, throw Poké\nBalls instead!" text_4="It’s a notice!\pDon’t throw the game, throw Poké\nBalls instead!" text_5="It’s a notice!\pDon’t throw the game, throw Poké\nBalls instead!" text_6="It’s a notice!\pDon’t throw the game, throw Poké\nBalls instead!"
+    082372F4  callstd              function=MSGBOX_SIGN(3)
+    082372F6  end                  
+
+  sign 5 at (11,157) -> 0x082372F7
+  script 0x082372F7  [ok]
+    082372F7  msgbox_multilang     type=0 text_0="Cycling Road\nSlope ends here!" text_1="Cycling Road\nSlope ends here!" text_2="Cycling Road\nSlope ends here!" text_3="Cycling Road\nSlope ends here!" text_4="Cycling Road\nSlope ends here!" text_5="Cycling Road\nSlope ends here!" text_6="Cycling Road\nSlope ends here!"
+    08237315  callstd              function=MSGBOX_SIGN(3)
+    08237317  end                  
+
+  hidden item at (18,83): Rare Candy
+
+  hidden item at (10,53): Full Restore
+
+  hidden item at (4,68): PP Up
+
+  hidden item at (4,125): Max Revive
+
+  hidden item at (14,157): Max Elixir
+

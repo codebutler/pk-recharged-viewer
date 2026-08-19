@@ -1,0 +1,271 @@
+Fuchsia City  (group 3, map 7)  header 0x08B3C788
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0822DD45
+  script 0x0822DD45  [ok]
+    0822DD45  msgbox_multilang     type=0 text_0="Erik: Where’s Sara?\nI said I’d meet her here." text_1="Erik: Where’s Sara?\nI said I’d meet her here." text_2="Erik: Where’s Sara?\nI said I’d meet her here." text_3="Erik: Where’s Sara?\nI said I’d meet her here." text_4="Erik: Where’s Sara?\nI said I’d meet her here." text_5="Erik: Where’s Sara?\nI said I’d meet her here." text_6="Erik: Where’s Sara?\nI said I’d meet her here."
+    0822DD63  callstd              function=MSGBOX_NPC(2)
+    0822DD65  end                  
+
+  object 2 (gfx 0x4F, flag 0x0000) -> 0x0822DCEF
+  script 0x0822DCEF  [ok]
+    0822DCEF  bufferspeciesname    stringVarId=0 species=SLOWPOKE(79)
+    0822DCF3  return               
+
+  object 3 (gfx 0x64, flag 0x0000) -> 0x0822DCE5
+  script 0x0822DCE5  [ok]
+    0822DCE5  bufferspeciesname    stringVarId=0 species=VOLTORB(100)
+    0822DCE9  return               
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0822DD66
+  script 0x0822DD66  [ok]
+    0822DD66  msgbox_multilang     type=0 text_0="That item ball in there…\nWere you wanting that?\pMe, too!\n…Huh? That’s a Pokémon?" text_1="That item ball in there…\nWere you wanting that?\pMe, too!\n…Huh? That’s a Pokémon?" text_2="That item ball in there…\nWere you wanting that?\pMe, too!\n…Huh? That’s a Pokémon?" text_3="That item ball in there…\nWere you wanting that?\pMe, too!\n…Huh? That’s a Pokémon?" text_4="That item ball in there…\nWere you wanting that?\pMe, too!\n…Huh? That’s a Pokémon?" text_5="That item ball in there…\nWere you wanting that?\pMe, too!\n…Huh? That’s a Pokémon?" text_6="That item ball in there…\nWere you wanting that?\pMe, too!\n…Huh? That’s a Pokémon?"
+    0822DD84  callstd              function=MSGBOX_NPC(2)
+    0822DD86  end                  
+
+  object 5 (gfx 0x71, flag 0x0000) -> 0x0826F89E
+  script 0x0826F89E  [ok]
+    0826F89E  bufferspeciesname    stringVarId=0 species=CHANSEY(113)
+    0826F8A2  lock                 
+    0826F8A3  faceplayer           
+    0826F8A4  waitse               
+    0826F8A5  playmoncry           species=CHANSEY(113) mode=0
+    0826F8AA  msgbox_multilang     type=0 text_0="Chansey: Chaan! Sii!" text_1="Chansey: Chaan! Sii!" text_2="Chansey: Chaan! Sii!" text_3="Chansey: Chaan! Sii!" text_4="Chansey: Chaan! Sii!" text_5="Chansey: Chaan! Sii!" text_6="Chansey: Chaan! Sii!"
+    0826F8C8  callstd              function=MSGBOX_DEFAULT(4)
+    0826F8CA  waitmoncry           
+    0826F8CB  release              
+
+  object 6 (gfx 0x0B, flag 0x0000) -> 0x0822DD03
+  script 0x0822DD03  [ok]
+    0822DD03  msgbox_multilang     type=0 text_0="Did you try the Safari Game?\pThere are some rare Pokémon that can\nonly be caught there." text_1="Did you try the Safari Game?\pThere are some rare Pokémon that can\nonly be caught there." text_2="Did you try the Safari Game?\pThere are some rare Pokémon that can\nonly be caught there." text_3="Did you try the Safari Game?\pThere are some rare Pokémon that can\nonly be caught there." text_4="Did you try the Safari Game?\pThere are some rare Pokémon that can\nonly be caught there." text_5="Did you try the Safari Game?\pThere are some rare Pokémon that can\nonly be caught there." text_6="Did you try the Safari Game?\pThere are some rare Pokémon that can\nonly be caught there."
+    0822DD21  callstd              function=MSGBOX_NPC(2)
+    0822DD23  end                  
+
+  object 7 (gfx 0x83, flag 0x0000) -> 0x0822DCF4
+  script 0x0822DCF4  [ok]
+    0822DCF4  bufferspeciesname    stringVarId=0 species=LAPRAS(131)
+    0822DCF8  return               
+
+  object 8 (gfx 0xF5, flag 0x0000) -> 0x0822DD24
+  script 0x0822DD24  [ok]
+    0822DD24  msgbox_multilang     type=0 text_0="The Safari Zone has a zoo in front of\nthe entrance.\pOut back is the Safari Game for\ncatching Pokémon." text_1="The Safari Zone has a zoo in front of\nthe entrance.\pOut back is the Safari Game for\ncatching Pokémon." text_2="The Safari Zone has a zoo in front of\nthe entrance.\pOut back is the Safari Game for\ncatching Pokémon." text_3="The Safari Zone has a zoo in front of\nthe entrance.\pOut back is the Safari Game for\ncatching Pokémon." text_4="The Safari Zone has a zoo in front of\nthe entrance.\pOut back is the Safari Game for\ncatching Pokémon." text_5="The Safari Zone has a zoo in front of\nthe entrance.\pOut back is the Safari Game for\ncatching Pokémon." text_6="The Safari Zone has a zoo in front of\nthe entrance.\pOut back is the Safari Game for\ncatching Pokémon."
+    0822DD42  callstd              function=MSGBOX_NPC(2)
+    0822DD44  end                  
+
+  object 9 (gfx 0x8A, flag 0x0016) -> 0x0822DCF9
+  script 0x0822DCF9  [ok]
+    0822DCF9  bufferspeciesname    stringVarId=0 species=OMANYTE(138)
+    0822DCFD  return               
+
+  object 10 (gfx 0x73, flag 0x0000) -> 0x0822DCEA
+  script 0x0822DCEA  [ok]
+    0822DCEA  bufferspeciesname    stringVarId=0 species=KANGASKHAN(115)
+    0822DCEE  return               
+
+  object 11 (gfx 0x52, flag 0x031A) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 12 (gfx 0x52, flag 0x0319) -> 0x082050CF
+  object 13 (gfx 0x52, flag 0x031B) -> 0x082050CF
+  object 14 (gfx 0x52, flag 0x031C) -> 0x082050CF
+  object 15 (gfx 0x2F, flag 0x009D) -> 0x0822DD87
+  script 0x0822DD87  [ok]
+    0822DD87  lock                 
+    0822DD88  faceplayer           
+    0822DD89  setvar               destination=VAR_0x8004 value=6
+    0822DD8E  setvar               destination=VAR_0x8005 value=3
+    0822DD93  special              SPECIAL_\function=347
+    0822DD96  msgbox_multilang     type=0 text_0="My father is the Gym Leader of this\ntown.\pI’m training to use Poison Pokémon as\nwell as my father." text_1="My father is the Gym Leader of this\ntown.\pI’m training to use Poison Pokémon as\nwell as my father." text_2="My father is the Gym Leader of this\ntown.\pI’m training to use Poison Pokémon as\nwell as my father." text_3="My father is the Gym Leader of this\ntown.\pI’m training to use Poison Pokémon as\nwell as my father." text_4="My father is the Gym Leader of this\ntown.\pI’m training to use Poison Pokémon as\nwell as my father." text_5="My father is the Gym Leader of this\ntown.\pI’m training to use Poison Pokémon as\nwell as my father." text_6="My father is the Gym Leader of this\ntown.\pI’m training to use Poison Pokémon as\nwell as my father."
+    0822DDB4  callstd              function=MSGBOX_DEFAULT(4)
+    0822DDB6  release              
+
+  object 16 (gfx 0x8C, flag 0x0017) -> 0x0822DCFE
+  script 0x0822DCFE  [ok]
+    0822DCFE  bufferspeciesname    stringVarId=0 species=KABUTO(140)
+    0822DD02  return               
+
+  sign 0 at (31,18) -> 0x0822DDB8
+  script 0x0822DDB8  [ok]
+    0822DDB8  msgbox_multilang     type=0 text_0="Fuchsia City\nBehold! It’s Passion Pink!" text_1="Fuchsia City\nBehold! It’s Passion Pink!" text_2="Fuchsia City\nBehold! It’s Passion Pink!" text_3="Fuchsia City\nBehold! It’s Passion Pink!" text_4="Fuchsia City\nBehold! It’s Passion Pink!" text_5="Fuchsia City\nBehold! It’s Passion Pink!" text_6="Fuchsia City\nBehold! It’s Passion Pink!"
+    0822DDD6  callstd              function=MSGBOX_SIGN(3)
+    0822DDD8  end                  
+
+  sign 1 at (26,18) -> 0x0822DDD9
+  script 0x0822DDD9  [ok]
+    0822DDD9  msgbox_multilang     type=0 text_0="Stock full with all kinds of Pokémon!\nWelcome to the Safari Zone!" text_1="Stock full with all kinds of Pokémon!\nWelcome to the Safari Zone!" text_2="Stock full with all kinds of Pokémon!\nWelcome to the Safari Zone!" text_3="Stock full with all kinds of Pokémon!\nWelcome to the Safari Zone!" text_4="Stock full with all kinds of Pokémon!\nWelcome to the Safari Zone!" text_5="Stock full with all kinds of Pokémon!\nWelcome to the Safari Zone!" text_6="Stock full with all kinds of Pokémon!\nWelcome to the Safari Zone!"
+    0822DDF7  callstd              function=MSGBOX_SIGN(3)
+    0822DDF9  end                  
+
+  sign 2 at (5,32) -> 0x0822DE3C
+  script 0x0822DE3C  [ok]
+    0822DE3C  lockall              
+    0822DE3D  setvar               destination=VAR_0x8004 value=6
+    0822DE42  setvar               destination=VAR_0x8005 value=0
+    0822DE47  special              SPECIAL_\function=347
+    0822DE4A  msgbox_multilang     type=0 text_0="Fuchsia City Pokémon Gym\nLeader: Koga\pThe Poisonous Ninja Master" text_1="Fuchsia City Pokémon Gym\nLeader: Koga\pThe Poisonous Ninja Master" text_2="Fuchsia City Pokémon Gym\nLeader: Koga\pThe Poisonous Ninja Master" text_3="Fuchsia City Pokémon Gym\nLeader: Koga\pThe Poisonous Ninja Master" text_4="Fuchsia City Pokémon Gym\nLeader: Koga\pThe Poisonous Ninja Master" text_5="Fuchsia City Pokémon Gym\nLeader: Koga\pThe Poisonous Ninja Master" text_6="Fuchsia City Pokémon Gym\nLeader: Koga\pThe Poisonous Ninja Master"
+    0822DE68  callstd              function=MSGBOX_DEFAULT(4)
+    0822DE6A  releaseall           
+
+  sign 3 at (31,31) -> 0x0822DE1B
+  script 0x0822DE1B  [ok]
+    0822DE1B  msgbox_multilang     type=0 text_0="Safari Zone\nWarden’s Home" text_1="Safari Zone\nWarden’s Home" text_2="Safari Zone\nWarden’s Home" text_3="Safari Zone\nWarden’s Home" text_4="Safari Zone\nWarden’s Home" text_5="Safari Zone\nWarden’s Home" text_6="Safari Zone\nWarden’s Home"
+    0822DE39  callstd              function=MSGBOX_SIGN(3)
+    0822DE3B  end                  
+
+  sign 4 at (35,10) -> 0x0822DE9D
+  script 0x0822DE9D  [ok]
+    0822DE9D  lockall              
+    0822DE9E  setvar               destination=VAR_0x8004 value=100
+    0822DEA3  special              SPECIAL_\function=364
+    0822DEA6  showmonpic           species=VOLTORB(100) x=10 y=3
+    0822DEAB  msgbox_multilang     type=0 text_0="Name: Voltorb\nThe very image of a Poké Ball." text_1="Name: Voltorb\nThe very image of a Poké Ball." text_2="Name: Voltorb\nThe very image of a Poké Ball." text_3="Name: Voltorb\nThe very image of a Poké Ball." text_4="Name: Voltorb\nThe very image of a Poké Ball." text_5="Name: Voltorb\nThe very image of a Poké Ball." text_6="Name: Voltorb\nThe very image of a Poké Ball."
+    0822DEC9  callstd              function=MSGBOX_DEFAULT(4)
+    0822DECB  hidemonpic           
+    0822DECC  releaseall           
+
+  sign 5 at (38,16) -> 0x0822DEFF
+  script 0x0822DEFF  [ok]
+    0822DEFF  lockall              
+    0822DF00  setvar               destination=VAR_0x8004 value=79
+    0822DF05  special              SPECIAL_\function=364
+    0822DF08  showmonpic           species=SLOWPOKE(79) x=10 y=3
+    0822DF0D  msgbox_multilang     type=0 text_0="Name: Slowpoke\nFriendly and very slow moving." text_1="Name: Slowpoke\nFriendly and very slow moving." text_2="Name: Slowpoke\nFriendly and very slow moving." text_3="Name: Slowpoke\nFriendly and very slow moving." text_4="Name: Slowpoke\nFriendly and very slow moving." text_5="Name: Slowpoke\nFriendly and very slow moving." text_6="Name: Slowpoke\nFriendly and very slow moving."
+    0822DF2B  callstd              function=MSGBOX_DEFAULT(4)
+    0822DF2D  hidemonpic           
+    0822DF2E  releaseall           
+
+  sign 6 at (41,10) -> 0x0822DE6C
+  script 0x0822DE6C  [ok]
+    0822DE6C  lockall              
+    0822DE6D  setvar               destination=VAR_0x8004 value=113
+    0822DE72  special              SPECIAL_\function=364
+    0822DE75  showmonpic           species=CHANSEY(113) x=10 y=3
+    0822DE7A  msgbox_multilang     type=0 text_0="Name: Chansey\nCatching one is all up to chance." text_1="Name: Chansey\nCatching one is all up to chance." text_2="Name: Chansey\nCatching one is all up to chance." text_3="Name: Chansey\nCatching one is all up to chance." text_4="Name: Chansey\nCatching one is all up to chance." text_5="Name: Chansey\nCatching one is all up to chance." text_6="Name: Chansey\nCatching one is all up to chance."
+    0822DE98  callstd              function=MSGBOX_DEFAULT(4)
+    0822DE9A  hidemonpic           
+    0822DE9B  releaseall           
+
+  sign 7 at (17,10) -> 0x0822DECE
+  script 0x0822DECE  [ok]
+    0822DECE  lockall              
+    0822DECF  setvar               destination=VAR_0x8004 value=115
+    0822DED4  special              SPECIAL_\function=364
+    0822DED7  showmonpic           species=KANGASKHAN(115) x=10 y=3
+    0822DEDC  msgbox_multilang     type=0 text_0="Name: Kangaskhan\pA maternal Pokémon that raises its\nyoung in a pouch on its belly." text_1="Name: Kangaskhan\pA maternal Pokémon that raises its\nyoung in a pouch on its belly." text_2="Name: Kangaskhan\pA maternal Pokémon that raises its\nyoung in a pouch on its belly." text_3="Name: Kangaskhan\pA maternal Pokémon that raises its\nyoung in a pouch on its belly." text_4="Name: Kangaskhan\pA maternal Pokémon that raises its\nyoung in a pouch on its belly." text_5="Name: Kangaskhan\pA maternal Pokémon that raises its\nyoung in a pouch on its belly." text_6="Name: Kangaskhan\pA maternal Pokémon that raises its\nyoung in a pouch on its belly."
+    0822DEFA  callstd              function=MSGBOX_DEFAULT(4)
+    0822DEFC  hidemonpic           
+    0822DEFD  releaseall           
+
+  sign 8 at (11,10) -> 0x0822DF61
+  script 0x0822DF61  [ok]
+    0822DF61  lockall              
+    0822DF62  checkflag            flag=0x272
+    0822DF65  goto_if              condition=1 destination=0x0822DF9B
+    0822DF6B  setvar               destination=VAR_0x8004 value=140
+    0822DF70  special              SPECIAL_\function=364
+    0822DF73  showmonpic           species=KABUTO(140) x=10 y=3
+    0822DF78  msgbox_multilang     type=0 text_0="Name: Kabuto\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_1="Name: Kabuto\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_2="Name: Kabuto\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_3="Name: Kabuto\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_4="Name: Kabuto\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_5="Name: Kabuto\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_6="Name: Kabuto\nAn extremely rare Pokémon that was\pregenerated from a fossil."
+    0822DF96  callstd              function=MSGBOX_DEFAULT(4)
+    0822DF98  hidemonpic           
+    0822DF99  releaseall           
+
+  script 0x0822DF9B  [ok]
+    0822DF9B  setvar               destination=VAR_0x8004 value=138
+    0822DFA0  special              SPECIAL_\function=364
+    0822DFA3  showmonpic           species=OMANYTE(138) x=10 y=3
+    0822DFA8  msgbox_multilang     type=0 text_0="Name: Omanyte\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_1="Name: Omanyte\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_2="Name: Omanyte\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_3="Name: Omanyte\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_4="Name: Omanyte\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_5="Name: Omanyte\nAn extremely rare Pokémon that was\pregenerated from a fossil." text_6="Name: Omanyte\nAn extremely rare Pokémon that was\pregenerated from a fossil."
+    0822DFC6  callstd              function=MSGBOX_DEFAULT(4)
+    0822DFC8  goto                 destination=0x0822DF98
+
+  script 0x0822DF98  [ok]
+    0822DF98  hidemonpic           
+    0822DF99  releaseall           
+
+  sign 9 at (17,18) -> 0x0822DF30
+  script 0x0822DF30  [ok]
+    0822DF30  lockall              
+    0822DF31  setvar               destination=VAR_0x8004 value=131
+    0822DF36  special              SPECIAL_\function=364
+    0822DF39  showmonpic           species=LAPRAS(131) x=10 y=3
+    0822DF3E  msgbox_multilang     type=0 text_0="Name: Lapras\nAka the king of the seas." text_1="Name: Lapras\nAka the king of the seas." text_2="Name: Lapras\nAka the king of the seas." text_3="Name: Lapras\nAka the king of the seas." text_4="Name: Lapras\nAka the king of the seas." text_5="Name: Lapras\nAka the king of the seas." text_6="Name: Lapras\nAka the king of the seas."
+    0822DF5C  callstd              function=MSGBOX_DEFAULT(4)
+    0822DF5E  hidemonpic           
+    0822DF5F  releaseall           
+
+  sign 10 at (22,7) -> 0x0822DDFA
+  script 0x0822DDFA  [ok]
+    0822DDFA  msgbox_multilang     type=0 text_0="The famous Safari Game! Catch\nPokémon to your heart’s content!" text_1="The famous Safari Game! Catch\nPokémon to your heart’s content!" text_2="The famous Safari Game! Catch\nPokémon to your heart’s content!" text_3="The famous Safari Game! Catch\nPokémon to your heart’s content!" text_4="The famous Safari Game! Catch\nPokémon to your heart’s content!" text_5="The famous Safari Game! Catch\nPokémon to your heart’s content!" text_6="The famous Safari Game! Catch\nPokémon to your heart’s content!"
+    0822DE18  callstd              function=MSGBOX_SIGN(3)
+    0822DE1A  end                  
+
+  hidden item at (33,26): Max Revive
+
+  map script type 3 -> 0x0822DCD1
+  script 0x0822DCD1  [ok]
+    0822DCD1  setflag              flag=0x8F7
+    0822DCD4  checkflag            flag=0x272
+    0822DCD7  goto_if              condition=1 destination=0x0822DCE1
+    0822DCDD  setflag              flag=0x016
+    0822DCE0  return               
+
+  script 0x0822DCE1  [ok]
+    0822DCE1  setflag              flag=0x017
+    0822DCE4  return               
+

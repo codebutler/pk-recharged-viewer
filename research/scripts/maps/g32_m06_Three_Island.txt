@@ -1,0 +1,24 @@
+Three Island  (group 32, map 6)  header 0x08B3DDD8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF4, flag 0x0000) -> 0x0827D4A6
+  script 0x0827D4A6  [ok]
+    0827D4A6  msgbox_multilang     type=0 text_0="You must never, ever go out to the\nBerry Forest alone.\pWhy?\nThere are ghosts there." text_1="You must never, ever go out to the\nBerry Forest alone.\pWhy?\nThere are ghosts there." text_2="You must never, ever go out to the\nBerry Forest alone.\pWhy?\nThere are ghosts there." text_3="You must never, ever go out to the\nBerry Forest alone.\pWhy?\nThere are ghosts there." text_4="You must never, ever go out to the\nBerry Forest alone.\pWhy?\nThere are ghosts there." text_5="You must never, ever go out to the\nBerry Forest alone.\pWhy?\nThere are ghosts there." text_6="You must never, ever go out to the\nBerry Forest alone.\pWhy?\nThere are ghosts there."
+    0827D4C4  callstd              function=MSGBOX_NPC(2)
+    0827D4C6  end                  
+
+  object 2 (gfx 0x0B, flag 0x0000) -> 0x0827D4C7
+  script 0x0827D4C7  [ok]
+    0827D4C7  msgbox_multilang     type=0 text_0="Papa keeps lying to me, and won’t let\nme go out and play!" text_1="Papa keeps lying to me, and won’t let\nme go out and play!" text_2="Papa keeps lying to me, and won’t let\nme go out and play!" text_3="Papa keeps lying to me, and won’t let\nme go out and play!" text_4="Papa keeps lying to me, and won’t let\nme go out and play!" text_5="Papa keeps lying to me, and won’t let\nme go out and play!" text_6="Papa keeps lying to me, and won’t let\nme go out and play!"
+    0827D4E5  callstd              function=MSGBOX_NPC(2)
+    0827D4E7  end                  
+

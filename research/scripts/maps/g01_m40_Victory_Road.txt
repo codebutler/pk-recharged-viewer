@@ -1,0 +1,269 @@
+Victory Road  (group 1, map 40)  header 0x08B3B678
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x4C, flag 0x0000) -> 0x0820D22C
+  script 0x0820D22C  [ok]
+    0820D22C  trainerbattle        type=0 trainer=0xA7 localId=0 ptr1=0x0820D317 ptr2=0x0820D354
+    0820D23A  msgbox_multilang     type=0 text_0="I can beat you when it comes to\nknowledge about Pokémon!" text_1="I can beat you when it comes to\nknowledge about Pokémon!" text_2="I can beat you when it comes to\nknowledge about Pokémon!" text_3="I can beat you when it comes to\nknowledge about Pokémon!" text_4="I can beat you when it comes to\nknowledge about Pokémon!" text_5="I can beat you when it comes to\nknowledge about Pokémon!" text_6="I can beat you when it comes to\nknowledge about Pokémon!"
+    0820D258  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D25A  end                  
+
+  object 2 (gfx 0x07, flag 0x0000) -> 0x0820D25B
+  script 0x0820D25B  [ok]
+    0820D25B  trainerbattle        type=0 trainer=0x145 localId=0 ptr1=0x0820D39F ptr2=0x0820D3DC
+    0820D269  msgbox_multilang     type=0 text_0="If you get stuck, try moving some\nboulders around." text_1="If you get stuck, try moving some\nboulders around." text_2="If you get stuck, try moving some\nboulders around." text_3="If you get stuck, try moving some\nboulders around." text_4="If you get stuck, try moving some\nboulders around." text_5="If you get stuck, try moving some\nboulders around." text_6="If you get stuck, try moving some\nboulders around."
+    0820D287  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D289  end                  
+
+  object 3 (gfx 0x46, flag 0x0000) -> 0x0820D28A
+  script 0x0820D28A  [ok]
+    0820D28A  trainerbattle        type=0 trainer=0x11F localId=0 ptr1=0x0820D416 ptr2=0x0820D443
+    0820D298  msgbox_multilang     type=0 text_0="{RIVAL} also came through here." text_1="{RIVAL} also came through here." text_2="{RIVAL} also came through here." text_3="{RIVAL} also came through here." text_4="{RIVAL} also came through here." text_5="{RIVAL} also came through here." text_6="{RIVAL} also came through here."
+    0820D2B6  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D2B8  end                  
+
+  object 4 (gfx 0x4D, flag 0x0000) -> 0x0820D2E8
+  script 0x0820D2E8  [ok]
+    0820D2E8  trainerbattle        type=0 trainer=0x12A localId=0 ptr1=0x0820D46A ptr2=0x0820D482
+    0820D2F6  msgbox_multilang     type=0 text_0="You earned the right to be on\nVictory Road…" text_1="You earned the right to be on\nVictory Road…" text_2="You earned the right to be on\nVictory Road…" text_3="You earned the right to be on\nVictory Road…" text_4="You earned the right to be on\nVictory Road…" text_5="You earned the right to be on\nVictory Road…" text_6="You earned the right to be on\nVictory Road…"
+    0820D314  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D316  end                  
+
+  object 5 (gfx 0x46, flag 0x0000) -> 0x0820D2B9
+  script 0x0820D2B9  [ok]
+    0820D2B9  trainerbattle        type=0 trainer=0x122 localId=0 ptr1=0x0820D4BD ptr2=0x0820D4D8
+    0820D2C7  msgbox_multilang     type=0 text_0="Many Trainers give up their\nchallenge here and go home." text_1="Many Trainers give up their\nchallenge here and go home." text_2="Many Trainers give up their\nchallenge here and go home." text_3="Many Trainers give up their\nchallenge here and go home." text_4="Many Trainers give up their\nchallenge here and go home." text_5="Many Trainers give up their\nchallenge here and go home." text_6="Many Trainers give up their\nchallenge here and go home."
+    0820D2E5  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820D2E7  end                  
+
+  object 6 (gfx 0x35, flag 0x01AB) -> 0x082D5A10
+  script 0x082D5A10  [ok]
+    082D5A10  setorcopyvar         destination=VAR_0x8000 source=73
+    082D5A15  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5A1A  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Guard Spec.
+    082D5A1C  end                  
+
+  object 7 (gfx 0x55, flag 0x01AC) -> 0x082D5A1D
+  script 0x082D5A1D  [ok]
+    082D5A1D  setorcopyvar         destination=VAR_0x8000 source=295
+    082D5A22  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5A27  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM07
+    082D5A29  end                  
+
+  object 8 (gfx 0x35, flag 0x01AD) -> 0x082D5A2A
+  script 0x082D5A2A  [ok]
+    082D5A2A  setorcopyvar         destination=VAR_0x8000 source=23
+    082D5A2F  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5A34  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Full Heal
+    082D5A36  end                  
+
+  object 9 (gfx 0x55, flag 0x01AE) -> 0x082D5A37
+  script 0x082D5A37  [ok]
+    082D5A37  setorcopyvar         destination=VAR_0x8000 source=325
+    082D5A3C  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5A41  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM37
+    082D5A43  end                  
+
+  object 10 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  script 0x0820540E  [ok]
+    0820540E  lockall              
+    0820540F  checkflag            flag=0x883:BADGE4_RAINBOW
+    08205412  goto_if              condition=0 destination=0x082054BA
+    08205418  checkflag            flag=0x23A
+    0820541B  goto_if              condition=0 destination=0x082054BA
+    08205421  checkflag            flag=0x865
+    08205424  goto_if              condition=1 destination=0x082054DB
+    0820542A  checkpartymove       move=Strength(70)
+    0820542D  compare_var_to_value var=0x800D value=6
+    08205432  goto_if              condition=1 destination=0x082054AC
+    08205438  compare_var_to_value var=0x800D value=6
+    0820543D  goto_if              condition=1 destination=0x082054BA
+    08205443  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205447  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?"
+    08205465  callstd              function=MSGBOX_YESNO(5)
+    08205467  compare_var_to_value var=0x800D value=0
+    0820546C  goto_if              condition=1 destination=0x082054FC
+    08205472  closemessage         
+    08205473  dofieldeffect        animation=40
+    08205476  waitstate            
+
+  script 0x082054BA  [ok]
+    082054BA  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside."
+    082054D8  callstd              function=MSGBOX_SIGN(3)
+    082054DA  end                  
+
+  script 0x082054DB  [ok]
+    082054DB  msgbox_multilang     type=0 text_0="Strength made it possible to move\nboulders around." text_1="Strength made it possible to move\nboulders around." text_2="Strength made it possible to move\nboulders around." text_3="Strength made it possible to move\nboulders around." text_4="Strength made it possible to move\nboulders around." text_5="Strength made it possible to move\nboulders around." text_6="Strength made it possible to move\nboulders around."
+    082054F9  callstd              function=MSGBOX_SIGN(3)
+    082054FB  end                  
+
+  script 0x082054AC  [unknown-opcode:0xE5]
+
+  script 0x082054FC  [ok]
+    082054FC  closemessage         
+    082054FD  releaseall           
+
+  object 11 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 12 (gfx 0x57, flag 0x0058) -> 0x0820540E
+  object 13 (gfx 0x92, flag 0x0052) -> 0x0820D11C
+  script 0x0820D11C  [ok]
+    0820D11C  bufferspeciesname    stringVarId=0 species=MOLTRES(146)
+    0820D120  lock                 
+    0820D121  faceplayer           
+    0820D122  setwildbattle        species=MOLTRES(146) level=50 item=0
+    0820D128  waitse               
+    0820D129  playmoncry           species=MOLTRES(146) mode=2
+    0820D12E  message              text="Gyaoo!"
+    0820D133  bufferitemname       stringVarId=129 item=2095
+    0820D137  bufferitemname       stringVarId=129 item=2095
+    0820D13B  bufferitemname       stringVarId=129 item=2095
+    0820D13F  bufferitemname       stringVarId=129 item=2095
+    0820D143  bufferitemname       stringVarId=129 item=2095
+    0820D147  bufferitemname       stringVarId=129 item=2095
+    0820D14B  waitmessage          
+    0820D14C  waitmoncry           
+    0820D14D  delay                frames=10
+    0820D150  playbgm              song=554 save_song=0
+    0820D154  waitbuttonpress      
+    0820D155  setflag              flag=0x867
+    0820D158  special              SPECIAL_\function=223
+    0820D15B  waitstate            
+
+  coord trigger 0 (var 0x4065 == 99) -> 0x0820D1C4
+  script 0x0820D1C4  [ok]
+    0820D1C4  lockall              
+    0820D1C5  compare_var_to_value var=0x4065 value=100
+    0820D1CA  goto_if              condition=1 destination=0x0820D1F6
+    0820D1D0  setmetatile          x=13 y=10 metatileId=721 impassable=0
+    0820D1D9  setmetatile          x=13 y=11 metatileId=737 impassable=0
+    0820D1E2  playse               song=41
+    0820D1E5  special              SPECIAL_\function=79
+    0820D1E8  waitse               
+    0820D1E9  copyobjectxytoperm   localId=11
+    0820D1EC  setvar               destination=VAR_0x4065 value=100
+    0820D1F1  setflag              flag=0x134
+    0820D1F4  releaseall           
+
+  script 0x0820D1F6  [ok]
+    0820D1F6  releaseall           
+
+  coord trigger 1 (var 0x4066 == 99) -> 0x0820D1F8
+  script 0x0820D1F8  [ok]
+    0820D1F8  lockall              
+    0820D1F9  compare_var_to_value var=0x4066 value=100
+    0820D1FE  goto_if              condition=1 destination=0x0820D22A
+    0820D204  setmetatile          x=33 y=16 metatileId=721 impassable=0
+    0820D20D  setmetatile          x=33 y=17 metatileId=737 impassable=0
+    0820D216  playse               song=41
+    0820D219  special              SPECIAL_\function=79
+    0820D21C  waitse               
+    0820D21D  copyobjectxytoperm   localId=12
+    0820D220  setvar               destination=VAR_0x4066 value=100
+    0820D225  setflag              flag=0x135
+    0820D228  releaseall           
+
+  script 0x0820D22A  [ok]
+    0820D22A  releaseall           
+
+  map script type 1 -> 0x0820D060
+  script 0x0820D060  [ok]
+    0820D060  compare_var_to_value var=0x4065 value=100
+    0820D065  goto_if              condition=5 destination=0x0820D077
+    0820D06B  compare_var_to_value var=0x4066 value=100
+    0820D070  goto_if              condition=5 destination=0x0820D085
+    0820D076  end                  
+
+  script 0x0820D077  [ok]
+    0820D077  checkflag            flag=0x134
+    0820D07A  goto_if              condition=0 destination=0x0820D093
+    0820D080  goto                 destination=0x0820D06B
+
+  script 0x0820D085  [ok]
+    0820D085  checkflag            flag=0x135
+    0820D088  goto_if              condition=0 destination=0x0820D0AA
+    0820D08E  goto                 destination=0x0820D076
+
+  script 0x0820D093  [ok]
+    0820D093  setmetatile          x=13 y=10 metatileId=775 impassable=1
+    0820D09C  setmetatile          x=13 y=11 metatileId=791 impassable=1
+    0820D0A5  goto                 destination=0x0820D06B
+
+  script 0x0820D06B  [ok]
+    0820D06B  compare_var_to_value var=0x4066 value=100
+    0820D070  goto_if              condition=5 destination=0x0820D085
+    0820D076  end                  
+
+  script 0x0820D0AA  [ok]
+    0820D0AA  setmetatile          x=33 y=16 metatileId=775 impassable=1
+    0820D0B3  setmetatile          x=33 y=17 metatileId=791 impassable=1
+    0820D0BC  goto                 destination=0x0820D076
+
+  script 0x0820D076  [ok]
+    0820D076  end                  
+
+  map script type 3 -> 0x0820D0C1
+  script 0x0820D0C1  [ok]
+    0820D0C1  checkflag            flag=0x134
+    0820D0C4  goto_if              condition=1 destination=0x0820D0DD
+    0820D0CA  checkflag            flag=0x135
+    0820D0CD  goto_if              condition=1 destination=0x0820D0E9
+    0820D0D3  checkflag            flag=0x2BD
+    0820D0D6  goto_if              condition=0 destination=0x0820D0F5
+    0820D0DC  end                  
+
+  script 0x0820D0DD  [ok]
+    0820D0DD  setobjectxyperm      localId=11 x=2 y=19
+    0820D0E4  goto                 destination=0x0820D0CA
+
+  script 0x0820D0E9  [ok]
+    0820D0E9  setobjectxyperm      localId=12 x=14 y=19
+    0820D0F0  goto                 destination=0x0820D0D3
+
+  script 0x0820D0F5  [ok]
+    0820D0F5  clearflag            flag=0x052
+    0820D0F8  goto                 destination=0x0820D0DC
+
+  script 0x0820D0CA  [ok]
+    0820D0CA  checkflag            flag=0x135
+    0820D0CD  goto_if              condition=1 destination=0x0820D0E9
+    0820D0D3  checkflag            flag=0x2BD
+    0820D0D6  goto_if              condition=0 destination=0x0820D0F5
+    0820D0DC  end                  
+
+  script 0x0820D0D3  [ok]
+    0820D0D3  checkflag            flag=0x2BD
+    0820D0D6  goto_if              condition=0 destination=0x0820D0F5
+    0820D0DC  end                  
+
+  script 0x0820D0DC  [ok]
+    0820D0DC  end                  
+
+  map script type 5 -> 0x0820D0FD
+  script 0x0820D0FD  [ok]
+    0820D0FD  checkflag            flag=0x867
+    0820D100  goto_if              condition=1 destination=0x0820D107
+    0820D106  end                  
+
+  script 0x0820D107  [ok]
+    0820D107  specialvar           output=32781 SPECIAL_\function=102
+    0820D10C  compare_var_to_value var=0x800D value=7
+    0820D111  goto_if              condition=5 destination=0x0820D11B
+    0820D117  removeobject         localId=32783
+    0820D11A  return               
+
+  script 0x0820D11B  [ok]
+    0820D11B  return               
+

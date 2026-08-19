@@ -1,0 +1,161 @@
+Cinnabar Island  (group 12, map 2)  header 0x08B3D630
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x0826CA3D
+  script 0x0826CA3D  [ok]
+    0826CA3D  msgbox_multilang     type=0 text_0="I found this most remarkable fossil\ninside Mt. Moon.\pI think it’s of a rare, prehistoric\nPokémon." text_1="I found this most remarkable fossil\ninside Mt. Moon.\pI think it’s of a rare, prehistoric\nPokémon." text_2="I found this most remarkable fossil\ninside Mt. Moon.\pI think it’s of a rare, prehistoric\nPokémon." text_3="I found this most remarkable fossil\ninside Mt. Moon.\pI think it’s of a rare, prehistoric\nPokémon." text_4="I found this most remarkable fossil\ninside Mt. Moon.\pI think it’s of a rare, prehistoric\nPokémon." text_5="I found this most remarkable fossil\ninside Mt. Moon.\pI think it’s of a rare, prehistoric\nPokémon." text_6="I found this most remarkable fossil\ninside Mt. Moon.\pI think it’s of a rare, prehistoric\nPokémon."
+    0826CA5B  callstd              function=MSGBOX_NPC(2)
+    0826CA5D  end                  
+
+  object 2 (gfx 0xF6, flag 0x0000) -> 0x0826CA5E
+  script 0x0826CA5E  [ok]
+    0826CA5E  lock                 
+    0826CA5F  faceplayer           
+    0826CA60  setvar               destination=VAR_0x8008 value=6
+    0826CA65  call                 destination=0x082F80DB
+    0826CA6A  checkflag            flag=0x274
+    0826CA6D  goto_if              condition=1 destination=0x0826CB30
+    0826CA73  msgbox_multilang     type=0 text_0="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_1="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_2="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_3="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_4="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_5="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_6="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?"
+    0826CA91  callstd              function=MSGBOX_YESNO(5)
+    0826CA93  compare_var_to_value var=0x800D value=0
+    0826CA98  goto_if              condition=1 destination=0x0826CAE8
+    0826CA9E  call                 destination=0x082F814F
+    0826CAA3  compare_var_to_value var=0x8004 value=6
+    0826CAA8  goto_if              condition=4 destination=0x0826CAE8
+    0826CAAE  call                 destination=0x082F80F2
+    0826CAB3  compare_var_to_var   var1=32781 var2=32777
+    0826CAB8  goto_if              condition=5 destination=0x0826CB0A
+    0826CABE  call                 destination=0x082F813B
+    0826CAC3  msgbox_multilang     type=0 text_0="Thanks!" text_1="Thanks!" text_2="Thanks!" text_3="Thanks!" text_4="Thanks!" text_5="Thanks!" text_6="Thanks!"
+    0826CAE1  callstd              function=MSGBOX_DEFAULT(4)
+    0826CAE3  setflag              flag=0x274
+    0826CAE6  release              
+
+  script 0x082F80DB  [ok]
+    082F80DB  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    082F80E0  specialvar           output=32781 SPECIAL_\function=167
+    082F80E5  copyvar              destination=VAR_0x8009 source=VAR_0x800D
+    082F80EA  return               
+
+  script 0x0826CB30  [ok]
+    0826CB30  msgbox_multilang     type=0 text_0="The {STR_VAR_2} that I traded you,\nhas it grown stronger?" text_1="The {STR_VAR_2} that I traded you,\nhas it grown stronger?" text_2="The {STR_VAR_2} that I traded you,\nhas it grown stronger?" text_3="The {STR_VAR_2} that I traded you,\nhas it grown stronger?" text_4="The {STR_VAR_2} that I traded you,\nhas it grown stronger?" text_5="The {STR_VAR_2} that I traded you,\nhas it grown stronger?" text_6="The {STR_VAR_2} that I traded you,\nhas it grown stronger?"
+    0826CB4E  callstd              function=MSGBOX_DEFAULT(4)
+    0826CB50  release              
+
+  script 0x0826CAE8  [ok]
+    0826CAE8  msgbox_multilang     type=0 text_0="Well, if you don’t want to…" text_1="Well, if you don’t want to…" text_2="Well, if you don’t want to…" text_3="Well, if you don’t want to…" text_4="Well, if you don’t want to…" text_5="Well, if you don’t want to…" text_6="Well, if you don’t want to…"
+    0826CB06  callstd              function=MSGBOX_DEFAULT(4)
+    0826CB08  release              
+
+  script 0x082F814F  [ok]
+    082F814F  special              SPECIAL_\function=96
+    082F8152  waitstate            
+
+  script 0x082F80F2  [ok]
+    082F80F2  copyvar              destination=VAR_0x8005 source=VAR_0x800A
+    082F80F7  specialvar           output=32781 SPECIAL_\function=170
+    082F80FC  copyvar              destination=VAR_0x800B source=VAR_0x800D
+    082F8101  return               
+
+  script 0x0826CB0A  [ok]
+    0826CB0A  bufferspeciesname    stringVarId=0 species=?(32777)
+    0826CB0E  msgbox_multilang     type=0 text_0="Hmmm?\nThis isn’t a {STR_VAR_1}.\pThink of me if you get one." text_1="Hmmm?\nThis isn’t a {STR_VAR_1}.\pThink of me if you get one." text_2="Hmmm?\nThis isn’t a {STR_VAR_1}.\pThink of me if you get one." text_3="Hmmm?\nThis isn’t a {STR_VAR_1}.\pThink of me if you get one." text_4="Hmmm?\nThis isn’t a {STR_VAR_1}.\pThink of me if you get one." text_5="Hmmm?\nThis isn’t a {STR_VAR_1}.\pThink of me if you get one." text_6="Hmmm?\nThis isn’t a {STR_VAR_1}.\pThink of me if you get one."
+    0826CB2C  callstd              function=MSGBOX_DEFAULT(4)
+    0826CB2E  release              
+
+  script 0x082F813B  [ok]
+    082F813B  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    082F8140  copyvar              destination=VAR_0x8005 source=VAR_0x800A
+    082F8145  special              SPECIAL_\function=168
+    082F8148  special              SPECIAL_\function=169
+    082F814B  waitstate            
+
+  object 3 (gfx 0x14, flag 0x0000) -> 0x0826CB52
+  script 0x0826CB52  [ok]
+    0826CB52  lock                 
+    0826CB53  faceplayer           
+    0826CB54  setvar               destination=VAR_0x8008 value=7
+    0826CB59  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    0826CB5E  specialvar           output=32781 SPECIAL_\function=167
+    0826CB63  copyvar              destination=VAR_0x8009 source=VAR_0x800D
+    0826CB68  checkflag            flag=0x275
+    0826CB6B  goto_if              condition=1 destination=0x0826CC48
+    0826CB71  msgbox_multilang     type=0 text_0="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_1="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_2="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_3="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_4="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_5="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?" text_6="Hi!\nDo you have a {STR_VAR_1}?\pWant to trade it for my\n{STR_VAR_2}?"
+    0826CB8F  callstd              function=MSGBOX_YESNO(5)
+    0826CB91  compare_var_to_value var=0x800D value=0
+    0826CB96  goto_if              condition=1 destination=0x0826CC00
+    0826CB9C  special              SPECIAL_\function=96
+    0826CB9F  waitstate            
+
+  script 0x0826CC48  [ok]
+    0826CC48  msgbox_multilang     type=0 text_0="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_1="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_2="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_3="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_4="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_5="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!" text_6="How is my old {STR_VAR_2}?\nMy {STR_VAR_1} is doing great!"
+    0826CC66  callstd              function=MSGBOX_DEFAULT(4)
+    0826CC68  release              
+
+  script 0x0826CC00  [ok]
+    0826CC00  msgbox_multilang     type=0 text_0="That’s too bad." text_1="That’s too bad." text_2="That’s too bad." text_3="That’s too bad." text_4="That’s too bad." text_5="That’s too bad." text_6="That’s too bad."
+    0826CC1E  callstd              function=MSGBOX_DEFAULT(4)
+    0826CC20  release              
+
+  object 4 (gfx 0x08, flag 0x0000) -> 0x0826C9BD
+  script 0x0826C9BD  [ok]
+    0826C9BD  checkflag            flag=0x12C
+    0826C9C0  goto_if              condition=0 destination=0x0826C9E7
+    0826C9C6  msgbox_multilang     type=0 text_0="If you want to check your Pokémon’s\nstats, take a look at your Pokémon\pSummary Screen." text_1="If you want to check your Pokémon’s\nstats, take a look at your Pokémon\pSummary Screen." text_2="If you want to check your Pokémon’s\nstats, take a look at your Pokémon\pSummary Screen." text_3="If you want to check your Pokémon’s\nstats, take a look at your Pokémon\pSummary Screen." text_4="If you want to check your Pokémon’s\nstats, take a look at your Pokémon\pSummary Screen." text_5="If you want to check your Pokémon’s\nstats, take a look at your Pokémon\pSummary Screen." text_6="If you want to check your Pokémon’s\nstats, take a look at your Pokémon\pSummary Screen."
+    0826C9E4  callstd              function=MSGBOX_NPC(2)
+    0826C9E6  end                  
+
+  script 0x0826C9E7  [ok]
+    0826C9E7  msgbox_multilang     type=0 text_0="We are Pokémon experts.\nWe can tell how strong a Pokémon is\pjust by looking at it.\pLet me teach you how to!" text_1="We are Pokémon experts.\nWe can tell how strong a Pokémon is\pjust by looking at it.\pLet me teach you how to!" text_2="We are Pokémon experts.\nWe can tell how strong a Pokémon is\pjust by looking at it.\pLet me teach you how to!" text_3="We are Pokémon experts.\nWe can tell how strong a Pokémon is\pjust by looking at it.\pLet me teach you how to!" text_4="We are Pokémon experts.\nWe can tell how strong a Pokémon is\pjust by looking at it.\pLet me teach you how to!" text_5="We are Pokémon experts.\nWe can tell how strong a Pokémon is\pjust by looking at it.\pLet me teach you how to!" text_6="We are Pokémon experts.\nWe can tell how strong a Pokémon is\pjust by looking at it.\pLet me teach you how to!"
+    0826CA05  callstd              function=MSGBOX_NPC(2)
+    0826CA07  fadescreenswapbuffers mode=1
+    0826CA09  nop                  
+    0826CA0A  playfanfare          song=367
+    0826CA0D  waitfanfare          
+    0826CA0E  setflag              flag=0x12C
+    0826CA11  addelevmenuitem      a=32 b=56320 c=0 d=230
+    0826CA19  fadeinbgm            speed=205
+    0826CA1B  specialvar           output=14344 SPECIAL_\function=9933
+    0826CA20  gotostd              function=56
+    0826CA22  setmodernfatefulencounter slot=2086
+    0826CA25  fadeinbgm            speed=205
+    0826CA27  specialvar           output=14344 SPECIAL_\function=9933
+    0826CA2C  gotostd              function=56
+    0826CA2E  setmodernfatefulencounter slot=2086
+    0826CA31  fadeinbgm            speed=205
+    0826CA33  specialvar           output=2312 SPECIAL_\function=1282
+    0826CA38  msgbox_multilang     type=201 text_0=3858761766 text_1=650930688 text_2=650930696 text_3=650930696 text_4=650930696 text_5=650930696 text_6=650930696
+    0826CA56  gotostd              function=106
+    0826CA58  comparehiddenvar     
+    0826CA59  specialvar           output=2312 SPECIAL_\function=514
+    0826CA5E  lock                 
+    0826CA5F  faceplayer           
+    0826CA60  setvar               destination=VAR_0x8008 value=6
+    0826CA65  call                 destination=0x082F80DB
+    0826CA6A  checkflag            flag=0x274
+    0826CA6D  goto_if              condition=1 destination=0x0826CB30
+    0826CA73  msgbox_multilang     type=0 text_0="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_1="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_2="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_3="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_4="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_5="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?" text_6="Hello, there! Do you happen to\nhave a {STR_VAR_1}?\pWould you agree to a trade for\nmy {STR_VAR_2}?"
+    0826CA91  callstd              function=MSGBOX_YESNO(5)
+    0826CA93  compare_var_to_value var=0x800D value=0
+    0826CA98  goto_if              condition=1 destination=0x0826CAE8
+    0826CA9E  call                 destination=0x082F814F
+    0826CAA3  compare_var_to_value var=0x8004 value=6
+    0826CAA8  goto_if              condition=4 destination=0x0826CAE8
+    0826CAAE  call                 destination=0x082F80F2
+    0826CAB3  compare_var_to_var   var1=32781 var2=32777
+    0826CAB8  goto_if              condition=5 destination=0x0826CB0A
+    0826CABE  call                 destination=0x082F813B
+    0826CAC3  msgbox_multilang     type=0 text_0="Thanks!" text_1="Thanks!" text_2="Thanks!" text_3="Thanks!" text_4="Thanks!" text_5="Thanks!" text_6="Thanks!"
+    0826CAE1  callstd              function=MSGBOX_DEFAULT(4)
+    0826CAE3  setflag              flag=0x274
+    0826CAE6  release              
+

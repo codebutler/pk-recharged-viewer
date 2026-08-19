@@ -1,0 +1,230 @@
+Mt. Moon  (group 1, map 3)  header 0x08B3B26C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xC7, flag 0x002F) -> 0x082080C7
+  script 0x082080C7  [unknown-opcode:0xE9]
+    082080C7  lock                 
+    082080C8  faceplayer           
+    082080C9  msgbox_multilang     type=0 text_0="Do you want the Dome Fossil?" text_1="Do you want the Dome Fossil?" text_2="Do you want the Dome Fossil?" text_3="Do you want the Dome Fossil?" text_4="Do you want the Dome Fossil?" text_5="Do you want the Dome Fossil?" text_6="Do you want the Dome Fossil?"
+    082080E7  callstd              function=MSGBOX_YESNO(5)
+    082080E9  compare_var_to_value var=0x800D value=0
+    082080EE  goto_if              condition=1 destination=0x082081F2
+    082080F4  removeobject         localId=1
+
+  script 0x082081F2  [ok]
+    082081F2  release              
+
+  object 2 (gfx 0xC7, flag 0x0030) -> 0x0820815F
+  script 0x0820815F  [unknown-opcode:0xE9]
+    0820815F  lock                 
+    08208160  faceplayer           
+    08208161  msgbox_multilang     type=0 text_0="Do you want the Helix Fossil?" text_1="Do you want the Helix Fossil?" text_2="Do you want the Helix Fossil?" text_3="Do you want the Helix Fossil?" text_4="Do you want the Helix Fossil?" text_5="Do you want the Helix Fossil?" text_6="Do you want the Helix Fossil?"
+    0820817F  callstd              function=MSGBOX_YESNO(5)
+    08208181  compare_var_to_value var=0x800D value=0
+    08208186  goto_if              condition=1 destination=0x082081F2
+    0820818C  removeobject         localId=2
+
+  object 3 (gfx 0x05, flag 0x0000) -> 0x08207A51
+  script 0x08207A51  [ok]
+    08207A51  lock                 
+    08207A52  faceplayer           
+    08207A53  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08207A56  goto_if              condition=1 destination=0x08207A75
+    08207A5C  checkflag            flag=0x232
+    08207A5F  goto_if              condition=1 destination=0x08207AD2
+    08207A65  checktrainerflag     trainer=0xAA
+    08207A68  goto_if              condition=1 destination=0x08207AFC
+    08207A6E  call                 destination=0x08207B89
+    08207A73  release              
+
+  script 0x08207A75  [unknown-opcode:0xE9]
+    08207A75  checkflag            flag=0x277
+    08207A78  goto_if              condition=1 destination=0x08207B28
+    08207A7E  speakername          name="Miguel"
+    08207A83  msgbox_multilang     type=0 text_0="I noticed that Cinnabar Island is too\nfar away for me.\pPlease take the other fossil too." text_1="Noté que la Isla Cinnabar está\ndemasiado lejos para mí.\pPor favor, lleva el otro fósil\ntambién." text_2="J’ai remarqué que l’île Cinnabar est\ntrop loin pour moi.\pS’il te plaît, prends aussi l’autre\nfossile." text_3="Ho notato che l’Isola Cinnabar è\ntroppo lontana per me.\pPer favore, porta anche l’altro\nfossile." text_4="Ich habe bemerkt, dass die\nCinnabar-Insel für mich zu weit\pentfernt ist.\pBitte nimm auch das andere Fossil\nmit." text_5="Percebi que a Ilha Cinnabar está\nmuito longe para mim.\pPor favor, leve o outro fósseis\ntambém." text_6="I noticed that Cinnabar Island is too\nfar away for me.\pPlease take the other fossil too."
+    08207AA1  callstd              function=MSGBOX_DEFAULT(4)
+    08207AA3  checkflag            flag=0x273
+    08207AA6  goto_if              condition=1 destination=0x08207B4F
+    08207AAC  checkflag            flag=0x272
+    08207AAF  goto_if              condition=1 destination=0x08207B59
+
+  script 0x08207AD2  [ok]
+    08207AD2  speakername          name="Miguel"
+    08207AD7  msgbox_multilang     type=0 text_0="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_1="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_2="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_3="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_4="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_5="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_6="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils."
+    08207AF5  callstd              function=MSGBOX_DEFAULT(4)
+    08207AF7  goto                 destination=0x08207A73
+
+  script 0x08207AFC  [ok]
+    08207AFC  speakername          name="Miguel"
+    08207B01  msgbox_multilang     type=0 text_0="We’ll each take a fossil!\nNo being greedy!" text_1="We’ll each take a fossil!\nNo being greedy!" text_2="We’ll each take a fossil!\nNo being greedy!" text_3="We’ll each take a fossil!\nNo being greedy!" text_4="We’ll each take a fossil!\nNo being greedy!" text_5="We’ll each take a fossil!\nNo being greedy!" text_6="We’ll each take a fossil!\nNo being greedy!"
+    08207B1F  callstd              function=MSGBOX_DEFAULT(4)
+    08207B21  goto                 destination=0x08207A73
+
+  script 0x08207B89  [ok]
+    08207B89  textcolor            color=0
+    08207B8B  speakername          name="Miguel"
+    08207B90  message              text="Hey, stop!\pI found these fossils!\nThey’re both mine!"
+    08207B95  setmodernfatefulencounter slot=8328
+    08207B98  gotostd              function=60
+    08207B9A  contestlinktransfer  
+    08207B9B  compare_ptr_to_ptr   ptr1=546548488 ptr2=546904840
+    08207BA4  gotostd              function=113
+    08207BA6  waitfieldeffect      animation=2080
+    08207BA9  updatecoinsbox       x=163 y=32
+    08207BAC  gotostd              function=102
+    08207BAE  playbgm              song=554 save_song=0
+    08207BB2  waitbuttonpress      
+    08207BB3  setvar               destination=VAR_0x800F value=3
+    08207BB8  trainerbattle        type=3 trainer=0xAA localId=0 ptr1=0x082083B0
+    08207BC2  setvar               destination=VAR_0x408B value=1
+    08207BC7  msgbox_multilang     type=0 text_0="We’ll each take a fossil!\nNo being greedy!" text_1="We’ll each take a fossil!\nNo being greedy!" text_2="We’ll each take a fossil!\nNo being greedy!" text_3="We’ll each take a fossil!\nNo being greedy!" text_4="We’ll each take a fossil!\nNo being greedy!" text_5="We’ll each take a fossil!\nNo being greedy!" text_6="We’ll each take a fossil!\nNo being greedy!"
+    08207BE5  callstd              function=MSGBOX_DEFAULT(4)
+    08207BE7  return               
+
+  script 0x08207B28  [ok]
+    08207B28  speakername          name="Miguel"
+    08207B2D  msgbox_multilang     type=0 text_0="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_1="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_2="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_3="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_4="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_5="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils." text_6="Far away, on Cinnabar Island,\nthere’s a Pokémon Lab.\pThey do research on regenerating\nfossils."
+    08207B4B  callstd              function=MSGBOX_DEFAULT(4)
+    08207B4D  release              
+
+  script 0x08207B4F  [ok]
+    08207B4F  setvar               destination=VAR_0x8008 value=402
+    08207B54  goto                 destination=0x08207AB5
+
+  script 0x08207B59  [ok]
+    08207B59  setvar               destination=VAR_0x8008 value=401
+    08207B5E  goto                 destination=0x08207AB5
+
+  script 0x08207A73  [ok]
+    08207A73  release              
+
+  script 0x08207AB5  [unknown-opcode:0xE9]
+
+  object 4 (gfx 0x02, flag 0x00AD) -> 0x08208285
+  script 0x08208285  [ok]
+    08208285  trainerbattle        type=0 trainer=0x162 localId=0 ptr1=0x08208738 ptr2=0x08208786
+    08208293  msgbox_multilang     type=0 text_0="Pokémon lived here long before\npeople came." text_1="Pokémon lived here long before\npeople came." text_2="Pokémon lived here long before\npeople came." text_3="Pokémon lived here long before\npeople came." text_4="Pokémon lived here long before\npeople came." text_5="Pokémon lived here long before\npeople came." text_6="Pokémon lived here long before\npeople came."
+    082082B1  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082082B3  end                  
+
+  object 5 (gfx 0x02, flag 0x00AD) -> 0x082081F8
+  script 0x082081F8  [ok]
+    082081F8  trainerbattle        type=0 trainer=0x15F localId=0 ptr1=0x082085A2 ptr2=0x08208600
+    08208206  msgbox_multilang     type=0 text_0="You made me mad!\nTeam Rocket will blacklist you!" text_1="You made me mad!\nTeam Rocket will blacklist you!" text_2="You made me mad!\nTeam Rocket will blacklist you!" text_3="You made me mad!\nTeam Rocket will blacklist you!" text_4="You made me mad!\nTeam Rocket will blacklist you!" text_5="You made me mad!\nTeam Rocket will blacklist you!" text_6="You made me mad!\nTeam Rocket will blacklist you!"
+    08208224  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08208226  end                  
+
+  object 6 (gfx 0x02, flag 0x00AD) -> 0x08208256
+  script 0x08208256  [ok]
+    08208256  trainerbattle        type=0 trainer=0x161 localId=0 ptr1=0x082086CA ptr2=0x082086F7
+    08208264  msgbox_multilang     type=0 text_0="If you find a fossil, give it to me\nand scram!" text_1="If you find a fossil, give it to me\nand scram!" text_2="If you find a fossil, give it to me\nand scram!" text_3="If you find a fossil, give it to me\nand scram!" text_4="If you find a fossil, give it to me\nand scram!" text_5="If you find a fossil, give it to me\nand scram!" text_6="If you find a fossil, give it to me\nand scram!"
+    08208282  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08208284  end                  
+
+  object 7 (gfx 0x02, flag 0x00AD) -> 0x08208227
+  script 0x08208227  [ok]
+    08208227  trainerbattle        type=0 trainer=0x160 localId=0 ptr1=0x08208644 ptr2=0x0820868E
+    08208235  msgbox_multilang     type=0 text_0="Darn it all!\nMy associates won’t stand for this!" text_1="Darn it all!\nMy associates won’t stand for this!" text_2="Darn it all!\nMy associates won’t stand for this!" text_3="Darn it all!\nMy associates won’t stand for this!" text_4="Darn it all!\nMy associates won’t stand for this!" text_5="Darn it all!\nMy associates won’t stand for this!" text_6="Darn it all!\nMy associates won’t stand for this!"
+    08208253  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08208255  end                  
+
+  object 8 (gfx 0x35, flag 0x015F) -> 0x082D5641
+  script 0x082D5641  [ok]
+    082D5641  setorcopyvar         destination=VAR_0x8000 source=109
+    082D5646  setorcopyvar         destination=VAR_0x8001 source=1
+    082D564B  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Star Piece
+    082D564D  end                  
+
+  object 9 (gfx 0x55, flag 0x0160) -> 0x082D564E
+  script 0x082D564E  [ok]
+    082D564E  setorcopyvar         destination=VAR_0x8000 source=334
+    082D5653  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5658  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM46
+    082D565A  end                  
+
+  object 10 (gfx 0x35, flag 0x01BF) -> 0x082D5AFA
+  script 0x082D5AFA  [ok]
+    082D5AFA  setorcopyvar         destination=VAR_0x8000 source=24
+    082D5AFF  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5B04  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Revive
+    082D5B06  end                  
+
+  object 11 (gfx 0x35, flag 0x01C0) -> 0x082D5B07
+  script 0x082D5B07  [ok]
+    082D5B07  setorcopyvar         destination=VAR_0x8000 source=14
+    082D5B0C  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5B11  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Antidote
+    082D5B13  end                  
+
+  object 12 (gfx 0x40, flag 0x011F) -> 0x08207A0F
+  script 0x08207A0F  [ok]
+    08207A0F  playmoncry           species=MEOWTH(52) mode=0
+    08207A14  speakername          name="Meowth"
+    08207A19  msgbox_multilang     type=0 text_0="Mrowr!" text_1="¡Miau!" text_2="Miaou !" text_3="Miao!" text_4="Miau!" text_5="Miau!" text_6="Mrowr!"
+    08207A37  callstd              function=MSGBOX_DEFAULT(4)
+    08207A39  closemessage         
+    08207A3A  return               
+
+  object 13 (gfx 0x41, flag 0x011F) -> 0x082079E8
+  script 0x082079E8  [ok]
+    082079E8  speakername          name="???"
+    082079ED  msgbox_multilang     type=0 text_0="You can do it, Meowth!" text_1="¡Tú puedes, Meowth!" text_2="Tu peux le faire, Miaouss !" text_3="Puoi farcela, Meowth!" text_4="Du schaffst das, Mauzi!" text_5="Você consegue, Meowth!" text_6="You can do it, Meowth!"
+    08207A0B  callstd              function=MSGBOX_DEFAULT(4)
+    08207A0D  closemessage         
+    08207A0E  return               
+
+  object 14 (gfx 0x42, flag 0x011F) -> 0x082079C1
+  script 0x082079C1  [ok]
+    082079C1  speakername          name="???"
+    082079C6  msgbox_multilang     type=0 text_0="Quit goofing around and go already!" text_1="¡Deja de hacer el tonto y vete ya!" text_2="Arrête de faire l’idiot et pars déjà\n!" text_3="Smettila di fare il buffone e vai\ngià!" text_4="Hör auf, herumzualbern und geh\nendlich!" text_5="Pare de brincar e vá logo!" text_6="Quit goofing around and go already!"
+    082079E4  callstd              function=MSGBOX_DEFAULT(4)
+    082079E6  closemessage         
+    082079E7  return               
+
+  object 15 (gfx 0x41, flag 0x0120) -> 0x00000000
+  object 16 (gfx 0x42, flag 0x0120) -> 0x00000000
+  object 17 (gfx 0x40, flag 0x0120) -> 0x00000000
+  coord trigger 0 (var 0x408B == 0) -> 0x08207A3B
+  script 0x08207A3B  [ok]
+    08207A3B  lockall              
+    08207A3C  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    08207A43  waitmovement         localId=0
+    08207A46  turnobject           localId=255 direction=3
+    08207A4A  call                 destination=0x08207B89
+    08207A4F  releaseall           
+
+  coord trigger 1 (var 0x408B == 1) -> 0x08207BE8
+  script 0x08207BE8  [unknown-opcode:0xE7]
+    08207BE8  lockall              
+
+  coord trigger 2 (var 0x408B == 1) -> 0x08207BE8
+  coord trigger 3 (var 0x408B == 1) -> 0x08207BE8
+  coord trigger 4 (var 0x408B == 1) -> 0x08207BE8
+  hidden item at (20,16): Moon Stone
+
+  hidden item at (39,11): Ether
+
+  map script type 3 -> 0x082079B0
+  script 0x082079B0  [ok]
+    082079B0  checkflag            flag=0x232
+    082079B3  goto_if              condition=0 destination=0x082079BA
+    082079B9  return               
+
+  script 0x082079BA  [ok]
+    082079BA  clearflag            flag=0x02F
+    082079BD  clearflag            flag=0x030
+    082079C0  return               
+

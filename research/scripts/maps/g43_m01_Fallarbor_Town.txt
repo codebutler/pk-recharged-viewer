@@ -1,0 +1,31 @@
+Fallarbor Town  (group 43, map 1)  header 0x08B3E7B0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x07, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x08284C60
+  script 0x08284C60  [ok]
+    08284C60  lockall              
+    08284C61  setvar               destination=VAR_0x4000 value=1
+    08284C66  applymovement        localId=1 movements=[walk_up walk_up walk_up walk_up]
+    08284C6D  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up]
+    08284C74  waitmovement         localId=0
+    08284C77  opendoor             x=2 y=1
+    08284C7C  waitdooranim         
+    08284C7D  applymovement        localId=1 movements=[walk_up set_invisible]
+    08284C84  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08284C8B  waitmovement         localId=0
+    08284C8E  closedoor            x=2 y=1
+    08284C93  waitdooranim         
+    08284C94  setvar               destination=VAR_0x8006 value=0
+    08284C99  warp                 mapGroup=43 mapNum=2 WARP_ID_NONE=255 -1=4 -1=4
+    08284CA1  waitstate            
+

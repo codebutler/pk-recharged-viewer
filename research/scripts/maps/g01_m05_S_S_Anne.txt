@@ -1,0 +1,24 @@
+S.S. Anne  (group 1, map 5)  header 0x08B3B2A4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x31, flag 0x0000) -> 0x0820AA0E
+  script 0x0820AA0E  [ok]
+    0820AA0E  msgbox_multilang     type=0 text_0="The passengers are restless from this\nlong voyage.\pYou might be challenged by the more\nbored ones!" text_1="The passengers are restless from this\nlong voyage.\pYou might be challenged by the more\nbored ones!" text_2="The passengers are restless from this\nlong voyage.\pYou might be challenged by the more\nbored ones!" text_3="The passengers are restless from this\nlong voyage.\pYou might be challenged by the more\nbored ones!" text_4="The passengers are restless from this\nlong voyage.\pYou might be challenged by the more\nbored ones!" text_5="The passengers are restless from this\nlong voyage.\pYou might be challenged by the more\nbored ones!" text_6="The passengers are restless from this\nlong voyage.\pYou might be challenged by the more\nbored ones!"
+    0820AA2C  callstd              function=MSGBOX_NPC(2)
+    0820AA2E  end                  
+
+  object 2 (gfx 0x00, flag 0x0000) -> 0x0820A9ED
+  script 0x0820A9ED  [ok]
+    0820A9ED  msgbox_multilang     type=0 text_0="Bonjour!\nI am le waiter on this ship!\pI will be happy to serve you\nanything you please!\p… … …\nAh! Le strong silent type." text_1="Bonjour!\nI am le waiter on this ship!\pI will be happy to serve you\nanything you please!\p… … …\nAh! Le strong silent type." text_2="Bonjour!\nI am le waiter on this ship!\pI will be happy to serve you\nanything you please!\p… … …\nAh! Le strong silent type." text_3="Bonjour!\nI am le waiter on this ship!\pI will be happy to serve you\nanything you please!\p… … …\nAh! Le strong silent type." text_4="Bonjour!\nI am le waiter on this ship!\pI will be happy to serve you\nanything you please!\p… … …\nAh! Le strong silent type." text_5="Bonjour!\nI am le waiter on this ship!\pI will be happy to serve you\nanything you please!\p… … …\nAh! Le strong silent type." text_6="Bonjour!\nI am le waiter on this ship!\pI will be happy to serve you\nanything you please!\p… … …\nAh! Le strong silent type."
+    0820AA0B  callstd              function=MSGBOX_NPC(2)
+    0820AA0D  end                  
+

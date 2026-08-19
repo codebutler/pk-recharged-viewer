@@ -1,0 +1,18 @@
+Undergound Path  (group 1, map 35)  header 0x08B3B5EC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x14, flag 0x0000) -> 0x0820CCE8
+  script 0x0820CCE8  [ok]
+    0820CCE8  msgbox_multilang     type=0 text_0="The Department Store in Celadon\nhas a great selection.\pDo you go there very often?" text_1="The Department Store in Celadon\nhas a great selection.\pDo you go there very often?" text_2="The Department Store in Celadon\nhas a great selection.\pDo you go there very often?" text_3="The Department Store in Celadon\nhas a great selection.\pDo you go there very often?" text_4="The Department Store in Celadon\nhas a great selection.\pDo you go there very often?" text_5="The Department Store in Celadon\nhas a great selection.\pDo you go there very often?" text_6="The Department Store in Celadon\nhas a great selection.\pDo you go there very often?"
+    0820CD06  callstd              function=MSGBOX_NPC(2)
+    0820CD08  end                  
+

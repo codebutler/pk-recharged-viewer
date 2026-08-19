@@ -1,0 +1,232 @@
+Fuchsia City  (group 11, map 3)  header 0x08B3D534
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x46, flag 0x0000) -> 0x08269666
+  script 0x08269666  [ok]
+    08269666  trainerbattle        type=0 trainer=0x124 localId=0 ptr1=0x08269947 ptr2=0x082699D2
+    08269674  msgbox_multilang     type=0 text_0="So, you mix brawn with brains?\nGood strategy!\pThat’s remarkable for a child\nTrainer." text_1="So, you mix brawn with brains?\nGood strategy!\pThat’s remarkable for a child\nTrainer." text_2="So, you mix brawn with brains?\nGood strategy!\pThat’s remarkable for a child\nTrainer." text_3="So, you mix brawn with brains?\nGood strategy!\pThat’s remarkable for a child\nTrainer." text_4="So, you mix brawn with brains?\nGood strategy!\pThat’s remarkable for a child\nTrainer." text_5="So, you mix brawn with brains?\nGood strategy!\pThat’s remarkable for a child\nTrainer." text_6="So, you mix brawn with brains?\nGood strategy!\pThat’s remarkable for a child\nTrainer."
+    08269692  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08269694  end                  
+
+  object 2 (gfx 0x46, flag 0x0000) -> 0x08269637
+  script 0x08269637  [ok]
+    08269637  trainerbattle        type=0 trainer=0x121 localId=0 ptr1=0x08269CBF ptr2=0x08269D08
+    08269645  msgbox_multilang     type=0 text_0="Where there is light, there is\nshadow!\pLight and shadow!\nWhich do you choose?" text_1="Where there is light, there is\nshadow!\pLight and shadow!\nWhich do you choose?" text_2="Where there is light, there is\nshadow!\pLight and shadow!\nWhich do you choose?" text_3="Where there is light, there is\nshadow!\pLight and shadow!\nWhich do you choose?" text_4="Where there is light, there is\nshadow!\pLight and shadow!\nWhich do you choose?" text_5="Where there is light, there is\nshadow!\pLight and shadow!\nWhich do you choose?" text_6="Where there is light, there is\nshadow!\pLight and shadow!\nWhich do you choose?"
+    08269663  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08269665  end                  
+
+  object 3 (gfx 0x46, flag 0x0000) -> 0x082695FB
+  script 0x082695FB  [ok]
+    082695FB  trainerbattle        type=0 trainer=0x120 localId=0 ptr1=0x08269A3C ptr2=0x08269A97
+    08269609  setvar               destination=VAR_0x8004 value=6
+    0826960E  setvar               destination=VAR_0x8005 value=2
+    08269613  special              SPECIAL_\function=347
+    08269616  msgbox_multilang     type=0 text_0="Even though I’ve lost, I will keep\ntraining according to the teachings\pof Koga, my ninja master." text_1="Even though I’ve lost, I will keep\ntraining according to the teachings\pof Koga, my ninja master." text_2="Even though I’ve lost, I will keep\ntraining according to the teachings\pof Koga, my ninja master." text_3="Even though I’ve lost, I will keep\ntraining according to the teachings\pof Koga, my ninja master." text_4="Even though I’ve lost, I will keep\ntraining according to the teachings\pof Koga, my ninja master." text_5="Even though I’ve lost, I will keep\ntraining according to the teachings\pof Koga, my ninja master." text_6="Even though I’ve lost, I will keep\ntraining according to the teachings\pof Koga, my ninja master."
+    08269634  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08269636  end                  
+
+  object 4 (gfx 0x4D, flag 0x0000) -> 0x082695CC
+  script 0x082695CC  [ok]
+    082695CC  trainerbattle        type=0 trainer=0x127 localId=0 ptr1=0x08269C3D ptr2=0x08269C9D
+    082695DA  msgbox_multilang     type=0 text_0="I still have much to learn." text_1="I still have much to learn." text_2="I still have much to learn." text_3="I still have much to learn." text_4="I still have much to learn." text_5="I still have much to learn." text_6="I still have much to learn."
+    082695F8  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082695FA  end                  
+
+  object 5 (gfx 0x4D, flag 0x0000) -> 0x0826959D
+  script 0x0826959D  [ok]
+    0826959D  trainerbattle        type=0 trainer=0x126 localId=0 ptr1=0x08269B84 ptr2=0x08269BD4
+    082695AB  msgbox_multilang     type=0 text_0="You impressed me!\nHere’s a hint!\pLook very closely for gaps in the\ninvisible walls!" text_1="You impressed me!\nHere’s a hint!\pLook very closely for gaps in the\ninvisible walls!" text_2="You impressed me!\nHere’s a hint!\pLook very closely for gaps in the\ninvisible walls!" text_3="You impressed me!\nHere’s a hint!\pLook very closely for gaps in the\ninvisible walls!" text_4="You impressed me!\nHere’s a hint!\pLook very closely for gaps in the\ninvisible walls!" text_5="You impressed me!\nHere’s a hint!\pLook very closely for gaps in the\ninvisible walls!" text_6="You impressed me!\nHere’s a hint!\pLook very closely for gaps in the\ninvisible walls!"
+    082695C9  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082695CB  end                  
+
+  object 6 (gfx 0x46, flag 0x0000) -> 0x08269695
+  script 0x08269695  [ok]
+    08269695  trainerbattle        type=0 trainer=0x125 localId=0 ptr1=0x08269B06 ptr2=0x08269B30
+    082696A3  msgbox_multilang     type=0 text_0="I like poison and sleep techniques,\nas they linger after battle!" text_1="I like poison and sleep techniques,\nas they linger after battle!" text_2="I like poison and sleep techniques,\nas they linger after battle!" text_3="I like poison and sleep techniques,\nas they linger after battle!" text_4="I like poison and sleep techniques,\nas they linger after battle!" text_5="I like poison and sleep techniques,\nas they linger after battle!" text_6="I like poison and sleep techniques,\nas they linger after battle!"
+    082696C1  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082696C3  end                  
+
+  object 7 (gfx 0x21, flag 0x0000) -> 0x0826940A
+  script 0x0826940A  [ok]
+    0826940A  speakername          name="Koga"
+    0826940F  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08269412  goto_if              condition=1 destination=0x08269467
+    08269418  setvar               destination=VAR_0x8004 value=6
+    0826941D  setvar               destination=VAR_0x8005 value=2
+    08269422  special              SPECIAL_\function=348
+    08269425  trainerbattle        type=1 trainer=0x1A2 localId=0 ptr1=0x0826A07D ptr2=0x08269761 ptr3=0x08269552
+    08269437  checkflag            flag=0x259
+    0826943A  goto_if              condition=0 destination=0x0826949B
+    08269440  speakername          name="Koga"
+    08269445  msgbox_multilang     type=0 text_0="When afflicted by Toxic, a Pokémon\nsuffers more and more.\pIt suffers worsening damage as the\nbattle wears on!\pIt will surely terrorize foes!" text_1="When afflicted by Toxic, a Pokémon\nsuffers more and more.\pIt suffers worsening damage as the\nbattle wears on!\pIt will surely terrorize foes!" text_2="When afflicted by Toxic, a Pokémon\nsuffers more and more.\pIt suffers worsening damage as the\nbattle wears on!\pIt will surely terrorize foes!" text_3="When afflicted by Toxic, a Pokémon\nsuffers more and more.\pIt suffers worsening damage as the\nbattle wears on!\pIt will surely terrorize foes!" text_4="When afflicted by Toxic, a Pokémon\nsuffers more and more.\pIt suffers worsening damage as the\nbattle wears on!\pIt will surely terrorize foes!" text_5="When afflicted by Toxic, a Pokémon\nsuffers more and more.\pIt suffers worsening damage as the\nbattle wears on!\pIt will surely terrorize foes!" text_6="When afflicted by Toxic, a Pokémon\nsuffers more and more.\pIt suffers worsening damage as the\nbattle wears on!\pIt will surely terrorize foes!"
+    08269463  callstd              function=MSGBOX_DEFAULT(4)
+    08269465  release              
+
+  script 0x08269467  [ok]
+    08269467  trainerbattle        type=1 trainer=0x2F3 localId=0 ptr1=0x08269EDE ptr2=0x08269F49 ptr3=0x082694A5
+    08269479  msgbox_multilang     type=0 text_0="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_1="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_2="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_3="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_4="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_5="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_6="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…"
+    08269497  callstd              function=MSGBOX_DEFAULT(4)
+    08269499  release              
+
+  script 0x08269552  [ok]
+    08269552  addelevmenuitem      a=5 b=5632 c=32772 d=6
+    0826955A  setvar               destination=VAR_0x8005 value=1
+    0826955F  special              SPECIAL_\function=347
+    08269562  clearflag            flag=0x09F
+    08269565  setflag              flag=0x4B4
+    08269568  setflag              flag=0x884:BADGE5_SOUL
+    0826956B  setvar               destination=VAR_0x8008 value=5
+    08269570  call                 destination=0x082BBD1A
+    08269575  goto                 destination=0x082694C7
+
+  script 0x0826949B  [ok]
+    0826949B  goto                 destination=0x082694C7
+
+  script 0x082694A5  [ok]
+    082694A5  msgbox_multilang     type=0 text_0="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_1="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_2="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_3="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_4="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_5="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…" text_6="With Trainers like you and\n{RIVAL}, the Pokémon League\pmust be a place of formidable\pstrength!\pTruly, it is something to be proud\nof! As it so happens, I have been\pthinking of aiming to join the Elite\pFour myself…"
+    082694C3  callstd              function=MSGBOX_DEFAULT(4)
+    082694C5  release              
+
+  script 0x082BBD1A  [ok]
+    082BBD1A  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    082BBD1F  compare_var_to_value var=0x8000 value=1
+    082BBD24  goto_if              condition=1 destination=0x082BBD78
+    082BBD2A  compare_var_to_value var=0x8000 value=2
+    082BBD2F  goto_if              condition=1 destination=0x082BBD7F
+    082BBD35  compare_var_to_value var=0x8000 value=3
+    082BBD3A  goto_if              condition=1 destination=0x082BBD86
+    082BBD40  compare_var_to_value var=0x8000 value=4
+    082BBD45  goto_if              condition=1 destination=0x082BBD90
+    082BBD4B  compare_var_to_value var=0x8000 value=5
+    082BBD50  goto_if              condition=1 destination=0x082BBDA6
+    082BBD56  compare_var_to_value var=0x8000 value=6
+    082BBD5B  goto_if              condition=1 destination=0x082BBDB9
+    082BBD61  compare_var_to_value var=0x8000 value=7
+    082BBD66  goto_if              condition=1 destination=0x082BBDCF
+    082BBD6C  compare_var_to_value var=0x8000 value=8
+    082BBD71  goto_if              condition=1 destination=0x082BBDE5
+    082BBD77  end                  
+
+  script 0x082694C7  [unknown-opcode:0xE9]
+    082694C7  speakername          name="Koga"
+    082694CC  msgbox_multilang     type=0 text_0="Now that you have the Soul Badge,\nthe Defense of your Pokémon rises.\pIt also lets you Surf outside of\nbattle.\pAh!\nTake this, too!" text_1="Now that you have the Soul Badge,\nthe Defense of your Pokémon rises.\pIt also lets you Surf outside of\nbattle.\pAh!\nTake this, too!" text_2="Now that you have the Soul Badge,\nthe Defense of your Pokémon rises.\pIt also lets you Surf outside of\nbattle.\pAh!\nTake this, too!" text_3="Now that you have the Soul Badge,\nthe Defense of your Pokémon rises.\pIt also lets you Surf outside of\nbattle.\pAh!\nTake this, too!" text_4="Now that you have the Soul Badge,\nthe Defense of your Pokémon rises.\pIt also lets you Surf outside of\nbattle.\pAh!\nTake this, too!" text_5="Now that you have the Soul Badge,\nthe Defense of your Pokémon rises.\pIt also lets you Surf outside of\nbattle.\pAh!\nTake this, too!" text_6="Now that you have the Soul Badge,\nthe Defense of your Pokémon rises.\pIt also lets you Surf outside of\nbattle.\pAh!\nTake this, too!"
+    082694EA  callstd              function=MSGBOX_DEFAULT(4)
+    082694EC  checkitemspace       itemId=TM06(294) quantity=1
+    082694F1  checkitemspace       itemId=TM06(294) quantity=1
+    082694F6  compare_var_to_value var=0x800D value=0
+    082694FB  goto_if              condition=1 destination=0x08269548
+    08269501  additem              itemId=TM06(294) quantity=1
+
+  script 0x082BBD78  [ok]
+    082BBD78  settrainerflag       trainer=0x8E
+    082BBD7B  settrainerflag       trainer=0x147
+    082BBD7E  return               
+
+  script 0x082BBD7F  [ok]
+    082BBD7F  settrainerflag       trainer=0x96
+    082BBD82  settrainerflag       trainer=0xEA
+    082BBD85  return               
+
+  script 0x082BBD86  [ok]
+    082BBD86  settrainerflag       trainer=0x8D
+    082BBD89  settrainerflag       trainer=0xDC
+    082BBD8C  settrainerflag       trainer=0x1A7
+    082BBD8F  return               
+
+  script 0x082BBD90  [ok]
+    082BBD90  settrainerflag       trainer=0x84
+    082BBD93  settrainerflag       trainer=0x85
+    082BBD96  settrainerflag       trainer=0xA0
+    082BBD99  settrainerflag       trainer=0x109
+    082BBD9C  settrainerflag       trainer=0x10A
+    082BBD9F  settrainerflag       trainer=0x10B
+    082BBDA2  settrainerflag       trainer=0x192
+    082BBDA5  return               
+
+  script 0x082BBDA6  [ok]
+    082BBDA6  settrainerflag       trainer=0x126
+    082BBDA9  settrainerflag       trainer=0x127
+    082BBDAC  settrainerflag       trainer=0x120
+    082BBDAF  settrainerflag       trainer=0x121
+    082BBDB2  settrainerflag       trainer=0x124
+    082BBDB5  settrainerflag       trainer=0x125
+    082BBDB8  return               
+
+  script 0x082BBDB9  [ok]
+    082BBDB9  settrainerflag       trainer=0x118
+    082BBDBC  settrainerflag       trainer=0x119
+    082BBDBF  settrainerflag       trainer=0x11A
+    082BBDC2  settrainerflag       trainer=0x11B
+    082BBDC5  settrainerflag       trainer=0x1CE
+    082BBDC8  settrainerflag       trainer=0x1CF
+    082BBDCB  settrainerflag       trainer=0x1D0
+    082BBDCE  return               
+
+  script 0x082BBDCF  [ok]
+    082BBDCF  settrainerflag       trainer=0xB1
+    082BBDD2  settrainerflag       trainer=0xB2
+    082BBDD5  settrainerflag       trainer=0xB3
+    082BBDD8  settrainerflag       trainer=0xB4
+    082BBDDB  settrainerflag       trainer=0xD5
+    082BBDDE  settrainerflag       trainer=0xD6
+    082BBDE1  settrainerflag       trainer=0xD7
+    082BBDE4  return               
+
+  script 0x082BBDE5  [ok]
+    082BBDE5  settrainerflag       trainer=0x128
+    082BBDE8  settrainerflag       trainer=0x129
+    082BBDEB  settrainerflag       trainer=0x142
+    082BBDEE  settrainerflag       trainer=0x143
+    082BBDF1  settrainerflag       trainer=0x144
+    082BBDF4  settrainerflag       trainer=0x188
+    082BBDF7  settrainerflag       trainer=0x190
+    082BBDFA  settrainerflag       trainer=0x191
+    082BBDFD  return               
+
+  script 0x08269548  [ok]
+    08269548  goto                 destination=0x0826957B
+
+  script 0x0826957B  [ok]
+    0826957B  msgbox_multilang     type=0 text_0="Make space for this, child!" text_1="Make space for this, child!" text_2="Make space for this, child!" text_3="Make space for this, child!" text_4="Make space for this, child!" text_5="Make space for this, child!" text_6="Make space for this, child!"
+    08269599  callstd              function=MSGBOX_DEFAULT(4)
+    0826959B  release              
+
+  object 8 (gfx 0x27, flag 0x0000) -> 0x082696C4
+  script 0x082696C4  [ok]
+    082696C4  lock                 
+    082696C5  faceplayer           
+    082696C6  checkflag            flag=0x4B4
+    082696C9  goto_if              condition=1 destination=0x082696F1
+    082696CF  msgbox_multilang     type=0 text_0="Yo!\nChamp in the making!\pFUCHSIA GYM is a tricked-up place.\nIt’s riddled with invisible walls!\pKoga might appear close, but he’s\nblocked off.\pYou have to find gaps in the walls\nto reach him." text_1="Yo!\nChamp in the making!\pFUCHSIA GYM is a tricked-up place.\nIt’s riddled with invisible walls!\pKoga might appear close, but he’s\nblocked off.\pYou have to find gaps in the walls\nto reach him." text_2="Yo!\nChamp in the making!\pFUCHSIA GYM is a tricked-up place.\nIt’s riddled with invisible walls!\pKoga might appear close, but he’s\nblocked off.\pYou have to find gaps in the walls\nto reach him." text_3="Yo!\nChamp in the making!\pFUCHSIA GYM is a tricked-up place.\nIt’s riddled with invisible walls!\pKoga might appear close, but he’s\nblocked off.\pYou have to find gaps in the walls\nto reach him." text_4="Yo!\nChamp in the making!\pFUCHSIA GYM is a tricked-up place.\nIt’s riddled with invisible walls!\pKoga might appear close, but he’s\nblocked off.\pYou have to find gaps in the walls\nto reach him." text_5="Yo!\nChamp in the making!\pFUCHSIA GYM is a tricked-up place.\nIt’s riddled with invisible walls!\pKoga might appear close, but he’s\nblocked off.\pYou have to find gaps in the walls\nto reach him." text_6="Yo!\nChamp in the making!\pFUCHSIA GYM is a tricked-up place.\nIt’s riddled with invisible walls!\pKoga might appear close, but he’s\nblocked off.\pYou have to find gaps in the walls\nto reach him."
+    082696ED  callstd              function=MSGBOX_DEFAULT(4)
+    082696EF  release              
+
+  script 0x082696F1  [ok]
+    082696F1  msgbox_multilang     type=0 text_0="It’s amazing how ninja can terrify,\neven now!" text_1="It’s amazing how ninja can terrify,\neven now!" text_2="It’s amazing how ninja can terrify,\neven now!" text_3="It’s amazing how ninja can terrify,\neven now!" text_4="It’s amazing how ninja can terrify,\neven now!" text_5="It’s amazing how ninja can terrify,\neven now!" text_6="It’s amazing how ninja can terrify,\neven now!"
+    0826970F  callstd              function=MSGBOX_DEFAULT(4)
+    08269711  release              
+
+  sign 0 at (4,19) -> 0x08269713
+  script 0x08269713  [ok]
+    08269713  lockall              
+    08269714  checkflag            flag=0x884:BADGE5_SOUL
+    08269717  goto_if              condition=1 destination=0x0826973F
+    0826971D  msgbox_multilang     type=0 text_0="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}" text_1="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}" text_2="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}" text_3="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}" text_4="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}" text_5="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}" text_6="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}"
+    0826973B  callstd              function=MSGBOX_DEFAULT(4)
+    0826973D  releaseall           
+
+  script 0x0826973F  [ok]
+    0826973F  msgbox_multilang     type=0 text_0="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_1="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_2="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_3="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_4="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_5="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_6="Fuchsia Pokémon Gym\nLeader: Koga\pWinning Trainers:\n{RIVAL}, {PLAYER}"
+    0826975D  callstd              function=MSGBOX_DEFAULT(4)
+    0826975F  releaseall           
+
+  sign 1 at (10,19) -> 0x08269713

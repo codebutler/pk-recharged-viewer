@@ -1,0 +1,55 @@
+Celadon City  (group 10, map 1)  header 0x08B3D2CC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2F, flag 0x0000) -> 0x0825FC0E
+  script 0x0825FC0E  [ok]
+    0825FC0E  msgbox_multilang     type=0 text_0="For long outings, you should buy\nRevive." text_1="For long outings, you should buy\nRevive." text_2="For long outings, you should buy\nRevive." text_3="For long outings, you should buy\nRevive." text_4="For long outings, you should buy\nRevive." text_5="For long outings, you should buy\nRevive." text_6="For long outings, you should buy\nRevive."
+    0825FC2C  callstd              function=MSGBOX_NPC(2)
+    0825FC2E  end                  
+
+  object 2 (gfx 0x11, flag 0x0000) -> 0x0825FC50
+  script 0x0825FC50  [opcode-out-of-range:0xFE]
+    0825FC50  lock                 
+    0825FC51  faceplayer           
+    0825FC52  call                 destination=0x082BB330
+    0825FC57  message              text="Hi, there!\nMay I help you?"
+    0825FC5C  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 3 (gfx 0x11, flag 0x0000) -> 0x0825FCBA
+  script 0x0825FCBA  [opcode-out-of-range:0xFE]
+    0825FCBA  lock                 
+    0825FCBB  faceplayer           
+    0825FCBC  call                 destination=0x082BB330
+    0825FCC1  message              text="Hi, there!\nMay I help you?"
+    0825FCC6  showmonpic           species=?(8190) x=8 y=117
+
+  object 4 (gfx 0x10, flag 0x009D) -> 0x081F29A6
+  script 0x081F29A6  [ok]
+    081F29A6  lock                 
+    081F29A7  faceplayer           
+    081F29A8  setvar               destination=VAR_0x8004 value=12
+    081F29AD  setvar               destination=VAR_0x8005 value=3
+    081F29B2  special              SPECIAL_\function=347
+    081F29B5  msgbox_multilang     type=0 text_0="We have a customer, Lance, who\noccasionally comes.\pHe always buys capes.\pI wonder… Does he have many\nidentical capes at home?" text_1="We have a customer, Lance, who\noccasionally comes.\pHe always buys capes.\pI wonder… Does he have many\nidentical capes at home?" text_2="We have a customer, Lance, who\noccasionally comes.\pHe always buys capes.\pI wonder… Does he have many\nidentical capes at home?" text_3="We have a customer, Lance, who\noccasionally comes.\pHe always buys capes.\pI wonder… Does he have many\nidentical capes at home?" text_4="We have a customer, Lance, who\noccasionally comes.\pHe always buys capes.\pI wonder… Does he have many\nidentical capes at home?" text_5="We have a customer, Lance, who\noccasionally comes.\pHe always buys capes.\pI wonder… Does he have many\nidentical capes at home?" text_6="We have a customer, Lance, who\noccasionally comes.\pHe always buys capes.\pI wonder… Does he have many\nidentical capes at home?"
+    081F29D3  callstd              function=MSGBOX_DEFAULT(4)
+    081F29D5  release              
+
+  sign 0 at (4,1) -> 0x0825FC2F
+  script 0x0825FC2F  [ok]
+    0825FC2F  msgbox_multilang     type=0 text_0="Top-Grade Items for Trainers!\p2F: Trainer’s Market" text_1="Top-Grade Items for Trainers!\p2F: Trainer’s Market" text_2="Top-Grade Items for Trainers!\p2F: Trainer’s Market" text_3="Top-Grade Items for Trainers!\p2F: Trainer’s Market" text_4="Top-Grade Items for Trainers!\p2F: Trainer’s Market" text_5="Top-Grade Items for Trainers!\p2F: Trainer’s Market" text_6="Top-Grade Items for Trainers!\p2F: Trainer’s Market"
+    0825FC4D  callstd              function=MSGBOX_SIGN(3)
+    0825FC4F  end                  
+

@@ -1,0 +1,30 @@
+Safari Zone  (group 1, map 70)  header 0x08B3B9C0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x08212D0E
+  script 0x08212D0E  [ok]
+    08212D0E  msgbox_multilang     type=0 text_0="Tossing Rocks at Pokémon might\nmake them run, but they’ll be\peasier to catch." text_1="Tossing Rocks at Pokémon might\nmake them run, but they’ll be\peasier to catch." text_2="Tossing Rocks at Pokémon might\nmake them run, but they’ll be\peasier to catch." text_3="Tossing Rocks at Pokémon might\nmake them run, but they’ll be\peasier to catch." text_4="Tossing Rocks at Pokémon might\nmake them run, but they’ll be\peasier to catch." text_5="Tossing Rocks at Pokémon might\nmake them run, but they’ll be\peasier to catch." text_6="Tossing Rocks at Pokémon might\nmake them run, but they’ll be\peasier to catch."
+    08212D2C  callstd              function=MSGBOX_NPC(2)
+    08212D2E  end                  
+
+  object 2 (gfx 0xF2, flag 0x0000) -> 0x08212CED
+  script 0x08212CED  [ok]
+    08212CED  msgbox_multilang     type=0 text_0="Using Bait will make Pokémon more\nlikely to stick around if they get\pbusy eating." text_1="Using Bait will make Pokémon more\nlikely to stick around if they get\pbusy eating." text_2="Using Bait will make Pokémon more\nlikely to stick around if they get\pbusy eating." text_3="Using Bait will make Pokémon more\nlikely to stick around if they get\pbusy eating." text_4="Using Bait will make Pokémon more\nlikely to stick around if they get\pbusy eating." text_5="Using Bait will make Pokémon more\nlikely to stick around if they get\pbusy eating." text_6="Using Bait will make Pokémon more\nlikely to stick around if they get\pbusy eating."
+    08212D0B  callstd              function=MSGBOX_NPC(2)
+    08212D0D  end                  
+
+  object 3 (gfx 0xFB, flag 0x0000) -> 0x08212D2F
+  script 0x08212D2F  [ok]
+    08212D2F  msgbox_multilang     type=0 text_0="I hiked a lot, but I didn’t see any\nPokémon I wanted." text_1="I hiked a lot, but I didn’t see any\nPokémon I wanted." text_2="I hiked a lot, but I didn’t see any\nPokémon I wanted." text_3="I hiked a lot, but I didn’t see any\nPokémon I wanted." text_4="I hiked a lot, but I didn’t see any\nPokémon I wanted." text_5="I hiked a lot, but I didn’t see any\nPokémon I wanted." text_6="I hiked a lot, but I didn’t see any\nPokémon I wanted."
+    08212D4D  callstd              function=MSGBOX_NPC(2)
+    08212D4F  end                  
+

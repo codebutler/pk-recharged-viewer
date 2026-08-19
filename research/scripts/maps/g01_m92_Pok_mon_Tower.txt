@@ -1,0 +1,98 @@
+Pokémon Tower  (group 1, map 92)  header 0x08B3BC28
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0A, flag 0x0000) -> 0x08217537
+  script 0x08217537  [ok]
+    08217537  trainerbattle        type=0 trainer=0x1C0 localId=0 ptr1=0x082175F5 ptr2=0x08217609
+    08217545  msgbox_multilang     type=0 text_0="I was possessed." text_1="I was possessed." text_2="I was possessed." text_3="I was possessed." text_4="I was possessed." text_5="I was possessed." text_6="I was possessed."
+    08217563  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08217565  end                  
+
+  object 2 (gfx 0x0A, flag 0x0000) -> 0x08217508
+  script 0x08217508  [ok]
+    08217508  trainerbattle        type=0 trainer=0x1BF localId=0 ptr1=0x082175C4 ptr2=0x082175D7
+    08217516  msgbox_multilang     type=0 text_0="I was under possession." text_1="I was under possession." text_2="I was under possession." text_3="I was under possession." text_4="I was under possession." text_5="I was under possession." text_6="I was under possession."
+    08217534  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08217536  end                  
+
+  object 3 (gfx 0x0A, flag 0x0000) -> 0x08217566
+  script 0x08217566  [ok]
+    08217566  trainerbattle        type=0 trainer=0x1C1 localId=0 ptr1=0x0821762C ptr2=0x08217635
+    08217574  msgbox_multilang     type=0 text_0="I regained my senses." text_1="I regained my senses." text_2="I regained my senses." text_3="I regained my senses." text_4="I regained my senses." text_5="I regained my senses." text_6="I regained my senses."
+    08217592  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08217594  end                  
+
+  object 4 (gfx 0x0A, flag 0x0000) -> 0x08217595
+  script 0x08217595  [ok]
+    08217595  trainerbattle        type=0 trainer=0x1C2 localId=0 ptr1=0x0821764F ptr2=0x0821765C
+    082175A3  msgbox_multilang     type=0 text_0="I fell to evil spirits despite my\ntraining in the mountains…" text_1="I fell to evil spirits despite my\ntraining in the mountains…" text_2="I fell to evil spirits despite my\ntraining in the mountains…" text_3="I fell to evil spirits despite my\ntraining in the mountains…" text_4="I fell to evil spirits despite my\ntraining in the mountains…" text_5="I fell to evil spirits despite my\ntraining in the mountains…" text_6="I fell to evil spirits despite my\ntraining in the mountains…"
+    082175C1  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082175C3  end                  
+
+  object 5 (gfx 0x0A, flag 0x0000) -> 0x082174AE
+  script 0x082174AE  [ok]
+    082174AE  msgbox_multilang     type=0 text_0="Come, child!\nI have purified this space.\pYou can rest here." text_1="Come, child!\nI have purified this space.\pYou can rest here." text_2="Come, child!\nI have purified this space.\pYou can rest here." text_3="Come, child!\nI have purified this space.\pYou can rest here." text_4="Come, child!\nI have purified this space.\pYou can rest here." text_5="Come, child!\nI have purified this space.\pYou can rest here." text_6="Come, child!\nI have purified this space.\pYou can rest here."
+    082174CC  callstd              function=MSGBOX_NPC(2)
+    082174CE  end                  
+
+  object 6 (gfx 0x35, flag 0x017B) -> 0x082D57AD
+  script 0x082D57AD  [ok]
+    082D57AD  setorcopyvar         destination=VAR_0x8000 source=110
+    082D57B2  setorcopyvar         destination=VAR_0x8001 source=1
+    082D57B7  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Nugget
+    082D57B9  end                  
+
+  object 7 (gfx 0x35, flag 0x01D0) -> 0x082D5BD7
+  script 0x082D5BD7  [ok]
+    082D5BD7  setorcopyvar         destination=VAR_0x8000 source=190
+    082D5BDC  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5BE1  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Cleanse Tag
+    082D5BE3  end                  
+
+  coord trigger 0 (var 0x4001 == 0) -> 0x082174CF
+  script 0x082174CF  [ok]
+    082174CF  lockall              
+    082174D0  fadescreenswapbuffers mode=3
+    082174D2  nop                  
+    082174D3  special              SPECIAL_\function=0
+    082174D6  fadescreenswapbuffers mode=2
+    082174D8  nop                  
+    082174D9  msgbox_multilang     type=0 text_0="Entered the purified and protected\nzone.\p{PLAYER}’s Pokémon were fully\nhealed." text_1="Entered the purified and protected\nzone.\p{PLAYER}’s Pokémon were fully\nhealed." text_2="Entered the purified and protected\nzone.\p{PLAYER}’s Pokémon were fully\nhealed." text_3="Entered the purified and protected\nzone.\p{PLAYER}’s Pokémon were fully\nhealed." text_4="Entered the purified and protected\nzone.\p{PLAYER}’s Pokémon were fully\nhealed." text_5="Entered the purified and protected\nzone.\p{PLAYER}’s Pokémon were fully\nhealed." text_6="Entered the purified and protected\nzone.\p{PLAYER}’s Pokémon were fully\nhealed."
+    082174F7  callstd              function=MSGBOX_DEFAULT(4)
+    082174F9  setvar               destination=VAR_0x4001 value=1
+    082174FE  releaseall           
+
+  coord trigger 1 (var 0x4001 == 0) -> 0x082174CF
+  coord trigger 2 (var 0x4001 == 0) -> 0x082174CF
+  coord trigger 3 (var 0x4001 == 0) -> 0x082174CF
+  coord trigger 4 (var 0x4001 == 1) -> 0x08217500
+  script 0x08217500  [ok]
+    08217500  lockall              
+    08217501  setvar               destination=VAR_0x4001 value=0
+    08217506  releaseall           
+
+  coord trigger 5 (var 0x4001 == 0) -> 0x082174CF
+  coord trigger 6 (var 0x4001 == 0) -> 0x082174CF
+  coord trigger 7 (var 0x4001 == 0) -> 0x082174CF
+  coord trigger 8 (var 0x4001 == 0) -> 0x082174CF
+  coord trigger 9 (var 0x4001 == 1) -> 0x08217500
+  coord trigger 10 (var 0x4001 == 1) -> 0x08217500
+  coord trigger 11 (var 0x4001 == 1) -> 0x08217500
+  coord trigger 12 (var 0x4001 == 1) -> 0x08217500
+  coord trigger 13 (var 0x4001 == 1) -> 0x08217500
+  coord trigger 14 (var 0x4001 == 1) -> 0x08217500
+  coord trigger 15 (var 0x4001 == 1) -> 0x08217500
+  coord trigger 16 (var 0x4001 == 1) -> 0x08217500
+  hidden item at (7,3): Big Mushroom
+

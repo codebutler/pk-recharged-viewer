@@ -1,0 +1,92 @@
+Battle Frontier  (group 41, map 40)  header 0x08B3E510
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x31, flag 0x0000) -> 0x082B46D3
+  script 0x082B46D3  [ok]
+    082B46D3  msgbox_multilang     type=0 text_0="Those ladies, the way they bad-mouth\neach other, you probably think that\pthey don’t get along.\pBut if that were true, they wouldn’t\nstay out here together, would they?" text_1="Those ladies, the way they bad-mouth\neach other, you probably think that\pthey don’t get along.\pBut if that were true, they wouldn’t\nstay out here together, would they?" text_2="Those ladies, the way they bad-mouth\neach other, you probably think that\pthey don’t get along.\pBut if that were true, they wouldn’t\nstay out here together, would they?" text_3="Those ladies, the way they bad-mouth\neach other, you probably think that\pthey don’t get along.\pBut if that were true, they wouldn’t\nstay out here together, would they?" text_4="Those ladies, the way they bad-mouth\neach other, you probably think that\pthey don’t get along.\pBut if that were true, they wouldn’t\nstay out here together, would they?" text_5="Those ladies, the way they bad-mouth\neach other, you probably think that\pthey don’t get along.\pBut if that were true, they wouldn’t\nstay out here together, would they?" text_6="Those ladies, the way they bad-mouth\neach other, you probably think that\pthey don’t get along.\pBut if that were true, they wouldn’t\nstay out here together, would they?"
+    082B46F1  callstd              function=MSGBOX_NPC(2)
+    082B46F3  end                  
+
+  object 2 (gfx 0x16, flag 0x0000) -> 0x082B40FD
+  script 0x082B40FD  [ok]
+    082B40FD  lock                 
+    082B40FE  faceplayer           
+    082B40FF  setvar               destination=VAR_0x400C value=9
+    082B4104  checkflag            flag=0x115
+    082B4107  goto_if              condition=1 destination=0x082B4136
+    082B410D  msgbox_multilang     type=0 text_0="Buhahaha!\pYou couldn’t tell it from looking now,\nbut I used to be one tough TRAINER.\pI had a reputation as the toughest\nBEAUTY around, I tell you!\p… … … … … …\pWhat is it now?\nYou don’t believe me.\pI’m not like that blowhard woman over\nthere. I’m actually talented!\pLet me prove it to you.\nI can teach your POKéMON special and\pyet cute moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_1="Buhahaha!\pYou couldn’t tell it from looking now,\nbut I used to be one tough TRAINER.\pI had a reputation as the toughest\nBEAUTY around, I tell you!\p… … … … … …\pWhat is it now?\nYou don’t believe me.\pI’m not like that blowhard woman over\nthere. I’m actually talented!\pLet me prove it to you.\nI can teach your POKéMON special and\pyet cute moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_2="Buhahaha!\pYou couldn’t tell it from looking now,\nbut I used to be one tough TRAINER.\pI had a reputation as the toughest\nBEAUTY around, I tell you!\p… … … … … …\pWhat is it now?\nYou don’t believe me.\pI’m not like that blowhard woman over\nthere. I’m actually talented!\pLet me prove it to you.\nI can teach your POKéMON special and\pyet cute moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_3="Buhahaha!\pYou couldn’t tell it from looking now,\nbut I used to be one tough TRAINER.\pI had a reputation as the toughest\nBEAUTY around, I tell you!\p… … … … … …\pWhat is it now?\nYou don’t believe me.\pI’m not like that blowhard woman over\nthere. I’m actually talented!\pLet me prove it to you.\nI can teach your POKéMON special and\pyet cute moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_4="Buhahaha!\pYou couldn’t tell it from looking now,\nbut I used to be one tough TRAINER.\pI had a reputation as the toughest\nBEAUTY around, I tell you!\p… … … … … …\pWhat is it now?\nYou don’t believe me.\pI’m not like that blowhard woman over\nthere. I’m actually talented!\pLet me prove it to you.\nI can teach your POKéMON special and\pyet cute moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_5="Buhahaha!\pYou couldn’t tell it from looking now,\nbut I used to be one tough TRAINER.\pI had a reputation as the toughest\nBEAUTY around, I tell you!\p… … … … … …\pWhat is it now?\nYou don’t believe me.\pI’m not like that blowhard woman over\nthere. I’m actually talented!\pLet me prove it to you.\nI can teach your POKéMON special and\pyet cute moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_6="Buhahaha!\pYou couldn’t tell it from looking now,\nbut I used to be one tough TRAINER.\pI had a reputation as the toughest\nBEAUTY around, I tell you!\p… … … … … …\pWhat is it now?\nYou don’t believe me.\pI’m not like that blowhard woman over\nthere. I’m actually talented!\pLet me prove it to you.\nI can teach your POKéMON special and\pyet cute moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?"
+    082B412B  callstd              function=MSGBOX_DEFAULT(4)
+    082B412D  setflag              flag=0x115
+    082B4130  goto                 destination=0x082B415C
+
+  script 0x082B4136  [ok]
+    082B4136  msgbox_multilang     type=0 text_0="Buhahaha!\pAre you back to learn special and\nyet cute POKéMON moves?" text_1="Buhahaha!\pAre you back to learn special and\nyet cute POKéMON moves?" text_2="Buhahaha!\pAre you back to learn special and\nyet cute POKéMON moves?" text_3="Buhahaha!\pAre you back to learn special and\nyet cute POKéMON moves?" text_4="Buhahaha!\pAre you back to learn special and\nyet cute POKéMON moves?" text_5="Buhahaha!\pAre you back to learn special and\nyet cute POKéMON moves?" text_6="Buhahaha!\pAre you back to learn special and\nyet cute POKéMON moves?"
+    082B4154  callstd              function=MSGBOX_DEFAULT(4)
+    082B4156  goto                 destination=0x082B415C
+
+  script 0x082B415C  [ok]
+    082B415C  message              text="Fine, fine, look here!\nWhich move should I teach?"
+    082B4161  addvar               destination=11081 value=5896
+    082B4166  addpcitem            itemId=item_2091(2091) quantity=18711
+    082B416B  checkflag            flag=0x1708
+    082B416E  addpcitem            itemId=item_2091(2091) quantity=18711
+    082B4173  checkflag            flag=0x1708
+    082B4176  addpcitem            itemId=item_2091(2091) quantity=9574
+    082B417B  special              SPECIAL_\function=5633
+    082B417E  setmysteryeventstatus value=64
+    082B4180  nop                  
+    082B4181  nop                  
+    082B4182  setvar               destination=VAR_0x8004 value=9
+    082B4187  setvar               destination=VAR_0x8006 value=0
+    082B418C  special              SPECIAL_\function=284
+    082B418F  waitstate            
+
+  object 3 (gfx 0x16, flag 0x0000) -> 0x082B434D
+  script 0x082B434D  [ok]
+    082B434D  lock                 
+    082B434E  faceplayer           
+    082B434F  setvar               destination=VAR_0x400C value=10
+    082B4354  checkflag            flag=0x117
+    082B4357  goto_if              condition=1 destination=0x082B4386
+    082B435D  msgbox_multilang     type=0 text_0="Ihihihi!\pI know it’s hard to see now, but I used\nto be one fantastic TRAINER.\pI had a reputation as the most\ninvincible SWIMMER around, I tell you!\p… … … … … …\pWhat’s wrong?\nYou don’t believe me.\pI’m not like that buffoonish woman over\nthere. I’m actually experienced!\pI can prove it to you.\nI can teach your POKéMON hard and\pyet pretty moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_1="Ihihihi!\pI know it’s hard to see now, but I used\nto be one fantastic TRAINER.\pI had a reputation as the most\ninvincible SWIMMER around, I tell you!\p… … … … … …\pWhat’s wrong?\nYou don’t believe me.\pI’m not like that buffoonish woman over\nthere. I’m actually experienced!\pI can prove it to you.\nI can teach your POKéMON hard and\pyet pretty moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_2="Ihihihi!\pI know it’s hard to see now, but I used\nto be one fantastic TRAINER.\pI had a reputation as the most\ninvincible SWIMMER around, I tell you!\p… … … … … …\pWhat’s wrong?\nYou don’t believe me.\pI’m not like that buffoonish woman over\nthere. I’m actually experienced!\pI can prove it to you.\nI can teach your POKéMON hard and\pyet pretty moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_3="Ihihihi!\pI know it’s hard to see now, but I used\nto be one fantastic TRAINER.\pI had a reputation as the most\ninvincible SWIMMER around, I tell you!\p… … … … … …\pWhat’s wrong?\nYou don’t believe me.\pI’m not like that buffoonish woman over\nthere. I’m actually experienced!\pI can prove it to you.\nI can teach your POKéMON hard and\pyet pretty moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_4="Ihihihi!\pI know it’s hard to see now, but I used\nto be one fantastic TRAINER.\pI had a reputation as the most\ninvincible SWIMMER around, I tell you!\p… … … … … …\pWhat’s wrong?\nYou don’t believe me.\pI’m not like that buffoonish woman over\nthere. I’m actually experienced!\pI can prove it to you.\nI can teach your POKéMON hard and\pyet pretty moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_5="Ihihihi!\pI know it’s hard to see now, but I used\nto be one fantastic TRAINER.\pI had a reputation as the most\ninvincible SWIMMER around, I tell you!\p… … … … … …\pWhat’s wrong?\nYou don’t believe me.\pI’m not like that buffoonish woman over\nthere. I’m actually experienced!\pI can prove it to you.\nI can teach your POKéMON hard and\pyet pretty moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?" text_6="Ihihihi!\pI know it’s hard to see now, but I used\nto be one fantastic TRAINER.\pI had a reputation as the most\ninvincible SWIMMER around, I tell you!\p… … … … … …\pWhat’s wrong?\nYou don’t believe me.\pI’m not like that buffoonish woman over\nthere. I’m actually experienced!\pI can prove it to you.\nI can teach your POKéMON hard and\pyet pretty moves.\pBut my lessons don’t come free.\nHow about paying for the moves I teach\pwith a wee bit of Battle Points?"
+    082B437B  callstd              function=MSGBOX_DEFAULT(4)
+    082B437D  setflag              flag=0x117
+    082B4380  goto                 destination=0x082B43AC
+
+  script 0x082B4386  [ok]
+    082B4386  msgbox_multilang     type=0 text_0="Ihihihi!\pHave you come to learn hard and\nyet pretty POKéMON moves?" text_1="Ihihihi!\pHave you come to learn hard and\nyet pretty POKéMON moves?" text_2="Ihihihi!\pHave you come to learn hard and\nyet pretty POKéMON moves?" text_3="Ihihihi!\pHave you come to learn hard and\nyet pretty POKéMON moves?" text_4="Ihihihi!\pHave you come to learn hard and\nyet pretty POKéMON moves?" text_5="Ihihihi!\pHave you come to learn hard and\nyet pretty POKéMON moves?" text_6="Ihihihi!\pHave you come to learn hard and\nyet pretty POKéMON moves?"
+    082B43A4  callstd              function=MSGBOX_DEFAULT(4)
+    082B43A6  goto                 destination=0x082B43AC
+
+  script 0x082B43AC  [ok]
+    082B43AC  message              text="Fine, fine, look here!\nWhich move should I teach?"
+    082B43B1  addvar               destination=11081 value=5896
+    082B43B6  addpcitem            itemId=item_2091(2091) quantity=18711
+    082B43BB  checkflag            flag=0x1708
+    082B43BE  addpcitem            itemId=item_2091(2091) quantity=18711
+    082B43C3  checkflag            flag=0x1708
+    082B43C6  addpcitem            itemId=item_2091(2091) quantity=9574
+    082B43CB  special              SPECIAL_\function=5633
+    082B43CE  setmysteryeventstatus value=64
+    082B43D0  nop1                 
+    082B43D1  nop                  
+    082B43D2  setvar               destination=VAR_0x8004 value=10
+    082B43D7  setvar               destination=VAR_0x8006 value=0
+    082B43DC  special              SPECIAL_\function=284
+    082B43DF  waitstate            
+
+  object 4 (gfx 0x30, flag 0x0000) -> 0x082B46F4
+  script 0x082B46F4  [ok]
+    082B46F4  msgbox_multilang     type=0 text_0="When I was just a wee YOUNGSTER,\nthose ladies were strong and beautiful.\pThey were idols among us TRAINERS.\pEven now, age hasn’t dulled their\nabilities.\pIn fact, their POKéMON moves have\ngrown even more polished.\pBut… For some reason, I can’t help\nbut feel this…\pTime is so cruel…" text_1="When I was just a wee YOUNGSTER,\nthose ladies were strong and beautiful.\pThey were idols among us TRAINERS.\pEven now, age hasn’t dulled their\nabilities.\pIn fact, their POKéMON moves have\ngrown even more polished.\pBut… For some reason, I can’t help\nbut feel this…\pTime is so cruel…" text_2="When I was just a wee YOUNGSTER,\nthose ladies were strong and beautiful.\pThey were idols among us TRAINERS.\pEven now, age hasn’t dulled their\nabilities.\pIn fact, their POKéMON moves have\ngrown even more polished.\pBut… For some reason, I can’t help\nbut feel this…\pTime is so cruel…" text_3="When I was just a wee YOUNGSTER,\nthose ladies were strong and beautiful.\pThey were idols among us TRAINERS.\pEven now, age hasn’t dulled their\nabilities.\pIn fact, their POKéMON moves have\ngrown even more polished.\pBut… For some reason, I can’t help\nbut feel this…\pTime is so cruel…" text_4="When I was just a wee YOUNGSTER,\nthose ladies were strong and beautiful.\pThey were idols among us TRAINERS.\pEven now, age hasn’t dulled their\nabilities.\pIn fact, their POKéMON moves have\ngrown even more polished.\pBut… For some reason, I can’t help\nbut feel this…\pTime is so cruel…" text_5="When I was just a wee YOUNGSTER,\nthose ladies were strong and beautiful.\pThey were idols among us TRAINERS.\pEven now, age hasn’t dulled their\nabilities.\pIn fact, their POKéMON moves have\ngrown even more polished.\pBut… For some reason, I can’t help\nbut feel this…\pTime is so cruel…" text_6="When I was just a wee YOUNGSTER,\nthose ladies were strong and beautiful.\pThey were idols among us TRAINERS.\pEven now, age hasn’t dulled their\nabilities.\pIn fact, their POKéMON moves have\ngrown even more polished.\pBut… For some reason, I can’t help\nbut feel this…\pTime is so cruel…"
+    082B4712  callstd              function=MSGBOX_NPC(2)
+    082B4714  end                  
+

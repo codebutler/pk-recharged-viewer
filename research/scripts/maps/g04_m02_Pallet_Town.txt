@@ -1,0 +1,145 @@
+Pallet Town  (group 4, map 2)  header 0x08B3CE34
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x19, flag 0x0000) -> 0x08245CB7
+  script 0x08245CB7  [ok]
+    08245CB7  lock                 
+    08245CB8  faceplayer           
+    08245CB9  setflag              flag=0x4005 (temp)
+    08245CBC  setvar               destination=VAR_0x8004 value=1
+    08245CC1  setvar               destination=VAR_0x8005 value=2
+    08245CC6  special              SPECIAL_\function=348
+    08245CC9  checkflag            flag=0x861:STARTER_PROGRESSION_B
+    08245CCC  goto_if              condition=1 destination=0x08245CF1
+    08245CD2  checkflag            flag=0x860:STARTER_PROGRESSION_A
+    08245CD5  goto_if              condition=0 destination=0x08245DF1
+    08245CDB  checkflag            flag=0x861:STARTER_PROGRESSION_B
+    08245CDE  goto_if              condition=0 destination=0x08245E1B
+    08245CE4  closemessage         
+    08245CE5  applymovement        localId=1 movements=[face_original_direction]
+    08245CEC  waitmovement         localId=0
+    08245CEF  release              
+
+  script 0x08245CF1  [ok]
+    08245CF1  checkflag            flag=0x928
+    08245CF4  goto_if              condition=1 destination=0x08245E45
+    08245CFA  speakername          name="Daisy"
+    08245CFF  msgbox_multilang     type=0 text_0="Hi, {PLAYER}!\nGood timing.\pI’m about to have some tea.\nWould you like to join me?\pOh, but look.\nYour Pokémon are a little dirty.\pWould you like me to groom one?" text_1="Hi, {PLAYER}!\nGood timing.\pI’m about to have some tea.\nWould you like to join me?\pOh, but look.\nYour Pokémon are a little dirty.\pWould you like me to groom one?" text_2="Hi, {PLAYER}!\nGood timing.\pI’m about to have some tea.\nWould you like to join me?\pOh, but look.\nYour Pokémon are a little dirty.\pWould you like me to groom one?" text_3="Hi, {PLAYER}!\nGood timing.\pI’m about to have some tea.\nWould you like to join me?\pOh, but look.\nYour Pokémon are a little dirty.\pWould you like me to groom one?" text_4="Hi, {PLAYER}!\nGood timing.\pI’m about to have some tea.\nWould you like to join me?\pOh, but look.\nYour Pokémon are a little dirty.\pWould you like me to groom one?" text_5="Hi, {PLAYER}!\nGood timing.\pI’m about to have some tea.\nWould you like to join me?\pOh, but look.\nYour Pokémon are a little dirty.\pWould you like me to groom one?" text_6="Hi, {PLAYER}!\nGood timing.\pI’m about to have some tea.\nWould you like to join me?\pOh, but look.\nYour Pokémon are a little dirty.\pWould you like me to groom one?"
+    08245D1D  callstd              function=MSGBOX_YESNO(5)
+    08245D1F  compare_var_to_value var=0x800D value=0
+    08245D24  goto_if              condition=1 destination=0x08245FC9
+    08245D2A  speakername          name="Daisy"
+    08245D2F  msgbox_multilang     type=0 text_0="Which one should I groom?" text_1="Which one should I groom?" text_2="Which one should I groom?" text_3="Which one should I groom?" text_4="Which one should I groom?" text_5="Which one should I groom?" text_6="Which one should I groom?"
+    08245D4D  callstd              function=MSGBOX_DEFAULT(4)
+    08245D4F  special              SPECIAL_\function=96
+    08245D52  waitstate            
+
+  script 0x08245DF1  [ok]
+    08245DF1  speakername          name="Daisy"
+    08245DF6  msgbox_multilang     type=0 text_0="Hi, {PLAYER}!\pGrandpa is out looking for you." text_1="¡Hola, {PLAYER}!\pEl abuelo te estaba buscando." text_2="Hi, {PLAYER}!\pGrandpa is out looking for you." text_3="Hi, {PLAYER}!\pGrandpa is out looking for you." text_4="Hi, {PLAYER}!\pGrandpa is out looking for you." text_5="Olá, {PLAYER}!\pO vovô está procurando por você." text_6="Hi, {PLAYER}!\pGrandpa is out looking for you."
+    08245E14  callstd              function=MSGBOX_DEFAULT(4)
+    08245E16  goto                 destination=0x08245CE4
+
+  script 0x08245E1B  [ok]
+    08245E1B  speakername          name="Daisy"
+    08245E20  msgbox_multilang     type=0 text_0="Hi, {PLAYER}!\pHow is your Pokémon doing?" text_1="¡Hola, {PLAYER}!\p¿Qué tal están tus Pokémon?" text_2="Hi, {PLAYER}!\pHow is your Pokémon doing?" text_3="Hi, {PLAYER}!\pHow is your Pokémon doing?" text_4="Hi, {PLAYER}!\pHow is your Pokémon doing?" text_5="Oi, {PLAYER}!\pComo está seu Pokémon?" text_6="Hi, {PLAYER}!\pHow is your Pokémon doing?"
+    08245E3E  callstd              function=MSGBOX_DEFAULT(4)
+    08245E40  goto                 destination=0x08245CE4
+
+  script 0x08245E45  [ok]
+    08245E45  speakername          name="Daisy"
+    08245E4A  msgbox_multilang     type=0 text_0="Your Pokémon grow to love you if you\nraise them with love.\pFor example, {PLAYER}, may I see\nyour first Pokémon?" text_1="Los Pokémon crecen queriéndote si los\ncrías con cariño.\pPor ejemplo, {PLAYER}, ¿puedo ver\na tu primer Pokémon?" text_2="Your Pokémon grow to love you if you\nraise them with love.\pFor example, {PLAYER}, may I see\nyour first Pokémon?" text_3="Your Pokémon grow to love you if you\nraise them with love.\pFor example, {PLAYER}, may I see\nyour first Pokémon?" text_4="Your Pokémon grow to love you if you\nraise them with love.\pFor example, {PLAYER}, may I see\nyour first Pokémon?" text_5="Your Pokémon grow to love you if you\nraise them with love.\pFor example, {PLAYER}, may I see\nyour first Pokémon?" text_6="Your Pokémon grow to love you if you\nraise them with love.\pFor example, {PLAYER}, may I see\nyour first Pokémon?"
+    08245E68  callstd              function=MSGBOX_DEFAULT(4)
+    08245E6A  specialvar           output=32781 SPECIAL_\function=147
+    08245E6F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08245E74  compare_var_to_value var=0x8000 value=0
+    08245E79  goto_if              condition=1 destination=0x08245EC6
+    08245E7F  compare_var_to_value var=0x8000 value=1
+    08245E84  goto_if              condition=1 destination=0x08245EEB
+    08245E8A  compare_var_to_value var=0x8000 value=2
+    08245E8F  goto_if              condition=1 destination=0x08245F10
+    08245E95  compare_var_to_value var=0x8000 value=3
+    08245E9A  goto_if              condition=1 destination=0x08245F35
+    08245EA0  compare_var_to_value var=0x8000 value=4
+    08245EA5  goto_if              condition=1 destination=0x08245F5A
+    08245EAB  compare_var_to_value var=0x8000 value=5
+    08245EB0  goto_if              condition=1 destination=0x08245F7F
+    08245EB6  compare_var_to_value var=0x8000 value=6
+    08245EBB  goto_if              condition=1 destination=0x08245FA4
+    08245EC1  goto                 destination=0x08245DEF
+
+  script 0x08245FC9  [ok]
+    08245FC9  goto                 destination=0x08246004
+
+  script 0x08245CE4  [ok]
+    08245CE4  closemessage         
+    08245CE5  applymovement        localId=1 movements=[face_original_direction]
+    08245CEC  waitmovement         localId=0
+    08245CEF  release              
+
+  script 0x08245EC6  [ok]
+    08245EC6  msgbox_multilang     type=0 text_0="…Um, it’s not easy for me to say this,\nbut…\pIs there some reason why your\nPokémon would hate you so much?" text_1="…Um, it’s not easy for me to say this,\nbut…\pIs there some reason why your\nPokémon would hate you so much?" text_2="…Um, it’s not easy for me to say this,\nbut…\pIs there some reason why your\nPokémon would hate you so much?" text_3="…Um, it’s not easy for me to say this,\nbut…\pIs there some reason why your\nPokémon would hate you so much?" text_4="…Um, it’s not easy for me to say this,\nbut…\pIs there some reason why your\nPokémon would hate you so much?" text_5="…Um, it’s not easy for me to say this,\nbut…\pIs there some reason why your\nPokémon would hate you so much?" text_6="…Um, it’s not easy for me to say this,\nbut…\pIs there some reason why your\nPokémon would hate you so much?"
+    08245EE4  callstd              function=MSGBOX_DEFAULT(4)
+    08245EE6  goto                 destination=0x08245DEF
+
+  script 0x08245EEB  [ok]
+    08245EEB  msgbox_multilang     type=0 text_0="{PLAYER}, I don’t like the way it\nglares at you.\pCould you try being a little nicer to\nit?" text_1="{PLAYER}, I don’t like the way it\nglares at you.\pCould you try being a little nicer to\nit?" text_2="{PLAYER}, I don’t like the way it\nglares at you.\pCould you try being a little nicer to\nit?" text_3="{PLAYER}, I don’t like the way it\nglares at you.\pCould you try being a little nicer to\nit?" text_4="{PLAYER}, I don’t like the way it\nglares at you.\pCould you try being a little nicer to\nit?" text_5="{PLAYER}, I don’t like the way it\nglares at you.\pCould you try being a little nicer to\nit?" text_6="{PLAYER}, I don’t like the way it\nglares at you.\pCould you try being a little nicer to\nit?"
+    08245F09  callstd              function=MSGBOX_DEFAULT(4)
+    08245F0B  goto                 destination=0x08245DEF
+
+  script 0x08245F10  [ok]
+    08245F10  msgbox_multilang     type=0 text_0="It’s not quite familiar with you\nyet.\pPokémon are all quite wary when you\nfirst get them." text_1="It’s not quite familiar with you\nyet.\pPokémon are all quite wary when you\nfirst get them." text_2="It’s not quite familiar with you\nyet.\pPokémon are all quite wary when you\nfirst get them." text_3="It’s not quite familiar with you\nyet.\pPokémon are all quite wary when you\nfirst get them." text_4="It’s not quite familiar with you\nyet.\pPokémon are all quite wary when you\nfirst get them." text_5="It’s not quite familiar with you\nyet.\pPokémon are all quite wary when you\nfirst get them." text_6="It’s not quite familiar with you\nyet.\pPokémon are all quite wary when you\nfirst get them."
+    08245F2E  callstd              function=MSGBOX_DEFAULT(4)
+    08245F30  goto                 destination=0x08245DEF
+
+  script 0x08245F35  [ok]
+    08245F35  msgbox_multilang     type=0 text_0="It’s warming up to you.\nTrust must be growing between you." text_1="It’s warming up to you.\nTrust must be growing between you." text_2="It’s warming up to you.\nTrust must be growing between you." text_3="It’s warming up to you.\nTrust must be growing between you." text_4="It’s warming up to you.\nTrust must be growing between you." text_5="It’s warming up to you.\nTrust must be growing between you." text_6="It’s warming up to you.\nTrust must be growing between you."
+    08245F53  callstd              function=MSGBOX_DEFAULT(4)
+    08245F55  goto                 destination=0x08245DEF
+
+  script 0x08245F5A  [ok]
+    08245F5A  msgbox_multilang     type=0 text_0="It’s quite friendly with you.\nKeep being good to it!" text_1="It’s quite friendly with you.\nKeep being good to it!" text_2="It’s quite friendly with you.\nKeep being good to it!" text_3="It’s quite friendly with you.\nKeep being good to it!" text_4="It’s quite friendly with you.\nKeep being good to it!" text_5="It’s quite friendly with you.\nKeep being good to it!" text_6="It’s quite friendly with you.\nKeep being good to it!"
+    08245F78  callstd              function=MSGBOX_DEFAULT(4)
+    08245F7A  goto                 destination=0x08245DEF
+
+  script 0x08245F7F  [ok]
+    08245F7F  msgbox_multilang     type=0 text_0="It looks very happy.\pI wish {RIVAL} could see this and\nlearn something from it." text_1="It looks very happy.\pI wish {RIVAL} could see this and\nlearn something from it." text_2="It looks very happy.\pI wish {RIVAL} could see this and\nlearn something from it." text_3="It looks very happy.\pI wish {RIVAL} could see this and\nlearn something from it." text_4="It looks very happy.\pI wish {RIVAL} could see this and\nlearn something from it." text_5="It looks very happy.\pI wish {RIVAL} could see this and\nlearn something from it." text_6="It looks very happy.\pI wish {RIVAL} could see this and\nlearn something from it."
+    08245F9D  callstd              function=MSGBOX_DEFAULT(4)
+    08245F9F  goto                 destination=0x08245DEF
+
+  script 0x08245FA4  [ok]
+    08245FA4  msgbox_multilang     type=0 text_0="It couldn’t possibly love you any\nmore than it does now.\pYour Pokémon is happy beyond words." text_1="It couldn’t possibly love you any\nmore than it does now.\pYour Pokémon is happy beyond words." text_2="It couldn’t possibly love you any\nmore than it does now.\pYour Pokémon is happy beyond words." text_3="It couldn’t possibly love you any\nmore than it does now.\pYour Pokémon is happy beyond words." text_4="It couldn’t possibly love you any\nmore than it does now.\pYour Pokémon is happy beyond words." text_5="It couldn’t possibly love you any\nmore than it does now.\pYour Pokémon is happy beyond words." text_6="It couldn’t possibly love you any\nmore than it does now.\pYour Pokémon is happy beyond words."
+    08245FC2  callstd              function=MSGBOX_DEFAULT(4)
+    08245FC4  goto                 destination=0x08245DEF
+
+  script 0x08245DEF  [ok]
+    08245DEF  release              
+
+  script 0x08246004  [ok]
+    08246004  speakername          name="Daisy"
+    08246009  msgbox_multilang     type=0 text_0="You don’t need any grooming done?\nOkay, we’ll just have tea." text_1="You don’t need any grooming done?\nOkay, we’ll just have tea." text_2="You don’t need any grooming done?\nOkay, we’ll just have tea." text_3="You don’t need any grooming done?\nOkay, we’ll just have tea." text_4="You don’t need any grooming done?\nOkay, we’ll just have tea." text_5="You don’t need any grooming done?\nOkay, we’ll just have tea." text_6="You don’t need any grooming done?\nOkay, we’ll just have tea."
+    08246027  callstd              function=MSGBOX_DEFAULT(4)
+    08246029  release              
+
+  sign 0 at (12,1) -> 0x0824602B
+  script 0x0824602B  [ok]
+    0824602B  msgbox_multilang     type=0 text_0="The shelves are crammed full of\nbooks on Pokémon." text_1="The shelves are crammed full of\nbooks on Pokémon." text_2="The shelves are crammed full of\nbooks on Pokémon." text_3="The shelves are crammed full of\nbooks on Pokémon." text_4="The shelves are crammed full of\nbooks on Pokémon." text_5="The shelves are crammed full of\nbooks on Pokémon." text_6="The shelves are crammed full of\nbooks on Pokémon."
+    08246049  callstd              function=MSGBOX_SIGN(3)
+    0824604B  end                  
+
+  sign 1 at (11,1) -> 0x0824602B
+  sign 2 at (9,1) -> 0x0824604C
+  script 0x0824604C  [ok]
+    0824604C  msgbox_multilang     type=0 text_0="“The lovely and sweet Clefairy”" text_1="“The lovely and sweet Clefairy”" text_2="“The lovely and sweet Clefairy”" text_3="“The lovely and sweet Clefairy”" text_4="“The lovely and sweet Clefairy”" text_5="“The lovely and sweet Clefairy”" text_6="“The lovely and sweet Clefairy”"
+    0824606A  callstd              function=MSGBOX_SIGN(3)
+    0824606C  end                  
+

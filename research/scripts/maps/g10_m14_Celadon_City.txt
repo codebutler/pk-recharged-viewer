@@ -1,0 +1,620 @@
+Celadon City  (group 10, map 14)  header 0x08B3D438
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x01, flag 0x0000) -> 0x08265DCC
+  script 0x08265DCC  [ok]
+    08265DCC  msgbox_multilang     type=0 text_0="Welcome!\pYou can exchange your Coins for\nfabulous prizes next door." text_1="Welcome!\pYou can exchange your Coins for\nfabulous prizes next door." text_2="Welcome!\pYou can exchange your Coins for\nfabulous prizes next door." text_3="Welcome!\pYou can exchange your Coins for\nfabulous prizes next door." text_4="Welcome!\pYou can exchange your Coins for\nfabulous prizes next door." text_5="Welcome!\pYou can exchange your Coins for\nfabulous prizes next door." text_6="Welcome!\pYou can exchange your Coins for\nfabulous prizes next door."
+    08265DEA  callstd              function=MSGBOX_NPC(2)
+    08265DEC  end                  
+
+  object 2 (gfx 0x00, flag 0x0000) -> 0x08265DED
+  script 0x08265DED  [ok]
+    08265DED  lock                 
+    08265DEE  faceplayer           
+    08265DEF  showmoneybox         x=0 y=0 disable=0
+    08265DF3  showcoinsbox         x=0 y=5
+    08265DF6  message              text="Welcome to Rocket Game Corner!\pDo you need some game Coins?\nWould you like to buy some?"
+    08265DFB  warpspinenter        mapGroup=102 mapNum=38 WARP_ID_NONE=8 -1=26321 -1=2086
+    08265E03  warpspinenter        mapGroup=102 mapNum=38 WARP_ID_NONE=8 -1=26321 -1=2086
+    08265E0B  warpspinenter        mapGroup=102 mapNum=38 WARP_ID_NONE=8 -1=26321 -1=2086
+    08265E13  waitmessage          
+    08265E14  multichoice          x=13 y=0 multichoiceId=27 ignoreBPress=0
+    08265E19  copyvar              destination=VAR_0x8009 source=VAR_0x800D
+    08265E1E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08265E23  compare_var_to_value var=0x8000 value=0
+    08265E28  goto_if              condition=1 destination=0x08265E50
+    08265E2E  compare_var_to_value var=0x8000 value=1
+    08265E33  goto_if              condition=1 destination=0x08265E50
+    08265E39  compare_var_to_value var=0x8000 value=2
+    08265E3E  goto_if              condition=1 destination=0x08265E70
+    08265E44  compare_var_to_value var=0x8000 value=127
+    08265E49  goto_if              condition=1 destination=0x08265E70
+    08265E4F  end                  
+
+  script 0x08265E50  [ok]
+    08265E50  checkflag            flag=0x243
+    08265E53  goto_if              condition=0 destination=0x08265E96
+    08265E59  compare_var_to_value var=0x8009 value=0
+    08265E5E  goto_if              condition=1 destination=0x08265EBC
+    08265E64  compare_var_to_value var=0x8009 value=1
+    08265E69  goto_if              condition=1 destination=0x08265EEA
+    08265E6F  end                  
+
+  script 0x08265E70  [ok]
+    08265E70  msgbox_multilang     type=0 text_0="No?\nPlease come play sometime!" text_1="No?\nPlease come play sometime!" text_2="No?\nPlease come play sometime!" text_3="No?\nPlease come play sometime!" text_4="No?\nPlease come play sometime!" text_5="No?\nPlease come play sometime!" text_6="No?\nPlease come play sometime!"
+    08265E8E  callstd              function=MSGBOX_DEFAULT(4)
+    08265E90  goto                 destination=0x08265F70
+
+  script 0x08265E96  [ok]
+    08265E96  msgbox_multilang     type=0 text_0="Oh, I’m sorry.\nYou don’t have a Coin Case." text_1="Oh, I’m sorry.\nYou don’t have a Coin Case." text_2="Oh, I’m sorry.\nYou don’t have a Coin Case." text_3="Oh, I’m sorry.\nYou don’t have a Coin Case." text_4="Oh, I’m sorry.\nYou don’t have a Coin Case." text_5="Oh, I’m sorry.\nYou don’t have a Coin Case." text_6="Oh, I’m sorry.\nYou don’t have a Coin Case."
+    08265EB4  callstd              function=MSGBOX_DEFAULT(4)
+    08265EB6  goto                 destination=0x08265F70
+
+  script 0x08265EBC  [ok]
+    08265EBC  checkcoins           out=16385
+    08265EBF  compare_var_to_value var=0x4001 value=9950
+    08265EC4  goto_if              condition=4 destination=0x08265F18
+    08265ECA  checkmoney           value=1000 disable=0
+    08265ED0  compare_var_to_value var=0x800D value=0
+    08265ED5  goto_if              condition=1 destination=0x08265F2C
+    08265EDB  addcoins             count=50
+    08265EDE  removemoney          value=1000 disable=0
+    08265EE4  goto                 destination=0x08265F40
+
+  script 0x08265EEA  [ok]
+    08265EEA  checkcoins           out=16385
+    08265EED  compare_var_to_value var=0x4001 value=9500
+    08265EF2  goto_if              condition=4 destination=0x08265F22
+    08265EF8  checkmoney           value=10000 disable=0
+    08265EFE  compare_var_to_value var=0x800D value=0
+    08265F03  goto_if              condition=1 destination=0x08265F36
+    08265F09  addcoins             count=500
+    08265F0C  removemoney          value=10000 disable=0
+    08265F12  goto                 destination=0x08265F40
+
+  script 0x08265F70  [ok]
+    08265F70  hidemoneybox         0=0 0=0
+    08265F73  hidecoinsbox         x=0 y=5
+    08265F76  release              
+
+  script 0x08265F18  [ok]
+    08265F18  goto                 destination=0x08265F78
+
+  script 0x08265F2C  [ok]
+    08265F2C  goto                 destination=0x08265F9E
+
+  script 0x08265F40  [ok]
+    08265F40  updatemoneybox       0=0 0=0 disable=0
+    08265F44  updatecoinsbox       x=0 y=5
+    08265F47  playse               song=95
+    08265F4A  msgbox_multilang     type=0 text_0="Thank you.\nHere are your Coins!" text_1="Thank you.\nHere are your Coins!" text_2="Thank you.\nHere are your Coins!" text_3="Thank you.\nHere are your Coins!" text_4="Thank you.\nHere are your Coins!" text_5="Thank you.\nHere are your Coins!" text_6="Thank you.\nHere are your Coins!"
+    08265F68  callstd              function=MSGBOX_DEFAULT(4)
+    08265F6A  goto                 destination=0x08265F70
+
+  script 0x08265F22  [ok]
+    08265F22  goto                 destination=0x08265F78
+
+  script 0x08265F36  [ok]
+    08265F36  goto                 destination=0x08265F9E
+
+  script 0x08265F78  [ok]
+    08265F78  msgbox_multilang     type=0 text_0="Whoops!\nYour Coin Case is full." text_1="Whoops!\nYour Coin Case is full." text_2="Whoops!\nYour Coin Case is full." text_3="Whoops!\nYour Coin Case is full." text_4="Whoops!\nYour Coin Case is full." text_5="Whoops!\nYour Coin Case is full." text_6="Whoops!\nYour Coin Case is full."
+    08265F96  callstd              function=MSGBOX_DEFAULT(4)
+    08265F98  goto                 destination=0x08265F70
+
+  script 0x08265F9E  [ok]
+    08265F9E  msgbox_multilang     type=0 text_0="You can’t afford the Coins." text_1="You can’t afford the Coins." text_2="You can’t afford the Coins." text_3="You can’t afford the Coins." text_4="You can’t afford the Coins." text_5="You can’t afford the Coins." text_6="You can’t afford the Coins."
+    08265FBC  callstd              function=MSGBOX_DEFAULT(4)
+    08265FBE  goto                 destination=0x08265F70
+
+  object 3 (gfx 0xF4, flag 0x0000) -> 0x08265FC4
+  script 0x08265FC4  [ok]
+    08265FC4  lock                 
+    08265FC5  faceplayer           
+    08265FC6  msgbox_multilang     type=0 text_0="Keep this quiet.\pIt’s rumored that this place is run\nby Team Rocket." text_1="Keep this quiet.\pIt’s rumored that this place is run\nby Team Rocket." text_2="Keep this quiet.\pIt’s rumored that this place is run\nby Team Rocket." text_3="Keep this quiet.\pIt’s rumored that this place is run\nby Team Rocket." text_4="Keep this quiet.\pIt’s rumored that this place is run\nby Team Rocket." text_5="Keep this quiet.\pIt’s rumored that this place is run\nby Team Rocket." text_6="Keep this quiet.\pIt’s rumored that this place is run\nby Team Rocket."
+    08265FE4  callstd              function=MSGBOX_DEFAULT(4)
+    08265FE6  goto                 destination=0x08265FEC
+
+  script 0x08265FEC  [ok]
+    08265FEC  closemessage         
+    08265FED  setflag              flag=0x4005 (temp)
+    08265FF0  applymovement        localId=32783 movements=[face_original_direction]
+    08265FF7  waitmovement         localId=0
+    08265FFA  release              
+
+  object 4 (gfx 0x14, flag 0x0000) -> 0x08265FFC
+  script 0x08265FFC  [ok]
+    08265FFC  lock                 
+    08265FFD  faceplayer           
+    08265FFE  msgbox_multilang     type=0 text_0="I think these machines have\ndifferent odds." text_1="I think these machines have\ndifferent odds." text_2="I think these machines have\ndifferent odds." text_3="I think these machines have\ndifferent odds." text_4="I think these machines have\ndifferent odds." text_5="I think these machines have\ndifferent odds." text_6="I think these machines have\ndifferent odds."
+    0826601C  callstd              function=MSGBOX_DEFAULT(4)
+    0826601E  goto                 destination=0x08265FEC
+
+  object 5 (gfx 0x09, flag 0x0000) -> 0x08266024
+  script 0x08266024  [ok]
+    08266024  lock                 
+    08266025  faceplayer           
+    08266026  checkflag            flag=0x26E
+    08266029  goto_if              condition=1 destination=0x08266098
+    0826602F  msgbox_multilang     type=0 text_0="Kid, do you want to play?" text_1="Kid, do you want to play?" text_2="Kid, do you want to play?" text_3="Kid, do you want to play?" text_4="Kid, do you want to play?" text_5="Kid, do you want to play?" text_6="Kid, do you want to play?"
+    0826604D  callstd              function=MSGBOX_DEFAULT(4)
+    0826604F  checkflag            flag=0x243
+    08266052  goto_if              condition=0 destination=0x082660BE
+    08266058  checkcoins           out=16385
+    0826605B  compare_var_to_value var=0x4001 value=9990
+    08266060  goto_if              condition=4 destination=0x082660C8
+    08266066  addcoins             count=10
+    08266069  textcolor            color=3
+    0826606B  msgbox_multilang     type=0 text_0="{PLAYER} received 10 Coins\nfrom the man." text_1="{PLAYER} received 10 Coins\nfrom the man." text_2="{PLAYER} received 10 Coins\nfrom the man." text_3="{PLAYER} received 10 Coins\nfrom the man." text_4="{PLAYER} received 10 Coins\nfrom the man." text_5="{PLAYER} received 10 Coins\nfrom the man." text_6="{PLAYER} received 10 Coins\nfrom the man."
+    08266089  callstd              function=MSGBOX_DEFAULT(4)
+    0826608B  playse               song=95
+    0826608E  waitse               
+    0826608F  setflag              flag=0x26E
+    08266092  goto                 destination=0x08265FEC
+
+  script 0x08266098  [ok]
+    08266098  msgbox_multilang     type=0 text_0="Wins seem to come and go.\nNothing’s a sure thing." text_1="Wins seem to come and go.\nNothing’s a sure thing." text_2="Wins seem to come and go.\nNothing’s a sure thing." text_3="Wins seem to come and go.\nNothing’s a sure thing." text_4="Wins seem to come and go.\nNothing’s a sure thing." text_5="Wins seem to come and go.\nNothing’s a sure thing." text_6="Wins seem to come and go.\nNothing’s a sure thing."
+    082660B6  callstd              function=MSGBOX_DEFAULT(4)
+    082660B8  goto                 destination=0x08265FEC
+
+  script 0x082660BE  [ok]
+    082660BE  goto                 destination=0x082660EE
+
+  script 0x082660C8  [ok]
+    082660C8  msgbox_multilang     type=0 text_0="You don’t need my Coins!" text_1="You don’t need my Coins!" text_2="You don’t need my Coins!" text_3="You don’t need my Coins!" text_4="You don’t need my Coins!" text_5="You don’t need my Coins!" text_6="You don’t need my Coins!"
+    082660E6  callstd              function=MSGBOX_DEFAULT(4)
+    082660E8  goto                 destination=0x08265FEC
+
+  script 0x082660EE  [ok]
+    082660EE  textcolor            color=3
+    082660F0  msgbox_multilang     type=0 text_0="Oops!\nDon’t have the Coin Case!" text_1="Oops!\nDon’t have the Coin Case!" text_2="Oops!\nDon’t have the Coin Case!" text_3="Oops!\nDon’t have the Coin Case!" text_4="Oops!\nDon’t have the Coin Case!" text_5="Oops!\nDon’t have the Coin Case!" text_6="Oops!\nDon’t have the Coin Case!"
+    0826610E  callstd              function=MSGBOX_DEFAULT(4)
+    08266110  goto                 destination=0x08265FEC
+
+  object 6 (gfx 0x27, flag 0x0000) -> 0x08266116
+  script 0x08266116  [ok]
+    08266116  lock                 
+    08266117  faceplayer           
+    08266118  checkflag            flag=0x4B3
+    0826611B  goto_if              condition=1 destination=0x08266147
+    08266121  msgbox_multilang     type=0 text_0="Hey!\pYou have better things to do,\nchamp in the making!\pCeladon Gym’s Leader is Erika.\pShe is a user of Grass-type\nPokémon, and at one with nature.\pShe might appear docile because of\nher flower arranging…\pBut she’s not one to be taken\nlightly!" text_1="Hey!\pYou have better things to do,\nchamp in the making!\pCeladon Gym’s Leader is Erika.\pShe is a user of Grass-type\nPokémon, and at one with nature.\pShe might appear docile because of\nher flower arranging…\pBut she’s not one to be taken\nlightly!" text_2="Hey!\pYou have better things to do,\nchamp in the making!\pCeladon Gym’s Leader is Erika.\pShe is a user of Grass-type\nPokémon, and at one with nature.\pShe might appear docile because of\nher flower arranging…\pBut she’s not one to be taken\nlightly!" text_3="Hey!\pYou have better things to do,\nchamp in the making!\pCeladon Gym’s Leader is Erika.\pShe is a user of Grass-type\nPokémon, and at one with nature.\pShe might appear docile because of\nher flower arranging…\pBut she’s not one to be taken\nlightly!" text_4="Hey!\pYou have better things to do,\nchamp in the making!\pCeladon Gym’s Leader is Erika.\pShe is a user of Grass-type\nPokémon, and at one with nature.\pShe might appear docile because of\nher flower arranging…\pBut she’s not one to be taken\nlightly!" text_5="Hey!\pYou have better things to do,\nchamp in the making!\pCeladon Gym’s Leader is Erika.\pShe is a user of Grass-type\nPokémon, and at one with nature.\pShe might appear docile because of\nher flower arranging…\pBut she’s not one to be taken\nlightly!" text_6="Hey!\pYou have better things to do,\nchamp in the making!\pCeladon Gym’s Leader is Erika.\pShe is a user of Grass-type\nPokémon, and at one with nature.\pShe might appear docile because of\nher flower arranging…\pBut she’s not one to be taken\nlightly!"
+    0826613F  callstd              function=MSGBOX_DEFAULT(4)
+    08266141  goto                 destination=0x08265FEC
+
+  script 0x08266147  [ok]
+    08266147  msgbox_multilang     type=0 text_0="They offer rare Pokémon that can\nbe exchanged for your Coins.\pBut, I just can’t seem to win!" text_1="They offer rare Pokémon that can\nbe exchanged for your Coins.\pBut, I just can’t seem to win!" text_2="They offer rare Pokémon that can\nbe exchanged for your Coins.\pBut, I just can’t seem to win!" text_3="They offer rare Pokémon that can\nbe exchanged for your Coins.\pBut, I just can’t seem to win!" text_4="They offer rare Pokémon that can\nbe exchanged for your Coins.\pBut, I just can’t seem to win!" text_5="They offer rare Pokémon that can\nbe exchanged for your Coins.\pBut, I just can’t seem to win!" text_6="They offer rare Pokémon that can\nbe exchanged for your Coins.\pBut, I just can’t seem to win!"
+    08266165  callstd              function=MSGBOX_DEFAULT(4)
+    08266167  goto                 destination=0x08265FEC
+
+  object 7 (gfx 0x10, flag 0x0000) -> 0x0826616D
+  script 0x0826616D  [ok]
+    0826616D  lock                 
+    0826616E  faceplayer           
+    0826616F  msgbox_multilang     type=0 text_0="These slot games…\nWin or lose, it’s only by luck." text_1="These slot games…\nWin or lose, it’s only by luck." text_2="These slot games…\nWin or lose, it’s only by luck." text_3="These slot games…\nWin or lose, it’s only by luck." text_4="These slot games…\nWin or lose, it’s only by luck." text_5="These slot games…\nWin or lose, it’s only by luck." text_6="These slot games…\nWin or lose, it’s only by luck."
+    0826618D  callstd              function=MSGBOX_DEFAULT(4)
+    0826618F  goto                 destination=0x08265FEC
+
+  object 8 (gfx 0xF6, flag 0x0000) -> 0x08266195
+  script 0x08266195  [ok]
+    08266195  lock                 
+    08266196  faceplayer           
+    08266197  msgbox_multilang     type=0 text_0="Games are scary!\nIt’s so easy to get hooked!" text_1="Games are scary!\nIt’s so easy to get hooked!" text_2="Games are scary!\nIt’s so easy to get hooked!" text_3="Games are scary!\nIt’s so easy to get hooked!" text_4="Games are scary!\nIt’s so easy to get hooked!" text_5="Games are scary!\nIt’s so easy to get hooked!" text_6="Games are scary!\nIt’s so easy to get hooked!"
+    082661B5  callstd              function=MSGBOX_DEFAULT(4)
+    082661B7  goto                 destination=0x08265FEC
+
+  object 9 (gfx 0x08, flag 0x0000) -> 0x082661BD
+  script 0x082661BD  [ok]
+    082661BD  lock                 
+    082661BE  faceplayer           
+    082661BF  checkflag            flag=0x26F
+    082661C2  goto_if              condition=1 destination=0x08266231
+    082661C8  msgbox_multilang     type=0 text_0="What’s up?\nWant some Coins?" text_1="What’s up?\nWant some Coins?" text_2="What’s up?\nWant some Coins?" text_3="What’s up?\nWant some Coins?" text_4="What’s up?\nWant some Coins?" text_5="What’s up?\nWant some Coins?" text_6="What’s up?\nWant some Coins?"
+    082661E6  callstd              function=MSGBOX_DEFAULT(4)
+    082661E8  checkflag            flag=0x243
+    082661EB  goto_if              condition=0 destination=0x08266257
+    082661F1  checkcoins           out=16385
+    082661F4  compare_var_to_value var=0x4001 value=9980
+    082661F9  goto_if              condition=4 destination=0x08266261
+    082661FF  addcoins             count=20
+    08266202  textcolor            color=3
+    08266204  msgbox_multilang     type=0 text_0="{PLAYER} received 20 Coins\nfrom the nice guy." text_1="{PLAYER} received 20 Coins\nfrom the nice guy." text_2="{PLAYER} received 20 Coins\nfrom the nice guy." text_3="{PLAYER} received 20 Coins\nfrom the nice guy." text_4="{PLAYER} received 20 Coins\nfrom the nice guy." text_5="{PLAYER} received 20 Coins\nfrom the nice guy." text_6="{PLAYER} received 20 Coins\nfrom the nice guy."
+    08266222  callstd              function=MSGBOX_DEFAULT(4)
+    08266224  playse               song=95
+    08266227  waitse               
+    08266228  setflag              flag=0x26F
+    0826622B  goto                 destination=0x08265FEC
+
+  script 0x08266231  [ok]
+    08266231  msgbox_multilang     type=0 text_0="Darn! I need more Coins for the\nPokémon I want!" text_1="Darn! I need more Coins for the\nPokémon I want!" text_2="Darn! I need more Coins for the\nPokémon I want!" text_3="Darn! I need more Coins for the\nPokémon I want!" text_4="Darn! I need more Coins for the\nPokémon I want!" text_5="Darn! I need more Coins for the\nPokémon I want!" text_6="Darn! I need more Coins for the\nPokémon I want!"
+    0826624F  callstd              function=MSGBOX_DEFAULT(4)
+    08266251  goto                 destination=0x08265FEC
+
+  script 0x08266257  [ok]
+    08266257  goto                 destination=0x082660EE
+
+  script 0x08266261  [ok]
+    08266261  msgbox_multilang     type=0 text_0="You have lots of Coins!" text_1="You have lots of Coins!" text_2="You have lots of Coins!" text_3="You have lots of Coins!" text_4="You have lots of Coins!" text_5="You have lots of Coins!" text_6="You have lots of Coins!"
+    0826627F  callstd              function=MSGBOX_DEFAULT(4)
+    08266281  goto                 destination=0x08265FEC
+
+  object 10 (gfx 0x30, flag 0x0000) -> 0x08266287
+  script 0x08266287  [ok]
+    08266287  lock                 
+    08266288  faceplayer           
+    08266289  checkflag            flag=0x270
+    0826628C  goto_if              condition=1 destination=0x082662FB
+    08266292  msgbox_multilang     type=0 text_0="Hey, what? You’re throwing me off!\nHere are some Coins, so shoo!" text_1="Hey, what? You’re throwing me off!\nHere are some Coins, so shoo!" text_2="Hey, what? You’re throwing me off!\nHere are some Coins, so shoo!" text_3="Hey, what? You’re throwing me off!\nHere are some Coins, so shoo!" text_4="Hey, what? You’re throwing me off!\nHere are some Coins, so shoo!" text_5="Hey, what? You’re throwing me off!\nHere are some Coins, so shoo!" text_6="Hey, what? You’re throwing me off!\nHere are some Coins, so shoo!"
+    082662B0  callstd              function=MSGBOX_DEFAULT(4)
+    082662B2  checkflag            flag=0x243
+    082662B5  goto_if              condition=0 destination=0x08266321
+    082662BB  checkcoins           out=16385
+    082662BE  compare_var_to_value var=0x4001 value=9980
+    082662C3  goto_if              condition=4 destination=0x0826632B
+    082662C9  addcoins             count=20
+    082662CC  textcolor            color=3
+    082662CE  msgbox_multilang     type=0 text_0="{PLAYER} received 20 Coins\nfrom the man." text_1="{PLAYER} received 20 Coins\nfrom the man." text_2="{PLAYER} received 20 Coins\nfrom the man." text_3="{PLAYER} received 20 Coins\nfrom the man." text_4="{PLAYER} received 20 Coins\nfrom the man." text_5="{PLAYER} received 20 Coins\nfrom the man." text_6="{PLAYER} received 20 Coins\nfrom the man."
+    082662EC  callstd              function=MSGBOX_DEFAULT(4)
+    082662EE  playse               song=95
+    082662F1  waitse               
+    082662F2  setflag              flag=0x270
+    082662F5  goto                 destination=0x08265FEC
+
+  script 0x082662FB  [ok]
+    082662FB  msgbox_multilang     type=0 text_0="The trick is to watch the reels\nclosely." text_1="The trick is to watch the reels\nclosely." text_2="The trick is to watch the reels\nclosely." text_3="The trick is to watch the reels\nclosely." text_4="The trick is to watch the reels\nclosely." text_5="The trick is to watch the reels\nclosely." text_6="The trick is to watch the reels\nclosely."
+    08266319  callstd              function=MSGBOX_DEFAULT(4)
+    0826631B  goto                 destination=0x08265FEC
+
+  script 0x08266321  [ok]
+    08266321  goto                 destination=0x082660EE
+
+  script 0x0826632B  [ok]
+    0826632B  msgbox_multilang     type=0 text_0="You’ve got plenty of your own\nCoins!" text_1="You’ve got plenty of your own\nCoins!" text_2="You’ve got plenty of your own\nCoins!" text_3="You’ve got plenty of your own\nCoins!" text_4="You’ve got plenty of your own\nCoins!" text_5="You’ve got plenty of your own\nCoins!" text_6="You’ve got plenty of your own\nCoins!"
+    08266349  callstd              function=MSGBOX_DEFAULT(4)
+    0826634B  goto                 destination=0x08265FEC
+
+  object 11 (gfx 0x02, flag 0x005B) -> 0x08266562
+  script 0x08266562  [ok]
+    08266562  compare_var_to_value var=0x405D:ROCKET_STORY_COUNTER value=2
+    08266567  goto_if              condition=4 destination=0x08266595
+    0826656D  lockall              
+    0826656E  speakername          name="Grunt"
+    08266573  msgbox_multilang     type=0 text_0="What?\pThere’s no secret hidden behind this\nposter or anything like that!\pAnd where’s my partner, anyway…\pHe was supposed to come trade places\nwith me, but he’s been ages in\pLavender Town…" text_1="What?\pThere’s no secret hidden behind this\nposter or anything like that!\pAnd where’s my partner, anyway…\pHe was supposed to come trade places\nwith me, but he’s been ages in\pLavender Town…" text_2="What?\pThere’s no secret hidden behind this\nposter or anything like that!\pAnd where’s my partner, anyway…\pHe was supposed to come trade places\nwith me, but he’s been ages in\pLavender Town…" text_3="What?\pThere’s no secret hidden behind this\nposter or anything like that!\pAnd where’s my partner, anyway…\pHe was supposed to come trade places\nwith me, but he’s been ages in\pLavender Town…" text_4="What?\pThere’s no secret hidden behind this\nposter or anything like that!\pAnd where’s my partner, anyway…\pHe was supposed to come trade places\nwith me, but he’s been ages in\pLavender Town…" text_5="What?\pThere’s no secret hidden behind this\nposter or anything like that!\pAnd where’s my partner, anyway…\pHe was supposed to come trade places\nwith me, but he’s been ages in\pLavender Town…" text_6="What?\pThere’s no secret hidden behind this\nposter or anything like that!\pAnd where’s my partner, anyway…\pHe was supposed to come trade places\nwith me, but he’s been ages in\pLavender Town…"
+    08266591  callstd              function=MSGBOX_NPC(2)
+    08266593  releaseall           
+
+  script 0x08266595  [ok]
+    08266595  trainerbattle        type=2 trainer=0x165 localId=0 ptr1=0x08266C7C ptr2=0x08266CA8 ptr3=0x082665CC
+    082665A7  msgbox_multilang     type=0 text_0="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_1="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_2="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_3="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_4="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_5="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_6="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!"
+    082665C5  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082665C7  goto                 destination=0x08266594
+
+  script 0x082665CC  [unknown-opcode:0xE7]
+    082665CC  msgbox_multilang     type=0 text_0="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_1="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_2="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_3="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_4="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_5="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!" text_6="The Team Rocket Hideout might\nbe discovered!\pI better tell Boss!"
+    082665EA  callstd              function=MSGBOX_DEFAULT(4)
+    082665EC  closemessage         
+
+  script 0x08266594  [ok]
+    08266594  end                  
+
+  hidden item at (2,4): ????????
+
+  hidden item at (3,8): ????????
+
+  hidden item at (2,11): ????????
+
+  hidden item at (6,12): ????????
+
+  hidden item at (9,9): ????????
+
+  hidden item at (8,5): ????????
+
+  hidden item at (10,4): ????????
+
+  hidden item at (13,3): ????????
+
+  hidden item at (15,5): ????????
+
+  hidden item at (17,5): ????????
+
+  hidden item at (15,13): ????????
+
+  hidden item at (12,12): ????????
+
+  sign 12 at (0,7) -> 0x08266351
+  script 0x08266351  [ok]
+    08266351  lockall              
+    08266352  setvar               destination=VAR_0x8004 value=0
+    08266357  goto                 destination=0x0826635D
+
+  script 0x0826635D  [ok]
+    0826635D  checkflag            flag=0x243
+    08266360  goto_if              condition=0 destination=0x082663AD
+    08266366  msgbox_multilang     type=0 text_0="A slot machine!\nWant to play?" text_1="A slot machine!\nWant to play?" text_2="A slot machine!\nWant to play?" text_3="A slot machine!\nWant to play?" text_4="A slot machine!\nWant to play?" text_5="A slot machine!\nWant to play?" text_6="A slot machine!\nWant to play?"
+    08266384  callstd              function=MSGBOX_YESNO(5)
+    08266386  compare_var_to_value var=0x800D value=0
+    0826638B  goto_if              condition=1 destination=0x082663CF
+    08266391  setfieldeffectargument argNum=0 value=255
+    08266395  setfieldeffectargument argNum=1 value=14
+    08266399  setfieldeffectargument argNum=2 value=10
+    0826639D  dofieldeffect        animation=72
+    082663A0  waitfieldeffect      animation=72
+    082663A3  specialvar           output=32781 SPECIAL_\function=375
+    082663A8  playslotmachine      id=32781
+    082663AB  releaseall           
+
+  script 0x082663AD  [ok]
+    082663AD  msgbox_multilang     type=0 text_0="A Coin Case is required…" text_1="A Coin Case is required…" text_2="A Coin Case is required…" text_3="A Coin Case is required…" text_4="A Coin Case is required…" text_5="A Coin Case is required…" text_6="A Coin Case is required…"
+    082663CB  callstd              function=MSGBOX_DEFAULT(4)
+    082663CD  releaseall           
+
+  script 0x082663CF  [ok]
+    082663CF  releaseall           
+
+  sign 13 at (0,9) -> 0x082663D1
+  script 0x082663D1  [ok]
+    082663D1  lockall              
+    082663D2  setvar               destination=VAR_0x8004 value=1
+    082663D7  goto                 destination=0x0826635D
+
+  sign 14 at (0,10) -> 0x082663DD
+  script 0x082663DD  [ok]
+    082663DD  lockall              
+    082663DE  setvar               destination=VAR_0x8004 value=2
+    082663E3  goto                 destination=0x0826635D
+
+  sign 15 at (5,6) -> 0x082663E9
+  script 0x082663E9  [ok]
+    082663E9  lockall              
+    082663EA  setvar               destination=VAR_0x8004 value=3
+    082663EF  goto                 destination=0x0826635D
+
+  sign 16 at (5,8) -> 0x0826662A
+  script 0x0826662A  [ok]
+    0826662A  msgbox_multilang     type=0 text_0="Out of Order\nThis is broken." text_1="Out of Order\nThis is broken." text_2="Out of Order\nThis is broken." text_3="Out of Order\nThis is broken." text_4="Out of Order\nThis is broken." text_5="Out of Order\nThis is broken." text_6="Out of Order\nThis is broken."
+    08266648  callstd              function=MSGBOX_SIGN(3)
+    0826664A  end                  
+
+  sign 17 at (5,9) -> 0x08266401
+  script 0x08266401  [ok]
+    08266401  lockall              
+    08266402  setvar               destination=VAR_0x8004 value=5
+    08266407  goto                 destination=0x0826635D
+
+  sign 18 at (5,10) -> 0x0826640D
+  script 0x0826640D  [ok]
+    0826640D  lockall              
+    0826640E  setvar               destination=VAR_0x8004 value=6
+    08266413  goto                 destination=0x0826635D
+
+  sign 19 at (6,6) -> 0x08266419
+  script 0x08266419  [ok]
+    08266419  lockall              
+    0826641A  setvar               destination=VAR_0x8004 value=7
+    0826641F  goto                 destination=0x0826635D
+
+  sign 20 at (6,7) -> 0x08266425
+  script 0x08266425  [ok]
+    08266425  lockall              
+    08266426  setvar               destination=VAR_0x8004 value=8
+    0826642B  goto                 destination=0x0826635D
+
+  sign 21 at (6,9) -> 0x08266431
+  script 0x08266431  [ok]
+    08266431  lockall              
+    08266432  setvar               destination=VAR_0x8004 value=9
+    08266437  goto                 destination=0x0826635D
+
+  sign 22 at (11,6) -> 0x0826643D
+  script 0x0826643D  [ok]
+    0826643D  lockall              
+    0826643E  setvar               destination=VAR_0x8004 value=10
+    08266443  goto                 destination=0x0826635D
+
+  sign 23 at (11,7) -> 0x08266449
+  script 0x08266449  [ok]
+    08266449  lockall              
+    0826644A  setvar               destination=VAR_0x8004 value=11
+    0826644F  goto                 destination=0x0826635D
+
+  sign 24 at (11,8) -> 0x08266455
+  script 0x08266455  [ok]
+    08266455  lockall              
+    08266456  setvar               destination=VAR_0x8004 value=12
+    0826645B  goto                 destination=0x0826635D
+
+  sign 25 at (11,10) -> 0x08266461
+  script 0x08266461  [ok]
+    08266461  lockall              
+    08266462  setvar               destination=VAR_0x8004 value=13
+    08266467  goto                 destination=0x0826635D
+
+  sign 26 at (12,6) -> 0x0826646D
+  script 0x0826646D  [ok]
+    0826646D  lockall              
+    0826646E  setvar               destination=VAR_0x8004 value=14
+    08266473  goto                 destination=0x0826635D
+
+  sign 27 at (12,8) -> 0x0826664B
+  script 0x0826664B  [ok]
+    0826664B  msgbox_multilang     type=0 text_0="Out to lunch\nThis is reserved." text_1="Out to lunch\nThis is reserved." text_2="Out to lunch\nThis is reserved." text_3="Out to lunch\nThis is reserved." text_4="Out to lunch\nThis is reserved." text_5="Out to lunch\nThis is reserved." text_6="Out to lunch\nThis is reserved."
+    08266669  callstd              function=MSGBOX_SIGN(3)
+    0826666B  end                  
+
+  sign 28 at (12,9) -> 0x08266485
+  script 0x08266485  [ok]
+    08266485  lockall              
+    08266486  setvar               destination=VAR_0x8004 value=16
+    0826648B  goto                 destination=0x0826635D
+
+  sign 29 at (12,10) -> 0x08266491
+  script 0x08266491  [ok]
+    08266491  lockall              
+    08266492  setvar               destination=VAR_0x8004 value=17
+    08266497  goto                 destination=0x0826635D
+
+  sign 30 at (17,6) -> 0x0826666C
+  script 0x0826666C  [ok]
+    0826666C  msgbox_multilang     type=0 text_0="Someone’s keys!\nThey’ll be back." text_1="Someone’s keys!\nThey’ll be back." text_2="Someone’s keys!\nThey’ll be back." text_3="Someone’s keys!\nThey’ll be back." text_4="Someone’s keys!\nThey’ll be back." text_5="Someone’s keys!\nThey’ll be back." text_6="Someone’s keys!\nThey’ll be back."
+    0826668A  callstd              function=MSGBOX_SIGN(3)
+    0826668C  end                  
+
+  sign 31 at (17,7) -> 0x082664A9
+  script 0x082664A9  [ok]
+    082664A9  lockall              
+    082664AA  setvar               destination=VAR_0x8004 value=19
+    082664AF  goto                 destination=0x0826635D
+
+  sign 32 at (17,8) -> 0x082664B5
+  script 0x082664B5  [ok]
+    082664B5  lockall              
+    082664B6  setvar               destination=VAR_0x8004 value=20
+    082664BB  goto                 destination=0x0826635D
+
+  sign 33 at (17,9) -> 0x082664C1
+  script 0x082664C1  [ok]
+    082664C1  lockall              
+    082664C2  setvar               destination=VAR_0x8004 value=21
+    082664C7  goto                 destination=0x0826635D
+
+  sign 34 at (11,1) -> 0x082664CD
+  script 0x082664CD  [ok]
+    082664CD  lockall              
+    082664CE  checkflag            flag=0x26D
+    082664D1  goto_if              condition=1 destination=0x08266502
+    082664D7  msgbox_multilang     type=0 text_0="Hey!\pA switch behind the poster!?\nLet’s push it!" text_1="Hey!\pA switch behind the poster!?\nLet’s push it!" text_2="Hey!\pA switch behind the poster!?\nLet’s push it!" text_3="Hey!\pA switch behind the poster!?\nLet’s push it!" text_4="Hey!\pA switch behind the poster!?\nLet’s push it!" text_5="Hey!\pA switch behind the poster!?\nLet’s push it!" text_6="Hey!\pA switch behind the poster!?\nLet’s push it!"
+    082664F5  callstd              function=MSGBOX_DEFAULT(4)
+    082664F7  checkflag            flag=0x26D
+    082664FA  goto_if              condition=0 destination=0x08266527
+    08266500  releaseall           
+
+  script 0x08266502  [ok]
+    08266502  msgbox_multilang     type=0 text_0="There is a switch behind the\nposter.\pI can go downstairs now!" text_1="There is a switch behind the\nposter.\pI can go downstairs now!" text_2="There is a switch behind the\nposter.\pI can go downstairs now!" text_3="There is a switch behind the\nposter.\pI can go downstairs now!" text_4="There is a switch behind the\nposter.\pI can go downstairs now!" text_5="There is a switch behind the\nposter.\pI can go downstairs now!" text_6="There is a switch behind the\nposter.\pI can go downstairs now!"
+    08266520  callstd              function=MSGBOX_DEFAULT(4)
+    08266522  goto                 destination=0x082664F7
+
+  script 0x08266527  [ok]
+    08266527  playse               song=44
+    0826652A  setmetatile          x=15 y=2 metatileId=669 impassable=0
+    08266533  setmetatile          x=16 y=2 metatileId=670 impassable=1
+    0826653C  setmetatile          x=17 y=2 metatileId=671 impassable=1
+    08266545  setmetatile          x=16 y=3 metatileId=678 impassable=1
+    0826654E  setmetatile          x=17 y=3 metatileId=679 impassable=1
+    08266557  special              SPECIAL_\function=79
+    0826655A  setflag              flag=0x26D
+    0826655D  goto                 destination=0x08266500
+
+  script 0x082664F7  [ok]
+    082664F7  checkflag            flag=0x26D
+    082664FA  goto_if              condition=0 destination=0x08266527
+    08266500  releaseall           
+
+  script 0x08266500  [ok]
+    08266500  releaseall           
+
+  sign 35 at (17,13) -> 0x081F7584
+  script 0x081F7584  [ok]
+    081F7584  lockall              
+    081F7585  showmoneybox         x=0 y=0 disable=0
+    081F7589  msgbox_multilang     type=0 text_0="It’s a Pokémon Printer!\pIt can put a print of your Pokémon\non the back of your Trainer Card.\pIt costs only ¥50.\nWould you like to try it?" text_1="It’s a Pokémon Printer!\pIt can put a print of your Pokémon\non the back of your Trainer Card.\pIt costs only ¥50.\nWould you like to try it?" text_2="It’s a Pokémon Printer!\pIt can put a print of your Pokémon\non the back of your Trainer Card.\pIt costs only ¥50.\nWould you like to try it?" text_3="It’s a Pokémon Printer!\pIt can put a print of your Pokémon\non the back of your Trainer Card.\pIt costs only ¥50.\nWould you like to try it?" text_4="It’s a Pokémon Printer!\pIt can put a print of your Pokémon\non the back of your Trainer Card.\pIt costs only ¥50.\nWould you like to try it?" text_5="It’s a Pokémon Printer!\pIt can put a print of your Pokémon\non the back of your Trainer Card.\pIt costs only ¥50.\nWould you like to try it?" text_6="It’s a Pokémon Printer!\pIt can put a print of your Pokémon\non the back of your Trainer Card.\pIt costs only ¥50.\nWould you like to try it?"
+    081F75A7  callstd              function=MSGBOX_YESNO(5)
+    081F75A9  compare_var_to_value var=0x800D value=0
+    081F75AE  goto_if              condition=1 destination=0x081F76A3
+    081F75B4  checkmoney           value=50 disable=0
+    081F75BA  compare_var_to_value var=0x800D value=0
+    081F75BF  goto_if              condition=1 destination=0x081F76A8
+    081F75C5  playse               song=255
+    081F75C8  removemoney          value=50 disable=0
+    081F75CE  updatemoneybox       0=0 0=0 disable=0
+    081F75D2  waitse               
+    081F75D3  message              text="Please choose the print type."
+    081F75D8  copyobjectxytoperm   localId=8062
+    081F75DB  gotostd              function=100
+    081F75DD  bufferleadmonspeciesname stringVarId=31
+    081F75DF  gotostd              function=100
+    081F75E1  bufferleadmonspeciesname stringVarId=31
+    081F75E3  gotostd              function=100
+    081F75E5  bufferleadmonspeciesname stringVarId=31
+    081F75E7  gotostd              function=100
+    081F75E9  bufferleadmonspeciesname stringVarId=31
+    081F75EB  gotostd              function=100
+    081F75ED  bufferleadmonspeciesname stringVarId=31
+    081F75EF  gotostd              function=102
+    081F75F1  multichoice          x=21 y=0 multichoiceId=2 ignoreBPress=1
+    081F75F6  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081F75FB  compare_var_to_value var=0x8000 value=0
+    081F7600  goto_if              condition=1 destination=0x081F7628
+    081F7606  compare_var_to_value var=0x8000 value=1
+    081F760B  goto_if              condition=1 destination=0x081F7633
+    081F7611  compare_var_to_value var=0x8000 value=2
+    081F7616  goto_if              condition=1 destination=0x081F763E
+    081F761C  compare_var_to_value var=0x8000 value=3
+    081F7621  goto_if              condition=1 destination=0x081F7649
+    081F7627  end                  
+
+  script 0x081F76A3  [ok]
+    081F76A3  hidemoneybox         0=0 0=0
+    081F76A6  releaseall           
+
+  script 0x081F76A8  [ok]
+    081F76A8  msgbox_multilang     type=0 text_0="You don’t have enough money." text_1="You don’t have enough money." text_2="You don’t have enough money." text_3="You don’t have enough money." text_4="You don’t have enough money." text_5="You don’t have enough money." text_6="You don’t have enough money."
+    081F76C6  callstd              function=MSGBOX_DEFAULT(4)
+    081F76C8  hidemoneybox         0=0 0=0
+    081F76CB  releaseall           
+
+  script 0x081F7628  [ok]
+    081F7628  setvar               destination=VAR_0x8004 value=0
+    081F762D  goto                 destination=0x081F7654
+
+  script 0x081F7633  [ok]
+    081F7633  setvar               destination=VAR_0x8004 value=1
+    081F7638  goto                 destination=0x081F7654
+
+  script 0x081F763E  [ok]
+    081F763E  setvar               destination=VAR_0x8004 value=2
+    081F7643  goto                 destination=0x081F7654
+
+  script 0x081F7649  [ok]
+    081F7649  setvar               destination=VAR_0x8004 value=3
+    081F764E  goto                 destination=0x081F7654
+
+  script 0x081F7654  [ok]
+    081F7654  message              text="A big smile for the photo, please!\nThree… Two… One…\pFlash!"
+    081F7659  buffermovename       stringVarId=126 move=?(2079)
+    081F765D  buffermovename       stringVarId=126 move=?(2079)
+    081F7661  buffermovename       stringVarId=126 move=?(2079)
+    081F7665  buffermovename       stringVarId=126 move=?(2079)
+    081F7669  buffermovename       stringVarId=126 move=?(2079)
+    081F766D  buffermovename       stringVarId=126 move=?(2079)
+    081F7671  waitmessage          
+    081F7672  playse               song=532
+    081F7675  dofieldeffect        animation=73
+    081F7678  delay                frames=60
+    081F767B  special              SPECIAL_\function=392
+    081F767E  msgbox_multilang     type=0 text_0="Your Pokémon print is ready!\nCheck your Trainer Card." text_1="Your Pokémon print is ready!\nCheck your Trainer Card." text_2="Your Pokémon print is ready!\nCheck your Trainer Card." text_3="Your Pokémon print is ready!\nCheck your Trainer Card." text_4="Your Pokémon print is ready!\nCheck your Trainer Card." text_5="Your Pokémon print is ready!\nCheck your Trainer Card." text_6="Your Pokémon print is ready!\nCheck your Trainer Card."
+    081F769C  callstd              function=MSGBOX_DEFAULT(4)
+    081F769E  hidemoneybox         0=0 0=0
+    081F76A1  releaseall           
+
+  map script type 1 -> 0x08265D94
+  script 0x08265D94  [ok]
+    08265D94  checkflag            flag=0x26D
+    08265D97  goto_if              condition=0 destination=0x08265D9E
+    08265D9D  return               
+
+  script 0x08265D9E  [ok]
+    08265D9E  setmetatile          x=15 y=2 metatileId=658 impassable=0
+    08265DA7  setmetatile          x=16 y=2 metatileId=658 impassable=0
+    08265DB0  setmetatile          x=17 y=2 metatileId=658 impassable=0
+    08265DB9  setmetatile          x=16 y=3 metatileId=719 impassable=1
+    08265DC2  setmetatile          x=17 y=3 metatileId=719 impassable=1
+    08265DCB  return               
+

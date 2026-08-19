@@ -1,0 +1,75 @@
+Battle Frontier  (group 41, map 46)  header 0x08B3E5B8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x082B6F14
+  script 0x082B6F14  [ok]
+    082B6F14  lock                 
+    082B6F15  faceplayer           
+    082B6F16  call                 destination=0x082BB330
+    082B6F1B  message              text="Welcome!\pHow may I serve you?"
+    082B6F20  checkmodernfatefulencounter slot=11203
+    082B6F23  gotostd              function=206
+    082B6F25  incrementgamestat    stat=43
+    082B6F27  gotostd              function=206
+    082B6F29  incrementgamestat    stat=43
+    082B6F2B  gotostd              function=206
+    082B6F2D  incrementgamestat    stat=43
+    082B6F2F  gotostd              function=206
+    082B6F31  incrementgamestat    stat=43
+    082B6F33  gotostd              function=206
+    082B6F35  incrementgamestat    stat=43
+    082B6F37  gotostd              function=102
+    082B6F39  pokemart             products=0x082B6F68
+        sells Ultra Ball
+        sells Hyper Potion
+        sells Max Potion
+        sells Full Restore
+        sells Full Heal
+        sells Revive
+        sells Max Lure
+        sells Max Repel
+        sells Protein
+        sells Calcium
+        sells Iron
+        sells Zinc
+        sells Carbos
+        sells HP Up
+    082B6F3E  call                 destination=0x082BB330
+    082B6F43  msgbox_multilang     type=0 text_0="Please come again!" text_1="Please come again!" text_2="Please come again!" text_3="Please come again!" text_4="Please come again!" text_5="Please come again!" text_6="Please come again!"
+    082B6F61  callstd              function=MSGBOX_DEFAULT(4)
+    082B6F63  release              
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x1E, flag 0x0000) -> 0x082B6FA9
+  script 0x082B6FA9  [ok]
+    082B6FA9  lock                 
+    082B6FAA  applymovement        localId=2 movements=[face_down]
+    082B6FB1  waitmovement         localId=0
+    082B6FB4  msgbox_multilang     type=0 text_0="Dear, what do you think of this?\nWouldn’t this make a nice gift?\pIt’s…PRO…TE…IN?\nIt sounds delicious, doesn’t it?" text_1="Dear, what do you think of this?\nWouldn’t this make a nice gift?\pIt’s…PRO…TE…IN?\nIt sounds delicious, doesn’t it?" text_2="Dear, what do you think of this?\nWouldn’t this make a nice gift?\pIt’s…PRO…TE…IN?\nIt sounds delicious, doesn’t it?" text_3="Dear, what do you think of this?\nWouldn’t this make a nice gift?\pIt’s…PRO…TE…IN?\nIt sounds delicious, doesn’t it?" text_4="Dear, what do you think of this?\nWouldn’t this make a nice gift?\pIt’s…PRO…TE…IN?\nIt sounds delicious, doesn’t it?" text_5="Dear, what do you think of this?\nWouldn’t this make a nice gift?\pIt’s…PRO…TE…IN?\nIt sounds delicious, doesn’t it?" text_6="Dear, what do you think of this?\nWouldn’t this make a nice gift?\pIt’s…PRO…TE…IN?\nIt sounds delicious, doesn’t it?"
+    082B6FD2  callstd              function=MSGBOX_DEFAULT(4)
+    082B6FD4  release              
+
+  object 3 (gfx 0xF6, flag 0x0000) -> 0x082B6F88
+  script 0x082B6F88  [ok]
+    082B6F88  msgbox_multilang     type=0 text_0="We came here to chaperon our\ngrandson.\pBut since we’re here, we thought\nwe should get some souvenirs." text_1="We came here to chaperon our\ngrandson.\pBut since we’re here, we thought\nwe should get some souvenirs." text_2="We came here to chaperon our\ngrandson.\pBut since we’re here, we thought\nwe should get some souvenirs." text_3="We came here to chaperon our\ngrandson.\pBut since we’re here, we thought\nwe should get some souvenirs." text_4="We came here to chaperon our\ngrandson.\pBut since we’re here, we thought\nwe should get some souvenirs." text_5="We came here to chaperon our\ngrandson.\pBut since we’re here, we thought\nwe should get some souvenirs." text_6="We came here to chaperon our\ngrandson.\pBut since we’re here, we thought\nwe should get some souvenirs."
+    082B6FA6  callstd              function=MSGBOX_NPC(2)
+    082B6FA8  end                  
+
+  object 4 (gfx 0xEF, flag 0x0000) -> 0x082B6FD6
+  script 0x082B6FD6  [ok]
+    082B6FD6  msgbox_multilang     type=0 text_0="A lot of the BATTLE FRONTIER’s\nfacilities don’t allow the use of items\pduring battles.\pThat rule makes things tougher than\nthey already are!" text_1="A lot of the BATTLE FRONTIER’s\nfacilities don’t allow the use of items\pduring battles.\pThat rule makes things tougher than\nthey already are!" text_2="A lot of the BATTLE FRONTIER’s\nfacilities don’t allow the use of items\pduring battles.\pThat rule makes things tougher than\nthey already are!" text_3="A lot of the BATTLE FRONTIER’s\nfacilities don’t allow the use of items\pduring battles.\pThat rule makes things tougher than\nthey already are!" text_4="A lot of the BATTLE FRONTIER’s\nfacilities don’t allow the use of items\pduring battles.\pThat rule makes things tougher than\nthey already are!" text_5="A lot of the BATTLE FRONTIER’s\nfacilities don’t allow the use of items\pduring battles.\pThat rule makes things tougher than\nthey already are!" text_6="A lot of the BATTLE FRONTIER’s\nfacilities don’t allow the use of items\pduring battles.\pThat rule makes things tougher than\nthey already are!"
+    082B6FF4  callstd              function=MSGBOX_NPC(2)
+    082B6FF6  end                  
+

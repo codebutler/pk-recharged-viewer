@@ -1,0 +1,18 @@
+Route 12  (group 23, map 0)  header 0x08B3D9E8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0000) -> 0x08278A00
+  script 0x08278A00  [ok]
+    08278A00  msgbox_multilang     type=0 text_0="There’s a lookout spot upstairs.\nThe view is magnificent." text_1="There’s a lookout spot upstairs.\nThe view is magnificent." text_2="There’s a lookout spot upstairs.\nThe view is magnificent." text_3="There’s a lookout spot upstairs.\nThe view is magnificent." text_4="There’s a lookout spot upstairs.\nThe view is magnificent." text_5="There’s a lookout spot upstairs.\nThe view is magnificent." text_6="There’s a lookout spot upstairs.\nThe view is magnificent."
+    08278A1E  callstd              function=MSGBOX_NPC(2)
+    08278A20  end                  
+

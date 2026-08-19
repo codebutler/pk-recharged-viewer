@@ -1,0 +1,155 @@
+Memorial Pillar  (group 3, map 57)  header 0x08B3CD00
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF2, flag 0x0000) -> 0x0823D9E5
+  script 0x0823D9E5  [ok]
+    0823D9E5  lock                 
+    0823D9E6  checkflag            flag=0x236
+    0823D9E9  goto_if              condition=1 destination=0x0823DA72
+    0823D9EF  checkflag            flag=0x2D7
+    0823D9F2  goto_if              condition=1 destination=0x0823DA94
+    0823D9F8  msgbox_multilang     type=0 text_0="Scrub, scrub…" text_1="Scrub, scrub…" text_2="Scrub, scrub…" text_3="Scrub, scrub…" text_4="Scrub, scrub…" text_5="Scrub, scrub…" text_6="Scrub, scrub…"
+    0823DA16  callstd              function=MSGBOX_DEFAULT(4)
+    0823DA18  closemessage         
+    0823DA19  applymovement        localId=1 movements=[face_player]
+    0823DA20  waitmovement         localId=0
+    0823DA23  delay                frames=45
+    0823DA26  msgbox_multilang     type=0 text_0="Hello…\nYour Pokémon look healthy…" text_1="Hello…\nYour Pokémon look healthy…" text_2="Hello…\nYour Pokémon look healthy…" text_3="Hello…\nYour Pokémon look healthy…" text_4="Hello…\nYour Pokémon look healthy…" text_5="Hello…\nYour Pokémon look healthy…" text_6="Hello…\nYour Pokémon look healthy…"
+    0823DA44  callstd              function=MSGBOX_DEFAULT(4)
+    0823DA46  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    0823DA4D  waitmovement         localId=0
+    0823DA50  msgbox_multilang     type=0 text_0="This is where I buried my Onix…\nIt was named Tectonix…" text_1="This is where I buried my Onix…\nIt was named Tectonix…" text_2="This is where I buried my Onix…\nIt was named Tectonix…" text_3="This is where I buried my Onix…\nIt was named Tectonix…" text_4="This is where I buried my Onix…\nIt was named Tectonix…" text_5="This is where I buried my Onix…\nIt was named Tectonix…" text_6="This is where I buried my Onix…\nIt was named Tectonix…"
+    0823DA6E  callstd              function=MSGBOX_DEFAULT(4)
+    0823DA70  release              
+
+  script 0x0823DA72  [ok]
+    0823DA72  msgbox_multilang     type=0 text_0="Scrub, scrub…\p… … …\nTectonix…" text_1="Scrub, scrub…\p… … …\nTectonix…" text_2="Scrub, scrub…\p… … …\nTectonix…" text_3="Scrub, scrub…\p… … …\nTectonix…" text_4="Scrub, scrub…\p… … …\nTectonix…" text_5="Scrub, scrub…\p… … …\nTectonix…" text_6="Scrub, scrub…\p… … …\nTectonix…"
+    0823DA90  callstd              function=MSGBOX_DEFAULT(4)
+    0823DA92  release              
+
+  script 0x0823DA94  [unknown-opcode:0xE9]
+    0823DA94  msgbox_multilang     type=0 text_0="Oh, it’s you from that time…\pI still have that thing I wanted\nyou to have as my thanks." text_1="Oh, it’s you from that time…\pI still have that thing I wanted\nyou to have as my thanks." text_2="Oh, it’s you from that time…\pI still have that thing I wanted\nyou to have as my thanks." text_3="Oh, it’s you from that time…\pI still have that thing I wanted\nyou to have as my thanks." text_4="Oh, it’s you from that time…\pI still have that thing I wanted\nyou to have as my thanks." text_5="Oh, it’s you from that time…\pI still have that thing I wanted\nyou to have as my thanks." text_6="Oh, it’s you from that time…\pI still have that thing I wanted\nyou to have as my thanks."
+    0823DAB2  callstd              function=MSGBOX_DEFAULT(4)
+
+  object 2 (gfx 0x47, flag 0x0000) -> 0x081FD8D7
+  script 0x081FD8D7  [ok]
+    081FD8D7  trainerbattle        type=0 trainer=0x23A localId=0 ptr1=0x0823DC38 ptr2=0x0823DC90
+    081FD8E5  specialvar           output=32781 SPECIAL_\function=37
+    081FD8EA  compare_var_to_value var=0x800D value=1
+    081FD8EF  goto_if              condition=1 destination=0x081FD916
+    081FD8F5  msgbox_multilang     type=0 text_0="You can fly to Four Island from\nhere." text_1="You can fly to Four Island from\nhere." text_2="You can fly to Four Island from\nhere." text_3="You can fly to Four Island from\nhere." text_4="You can fly to Four Island from\nhere." text_5="You can fly to Four Island from\nhere." text_6="You can fly to Four Island from\nhere."
+    081FD913  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD915  end                  
+
+  script 0x081FD916  [ok]
+    081FD916  goto                 destination=0x081FD920
+
+  script 0x081FD920  [ok]
+    081FD920  trainerbattle        type=5 trainer=0x23A localId=0 ptr1=0x082BA89C ptr2=0x0823DC90
+    081FD92E  msgbox_multilang     type=0 text_0="You can fly to Four Island from\nhere." text_1="You can fly to Four Island from\nhere." text_2="You can fly to Four Island from\nhere." text_3="You can fly to Four Island from\nhere." text_4="You can fly to Four Island from\nhere." text_5="You can fly to Four Island from\nhere." text_6="You can fly to Four Island from\nhere."
+    081FD94C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD94E  end                  
+
+  object 3 (gfx 0x47, flag 0x0000) -> 0x081FD94F
+  script 0x081FD94F  [ok]
+    081FD94F  trainerbattle        type=0 trainer=0x23B localId=0 ptr1=0x0823DCC4 ptr2=0x0823DD21
+    081FD95D  specialvar           output=32781 SPECIAL_\function=37
+    081FD962  compare_var_to_value var=0x800D value=1
+    081FD967  goto_if              condition=1 destination=0x081FD98E
+    081FD96D  msgbox_multilang     type=0 text_0="There was a really somber guy\nover that way." text_1="There was a really somber guy\nover that way." text_2="There was a really somber guy\nover that way." text_3="There was a really somber guy\nover that way." text_4="There was a really somber guy\nover that way." text_5="There was a really somber guy\nover that way." text_6="There was a really somber guy\nover that way."
+    081FD98B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD98D  end                  
+
+  script 0x081FD98E  [ok]
+    081FD98E  goto                 destination=0x081FD998
+
+  script 0x081FD998  [ok]
+    081FD998  trainerbattle        type=5 trainer=0x23B localId=0 ptr1=0x082BA909 ptr2=0x0823DD21
+    081FD9A6  msgbox_multilang     type=0 text_0="There was a really somber guy\nover that way." text_1="There was a really somber guy\nover that way." text_2="There was a really somber guy\nover that way." text_3="There was a really somber guy\nover that way." text_4="There was a really somber guy\nover that way." text_5="There was a really somber guy\nover that way." text_6="There was a really somber guy\nover that way."
+    081FD9C4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD9C6  end                  
+
+  object 4 (gfx 0x47, flag 0x0000) -> 0x081FD9C7
+  script 0x081FD9C7  [ok]
+    081FD9C7  trainerbattle        type=0 trainer=0x23C localId=0 ptr1=0x0823DD5A ptr2=0x0823DDB4
+    081FD9D5  specialvar           output=32781 SPECIAL_\function=37
+    081FD9DA  compare_var_to_value var=0x800D value=1
+    081FD9DF  goto_if              condition=1 destination=0x081FDA06
+    081FD9E5  msgbox_multilang     type=0 text_0="It fills me with happiness when\nbird Pokémon beg playfully…" text_1="It fills me with happiness when\nbird Pokémon beg playfully…" text_2="It fills me with happiness when\nbird Pokémon beg playfully…" text_3="It fills me with happiness when\nbird Pokémon beg playfully…" text_4="It fills me with happiness when\nbird Pokémon beg playfully…" text_5="It fills me with happiness when\nbird Pokémon beg playfully…" text_6="It fills me with happiness when\nbird Pokémon beg playfully…"
+    081FDA03  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDA05  end                  
+
+  script 0x081FDA06  [ok]
+    081FDA06  goto                 destination=0x081FDA10
+
+  script 0x081FDA10  [ok]
+    081FDA10  trainerbattle        type=5 trainer=0x23C localId=0 ptr1=0x082BA964 ptr2=0x0823DDB4
+    081FDA1E  msgbox_multilang     type=0 text_0="It fills me with happiness when\nbird Pokémon beg playfully…" text_1="It fills me with happiness when\nbird Pokémon beg playfully…" text_2="It fills me with happiness when\nbird Pokémon beg playfully…" text_3="It fills me with happiness when\nbird Pokémon beg playfully…" text_4="It fills me with happiness when\nbird Pokémon beg playfully…" text_5="It fills me with happiness when\nbird Pokémon beg playfully…" text_6="It fills me with happiness when\nbird Pokémon beg playfully…"
+    081FDA3C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDA3E  end                  
+
+  object 5 (gfx 0x35, flag 0x01E0) -> 0x082D5CA7
+  script 0x082D5CA7  [ok]
+    082D5CA7  setorcopyvar         destination=VAR_0x8000 source=199
+    082D5CAC  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5CB1  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Metal Coat
+    082D5CB3  end                  
+
+  sign 0 at (9,43) -> 0x0823DAD3
+  script 0x0823DAD3  [ok]
+    0823DAD3  lockall              
+    0823DAD4  checkflag            flag=0x236
+    0823DAD7  goto_if              condition=1 destination=0x0823DC16
+    0823DADD  checkflag            flag=0x2D7
+    0823DAE0  goto_if              condition=1 destination=0x0823DC16
+    0823DAE6  msgbox_multilang     type=0 text_0="“Here lies Tectonix” is engraved\non a boulder.\pThere is a Lemonade placed as an\noffering in front of the grave." text_1="“Here lies Tectonix” is engraved\non a boulder.\pThere is a Lemonade placed as an\noffering in front of the grave." text_2="“Here lies Tectonix” is engraved\non a boulder.\pThere is a Lemonade placed as an\noffering in front of the grave." text_3="“Here lies Tectonix” is engraved\non a boulder.\pThere is a Lemonade placed as an\noffering in front of the grave." text_4="“Here lies Tectonix” is engraved\non a boulder.\pThere is a Lemonade placed as an\noffering in front of the grave." text_5="“Here lies Tectonix” is engraved\non a boulder.\pThere is a Lemonade placed as an\noffering in front of the grave." text_6="“Here lies Tectonix” is engraved\non a boulder.\pThere is a Lemonade placed as an\noffering in front of the grave."
+    0823DB04  callstd              function=MSGBOX_DEFAULT(4)
+    0823DB06  checkitem            itemId=Lemonade(28) quantity=1
+    0823DB0B  compare_var_to_value var=0x800D value=1
+    0823DB10  goto_if              condition=1 destination=0x0823DB18
+    0823DB16  releaseall           
+
+  script 0x0823DC16  [ok]
+    0823DC16  msgbox_multilang     type=0 text_0="Boulders and rocks are neatly piled\nup as a cairn.\p“Here lies Tectonix” is engraved\non a boulder." text_1="Boulders and rocks are neatly piled\nup as a cairn.\p“Here lies Tectonix” is engraved\non a boulder." text_2="Boulders and rocks are neatly piled\nup as a cairn.\p“Here lies Tectonix” is engraved\non a boulder." text_3="Boulders and rocks are neatly piled\nup as a cairn.\p“Here lies Tectonix” is engraved\non a boulder." text_4="Boulders and rocks are neatly piled\nup as a cairn.\p“Here lies Tectonix” is engraved\non a boulder." text_5="Boulders and rocks are neatly piled\nup as a cairn.\p“Here lies Tectonix” is engraved\non a boulder." text_6="Boulders and rocks are neatly piled\nup as a cairn.\p“Here lies Tectonix” is engraved\non a boulder."
+    0823DC34  callstd              function=MSGBOX_DEFAULT(4)
+    0823DC36  releaseall           
+
+  script 0x0823DB18  [ok]
+    0823DB18  msgbox_multilang     type=0 text_0="Would you like to leave another\nLemonade as an offering?" text_1="Would you like to leave another\nLemonade as an offering?" text_2="Would you like to leave another\nLemonade as an offering?" text_3="Would you like to leave another\nLemonade as an offering?" text_4="Would you like to leave another\nLemonade as an offering?" text_5="Would you like to leave another\nLemonade as an offering?" text_6="Would you like to leave another\nLemonade as an offering?"
+    0823DB36  callstd              function=MSGBOX_YESNO(5)
+    0823DB38  compare_var_to_value var=0x800D value=1
+    0823DB3D  goto_if              condition=1 destination=0x0823DB45
+    0823DB43  releaseall           
+
+  script 0x0823DB45  [unknown-opcode:0xE9]
+    0823DB45  removeitem           itemId=Lemonade(28) quantity=1
+    0823DB4A  msgbox_multilang     type=0 text_0="{PLAYER} placed a can of Lemonade\nin front of the grave." text_1="{PLAYER} placed a can of Lemonade\nin front of the grave." text_2="{PLAYER} placed a can of Lemonade\nin front of the grave." text_3="{PLAYER} placed a can of Lemonade\nin front of the grave." text_4="{PLAYER} placed a can of Lemonade\nin front of the grave." text_5="{PLAYER} placed a can of Lemonade\nin front of the grave." text_6="{PLAYER} placed a can of Lemonade\nin front of the grave."
+    0823DB68  callstd              function=MSGBOX_DEFAULT(4)
+    0823DB6A  closemessage         
+    0823DB6B  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    0823DB72  waitmovement         localId=0
+    0823DB75  delay                frames=45
+    0823DB78  applymovement        localId=255 movements=[walk_in_place_faster_left]
+    0823DB7F  waitmovement         localId=0
+    0823DB82  textcolor            color=0
+    0823DB84  msgbox_multilang     type=0 text_0="Th-thank you…\pThat was my Tectonix’s favorite\ndrink…\pI don’t even know you, but your\nact of kindness…\pIt’s uplifted me a little.\pCan you please take this as my\nthanks?" text_1="Th-thank you…\pThat was my Tectonix’s favorite\ndrink…\pI don’t even know you, but your\nact of kindness…\pIt’s uplifted me a little.\pCan you please take this as my\nthanks?" text_2="Th-thank you…\pThat was my Tectonix’s favorite\ndrink…\pI don’t even know you, but your\nact of kindness…\pIt’s uplifted me a little.\pCan you please take this as my\nthanks?" text_3="Th-thank you…\pThat was my Tectonix’s favorite\ndrink…\pI don’t even know you, but your\nact of kindness…\pIt’s uplifted me a little.\pCan you please take this as my\nthanks?" text_4="Th-thank you…\pThat was my Tectonix’s favorite\ndrink…\pI don’t even know you, but your\nact of kindness…\pIt’s uplifted me a little.\pCan you please take this as my\nthanks?" text_5="Th-thank you…\pThat was my Tectonix’s favorite\ndrink…\pI don’t even know you, but your\nact of kindness…\pIt’s uplifted me a little.\pCan you please take this as my\nthanks?" text_6="Th-thank you…\pThat was my Tectonix’s favorite\ndrink…\pI don’t even know you, but your\nact of kindness…\pIt’s uplifted me a little.\pCan you please take this as my\nthanks?"
+    0823DBA2  callstd              function=MSGBOX_DEFAULT(4)
+
+  hidden item at (8,52): Big Pearl
+
+  hidden item at (15,7): Razz Berry
+
+  hidden item at (17,22): Sitrus Berry
+
+  hidden item at (14,25): Bluk Berry
+

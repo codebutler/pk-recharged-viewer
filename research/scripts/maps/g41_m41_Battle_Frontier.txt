@@ -1,0 +1,231 @@
+Battle Frontier  (group 41, map 41)  header 0x08B3E52C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x082B53FC
+  script 0x082B53FC  [ok]
+    082B53FC  lock                 
+    082B53FD  faceplayer           
+    082B53FE  msgbox_multilang     type=0 text_0="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_1="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_2="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_3="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_4="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_5="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_6="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!"
+    082B541C  callstd              function=MSGBOX_DEFAULT(4)
+    082B541E  msgbox_multilang     type=0 text_0="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_1="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_2="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_3="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_4="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_5="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_6="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!"
+    082B543C  callstd              function=MSGBOX_DEFAULT(4)
+    082B543E  release              
+
+  object 2 (gfx 0x55, flag 0x0000) -> 0x082B5440
+  script 0x082B5440  [ok]
+    082B5440  lock                 
+    082B5441  faceplayer           
+    082B5442  msgbox_multilang     type=0 text_0="I’m your guide to the various facilities\nhere in the BATTLE FRONTIER." text_1="I’m your guide to the various facilities\nhere in the BATTLE FRONTIER." text_2="I’m your guide to the various facilities\nhere in the BATTLE FRONTIER." text_3="I’m your guide to the various facilities\nhere in the BATTLE FRONTIER." text_4="I’m your guide to the various facilities\nhere in the BATTLE FRONTIER." text_5="I’m your guide to the various facilities\nhere in the BATTLE FRONTIER." text_6="I’m your guide to the various facilities\nhere in the BATTLE FRONTIER."
+    082B5460  callstd              function=MSGBOX_DEFAULT(4)
+    082B5462  goto                 destination=0x082B5468
+
+  script 0x082B5468  [ok]
+    082B5468  message              text="Which would you like to learn about?"
+    082B546D  warpteleport         mapGroup=92 mapNum=43 WARP_ID_NONE=8 -1=23613 -1=2091
+    082B5475  warpteleport         mapGroup=92 mapNum=43 WARP_ID_NONE=8 -1=23613 -1=2091
+    082B547D  warpteleport         mapGroup=92 mapNum=43 WARP_ID_NONE=8 -1=23613 -1=2091
+    082B5485  waitmessage          
+    082B5486  setvar               destination=VAR_0x8004 value=8
+    082B548B  special              SPECIAL_\function=284
+    082B548E  waitstate            
+
+  object 3 (gfx 0x17, flag 0x0000) -> 0x082B5686
+  script 0x082B5686  [ok]
+    082B5686  lock                 
+    082B5687  faceplayer           
+    082B5688  msgbox_multilang     type=0 text_0="I’m your guide to the basic rules that\nare common to all the challenges\poffered by the facilities in the BATTLE\pFRONTIER." text_1="I’m your guide to the basic rules that\nare common to all the challenges\poffered by the facilities in the BATTLE\pFRONTIER." text_2="I’m your guide to the basic rules that\nare common to all the challenges\poffered by the facilities in the BATTLE\pFRONTIER." text_3="I’m your guide to the basic rules that\nare common to all the challenges\poffered by the facilities in the BATTLE\pFRONTIER." text_4="I’m your guide to the basic rules that\nare common to all the challenges\poffered by the facilities in the BATTLE\pFRONTIER." text_5="I’m your guide to the basic rules that\nare common to all the challenges\poffered by the facilities in the BATTLE\pFRONTIER." text_6="I’m your guide to the basic rules that\nare common to all the challenges\poffered by the facilities in the BATTLE\pFRONTIER."
+    082B56A6  callstd              function=MSGBOX_DEFAULT(4)
+    082B56A8  goto                 destination=0x082B56AE
+
+  script 0x082B56AE  [ok]
+    082B56AE  message              text="What would you like to learn about?"
+    082B56B3  bufferitemname       stringVarId=98 item=2091
+    082B56B7  bufferitemname       stringVarId=98 item=2091
+    082B56BB  bufferitemname       stringVarId=98 item=2091
+    082B56BF  bufferitemname       stringVarId=98 item=2091
+    082B56C3  bufferitemname       stringVarId=98 item=2091
+    082B56C7  bufferitemname       stringVarId=98 item=2091
+    082B56CB  waitmessage          
+    082B56CC  multichoice          x=15 y=0 multichoiceId=95 ignoreBPress=0
+    082B56D1  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082B56D6  compare_var_to_value var=0x8000 value=0
+    082B56DB  goto_if              condition=1 destination=0x082B5724
+    082B56E1  compare_var_to_value var=0x8000 value=1
+    082B56E6  goto_if              condition=1 destination=0x082B574A
+    082B56EC  compare_var_to_value var=0x8000 value=2
+    082B56F1  goto_if              condition=1 destination=0x082B5770
+    082B56F7  compare_var_to_value var=0x8000 value=3
+    082B56FC  goto_if              condition=1 destination=0x082B5796
+    082B5702  compare_var_to_value var=0x8000 value=4
+    082B5707  goto_if              condition=1 destination=0x082B57BC
+    082B570D  compare_var_to_value var=0x8000 value=5
+    082B5712  goto_if              condition=1 destination=0x082B57E2
+    082B5718  compare_var_to_value var=0x8000 value=127
+    082B571D  goto_if              condition=1 destination=0x082B57E2
+    082B5723  end                  
+
+  script 0x082B5724  [ok]
+    082B5724  msgbox_multilang     type=0 text_0="All the challenges at the BATTLE\nFRONTIER’s facilities come in\ptwo courses--Level 50 and Open Level." text_1="All the challenges at the BATTLE\nFRONTIER’s facilities come in\ptwo courses--Level 50 and Open Level." text_2="All the challenges at the BATTLE\nFRONTIER’s facilities come in\ptwo courses--Level 50 and Open Level." text_3="All the challenges at the BATTLE\nFRONTIER’s facilities come in\ptwo courses--Level 50 and Open Level." text_4="All the challenges at the BATTLE\nFRONTIER’s facilities come in\ptwo courses--Level 50 and Open Level." text_5="All the challenges at the BATTLE\nFRONTIER’s facilities come in\ptwo courses--Level 50 and Open Level." text_6="All the challenges at the BATTLE\nFRONTIER’s facilities come in\ptwo courses--Level 50 and Open Level."
+    082B5742  callstd              function=MSGBOX_DEFAULT(4)
+    082B5744  goto                 destination=0x082B56AE
+
+  script 0x082B574A  [ok]
+    082B574A  msgbox_multilang     type=0 text_0="The Level 50 course is open to POKéMON\nup to and including Level 50.\pPlease keep in mind, however, that\nno TRAINER you face will have any\pPOKéMON below Level 50.\pThis course is the entry level for\nbattles at the BATTLE FRONTIER.\pTo begin, we hope you will challenge\nthis course." text_1="The Level 50 course is open to POKéMON\nup to and including Level 50.\pPlease keep in mind, however, that\nno TRAINER you face will have any\pPOKéMON below Level 50.\pThis course is the entry level for\nbattles at the BATTLE FRONTIER.\pTo begin, we hope you will challenge\nthis course." text_2="The Level 50 course is open to POKéMON\nup to and including Level 50.\pPlease keep in mind, however, that\nno TRAINER you face will have any\pPOKéMON below Level 50.\pThis course is the entry level for\nbattles at the BATTLE FRONTIER.\pTo begin, we hope you will challenge\nthis course." text_3="The Level 50 course is open to POKéMON\nup to and including Level 50.\pPlease keep in mind, however, that\nno TRAINER you face will have any\pPOKéMON below Level 50.\pThis course is the entry level for\nbattles at the BATTLE FRONTIER.\pTo begin, we hope you will challenge\nthis course." text_4="The Level 50 course is open to POKéMON\nup to and including Level 50.\pPlease keep in mind, however, that\nno TRAINER you face will have any\pPOKéMON below Level 50.\pThis course is the entry level for\nbattles at the BATTLE FRONTIER.\pTo begin, we hope you will challenge\nthis course." text_5="The Level 50 course is open to POKéMON\nup to and including Level 50.\pPlease keep in mind, however, that\nno TRAINER you face will have any\pPOKéMON below Level 50.\pThis course is the entry level for\nbattles at the BATTLE FRONTIER.\pTo begin, we hope you will challenge\nthis course." text_6="The Level 50 course is open to POKéMON\nup to and including Level 50.\pPlease keep in mind, however, that\nno TRAINER you face will have any\pPOKéMON below Level 50.\pThis course is the entry level for\nbattles at the BATTLE FRONTIER.\pTo begin, we hope you will challenge\nthis course."
+    082B5768  callstd              function=MSGBOX_DEFAULT(4)
+    082B576A  goto                 destination=0x082B56AE
+
+  script 0x082B5770  [ok]
+    082B5770  msgbox_multilang     type=0 text_0="The Open Level course places no limit\non the levels of POKéMON entering\pchallenges.\pThe levels of your opponents will\nbe adjusted to match the levels of\pyour POKéMON.\pHowever, no TRAINER you face will\nhave any POKéMON below Level 60." text_1="The Open Level course places no limit\non the levels of POKéMON entering\pchallenges.\pThe levels of your opponents will\nbe adjusted to match the levels of\pyour POKéMON.\pHowever, no TRAINER you face will\nhave any POKéMON below Level 60." text_2="The Open Level course places no limit\non the levels of POKéMON entering\pchallenges.\pThe levels of your opponents will\nbe adjusted to match the levels of\pyour POKéMON.\pHowever, no TRAINER you face will\nhave any POKéMON below Level 60." text_3="The Open Level course places no limit\non the levels of POKéMON entering\pchallenges.\pThe levels of your opponents will\nbe adjusted to match the levels of\pyour POKéMON.\pHowever, no TRAINER you face will\nhave any POKéMON below Level 60." text_4="The Open Level course places no limit\non the levels of POKéMON entering\pchallenges.\pThe levels of your opponents will\nbe adjusted to match the levels of\pyour POKéMON.\pHowever, no TRAINER you face will\nhave any POKéMON below Level 60." text_5="The Open Level course places no limit\non the levels of POKéMON entering\pchallenges.\pThe levels of your opponents will\nbe adjusted to match the levels of\pyour POKéMON.\pHowever, no TRAINER you face will\nhave any POKéMON below Level 60." text_6="The Open Level course places no limit\non the levels of POKéMON entering\pchallenges.\pThe levels of your opponents will\nbe adjusted to match the levels of\pyour POKéMON.\pHowever, no TRAINER you face will\nhave any POKéMON below Level 60."
+    082B578E  callstd              function=MSGBOX_DEFAULT(4)
+    082B5790  goto                 destination=0x082B56AE
+
+  script 0x082B5796  [ok]
+    082B5796  msgbox_multilang     type=0 text_0="Virtually any kind of POKéMON may take\non the challenges at all facilities.\pEGGS and certain kinds of POKéMON,\nhowever, are not permitted.\pThe numbers of POKéMON required for\nchallenges will depend on the facility.\pAt all facilities, however, two or more\nof the same kind of POKéMON are not\ppermitted." text_1="Virtually any kind of POKéMON may take\non the challenges at all facilities.\pEGGS and certain kinds of POKéMON,\nhowever, are not permitted.\pThe numbers of POKéMON required for\nchallenges will depend on the facility.\pAt all facilities, however, two or more\nof the same kind of POKéMON are not\ppermitted." text_2="Virtually any kind of POKéMON may take\non the challenges at all facilities.\pEGGS and certain kinds of POKéMON,\nhowever, are not permitted.\pThe numbers of POKéMON required for\nchallenges will depend on the facility.\pAt all facilities, however, two or more\nof the same kind of POKéMON are not\ppermitted." text_3="Virtually any kind of POKéMON may take\non the challenges at all facilities.\pEGGS and certain kinds of POKéMON,\nhowever, are not permitted.\pThe numbers of POKéMON required for\nchallenges will depend on the facility.\pAt all facilities, however, two or more\nof the same kind of POKéMON are not\ppermitted." text_4="Virtually any kind of POKéMON may take\non the challenges at all facilities.\pEGGS and certain kinds of POKéMON,\nhowever, are not permitted.\pThe numbers of POKéMON required for\nchallenges will depend on the facility.\pAt all facilities, however, two or more\nof the same kind of POKéMON are not\ppermitted." text_5="Virtually any kind of POKéMON may take\non the challenges at all facilities.\pEGGS and certain kinds of POKéMON,\nhowever, are not permitted.\pThe numbers of POKéMON required for\nchallenges will depend on the facility.\pAt all facilities, however, two or more\nof the same kind of POKéMON are not\ppermitted." text_6="Virtually any kind of POKéMON may take\non the challenges at all facilities.\pEGGS and certain kinds of POKéMON,\nhowever, are not permitted.\pThe numbers of POKéMON required for\nchallenges will depend on the facility.\pAt all facilities, however, two or more\nof the same kind of POKéMON are not\ppermitted."
+    082B57B4  callstd              function=MSGBOX_DEFAULT(4)
+    082B57B6  goto                 destination=0x082B56AE
+
+  script 0x082B57BC  [ok]
+    082B57BC  msgbox_multilang     type=0 text_0="When entering a challenge at a BATTLE\nFRONTIER facility, POKéMON may not\pbe holding the same kind of item.\pPlease make sure that all POKéMON\nentering a challenge are holding\pdifferent items." text_1="When entering a challenge at a BATTLE\nFRONTIER facility, POKéMON may not\pbe holding the same kind of item.\pPlease make sure that all POKéMON\nentering a challenge are holding\pdifferent items." text_2="When entering a challenge at a BATTLE\nFRONTIER facility, POKéMON may not\pbe holding the same kind of item.\pPlease make sure that all POKéMON\nentering a challenge are holding\pdifferent items." text_3="When entering a challenge at a BATTLE\nFRONTIER facility, POKéMON may not\pbe holding the same kind of item.\pPlease make sure that all POKéMON\nentering a challenge are holding\pdifferent items." text_4="When entering a challenge at a BATTLE\nFRONTIER facility, POKéMON may not\pbe holding the same kind of item.\pPlease make sure that all POKéMON\nentering a challenge are holding\pdifferent items." text_5="When entering a challenge at a BATTLE\nFRONTIER facility, POKéMON may not\pbe holding the same kind of item.\pPlease make sure that all POKéMON\nentering a challenge are holding\pdifferent items." text_6="When entering a challenge at a BATTLE\nFRONTIER facility, POKéMON may not\pbe holding the same kind of item.\pPlease make sure that all POKéMON\nentering a challenge are holding\pdifferent items."
+    082B57DA  callstd              function=MSGBOX_DEFAULT(4)
+    082B57DC  goto                 destination=0x082B56AE
+
+  script 0x082B57E2  [ok]
+    082B57E2  msgbox_multilang     type=0 text_0="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_1="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_2="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_3="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_4="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_5="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_6="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!"
+    082B5800  callstd              function=MSGBOX_DEFAULT(4)
+    082B5802  release              
+
+  object 4 (gfx 0xDB, flag 0x00D9) -> 0x00000000
+  object 5 (gfx 0x17, flag 0x0000) -> 0x082B5804
+  script 0x082B5804  [ok]
+    082B5804  lock                 
+    082B5805  faceplayer           
+    082B5806  msgbox_multilang     type=0 text_0="I’m your guide to the FRONTIER PASS." text_1="I’m your guide to the FRONTIER PASS." text_2="I’m your guide to the FRONTIER PASS." text_3="I’m your guide to the FRONTIER PASS." text_4="I’m your guide to the FRONTIER PASS." text_5="I’m your guide to the FRONTIER PASS." text_6="I’m your guide to the FRONTIER PASS."
+    082B5824  callstd              function=MSGBOX_DEFAULT(4)
+    082B5826  goto                 destination=0x082B582C
+
+  script 0x082B582C  [ok]
+    082B582C  message              text="Which would you like to learn about?"
+    082B5831  compare_local_to_value local=103 value=43
+    082B5834  gotostd              function=28
+    082B5836  message              text=1729890347
+    082B583B  checkflag            flag=0x1C08
+    082B583E  message              text=1729890347
+    082B5843  checkflag            flag=0x1C08
+    082B5846  message              text=1868957739
+    082B584B  loadbyte             destIndex=4 value=76
+    082B584E  nop                  
+    082B584F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082B5854  compare_var_to_value var=0x8000 value=0
+    082B5859  goto_if              condition=1 destination=0x082B588C
+    082B585F  compare_var_to_value var=0x8000 value=1
+    082B5864  goto_if              condition=1 destination=0x082B58B2
+    082B586A  compare_var_to_value var=0x8000 value=2
+    082B586F  goto_if              condition=1 destination=0x082B58D8
+    082B5875  compare_var_to_value var=0x8000 value=3
+    082B587A  goto_if              condition=1 destination=0x082B58FE
+    082B5880  compare_var_to_value var=0x8000 value=127
+    082B5885  goto_if              condition=1 destination=0x082B58FE
+    082B588B  end                  
+
+  script 0x082B588C  [ok]
+    082B588C  msgbox_multilang     type=0 text_0="There are seven facilities at\nthe BATTLE FRONTIER.\pTRAINERS who gain recognition for\ntheir abilities may be rewarded with\psymbols from each of the facilities.\pTo earn a symbol, TRAINERS may need\nto defeat other TRAINERS in a row,\pand may need to win events repeatedly.\pIt’s certainly not easy to win symbols.\nI wish you the best of luck!" text_1="There are seven facilities at\nthe BATTLE FRONTIER.\pTRAINERS who gain recognition for\ntheir abilities may be rewarded with\psymbols from each of the facilities.\pTo earn a symbol, TRAINERS may need\nto defeat other TRAINERS in a row,\pand may need to win events repeatedly.\pIt’s certainly not easy to win symbols.\nI wish you the best of luck!" text_2="There are seven facilities at\nthe BATTLE FRONTIER.\pTRAINERS who gain recognition for\ntheir abilities may be rewarded with\psymbols from each of the facilities.\pTo earn a symbol, TRAINERS may need\nto defeat other TRAINERS in a row,\pand may need to win events repeatedly.\pIt’s certainly not easy to win symbols.\nI wish you the best of luck!" text_3="There are seven facilities at\nthe BATTLE FRONTIER.\pTRAINERS who gain recognition for\ntheir abilities may be rewarded with\psymbols from each of the facilities.\pTo earn a symbol, TRAINERS may need\nto defeat other TRAINERS in a row,\pand may need to win events repeatedly.\pIt’s certainly not easy to win symbols.\nI wish you the best of luck!" text_4="There are seven facilities at\nthe BATTLE FRONTIER.\pTRAINERS who gain recognition for\ntheir abilities may be rewarded with\psymbols from each of the facilities.\pTo earn a symbol, TRAINERS may need\nto defeat other TRAINERS in a row,\pand may need to win events repeatedly.\pIt’s certainly not easy to win symbols.\nI wish you the best of luck!" text_5="There are seven facilities at\nthe BATTLE FRONTIER.\pTRAINERS who gain recognition for\ntheir abilities may be rewarded with\psymbols from each of the facilities.\pTo earn a symbol, TRAINERS may need\nto defeat other TRAINERS in a row,\pand may need to win events repeatedly.\pIt’s certainly not easy to win symbols.\nI wish you the best of luck!" text_6="There are seven facilities at\nthe BATTLE FRONTIER.\pTRAINERS who gain recognition for\ntheir abilities may be rewarded with\psymbols from each of the facilities.\pTo earn a symbol, TRAINERS may need\nto defeat other TRAINERS in a row,\pand may need to win events repeatedly.\pIt’s certainly not easy to win symbols.\nI wish you the best of luck!"
+    082B58AA  callstd              function=MSGBOX_DEFAULT(4)
+    082B58AC  goto                 destination=0x082B582C
+
+  script 0x082B58B2  [ok]
+    082B58B2  msgbox_multilang     type=0 text_0="It is possible to record one battle\non your FRONTIER PASS.\pYou may record a battle you had with\na friend or friends.\pOr you may record a battle conducted\nat the BATTLE FRONTIER excluding\pmatches at the BATTLE PIKE or\pthe BATTLE PYRAMID.\pYou may choose to record your match\nat the end of a battle." text_1="It is possible to record one battle\non your FRONTIER PASS.\pYou may record a battle you had with\na friend or friends.\pOr you may record a battle conducted\nat the BATTLE FRONTIER excluding\pmatches at the BATTLE PIKE or\pthe BATTLE PYRAMID.\pYou may choose to record your match\nat the end of a battle." text_2="It is possible to record one battle\non your FRONTIER PASS.\pYou may record a battle you had with\na friend or friends.\pOr you may record a battle conducted\nat the BATTLE FRONTIER excluding\pmatches at the BATTLE PIKE or\pthe BATTLE PYRAMID.\pYou may choose to record your match\nat the end of a battle." text_3="It is possible to record one battle\non your FRONTIER PASS.\pYou may record a battle you had with\na friend or friends.\pOr you may record a battle conducted\nat the BATTLE FRONTIER excluding\pmatches at the BATTLE PIKE or\pthe BATTLE PYRAMID.\pYou may choose to record your match\nat the end of a battle." text_4="It is possible to record one battle\non your FRONTIER PASS.\pYou may record a battle you had with\na friend or friends.\pOr you may record a battle conducted\nat the BATTLE FRONTIER excluding\pmatches at the BATTLE PIKE or\pthe BATTLE PYRAMID.\pYou may choose to record your match\nat the end of a battle." text_5="It is possible to record one battle\non your FRONTIER PASS.\pYou may record a battle you had with\na friend or friends.\pOr you may record a battle conducted\nat the BATTLE FRONTIER excluding\pmatches at the BATTLE PIKE or\pthe BATTLE PYRAMID.\pYou may choose to record your match\nat the end of a battle." text_6="It is possible to record one battle\non your FRONTIER PASS.\pYou may record a battle you had with\na friend or friends.\pOr you may record a battle conducted\nat the BATTLE FRONTIER excluding\pmatches at the BATTLE PIKE or\pthe BATTLE PYRAMID.\pYou may choose to record your match\nat the end of a battle."
+    082B58D0  callstd              function=MSGBOX_DEFAULT(4)
+    082B58D2  goto                 destination=0x082B582C
+
+  script 0x082B58D8  [ok]
+    082B58D8  msgbox_multilang     type=0 text_0="Battle Points are rewards given to\nTRAINERS who battled outstandingly\pat the BATTLE FRONTIER.\pYou may trade in your Battle Points\nfor prizes at the EXCHANGE SERVICE\pCORNER." text_1="Battle Points are rewards given to\nTRAINERS who battled outstandingly\pat the BATTLE FRONTIER.\pYou may trade in your Battle Points\nfor prizes at the EXCHANGE SERVICE\pCORNER." text_2="Battle Points are rewards given to\nTRAINERS who battled outstandingly\pat the BATTLE FRONTIER.\pYou may trade in your Battle Points\nfor prizes at the EXCHANGE SERVICE\pCORNER." text_3="Battle Points are rewards given to\nTRAINERS who battled outstandingly\pat the BATTLE FRONTIER.\pYou may trade in your Battle Points\nfor prizes at the EXCHANGE SERVICE\pCORNER." text_4="Battle Points are rewards given to\nTRAINERS who battled outstandingly\pat the BATTLE FRONTIER.\pYou may trade in your Battle Points\nfor prizes at the EXCHANGE SERVICE\pCORNER." text_5="Battle Points are rewards given to\nTRAINERS who battled outstandingly\pat the BATTLE FRONTIER.\pYou may trade in your Battle Points\nfor prizes at the EXCHANGE SERVICE\pCORNER." text_6="Battle Points are rewards given to\nTRAINERS who battled outstandingly\pat the BATTLE FRONTIER.\pYou may trade in your Battle Points\nfor prizes at the EXCHANGE SERVICE\pCORNER."
+    082B58F6  callstd              function=MSGBOX_DEFAULT(4)
+    082B58F8  goto                 destination=0x082B582C
+
+  script 0x082B58FE  [ok]
+    082B58FE  msgbox_multilang     type=0 text_0="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_1="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_2="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_3="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_4="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_5="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_6="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!"
+    082B591C  callstd              function=MSGBOX_DEFAULT(4)
+    082B591E  release              
+
+  map script type 2 (var 0x40D9 == 0) -> 0x082B521B
+  script 0x082B521B  [ok]
+    082B521B  lockall              
+    082B521C  setvar               destination=VAR_0x40D9 value=1
+    082B5221  playse               song=21
+    082B5224  applymovement        localId=1 movements=[emote_exclamation_mark]
+    082B522B  waitmovement         localId=0
+    082B522E  applymovement        localId=1 movements=[delay_16 delay_16 delay_16]
+    082B5235  waitmovement         localId=0
+    082B5238  msgbox_multilang     type=0 text_0="Is it your first time here?\nPlease step this way!" text_1="Is it your first time here?\nPlease step this way!" text_2="Is it your first time here?\nPlease step this way!" text_3="Is it your first time here?\nPlease step this way!" text_4="Is it your first time here?\nPlease step this way!" text_5="Is it your first time here?\nPlease step this way!" text_6="Is it your first time here?\nPlease step this way!"
+    082B5256  callstd              function=MSGBOX_DEFAULT(4)
+    082B5258  closemessage         
+    082B5259  applymovement        localId=255 movements=[walk_up walk_up walk_left walk_left]
+    082B5260  waitmovement         localId=0
+    082B5263  goto                 destination=0x082B5269
+
+  script 0x082B5269  [ok]
+    082B5269  msgbox_multilang     type=0 text_0="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_1="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_2="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_3="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_4="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_5="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!" text_6="The front lines of POKéMON battling!\nWelcome to the BATTLE FRONTIER!"
+    082B5287  callstd              function=MSGBOX_DEFAULT(4)
+    082B5289  msgbox_multilang     type=0 text_0="For a first-time visitor, we issue\nthe FRONTIER PASS.\pIt’s for use at all the facilities\nin the BATTLE FRONTIER.\pHere you are!" text_1="For a first-time visitor, we issue\nthe FRONTIER PASS.\pIt’s for use at all the facilities\nin the BATTLE FRONTIER.\pHere you are!" text_2="For a first-time visitor, we issue\nthe FRONTIER PASS.\pIt’s for use at all the facilities\nin the BATTLE FRONTIER.\pHere you are!" text_3="For a first-time visitor, we issue\nthe FRONTIER PASS.\pIt’s for use at all the facilities\nin the BATTLE FRONTIER.\pHere you are!" text_4="For a first-time visitor, we issue\nthe FRONTIER PASS.\pIt’s for use at all the facilities\nin the BATTLE FRONTIER.\pHere you are!" text_5="For a first-time visitor, we issue\nthe FRONTIER PASS.\pIt’s for use at all the facilities\nin the BATTLE FRONTIER.\pHere you are!" text_6="For a first-time visitor, we issue\nthe FRONTIER PASS.\pIt’s for use at all the facilities\nin the BATTLE FRONTIER.\pHere you are!"
+    082B52A7  callstd              function=MSGBOX_DEFAULT(4)
+    082B52A9  playfanfare          song=370
+    082B52AC  message              text="{PLAYER} obtained\nthe FRONTIER PASS."
+    082B52B1  setvar               destination=11098 value=5640
+    082B52B6  faceplayer           
+    082B52B7  checkflag            flag=0x1608
+    082B52BA  faceplayer           
+    082B52BB  checkflag            flag=0x1608
+    082B52BE  faceplayer           
+    082B52BF  checkflag            flag=0x1608
+    082B52C2  faceplayer           
+    082B52C3  checkflag            flag=0x1608
+    082B52C6  faceplayer           
+    082B52C7  checkflag            flag=0x3208
+    082B52CA  waitmessage          
+    082B52CB  msgbox_multilang     type=0 text_0="{PLAYER} placed the TRAINER CARD\nin the FRONTIER PASS." text_1="{PLAYER} placed the TRAINER CARD\nin the FRONTIER PASS." text_2="{PLAYER} placed the TRAINER CARD\nin the FRONTIER PASS." text_3="{PLAYER} placed the TRAINER CARD\nin the FRONTIER PASS." text_4="{PLAYER} placed the TRAINER CARD\nin the FRONTIER PASS." text_5="{PLAYER} placed the TRAINER CARD\nin the FRONTIER PASS." text_6="{PLAYER} placed the TRAINER CARD\nin the FRONTIER PASS."
+    082B52E9  callstd              function=MSGBOX_DEFAULT(4)
+    082B52EB  setflag              flag=0x8D2
+    082B52EE  msgbox_multilang     type=0 text_0="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_1="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_2="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_3="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_4="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_5="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!" text_6="We hope you enjoy all that the BATTLE\nFRONTIER has to offer!"
+    082B530C  callstd              function=MSGBOX_DEFAULT(4)
+    082B530E  msgbox_multilang     type=0 text_0="???: Well, if it isn’t {PLAYER}{KUN}!\nYou came out here!" text_1="???: Well, if it isn’t {PLAYER}{KUN}!\nYou came out here!" text_2="???: Well, if it isn’t {PLAYER}{KUN}!\nYou came out here!" text_3="???: Well, if it isn’t {PLAYER}{KUN}!\nYou came out here!" text_4="???: Well, if it isn’t {PLAYER}{KUN}!\nYou came out here!" text_5="???: Well, if it isn’t {PLAYER}{KUN}!\nYou came out here!" text_6="???: Well, if it isn’t {PLAYER}{KUN}!\nYou came out here!"
+    082B532C  callstd              function=MSGBOX_DEFAULT(4)
+    082B532E  closemessage         
+    082B532F  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    082B5336  applymovement        localId=2 movements=[walk_in_place_faster_up]
+    082B533D  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    082B5344  waitmovement         localId=0
+    082B5347  playse               song=21
+    082B534A  applymovement        localId=1 movements=[emote_exclamation_mark]
+    082B5351  applymovement        localId=2 movements=[emote_exclamation_mark]
+    082B5358  applymovement        localId=255 movements=[emote_exclamation_mark]
+    082B535F  waitmovement         localId=0
+    082B5362  msgbox_multilang     type=0 text_0="GUIDE: Oh! MR. SCOTT, sir!\nGood day to you, sir!" text_1="GUIDE: Oh! MR. SCOTT, sir!\nGood day to you, sir!" text_2="GUIDE: Oh! MR. SCOTT, sir!\nGood day to you, sir!" text_3="GUIDE: Oh! MR. SCOTT, sir!\nGood day to you, sir!" text_4="GUIDE: Oh! MR. SCOTT, sir!\nGood day to you, sir!" text_5="GUIDE: Oh! MR. SCOTT, sir!\nGood day to you, sir!" text_6="GUIDE: Oh! MR. SCOTT, sir!\nGood day to you, sir!"
+    082B5380  callstd              function=MSGBOX_DEFAULT(4)
+    082B5382  closemessage         
+    082B5383  applymovement        localId=1 movements=[delay_16 delay_16 delay_16 delay_8 walk_in_place_faster_right]
+    082B538A  applymovement        localId=2 movements=[delay_16 delay_16 delay_16 delay_8 walk_in_place_faster_left]
+    082B5391  applymovement        localId=255 movements=[delay_16 delay_16 delay_16 delay_8 walk_in_place_faster_right]
+    082B5398  applymovement        localId=4 movements=[walk_down walk_down walk_down walk_down walk_down walk_down walk_left]
+    082B539F  waitmovement         localId=0
+    082B53A2  msgbox_multilang     type=0 text_0="Scott: It’s great to see you here,\nit really is!\pI hope you’ll take your time and\nexplore everywhere.\pNaturally, I hope you’ll also experience\nthe pure essence of battling.\pI also have my quarters here, so feel\nfree to visit if you have time." text_1="Scott: It’s great to see you here,\nit really is!\pI hope you’ll take your time and\nexplore everywhere.\pNaturally, I hope you’ll also experience\nthe pure essence of battling.\pI also have my quarters here, so feel\nfree to visit if you have time." text_2="Scott: It’s great to see you here,\nit really is!\pI hope you’ll take your time and\nexplore everywhere.\pNaturally, I hope you’ll also experience\nthe pure essence of battling.\pI also have my quarters here, so feel\nfree to visit if you have time." text_3="Scott: It’s great to see you here,\nit really is!\pI hope you’ll take your time and\nexplore everywhere.\pNaturally, I hope you’ll also experience\nthe pure essence of battling.\pI also have my quarters here, so feel\nfree to visit if you have time." text_4="Scott: It’s great to see you here,\nit really is!\pI hope you’ll take your time and\nexplore everywhere.\pNaturally, I hope you’ll also experience\nthe pure essence of battling.\pI also have my quarters here, so feel\nfree to visit if you have time." text_5="Scott: It’s great to see you here,\nit really is!\pI hope you’ll take your time and\nexplore everywhere.\pNaturally, I hope you’ll also experience\nthe pure essence of battling.\pI also have my quarters here, so feel\nfree to visit if you have time." text_6="Scott: It’s great to see you here,\nit really is!\pI hope you’ll take your time and\nexplore everywhere.\pNaturally, I hope you’ll also experience\nthe pure essence of battling.\pI also have my quarters here, so feel\nfree to visit if you have time."
+    082B53C0  callstd              function=MSGBOX_DEFAULT(4)
+    082B53C2  closemessage         
+    082B53C3  applymovement        localId=4 movements=[walk_right walk_up walk_up walk_up walk_up walk_up walk_up]
+    082B53CA  waitmovement         localId=0
+    082B53CD  removeobject         localId=4
+    082B53D0  releaseall           
+
+  map script type 3 -> 0x082B520D
+  script 0x082B520D  [ok]
+    082B520D  setflag              flag=0x877
+    082B5210  end                  
+

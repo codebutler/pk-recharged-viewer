@@ -7,17 +7,7 @@
   ],
   "note": "Opcode number = position in data/script_cmd_table.inc. The hack's own table at ROM 0x081F1630 has 235 entries; 0x00-0xE2 match this table, 0xE3-0xEA are hack customs and are NOT described here.",
   "vanilla_opcode_count": 227,
-  "disagreements": [
-   {
-    "opcode": "0x94",
-    "name": "hidemoneybox",
-    "macro_widths": [
-     1,
-     1
-    ],
-    "c_widths": []
-   }
-  ],
+  "disagreements": [],
   "no_macro_found": [],
   "ambiguous_stubs": [
    "0xC7 textcolor",
@@ -1906,7 +1896,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -1922,7 +1912,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     }
    ],
    "length": 2,
@@ -1934,7 +1924,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -1950,7 +1940,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -1966,7 +1956,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -1982,7 +1972,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -1998,7 +1988,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -2014,7 +2004,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -2030,7 +2020,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 4,
@@ -2230,7 +2220,8 @@
     }
    ],
    "length": 3,
-   "confidence": "low"
+   "confidence": "high",
+   "note": "macro emits 2 literal 0 padding byte(s) that ScrCmd_hidemoneybox ignores; the VM runs them as NOPs, so the instruction stream stays in sync either way."
   },
   "0x95": {
    "name": "updatemoneybox",
@@ -2832,7 +2823,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 4,
@@ -2943,7 +2934,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -3238,7 +3229,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -3254,7 +3245,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -3310,7 +3301,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -3326,7 +3317,7 @@
    "args": [
     {
      "width": 1,
-     "name": "0"
+     "name": "stringVarId"
     },
     {
      "width": 2,
@@ -3339,6 +3330,182 @@
    ],
    "length": 6,
    "confidence": "high"
+  }
+ },
+ "constants": {
+  "callstd": {
+   "0": "STD_OBTAIN_ITEM",
+   "1": "STD_FIND_ITEM",
+   "2": "MSGBOX_NPC",
+   "3": "MSGBOX_SIGN",
+   "4": "MSGBOX_DEFAULT",
+   "5": "MSGBOX_YESNO",
+   "6": "MSGBOX_AUTOCLOSE",
+   "7": "STD_OBTAIN_DECORATION",
+   "8": "STD_REGISTER_MATCH_CALL",
+   "9": "MSGBOX_GETPOINTS",
+   "10": "MSGBOX_POKENAV"
+  },
+  "movement_actions": {
+   "0": "face_down",
+   "1": "face_up",
+   "2": "face_left",
+   "3": "face_right",
+   "4": "walk_slow_down",
+   "5": "walk_slow_up",
+   "6": "walk_slow_left",
+   "7": "walk_slow_right",
+   "8": "walk_down",
+   "9": "walk_up",
+   "10": "walk_left",
+   "11": "walk_right",
+   "12": "jump_2_down",
+   "13": "jump_2_up",
+   "14": "jump_2_left",
+   "15": "jump_2_right",
+   "16": "delay_1",
+   "17": "delay_2",
+   "18": "delay_4",
+   "19": "delay_8",
+   "20": "delay_16",
+   "21": "walk_fast_down",
+   "22": "walk_fast_up",
+   "23": "walk_fast_left",
+   "24": "walk_fast_right",
+   "25": "walk_in_place_slow_down",
+   "26": "walk_in_place_slow_up",
+   "27": "walk_in_place_slow_left",
+   "28": "walk_in_place_slow_right",
+   "29": "walk_in_place_down",
+   "30": "walk_in_place_up",
+   "31": "walk_in_place_left",
+   "32": "walk_in_place_right",
+   "33": "walk_in_place_fast_down",
+   "34": "walk_in_place_fast_up",
+   "35": "walk_in_place_fast_left",
+   "36": "walk_in_place_fast_right",
+   "37": "walk_in_place_faster_down",
+   "38": "walk_in_place_faster_up",
+   "39": "walk_in_place_faster_left",
+   "40": "walk_in_place_faster_right",
+   "41": "ride_water_current_down",
+   "42": "ride_water_current_up",
+   "43": "ride_water_current_left",
+   "44": "ride_water_current_right",
+   "45": "walk_faster_down",
+   "46": "walk_faster_up",
+   "47": "walk_faster_left",
+   "48": "walk_faster_right",
+   "49": "slide_down",
+   "50": "slide_up",
+   "51": "slide_left",
+   "52": "slide_right",
+   "53": "player_run_down",
+   "54": "player_run_up",
+   "55": "player_run_left",
+   "56": "player_run_right",
+   "57": "start_anim_in_direction",
+   "58": "jump_special_down",
+   "59": "jump_special_up",
+   "60": "jump_special_left",
+   "61": "jump_special_right",
+   "62": "face_player",
+   "63": "face_away_player",
+   "64": "lock_facing_direction",
+   "65": "unlock_facing_direction",
+   "66": "jump_down",
+   "67": "jump_up",
+   "68": "jump_left",
+   "69": "jump_right",
+   "70": "jump_in_place_down",
+   "71": "jump_in_place_up",
+   "72": "jump_in_place_left",
+   "73": "jump_in_place_right",
+   "74": "jump_in_place_down_up",
+   "75": "jump_in_place_up_down",
+   "76": "jump_in_place_left_right",
+   "77": "jump_in_place_right_left",
+   "78": "face_original_direction",
+   "79": "nurse_joy_bow",
+   "80": "enable_jump_landing_ground_effect",
+   "81": "disable_jump_landing_ground_effect",
+   "82": "disable_anim",
+   "83": "restore_anim",
+   "84": "set_invisible",
+   "85": "set_visible",
+   "86": "emote_exclamation_mark",
+   "87": "emote_question_mark",
+   "88": "emote_heart",
+   "89": "reveal_trainer",
+   "90": "rock_smash_break",
+   "91": "cut_tree",
+   "92": "set_fixed_priority",
+   "93": "clear_fixed_priority",
+   "94": "init_affine_anim",
+   "95": "clear_affine_anim",
+   "96": "hide_reflection",
+   "97": "show_reflection",
+   "98": "walk_down_start_affine",
+   "99": "walk_down_affine",
+   "100": "acro_wheelie_face_down",
+   "101": "acro_wheelie_face_up",
+   "102": "acro_wheelie_face_left",
+   "103": "acro_wheelie_face_right",
+   "104": "acro_pop_wheelie_down",
+   "105": "acro_pop_wheelie_up",
+   "106": "acro_pop_wheelie_left",
+   "107": "acro_pop_wheelie_right",
+   "108": "acro_end_wheelie_face_down",
+   "109": "acro_end_wheelie_face_up",
+   "110": "acro_end_wheelie_face_left",
+   "111": "acro_end_wheelie_face_right",
+   "112": "acro_wheelie_hop_face_down",
+   "113": "acro_wheelie_hop_face_up",
+   "114": "acro_wheelie_hop_face_left",
+   "115": "acro_wheelie_hop_face_right",
+   "116": "acro_wheelie_hop_down",
+   "117": "acro_wheelie_hop_up",
+   "118": "acro_wheelie_hop_left",
+   "119": "acro_wheelie_hop_right",
+   "120": "acro_wheelie_jump_down",
+   "121": "acro_wheelie_jump_up",
+   "122": "acro_wheelie_jump_left",
+   "123": "acro_wheelie_jump_right",
+   "124": "acro_wheelie_in_place_down",
+   "125": "acro_wheelie_in_place_up",
+   "126": "acro_wheelie_in_place_left",
+   "127": "acro_wheelie_in_place_right",
+   "128": "acro_pop_wheelie_move_down",
+   "129": "acro_pop_wheelie_move_up",
+   "130": "acro_pop_wheelie_move_left",
+   "131": "acro_pop_wheelie_move_right",
+   "132": "acro_wheelie_move_down",
+   "133": "acro_wheelie_move_up",
+   "134": "acro_wheelie_move_left",
+   "135": "acro_wheelie_move_right",
+   "136": "acro_end_wheelie_move_down",
+   "137": "acro_end_wheelie_move_up",
+   "138": "acro_end_wheelie_move_left",
+   "139": "acro_end_wheelie_move_right",
+   "140": "walk_diag_northwest",
+   "141": "walk_diag_northeast",
+   "142": "walk_diag_southwest",
+   "143": "walk_diag_southeast",
+   "144": "walk_slow_diag_northwest",
+   "145": "walk_slow_diag_northeast",
+   "146": "walk_slow_diag_southwest",
+   "147": "walk_slow_diag_southeast",
+   "148": "lock_anim",
+   "149": "unlock_anim",
+   "150": "walk_left_affine",
+   "151": "walk_right_affine",
+   "152": "levitate",
+   "153": "stop_levitate",
+   "154": "destroy_extra_task",
+   "155": "figure_8",
+   "156": "fly_up",
+   "157": "fly_down",
+   "254": "step_end"
   }
  }
 }

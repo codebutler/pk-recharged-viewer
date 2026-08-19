@@ -1,0 +1,65 @@
+One Island  (group 30, map 0)  header 0x08B3DBFC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0827BE18
+  script 0x0827BE18  [ok]
+    0827BE18  lock                 
+    0827BE19  faceplayer           
+    0827BE1A  call                 destination=0x082BB336
+    0827BE1F  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x0B, flag 0x0000) -> 0x0827BE21
+  script 0x0827BE21  [ok]
+    0827BE21  msgbox_multilang     type=0 text_0="Oh, you’re a stranger here!\nHi! Where did you come from?\p…Pallet Town?\nI don’t know it!" text_1="Oh, you’re a stranger here!\nHi! Where did you come from?\p…Pallet Town?\nI don’t know it!" text_2="Oh, you’re a stranger here!\nHi! Where did you come from?\p…Pallet Town?\nI don’t know it!" text_3="Oh, you’re a stranger here!\nHi! Where did you come from?\p…Pallet Town?\nI don’t know it!" text_4="Oh, you’re a stranger here!\nHi! Where did you come from?\p…Pallet Town?\nI don’t know it!" text_5="Oh, you’re a stranger here!\nHi! Where did you come from?\p…Pallet Town?\nI don’t know it!" text_6="Oh, you’re a stranger here!\nHi! Where did you come from?\p…Pallet Town?\nI don’t know it!"
+    0827BE3F  callstd              function=MSGBOX_NPC(2)
+    0827BE41  end                  
+
+  object 3 (gfx 0x37, flag 0x0000) -> 0x0827BE42
+  script 0x0827BE42  [ok]
+    0827BE42  msgbox_multilang     type=0 text_0="On this island, there’s an enormous\nvolcano.\pIt hasn’t erupted lately, so why not\nenjoy a hike?" text_1="On this island, there’s an enormous\nvolcano.\pIt hasn’t erupted lately, so why not\nenjoy a hike?" text_2="On this island, there’s an enormous\nvolcano.\pIt hasn’t erupted lately, so why not\nenjoy a hike?" text_3="On this island, there’s an enormous\nvolcano.\pIt hasn’t erupted lately, so why not\nenjoy a hike?" text_4="On this island, there’s an enormous\nvolcano.\pIt hasn’t erupted lately, so why not\nenjoy a hike?" text_5="On this island, there’s an enormous\nvolcano.\pIt hasn’t erupted lately, so why not\nenjoy a hike?" text_6="On this island, there’s an enormous\nvolcano.\pIt hasn’t erupted lately, so why not\nenjoy a hike?"
+    0827BE60  callstd              function=MSGBOX_NPC(2)
+    0827BE62  end                  
+
+  object 4 (gfx 0xF1, flag 0x0000) -> 0x0827BE63
+  script 0x0827BE63  [ok]
+    0827BE63  lock                 
+    0827BE64  faceplayer           
+    0827BE65  msgbox_multilang     type=0 text_0="I traded Pokémon with my boyfriend\nfar away!" text_1="I traded Pokémon with my boyfriend\nfar away!" text_2="I traded Pokémon with my boyfriend\nfar away!" text_3="I traded Pokémon with my boyfriend\nfar away!" text_4="I traded Pokémon with my boyfriend\nfar away!" text_5="I traded Pokémon with my boyfriend\nfar away!" text_6="I traded Pokémon with my boyfriend\nfar away!"
+    0827BE83  callstd              function=MSGBOX_DEFAULT(4)
+    0827BE85  release              
+
+  object 5 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0827BE14
+  script 0x0827BE14  [ok]
+    0827BE14  setrespawn           heallocation=14
+    0827BE17  return               
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

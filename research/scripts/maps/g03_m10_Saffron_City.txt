@@ -1,0 +1,203 @@
+Saffron City  (group 3, map 10)  header 0x08B3C7DC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x003E) -> 0x0822E7D5
+  script 0x0822E7D5  [ok]
+    0822E7D5  speakername          name="Grunt"
+    0822E7DA  msgbox_multilang     type=0 text_0="What do you want?\nGet lost!" text_1="What do you want?\nGet lost!" text_2="What do you want?\nGet lost!" text_3="What do you want?\nGet lost!" text_4="What do you want?\nGet lost!" text_5="What do you want?\nGet lost!" text_6="What do you want?\nGet lost!"
+    0822E7F8  callstd              function=MSGBOX_NPC(2)
+    0822E7FA  end                  
+
+  object 2 (gfx 0x02, flag 0x003E) -> 0x0822E7FB
+  script 0x0822E7FB  [ok]
+    0822E7FB  speakername          name="Grunt"
+    0822E800  msgbox_multilang     type=0 text_0="Boss said he’ll take this town\nin the name of Team Rocket!" text_1="Boss said he’ll take this town\nin the name of Team Rocket!" text_2="Boss said he’ll take this town\nin the name of Team Rocket!" text_3="Boss said he’ll take this town\nin the name of Team Rocket!" text_4="Boss said he’ll take this town\nin the name of Team Rocket!" text_5="Boss said he’ll take this town\nin the name of Team Rocket!" text_6="Boss said he’ll take this town\nin the name of Team Rocket!"
+    0822E81E  callstd              function=MSGBOX_NPC(2)
+    0822E820  end                  
+
+  object 3 (gfx 0x02, flag 0x003E) -> 0x0822E821
+  script 0x0822E821  [ok]
+    0822E821  speakername          name="Grunt"
+    0822E826  msgbox_multilang     type=0 text_0="Don’t get defiant!\nOr I’ll have to hurt you!" text_1="Don’t get defiant!\nOr I’ll have to hurt you!" text_2="Don’t get defiant!\nOr I’ll have to hurt you!" text_3="Don’t get defiant!\nOr I’ll have to hurt you!" text_4="Don’t get defiant!\nOr I’ll have to hurt you!" text_5="Don’t get defiant!\nOr I’ll have to hurt you!" text_6="Don’t get defiant!\nOr I’ll have to hurt you!"
+    0822E844  callstd              function=MSGBOX_NPC(2)
+    0822E846  end                  
+
+  object 4 (gfx 0x02, flag 0x003E) -> 0x0822E847
+  script 0x0822E847  [ok]
+    0822E847  speakername          name="Grunt"
+    0822E84C  msgbox_multilang     type=0 text_0="Saffron belongs to Team Rocket!" text_1="Saffron belongs to Team Rocket!" text_2="Saffron belongs to Team Rocket!" text_3="Saffron belongs to Team Rocket!" text_4="Saffron belongs to Team Rocket!" text_5="Saffron belongs to Team Rocket!" text_6="Saffron belongs to Team Rocket!"
+    0822E86A  callstd              function=MSGBOX_NPC(2)
+    0822E86C  end                  
+
+  object 5 (gfx 0x02, flag 0x003E) -> 0x0822E86D
+  script 0x0822E86D  [ok]
+    0822E86D  speakername          name="Grunt"
+    0822E872  msgbox_multilang     type=0 text_0="My life as a criminal makes me feel\nso alive!" text_1="My life as a criminal makes me feel\nso alive!" text_2="My life as a criminal makes me feel\nso alive!" text_3="My life as a criminal makes me feel\nso alive!" text_4="My life as a criminal makes me feel\nso alive!" text_5="My life as a criminal makes me feel\nso alive!" text_6="My life as a criminal makes me feel\nso alive!"
+    0822E890  callstd              function=MSGBOX_NPC(2)
+    0822E892  end                  
+
+  object 6 (gfx 0x02, flag 0x003E) -> 0x0822E8DF
+  script 0x0822E8DF  [ok]
+    0822E8DF  lock                 
+    0822E8E0  checkflag            flag=0x23C
+    0822E8E3  goto_if              condition=1 destination=0x0822E918
+    0822E8E9  setflag              flag=0x4005 (temp)
+    0822E8EC  applymovement        localId=6 movements=[face_player]
+    0822E8F3  waitmovement         localId=0
+    0822E8F6  msgbox_multilang     type=0 text_0="I’m a security guard.\pSuspicious kids I don’t allow in!" text_1="I’m a security guard.\pSuspicious kids I don’t allow in!" text_2="I’m a security guard.\pSuspicious kids I don’t allow in!" text_3="I’m a security guard.\pSuspicious kids I don’t allow in!" text_4="I’m a security guard.\pSuspicious kids I don’t allow in!" text_5="I’m a security guard.\pSuspicious kids I don’t allow in!" text_6="I’m a security guard.\pSuspicious kids I don’t allow in!"
+    0822E914  callstd              function=MSGBOX_DEFAULT(4)
+    0822E916  release              
+
+  script 0x0822E918  [ok]
+    0822E918  textcolor            color=3
+    0822E91A  msgbox_multilang     type=0 text_0="…\nSnore…\pHah! He’s taking a snooze!" text_1="…\nSnore…\pHah! He’s taking a snooze!" text_2="…\nSnore…\pHah! He’s taking a snooze!" text_3="…\nSnore…\pHah! He’s taking a snooze!" text_4="…\nSnore…\pHah! He’s taking a snooze!" text_5="…\nSnore…\pHah! He’s taking a snooze!" text_6="…\nSnore…\pHah! He’s taking a snooze!"
+    0822E938  callstd              function=MSGBOX_DEFAULT(4)
+    0822E93A  goto                 destination=0x0822E916
+
+  script 0x0822E916  [ok]
+    0822E916  release              
+
+  object 7 (gfx 0x02, flag 0x003E) -> 0x0822E8B9
+  script 0x0822E8B9  [ok]
+    0822E8B9  speakername          name="Grunt"
+    0822E8BE  msgbox_multilang     type=0 text_0="With Silph under control, we can\nexploit Pokémon around the world!\pWe’ll get stinking rich, yeahah!" text_1="With Silph under control, we can\nexploit Pokémon around the world!\pWe’ll get stinking rich, yeahah!" text_2="With Silph under control, we can\nexploit Pokémon around the world!\pWe’ll get stinking rich, yeahah!" text_3="With Silph under control, we can\nexploit Pokémon around the world!\pWe’ll get stinking rich, yeahah!" text_4="With Silph under control, we can\nexploit Pokémon around the world!\pWe’ll get stinking rich, yeahah!" text_5="With Silph under control, we can\nexploit Pokémon around the world!\pWe’ll get stinking rich, yeahah!" text_6="With Silph under control, we can\nexploit Pokémon around the world!\pWe’ll get stinking rich, yeahah!"
+    0822E8DC  callstd              function=MSGBOX_NPC(2)
+    0822E8DE  end                  
+
+  object 8 (gfx 0x02, flag 0x003E) -> 0x0822E893
+  script 0x0822E893  [ok]
+    0822E893  speakername          name="Grunt"
+    0822E898  msgbox_multilang     type=0 text_0="Ow!\nWatch where you’re walking!" text_1="Ow!\nWatch where you’re walking!" text_2="Ow!\nWatch where you’re walking!" text_3="Ow!\nWatch where you’re walking!" text_4="Ow!\nWatch where you’re walking!" text_5="Ow!\nWatch where you’re walking!" text_6="Ow!\nWatch where you’re walking!"
+    0822E8B6  callstd              function=MSGBOX_NPC(2)
+    0822E8B8  end                  
+
+  object 9 (gfx 0x23, flag 0x003F) -> 0x0822E960
+  script 0x0822E960  [ok]
+    0822E960  msgbox_multilang     type=0 text_0="Yeah! Team Rocket is gone!\nIt’s safe to go out again!" text_1="Yeah! Team Rocket is gone!\nIt’s safe to go out again!" text_2="Yeah! Team Rocket is gone!\nIt’s safe to go out again!" text_3="Yeah! Team Rocket is gone!\nIt’s safe to go out again!" text_4="Yeah! Team Rocket is gone!\nIt’s safe to go out again!" text_5="Yeah! Team Rocket is gone!\nIt’s safe to go out again!" text_6="Yeah! Team Rocket is gone!\nIt’s safe to go out again!"
+    0822E97E  callstd              function=MSGBOX_NPC(2)
+    0822E980  end                  
+
+  object 10 (gfx 0x00, flag 0x003F) -> 0x0822E93F
+  script 0x0822E93F  [ok]
+    0822E93F  msgbox_multilang     type=0 text_0="You beat Team Rocket all alone?\nThat’s amazing!" text_1="You beat Team Rocket all alone?\nThat’s amazing!" text_2="You beat Team Rocket all alone?\nThat’s amazing!" text_3="You beat Team Rocket all alone?\nThat’s amazing!" text_4="You beat Team Rocket all alone?\nThat’s amazing!" text_5="You beat Team Rocket all alone?\nThat’s amazing!" text_6="You beat Team Rocket all alone?\nThat’s amazing!"
+    0822E95D  callstd              function=MSGBOX_NPC(2)
+    0822E95F  end                  
+
+  object 11 (gfx 0xF2, flag 0x003F) -> 0x0822E9EE
+  script 0x0822E9EE  [ok]
+    0822E9EE  msgbox_multilang     type=0 text_0="I saw the Rocket Boss escaping\nSilph’s building." text_1="I saw the Rocket Boss escaping\nSilph’s building." text_2="I saw the Rocket Boss escaping\nSilph’s building." text_3="I saw the Rocket Boss escaping\nSilph’s building." text_4="I saw the Rocket Boss escaping\nSilph’s building." text_5="I saw the Rocket Boss escaping\nSilph’s building." text_6="I saw the Rocket Boss escaping\nSilph’s building."
+    0822EA0C  callstd              function=MSGBOX_NPC(2)
+    0822EA0E  end                  
+
+  object 12 (gfx 0xEF, flag 0x003F) -> 0x0822E9A2
+  script 0x0822E9A2  [ok]
+    0822E9A2  msgbox_multilang     type=0 text_0="I flew here on my Pidgeot when\nI read about Silph.\pIt’s already over?\nI missed the media action…" text_1="I flew here on my Pidgeot when\nI read about Silph.\pIt’s already over?\nI missed the media action…" text_2="I flew here on my Pidgeot when\nI read about Silph.\pIt’s already over?\nI missed the media action…" text_3="I flew here on my Pidgeot when\nI read about Silph.\pIt’s already over?\nI missed the media action…" text_4="I flew here on my Pidgeot when\nI read about Silph.\pIt’s already over?\nI missed the media action…" text_5="I flew here on my Pidgeot when\nI read about Silph.\pIt’s already over?\nI missed the media action…" text_6="I flew here on my Pidgeot when\nI read about Silph.\pIt’s already over?\nI missed the media action…"
+    0822E9C0  callstd              function=MSGBOX_NPC(2)
+    0822E9C2  end                  
+
+  object 13 (gfx 0x12, flag 0x003F) -> 0x0822E9C3
+  script 0x0822E9C3  [ok]
+    0822E9C3  lock                 
+    0822E9C4  faceplayer           
+    0822E9C5  waitse               
+    0822E9C6  playmoncry           species=PIDGEOT(18) mode=0
+    0822E9CB  msgbox_multilang     type=0 text_0="Pidgeot: Bi bibii!" text_1="Pidgeot: Bi bibii!" text_2="Pidgeot: Bi bibii!" text_3="Pidgeot: Bi bibii!" text_4="Pidgeot: Bi bibii!" text_5="Pidgeot: Bi bibii!" text_6="Pidgeot: Bi bibii!"
+    0822E9E9  callstd              function=MSGBOX_DEFAULT(4)
+    0822E9EB  waitmoncry           
+    0822E9EC  release              
+
+  object 14 (gfx 0x2F, flag 0x003F) -> 0x0822E981
+  script 0x0822E981  [ok]
+    0822E981  msgbox_multilang     type=0 text_0="People fled from here in droves\nwhen those Rockets came.\pThey should be flocking back to\nSaffron now." text_1="People fled from here in droves\nwhen those Rockets came.\pThey should be flocking back to\nSaffron now." text_2="People fled from here in droves\nwhen those Rockets came.\pThey should be flocking back to\nSaffron now." text_3="People fled from here in droves\nwhen those Rockets came.\pThey should be flocking back to\nSaffron now." text_4="People fled from here in droves\nwhen those Rockets came.\pThey should be flocking back to\nSaffron now." text_5="People fled from here in droves\nwhen those Rockets came.\pThey should be flocking back to\nSaffron now." text_6="People fled from here in droves\nwhen those Rockets came.\pThey should be flocking back to\nSaffron now."
+    0822E99F  callstd              function=MSGBOX_NPC(2)
+    0822E9A1  end                  
+
+  object 15 (gfx 0xF1, flag 0x009D) -> 0x081F2975
+  script 0x081F2975  [ok]
+    081F2975  lock                 
+    081F2976  faceplayer           
+    081F2977  setvar               destination=VAR_0x8004 value=12
+    081F297C  setvar               destination=VAR_0x8005 value=2
+    081F2981  special              SPECIAL_\function=347
+    081F2984  msgbox_multilang     type=0 text_0="This Fan Club…\nNo one here has a clue!\pHow could they not recognize\nthe brilliance that is Lance?\pHe stands for justice!\nHe’s cool, and yet passionate!\pHe’s the greatest, Lance!" text_1="This Fan Club…\nNo one here has a clue!\pHow could they not recognize\nthe brilliance that is Lance?\pHe stands for justice!\nHe’s cool, and yet passionate!\pHe’s the greatest, Lance!" text_2="This Fan Club…\nNo one here has a clue!\pHow could they not recognize\nthe brilliance that is Lance?\pHe stands for justice!\nHe’s cool, and yet passionate!\pHe’s the greatest, Lance!" text_3="This Fan Club…\nNo one here has a clue!\pHow could they not recognize\nthe brilliance that is Lance?\pHe stands for justice!\nHe’s cool, and yet passionate!\pHe’s the greatest, Lance!" text_4="This Fan Club…\nNo one here has a clue!\pHow could they not recognize\nthe brilliance that is Lance?\pHe stands for justice!\nHe’s cool, and yet passionate!\pHe’s the greatest, Lance!" text_5="This Fan Club…\nNo one here has a clue!\pHow could they not recognize\nthe brilliance that is Lance?\pHe stands for justice!\nHe’s cool, and yet passionate!\pHe’s the greatest, Lance!" text_6="This Fan Club…\nNo one here has a clue!\pHow could they not recognize\nthe brilliance that is Lance?\pHe stands for justice!\nHe’s cool, and yet passionate!\pHe’s the greatest, Lance!"
+    081F29A2  callstd              function=MSGBOX_DEFAULT(4)
+    081F29A4  release              
+
+  sign 0 at (29,14) -> 0x0822EA0F
+  script 0x0822EA0F  [ok]
+    0822EA0F  msgbox_multilang     type=0 text_0="Saffron City\nShining, Golden Land of Commerce" text_1="Saffron City\nShining, Golden Land of Commerce" text_2="Saffron City\nShining, Golden Land of Commerce" text_3="Saffron City\nShining, Golden Land of Commerce" text_4="Saffron City\nShining, Golden Land of Commerce" text_5="Saffron City\nShining, Golden Land of Commerce" text_6="Saffron City\nShining, Golden Land of Commerce"
+    0822EA2D  callstd              function=MSGBOX_SIGN(3)
+    0822EA2F  end                  
+
+  sign 1 at (42,14) -> 0x0822EA30
+  script 0x0822EA30  [ok]
+    0822EA30  msgbox_multilang     type=0 text_0="Fighting Dojo" text_1="Fighting Dojo" text_2="Fighting Dojo" text_3="Fighting Dojo" text_4="Fighting Dojo" text_5="Fighting Dojo" text_6="Fighting Dojo"
+    0822EA4E  callstd              function=MSGBOX_SIGN(3)
+    0822EA50  end                  
+
+  sign 2 at (13,25) -> 0x0822EB05
+  script 0x0822EB05  [ok]
+    0822EB05  msgbox_multilang     type=0 text_0="Silph’s latest product!\nRelease to be determined…" text_1="Silph’s latest product!\nRelease to be determined…" text_2="Silph’s latest product!\nRelease to be determined…" text_3="Silph’s latest product!\nRelease to be determined…" text_4="Silph’s latest product!\nRelease to be determined…" text_5="Silph’s latest product!\nRelease to be determined…" text_6="Silph’s latest product!\nRelease to be determined…"
+    0822EB23  callstd              function=MSGBOX_SIGN(3)
+    0822EB25  end                  
+
+  sign 3 at (18,30) -> 0x0822EAA2
+  script 0x0822EAA2  [ok]
+    0822EAA2  msgbox_multilang     type=0 text_0="Trainer Tips\pThe new Great Ball offers improved\ncatching rates.\pTry it on those hard-to-catch\nPokémon." text_1="Trainer Tips\pThe new Great Ball offers improved\ncatching rates.\pTry it on those hard-to-catch\nPokémon." text_2="Trainer Tips\pThe new Great Ball offers improved\ncatching rates.\pTry it on those hard-to-catch\nPokémon." text_3="Trainer Tips\pThe new Great Ball offers improved\ncatching rates.\pTry it on those hard-to-catch\nPokémon." text_4="Trainer Tips\pThe new Great Ball offers improved\ncatching rates.\pTry it on those hard-to-catch\nPokémon." text_5="Trainer Tips\pThe new Great Ball offers improved\ncatching rates.\pTry it on those hard-to-catch\nPokémon." text_6="Trainer Tips\pThe new Great Ball offers improved\ncatching rates.\pTry it on those hard-to-catch\nPokémon."
+    0822EAC0  callstd              function=MSGBOX_SIGN(3)
+    0822EAC2  end                  
+
+  sign 4 at (29,31) -> 0x0822EAC3
+  script 0x0822EAC3  [ok]
+    0822EAC3  msgbox_multilang     type=0 text_0="Silph Co. Office Building" text_1="Silph Co. Office Building" text_2="Silph Co. Office Building" text_3="Silph Co. Office Building" text_4="Silph Co. Office Building" text_5="Silph Co. Office Building" text_6="Silph Co. Office Building"
+    0822EAE1  callstd              function=MSGBOX_SIGN(3)
+    0822EAE3  end                  
+
+  sign 5 at (54,25) -> 0x0822EA81
+  script 0x0822EA81  [ok]
+    0822EA81  msgbox_multilang     type=0 text_0="Trainer Tips\pFull Heal cures all ailments like\nburns, paralysis, poisoning,\pfreezing, and sleep.\pIt costs a bit more, but it’s more\nconvenient than buying other items." text_1="Trainer Tips\pFull Heal cures all ailments like\nburns, paralysis, poisoning,\pfreezing, and sleep.\pIt costs a bit more, but it’s more\nconvenient than buying other items." text_2="Trainer Tips\pFull Heal cures all ailments like\nburns, paralysis, poisoning,\pfreezing, and sleep.\pIt costs a bit more, but it’s more\nconvenient than buying other items." text_3="Trainer Tips\pFull Heal cures all ailments like\nburns, paralysis, poisoning,\pfreezing, and sleep.\pIt costs a bit more, but it’s more\nconvenient than buying other items." text_4="Trainer Tips\pFull Heal cures all ailments like\nburns, paralysis, poisoning,\pfreezing, and sleep.\pIt costs a bit more, but it’s more\nconvenient than buying other items." text_5="Trainer Tips\pFull Heal cures all ailments like\nburns, paralysis, poisoning,\pfreezing, and sleep.\pIt costs a bit more, but it’s more\nconvenient than buying other items." text_6="Trainer Tips\pFull Heal cures all ailments like\nburns, paralysis, poisoning,\pfreezing, and sleep.\pIt costs a bit more, but it’s more\nconvenient than buying other items."
+    0822EA9F  callstd              function=MSGBOX_SIGN(3)
+    0822EAA1  end                  
+
+  sign 6 at (50,14) -> 0x0822EA51
+  script 0x0822EA51  [ok]
+    0822EA51  lockall              
+    0822EA52  setvar               destination=VAR_0x8004 value=7
+    0822EA57  setvar               destination=VAR_0x8005 value=0
+    0822EA5C  special              SPECIAL_\function=347
+    0822EA5F  msgbox_multilang     type=0 text_0="Saffron City Pokémon Gym\nLeader: Sabrina\pThe Master of Psychic Pokémon!" text_1="Saffron City Pokémon Gym\nLeader: Sabrina\pThe Master of Psychic Pokémon!" text_2="Saffron City Pokémon Gym\nLeader: Sabrina\pThe Master of Psychic Pokémon!" text_3="Saffron City Pokémon Gym\nLeader: Sabrina\pThe Master of Psychic Pokémon!" text_4="Saffron City Pokémon Gym\nLeader: Sabrina\pThe Master of Psychic Pokémon!" text_5="Saffron City Pokémon Gym\nLeader: Sabrina\pThe Master of Psychic Pokémon!" text_6="Saffron City Pokémon Gym\nLeader: Sabrina\pThe Master of Psychic Pokémon!"
+    0822EA7D  callstd              function=MSGBOX_DEFAULT(4)
+    0822EA7F  releaseall           
+
+  sign 7 at (40,38) -> 0x0822EAE4
+  script 0x0822EAE4  [ok]
+    0822EAE4  msgbox_multilang     type=0 text_0="Mr. Psychic’s House" text_1="Mr. Psychic’s House" text_2="Mr. Psychic’s House" text_3="Mr. Psychic’s House" text_4="Mr. Psychic’s House" text_5="Mr. Psychic’s House" text_6="Mr. Psychic’s House"
+    0822EB02  callstd              function=MSGBOX_SIGN(3)
+    0822EB04  end                  
+
+  sign 8 at (49,22) -> 0x0822EB26
+  script 0x0822EB26  [ok]
+    0822EB26  msgbox_multilang     type=0 text_0="Pokémon Trainer Fan Club\pMany Trainers have scribbled their\nnames on this sign." text_1="Pokémon Trainer Fan Club\pMany Trainers have scribbled their\nnames on this sign." text_2="Pokémon Trainer Fan Club\pMany Trainers have scribbled their\nnames on this sign." text_3="Pokémon Trainer Fan Club\pMany Trainers have scribbled their\nnames on this sign." text_4="Pokémon Trainer Fan Club\pMany Trainers have scribbled their\nnames on this sign." text_5="Pokémon Trainer Fan Club\pMany Trainers have scribbled their\nnames on this sign." text_6="Pokémon Trainer Fan Club\pMany Trainers have scribbled their\nnames on this sign."
+    0822EB44  callstd              function=MSGBOX_SIGN(3)
+    0822EB46  end                  
+
+  map script type 3 -> 0x0822E7C0
+  script 0x0822E7C0  [ok]
+    0822E7C0  setworldmapflag      flag=0x8FA
+    0822E7C3  checkflag            flag=0x23C
+    0822E7C6  goto_if              condition=0 destination=0x0822E7CD
+    0822E7CC  return               
+
+  script 0x0822E7CD  [ok]
+    0822E7CD  setobjectxyperm      localId=6 x=33 y=31
+    0822E7D4  return               
+

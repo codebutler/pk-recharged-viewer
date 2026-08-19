@@ -1,0 +1,149 @@
+Vermilion City  (group 9, map 3)  header 0x08B3D208
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x30, flag 0x0000) -> 0x0825DD66
+  script 0x0825DD66  [ok]
+    0825DD66  lock                 
+    0825DD67  faceplayer           
+    0825DD68  checkflag            flag=0x241
+    0825DD6B  goto_if              condition=1 destination=0x0825DDBE
+    0825DD71  msgbox_multilang     type=0 text_0="I chair the Pokémon Fan Club!\pI raise more than a hundred\nPokémon!\pI’m very fussy when it comes to\nPokémon! I surely am!\pSo…\pDid you come visit to hear about\nmy Pokémon?" text_1="I chair the Pokémon Fan Club!\pI raise more than a hundred\nPokémon!\pI’m very fussy when it comes to\nPokémon! I surely am!\pSo…\pDid you come visit to hear about\nmy Pokémon?" text_2="I chair the Pokémon Fan Club!\pI raise more than a hundred\nPokémon!\pI’m very fussy when it comes to\nPokémon! I surely am!\pSo…\pDid you come visit to hear about\nmy Pokémon?" text_3="I chair the Pokémon Fan Club!\pI raise more than a hundred\nPokémon!\pI’m very fussy when it comes to\nPokémon! I surely am!\pSo…\pDid you come visit to hear about\nmy Pokémon?" text_4="I chair the Pokémon Fan Club!\pI raise more than a hundred\nPokémon!\pI’m very fussy when it comes to\nPokémon! I surely am!\pSo…\pDid you come visit to hear about\nmy Pokémon?" text_5="I chair the Pokémon Fan Club!\pI raise more than a hundred\nPokémon!\pI’m very fussy when it comes to\nPokémon! I surely am!\pSo…\pDid you come visit to hear about\nmy Pokémon?" text_6="I chair the Pokémon Fan Club!\pI raise more than a hundred\nPokémon!\pI’m very fussy when it comes to\nPokémon! I surely am!\pSo…\pDid you come visit to hear about\nmy Pokémon?"
+    0825DD8F  callstd              function=MSGBOX_YESNO(5)
+    0825DD91  compare_var_to_value var=0x800D value=1
+    0825DD96  goto_if              condition=1 destination=0x0825DDE0
+    0825DD9C  msgbox_multilang     type=0 text_0="Oh. Come back when you want to\nhear my story!" text_1="Oh. Come back when you want to\nhear my story!" text_2="Oh. Come back when you want to\nhear my story!" text_3="Oh. Come back when you want to\nhear my story!" text_4="Oh. Come back when you want to\nhear my story!" text_5="Oh. Come back when you want to\nhear my story!" text_6="Oh. Come back when you want to\nhear my story!"
+    0825DDBA  callstd              function=MSGBOX_DEFAULT(4)
+    0825DDBC  release              
+
+  script 0x0825DDBE  [ok]
+    0825DDBE  msgbox_multilang     type=0 text_0="Hello, {PLAYER}!\pDid you come see me about my\nPokémon again?\pNo?\nToo bad!" text_1="Hello, {PLAYER}!\pDid you come see me about my\nPokémon again?\pNo?\nToo bad!" text_2="Hello, {PLAYER}!\pDid you come see me about my\nPokémon again?\pNo?\nToo bad!" text_3="Hello, {PLAYER}!\pDid you come see me about my\nPokémon again?\pNo?\nToo bad!" text_4="Hello, {PLAYER}!\pDid you come see me about my\nPokémon again?\pNo?\nToo bad!" text_5="Hello, {PLAYER}!\pDid you come see me about my\nPokémon again?\pNo?\nToo bad!" text_6="Hello, {PLAYER}!\pDid you come see me about my\nPokémon again?\pNo?\nToo bad!"
+    0825DDDC  callstd              function=MSGBOX_DEFAULT(4)
+    0825DDDE  release              
+
+  script 0x0825DDE0  [unknown-opcode:0xE9]
+    0825DDE0  msgbox_multilang     type=0 text_0="Good!\nThen listen up!\pMy favorite Rapidash…\pIt’s…cute…lovely…smart… \nplus…amazing…you think so?…\poh yes…it’s…stunning…\pkindly…love it!\pHug it…when…sleeping…warm\nand cuddly…spectacular…\pravishing…\p…Oops! Look at the time!\pI kept you too long!\pThanks for hearing me out!\nI want you to have this!" text_1="Good!\nThen listen up!\pMy favorite Rapidash…\pIt’s…cute…lovely…smart… \nplus…amazing…you think so?…\poh yes…it’s…stunning…\pkindly…love it!\pHug it…when…sleeping…warm\nand cuddly…spectacular…\pravishing…\p…Oops! Look at the time!\pI kept you too long!\pThanks for hearing me out!\nI want you to have this!" text_2="Good!\nThen listen up!\pMy favorite Rapidash…\pIt’s…cute…lovely…smart… \nplus…amazing…you think so?…\poh yes…it’s…stunning…\pkindly…love it!\pHug it…when…sleeping…warm\nand cuddly…spectacular…\pravishing…\p…Oops! Look at the time!\pI kept you too long!\pThanks for hearing me out!\nI want you to have this!" text_3="Good!\nThen listen up!\pMy favorite Rapidash…\pIt’s…cute…lovely…smart… \nplus…amazing…you think so?…\poh yes…it’s…stunning…\pkindly…love it!\pHug it…when…sleeping…warm\nand cuddly…spectacular…\pravishing…\p…Oops! Look at the time!\pI kept you too long!\pThanks for hearing me out!\nI want you to have this!" text_4="Good!\nThen listen up!\pMy favorite Rapidash…\pIt’s…cute…lovely…smart… \nplus…amazing…you think so?…\poh yes…it’s…stunning…\pkindly…love it!\pHug it…when…sleeping…warm\nand cuddly…spectacular…\pravishing…\p…Oops! Look at the time!\pI kept you too long!\pThanks for hearing me out!\nI want you to have this!" text_5="Good!\nThen listen up!\pMy favorite Rapidash…\pIt’s…cute…lovely…smart… \nplus…amazing…you think so?…\poh yes…it’s…stunning…\pkindly…love it!\pHug it…when…sleeping…warm\nand cuddly…spectacular…\pravishing…\p…Oops! Look at the time!\pI kept you too long!\pThanks for hearing me out!\nI want you to have this!" text_6="Good!\nThen listen up!\pMy favorite Rapidash…\pIt’s…cute…lovely…smart… \nplus…amazing…you think so?…\poh yes…it’s…stunning…\pkindly…love it!\pHug it…when…sleeping…warm\nand cuddly…spectacular…\pravishing…\p…Oops! Look at the time!\pI kept you too long!\pThanks for hearing me out!\nI want you to have this!"
+    0825DDFE  callstd              function=MSGBOX_DEFAULT(4)
+    0825DE00  checkitemspace       itemId=Bike Voucher(352) quantity=1
+    0825DE05  compare_var_to_value var=0x800D value=0
+    0825DE0A  goto_if              condition=1 destination=0x0825DE52
+    0825DE10  setflag              flag=0x241
+    0825DE13  additem              itemId=Bike Voucher(352) quantity=1
+
+  script 0x0825DE52  [ok]
+    0825DE52  msgbox_multilang     type=0 text_0="Make room for this!" text_1="Make room for this!" text_2="Make room for this!" text_3="Make room for this!" text_4="Make room for this!" text_5="Make room for this!" text_6="Make room for this!"
+    0825DE70  callstd              function=MSGBOX_DEFAULT(4)
+    0825DE72  release              
+
+  object 2 (gfx 0x01, flag 0x0000) -> 0x0825DE74
+  script 0x0825DE74  [ok]
+    0825DE74  lock                 
+    0825DE75  faceplayer           
+    0825DE76  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0825DE79  goto_if              condition=1 destination=0x0825DEA1
+    0825DE7F  msgbox_multilang     type=0 text_0="Our Chairman is very vocal about\nPokémon." text_1="Our Chairman is very vocal about\nPokémon." text_2="Our Chairman is very vocal about\nPokémon." text_3="Our Chairman is very vocal about\nPokémon." text_4="Our Chairman is very vocal about\nPokémon." text_5="Our Chairman is very vocal about\nPokémon." text_6="Our Chairman is very vocal about\nPokémon."
+    0825DE9D  callstd              function=MSGBOX_DEFAULT(4)
+    0825DE9F  release              
+
+  script 0x0825DEA1  [ok]
+    0825DEA1  setvar               destination=VAR_0x8004 value=1
+    0825DEA6  setvar               destination=VAR_0x8005 value=1
+    0825DEAB  special              SPECIAL_\function=347
+    0825DEAE  msgbox_multilang     type=0 text_0="Our Chairman really does adore his\nPokémon.\pBut the person who is most liked by\nPokémon is Daisy, I think." text_1="Our Chairman really does adore his\nPokémon.\pBut the person who is most liked by\nPokémon is Daisy, I think." text_2="Our Chairman really does adore his\nPokémon.\pBut the person who is most liked by\nPokémon is Daisy, I think." text_3="Our Chairman really does adore his\nPokémon.\pBut the person who is most liked by\nPokémon is Daisy, I think." text_4="Our Chairman really does adore his\nPokémon.\pBut the person who is most liked by\nPokémon is Daisy, I think." text_5="Our Chairman really does adore his\nPokémon.\pBut the person who is most liked by\nPokémon is Daisy, I think." text_6="Our Chairman really does adore his\nPokémon.\pBut the person who is most liked by\nPokémon is Daisy, I think."
+    0825DECC  callstd              function=MSGBOX_DEFAULT(4)
+    0825DECE  release              
+
+  object 3 (gfx 0x19, flag 0x0000) -> 0x0825DFAC
+  script 0x0825DFAC  [ok]
+    0825DFAC  bufferspeciesname    stringVarId=0 species=PIKACHU(25)
+    0825DFB0  lock                 
+    0825DFB1  faceplayer           
+    0825DFB2  waitse               
+    0825DFB3  playmoncry           species=PIKACHU(25) mode=0
+    0825DFB8  speakername          name="Pikachu"
+    0825DFBD  msgbox_multilang     type=0 text_0="Chu! Pikachu!" text_1="Chu! Pikachu!" text_2="Chu! Pikachu!" text_3="Chu! Pikachu!" text_4="Chu! Pikachu!" text_5="Chu! Pikachu!" text_6="Chu! Pikachu!"
+    0825DFDB  callstd              function=MSGBOX_DEFAULT(4)
+    0825DFDD  waitmoncry           
+    0825DFDE  release              
+
+  object 4 (gfx 0x56, flag 0x0000) -> 0x0825DFE0
+  script 0x0825DFE0  [ok]
+    0825DFE0  bufferspeciesname    stringVarId=0 species=SEEL(86)
+    0825DFE4  lock                 
+    0825DFE5  faceplayer           
+    0825DFE6  waitse               
+    0825DFE7  playmoncry           species=SEEL(86) mode=0
+    0825DFEC  speakername          name="Seel"
+    0825DFF1  msgbox_multilang     type=0 text_0="Kyuoo!" text_1="Kyuoo!" text_2="Kyuoo!" text_3="Kyuoo!" text_4="Kyuoo!" text_5="Kyuoo!" text_6="Kyuoo!"
+    0825E00F  callstd              function=MSGBOX_DEFAULT(4)
+    0825E011  waitmoncry           
+    0825E012  release              
+
+  object 5 (gfx 0x10, flag 0x0000) -> 0x0825DED0
+  script 0x0825DED0  [ok]
+    0825DED0  lock                 
+    0825DED1  faceplayer           
+    0825DED2  checkflag            flag=0x003
+    0825DED5  goto_if              condition=1 destination=0x0825DF0E
+    0825DEDB  msgbox_multilang     type=0 text_0="I just adore my Seel!\nIt’s so lovable!\pIt squeals, “Kyuuuh,” when I\nhug it!" text_1="I just adore my Seel!\nIt’s so lovable!\pIt squeals, “Kyuuuh,” when I\nhug it!" text_2="I just adore my Seel!\nIt’s so lovable!\pIt squeals, “Kyuuuh,” when I\nhug it!" text_3="I just adore my Seel!\nIt’s so lovable!\pIt squeals, “Kyuuuh,” when I\nhug it!" text_4="I just adore my Seel!\nIt’s so lovable!\pIt squeals, “Kyuuuh,” when I\nhug it!" text_5="I just adore my Seel!\nIt’s so lovable!\pIt squeals, “Kyuuuh,” when I\nhug it!" text_6="I just adore my Seel!\nIt’s so lovable!\pIt squeals, “Kyuuuh,” when I\nhug it!"
+    0825DEF9  callstd              function=MSGBOX_DEFAULT(4)
+    0825DEFB  closemessage         
+    0825DEFC  setflag              flag=0x4005 (temp)
+    0825DEFF  applymovement        localId=5 movements=[face_original_direction]
+    0825DF06  waitmovement         localId=0
+    0825DF09  setflag              flag=0x002
+    0825DF0C  release              
+
+  script 0x0825DF0E  [ok]
+    0825DF0E  msgbox_multilang     type=0 text_0="Oh, dear!\pMy Seel is far more attractive.\nBy double, I would say." text_1="Oh, dear!\pMy Seel is far more attractive.\nBy double, I would say." text_2="Oh, dear!\pMy Seel is far more attractive.\nBy double, I would say." text_3="Oh, dear!\pMy Seel is far more attractive.\nBy double, I would say." text_4="Oh, dear!\pMy Seel is far more attractive.\nBy double, I would say." text_5="Oh, dear!\pMy Seel is far more attractive.\nBy double, I would say." text_6="Oh, dear!\pMy Seel is far more attractive.\nBy double, I would say."
+    0825DF2C  callstd              function=MSGBOX_DEFAULT(4)
+    0825DF2E  closemessage         
+    0825DF2F  applymovement        localId=5 movements=[face_original_direction]
+    0825DF36  waitmovement         localId=0
+    0825DF39  clearflag            flag=0x003
+    0825DF3C  release              
+
+  object 6 (gfx 0x11, flag 0x0000) -> 0x0825DF3E
+  script 0x0825DF3E  [ok]
+    0825DF3E  lock                 
+    0825DF3F  faceplayer           
+    0825DF40  setflag              flag=0x4005 (temp)
+    0825DF43  checkflag            flag=0x002
+    0825DF46  goto_if              condition=1 destination=0x0825DF7C
+    0825DF4C  msgbox_multilang     type=0 text_0="Won’t you admire my Pikachu’s\nadorable tail?" text_1="Won’t you admire my Pikachu’s\nadorable tail?" text_2="Won’t you admire my Pikachu’s\nadorable tail?" text_3="Won’t you admire my Pikachu’s\nadorable tail?" text_4="Won’t you admire my Pikachu’s\nadorable tail?" text_5="Won’t you admire my Pikachu’s\nadorable tail?" text_6="Won’t you admire my Pikachu’s\nadorable tail?"
+    0825DF6A  callstd              function=MSGBOX_DEFAULT(4)
+    0825DF6C  closemessage         
+    0825DF6D  applymovement        localId=6 movements=[face_original_direction]
+    0825DF74  waitmovement         localId=0
+    0825DF77  setflag              flag=0x003
+    0825DF7A  release              
+
+  script 0x0825DF7C  [ok]
+    0825DF7C  msgbox_multilang     type=0 text_0="Humph!\pMy Pikachu is twice as cute as\nthat one!" text_1="Humph!\pMy Pikachu is twice as cute as\nthat one!" text_2="Humph!\pMy Pikachu is twice as cute as\nthat one!" text_3="Humph!\pMy Pikachu is twice as cute as\nthat one!" text_4="Humph!\pMy Pikachu is twice as cute as\nthat one!" text_5="Humph!\pMy Pikachu is twice as cute as\nthat one!" text_6="Humph!\pMy Pikachu is twice as cute as\nthat one!"
+    0825DF9A  callstd              function=MSGBOX_DEFAULT(4)
+    0825DF9C  closemessage         
+    0825DF9D  applymovement        localId=6 movements=[face_original_direction]
+    0825DFA4  waitmovement         localId=0
+    0825DFA7  clearflag            flag=0x002
+    0825DFAA  release              
+
+  sign 0 at (2,1) -> 0x0825E014
+  script 0x0825E014  [ok]
+    0825E014  msgbox_multilang     type=0 text_0="Let’s all listen politely to other\nTrainers!" text_1="Let’s all listen politely to other\nTrainers!" text_2="Let’s all listen politely to other\nTrainers!" text_3="Let’s all listen politely to other\nTrainers!" text_4="Let’s all listen politely to other\nTrainers!" text_5="Let’s all listen politely to other\nTrainers!" text_6="Let’s all listen politely to other\nTrainers!"
+    0825E032  callstd              function=MSGBOX_SIGN(3)
+    0825E034  end                  
+
+  sign 1 at (9,1) -> 0x0825E035
+  script 0x0825E035  [ok]
+    0825E035  msgbox_multilang     type=0 text_0="If someone brags, brag right back!" text_1="If someone brags, brag right back!" text_2="If someone brags, brag right back!" text_3="If someone brags, brag right back!" text_4="If someone brags, brag right back!" text_5="If someone brags, brag right back!" text_6="If someone brags, brag right back!"
+    0825E053  callstd              function=MSGBOX_SIGN(3)
+    0825E055  end                  
+

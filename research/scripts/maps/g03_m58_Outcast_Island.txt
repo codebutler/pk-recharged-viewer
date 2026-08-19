@@ -1,0 +1,126 @@
+Outcast Island  (group 3, map 58)  header 0x08B3CD1C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x0088) -> 0x0823E143
+  script 0x0823E143  [ok]
+    0823E143  trainerbattle        type=0 trainer=0x21C localId=0 ptr1=0x0823E172 ptr2=0x0823E1DA
+    0823E151  msgbox_multilang     type=0 text_0="So listen, you haven’t seen any\nrare Pokémon, have you?" text_1="So listen, you haven’t seen any\nrare Pokémon, have you?" text_2="So listen, you haven’t seen any\nrare Pokémon, have you?" text_3="So listen, you haven’t seen any\nrare Pokémon, have you?" text_4="So listen, you haven’t seen any\nrare Pokémon, have you?" text_5="So listen, you haven’t seen any\nrare Pokémon, have you?" text_6="So listen, you haven’t seen any\nrare Pokémon, have you?"
+    0823E16F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823E171  end                  
+
+  object 2 (gfx 0x09, flag 0x0000) -> 0x081FDA3F
+  script 0x081FDA3F  [ok]
+    081FDA3F  trainerbattle        type=0 trainer=0x23D localId=0 ptr1=0x0823E218 ptr2=0x0823E253
+    081FDA4D  specialvar           output=32781 SPECIAL_\function=37
+    081FDA52  compare_var_to_value var=0x800D value=1
+    081FDA57  goto_if              condition=1 destination=0x081FDA7E
+    081FDA5D  msgbox_multilang     type=0 text_0="I can’t very well go home without\ncatching something, though." text_1="I can’t very well go home without\ncatching something, though." text_2="I can’t very well go home without\ncatching something, though." text_3="I can’t very well go home without\ncatching something, though." text_4="I can’t very well go home without\ncatching something, though." text_5="I can’t very well go home without\ncatching something, though." text_6="I can’t very well go home without\ncatching something, though."
+    081FDA7B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDA7D  end                  
+
+  script 0x081FDA7E  [ok]
+    081FDA7E  goto                 destination=0x081FDA88
+
+  script 0x081FDA88  [ok]
+    081FDA88  trainerbattle        type=5 trainer=0x23D localId=0 ptr1=0x082BA9CA ptr2=0x0823E253
+    081FDA96  msgbox_multilang     type=0 text_0="I can’t very well go home without\ncatching something, though." text_1="I can’t very well go home without\ncatching something, though." text_2="I can’t very well go home without\ncatching something, though." text_3="I can’t very well go home without\ncatching something, though." text_4="I can’t very well go home without\ncatching something, though." text_5="I can’t very well go home without\ncatching something, though." text_6="I can’t very well go home without\ncatching something, though."
+    081FDAB4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDAB6  end                  
+
+  object 3 (gfx 0xFC, flag 0x0000) -> 0x081FDAB7
+  script 0x081FDAB7  [ok]
+    081FDAB7  trainerbattle        type=0 trainer=0x23E localId=0 ptr1=0x0823E2A7 ptr2=0x0823E2DD
+    081FDAC5  specialvar           output=32781 SPECIAL_\function=37
+    081FDACA  compare_var_to_value var=0x800D value=1
+    081FDACF  goto_if              condition=1 destination=0x081FDAF6
+    081FDAD5  msgbox_multilang     type=0 text_0="I’m only at the halfway point…\nI’m beat…" text_1="I’m only at the halfway point…\nI’m beat…" text_2="I’m only at the halfway point…\nI’m beat…" text_3="I’m only at the halfway point…\nI’m beat…" text_4="I’m only at the halfway point…\nI’m beat…" text_5="I’m only at the halfway point…\nI’m beat…" text_6="I’m only at the halfway point…\nI’m beat…"
+    081FDAF3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDAF5  end                  
+
+  script 0x081FDAF6  [ok]
+    081FDAF6  goto                 destination=0x081FDB00
+
+  script 0x081FDB00  [ok]
+    081FDB00  trainerbattle        type=5 trainer=0x23E localId=0 ptr1=0x082BAA0B ptr2=0x0823E2DD
+    081FDB0E  msgbox_multilang     type=0 text_0="I’m only at the halfway point…\nI’m beat…" text_1="I’m only at the halfway point…\nI’m beat…" text_2="I’m only at the halfway point…\nI’m beat…" text_3="I’m only at the halfway point…\nI’m beat…" text_4="I’m only at the halfway point…\nI’m beat…" text_5="I’m only at the halfway point…\nI’m beat…" text_6="I’m only at the halfway point…\nI’m beat…"
+    081FDB2C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDB2E  end                  
+
+  object 4 (gfx 0xFD, flag 0x0000) -> 0x081FDB2F
+  script 0x081FDB2F  [ok]
+    081FDB2F  trainerbattle        type=0 trainer=0x23F localId=0 ptr1=0x0823E312 ptr2=0x0823E351
+    081FDB3D  specialvar           output=32781 SPECIAL_\function=37
+    081FDB42  compare_var_to_value var=0x800D value=1
+    081FDB47  goto_if              condition=1 destination=0x081FDB6E
+    081FDB4D  msgbox_multilang     type=0 text_0="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_1="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_2="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_3="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_4="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_5="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_6="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere."
+    081FDB6B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDB6D  end                  
+
+  script 0x081FDB6E  [ok]
+    081FDB6E  goto                 destination=0x081FDB78
+
+  script 0x081FDB78  [ok]
+    081FDB78  trainerbattle        type=5 trainer=0x23F localId=0 ptr1=0x082BAA4B ptr2=0x0823E351
+    081FDB86  msgbox_multilang     type=0 text_0="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_1="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_2="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_3="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_4="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_5="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere." text_6="Are you headed for the island up\npast here?\pI didn’t see anything interesting\nthere."
+    081FDBA4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDBA6  end                  
+
+  object 5 (gfx 0xFD, flag 0x0000) -> 0x081FDBA7
+  script 0x081FDBA7  [ok]
+    081FDBA7  trainerbattle        type=4 trainer=0x240 localId=0 ptr1=0x0823E3E0 ptr2=0x0823E40C ptr3=0x0823E478
+    081FDBB9  specialvar           output=32781 SPECIAL_\function=37
+    081FDBBE  compare_var_to_value var=0x800D value=1
+    081FDBC3  goto_if              condition=1 destination=0x081FDBEA
+    081FDBC9  msgbox_multilang     type=0 text_0="Ava: You know, I do prefer the\nsea over any pool." text_1="Ava: You know, I do prefer the\nsea over any pool." text_2="Ava: You know, I do prefer the\nsea over any pool." text_3="Ava: You know, I do prefer the\nsea over any pool." text_4="Ava: You know, I do prefer the\nsea over any pool." text_5="Ava: You know, I do prefer the\nsea over any pool." text_6="Ava: You know, I do prefer the\nsea over any pool."
+    081FDBE7  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDBE9  end                  
+
+  script 0x081FDBEA  [ok]
+    081FDBEA  goto                 destination=0x081FDBF4
+
+  script 0x081FDBF4  [ok]
+    081FDBF4  trainerbattle        type=7 trainer=0x240 localId=0 ptr1=0x082BAA75 ptr2=0x0823E40C ptr3=0x0823E478
+    081FDC06  msgbox_multilang     type=0 text_0="Ava: You know, I do prefer the\nsea over any pool." text_1="Ava: You know, I do prefer the\nsea over any pool." text_2="Ava: You know, I do prefer the\nsea over any pool." text_3="Ava: You know, I do prefer the\nsea over any pool." text_4="Ava: You know, I do prefer the\nsea over any pool." text_5="Ava: You know, I do prefer the\nsea over any pool." text_6="Ava: You know, I do prefer the\nsea over any pool."
+    081FDC24  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDC26  end                  
+
+  object 6 (gfx 0xF8, flag 0x0000) -> 0x081FDC27
+  script 0x081FDC27  [ok]
+    081FDC27  trainerbattle        type=4 trainer=0x240 localId=0 ptr1=0x0823E4D9 ptr2=0x0823E507 ptr3=0x0823E57A
+    081FDC39  specialvar           output=32781 SPECIAL_\function=37
+    081FDC3E  compare_var_to_value var=0x800D value=1
+    081FDC43  goto_if              condition=1 destination=0x081FDC6A
+    081FDC49  msgbox_multilang     type=0 text_0="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_1="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_2="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_3="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_4="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_5="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_6="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom."
+    081FDC67  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDC69  end                  
+
+  script 0x081FDC6A  [ok]
+    081FDC6A  goto                 destination=0x081FDC74
+
+  script 0x081FDC74  [ok]
+    081FDC74  trainerbattle        type=7 trainer=0x240 localId=0 ptr1=0x082BAAAD ptr2=0x0823E507 ptr3=0x0823E57A
+    081FDC86  msgbox_multilang     type=0 text_0="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_1="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_2="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_3="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_4="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_5="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom." text_6="Geb: I’m hanging onto my sister\nbecause I can’t touch the bottom."
+    081FDCA4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDCA6  end                  
+
+  object 7 (gfx 0x35, flag 0x01E1) -> 0x082D5CB4
+  script 0x082D5CB4  [ok]
+    082D5CB4  setorcopyvar         destination=VAR_0x8000 source=69
+    082D5CB9  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5CBE  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: PP Up
+    082D5CC0  end                  
+
+  hidden item at (16,23): Star Piece
+
+  hidden item at (6,24): Net Ball
+

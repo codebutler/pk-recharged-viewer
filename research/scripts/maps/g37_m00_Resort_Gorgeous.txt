@@ -1,0 +1,126 @@
+Resort Gorgeous  (group 37, map 0)  header 0x08B3E024
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x54, flag 0x0095) -> 0x0827E9AE
+  script 0x0827E9AE  [ok]
+    0827E9AE  lock                 
+    0827E9AF  faceplayer           
+    0827E9B0  checkflag            flag=0x002
+    0827E9B3  goto_if              condition=1 destination=0x0827EC13
+    0827E9B9  compare_var_to_value var=0x4036 value=VAR_0xFFFF
+    0827E9BE  goto_if              condition=1 destination=0x0827EA1A
+    0827E9C4  compare_var_to_value var=0x4036 value=0
+    0827E9C9  goto_if              condition=5 destination=0x0827EA40
+    0827E9CF  msgbox_multilang     type=0 text_0="Selphy: Oh?\nDo I know you from somewhere?\pOh, but that doesn’t matter.\pI am exquisitely bored.\nPlease, hear my wish." text_1="Selphy: Oh?\nDo I know you from somewhere?\pOh, but that doesn’t matter.\pI am exquisitely bored.\nPlease, hear my wish." text_2="Selphy: Oh?\nDo I know you from somewhere?\pOh, but that doesn’t matter.\pI am exquisitely bored.\nPlease, hear my wish." text_3="Selphy: Oh?\nDo I know you from somewhere?\pOh, but that doesn’t matter.\pI am exquisitely bored.\nPlease, hear my wish." text_4="Selphy: Oh?\nDo I know you from somewhere?\pOh, but that doesn’t matter.\pI am exquisitely bored.\nPlease, hear my wish." text_5="Selphy: Oh?\nDo I know you from somewhere?\pOh, but that doesn’t matter.\pI am exquisitely bored.\nPlease, hear my wish." text_6="Selphy: Oh?\nDo I know you from somewhere?\pOh, but that doesn’t matter.\pI am exquisitely bored.\nPlease, hear my wish."
+    0827E9ED  callstd              function=MSGBOX_DEFAULT(4)
+    0827E9EF  goto                 destination=0x0827E9F5
+
+  script 0x0827EC13  [ok]
+    0827EC13  msgbox_multilang     type=0 text_0="Selphy: I wish you the best of\nluck." text_1="Selphy: I wish you the best of\nluck." text_2="Selphy: I wish you the best of\nluck." text_3="Selphy: I wish you the best of\nluck." text_4="Selphy: I wish you the best of\nluck." text_5="Selphy: I wish you the best of\nluck." text_6="Selphy: I wish you the best of\nluck."
+    0827EC31  callstd              function=MSGBOX_DEFAULT(4)
+    0827EC33  release              
+
+  script 0x0827EA1A  [ok]
+    0827EA1A  msgbox_multilang     type=0 text_0="Selphy: Oh, I’m tired of this.\nI’m tired of waiting for you.\pI’ll forgive you this time, but\nplease don’t fail me next time." text_1="Selphy: Oh, I’m tired of this.\nI’m tired of waiting for you.\pI’ll forgive you this time, but\nplease don’t fail me next time." text_2="Selphy: Oh, I’m tired of this.\nI’m tired of waiting for you.\pI’ll forgive you this time, but\nplease don’t fail me next time." text_3="Selphy: Oh, I’m tired of this.\nI’m tired of waiting for you.\pI’ll forgive you this time, but\nplease don’t fail me next time." text_4="Selphy: Oh, I’m tired of this.\nI’m tired of waiting for you.\pI’ll forgive you this time, but\nplease don’t fail me next time." text_5="Selphy: Oh, I’m tired of this.\nI’m tired of waiting for you.\pI’ll forgive you this time, but\nplease don’t fail me next time." text_6="Selphy: Oh, I’m tired of this.\nI’m tired of waiting for you.\pI’ll forgive you this time, but\nplease don’t fail me next time."
+    0827EA38  callstd              function=MSGBOX_DEFAULT(4)
+    0827EA3A  goto                 destination=0x0827E9F5
+
+  script 0x0827EA40  [ok]
+    0827EA40  copyvar              destination=VAR_0x8004 source=VAR_0x4036
+    0827EA45  specialvar           output=32781 SPECIAL_\function=365
+    0827EA4A  compare_var_to_value var=0x800D value=1
+    0827EA4F  goto_if              condition=1 destination=0x0827EA5B
+    0827EA55  goto                 destination=0x0827E9F5
+
+  script 0x0827E9F5  [ok]
+    0827E9F5  special              SPECIAL_\function=390
+    0827E9F8  msgbox_multilang     type=0 text_0="I wish to see a Pokémon.\nA darling {STR_VAR_1}.\pI want to see one right away.\nPlease, make my wish come true." text_1="I wish to see a Pokémon.\nA darling {STR_VAR_1}.\pI want to see one right away.\nPlease, make my wish come true." text_2="I wish to see a Pokémon.\nA darling {STR_VAR_1}.\pI want to see one right away.\nPlease, make my wish come true." text_3="I wish to see a Pokémon.\nA darling {STR_VAR_1}.\pI want to see one right away.\nPlease, make my wish come true." text_4="I wish to see a Pokémon.\nA darling {STR_VAR_1}.\pI want to see one right away.\nPlease, make my wish come true." text_5="I wish to see a Pokémon.\nA darling {STR_VAR_1}.\pI want to see one right away.\nPlease, make my wish come true." text_6="I wish to see a Pokémon.\nA darling {STR_VAR_1}.\pI want to see one right away.\nPlease, make my wish come true."
+    0827EA16  callstd              function=MSGBOX_DEFAULT(4)
+    0827EA18  release              
+
+  script 0x0827EA5B  [unknown-opcode:0xE9]
+    0827EA5B  special              SPECIAL_\function=390
+    0827EA5E  msgbox_multilang     type=0 text_0="Selphy: Oh, hello, there.\pOh, my gracious. That must be the\n{STR_VAR_1} you caught for me.\pGiggle…\nI see a resemblance to you.\pThank you so kindly.\p… …  … …  … …\nIs something the matter?\pYou may leave.\p… …  … …  … …\nOh, fine. I understand now.\pSebastian!\nI need you here this instant!" text_1="Selphy: Oh, hello, there.\pOh, my gracious. That must be the\n{STR_VAR_1} you caught for me.\pGiggle…\nI see a resemblance to you.\pThank you so kindly.\p… …  … …  … …\nIs something the matter?\pYou may leave.\p… …  … …  … …\nOh, fine. I understand now.\pSebastian!\nI need you here this instant!" text_2="Selphy: Oh, hello, there.\pOh, my gracious. That must be the\n{STR_VAR_1} you caught for me.\pGiggle…\nI see a resemblance to you.\pThank you so kindly.\p… …  … …  … …\nIs something the matter?\pYou may leave.\p… …  … …  … …\nOh, fine. I understand now.\pSebastian!\nI need you here this instant!" text_3="Selphy: Oh, hello, there.\pOh, my gracious. That must be the\n{STR_VAR_1} you caught for me.\pGiggle…\nI see a resemblance to you.\pThank you so kindly.\p… …  … …  … …\nIs something the matter?\pYou may leave.\p… …  … …  … …\nOh, fine. I understand now.\pSebastian!\nI need you here this instant!" text_4="Selphy: Oh, hello, there.\pOh, my gracious. That must be the\n{STR_VAR_1} you caught for me.\pGiggle…\nI see a resemblance to you.\pThank you so kindly.\p… …  … …  … …\nIs something the matter?\pYou may leave.\p… …  … …  … …\nOh, fine. I understand now.\pSebastian!\nI need you here this instant!" text_5="Selphy: Oh, hello, there.\pOh, my gracious. That must be the\n{STR_VAR_1} you caught for me.\pGiggle…\nI see a resemblance to you.\pThank you so kindly.\p… …  … …  … …\nIs something the matter?\pYou may leave.\p… …  … …  … …\nOh, fine. I understand now.\pSebastian!\nI need you here this instant!" text_6="Selphy: Oh, hello, there.\pOh, my gracious. That must be the\n{STR_VAR_1} you caught for me.\pGiggle…\nI see a resemblance to you.\pThank you so kindly.\p… …  … …  … …\nIs something the matter?\pYou may leave.\p… …  … …  … …\nOh, fine. I understand now.\pSebastian!\nI need you here this instant!"
+    0827EA7C  callstd              function=MSGBOX_DEFAULT(4)
+    0827EA7E  addobject            localId=2
+    0827EA81  applymovement        localId=2 movements=[walk_in_place_down]
+    0827EA88  waitmovement         localId=0
+    0827EA8B  textcolor            color=0
+    0827EA8D  msgbox_multilang     type=0 text_0="Butler: Yes, my lady." text_1="Butler: Yes, my lady." text_2="Butler: Yes, my lady." text_3="Butler: Yes, my lady." text_4="Butler: Yes, my lady." text_5="Butler: Yes, my lady." text_6="Butler: Yes, my lady."
+    0827EAAB  callstd              function=MSGBOX_DEFAULT(4)
+    0827EAAD  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    0827EAB4  waitmovement         localId=0
+    0827EAB7  textcolor            color=1
+    0827EAB9  msgbox_multilang     type=0 text_0="Selphy: See to it that this person\nis given a token of appreciation." text_1="Selphy: See to it that this person\nis given a token of appreciation." text_2="Selphy: See to it that this person\nis given a token of appreciation." text_3="Selphy: See to it that this person\nis given a token of appreciation." text_4="Selphy: See to it that this person\nis given a token of appreciation." text_5="Selphy: See to it that this person\nis given a token of appreciation." text_6="Selphy: See to it that this person\nis given a token of appreciation."
+    0827EAD7  callstd              function=MSGBOX_DEFAULT(4)
+    0827EAD9  textcolor            color=0
+    0827EADB  msgbox_multilang     type=0 text_0="Butler: I shall do as you bid,\nmy lady." text_1="Butler: I shall do as you bid,\nmy lady." text_2="Butler: I shall do as you bid,\nmy lady." text_3="Butler: I shall do as you bid,\nmy lady." text_4="Butler: I shall do as you bid,\nmy lady." text_5="Butler: I shall do as you bid,\nmy lady." text_6="Butler: I shall do as you bid,\nmy lady."
+    0827EAF9  callstd              function=MSGBOX_DEFAULT(4)
+    0827EAFB  closemessage         
+    0827EAFC  compare_var_to_value var=0x800C value=2
+    0827EB01  call_if              condition=1 destination=0x0827EB6D
+    0827EB07  compare_var_to_value var=0x800C value=1
+    0827EB0C  call_if              condition=1 destination=0x0827EB89
+    0827EB12  compare_var_to_value var=0x800C value=4
+    0827EB17  call_if              condition=1 destination=0x0827EB9E
+    0827EB1D  compare_var_to_value var=0x800C value=3
+    0827EB22  call_if              condition=1 destination=0x0827EBBA
+    0827EB28  copyobjectxytoperm   localId=2
+    0827EB2B  msgbox_multilang     type=0 text_0="Butler: I sincerely thank you for\npleasing Lady Selphy.\pPlease accept this as her thanks…" text_1="Butler: I sincerely thank you for\npleasing Lady Selphy.\pPlease accept this as her thanks…" text_2="Butler: I sincerely thank you for\npleasing Lady Selphy.\pPlease accept this as her thanks…" text_3="Butler: I sincerely thank you for\npleasing Lady Selphy.\pPlease accept this as her thanks…" text_4="Butler: I sincerely thank you for\npleasing Lady Selphy.\pPlease accept this as her thanks…" text_5="Butler: I sincerely thank you for\npleasing Lady Selphy.\pPlease accept this as her thanks…" text_6="Butler: I sincerely thank you for\npleasing Lady Selphy.\pPlease accept this as her thanks…"
+    0827EB49  callstd              function=MSGBOX_DEFAULT(4)
+
+  script 0x0827EB6D  [ok]
+    0827EB6D  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    0827EB74  applymovement        localId=2 movements=[walk_left walk_left walk_left walk_down walk_down walk_down walk_in_place_faster_right]
+    0827EB7B  waitmovement         localId=0
+    0827EB7E  applymovement        localId=255 movements=[walk_in_place_faster_left]
+    0827EB85  waitmovement         localId=0
+    0827EB88  return               
+
+  script 0x0827EB89  [ok]
+    0827EB89  applymovement        localId=2 movements=[walk_left walk_left walk_in_place_faster_down]
+    0827EB90  waitmovement         localId=0
+    0827EB93  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    0827EB9A  waitmovement         localId=0
+    0827EB9D  return               
+
+  script 0x0827EB9E  [ok]
+    0827EB9E  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    0827EBA5  applymovement        localId=2 movements=[walk_left walk_left walk_left walk_down]
+    0827EBAC  waitmovement         localId=0
+    0827EBAF  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    0827EBB6  waitmovement         localId=0
+    0827EBB9  return               
+
+  script 0x0827EBBA  [ok]
+    0827EBBA  applymovement        localId=2 movements=[walk_up]
+    0827EBC1  waitmovement         localId=0
+    0827EBC4  return               
+
+  object 2 (gfx 0x30, flag 0x0096) -> 0x0827EC4A
+  script 0x0827EC4A  [ok]
+    0827EC4A  msgbox_multilang     type=0 text_0="Butler: The smile of Lady Selphy\nhas the brilliance of the sun.\pPlease, I beg you to bring joy\nto Lady Selphy." text_1="Butler: The smile of Lady Selphy\nhas the brilliance of the sun.\pPlease, I beg you to bring joy\nto Lady Selphy." text_2="Butler: The smile of Lady Selphy\nhas the brilliance of the sun.\pPlease, I beg you to bring joy\nto Lady Selphy." text_3="Butler: The smile of Lady Selphy\nhas the brilliance of the sun.\pPlease, I beg you to bring joy\nto Lady Selphy." text_4="Butler: The smile of Lady Selphy\nhas the brilliance of the sun.\pPlease, I beg you to bring joy\nto Lady Selphy." text_5="Butler: The smile of Lady Selphy\nhas the brilliance of the sun.\pPlease, I beg you to bring joy\nto Lady Selphy." text_6="Butler: The smile of Lady Selphy\nhas the brilliance of the sun.\pPlease, I beg you to bring joy\nto Lady Selphy."
+    0827EC68  callstd              function=MSGBOX_NPC(2)
+    0827EC6A  end                  
+
+  sign 0 at (9,1) -> 0x081F27A8
+  script 0x081F27A8  [ok]
+    081F27A8  lockall              
+    081F27A9  setvar               destination=VAR_0x8004 value=8
+    081F27AE  setvar               destination=VAR_0x8005 value=5
+    081F27B3  special              SPECIAL_\function=347
+    081F27B6  textcolor            color=3
+    081F27B8  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature: Cinnabar Gym\nLeader Blaine!\pBlaine is said to remove his dark\nshades only when he is thinking up\pnew quiz questions." text_1="Pokémon Journal\pSpecial Feature: Cinnabar Gym\nLeader Blaine!\pBlaine is said to remove his dark\nshades only when he is thinking up\pnew quiz questions." text_2="Pokémon Journal\pSpecial Feature: Cinnabar Gym\nLeader Blaine!\pBlaine is said to remove his dark\nshades only when he is thinking up\pnew quiz questions." text_3="Pokémon Journal\pSpecial Feature: Cinnabar Gym\nLeader Blaine!\pBlaine is said to remove his dark\nshades only when he is thinking up\pnew quiz questions." text_4="Pokémon Journal\pSpecial Feature: Cinnabar Gym\nLeader Blaine!\pBlaine is said to remove his dark\nshades only when he is thinking up\pnew quiz questions." text_5="Pokémon Journal\pSpecial Feature: Cinnabar Gym\nLeader Blaine!\pBlaine is said to remove his dark\nshades only when he is thinking up\pnew quiz questions." text_6="Pokémon Journal\pSpecial Feature: Cinnabar Gym\nLeader Blaine!\pBlaine is said to remove his dark\nshades only when he is thinking up\pnew quiz questions."
+    081F27D6  callstd              function=MSGBOX_DEFAULT(4)
+    081F27D8  releaseall           
+
+  sign 1 at (8,1) -> 0x081F27A8

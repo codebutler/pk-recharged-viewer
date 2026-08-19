@@ -1,0 +1,28 @@
+Icefall Cave  (group 1, map 112)  header 0x08B3BE58
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x01F2) -> 0x082D5D91
+  script 0x082D5D91  [ok]
+    082D5D91  setorcopyvar         destination=VAR_0x8000 source=19
+    082D5D96  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5D9B  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Full Restore
+    082D5D9D  end                  
+
+  object 2 (gfx 0x35, flag 0x01F3) -> 0x082D5D9E
+  script 0x082D5D9E  [ok]
+    082D5D9E  setorcopyvar         destination=VAR_0x8000 source=212
+    082D5DA3  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5DA8  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: NeverMeltIce
+    082D5DAA  end                  
+

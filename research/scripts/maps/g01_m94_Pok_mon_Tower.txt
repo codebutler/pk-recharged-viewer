@@ -1,0 +1,47 @@
+Pokémon Tower  (group 1, map 94)  header 0x08B3BC60
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1B, flag 0x0034) -> 0x0821798A
+  script 0x0821798A  [ok]
+    0821798A  lock                 
+    0821798B  setvar               destination=VAR_0x8004 value=14
+    08217990  setvar               destination=VAR_0x8005 value=2
+    08217995  special              SPECIAL_\function=348
+    08217998  setflag              flag=0x034
+    0821799B  clearflag            flag=0x035
+    0821799E  setflag              flag=0x23C
+    082179A1  speakername          name="Mr. Fuji"
+    082179A6  msgbox_multilang     type=0 text_0="… … …" text_1="… … …" text_2="… … …" text_3="… … …" text_4="… … …" text_5="… … …" text_6="… … …"
+    082179C4  callstd              function=MSGBOX_DEFAULT(4)
+    082179C6  closemessage         
+    082179C7  delay                frames=16
+    082179CA  faceplayer           
+    082179CB  speakername          name="Mr. Fuji"
+    082179D0  msgbox_multilang     type=0 text_0="Oh? And who might you be?\pYou came to save me from Team\nRocket?\pThanks, but I didn’t even notice\pthey were here.\pI was too busy trying to calm the\nspirit of Marowak.\pI think Marowak’s spirit has finally\nleft us.\pI must thank you for your kind\nconcern.\pFollow me to my home.\nIt’s the Pokémon House, at the foot\pof this tower." text_1="Oh? And who might you be?\pYou came to save me from Team\nRocket?\pThanks, but I didn’t even notice\pthey were here.\pI was too busy trying to calm the\nspirit of Marowak.\pI think Marowak’s spirit has finally\nleft us.\pI must thank you for your kind\nconcern.\pFollow me to my home.\nIt’s the Pokémon House, at the foot\pof this tower." text_2="Oh? And who might you be?\pYou came to save me from Team\nRocket?\pThanks, but I didn’t even notice\pthey were here.\pI was too busy trying to calm the\nspirit of Marowak.\pI think Marowak’s spirit has finally\nleft us.\pI must thank you for your kind\nconcern.\pFollow me to my home.\nIt’s the Pokémon House, at the foot\pof this tower." text_3="Oh? And who might you be?\pYou came to save me from Team\nRocket?\pThanks, but I didn’t even notice\pthey were here.\pI was too busy trying to calm the\nspirit of Marowak.\pI think Marowak’s spirit has finally\nleft us.\pI must thank you for your kind\nconcern.\pFollow me to my home.\nIt’s the Pokémon House, at the foot\pof this tower." text_4="Oh? And who might you be?\pYou came to save me from Team\nRocket?\pThanks, but I didn’t even notice\pthey were here.\pI was too busy trying to calm the\nspirit of Marowak.\pI think Marowak’s spirit has finally\nleft us.\pI must thank you for your kind\nconcern.\pFollow me to my home.\nIt’s the Pokémon House, at the foot\pof this tower." text_5="Oh? And who might you be?\pYou came to save me from Team\nRocket?\pThanks, but I didn’t even notice\pthey were here.\pI was too busy trying to calm the\nspirit of Marowak.\pI think Marowak’s spirit has finally\nleft us.\pI must thank you for your kind\nconcern.\pFollow me to my home.\nIt’s the Pokémon House, at the foot\pof this tower." text_6="Oh? And who might you be?\pYou came to save me from Team\nRocket?\pThanks, but I didn’t even notice\pthey were here.\pI was too busy trying to calm the\nspirit of Marowak.\pI think Marowak’s spirit has finally\nleft us.\pI must thank you for your kind\nconcern.\pFollow me to my home.\nIt’s the Pokémon House, at the foot\pof this tower."
+    082179EE  callstd              function=MSGBOX_DEFAULT(4)
+    082179F0  closemessage         
+    082179F1  warp                 mapGroup=8 mapNum=2 WARP_ID_NONE=255 -1=4 -1=7
+    082179F9  waitstate            
+
+  object 2 (gfx 0x40, flag 0x005E) -> 0x00000000
+  object 3 (gfx 0x41, flag 0x005E) -> 0x00000000
+  object 4 (gfx 0x42, flag 0x005E) -> 0x00000000
+  coord trigger 0 (var 0x408B == 3) -> 0x082179FC
+  script 0x082179FC  [unknown-opcode:0xE7]
+    082179FC  lockall              
+
+  coord trigger 1 (var 0x408B == 3) -> 0x082179FC
+  coord trigger 2 (var 0x408B == 3) -> 0x082179FC
+  coord trigger 3 (var 0x408B == 3) -> 0x082179FC
+  coord trigger 4 (var 0x408B == 3) -> 0x082179FC
+  hidden item at (11,4): Soothe Bell
+

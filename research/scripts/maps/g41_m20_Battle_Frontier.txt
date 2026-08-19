@@ -1,0 +1,32 @@
+Battle Frontier  (group 41, map 20)  header 0x08B3E2E0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x07, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x082A4299
+  script 0x082A4299  [ok]
+    082A4299  delay                frames=16
+    082A429C  setvar               destination=VAR_0x4000 value=1
+    082A42A1  applymovement        localId=1 movements=[walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_right walk_right walk_right walk_right]
+    082A42A8  applymovement        localId=255 movements=[walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_up walk_right walk_right walk_right]
+    082A42AF  waitmovement         localId=0
+    082A42B2  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    082A42B9  waitmovement         localId=0
+    082A42BC  msgbox_multilang     type=0 text_0="Your battles shall be waged in\nthe next room. Please step in!" text_1="Your battles shall be waged in\nthe next room. Please step in!" text_2="Your battles shall be waged in\nthe next room. Please step in!" text_3="Your battles shall be waged in\nthe next room. Please step in!" text_4="Your battles shall be waged in\nthe next room. Please step in!" text_5="Your battles shall be waged in\nthe next room. Please step in!" text_6="Your battles shall be waged in\nthe next room. Please step in!"
+    082A42DA  callstd              function=MSGBOX_SIGN(3)
+    082A42DC  applymovement        localId=1 movements=[walk_up walk_in_place_faster_down]
+    082A42E3  waitmovement         localId=0
+    082A42E6  applymovement        localId=255 movements=[walk_right set_invisible]
+    082A42ED  waitmovement         localId=0
+    082A42F0  setvar               destination=VAR_0x8006 value=0
+    082A42F5  warp                 mapGroup=41 mapNum=21 WARP_ID_NONE=255 -1=7 -1=5
+    082A42FD  waitstate            
+

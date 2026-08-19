@@ -1,0 +1,179 @@
+Power Plant  (group 1, map 95)  header 0x08B3BC7C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x019A) -> 0x082D5940
+  script 0x082D5940  [ok]
+    082D5940  setorcopyvar         destination=VAR_0x8000 source=20
+    082D5945  setorcopyvar         destination=VAR_0x8001 source=1
+    082D594A  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Max Potion
+    082D594C  end                  
+
+  object 2 (gfx 0x55, flag 0x019B) -> 0x082D594D
+  script 0x082D594D  [ok]
+    082D594D  setorcopyvar         destination=VAR_0x8000 source=305
+    082D5952  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5957  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM17
+    082D5959  end                  
+
+  object 3 (gfx 0x55, flag 0x019C) -> 0x082D595A
+  script 0x082D595A  [ok]
+    082D595A  setorcopyvar         destination=VAR_0x8000 source=313
+    082D595F  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5964  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM25
+    082D5966  end                  
+
+  object 4 (gfx 0x35, flag 0x019D) -> 0x082D5967
+  script 0x082D5967  [ok]
+    082D5967  setorcopyvar         destination=VAR_0x8000 source=96
+    082D596C  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5971  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Thunderstone
+    082D5973  end                  
+
+  object 5 (gfx 0x35, flag 0x019E) -> 0x082D5974
+  script 0x082D5974  [ok]
+    082D5974  setorcopyvar         destination=VAR_0x8000 source=36
+    082D5979  setorcopyvar         destination=VAR_0x8001 source=1
+    082D597E  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Elixir
+    082D5980  end                  
+
+  object 6 (gfx 0x91, flag 0x005D) -> 0x082181EB
+  script 0x082181EB  [ok]
+    082181EB  bufferspeciesname    stringVarId=0 species=ZAPDOS(145)
+    082181EF  lock                 
+    082181F0  faceplayer           
+    082181F1  setwildbattle        species=ZAPDOS(145) level=50 item=0
+    082181F7  waitse               
+    082181F8  playmoncry           species=ZAPDOS(145) mode=2
+    082181FD  message              text="Gyaoo!"
+    08218202  bufferitemname       stringVarId=129 item=2095
+    08218206  bufferitemname       stringVarId=129 item=2095
+    0821820A  bufferitemname       stringVarId=129 item=2095
+    0821820E  bufferitemname       stringVarId=129 item=2095
+    08218212  bufferitemname       stringVarId=129 item=2095
+    08218216  bufferitemname       stringVarId=129 item=2095
+    0821821A  waitmessage          
+    0821821B  waitmoncry           
+    0821821C  delay                frames=10
+    0821821F  playbgm              song=554 save_song=0
+    08218223  waitbuttonpress      
+    08218224  setflag              flag=0x867
+    08218227  special              SPECIAL_\function=223
+    0821822A  waitstate            
+
+  object 7 (gfx 0x35, flag 0x0086) -> 0x082182BA
+  script 0x082182BA  [ok]
+    082182BA  lock                 
+    082182BB  faceplayer           
+    082182BC  setwildbattle        species=ELECTRODE(101) level=34 item=0
+    082182C2  waitse               
+    082182C3  playmoncry           species=ELECTRODE(101) mode=2
+    082182C8  delay                frames=40
+    082182CB  waitmoncry           
+    082182CC  setflag              flag=0x867
+    082182CF  dowildbattle         
+    082182D0  clearflag            flag=0x867
+    082182D3  specialvar           output=32781 SPECIAL_\function=102
+    082182D8  compare_var_to_value var=0x800D value=1
+    082182DD  goto_if              condition=1 destination=0x082182FE
+    082182E3  compare_var_to_value var=0x800D value=4
+    082182E8  goto_if              condition=1 destination=0x082182FE
+    082182EE  compare_var_to_value var=0x800D value=5
+    082182F3  goto_if              condition=1 destination=0x082182FE
+    082182F9  setflag              flag=0x2D1
+    082182FC  release              
+
+  script 0x082182FE  [ok]
+    082182FE  setflag              flag=0x2D1
+    08218301  goto                 destination=0x0820108D
+
+  script 0x0820108D  [ok]
+    0820108D  fadescreenswapbuffers mode=1
+    0820108F  nop                  
+    08201090  removeobject         localId=32783
+    08201093  fadescreenswapbuffers mode=0
+    08201095  nop                  
+    08201096  release              
+
+  object 8 (gfx 0x35, flag 0x0085) -> 0x0821826D
+  script 0x0821826D  [ok]
+    0821826D  lock                 
+    0821826E  faceplayer           
+    0821826F  setwildbattle        species=ELECTRODE(101) level=34 item=0
+    08218275  waitse               
+    08218276  playmoncry           species=ELECTRODE(101) mode=2
+    0821827B  delay                frames=40
+    0821827E  waitmoncry           
+    0821827F  setflag              flag=0x867
+    08218282  dowildbattle         
+    08218283  clearflag            flag=0x867
+    08218286  specialvar           output=32781 SPECIAL_\function=102
+    0821828B  compare_var_to_value var=0x800D value=1
+    08218290  goto_if              condition=1 destination=0x082182B1
+    08218296  compare_var_to_value var=0x800D value=4
+    0821829B  goto_if              condition=1 destination=0x082182B1
+    082182A1  compare_var_to_value var=0x800D value=5
+    082182A6  goto_if              condition=1 destination=0x082182B1
+    082182AC  setflag              flag=0x2D0
+    082182AF  release              
+
+  script 0x082182B1  [ok]
+    082182B1  setflag              flag=0x2D0
+    082182B4  goto                 destination=0x0820108D
+
+  hidden item at (29,16): Max Elixir
+
+  hidden item at (8,12): Thunderstone
+
+  map script type 5 -> 0x082181A2
+  script 0x082181A2  [ok]
+    082181A2  checkflag            flag=0x867
+    082181A5  call_if              condition=1 destination=0x082181AC
+    082181AB  end                  
+
+  script 0x082181AC  [ok]
+    082181AC  specialvar           output=32781 SPECIAL_\function=102
+    082181B1  compare_var_to_value var=0x800D value=7
+    082181B6  goto_if              condition=5 destination=0x082BCF3E
+    082181BC  removeobject         localId=32783
+    082181BF  return               
+
+  script 0x082BCF3E  [ok]
+    082BCF3E  return               
+
+  map script type 3 -> 0x082181C0
+  script 0x082181C0  [ok]
+    082181C0  setworldmapflag      flag=0x914
+    082181C3  checkflag            flag=0x2BF
+    082181C6  call_if              condition=0 destination=0x082181DF
+    082181CC  checkflag            flag=0x2D0
+    082181CF  call_if              condition=0 destination=0x082181E3
+    082181D5  checkflag            flag=0x2D1
+    082181D8  call_if              condition=0 destination=0x082181E7
+    082181DE  end                  
+
+  script 0x082181DF  [ok]
+    082181DF  clearflag            flag=0x05D
+    082181E2  return               
+
+  script 0x082181E3  [ok]
+    082181E3  clearflag            flag=0x085
+    082181E6  return               
+
+  script 0x082181E7  [ok]
+    082181E7  clearflag            flag=0x086
+    082181EA  return               
+

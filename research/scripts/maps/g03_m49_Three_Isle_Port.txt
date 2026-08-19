@@ -1,0 +1,19 @@
+Three Isle Port  (group 3, map 49)  header 0x08B3CC20
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x18, flag 0x0000) -> 0x0823CC0E
+  script 0x0823CC0E  [ok]
+    0823CC0E  lock                 
+    0823CC0F  msgbox_multilang     type=0 text_0="JTODO: DIALOGUE NEEDED" text_1="JTODO: DIALOGUE NEEDED" text_2="JTODO: DIALOGUE NEEDED" text_3="JTODO: DIALOGUE NEEDED" text_4="JTODO: DIALOGUE NEEDED" text_5="JTODO: DIALOGUE NEEDED" text_6="JTODO: DIALOGUE NEEDED"
+    0823CC2D  callstd              function=MSGBOX_NPC(2)
+    0823CC2F  release              
+

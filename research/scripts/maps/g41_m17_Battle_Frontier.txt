@@ -1,0 +1,164 @@
+Battle Frontier  (group 41, map 17)  header 0x08B3E28C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x05, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 5 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 6 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 7 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 8 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 9 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 10 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 11 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 12 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 13 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 14 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 15 (gfx 0x00, flag 0x0000) -> 0x00000000
+  object 16 (gfx 0x00, flag 0x0000) -> 0x00000000
+  map script type 5 -> 0x0829F5B0
+  script 0x0829F5B0  [ok]
+    0829F5B0  setvar               destination=VAR_0x8004 value=15
+    0829F5B5  special              SPECIAL_\function=156
+    0829F5B8  setvar               destination=VAR_0x8004 value=0
+    0829F5BD  special              SPECIAL_\function=148
+    0829F5C0  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    0829F5C5  compare_var_to_value var=0x8000 value=0
+    0829F5CA  goto_if              condition=1 destination=0x0829F69B
+    0829F5D0  compare_var_to_value var=0x8000 value=1
+    0829F5D5  goto_if              condition=1 destination=0x0829F674
+    0829F5DB  compare_var_to_value var=0x8000 value=2
+    0829F5E0  goto_if              condition=1 destination=0x0829F69B
+    0829F5E6  setvar               destination=VAR_0x8004 value=1
+    0829F5EB  setvar               destination=VAR_0x8005 value=5
+    0829F5F0  special              SPECIAL_\function=148
+    0829F5F3  compare_var_to_value var=0x800D value=4
+    0829F5F8  goto_if              condition=1 destination=0x0829F647
+    0829F5FE  compare_var_to_value var=0x800D value=5
+    0829F603  goto_if              condition=1 destination=0x0829F647
+    0829F609  compare_var_to_value var=0x800D value=0
+    0829F60E  goto_if              condition=1 destination=0x0829F647
+    0829F614  compare_var_to_value var=0x800D value=2
+    0829F619  goto_if              condition=1 destination=0x0829F650
+    0829F61F  compare_var_to_value var=0x800D value=3
+    0829F624  goto_if              condition=1 destination=0x0829F650
+    0829F62A  compare_var_to_value var=0x800D value=9
+    0829F62F  goto_if              condition=1 destination=0x0829F650
+    0829F635  setvar               destination=VAR_0x8004 value=14
+    0829F63A  setvar               destination=VAR_0x8005 value=8
+    0829F63F  special              SPECIAL_\function=148
+    0829F642  setvar               destination=VAR_0x400D value=1
+    0829F647  setvar               destination=VAR_0x8004 value=17
+    0829F64C  special              SPECIAL_\function=156
+    0829F64F  end                  
+
+  script 0x0829F69B  [ok]
+    0829F69B  setvar               destination=VAR_0x8004 value=3
+    0829F6A0  setvar               destination=VAR_0x8005 value=1
+    0829F6A5  special              SPECIAL_\function=156
+    0829F6A8  special              SPECIAL_\function=18
+    0829F6AB  setvar               destination=VAR_0x8004 value=2
+    0829F6B0  setvar               destination=VAR_0x8005 value=0
+    0829F6B5  setvar               destination=VAR_0x8006 value=0
+    0829F6BA  special              SPECIAL_\function=148
+    0829F6BD  setvar               destination=VAR_0x8004 value=9
+    0829F6C2  special              SPECIAL_\function=156
+    0829F6C5  setvar               destination=VAR_0x8004 value=3
+    0829F6CA  setvar               destination=VAR_0x8005 value=3
+    0829F6CF  special              SPECIAL_\function=148
+    0829F6D2  setvar               destination=VAR_0x400F value=1
+    0829F6D7  end                  
+
+  script 0x0829F674  [ok]
+    0829F674  setvar               destination=VAR_0x8004 value=13
+    0829F679  setvar               destination=VAR_0x8005 value=0
+    0829F67E  setvar               destination=VAR_0x8006 value=0
+    0829F683  special              SPECIAL_\function=156
+    0829F686  setvar               destination=VAR_0x8004 value=14
+    0829F68B  special              SPECIAL_\function=156
+    0829F68E  special              SPECIAL_\function=0
+    0829F691  warpsilent           mapGroup=41 mapNum=16 WARP_ID_NONE=255 -1=7 -1=13
+    0829F699  waitstate            
+
+  script 0x0829F647  [ok]
+    0829F647  setvar               destination=VAR_0x8004 value=17
+    0829F64C  special              SPECIAL_\function=156
+    0829F64F  end                  
+
+  script 0x0829F650  [ok]
+    0829F650  setvar               destination=VAR_0x8004 value=2
+    0829F655  setvar               destination=VAR_0x8005 value=0
+    0829F65A  setvar               destination=VAR_0x8006 value=4
+    0829F65F  special              SPECIAL_\function=148
+    0829F662  setvar               destination=VAR_0x8004 value=2
+    0829F667  setvar               destination=VAR_0x8005 value=7
+    0829F66C  setvar               destination=VAR_0x8006 value=255
+    0829F671  special              SPECIAL_\function=156
+    0829F674  setvar               destination=VAR_0x8004 value=13
+    0829F679  setvar               destination=VAR_0x8005 value=0
+    0829F67E  setvar               destination=VAR_0x8006 value=0
+    0829F683  special              SPECIAL_\function=156
+    0829F686  setvar               destination=VAR_0x8004 value=14
+    0829F68B  special              SPECIAL_\function=156
+    0829F68E  special              SPECIAL_\function=0
+    0829F691  warpsilent           mapGroup=41 mapNum=16 WARP_ID_NONE=255 -1=7 -1=13
+    0829F699  waitstate            
+
+  map script type 2 (var 0x400D == 1) -> 0x0829F56B
+  script 0x0829F56B  [ok]
+    0829F56B  lockall              
+    0829F56C  setvar               destination=VAR_0x8004 value=13
+    0829F571  setvar               destination=VAR_0x8005 value=4
+    0829F576  setvar               destination=VAR_0x8006 value=1
+    0829F57B  setvar               destination=VAR_0x8007 value=55
+    0829F580  setvar               destination=VAR_0x800D value=0
+    0829F585  special              SPECIAL_\function=156
+    0829F588  delay                frames=2
+    0829F58B  compare_var_to_value var=0x800D value=2
+    0829F590  goto_if              condition=5 destination=0x0829F585
+    0829F596  setvar               destination=VAR_0x400D value=0
+    0829F59B  releaseall           
+
+  script 0x0829F585  [ok]
+    0829F585  special              SPECIAL_\function=156
+    0829F588  delay                frames=2
+    0829F58B  compare_var_to_value var=0x800D value=2
+    0829F590  goto_if              condition=5 destination=0x0829F585
+    0829F596  setvar               destination=VAR_0x400D value=0
+    0829F59B  releaseall           
+
+  map script type 2 (var 0x400E == 0) -> 0x0829F5A6
+  script 0x0829F5A6  [ok]
+    0829F5A6  playbgm              song=461 save_song=0
+    0829F5AA  setvar               destination=VAR_0x400E value=1
+    0829F5AF  end                  
+
+  map script type 2 (var 0x400F == 1) -> 0x0829F59D
+  script 0x0829F59D  [ok]
+    0829F59D  special              SPECIAL_\function=254
+    0829F5A0  setvar               destination=VAR_0x400F value=0
+    0829F5A5  end                  
+
+  map script type 3 -> 0x0829F6D8
+  script 0x0829F6D8  [ok]
+    0829F6D8  call                 destination=0x0829F6E3
+    0829F6DD  setvar               destination=VAR_0x400F value=1
+    0829F6E2  end                  
+
+  script 0x0829F6E3  [ok]
+    0829F6E3  setvar               destination=VAR_0x8004 value=13
+    0829F6E8  setvar               destination=VAR_0x8005 value=32
+    0829F6ED  setvar               destination=VAR_0x8006 value=0
+    0829F6F2  special              SPECIAL_\function=156
+    0829F6F5  return               
+

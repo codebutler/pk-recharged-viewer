@@ -1,0 +1,41 @@
+Four Island  (group 33, map 7)  header 0x08B3DED4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0827DE05
+  script 0x0827DE05  [opcode-out-of-range:0xFE]
+    0827DE05  lock                 
+    0827DE06  faceplayer           
+    0827DE07  call                 destination=0x082BB330
+    0827DE0C  message              text="Hi, there!\nMay I help you?"
+    0827DE11  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0xF5, flag 0x0000) -> 0x081F27DA
+  script 0x081F27DA  [ok]
+    081F27DA  lock                 
+    081F27DB  faceplayer           
+    081F27DC  setvar               destination=VAR_0x8004 value=9
+    081F27E1  setvar               destination=VAR_0x8005 value=2
+    081F27E6  special              SPECIAL_\function=347
+    081F27E9  msgbox_multilang     type=0 text_0="We’ve had a great and powerful\nTrainer grow up on this island.\pI bet even you’d know her.\nIt’s Lorelei of the Elite Four!\pWhen Lorelei was just a tyke,\nI taught her about Pokémon." text_1="We’ve had a great and powerful\nTrainer grow up on this island.\pI bet even you’d know her.\nIt’s Lorelei of the Elite Four!\pWhen Lorelei was just a tyke,\nI taught her about Pokémon." text_2="We’ve had a great and powerful\nTrainer grow up on this island.\pI bet even you’d know her.\nIt’s Lorelei of the Elite Four!\pWhen Lorelei was just a tyke,\nI taught her about Pokémon." text_3="We’ve had a great and powerful\nTrainer grow up on this island.\pI bet even you’d know her.\nIt’s Lorelei of the Elite Four!\pWhen Lorelei was just a tyke,\nI taught her about Pokémon." text_4="We’ve had a great and powerful\nTrainer grow up on this island.\pI bet even you’d know her.\nIt’s Lorelei of the Elite Four!\pWhen Lorelei was just a tyke,\nI taught her about Pokémon." text_5="We’ve had a great and powerful\nTrainer grow up on this island.\pI bet even you’d know her.\nIt’s Lorelei of the Elite Four!\pWhen Lorelei was just a tyke,\nI taught her about Pokémon." text_6="We’ve had a great and powerful\nTrainer grow up on this island.\pI bet even you’d know her.\nIt’s Lorelei of the Elite Four!\pWhen Lorelei was just a tyke,\nI taught her about Pokémon."
+    081F2807  callstd              function=MSGBOX_DEFAULT(4)
+    081F2809  release              
+
+  object 3 (gfx 0x1F, flag 0x0000) -> 0x0827DE6E
+  script 0x0827DE6E  [ok]
+    0827DE6E  msgbox_multilang     type=0 text_0="The Sevii Islands are in a warm\nregion overall.\pBut there is one exception you\nneed to know about.\pThe Icefall Cave is frigid because\nof the Pokémon that live in it." text_1="The Sevii Islands are in a warm\nregion overall.\pBut there is one exception you\nneed to know about.\pThe Icefall Cave is frigid because\nof the Pokémon that live in it." text_2="The Sevii Islands are in a warm\nregion overall.\pBut there is one exception you\nneed to know about.\pThe Icefall Cave is frigid because\nof the Pokémon that live in it." text_3="The Sevii Islands are in a warm\nregion overall.\pBut there is one exception you\nneed to know about.\pThe Icefall Cave is frigid because\nof the Pokémon that live in it." text_4="The Sevii Islands are in a warm\nregion overall.\pBut there is one exception you\nneed to know about.\pThe Icefall Cave is frigid because\nof the Pokémon that live in it." text_5="The Sevii Islands are in a warm\nregion overall.\pBut there is one exception you\nneed to know about.\pThe Icefall Cave is frigid because\nof the Pokémon that live in it." text_6="The Sevii Islands are in a warm\nregion overall.\pBut there is one exception you\nneed to know about.\pThe Icefall Cave is frigid because\nof the Pokémon that live in it."
+    0827DE8C  callstd              function=MSGBOX_NPC(2)
+    0827DE8E  end                  
+

@@ -1,0 +1,241 @@
+Mt. Ember  (group 1, map 97)  header 0x08B3BCB4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x0089) -> 0x0821839B
+  script 0x0821839B  [ok]
+    0821839B  lock                 
+    0821839C  checktrainerflag     trainer=0x219
+    0821839F  goto_if              condition=1 destination=0x082183D2
+    082183A5  compare_var_to_value var=0x4076 value=4
+    082183AA  goto_if              condition=1 destination=0x082183F4
+    082183B0  msgbox_multilang     type=0 text_0="Over here.\nWe’ll try digging here.\pThat treasure the Admins’ve been\ntalking about should be here." text_1="Over here.\nWe’ll try digging here.\pThat treasure the Admins’ve been\ntalking about should be here." text_2="Over here.\nWe’ll try digging here.\pThat treasure the Admins’ve been\ntalking about should be here." text_3="Over here.\nWe’ll try digging here.\pThat treasure the Admins’ve been\ntalking about should be here." text_4="Over here.\nWe’ll try digging here.\pThat treasure the Admins’ve been\ntalking about should be here." text_5="Over here.\nWe’ll try digging here.\pThat treasure the Admins’ve been\ntalking about should be here." text_6="Over here.\nWe’ll try digging here.\pThat treasure the Admins’ve been\ntalking about should be here."
+    082183CE  callstd              function=MSGBOX_DEFAULT(4)
+    082183D0  release              
+
+  script 0x082183D2  [ok]
+    082183D2  msgbox_multilang     type=0 text_0="Why’d you have to win?" text_1="Why’d you have to win?" text_2="Why’d you have to win?" text_3="Why’d you have to win?" text_4="Why’d you have to win?" text_5="Why’d you have to win?" text_6="Why’d you have to win?"
+    082183F0  callstd              function=MSGBOX_DEFAULT(4)
+    082183F2  release              
+
+  script 0x082183F4  [ok]
+    082183F4  applymovement        localId=1 movements=[face_player]
+    082183FB  waitmovement         localId=0
+    082183FE  playbgm              song=495 save_song=0
+    08218402  msgbox_multilang     type=0 text_0="You’ve been eavesdropping on us,\nhaven’t you?" text_1="You’ve been eavesdropping on us,\nhaven’t you?" text_2="You’ve been eavesdropping on us,\nhaven’t you?" text_3="You’ve been eavesdropping on us,\nhaven’t you?" text_4="You’ve been eavesdropping on us,\nhaven’t you?" text_5="You’ve been eavesdropping on us,\nhaven’t you?" text_6="You’ve been eavesdropping on us,\nhaven’t you?"
+    08218420  callstd              function=MSGBOX_DEFAULT(4)
+    08218422  trainerbattle        type=3 trainer=0x219 localId=0 ptr1=0x082188B0
+    0821842C  msgbox_multilang     type=0 text_0="Why’d you have to win?" text_1="Why’d you have to win?" text_2="Why’d you have to win?" text_3="Why’d you have to win?" text_4="Why’d you have to win?" text_5="Why’d you have to win?" text_6="Why’d you have to win?"
+    0821844A  callstd              function=MSGBOX_DEFAULT(4)
+    0821844C  checktrainerflag     trainer=0x21A
+    0821844F  goto_if              condition=1 destination=0x08218457
+    08218455  release              
+
+  script 0x08218457  [ok]
+    08218457  msgbox_multilang     type=0 text_0="What a setback…\nWe’ll have to regroup.\pYou! Don’t even think about taking\na step inside here!\pIf you know what’s good for you,\ndon’t even think about this!" text_1="What a setback…\nWe’ll have to regroup.\pYou! Don’t even think about taking\na step inside here!\pIf you know what’s good for you,\ndon’t even think about this!" text_2="What a setback…\nWe’ll have to regroup.\pYou! Don’t even think about taking\na step inside here!\pIf you know what’s good for you,\ndon’t even think about this!" text_3="What a setback…\nWe’ll have to regroup.\pYou! Don’t even think about taking\na step inside here!\pIf you know what’s good for you,\ndon’t even think about this!" text_4="What a setback…\nWe’ll have to regroup.\pYou! Don’t even think about taking\na step inside here!\pIf you know what’s good for you,\ndon’t even think about this!" text_5="What a setback…\nWe’ll have to regroup.\pYou! Don’t even think about taking\na step inside here!\pIf you know what’s good for you,\ndon’t even think about this!" text_6="What a setback…\nWe’ll have to regroup.\pYou! Don’t even think about taking\na step inside here!\pIf you know what’s good for you,\ndon’t even think about this!"
+    08218475  callstd              function=MSGBOX_DEFAULT(4)
+    08218477  closemessage         
+    08218478  fadescreenswapbuffers mode=1
+    0821847A  nop                  
+    0821847B  removeobject         localId=1
+    0821847E  removeobject         localId=2
+    08218481  fadescreenswapbuffers mode=0
+    08218483  nop                  
+    08218484  release              
+
+  object 2 (gfx 0x02, flag 0x0089) -> 0x08218486
+  script 0x08218486  [ok]
+    08218486  lock                 
+    08218487  faceplayer           
+    08218488  checktrainerflag     trainer=0x21A
+    0821848B  goto_if              condition=1 destination=0x082184C9
+    08218491  compare_var_to_value var=0x4076 value=4
+    08218496  goto_if              condition=1 destination=0x082184EB
+    0821849C  msgbox_multilang     type=0 text_0="What the…?\nYou’re in the way. Get lost." text_1="What the…?\nYou’re in the way. Get lost." text_2="What the…?\nYou’re in the way. Get lost." text_3="What the…?\nYou’re in the way. Get lost." text_4="What the…?\nYou’re in the way. Get lost." text_5="What the…?\nYou’re in the way. Get lost." text_6="What the…?\nYou’re in the way. Get lost."
+    082184BA  callstd              function=MSGBOX_DEFAULT(4)
+    082184BC  closemessage         
+    082184BD  applymovement        localId=2 movements=[face_original_direction]
+    082184C4  waitmovement         localId=0
+    082184C7  release              
+
+  script 0x082184C9  [ok]
+    082184C9  msgbox_multilang     type=0 text_0="Develop amnesia conveniently and\nforget everything you heard!" text_1="Develop amnesia conveniently and\nforget everything you heard!" text_2="Develop amnesia conveniently and\nforget everything you heard!" text_3="Develop amnesia conveniently and\nforget everything you heard!" text_4="Develop amnesia conveniently and\nforget everything you heard!" text_5="Develop amnesia conveniently and\nforget everything you heard!" text_6="Develop amnesia conveniently and\nforget everything you heard!"
+    082184E7  callstd              function=MSGBOX_DEFAULT(4)
+    082184E9  release              
+
+  script 0x082184EB  [ok]
+    082184EB  playbgm              song=495 save_song=0
+    082184EF  msgbox_multilang     type=0 text_0="Trying to horn in on our treasure?\nDon’t bet on it!" text_1="Trying to horn in on our treasure?\nDon’t bet on it!" text_2="Trying to horn in on our treasure?\nDon’t bet on it!" text_3="Trying to horn in on our treasure?\nDon’t bet on it!" text_4="Trying to horn in on our treasure?\nDon’t bet on it!" text_5="Trying to horn in on our treasure?\nDon’t bet on it!" text_6="Trying to horn in on our treasure?\nDon’t bet on it!"
+    0821850D  callstd              function=MSGBOX_DEFAULT(4)
+    0821850F  trainerbattle        type=3 trainer=0x21A localId=0 ptr1=0x08218906
+    08218519  msgbox_multilang     type=0 text_0="Develop amnesia conveniently and\nforget everything you heard!" text_1="Develop amnesia conveniently and\nforget everything you heard!" text_2="Develop amnesia conveniently and\nforget everything you heard!" text_3="Develop amnesia conveniently and\nforget everything you heard!" text_4="Develop amnesia conveniently and\nforget everything you heard!" text_5="Develop amnesia conveniently and\nforget everything you heard!" text_6="Develop amnesia conveniently and\nforget everything you heard!"
+    08218537  callstd              function=MSGBOX_DEFAULT(4)
+    08218539  checktrainerflag     trainer=0x219
+    0821853C  goto_if              condition=1 destination=0x08218457
+    08218542  release              
+
+  object 3 (gfx 0xF1, flag 0x0000) -> 0x082185A2
+  script 0x082185A2  [ok]
+    082185A2  trainerbattle        type=0 trainer=0x250 localId=0 ptr1=0x08218B82 ptr2=0x08218BE7
+    082185B0  msgbox_multilang     type=0 text_0="The way you battle, it reminds me\nof the guy who dumped me…" text_1="The way you battle, it reminds me\nof the guy who dumped me…" text_2="The way you battle, it reminds me\nof the guy who dumped me…" text_3="The way you battle, it reminds me\nof the guy who dumped me…" text_4="The way you battle, it reminds me\nof the guy who dumped me…" text_5="The way you battle, it reminds me\nof the guy who dumped me…" text_6="The way you battle, it reminds me\nof the guy who dumped me…"
+    082185CE  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082185D0  end                  
+
+  object 4 (gfx 0x4A, flag 0x0000) -> 0x08218544
+  script 0x08218544  [ok]
+    08218544  trainerbattle        type=0 trainer=0x253 localId=0 ptr1=0x082189EF ptr2=0x08218A26
+    08218552  msgbox_multilang     type=0 text_0="They say there’re over 1,500\nactive volcanoes in the world.\pJust thinking about them makes me\nfeel all hot and gooey inside!" text_1="They say there’re over 1,500\nactive volcanoes in the world.\pJust thinking about them makes me\nfeel all hot and gooey inside!" text_2="They say there’re over 1,500\nactive volcanoes in the world.\pJust thinking about them makes me\nfeel all hot and gooey inside!" text_3="They say there’re over 1,500\nactive volcanoes in the world.\pJust thinking about them makes me\nfeel all hot and gooey inside!" text_4="They say there’re over 1,500\nactive volcanoes in the world.\pJust thinking about them makes me\nfeel all hot and gooey inside!" text_5="They say there’re over 1,500\nactive volcanoes in the world.\pJust thinking about them makes me\nfeel all hot and gooey inside!" text_6="They say there’re over 1,500\nactive volcanoes in the world.\pJust thinking about them makes me\nfeel all hot and gooey inside!"
+    08218570  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08218572  end                  
+
+  object 5 (gfx 0x49, flag 0x0000) -> 0x08218573
+  script 0x08218573  [ok]
+    08218573  trainerbattle        type=0 trainer=0x255 localId=0 ptr1=0x08218AD1 ptr2=0x08218AFE
+    08218581  msgbox_multilang     type=0 text_0="When lava at the surface of magma\nhardens, and the magma inside flows\pout, caverns are left behind." text_1="When lava at the surface of magma\nhardens, and the magma inside flows\pout, caverns are left behind." text_2="When lava at the surface of magma\nhardens, and the magma inside flows\pout, caverns are left behind." text_3="When lava at the surface of magma\nhardens, and the magma inside flows\pout, caverns are left behind." text_4="When lava at the surface of magma\nhardens, and the magma inside flows\pout, caverns are left behind." text_5="When lava at the surface of magma\nhardens, and the magma inside flows\pout, caverns are left behind." text_6="When lava at the surface of magma\nhardens, and the magma inside flows\pout, caverns are left behind."
+    0821859F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082185A1  end                  
+
+  object 6 (gfx 0x56, flag 0x0012) -> 0x082052FA
+  script 0x082052FA  [unknown-opcode:0xE7]
+    082052FA  lockall              
+    082052FB  checkflag            flag=0x885:BADGE6_MARSH
+    082052FE  goto_if              condition=0 destination=0x082053AE
+    08205304  checkflag            flag=0x2EF
+    08205307  goto_if              condition=0 destination=0x082053AE
+    0820530D  checkpartymove       move=Rock Smash(249)
+    08205310  compare_var_to_value var=0x800D value=6
+    08205315  goto_if              condition=1 destination=0x082053B8
+    0820531B  setfieldeffectargument argNum=0 value=VAR_0x800D
+    0820531F  bufferpartymonnick   stringVarId=0 slot=32781
+    08205323  buffermovename       stringVarId=1 move=Rock Smash(249)
+    08205327  msgbox_multilang     type=0 text_0="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_1="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_2="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_3="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_4="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_5="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_6="This rock appears to be breakable.\nWould you like to use Rock Smash?"
+    08205345  callstd              function=MSGBOX_YESNO(5)
+    08205347  compare_var_to_value var=0x800D value=0
+    0820534C  goto_if              condition=1 destination=0x082053C2
+    08205352  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    08205370  callstd              function=MSGBOX_DEFAULT(4)
+    08205372  closemessage         
+
+  script 0x082053AE  [ok]
+    082053AE  goto                 destination=0x082053ED
+
+  script 0x082053B8  [ok]
+    082053B8  goto                 destination=0x082053D3
+
+  script 0x082053C2  [ok]
+    082053C2  closemessage         
+    082053C3  releaseall           
+
+  script 0x082053ED  [ok]
+    082053ED  msgbox_multilang     type=0 text_0="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_1="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_2="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_3="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_4="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_5="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_6="It’s a rugged rock, but a Pokémon\nmay be able to smash it."
+    0820540B  callstd              function=MSGBOX_SIGN(3)
+    0820540D  end                  
+
+  script 0x082053D3  [unknown-opcode:0xE5]
+
+  object 7 (gfx 0x56, flag 0x0013) -> 0x082052FA
+  object 8 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  script 0x0820540E  [ok]
+    0820540E  lockall              
+    0820540F  checkflag            flag=0x883:BADGE4_RAINBOW
+    08205412  goto_if              condition=0 destination=0x082054BA
+    08205418  checkflag            flag=0x23A
+    0820541B  goto_if              condition=0 destination=0x082054BA
+    08205421  checkflag            flag=0x865
+    08205424  goto_if              condition=1 destination=0x082054DB
+    0820542A  checkpartymove       move=Strength(70)
+    0820542D  compare_var_to_value var=0x800D value=6
+    08205432  goto_if              condition=1 destination=0x082054AC
+    08205438  compare_var_to_value var=0x800D value=6
+    0820543D  goto_if              condition=1 destination=0x082054BA
+    08205443  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205447  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?"
+    08205465  callstd              function=MSGBOX_YESNO(5)
+    08205467  compare_var_to_value var=0x800D value=0
+    0820546C  goto_if              condition=1 destination=0x082054FC
+    08205472  closemessage         
+    08205473  dofieldeffect        animation=40
+    08205476  waitstate            
+
+  script 0x082054BA  [ok]
+    082054BA  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside."
+    082054D8  callstd              function=MSGBOX_SIGN(3)
+    082054DA  end                  
+
+  script 0x082054DB  [ok]
+    082054DB  msgbox_multilang     type=0 text_0="Strength made it possible to move\nboulders around." text_1="Strength made it possible to move\nboulders around." text_2="Strength made it possible to move\nboulders around." text_3="Strength made it possible to move\nboulders around." text_4="Strength made it possible to move\nboulders around." text_5="Strength made it possible to move\nboulders around." text_6="Strength made it possible to move\nboulders around."
+    082054F9  callstd              function=MSGBOX_SIGN(3)
+    082054FB  end                  
+
+  script 0x082054AC  [unknown-opcode:0xE5]
+
+  script 0x082054FC  [ok]
+    082054FC  closemessage         
+    082054FD  releaseall           
+
+  object 9 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 10 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 11 (gfx 0x56, flag 0x0014) -> 0x082052FA
+  object 12 (gfx 0x56, flag 0x0015) -> 0x082052FA
+  object 13 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 14 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 15 (gfx 0x56, flag 0x0016) -> 0x082052FA
+  object 16 (gfx 0x56, flag 0x0017) -> 0x082052FA
+  object 17 (gfx 0x35, flag 0x01ED) -> 0x082D5D50
+  script 0x082D5D50  [ok]
+    082D5D50  setorcopyvar         destination=VAR_0x8000 source=2
+    082D5D55  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5D5A  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Ultra Ball
+    082D5D5C  end                  
+
+  object 18 (gfx 0x35, flag 0x01EE) -> 0x082D5D5D
+  script 0x082D5D5D  [ok]
+    082D5D5D  setorcopyvar         destination=VAR_0x8000 source=95
+    082D5D62  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5D67  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Fire Stone
+    082D5D69  end                  
+
+  object 19 (gfx 0x35, flag 0x01EF) -> 0x082D5D6A
+  script 0x082D5D6A  [ok]
+    082D5D6A  setorcopyvar         destination=VAR_0x8000 source=383
+    082D5D6F  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5D74  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Lax Mint
+    082D5D76  end                  
+
+  hidden item at (18,17): Fire Stone
+
+  hidden item at (8,30): Mild Mint
+
+  map script type 3 -> 0x0821836D
+  script 0x0821836D  [ok]
+    0821836D  setworldmapflag      flag=0x916
+    08218370  compare_var_to_value var=0x407F value=2
+    08218375  call_if              condition=1 destination=0x0821837C
+    0821837B  end                  
+
+  script 0x0821837C  [ok]
+    0821837C  setobjectmovementtype localId=1 movementType=8
+    08218380  setobjectmovementtype localId=2 movementType=8
+    08218384  return               
+
+  map script type 1 -> 0x08218385
+  script 0x08218385  [ok]
+    08218385  compare_var_to_value var=0x4076 value=4
+    0821838A  call_if              condition=4 destination=0x08218391
+    08218390  end                  
+
+  script 0x08218391  [ok]
+    08218391  setmetatile          x=42 y=39 metatileId=838 impassable=0
+    0821839A  return               
+

@@ -1,0 +1,47 @@
+Route 16  (group 25, map 0)  header 0x08B3DA74
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x10, flag 0x0000) -> 0x08279B04
+  script 0x08279B04  [unknown-opcode:0xE9]
+    08279B04  lock                 
+    08279B05  faceplayer           
+    08279B06  checkflag            flag=0x238
+    08279B09  goto_if              condition=1 destination=0x08279BA3
+    08279B0F  msgbox_multilang     type=0 text_0="Oh, dear.\nYou’ve found my secret retreat.\pPlease don’t tell anyone I’m here.\nI’ll make it up to you with this!" text_1="Oh, dear.\nYou’ve found my secret retreat.\pPlease don’t tell anyone I’m here.\nI’ll make it up to you with this!" text_2="Oh, dear.\nYou’ve found my secret retreat.\pPlease don’t tell anyone I’m here.\nI’ll make it up to you with this!" text_3="Oh, dear.\nYou’ve found my secret retreat.\pPlease don’t tell anyone I’m here.\nI’ll make it up to you with this!" text_4="Oh, dear.\nYou’ve found my secret retreat.\pPlease don’t tell anyone I’m here.\nI’ll make it up to you with this!" text_5="Oh, dear.\nYou’ve found my secret retreat.\pPlease don’t tell anyone I’m here.\nI’ll make it up to you with this!" text_6="Oh, dear.\nYou’ve found my secret retreat.\pPlease don’t tell anyone I’m here.\nI’ll make it up to you with this!"
+    08279B2D  callstd              function=MSGBOX_DEFAULT(4)
+    08279B2F  checkitemspace       itemId=HM02(340) quantity=1
+    08279B34  compare_var_to_value var=0x800D value=0
+    08279B39  goto_if              condition=1 destination=0x08279B81
+    08279B3F  additem              itemId=HM02(340) quantity=1
+
+  script 0x08279BA3  [ok]
+    08279BA3  msgbox_multilang     type=0 text_0="HM02 is Fly.\nIt’s a wonderfully convenient move.\pPlease, put it to good use." text_1="HM02 is Fly.\nIt’s a wonderfully convenient move.\pPlease, put it to good use." text_2="HM02 is Fly.\nIt’s a wonderfully convenient move.\pPlease, put it to good use." text_3="HM02 is Fly.\nIt’s a wonderfully convenient move.\pPlease, put it to good use." text_4="HM02 is Fly.\nIt’s a wonderfully convenient move.\pPlease, put it to good use." text_5="HM02 is Fly.\nIt’s a wonderfully convenient move.\pPlease, put it to good use." text_6="HM02 is Fly.\nIt’s a wonderfully convenient move.\pPlease, put it to good use."
+    08279BC1  callstd              function=MSGBOX_DEFAULT(4)
+    08279BC3  release              
+
+  script 0x08279B81  [ok]
+    08279B81  msgbox_multilang     type=0 text_0="You don’t have any room for this." text_1="You don’t have any room for this." text_2="You don’t have any room for this." text_3="You don’t have any room for this." text_4="You don’t have any room for this." text_5="You don’t have any room for this." text_6="You don’t have any room for this."
+    08279B9F  callstd              function=MSGBOX_DEFAULT(4)
+    08279BA1  release              
+
+  object 2 (gfx 0x16, flag 0x0000) -> 0x08279BC5
+  script 0x08279BC5  [ok]
+    08279BC5  bufferspeciesname    stringVarId=0 species=FEAROW(22)
+    08279BC9  lock                 
+    08279BCA  faceplayer           
+    08279BCB  waitse               
+    08279BCC  playmoncry           species=FEAROW(22) mode=0
+    08279BD1  msgbox_multilang     type=0 text_0="Fearow: Kyueen!" text_1="Fearow: Kyueen!" text_2="Fearow: Kyueen!" text_3="Fearow: Kyueen!" text_4="Fearow: Kyueen!" text_5="Fearow: Kyueen!" text_6="Fearow: Kyueen!"
+    08279BEF  callstd              function=MSGBOX_DEFAULT(4)
+    08279BF1  waitmoncry           
+    08279BF2  release              
+

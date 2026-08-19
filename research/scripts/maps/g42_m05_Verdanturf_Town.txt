@@ -1,0 +1,383 @@
+Verdanturf Town  (group 42, map 5)  header 0x08B3E820
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x5B, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x5A, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x15, flag 0x0000) -> 0x00000000
+  map script type 3 -> 0x08285F69
+  script 0x08285F69  [ok]
+    08285F69  call                 destination=0x08285F6F
+    08285F6E  end                  
+
+  script 0x08285F6F  [ok]
+    08285F6F  checkplayergender    
+    08285F70  compare_var_to_value var=0x800D value=0
+    08285F75  goto_if              condition=1 destination=0x08285F87
+    08285F7B  compare_var_to_value var=0x800D value=1
+    08285F80  goto_if              condition=1 destination=0x08285F92
+    08285F86  return               
+
+  script 0x08285F87  [ok]
+    08285F87  setvar               destination=VAR_0x4011 value=0
+    08285F8C  setvar               destination=VAR_0x4010 value=0
+    08285F91  return               
+
+  script 0x08285F92  [ok]
+    08285F92  setvar               destination=VAR_0x4011 value=89
+    08285F97  setvar               destination=VAR_0x4010 value=89
+    08285F9C  return               
+
+  map script type 2 (var 0x4000 == 0) -> 0x08285FA7
+  script 0x08285FA7  [ok]
+    08285FA7  showobjectat         localId=1 mapGroup=43 mapNum=5
+    08285FAC  applymovement        localId=1 movements=[set_visible walk_up walk_up walk_up face_right]
+    08285FB3  waitmovement         localId=0
+    08285FB6  setvar               destination=VAR_0x8004 value=1
+    08285FBB  setvar               destination=VAR_0x8005 value=2
+    08285FC0  special              SPECIAL_\function=148
+    08285FC3  compare_var_to_value var=0x800D value=0
+    08285FC8  goto_if              condition=5 destination=0x082860CB
+    08285FCE  setvar               destination=VAR_0x8004 value=3
+    08285FD3  special              SPECIAL_\function=149
+    08285FD6  addobject            localId=2
+    08285FD9  applymovement        localId=2 movements=[walk_down walk_down walk_down walk_down face_left]
+    08285FE0  waitmovement         localId=0
+    08285FE3  setvar               destination=VAR_0x8004 value=4
+    08285FE8  special              SPECIAL_\function=158
+    08285FEB  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    08286009  callstd              function=MSGBOX_DEFAULT(4)
+    0828600B  waitmessage          
+    0828600C  call                 destination=0x0829C249
+    08286011  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286016  compare_var_to_value var=0x8000 value=1
+    0828601B  goto_if              condition=1 destination=0x0828603F
+    08286021  setvar               destination=VAR_0x8004 value=2
+    08286026  setvar               destination=VAR_0x8005 value=0
+    0828602B  setvar               destination=VAR_0x8006 value=4
+    08286030  special              SPECIAL_\function=148
+    08286033  special              SPECIAL_\function=19
+    08286036  warp                 mapGroup=43 mapNum=3 WARP_ID_NONE=255 -1=6 -1=6
+    0828603E  waitstate            
+
+  script 0x082860CB  [ok]
+    082860CB  setvar               destination=VAR_0x8004 value=1
+    082860D0  setvar               destination=VAR_0x8005 value=2
+    082860D5  special              SPECIAL_\function=148
+    082860D8  compare_var_to_value var=0x800D value=1
+    082860DD  call_if              condition=1 destination=0x0828623C
+    082860E3  compare_var_to_value var=0x800D value=2
+    082860E8  call_if              condition=1 destination=0x0828625B
+    082860EE  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    082860F3  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082860F8  compare_var_to_value var=0x8000 value=0
+    082860FD  goto_if              condition=1 destination=0x082861A9
+    08286103  compare_var_to_value var=0x8000 value=1
+    08286108  goto_if              condition=1 destination=0x08286119
+    0828610E  compare_var_to_value var=0x8000 value=2
+    08286113  goto_if              condition=1 destination=0x0828615F
+    08286119  msgbox_multilang     type=0 text_0="Would you like to save and quit\nthe game?" text_1="Would you like to save and quit\nthe game?" text_2="Would you like to save and quit\nthe game?" text_3="Would you like to save and quit\nthe game?" text_4="Would you like to save and quit\nthe game?" text_5="Would you like to save and quit\nthe game?" text_6="Would you like to save and quit\nthe game?"
+    08286137  callstd              function=MSGBOX_YESNO(5)
+    08286139  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828613E  compare_var_to_value var=0x8000 value=0
+    08286143  goto_if              condition=1 destination=0x082860CB
+    08286149  compare_var_to_value var=0x8000 value=1
+    0828614E  goto_if              condition=1 destination=0x082861DE
+    08286154  compare_var_to_value var=0x8000 value=127
+    08286159  goto_if              condition=1 destination=0x082860CB
+    0828615F  message              text="Do you wish to quit your challenge?"
+    08286164  warphole             mapGroup=197 mapNum=41
+    08286167  gotostd              function=60
+    08286169  waitmoncry           
+    0828616A  setflag              flag=0x3C08
+    0828616D  waitmoncry           
+    0828616E  setflag              flag=0x3C08
+    08286171  waitmoncry           
+    08286172  setflag              flag=0x3C08
+    08286175  waitmoncry           
+    08286176  setflag              flag=0x3C08
+    08286179  waitmoncry           
+    0828617A  setflag              flag=0x6608 (temp)
+    0828617D  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    08286183  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286188  compare_var_to_value var=0x8000 value=1
+    0828618D  goto_if              condition=1 destination=0x082860CB
+    08286193  compare_var_to_value var=0x8000 value=0
+    08286198  goto_if              condition=1 destination=0x08286021
+    0828619E  compare_var_to_value var=0x8000 value=127
+    082861A3  goto_if              condition=1 destination=0x082860CB
+    082861A9  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    082861B0  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    082861B7  waitmovement         localId=0
+    082861BA  closemessage         
+    082861BB  goto                 destination=0x08285FCE
+
+  script 0x0829C249  [ok]
+    0829C249  closemessage         
+    0829C24A  setvar               destination=VAR_0x4002 value=0
+    0829C24F  setvar               destination=VAR_0x8004 value=2
+    0829C254  setvar               destination=VAR_0x8005 value=6
+    0829C259  setvar               destination=VAR_0x8006 value=0
+    0829C25E  special              SPECIAL_\function=148
+    0829C261  special              SPECIAL_\function=0
+    0829C264  setvar               destination=VAR_0x8004 value=4
+    0829C269  setvar               destination=VAR_0x8005 value=0
+    0829C26E  special              SPECIAL_\function=152
+    0829C271  waitstate            
+
+  script 0x0828603F  [ok]
+    0828603F  setvar               destination=VAR_0x8004 value=1
+    08286044  setvar               destination=VAR_0x8005 value=2
+    08286049  special              SPECIAL_\function=148
+    0828604C  addvar               destination=VAR_0x800D value=1
+    08286051  setvar               destination=VAR_0x8004 value=2
+    08286056  setvar               destination=VAR_0x8005 value=2
+    0828605B  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    08286060  special              SPECIAL_\function=148
+    08286063  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286068  compare_var_to_value var=0x8000 value=3
+    0828606D  goto_if              condition=1 destination=0x082861C0
+    08286073  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_up]
+    0828607A  waitmovement         localId=0
+    0828607D  removeobject         localId=2
+    08286080  applymovement        localId=3 movements=[walk_in_place_faster_down]
+    08286087  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    0828608E  waitmovement         localId=0
+    08286091  msgbox_multilang     type=0 text_0="Excellent…\nLet me restore your POKéMON." text_1="Excellent…\nLet me restore your POKéMON." text_2="Excellent…\nLet me restore your POKéMON." text_3="Excellent…\nLet me restore your POKéMON." text_4="Excellent…\nLet me restore your POKéMON." text_5="Excellent…\nLet me restore your POKéMON." text_6="Excellent…\nLet me restore your POKéMON."
+    082860AF  callstd              function=MSGBOX_DEFAULT(4)
+    082860B1  special              SPECIAL_\function=19
+    082860B4  special              SPECIAL_\function=18
+    082860B7  setvar               destination=VAR_0x8004 value=3
+    082860BC  setvar               destination=VAR_0x8005 value=3
+    082860C1  special              SPECIAL_\function=148
+    082860C4  playfanfare          song=368
+    082860C7  waitfanfare          
+    082860C8  special              SPECIAL_\function=0
+    082860CB  setvar               destination=VAR_0x8004 value=1
+    082860D0  setvar               destination=VAR_0x8005 value=2
+    082860D5  special              SPECIAL_\function=148
+    082860D8  compare_var_to_value var=0x800D value=1
+    082860DD  call_if              condition=1 destination=0x0828623C
+    082860E3  compare_var_to_value var=0x800D value=2
+    082860E8  call_if              condition=1 destination=0x0828625B
+    082860EE  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    082860F3  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082860F8  compare_var_to_value var=0x8000 value=0
+    082860FD  goto_if              condition=1 destination=0x082861A9
+    08286103  compare_var_to_value var=0x8000 value=1
+    08286108  goto_if              condition=1 destination=0x08286119
+    0828610E  compare_var_to_value var=0x8000 value=2
+    08286113  goto_if              condition=1 destination=0x0828615F
+    08286119  msgbox_multilang     type=0 text_0="Would you like to save and quit\nthe game?" text_1="Would you like to save and quit\nthe game?" text_2="Would you like to save and quit\nthe game?" text_3="Would you like to save and quit\nthe game?" text_4="Would you like to save and quit\nthe game?" text_5="Would you like to save and quit\nthe game?" text_6="Would you like to save and quit\nthe game?"
+    08286137  callstd              function=MSGBOX_YESNO(5)
+    08286139  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828613E  compare_var_to_value var=0x8000 value=0
+    08286143  goto_if              condition=1 destination=0x082860CB
+    08286149  compare_var_to_value var=0x8000 value=1
+    0828614E  goto_if              condition=1 destination=0x082861DE
+    08286154  compare_var_to_value var=0x8000 value=127
+    08286159  goto_if              condition=1 destination=0x082860CB
+    0828615F  message              text="Do you wish to quit your challenge?"
+    08286164  warphole             mapGroup=197 mapNum=41
+    08286167  gotostd              function=60
+    08286169  waitmoncry           
+    0828616A  setflag              flag=0x3C08
+    0828616D  waitmoncry           
+    0828616E  setflag              flag=0x3C08
+    08286171  waitmoncry           
+    08286172  setflag              flag=0x3C08
+    08286175  waitmoncry           
+    08286176  setflag              flag=0x3C08
+    08286179  waitmoncry           
+    0828617A  setflag              flag=0x6608 (temp)
+    0828617D  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    08286183  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286188  compare_var_to_value var=0x8000 value=1
+    0828618D  goto_if              condition=1 destination=0x082860CB
+    08286193  compare_var_to_value var=0x8000 value=0
+    08286198  goto_if              condition=1 destination=0x08286021
+    0828619E  compare_var_to_value var=0x8000 value=127
+    082861A3  goto_if              condition=1 destination=0x082860CB
+    082861A9  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    082861B0  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    082861B7  waitmovement         localId=0
+    082861BA  closemessage         
+    082861BB  goto                 destination=0x08285FCE
+
+  script 0x0828623C  [ok]
+    0828623C  message              text="The 2nd opponent is next.\nAre you prepared?"
+    08286241  gotostd_if           condition=196 function=41
+    08286244  gotostd              function=MSGBOX_POKENAV(10)
+    08286246  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=10 -1=10692 -1=2568
+    0828624E  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=10 -1=10692 -1=2568
+    08286256  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=102 -1=26371 -1=50230
+    0828625E  setflag              flag=0x3608
+    08286261  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=13832
+    08286269  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=13832
+    08286271  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=26120
+    08286279  return               
+
+  script 0x0828625B  [opcode-out-of-range:0xFE]
+    0828625B  message              text="The 3rd opponent is next.\nAre you prepared?"
+    08286260  fadenewbgm           song=10692
+    08286263  gotostd              function=54
+    08286265  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=13832
+    0828626D  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=13832
+    08286275  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=102 -1=21507 -1=22014
+    0828627D  callstd              function=MSGBOX_GETPOINTS(9)
+    0828627F  callstd              function=MSGBOX_SIGN(3)
+
+  script 0x082861A9  [ok]
+    082861A9  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    082861B0  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    082861B7  waitmovement         localId=0
+    082861BA  closemessage         
+    082861BB  goto                 destination=0x08285FCE
+
+  script 0x08286119  [ok]
+    08286119  msgbox_multilang     type=0 text_0="Would you like to save and quit\nthe game?" text_1="Would you like to save and quit\nthe game?" text_2="Would you like to save and quit\nthe game?" text_3="Would you like to save and quit\nthe game?" text_4="Would you like to save and quit\nthe game?" text_5="Would you like to save and quit\nthe game?" text_6="Would you like to save and quit\nthe game?"
+    08286137  callstd              function=MSGBOX_YESNO(5)
+    08286139  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828613E  compare_var_to_value var=0x8000 value=0
+    08286143  goto_if              condition=1 destination=0x082860CB
+    08286149  compare_var_to_value var=0x8000 value=1
+    0828614E  goto_if              condition=1 destination=0x082861DE
+    08286154  compare_var_to_value var=0x8000 value=127
+    08286159  goto_if              condition=1 destination=0x082860CB
+    0828615F  message              text="Do you wish to quit your challenge?"
+    08286164  warphole             mapGroup=197 mapNum=41
+    08286167  gotostd              function=60
+    08286169  waitmoncry           
+    0828616A  setflag              flag=0x3C08
+    0828616D  waitmoncry           
+    0828616E  setflag              flag=0x3C08
+    08286171  waitmoncry           
+    08286172  setflag              flag=0x3C08
+    08286175  waitmoncry           
+    08286176  setflag              flag=0x3C08
+    08286179  waitmoncry           
+    0828617A  setflag              flag=0x6608 (temp)
+    0828617D  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    08286183  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286188  compare_var_to_value var=0x8000 value=1
+    0828618D  goto_if              condition=1 destination=0x082860CB
+    08286193  compare_var_to_value var=0x8000 value=0
+    08286198  goto_if              condition=1 destination=0x08286021
+    0828619E  compare_var_to_value var=0x8000 value=127
+    082861A3  goto_if              condition=1 destination=0x082860CB
+    082861A9  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    082861B0  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    082861B7  waitmovement         localId=0
+    082861BA  closemessage         
+    082861BB  goto                 destination=0x08285FCE
+
+  script 0x0828615F  [ok]
+    0828615F  message              text="Do you wish to quit your challenge?"
+    08286164  warphole             mapGroup=197 mapNum=41
+    08286167  gotostd              function=60
+    08286169  waitmoncry           
+    0828616A  setflag              flag=0x3C08
+    0828616D  waitmoncry           
+    0828616E  setflag              flag=0x3C08
+    08286171  waitmoncry           
+    08286172  setflag              flag=0x3C08
+    08286175  waitmoncry           
+    08286176  setflag              flag=0x3C08
+    08286179  waitmoncry           
+    0828617A  setflag              flag=0x6608 (temp)
+    0828617D  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    08286183  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286188  compare_var_to_value var=0x8000 value=1
+    0828618D  goto_if              condition=1 destination=0x082860CB
+    08286193  compare_var_to_value var=0x8000 value=0
+    08286198  goto_if              condition=1 destination=0x08286021
+    0828619E  compare_var_to_value var=0x8000 value=127
+    082861A3  goto_if              condition=1 destination=0x082860CB
+    082861A9  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    082861B0  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    082861B7  waitmovement         localId=0
+    082861BA  closemessage         
+    082861BB  goto                 destination=0x08285FCE
+
+  script 0x082861DE  [ok]
+    082861DE  message              text="Saving the data.\nHave patience…"
+    082861E3  checktrainerflag     trainer=0x29C5
+    082861E6  gotostd              function=96
+    082861E8  waitmoncry           
+    082861E9  setflag              flag=0x6008 (temp)
+    082861EC  waitmoncry           
+    082861ED  setflag              flag=0x6008 (temp)
+    082861F0  waitmoncry           
+    082861F1  setflag              flag=0x6008 (temp)
+    082861F4  waitmoncry           
+    082861F5  setflag              flag=0x6008 (temp)
+    082861F8  waitmoncry           
+    082861F9  setflag              flag=0x6608 (temp)
+    082861FC  setvar               destination=VAR_0x8004 value=5
+    08286201  setvar               destination=VAR_0x8005 value=2
+    08286206  special              SPECIAL_\function=158
+    08286209  playse               song=55
+    0828620C  waitse               
+    0828620D  fadescreen           mode=1
+    0828620F  setvar               destination=VAR_0x8004 value=4
+    08286214  special              SPECIAL_\function=148
+    08286217  end                  
+
+  script 0x08286021  [ok]
+    08286021  setvar               destination=VAR_0x8004 value=2
+    08286026  setvar               destination=VAR_0x8005 value=0
+    0828602B  setvar               destination=VAR_0x8006 value=4
+    08286030  special              SPECIAL_\function=148
+    08286033  special              SPECIAL_\function=19
+    08286036  warp                 mapGroup=43 mapNum=3 WARP_ID_NONE=255 -1=6 -1=6
+    0828603E  waitstate            
+
+  script 0x08285FCE  [ok]
+    08285FCE  setvar               destination=VAR_0x8004 value=3
+    08285FD3  special              SPECIAL_\function=149
+    08285FD6  addobject            localId=2
+    08285FD9  applymovement        localId=2 movements=[walk_down walk_down walk_down walk_down face_left]
+    08285FE0  waitmovement         localId=0
+    08285FE3  setvar               destination=VAR_0x8004 value=4
+    08285FE8  special              SPECIAL_\function=158
+    08285FEB  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    08286009  callstd              function=MSGBOX_DEFAULT(4)
+    0828600B  waitmessage          
+    0828600C  call                 destination=0x0829C249
+    08286011  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286016  compare_var_to_value var=0x8000 value=1
+    0828601B  goto_if              condition=1 destination=0x0828603F
+    08286021  setvar               destination=VAR_0x8004 value=2
+    08286026  setvar               destination=VAR_0x8005 value=0
+    0828602B  setvar               destination=VAR_0x8006 value=4
+    08286030  special              SPECIAL_\function=148
+    08286033  special              SPECIAL_\function=19
+    08286036  warp                 mapGroup=43 mapNum=3 WARP_ID_NONE=255 -1=6 -1=6
+    0828603E  waitstate            
+
+  script 0x082861C0  [ok]
+    082861C0  setvar               destination=VAR_0x8004 value=2
+    082861C5  setvar               destination=VAR_0x8005 value=0
+    082861CA  setvar               destination=VAR_0x8006 value=3
+    082861CF  special              SPECIAL_\function=148
+    082861D2  special              SPECIAL_\function=19
+    082861D5  warp                 mapGroup=43 mapNum=3 WARP_ID_NONE=255 -1=6 -1=6
+    082861DD  waitstate            
+
+  map script type 4 (var 0x4001 == 0) -> 0x08286222
+  script 0x08286222  [ok]
+    08286222  hideobjectat         localId=1 mapGroup=43 mapNum=5
+    08286227  call                 destination=0x08285F6F
+    0828622C  setvar               destination=VAR_0x4001 value=1
+    08286231  applymovement        localId=255 movements=[set_invisible]
+    08286238  removeobject         localId=2
+    0828623B  end                  
+

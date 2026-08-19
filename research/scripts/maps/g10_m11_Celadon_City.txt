@@ -1,0 +1,172 @@
+Celadon City  (group 10, map 11)  header 0x08B3D3E4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x07, flag 0x0000) -> 0x08264137
+  script 0x08264137  [ok]
+    08264137  msgbox_multilang     type=0 text_0="There is nothing that I don’t know,\nlike I wrote on the blackboard.\pI know about the world of Pokémon\nin your Game Boy Advance!\pGet together with your friends and\nenjoy trading Pokémon!" text_1="There is nothing that I don’t know,\nlike I wrote on the blackboard.\pI know about the world of Pokémon\nin your Game Boy Advance!\pGet together with your friends and\nenjoy trading Pokémon!" text_2="There is nothing that I don’t know,\nlike I wrote on the blackboard.\pI know about the world of Pokémon\nin your Game Boy Advance!\pGet together with your friends and\nenjoy trading Pokémon!" text_3="There is nothing that I don’t know,\nlike I wrote on the blackboard.\pI know about the world of Pokémon\nin your Game Boy Advance!\pGet together with your friends and\nenjoy trading Pokémon!" text_4="There is nothing that I don’t know,\nlike I wrote on the blackboard.\pI know about the world of Pokémon\nin your Game Boy Advance!\pGet together with your friends and\nenjoy trading Pokémon!" text_5="There is nothing that I don’t know,\nlike I wrote on the blackboard.\pI know about the world of Pokémon\nin your Game Boy Advance!\pGet together with your friends and\nenjoy trading Pokémon!" text_6="There is nothing that I don’t know,\nlike I wrote on the blackboard.\pI know about the world of Pokémon\nin your Game Boy Advance!\pGet together with your friends and\nenjoy trading Pokémon!"
+    08264155  callstd              function=MSGBOX_NPC(2)
+    08264157  end                  
+
+  object 2 (gfx 0x35, flag 0x0057) -> 0x08264158
+  script 0x08264158  [ok]
+    08264158  lock                 
+    08264159  faceplayer           
+    0826415A  setvar               destination=VAR_0x4001 value=133
+    0826415F  givemon              species=EEVEE(133) level=25 item=0 0=0 0=0 0=0
+    0826416E  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08264173  compare_var_to_value var=0x8000 value=0
+    08264178  goto_if              condition=1 destination=0x08264196
+    0826417E  compare_var_to_value var=0x8000 value=1
+    08264183  goto_if              condition=1 destination=0x082641B6
+    08264189  compare_var_to_value var=0x8000 value=2
+    0826418E  goto_if              condition=1 destination=0x082641D1
+    08264194  release              
+
+  script 0x08264196  [ok]
+    08264196  call                 destination=0x082641EF
+    0826419B  compare_var_to_value var=0x800D value=0
+    082641A0  goto_if              condition=1 destination=0x082641DB
+    082641A6  call                 destination=0x082BCF8B
+    082641AB  call                 destination=0x082F80EB
+    082641B0  goto                 destination=0x08264244
+
+  script 0x082641B6  [ok]
+    082641B6  call                 destination=0x082641EF
+    082641BB  compare_var_to_value var=0x800D value=0
+    082641C0  goto_if              condition=1 destination=0x082641E5
+    082641C6  call                 destination=0x082BCF97
+    082641CB  goto                 destination=0x08264239
+
+  script 0x082641D1  [ok]
+    082641D1  goto                 destination=0x082F8102
+
+  script 0x082641EF  [ok]
+    082641EF  removeobject         localId=2
+    082641F2  playfanfare          song=367
+    082641F5  message              text="{PLAYER} obtained an Eevee!"
+    082641FA  adddecoration        decoration=9800
+    082641FD  gotostd              function=180
+    082641FF  adddecoration        decoration=2086
+    08264202  compare_local_to_ptr local=79 ptr=1384515622
+    08264208  specialvar           output=61192 SPECIAL_\function=9813
+    0826420D  gotostd              function=88
+    0826420F  hideobjectat         localId=2086 mapGroup=102 mapNum=50
+    08264214  bufferspeciesname    stringVarId=0 species=EEVEE(133)
+    08264218  msgbox_multilang     type=0 text_0="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_1="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_2="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_3="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_4="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_5="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_6="Do you want to give a nickname to\nthis {STR_VAR_1}?"
+    08264236  callstd              function=MSGBOX_YESNO(5)
+    08264238  return               
+
+  script 0x082641DB  [ok]
+    082641DB  goto                 destination=0x08264244
+
+  script 0x082BCF8B  [ok]
+    082BCF8B  getpartysize         
+    082BCF8C  subvar               destination=VAR_0x800D value=1
+    082BCF91  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082BCF96  return               
+
+  script 0x082F80EB  [ok]
+    082F80EB  fadescreen           mode=1
+    082F80ED  special              SPECIAL_\function=95
+    082F80F0  waitstate            
+
+  script 0x08264244  [ok]
+    08264244  setflag              flag=0x263
+    08264247  release              
+
+  script 0x082641E5  [ok]
+    082641E5  goto                 destination=0x08264239
+
+  script 0x082BCF97  [ok]
+    082BCF97  fadescreen           mode=1
+    082BCF99  special              SPECIAL_\function=318
+    082BCF9C  waitstate            
+
+  script 0x08264239  [ok]
+    08264239  call                 destination=0x082BCFA0
+    0826423E  goto                 destination=0x08264244
+
+  script 0x082F8102  [ok]
+    082F8102  textcolor            color=3
+    082F8104  msgbox_multilang     type=0 text_0="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_1="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_2="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_3="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_4="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_5="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_6="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!"
+    082F8122  callstd              function=MSGBOX_DEFAULT(4)
+    082F8124  release              
+
+  script 0x082BCFA0  [ok]
+    082BCFA0  bufferboxname        stringVarId=0 box=16439
+    082BCFA4  bufferspeciesname    stringVarId=1 species=?(16385)
+    082BCFA8  checkflag            flag=0x894
+    082BCFAB  call_if              condition=0 destination=0x082BCFBB
+    082BCFB1  checkflag            flag=0x894
+    082BCFB4  call_if              condition=1 destination=0x082BD016
+    082BCFBA  return               
+
+  script 0x082BCFBB  [ok]
+    082BCFBB  specialvar           output=32781 SPECIAL_\function=320
+    082BCFC0  compare_var_to_value var=0x800D value=1
+    082BCFC5  goto_if              condition=1 destination=0x082BCFEC
+    082BCFCB  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BCFE9  callstd              function=MSGBOX_DEFAULT(4)
+    082BCFEB  return               
+
+  script 0x082BD016  [ok]
+    082BD016  specialvar           output=32781 SPECIAL_\function=320
+    082BD01B  compare_var_to_value var=0x800D value=1
+    082BD020  goto_if              condition=1 destination=0x082BD047
+    082BD026  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BD044  callstd              function=MSGBOX_DEFAULT(4)
+    082BD046  return               
+
+  script 0x082BCFEC  [ok]
+    082BCFEC  specialvar           output=32781 SPECIAL_\function=319
+    082BCFF1  bufferboxname        stringVarId=2 box=32781
+    082BCFF5  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD013  callstd              function=MSGBOX_DEFAULT(4)
+    082BD015  return               
+
+  script 0x082BD047  [ok]
+    082BD047  specialvar           output=32781 SPECIAL_\function=319
+    082BD04C  bufferboxname        stringVarId=2 box=32781
+    082BD050  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD06E  callstd              function=MSGBOX_DEFAULT(4)
+    082BD070  return               
+
+  sign 0 at (4,1) -> 0x0826426A
+  script 0x0826426A  [opcode-out-of-range:0xF0]
+    0826426A  lockall              
+    0826426B  msgbox_multilang     type=0 text_0="Pokémon Lecture\pPlaying with the Wireless Adapter" text_1="Pokémon Lecture\pPlaying with the Wireless Adapter" text_2="Pokémon Lecture\pPlaying with the Wireless Adapter" text_3="Pokémon Lecture\pPlaying with the Wireless Adapter" text_4="Pokémon Lecture\pPlaying with the Wireless Adapter" text_5="Pokémon Lecture\pPlaying with the Wireless Adapter" text_6="Pokémon Lecture\pPlaying with the Wireless Adapter"
+    08264289  callstd              function=MSGBOX_DEFAULT(4)
+    0826428B  message              text="Which heading do you want to read?"
+    08264290  callstd_if           condition=73 function=38
+    08264293  gotostd              function=116
+    08264295  removedecoration     decoration=2086
+    08264298  buffertrainerclassname stringVarId=79 trainerId=2086
+    0826429C  checkitemspace       itemId=item_9811(9811) quantity=44808
+    082642A1  addobject            localId=2086 mapGroup=24 mapNum=90
+    082642A6  specialvar           output=26120 SPECIAL_\function=1046
+    082642AB  bufferitemname       stringVarId=4 item=28416
+    082642AF  nop                  
+    082642B0  nop                  
+    082642B1  checkflag            flag=0x1900
+    082642B4  nop                  
+    082642B5  bufferitemname       stringVarId=13 item=8576
+    082642B9  nop                  
+    082642BA  bufferitemname       stringVarId=0 item=1536
+    082642BE  nop1                 
+
+  sign 1 at (5,1) -> 0x0826426A
+  sign 2 at (4,4) -> 0x08264249
+  script 0x08264249  [ok]
+    08264249  msgbox_multilang     type=0 text_0="It’s a pamphlet on TMs.\p… …\pThere are fifty TMs in all.\pThere are also seven HMs that\ncan be used repeatedly.\pSilph Co." text_1="It’s a pamphlet on TMs.\p… …\pThere are fifty TMs in all.\pThere are also seven HMs that\ncan be used repeatedly.\pSilph Co." text_2="It’s a pamphlet on TMs.\p… …\pThere are fifty TMs in all.\pThere are also seven HMs that\ncan be used repeatedly.\pSilph Co." text_3="It’s a pamphlet on TMs.\p… …\pThere are fifty TMs in all.\pThere are also seven HMs that\ncan be used repeatedly.\pSilph Co." text_4="It’s a pamphlet on TMs.\p… …\pThere are fifty TMs in all.\pThere are also seven HMs that\ncan be used repeatedly.\pSilph Co." text_5="It’s a pamphlet on TMs.\p… …\pThere are fifty TMs in all.\pThere are also seven HMs that\ncan be used repeatedly.\pSilph Co." text_6="It’s a pamphlet on TMs.\p… …\pThere are fifty TMs in all.\pThere are also seven HMs that\ncan be used repeatedly.\pSilph Co."
+    08264267  callstd              function=MSGBOX_SIGN(3)
+    08264269  end                  
+

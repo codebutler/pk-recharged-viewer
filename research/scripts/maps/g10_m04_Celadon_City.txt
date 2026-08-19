@@ -1,0 +1,50 @@
+Celadon City  (group 10, map 4)  header 0x08B3D320
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x30, flag 0x0000) -> 0x0826062B
+  script 0x0826062B  [ok]
+    0826062B  msgbox_multilang     type=0 text_0="Pokémon stat enhancers can be bought\nonly here.\pHP UP increases the base HP of a\nPokémon.\pCalcium raises the base Sp. Atk stat\nof one Pokémon.\pZinc boosts the base Sp. Def stat of\none Pokémon.\pCarbos enhances the base Speed stat." text_1="Pokémon stat enhancers can be bought\nonly here.\pHP UP increases the base HP of a\nPokémon.\pCalcium raises the base Sp. Atk stat\nof one Pokémon.\pZinc boosts the base Sp. Def stat of\none Pokémon.\pCarbos enhances the base Speed stat." text_2="Pokémon stat enhancers can be bought\nonly here.\pHP UP increases the base HP of a\nPokémon.\pCalcium raises the base Sp. Atk stat\nof one Pokémon.\pZinc boosts the base Sp. Def stat of\none Pokémon.\pCarbos enhances the base Speed stat." text_3="Pokémon stat enhancers can be bought\nonly here.\pHP UP increases the base HP of a\nPokémon.\pCalcium raises the base Sp. Atk stat\nof one Pokémon.\pZinc boosts the base Sp. Def stat of\none Pokémon.\pCarbos enhances the base Speed stat." text_4="Pokémon stat enhancers can be bought\nonly here.\pHP UP increases the base HP of a\nPokémon.\pCalcium raises the base Sp. Atk stat\nof one Pokémon.\pZinc boosts the base Sp. Def stat of\none Pokémon.\pCarbos enhances the base Speed stat." text_5="Pokémon stat enhancers can be bought\nonly here.\pHP UP increases the base HP of a\nPokémon.\pCalcium raises the base Sp. Atk stat\nof one Pokémon.\pZinc boosts the base Sp. Def stat of\none Pokémon.\pCarbos enhances the base Speed stat." text_6="Pokémon stat enhancers can be bought\nonly here.\pHP UP increases the base HP of a\nPokémon.\pCalcium raises the base Sp. Atk stat\nof one Pokémon.\pZinc boosts the base Sp. Def stat of\none Pokémon.\pCarbos enhances the base Speed stat."
+    08260649  callstd              function=MSGBOX_NPC(2)
+    0826064B  end                  
+
+  object 2 (gfx 0x31, flag 0x0000) -> 0x0826064C
+  script 0x0826064C  [ok]
+    0826064C  msgbox_multilang     type=0 text_0="I’m here for Pokémon stat\nenhancers.\pProtein increases the base Attack\npower.\pIron increases the base Defense stat." text_1="I’m here for Pokémon stat\nenhancers.\pProtein increases the base Attack\npower.\pIron increases the base Defense stat." text_2="I’m here for Pokémon stat\nenhancers.\pProtein increases the base Attack\npower.\pIron increases the base Defense stat." text_3="I’m here for Pokémon stat\nenhancers.\pProtein increases the base Attack\npower.\pIron increases the base Defense stat." text_4="I’m here for Pokémon stat\nenhancers.\pProtein increases the base Attack\npower.\pIron increases the base Defense stat." text_5="I’m here for Pokémon stat\nenhancers.\pProtein increases the base Attack\npower.\pIron increases the base Defense stat." text_6="I’m here for Pokémon stat\nenhancers.\pProtein increases the base Attack\npower.\pIron increases the base Defense stat."
+    0826066A  callstd              function=MSGBOX_NPC(2)
+    0826066C  end                  
+
+  object 3 (gfx 0x11, flag 0x0000) -> 0x0826068E
+  script 0x0826068E  [opcode-out-of-range:0xFE]
+    0826068E  lock                 
+    0826068F  faceplayer           
+    08260690  call                 destination=0x082BB330
+    08260695  message              text="Hi, there!\nMay I help you?"
+    0826069A  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 4 (gfx 0x11, flag 0x0000) -> 0x082606F0
+  script 0x082606F0  [opcode-out-of-range:0xFE]
+    082606F0  lock                 
+    082606F1  faceplayer           
+    082606F2  call                 destination=0x082BB330
+    082606F7  message              text="Hi, there!\nMay I help you?"
+    082606FC  showmonpic           species=?(8190) x=8 y=117
+
+  sign 0 at (8,1) -> 0x0826066D
+  script 0x0826066D  [ok]
+    0826066D  msgbox_multilang     type=0 text_0="5F: Drugstore" text_1="5F: Drugstore" text_2="5F: Drugstore" text_3="5F: Drugstore" text_4="5F: Drugstore" text_5="5F: Drugstore" text_6="5F: Drugstore"
+    0826068B  callstd              function=MSGBOX_SIGN(3)
+    0826068D  end                  
+

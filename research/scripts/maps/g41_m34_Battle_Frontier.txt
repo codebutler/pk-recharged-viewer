@@ -1,0 +1,135 @@
+Battle Frontier  (group 41, map 34)  header 0x08B3E468
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x05, flag 0x0000) -> 0x082AF26F
+  script 0x082AF26F  [ok]
+    082AF26F  lock                 
+    082AF270  faceplayer           
+    082AF271  checkflag            flag=0x10F
+    082AF274  goto_if              condition=1 destination=0x082AF2A3
+    082AF27A  setflag              flag=0x10F
+    082AF27D  msgbox_multilang     type=0 text_0="Howdy! When it comes to news about\nthe BATTLE FRONTIER, I’m no. 1.\pYou can think of me as\nthe FRONTIER MANIAC.\pJust checking, but you are a TRAINER,\nisn’t that right?\pI’ll happily share the hottest news\nI gathered about the BATTLE FRONTIER." text_1="Howdy! When it comes to news about\nthe BATTLE FRONTIER, I’m no. 1.\pYou can think of me as\nthe FRONTIER MANIAC.\pJust checking, but you are a TRAINER,\nisn’t that right?\pI’ll happily share the hottest news\nI gathered about the BATTLE FRONTIER." text_2="Howdy! When it comes to news about\nthe BATTLE FRONTIER, I’m no. 1.\pYou can think of me as\nthe FRONTIER MANIAC.\pJust checking, but you are a TRAINER,\nisn’t that right?\pI’ll happily share the hottest news\nI gathered about the BATTLE FRONTIER." text_3="Howdy! When it comes to news about\nthe BATTLE FRONTIER, I’m no. 1.\pYou can think of me as\nthe FRONTIER MANIAC.\pJust checking, but you are a TRAINER,\nisn’t that right?\pI’ll happily share the hottest news\nI gathered about the BATTLE FRONTIER." text_4="Howdy! When it comes to news about\nthe BATTLE FRONTIER, I’m no. 1.\pYou can think of me as\nthe FRONTIER MANIAC.\pJust checking, but you are a TRAINER,\nisn’t that right?\pI’ll happily share the hottest news\nI gathered about the BATTLE FRONTIER." text_5="Howdy! When it comes to news about\nthe BATTLE FRONTIER, I’m no. 1.\pYou can think of me as\nthe FRONTIER MANIAC.\pJust checking, but you are a TRAINER,\nisn’t that right?\pI’ll happily share the hottest news\nI gathered about the BATTLE FRONTIER." text_6="Howdy! When it comes to news about\nthe BATTLE FRONTIER, I’m no. 1.\pYou can think of me as\nthe FRONTIER MANIAC.\pJust checking, but you are a TRAINER,\nisn’t that right?\pI’ll happily share the hottest news\nI gathered about the BATTLE FRONTIER."
+    082AF29B  callstd              function=MSGBOX_DEFAULT(4)
+    082AF29D  goto                 destination=0x082AF2C9
+
+  script 0x082AF2A3  [ok]
+    082AF2A3  msgbox_multilang     type=0 text_0="Howdy! Did you swing by to grill me\nabout the latest word? Oh, all right!" text_1="Howdy! Did you swing by to grill me\nabout the latest word? Oh, all right!" text_2="Howdy! Did you swing by to grill me\nabout the latest word? Oh, all right!" text_3="Howdy! Did you swing by to grill me\nabout the latest word? Oh, all right!" text_4="Howdy! Did you swing by to grill me\nabout the latest word? Oh, all right!" text_5="Howdy! Did you swing by to grill me\nabout the latest word? Oh, all right!" text_6="Howdy! Did you swing by to grill me\nabout the latest word? Oh, all right!"
+    082AF2C1  callstd              function=MSGBOX_DEFAULT(4)
+    082AF2C3  goto                 destination=0x082AF2C9
+
+  script 0x082AF2C9  [ok]
+    082AF2C9  compare_var_to_value var=0x40C2 value=0
+    082AF2CE  call_if              condition=1 destination=0x082AF396
+    082AF2D4  compare_var_to_value var=0x40C2 value=1
+    082AF2D9  call_if              condition=1 destination=0x082AF39B
+    082AF2DF  compare_var_to_value var=0x40C2 value=2
+    082AF2E4  call_if              condition=1 destination=0x082AF3A0
+    082AF2EA  compare_var_to_value var=0x40C2 value=3
+    082AF2EF  call_if              condition=1 destination=0x082AF3A5
+    082AF2F5  compare_var_to_value var=0x40C2 value=4
+    082AF2FA  call_if              condition=1 destination=0x082AF3AA
+    082AF300  compare_var_to_value var=0x40C2 value=5
+    082AF305  call_if              condition=1 destination=0x082AF3AF
+    082AF30B  compare_var_to_value var=0x40C2 value=6
+    082AF310  call_if              condition=1 destination=0x082AF3B4
+    082AF316  compare_var_to_value var=0x40C2 value=7
+    082AF31B  call_if              condition=1 destination=0x082AF3B9
+    082AF321  compare_var_to_value var=0x40C2 value=8
+    082AF326  call_if              condition=1 destination=0x082AF3BE
+    082AF32C  compare_var_to_value var=0x40C2 value=9
+    082AF331  call_if              condition=1 destination=0x082AF3C3
+    082AF337  compare_var_to_value var=0x40C2 value=3
+    082AF33C  call_if              condition=3 destination=0x082AF354
+    082AF342  compare_var_to_value var=0x40C2 value=4
+    082AF347  call_if              condition=4 destination=0x082AF375
+    082AF34D  special              SPECIAL_\function=280
+    082AF350  waitmessage          
+    082AF351  waitbuttonpress      
+    082AF352  release              
+
+  script 0x082AF396  [ok]
+    082AF396  bufferstdstring      stringVarId=0 index=19
+    082AF39A  return               
+
+  script 0x082AF39B  [ok]
+    082AF39B  bufferstdstring      stringVarId=0 index=20
+    082AF39F  return               
+
+  script 0x082AF3A0  [ok]
+    082AF3A0  bufferstdstring      stringVarId=0 index=21
+    082AF3A4  return               
+
+  script 0x082AF3A5  [ok]
+    082AF3A5  bufferstdstring      stringVarId=0 index=22
+    082AF3A9  return               
+
+  script 0x082AF3AA  [ok]
+    082AF3AA  bufferstdstring      stringVarId=0 index=24
+    082AF3AE  return               
+
+  script 0x082AF3AF  [ok]
+    082AF3AF  bufferstdstring      stringVarId=0 index=25
+    082AF3B3  return               
+
+  script 0x082AF3B4  [ok]
+    082AF3B4  bufferstdstring      stringVarId=0 index=26
+    082AF3B8  return               
+
+  script 0x082AF3B9  [ok]
+    082AF3B9  bufferstdstring      stringVarId=0 index=27
+    082AF3BD  return               
+
+  script 0x082AF3BE  [ok]
+    082AF3BE  bufferstdstring      stringVarId=0 index=28
+    082AF3C2  return               
+
+  script 0x082AF3C3  [ok]
+    082AF3C3  bufferstdstring      stringVarId=0 index=29
+    082AF3C7  return               
+
+  script 0x082AF354  [ok]
+    082AF354  msgbox_multilang     type=0 text_0="Let’s see now…\pIt sounds like BATTLE TOWER\n{STR_VAR_1} is the hottest." text_1="Let’s see now…\pIt sounds like BATTLE TOWER\n{STR_VAR_1} is the hottest." text_2="Let’s see now…\pIt sounds like BATTLE TOWER\n{STR_VAR_1} is the hottest." text_3="Let’s see now…\pIt sounds like BATTLE TOWER\n{STR_VAR_1} is the hottest." text_4="Let’s see now…\pIt sounds like BATTLE TOWER\n{STR_VAR_1} is the hottest." text_5="Let’s see now…\pIt sounds like BATTLE TOWER\n{STR_VAR_1} is the hottest." text_6="Let’s see now…\pIt sounds like BATTLE TOWER\n{STR_VAR_1} is the hottest."
+    082AF372  callstd              function=MSGBOX_DEFAULT(4)
+    082AF374  return               
+
+  script 0x082AF375  [ok]
+    082AF375  msgbox_multilang     type=0 text_0="Let’s see now…\pIt sounds like the {STR_VAR_1}\nis the hottest place going." text_1="Let’s see now…\pIt sounds like the {STR_VAR_1}\nis the hottest place going." text_2="Let’s see now…\pIt sounds like the {STR_VAR_1}\nis the hottest place going." text_3="Let’s see now…\pIt sounds like the {STR_VAR_1}\nis the hottest place going." text_4="Let’s see now…\pIt sounds like the {STR_VAR_1}\nis the hottest place going." text_5="Let’s see now…\pIt sounds like the {STR_VAR_1}\nis the hottest place going." text_6="Let’s see now…\pIt sounds like the {STR_VAR_1}\nis the hottest place going."
+    082AF393  callstd              function=MSGBOX_DEFAULT(4)
+    082AF395  return               
+
+  object 2 (gfx 0x05, flag 0x0000) -> 0x082AF3C8
+  script 0x082AF3C8  [ok]
+    082AF3C8  lock                 
+    082AF3C9  msgbox_multilang     type=0 text_0="What amazing news-gathering power!\nMy mentor’s like none other!" text_1="What amazing news-gathering power!\nMy mentor’s like none other!" text_2="What amazing news-gathering power!\nMy mentor’s like none other!" text_3="What amazing news-gathering power!\nMy mentor’s like none other!" text_4="What amazing news-gathering power!\nMy mentor’s like none other!" text_5="What amazing news-gathering power!\nMy mentor’s like none other!" text_6="What amazing news-gathering power!\nMy mentor’s like none other!"
+    082AF3E7  callstd              function=MSGBOX_DEFAULT(4)
+    082AF3E9  release              
+
+  object 3 (gfx 0x05, flag 0x0000) -> 0x082AF3EB
+  script 0x082AF3EB  [ok]
+    082AF3EB  lock                 
+    082AF3EC  msgbox_multilang     type=0 text_0="What amazing powers of observation!\nMy mentor’s like none other!" text_1="What amazing powers of observation!\nMy mentor’s like none other!" text_2="What amazing powers of observation!\nMy mentor’s like none other!" text_3="What amazing powers of observation!\nMy mentor’s like none other!" text_4="What amazing powers of observation!\nMy mentor’s like none other!" text_5="What amazing powers of observation!\nMy mentor’s like none other!" text_6="What amazing powers of observation!\nMy mentor’s like none other!"
+    082AF40A  callstd              function=MSGBOX_DEFAULT(4)
+    082AF40C  release              
+
+  object 4 (gfx 0x34, flag 0x0000) -> 0x082AF431
+  script 0x082AF431  [ok]
+    082AF431  msgbox_multilang     type=0 text_0="…What is this place?\nIt’s scaring me…" text_1="…What is this place?\nIt’s scaring me…" text_2="…What is this place?\nIt’s scaring me…" text_3="…What is this place?\nIt’s scaring me…" text_4="…What is this place?\nIt’s scaring me…" text_5="…What is this place?\nIt’s scaring me…" text_6="…What is this place?\nIt’s scaring me…"
+    082AF44F  callstd              function=MSGBOX_NPC(2)
+    082AF451  end                  
+
+  object 5 (gfx 0x05, flag 0x0000) -> 0x082AF40E
+  script 0x082AF40E  [ok]
+    082AF40E  lock                 
+    082AF40F  msgbox_multilang     type=0 text_0="What amazing power of persuasion!\nMy mentor’s like none other!" text_1="What amazing power of persuasion!\nMy mentor’s like none other!" text_2="What amazing power of persuasion!\nMy mentor’s like none other!" text_3="What amazing power of persuasion!\nMy mentor’s like none other!" text_4="What amazing power of persuasion!\nMy mentor’s like none other!" text_5="What amazing power of persuasion!\nMy mentor’s like none other!" text_6="What amazing power of persuasion!\nMy mentor’s like none other!"
+    082AF42D  callstd              function=MSGBOX_DEFAULT(4)
+    082AF42F  release              
+

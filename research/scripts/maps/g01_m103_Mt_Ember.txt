@@ -1,0 +1,54 @@
+Mt. Ember  (group 1, map 103)  header 0x08B3BD5C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x56, flag 0x0012) -> 0x082052FA
+  script 0x082052FA  [unknown-opcode:0xE7]
+    082052FA  lockall              
+    082052FB  checkflag            flag=0x885:BADGE6_MARSH
+    082052FE  goto_if              condition=0 destination=0x082053AE
+    08205304  checkflag            flag=0x2EF
+    08205307  goto_if              condition=0 destination=0x082053AE
+    0820530D  checkpartymove       move=Rock Smash(249)
+    08205310  compare_var_to_value var=0x800D value=6
+    08205315  goto_if              condition=1 destination=0x082053B8
+    0820531B  setfieldeffectargument argNum=0 value=VAR_0x800D
+    0820531F  bufferpartymonnick   stringVarId=0 slot=32781
+    08205323  buffermovename       stringVarId=1 move=Rock Smash(249)
+    08205327  msgbox_multilang     type=0 text_0="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_1="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_2="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_3="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_4="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_5="This rock appears to be breakable.\nWould you like to use Rock Smash?" text_6="This rock appears to be breakable.\nWould you like to use Rock Smash?"
+    08205345  callstd              function=MSGBOX_YESNO(5)
+    08205347  compare_var_to_value var=0x800D value=0
+    0820534C  goto_if              condition=1 destination=0x082053C2
+    08205352  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    08205370  callstd              function=MSGBOX_DEFAULT(4)
+    08205372  closemessage         
+
+  script 0x082053AE  [ok]
+    082053AE  goto                 destination=0x082053ED
+
+  script 0x082053B8  [ok]
+    082053B8  goto                 destination=0x082053D3
+
+  script 0x082053C2  [ok]
+    082053C2  closemessage         
+    082053C3  releaseall           
+
+  script 0x082053ED  [ok]
+    082053ED  msgbox_multilang     type=0 text_0="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_1="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_2="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_3="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_4="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_5="It’s a rugged rock, but a Pokémon\nmay be able to smash it." text_6="It’s a rugged rock, but a Pokémon\nmay be able to smash it."
+    0820540B  callstd              function=MSGBOX_SIGN(3)
+    0820540D  end                  
+
+  script 0x082053D3  [unknown-opcode:0xE5]
+
+  object 2 (gfx 0x56, flag 0x0013) -> 0x082052FA
+  object 3 (gfx 0x56, flag 0x0014) -> 0x082052FA
+  object 4 (gfx 0x56, flag 0x0015) -> 0x082052FA
+  object 5 (gfx 0x56, flag 0x0016) -> 0x082052FA

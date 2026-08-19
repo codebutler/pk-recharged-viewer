@@ -1,0 +1,35 @@
+Fuchsia City  (group 11, map 9)  header 0x08B3D5DC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF4, flag 0x0000) -> 0x0826AD89
+  script 0x0826AD89  [ok]
+    0826AD89  lockall              
+    0826AD8A  setflag              flag=0x4005 (temp)
+    0826AD8D  applymovement        localId=1 movements=[face_player]
+    0826AD94  waitmovement         localId=0
+    0826AD97  msgbox_multilang     type=0 text_0="Uh…\nOh, yes, I’m the Move Deleter.\pI can make Pokémon forget their\nmoves.\pWould you like me to do that?" text_1="Uh…\nOh, yes, I’m the Move Deleter.\pI can make Pokémon forget their\nmoves.\pWould you like me to do that?" text_2="Uh…\nOh, yes, I’m the Move Deleter.\pI can make Pokémon forget their\nmoves.\pWould you like me to do that?" text_3="Uh…\nOh, yes, I’m the Move Deleter.\pI can make Pokémon forget their\nmoves.\pWould you like me to do that?" text_4="Uh…\nOh, yes, I’m the Move Deleter.\pI can make Pokémon forget their\nmoves.\pWould you like me to do that?" text_5="Uh…\nOh, yes, I’m the Move Deleter.\pI can make Pokémon forget their\nmoves.\pWould you like me to do that?" text_6="Uh…\nOh, yes, I’m the Move Deleter.\pI can make Pokémon forget their\nmoves.\pWould you like me to do that?"
+    0826ADB5  callstd              function=MSGBOX_YESNO(5)
+    0826ADB7  compare_var_to_value var=0x800D value=1
+    0826ADBC  goto_if              condition=1 destination=0x0826ADC9
+    0826ADC2  goto                 destination=0x0826AEEB
+
+  script 0x0826ADC9  [ok]
+    0826ADC9  msgbox_multilang     type=0 text_0="Which Pokémon should forget a\nmove?" text_1="Which Pokémon should forget a\nmove?" text_2="Which Pokémon should forget a\nmove?" text_3="Which Pokémon should forget a\nmove?" text_4="Which Pokémon should forget a\nmove?" text_5="Which Pokémon should forget a\nmove?" text_6="Which Pokémon should forget a\nmove?"
+    0826ADE7  callstd              function=MSGBOX_DEFAULT(4)
+    0826ADE9  special              SPECIAL_\function=96
+    0826ADEC  waitstate            
+
+  script 0x0826AEEB  [ok]
+    0826AEEB  msgbox_multilang     type=0 text_0="Come again if there are other\nmoves to be forgotten." text_1="Come again if there are other\nmoves to be forgotten." text_2="Come again if there are other\nmoves to be forgotten." text_3="Come again if there are other\nmoves to be forgotten." text_4="Come again if there are other\nmoves to be forgotten." text_5="Come again if there are other\nmoves to be forgotten." text_6="Come again if there are other\nmoves to be forgotten."
+    0826AF09  callstd              function=MSGBOX_DEFAULT(4)
+    0826AF0B  releaseall           
+

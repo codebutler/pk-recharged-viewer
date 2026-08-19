@@ -1,0 +1,56 @@
+Battle Frontier  (group 41, map 10)  header 0x08B3E1C8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x0829691B
+  script 0x0829691B  [ok]
+    0829691B  delay                frames=16
+    0829691E  setvar               destination=VAR_0x4000 value=1
+    08296923  setvar               destination=VAR_0x8004 value=1
+    08296928  setvar               destination=VAR_0x8005 value=1
+    0829692D  special              SPECIAL_\function=148
+    08296930  compare_var_to_value var=0x800D value=1
+    08296935  goto_if              condition=1 destination=0x0829696E
+    0829693B  applymovement        localId=1 movements=[walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_up]
+    08296942  applymovement        localId=255 movements=[walk_up walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_left walk_in_place_faster_up]
+    08296949  waitmovement         localId=0
+    0829694C  opendoor             x=13 y=3
+    08296951  waitdooranim         
+    08296952  applymovement        localId=1 movements=[walk_up set_invisible]
+    08296959  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08296960  waitmovement         localId=0
+    08296963  closedoor            x=13 y=3
+    08296968  waitdooranim         
+    08296969  goto                 destination=0x0829699C
+
+  script 0x0829696E  [ok]
+    0829696E  applymovement        localId=1 movements=[walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_up]
+    08296975  applymovement        localId=255 movements=[walk_up walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_in_place_faster_up]
+    0829697C  waitmovement         localId=0
+    0829697F  opendoor             x=37 y=3
+    08296984  waitdooranim         
+    08296985  applymovement        localId=1 movements=[walk_up set_invisible]
+    0829698C  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08296993  waitmovement         localId=0
+    08296996  closedoor            x=37 y=3
+    0829699B  waitdooranim         
+    0829699C  waitmovement         localId=0
+    0829699F  setvar               destination=VAR_0x8006 value=0
+    082969A4  warp                 mapGroup=41 mapNum=11 WARP_ID_NONE=255 -1=5 -1=7
+    082969AC  waitstate            
+
+  script 0x0829699C  [ok]
+    0829699C  waitmovement         localId=0
+    0829699F  setvar               destination=VAR_0x8006 value=0
+    082969A4  warp                 mapGroup=41 mapNum=11 WARP_ID_NONE=255 -1=5 -1=7
+    082969AC  waitstate            
+

@@ -1,0 +1,114 @@
+Trainer Tower  (group 2, map 17)  header 0x08B3C168
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  sign 0 at (0,2) -> 0x0821C173
+  script 0x0821C173  [ok]
+    0821C173  lockall              
+    0821C174  setvar               destination=VAR_0x8004 value=6
+    0821C179  checkflag            flag=0x002
+    0821C17C  call_if              condition=0 destination=0x082F8187
+    0821C182  copyvar              destination=VAR_0x8005 source=VAR_0x403A
+    0821C187  special              SPECIAL_\function=352
+    0821C18A  message              text="Which floor do you want?"
+    0821C18F  turnobject           localId=12161 direction=8
+    0821C193  turnobject           localId=12161 direction=8
+    0821C197  turnobject           localId=12161 direction=8
+    0821C19B  turnobject           localId=12161 direction=8
+    0821C19F  turnobject           localId=12161 direction=8
+    0821C1A3  turnobject           localId=12161 direction=8
+    0821C1A7  waitmessage          
+    0821C1A8  setvar               destination=VAR_0x8004 value=6
+    0821C1AD  specialvar           output=32781 SPECIAL_\function=353
+    0821C1B2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0821C1B7  compare_var_to_value var=0x8000 value=0
+    0821C1BC  goto_if              condition=1 destination=0x0821C1CE
+    0821C1C2  compare_var_to_value var=0x8000 value=1
+    0821C1C7  goto_if              condition=1 destination=0x0821C1DA
+    0821C1CD  end                  
+
+  script 0x082F8187  [ok]
+    082F8187  special              SPECIAL_\function=385
+    082F818A  return               
+
+  script 0x0821C1CE  [ok]
+    0821C1CE  multichoicedefault   x=0 y=0 multichoiceId=20 default=0 ignoreBPress=0
+    0821C1D4  goto                 destination=0x0821C1E6
+
+  script 0x0821C1DA  [ok]
+    0821C1DA  multichoicedefault   x=0 y=0 multichoiceId=20 default=1 ignoreBPress=0
+    0821C1E0  goto                 destination=0x0821C1E6
+
+  script 0x0821C1E6  [ok]
+    0821C1E6  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0821C1EB  compare_var_to_value var=0x8000 value=0
+    0821C1F0  goto_if              condition=1 destination=0x0821C255
+    0821C1F6  compare_var_to_value var=0x8000 value=1
+    0821C1FB  goto_if              condition=1 destination=0x0821C218
+    0821C201  compare_var_to_value var=0x8000 value=2
+    0821C206  goto_if              condition=1 destination=0x0821C25B
+    0821C20C  compare_var_to_value var=0x8000 value=127
+    0821C211  goto_if              condition=1 destination=0x0821C25B
+    0821C217  end                  
+
+  script 0x0821C255  [ok]
+    0821C255  goto                 destination=0x0821C25B
+
+  script 0x0821C218  [ok]
+    0821C218  setvar               destination=VAR_0x8006 value=3
+    0821C21D  setdynamicwarp       mapGroup=2 mapNum=16 WARP_ID_NONE=255 -1=17 -1=8
+    0821C225  compare_var_to_value var=0x403A value=3
+    0821C22A  goto_if              condition=1 destination=0x0821C25B
+    0821C230  call                 destination=0x0821C260
+    0821C235  setvar               destination=VAR_0x403A value=3
+    0821C23A  special              SPECIAL_\function=354
+    0821C23D  delay                frames=25
+    0821C240  applymovement        localId=255 movements=[walk_in_place_faster_down delay_16 walk_down walk_right walk_right walk_down]
+    0821C247  waitmovement         localId=0
+    0821C24A  warp                 mapGroup=2 mapNum=16 WARP_ID_NONE=255 -1=17 -1=8
+    0821C252  waitstate            
+
+  script 0x0821C25B  [ok]
+    0821C25B  special              SPECIAL_\function=354
+    0821C25E  releaseall           
+
+  script 0x0821C260  [ok]
+    0821C260  special              SPECIAL_\function=354
+    0821C263  closemessage         
+    0821C264  waitse               
+    0821C265  special              SPECIAL_\function=355
+    0821C268  waitstate            
+
+  map script type 5 -> 0x081FF793
+  script 0x081FF793  [ok]
+    081FF793  setvar               destination=VAR_0x4002 value=0
+    081FF798  end                  
+
+  map script type 2 (var 0x4002 == 0) -> 0x081FF877
+  script 0x081FF877  [ok]
+    081FF877  setvar               destination=VAR_0x4002 value=1
+    081FF87C  compare_var_to_value var=0x800D value=0
+    081FF881  goto_if              condition=1 destination=0x081FF891
+    081FF887  setvar               destination=VAR_0x400E value=1
+    081FF88C  setvar               destination=VAR_0x400F value=1
+    081FF891  compare_var_to_value var=0x800D value=1
+    081FF896  goto_if              condition=1 destination=0x081FF89D
+    081FF89C  end                  
+
+  script 0x081FF891  [ok]
+    081FF891  compare_var_to_value var=0x800D value=1
+    081FF896  goto_if              condition=1 destination=0x081FF89D
+    081FF89C  end                  
+
+  script 0x081FF89D  [ok]
+    081FF89D  warp                 mapGroup=2 mapNum=16 WARP_ID_NONE=255 -1=9 -1=7
+    081FF8A5  waitstate            
+

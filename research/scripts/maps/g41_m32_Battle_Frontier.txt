@@ -1,0 +1,49 @@
+Battle Frontier  (group 41, map 32)  header 0x08B3E430
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF6, flag 0x0000) -> 0x082ACE21
+  script 0x082ACE21  [ok]
+    082ACE21  lock                 
+    082ACE22  faceplayer           
+    082ACE23  checkflag            flag=0x10E
+    082ACE26  call_if              condition=0 destination=0x082ACE59
+    082ACE2C  checkflag            flag=0x10E
+    082ACE2F  call_if              condition=1 destination=0x082ACE7A
+    082ACE35  setflag              flag=0x10E
+    082ACE38  goto                 destination=0x082ACE3E
+
+  script 0x082ACE59  [ok]
+    082ACE59  msgbox_multilang     type=0 text_0="For 70 years I have raised POKéMON!\nI am the man they revere as\pthe legendary top POKéMON BREEDER!\pIf you ever become as seasoned as me,\nyou’ll see the abilities of POKéMON\pat a glance.\pYou’re a TRAINER. Doesn’t it interest\nyou to know your own POKéMON’s\pabilities?\pHere!\nLet’s have a look at your POKéMON!" text_1="For 70 years I have raised POKéMON!\nI am the man they revere as\pthe legendary top POKéMON BREEDER!\pIf you ever become as seasoned as me,\nyou’ll see the abilities of POKéMON\pat a glance.\pYou’re a TRAINER. Doesn’t it interest\nyou to know your own POKéMON’s\pabilities?\pHere!\nLet’s have a look at your POKéMON!" text_2="For 70 years I have raised POKéMON!\nI am the man they revere as\pthe legendary top POKéMON BREEDER!\pIf you ever become as seasoned as me,\nyou’ll see the abilities of POKéMON\pat a glance.\pYou’re a TRAINER. Doesn’t it interest\nyou to know your own POKéMON’s\pabilities?\pHere!\nLet’s have a look at your POKéMON!" text_3="For 70 years I have raised POKéMON!\nI am the man they revere as\pthe legendary top POKéMON BREEDER!\pIf you ever become as seasoned as me,\nyou’ll see the abilities of POKéMON\pat a glance.\pYou’re a TRAINER. Doesn’t it interest\nyou to know your own POKéMON’s\pabilities?\pHere!\nLet’s have a look at your POKéMON!" text_4="For 70 years I have raised POKéMON!\nI am the man they revere as\pthe legendary top POKéMON BREEDER!\pIf you ever become as seasoned as me,\nyou’ll see the abilities of POKéMON\pat a glance.\pYou’re a TRAINER. Doesn’t it interest\nyou to know your own POKéMON’s\pabilities?\pHere!\nLet’s have a look at your POKéMON!" text_5="For 70 years I have raised POKéMON!\nI am the man they revere as\pthe legendary top POKéMON BREEDER!\pIf you ever become as seasoned as me,\nyou’ll see the abilities of POKéMON\pat a glance.\pYou’re a TRAINER. Doesn’t it interest\nyou to know your own POKéMON’s\pabilities?\pHere!\nLet’s have a look at your POKéMON!" text_6="For 70 years I have raised POKéMON!\nI am the man they revere as\pthe legendary top POKéMON BREEDER!\pIf you ever become as seasoned as me,\nyou’ll see the abilities of POKéMON\pat a glance.\pYou’re a TRAINER. Doesn’t it interest\nyou to know your own POKéMON’s\pabilities?\pHere!\nLet’s have a look at your POKéMON!"
+    082ACE77  callstd              function=MSGBOX_DEFAULT(4)
+    082ACE79  return               
+
+  script 0x082ACE7A  [ok]
+    082ACE7A  msgbox_multilang     type=0 text_0="Ah, youngster! Do your POKéMON’s\nabilities intrigue you?\pHere, here!\nLet’s have a look at your POKéMON!" text_1="Ah, youngster! Do your POKéMON’s\nabilities intrigue you?\pHere, here!\nLet’s have a look at your POKéMON!" text_2="Ah, youngster! Do your POKéMON’s\nabilities intrigue you?\pHere, here!\nLet’s have a look at your POKéMON!" text_3="Ah, youngster! Do your POKéMON’s\nabilities intrigue you?\pHere, here!\nLet’s have a look at your POKéMON!" text_4="Ah, youngster! Do your POKéMON’s\nabilities intrigue you?\pHere, here!\nLet’s have a look at your POKéMON!" text_5="Ah, youngster! Do your POKéMON’s\nabilities intrigue you?\pHere, here!\nLet’s have a look at your POKéMON!" text_6="Ah, youngster! Do your POKéMON’s\nabilities intrigue you?\pHere, here!\nLet’s have a look at your POKéMON!"
+    082ACE98  callstd              function=MSGBOX_DEFAULT(4)
+    082ACE9A  return               
+
+  script 0x082ACE3E  [ok]
+    082ACE3E  special              SPECIAL_\function=96
+    082ACE41  waitstate            
+
+  object 2 (gfx 0x0D, flag 0x0000) -> 0x082AD1A9
+  script 0x082AD1A9  [ok]
+    082AD1A9  msgbox_multilang     type=0 text_0="He said my POKéMON is outstanding!\nI’m glad I raised it carefully!" text_1="He said my POKéMON is outstanding!\nI’m glad I raised it carefully!" text_2="He said my POKéMON is outstanding!\nI’m glad I raised it carefully!" text_3="He said my POKéMON is outstanding!\nI’m glad I raised it carefully!" text_4="He said my POKéMON is outstanding!\nI’m glad I raised it carefully!" text_5="He said my POKéMON is outstanding!\nI’m glad I raised it carefully!" text_6="He said my POKéMON is outstanding!\nI’m glad I raised it carefully!"
+    082AD1C7  callstd              function=MSGBOX_NPC(2)
+    082AD1C9  end                  
+
+  object 3 (gfx 0xEF, flag 0x0000) -> 0x082AD1CA
+  script 0x082AD1CA  [ok]
+    082AD1CA  msgbox_multilang     type=0 text_0="He said my POKéMON is outstanding!\nBut I didn’t do anything special\praising it…" text_1="He said my POKéMON is outstanding!\nBut I didn’t do anything special\praising it…" text_2="He said my POKéMON is outstanding!\nBut I didn’t do anything special\praising it…" text_3="He said my POKéMON is outstanding!\nBut I didn’t do anything special\praising it…" text_4="He said my POKéMON is outstanding!\nBut I didn’t do anything special\praising it…" text_5="He said my POKéMON is outstanding!\nBut I didn’t do anything special\praising it…" text_6="He said my POKéMON is outstanding!\nBut I didn’t do anything special\praising it…"
+    082AD1E8  callstd              function=MSGBOX_NPC(2)
+    082AD1EA  end                  
+

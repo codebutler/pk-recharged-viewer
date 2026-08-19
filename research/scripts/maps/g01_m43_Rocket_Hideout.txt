@@ -1,0 +1,51 @@
+Rocket Hideout  (group 1, map 43)  header 0x08B3B6CC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x00AD) -> 0x0820DE38
+  script 0x0820DE38  [ok]
+    0820DE38  trainerbattle        type=0 trainer=0x16B localId=0 ptr1=0x0820DE67 ptr2=0x0820DE9A
+    0820DE46  msgbox_multilang     type=0 text_0="The Team Rocket HQ has four\nunderground floors.\pThink you can reach the Boss?" text_1="The Team Rocket HQ has four\nunderground floors.\pThink you can reach the Boss?" text_2="The Team Rocket HQ has four\nunderground floors.\pThink you can reach the Boss?" text_3="The Team Rocket HQ has four\nunderground floors.\pThink you can reach the Boss?" text_4="The Team Rocket HQ has four\nunderground floors.\pThink you can reach the Boss?" text_5="The Team Rocket HQ has four\nunderground floors.\pThink you can reach the Boss?" text_6="The Team Rocket HQ has four\nunderground floors.\pThink you can reach the Boss?"
+    0820DE64  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820DE66  end                  
+
+  object 2 (gfx 0x35, flag 0x016E) -> 0x082D5704
+  script 0x082D5704  [ok]
+    082D5704  setorcopyvar         destination=VAR_0x8000 source=77
+    082D5709  setorcopyvar         destination=VAR_0x8001 source=1
+    082D570E  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: X Speed
+    082D5710  end                  
+
+  object 3 (gfx 0x35, flag 0x016F) -> 0x082D5711
+  script 0x082D5711  [ok]
+    082D5711  setorcopyvar         destination=VAR_0x8000 source=94
+    082D5716  setorcopyvar         destination=VAR_0x8001 source=1
+    082D571B  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Moon Stone
+    082D571D  end                  
+
+  object 4 (gfx 0x55, flag 0x0170) -> 0x082D571E
+  script 0x082D571E  [ok]
+    082D571E  setorcopyvar         destination=VAR_0x8000 source=300
+    082D5723  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5728  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM12
+    082D572A  end                  
+
+  object 5 (gfx 0x35, flag 0x0171) -> 0x082D572B
+  script 0x082D572B  [ok]
+    082D572B  setorcopyvar         destination=VAR_0x8000 source=22
+    082D5730  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5735  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Super Potion
+    082D5737  end                  
+

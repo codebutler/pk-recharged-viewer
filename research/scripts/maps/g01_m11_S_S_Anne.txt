@@ -1,0 +1,47 @@
+S.S. Anne  (group 1, map 11)  header 0x08B3B34C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0D, flag 0x0000) -> 0x0820B57A
+  script 0x0820B57A  [unknown-opcode:0xE9]
+    0820B57A  lock                 
+    0820B57B  setflag              flag=0x4005 (temp)
+    0820B57E  checkflag            flag=0x237
+    0820B581  goto_if              condition=1 destination=0x0820B654
+    0820B587  speakername          name="Captain"
+    0820B58C  msgbox_multilang     type=0 text_0="Ooargh…\nI feel hideous…\pUrrp! Seasick…" text_1="Ooargh…\nI feel hideous…\pUrrp! Seasick…" text_2="Ooargh…\nI feel hideous…\pUrrp! Seasick…" text_3="Ooargh…\nI feel hideous…\pUrrp! Seasick…" text_4="Ooargh…\nI feel hideous…\pUrrp! Seasick…" text_5="Ooargh…\nI feel hideous…\pUrrp! Seasick…" text_6="Ooargh…\nI feel hideous…\pUrrp! Seasick…"
+    0820B5AA  callstd              function=MSGBOX_DEFAULT(4)
+    0820B5AC  textcolor            color=3
+
+  script 0x0820B654  [ok]
+    0820B654  applymovement        localId=1 movements=[face_player]
+    0820B65B  waitmovement         localId=0
+    0820B65E  speakername          name="Captain"
+    0820B663  msgbox_multilang     type=0 text_0="…Whew!\pNow that I’m not sick anymore, I\nguess it’s time.\pThe S.S. Anne will set sail soon!\pFarewell, until our return to\nVermilion City!" text_1="…Whew!\pNow that I’m not sick anymore, I\nguess it’s time.\pThe S.S. Anne will set sail soon!\pFarewell, until our return to\nVermilion City!" text_2="…Whew!\pNow that I’m not sick anymore, I\nguess it’s time.\pThe S.S. Anne will set sail soon!\pFarewell, until our return to\nVermilion City!" text_3="…Whew!\pNow that I’m not sick anymore, I\nguess it’s time.\pThe S.S. Anne will set sail soon!\pFarewell, until our return to\nVermilion City!" text_4="…Whew!\pNow that I’m not sick anymore, I\nguess it’s time.\pThe S.S. Anne will set sail soon!\pFarewell, until our return to\nVermilion City!" text_5="…Whew!\pNow that I’m not sick anymore, I\nguess it’s time.\pThe S.S. Anne will set sail soon!\pFarewell, until our return to\nVermilion City!" text_6="…Whew!\pNow that I’m not sick anymore, I\nguess it’s time.\pThe S.S. Anne will set sail soon!\pFarewell, until our return to\nVermilion City!"
+    0820B681  callstd              function=MSGBOX_DEFAULT(4)
+    0820B683  goto                 destination=0x0820B652
+
+  script 0x0820B652  [ok]
+    0820B652  release              
+
+  sign 0 at (2,4) -> 0x0820B6A9
+  script 0x0820B6A9  [ok]
+    0820B6A9  msgbox_multilang     type=0 text_0="How to Conquer Seasickness…\nThe Captain’s reading this!" text_1="How to Conquer Seasickness…\nThe Captain’s reading this!" text_2="How to Conquer Seasickness…\nThe Captain’s reading this!" text_3="How to Conquer Seasickness…\nThe Captain’s reading this!" text_4="How to Conquer Seasickness…\nThe Captain’s reading this!" text_5="How to Conquer Seasickness…\nThe Captain’s reading this!" text_6="How to Conquer Seasickness…\nThe Captain’s reading this!"
+    0820B6C7  callstd              function=MSGBOX_SIGN(3)
+    0820B6C9  end                  
+
+  sign 1 at (5,3) -> 0x0820B688
+  script 0x0820B688  [ok]
+    0820B688  msgbox_multilang     type=0 text_0="Yuck!\nShouldn’t have looked!" text_1="Yuck!\nShouldn’t have looked!" text_2="Yuck!\nShouldn’t have looked!" text_3="Yuck!\nShouldn’t have looked!" text_4="Yuck!\nShouldn’t have looked!" text_5="Yuck!\nShouldn’t have looked!" text_6="Yuck!\nShouldn’t have looked!"
+    0820B6A6  callstd              function=MSGBOX_SIGN(3)
+    0820B6A8  end                  
+
+  sign 2 at (2,3) -> 0x0820B6A9

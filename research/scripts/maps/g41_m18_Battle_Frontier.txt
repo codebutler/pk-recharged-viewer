@@ -1,0 +1,339 @@
+Battle Frontier  (group 41, map 18)  header 0x08B3E2A8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x37, flag 0x0000) -> 0x082A1CDE
+  script 0x082A1CDE  [ok]
+    082A1CDE  lock                 
+    082A1CDF  faceplayer           
+    082A1CE0  compare_var_to_value var=0x400D value=0
+    082A1CE5  goto_if              condition=5 destination=0x082A1D74
+    082A1CEB  compare_var_to_value var=0x400C value=0
+    082A1CF0  goto_if              condition=5 destination=0x082A1D96
+    082A1CF6  msgbox_multilang     type=0 text_0="It is a delight to see you here!\nYou have reached the summit of\pthe BATTLE PYRAMID!\pAbove here is the PYRAMID’s\nlookout point.\pIt is a place open only to those\nwho have conquered the PYRAMID.\pNow, please!\nUp you go!" text_1="It is a delight to see you here!\nYou have reached the summit of\pthe BATTLE PYRAMID!\pAbove here is the PYRAMID’s\nlookout point.\pIt is a place open only to those\nwho have conquered the PYRAMID.\pNow, please!\nUp you go!" text_2="It is a delight to see you here!\nYou have reached the summit of\pthe BATTLE PYRAMID!\pAbove here is the PYRAMID’s\nlookout point.\pIt is a place open only to those\nwho have conquered the PYRAMID.\pNow, please!\nUp you go!" text_3="It is a delight to see you here!\nYou have reached the summit of\pthe BATTLE PYRAMID!\pAbove here is the PYRAMID’s\nlookout point.\pIt is a place open only to those\nwho have conquered the PYRAMID.\pNow, please!\nUp you go!" text_4="It is a delight to see you here!\nYou have reached the summit of\pthe BATTLE PYRAMID!\pAbove here is the PYRAMID’s\nlookout point.\pIt is a place open only to those\nwho have conquered the PYRAMID.\pNow, please!\nUp you go!" text_5="It is a delight to see you here!\nYou have reached the summit of\pthe BATTLE PYRAMID!\pAbove here is the PYRAMID’s\nlookout point.\pIt is a place open only to those\nwho have conquered the PYRAMID.\pNow, please!\nUp you go!" text_6="It is a delight to see you here!\nYou have reached the summit of\pthe BATTLE PYRAMID!\pAbove here is the PYRAMID’s\nlookout point.\pIt is a place open only to those\nwho have conquered the PYRAMID.\pNow, please!\nUp you go!"
+    082A1D14  callstd              function=MSGBOX_DEFAULT(4)
+    082A1D16  closemessage         
+    082A1D17  applymovement        localId=1 movements=[walk_right walk_in_place_faster_left]
+    082A1D1E  waitmovement         localId=0
+    082A1D21  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_in_place_faster_down]
+    082A1D28  waitmovement         localId=0
+    082A1D2B  applymovement        localId=1 movements=[walk_left walk_in_place_faster_up]
+    082A1D32  waitmovement         localId=0
+    082A1D35  message              text="The PYRAMID’s new conqueror!\nLet the name {PLAYER} be known!"
+    082A1D3A  hidemonpic           
+    082A1D3B  compare_var_to_value var=0x082A value=8566
+    082A1D40  clearflag            flag=0x7608 (temp)
+    082A1D43  compare_var_to_value var=0x082A value=8566
+    082A1D48  clearflag            flag=0x7608 (temp)
+    082A1D4B  compare_var_to_value var=0x082A value=8566
+    082A1D50  clearflag            flag=0x6608 (temp)
+    082A1D53  playfanfare          song=459
+    082A1D56  waitfanfare          
+    082A1D57  closemessage         
+    082A1D58  setvar               destination=VAR_0x8004 value=2
+    082A1D5D  setvar               destination=VAR_0x8005 value=0
+    082A1D62  setvar               destination=VAR_0x8006 value=3
+    082A1D67  special              SPECIAL_\function=148
+    082A1D6A  warp                 mapGroup=41 mapNum=16 WARP_ID_NONE=255 -1=7 -1=13
+    082A1D72  waitstate            
+
+  script 0x082A1D74  [ok]
+    082A1D74  msgbox_multilang     type=0 text_0="Now, when you are ready, take courage\nand step forward." text_1="Now, when you are ready, take courage\nand step forward." text_2="Now, when you are ready, take courage\nand step forward." text_3="Now, when you are ready, take courage\nand step forward." text_4="Now, when you are ready, take courage\nand step forward." text_5="Now, when you are ready, take courage\nand step forward." text_6="Now, when you are ready, take courage\nand step forward."
+    082A1D92  callstd              function=MSGBOX_DEFAULT(4)
+    082A1D94  closemessage         
+    082A1D95  end                  
+
+  script 0x082A1D96  [ok]
+    082A1D96  msgbox_multilang     type=0 text_0="It is a delight to see you here!\pUnfortunately, you were second by\na mere fraction of time!\pOur chief has already conquered\nthe PYRAMID ahead of you.\pHowever, my young explorer…\nYou are a TRAINER!\pAssert your power and take the glory\nof the pinnacle from our chief!\pNow, please! When you are ready,\ntake one more step of courage!" text_1="It is a delight to see you here!\pUnfortunately, you were second by\na mere fraction of time!\pOur chief has already conquered\nthe PYRAMID ahead of you.\pHowever, my young explorer…\nYou are a TRAINER!\pAssert your power and take the glory\nof the pinnacle from our chief!\pNow, please! When you are ready,\ntake one more step of courage!" text_2="It is a delight to see you here!\pUnfortunately, you were second by\na mere fraction of time!\pOur chief has already conquered\nthe PYRAMID ahead of you.\pHowever, my young explorer…\nYou are a TRAINER!\pAssert your power and take the glory\nof the pinnacle from our chief!\pNow, please! When you are ready,\ntake one more step of courage!" text_3="It is a delight to see you here!\pUnfortunately, you were second by\na mere fraction of time!\pOur chief has already conquered\nthe PYRAMID ahead of you.\pHowever, my young explorer…\nYou are a TRAINER!\pAssert your power and take the glory\nof the pinnacle from our chief!\pNow, please! When you are ready,\ntake one more step of courage!" text_4="It is a delight to see you here!\pUnfortunately, you were second by\na mere fraction of time!\pOur chief has already conquered\nthe PYRAMID ahead of you.\pHowever, my young explorer…\nYou are a TRAINER!\pAssert your power and take the glory\nof the pinnacle from our chief!\pNow, please! When you are ready,\ntake one more step of courage!" text_5="It is a delight to see you here!\pUnfortunately, you were second by\na mere fraction of time!\pOur chief has already conquered\nthe PYRAMID ahead of you.\pHowever, my young explorer…\nYou are a TRAINER!\pAssert your power and take the glory\nof the pinnacle from our chief!\pNow, please! When you are ready,\ntake one more step of courage!" text_6="It is a delight to see you here!\pUnfortunately, you were second by\na mere fraction of time!\pOur chief has already conquered\nthe PYRAMID ahead of you.\pHowever, my young explorer…\nYou are a TRAINER!\pAssert your power and take the glory\nof the pinnacle from our chief!\pNow, please! When you are ready,\ntake one more step of courage!"
+    082A1DB4  callstd              function=MSGBOX_DEFAULT(4)
+    082A1DB6  applymovement        localId=1 movements=[walk_right walk_in_place_faster_left]
+    082A1DBD  setvar               destination=VAR_0x400D value=1
+    082A1DC2  closemessage         
+    082A1DC3  end                  
+
+  object 2 (gfx 0xEA, flag 0x0000) -> 0x00000000
+  coord trigger 0 (var 0x4002 == 0) -> 0x082A1DC4
+  script 0x082A1DC4  [ok]
+    082A1DC4  lockall              
+    082A1DC5  copyvar              destination=VAR_0x8000 source=VAR_0x400C
+    082A1DCA  compare_var_to_value var=0x8000 value=2
+    082A1DCF  goto_if              condition=1 destination=0x082A1F33
+    082A1DD5  compare_var_to_value var=0x8000 value=3
+    082A1DDA  goto_if              condition=1 destination=0x082A1E6E
+    082A1DE0  compare_var_to_value var=0x8000 value=4
+    082A1DE5  goto_if              condition=1 destination=0x082A1FB6
+    082A1DEB  setvar               destination=VAR_0x8004 value=1
+    082A1DF0  setvar               destination=VAR_0x8005 value=7
+    082A1DF5  special              SPECIAL_\function=148
+    082A1DF8  compare_var_to_value var=0x800D value=0
+    082A1DFD  goto_if              condition=5 destination=0x082A1E6E
+    082A1E03  special              SPECIAL_\function=190
+    082A1E06  applymovement        localId=127 movements=[walk_slow_up walk_slow_up delay_16]
+    082A1E0D  waitmovement         localId=0
+    082A1E10  msgbox_multilang     type=0 text_0="Young adventurer…\pWouldn’t you agree that explorations\nare the grandest of adventures?\pYour own wits!\pYour own strength!\pYour own POKéMON!\pAnd, above all, only your own courage\nto lead you through unknown worlds…" text_1="Young adventurer…\pWouldn’t you agree that explorations\nare the grandest of adventures?\pYour own wits!\pYour own strength!\pYour own POKéMON!\pAnd, above all, only your own courage\nto lead you through unknown worlds…" text_2="Young adventurer…\pWouldn’t you agree that explorations\nare the grandest of adventures?\pYour own wits!\pYour own strength!\pYour own POKéMON!\pAnd, above all, only your own courage\nto lead you through unknown worlds…" text_3="Young adventurer…\pWouldn’t you agree that explorations\nare the grandest of adventures?\pYour own wits!\pYour own strength!\pYour own POKéMON!\pAnd, above all, only your own courage\nto lead you through unknown worlds…" text_4="Young adventurer…\pWouldn’t you agree that explorations\nare the grandest of adventures?\pYour own wits!\pYour own strength!\pYour own POKéMON!\pAnd, above all, only your own courage\nto lead you through unknown worlds…" text_5="Young adventurer…\pWouldn’t you agree that explorations\nare the grandest of adventures?\pYour own wits!\pYour own strength!\pYour own POKéMON!\pAnd, above all, only your own courage\nto lead you through unknown worlds…" text_6="Young adventurer…\pWouldn’t you agree that explorations\nare the grandest of adventures?\pYour own wits!\pYour own strength!\pYour own POKéMON!\pAnd, above all, only your own courage\nto lead you through unknown worlds…"
+    082A1E2E  callstd              function=MSGBOX_DEFAULT(4)
+    082A1E30  closemessage         
+    082A1E31  setvar               destination=VAR_0x8004 value=2
+    082A1E36  setvar               destination=VAR_0x8005 value=7
+    082A1E3B  special              SPECIAL_\function=148
+    082A1E3E  applymovement        localId=2 movements=[walk_fast_down]
+    082A1E45  waitmovement         localId=0
+    082A1E48  msgbox_multilang     type=0 text_0="Aah, yes, indeed this life is grand!\nGrand, it is! Eh?\pI’m BRANDON!\pI’m the PYRAMID KING, which means\nI’m in charge here.\pMost people call me the chief!\pYou coming here means you have\nthat much confidence in yourself,\pam I right?\pHahahah!\nThis should be exciting!" text_1="Aah, yes, indeed this life is grand!\nGrand, it is! Eh?\pI’m BRANDON!\pI’m the PYRAMID KING, which means\nI’m in charge here.\pMost people call me the chief!\pYou coming here means you have\nthat much confidence in yourself,\pam I right?\pHahahah!\nThis should be exciting!" text_2="Aah, yes, indeed this life is grand!\nGrand, it is! Eh?\pI’m BRANDON!\pI’m the PYRAMID KING, which means\nI’m in charge here.\pMost people call me the chief!\pYou coming here means you have\nthat much confidence in yourself,\pam I right?\pHahahah!\nThis should be exciting!" text_3="Aah, yes, indeed this life is grand!\nGrand, it is! Eh?\pI’m BRANDON!\pI’m the PYRAMID KING, which means\nI’m in charge here.\pMost people call me the chief!\pYou coming here means you have\nthat much confidence in yourself,\pam I right?\pHahahah!\nThis should be exciting!" text_4="Aah, yes, indeed this life is grand!\nGrand, it is! Eh?\pI’m BRANDON!\pI’m the PYRAMID KING, which means\nI’m in charge here.\pMost people call me the chief!\pYou coming here means you have\nthat much confidence in yourself,\pam I right?\pHahahah!\nThis should be exciting!" text_5="Aah, yes, indeed this life is grand!\nGrand, it is! Eh?\pI’m BRANDON!\pI’m the PYRAMID KING, which means\nI’m in charge here.\pMost people call me the chief!\pYou coming here means you have\nthat much confidence in yourself,\pam I right?\pHahahah!\nThis should be exciting!" text_6="Aah, yes, indeed this life is grand!\nGrand, it is! Eh?\pI’m BRANDON!\pI’m the PYRAMID KING, which means\nI’m in charge here.\pMost people call me the chief!\pYou coming here means you have\nthat much confidence in yourself,\pam I right?\pHahahah!\nThis should be exciting!"
+    082A1E66  callstd              function=MSGBOX_DEFAULT(4)
+    082A1E68  goto                 destination=0x082A1E78
+
+  script 0x082A1F33  [ok]
+    082A1F33  setvar               destination=VAR_0x8004 value=1
+    082A1F38  setvar               destination=VAR_0x8005 value=7
+    082A1F3D  special              SPECIAL_\function=148
+    082A1F40  compare_var_to_value var=0x800D value=0
+    082A1F45  goto_if              condition=5 destination=0x082A1FB6
+    082A1F4B  special              SPECIAL_\function=190
+    082A1F4E  applymovement        localId=127 movements=[walk_slow_up walk_slow_up delay_16]
+    082A1F55  waitmovement         localId=0
+    082A1F58  msgbox_multilang     type=0 text_0="BRANDON: …You’ve finally returned,\nyoung explorer…\pYour love of adventure seems to come\ndeep from within your heart…\pYes… You are exactly as I was in\nmy own youth…\p… … …Ah…\pThe passionate!\pThe dangerous!\pThe desperate!\pThose days of death-defying,\nlife-affirming adventures are back…" text_1="BRANDON: …You’ve finally returned,\nyoung explorer…\pYour love of adventure seems to come\ndeep from within your heart…\pYes… You are exactly as I was in\nmy own youth…\p… … …Ah…\pThe passionate!\pThe dangerous!\pThe desperate!\pThose days of death-defying,\nlife-affirming adventures are back…" text_2="BRANDON: …You’ve finally returned,\nyoung explorer…\pYour love of adventure seems to come\ndeep from within your heart…\pYes… You are exactly as I was in\nmy own youth…\p… … …Ah…\pThe passionate!\pThe dangerous!\pThe desperate!\pThose days of death-defying,\nlife-affirming adventures are back…" text_3="BRANDON: …You’ve finally returned,\nyoung explorer…\pYour love of adventure seems to come\ndeep from within your heart…\pYes… You are exactly as I was in\nmy own youth…\p… … …Ah…\pThe passionate!\pThe dangerous!\pThe desperate!\pThose days of death-defying,\nlife-affirming adventures are back…" text_4="BRANDON: …You’ve finally returned,\nyoung explorer…\pYour love of adventure seems to come\ndeep from within your heart…\pYes… You are exactly as I was in\nmy own youth…\p… … …Ah…\pThe passionate!\pThe dangerous!\pThe desperate!\pThose days of death-defying,\nlife-affirming adventures are back…" text_5="BRANDON: …You’ve finally returned,\nyoung explorer…\pYour love of adventure seems to come\ndeep from within your heart…\pYes… You are exactly as I was in\nmy own youth…\p… … …Ah…\pThe passionate!\pThe dangerous!\pThe desperate!\pThose days of death-defying,\nlife-affirming adventures are back…" text_6="BRANDON: …You’ve finally returned,\nyoung explorer…\pYour love of adventure seems to come\ndeep from within your heart…\pYes… You are exactly as I was in\nmy own youth…\p… … …Ah…\pThe passionate!\pThe dangerous!\pThe desperate!\pThose days of death-defying,\nlife-affirming adventures are back…"
+    082A1F76  callstd              function=MSGBOX_DEFAULT(4)
+    082A1F78  closemessage         
+    082A1F79  setvar               destination=VAR_0x8004 value=2
+    082A1F7E  setvar               destination=VAR_0x8005 value=7
+    082A1F83  special              SPECIAL_\function=148
+    082A1F86  applymovement        localId=2 movements=[walk_fast_down]
+    082A1F8D  waitmovement         localId=0
+    082A1F90  msgbox_multilang     type=0 text_0="Now, then!\pI sense my own courage is off\nthe meter!" text_1="Now, then!\pI sense my own courage is off\nthe meter!" text_2="Now, then!\pI sense my own courage is off\nthe meter!" text_3="Now, then!\pI sense my own courage is off\nthe meter!" text_4="Now, then!\pI sense my own courage is off\nthe meter!" text_5="Now, then!\pI sense my own courage is off\nthe meter!" text_6="Now, then!\pI sense my own courage is off\nthe meter!"
+    082A1FAE  callstd              function=MSGBOX_DEFAULT(4)
+    082A1FB0  goto                 destination=0x082A1FC0
+
+  script 0x082A1E6E  [ok]
+    082A1E6E  applymovement        localId=2 movements=[walk_fast_down]
+    082A1E75  waitmovement         localId=0
+    082A1E78  msgbox_multilang     type=0 text_0="Now, then!\nBring your courage to our battle!" text_1="Now, then!\nBring your courage to our battle!" text_2="Now, then!\nBring your courage to our battle!" text_3="Now, then!\nBring your courage to our battle!" text_4="Now, then!\nBring your courage to our battle!" text_5="Now, then!\nBring your courage to our battle!" text_6="Now, then!\nBring your courage to our battle!"
+    082A1E96  callstd              function=MSGBOX_DEFAULT(4)
+    082A1E98  call                 destination=0x082A207B
+    082A1E9D  playbgm              song=462 save_song=0
+    082A1EA1  compare_var_to_value var=0x800D value=1
+    082A1EA6  goto_if              condition=1 destination=0x082A1EB1
+    082A1EAC  goto                 destination=0x0829F650
+
+  script 0x082A1FB6  [ok]
+    082A1FB6  applymovement        localId=2 movements=[walk_fast_down]
+    082A1FBD  waitmovement         localId=0
+    082A1FC0  msgbox_multilang     type=0 text_0="Everything you have!\nI’m braced for it all!" text_1="Everything you have!\nI’m braced for it all!" text_2="Everything you have!\nI’m braced for it all!" text_3="Everything you have!\nI’m braced for it all!" text_4="Everything you have!\nI’m braced for it all!" text_5="Everything you have!\nI’m braced for it all!" text_6="Everything you have!\nI’m braced for it all!"
+    082A1FDE  callstd              function=MSGBOX_DEFAULT(4)
+    082A1FE0  call                 destination=0x082A207B
+    082A1FE5  playbgm              song=462 save_song=0
+    082A1FE9  compare_var_to_value var=0x800D value=1
+    082A1FEE  goto_if              condition=1 destination=0x082A1FF9
+    082A1FF4  goto                 destination=0x0829F650
+
+  script 0x082A1E78  [ok]
+    082A1E78  msgbox_multilang     type=0 text_0="Now, then!\nBring your courage to our battle!" text_1="Now, then!\nBring your courage to our battle!" text_2="Now, then!\nBring your courage to our battle!" text_3="Now, then!\nBring your courage to our battle!" text_4="Now, then!\nBring your courage to our battle!" text_5="Now, then!\nBring your courage to our battle!" text_6="Now, then!\nBring your courage to our battle!"
+    082A1E96  callstd              function=MSGBOX_DEFAULT(4)
+    082A1E98  call                 destination=0x082A207B
+    082A1E9D  playbgm              song=462 save_song=0
+    082A1EA1  compare_var_to_value var=0x800D value=1
+    082A1EA6  goto_if              condition=1 destination=0x082A1EB1
+    082A1EAC  goto                 destination=0x0829F650
+
+  script 0x082A1FC0  [ok]
+    082A1FC0  msgbox_multilang     type=0 text_0="Everything you have!\nI’m braced for it all!" text_1="Everything you have!\nI’m braced for it all!" text_2="Everything you have!\nI’m braced for it all!" text_3="Everything you have!\nI’m braced for it all!" text_4="Everything you have!\nI’m braced for it all!" text_5="Everything you have!\nI’m braced for it all!" text_6="Everything you have!\nI’m braced for it all!"
+    082A1FDE  callstd              function=MSGBOX_DEFAULT(4)
+    082A1FE0  call                 destination=0x082A207B
+    082A1FE5  playbgm              song=462 save_song=0
+    082A1FE9  compare_var_to_value var=0x800D value=1
+    082A1FEE  goto_if              condition=1 destination=0x082A1FF9
+    082A1FF4  goto                 destination=0x0829F650
+
+  script 0x082A207B  [ok]
+    082A207B  closemessage         
+    082A207C  setvar               destination=VAR_0x8004 value=10
+    082A2081  setvar               destination=VAR_0x8005 value=0
+    082A2086  special              SPECIAL_\function=152
+    082A2089  waitstate            
+
+  script 0x082A1EB1  [ok]
+    082A1EB1  setvar               destination=VAR_0x8004 value=12
+    082A1EB6  special              SPECIAL_\function=148
+    082A1EB9  compare_var_to_value var=0x800D value=0
+    082A1EBE  goto_if              condition=5 destination=0x082A1D58
+    082A1EC4  msgbox_multilang     type=0 text_0="BRANDON: Hahahah! Grand it was!\nGrand, yes, indeed!\pWell done! You’ve earned recognition!\nYour FRONTIER PASS, please!" text_1="BRANDON: Hahahah! Grand it was!\nGrand, yes, indeed!\pWell done! You’ve earned recognition!\nYour FRONTIER PASS, please!" text_2="BRANDON: Hahahah! Grand it was!\nGrand, yes, indeed!\pWell done! You’ve earned recognition!\nYour FRONTIER PASS, please!" text_3="BRANDON: Hahahah! Grand it was!\nGrand, yes, indeed!\pWell done! You’ve earned recognition!\nYour FRONTIER PASS, please!" text_4="BRANDON: Hahahah! Grand it was!\nGrand, yes, indeed!\pWell done! You’ve earned recognition!\nYour FRONTIER PASS, please!" text_5="BRANDON: Hahahah! Grand it was!\nGrand, yes, indeed!\pWell done! You’ve earned recognition!\nYour FRONTIER PASS, please!" text_6="BRANDON: Hahahah! Grand it was!\nGrand, yes, indeed!\pWell done! You’ve earned recognition!\nYour FRONTIER PASS, please!"
+    082A1EE2  callstd              function=MSGBOX_DEFAULT(4)
+    082A1EE4  playfanfare          song=466
+    082A1EE7  message              text="The Brave Symbol was embossed on\nthe FRONTIER PASS!"
+    082A1EEC  showcontestpainting  winnerId=37
+    082A1EEE  clearflag            flag=0x7708 (temp)
+    082A1EF1  special              SPECIAL_\function=2090
+    082A1EF4  showcontestpainting  winnerId=37
+    082A1EF6  clearflag            flag=0x7708 (temp)
+    082A1EF9  special              SPECIAL_\function=2090
+    082A1EFC  showcontestpainting  winnerId=37
+    082A1EFE  clearflag            flag=0x7708 (temp)
+    082A1F01  special              SPECIAL_\function=2090
+    082A1F04  waitmessage          
+    082A1F05  waitfanfare          
+    082A1F06  setvar               destination=VAR_0x8004 value=13
+    082A1F0B  special              SPECIAL_\function=148
+    082A1F0E  msgbox_multilang     type=0 text_0="Young explorer!\nI look forward to our next meeting!" text_1="Young explorer!\nI look forward to our next meeting!" text_2="Young explorer!\nI look forward to our next meeting!" text_3="Young explorer!\nI look forward to our next meeting!" text_4="Young explorer!\nI look forward to our next meeting!" text_5="Young explorer!\nI look forward to our next meeting!" text_6="Young explorer!\nI look forward to our next meeting!"
+    082A1F2C  callstd              function=MSGBOX_DEFAULT(4)
+    082A1F2E  goto                 destination=0x082A1D58
+
+  script 0x0829F650  [ok]
+    0829F650  setvar               destination=VAR_0x8004 value=2
+    0829F655  setvar               destination=VAR_0x8005 value=0
+    0829F65A  setvar               destination=VAR_0x8006 value=4
+    0829F65F  special              SPECIAL_\function=148
+    0829F662  setvar               destination=VAR_0x8004 value=2
+    0829F667  setvar               destination=VAR_0x8005 value=7
+    0829F66C  setvar               destination=VAR_0x8006 value=255
+    0829F671  special              SPECIAL_\function=156
+    0829F674  setvar               destination=VAR_0x8004 value=13
+    0829F679  setvar               destination=VAR_0x8005 value=0
+    0829F67E  setvar               destination=VAR_0x8006 value=0
+    0829F683  special              SPECIAL_\function=156
+    0829F686  setvar               destination=VAR_0x8004 value=14
+    0829F68B  special              SPECIAL_\function=156
+    0829F68E  special              SPECIAL_\function=0
+    0829F691  warpsilent           mapGroup=41 mapNum=16 WARP_ID_NONE=255 -1=7 -1=13
+    0829F699  waitstate            
+
+  script 0x082A1FF9  [unknown-opcode:0xE7]
+    082A1FF9  setvar               destination=VAR_0x8004 value=12
+    082A1FFE  special              SPECIAL_\function=148
+    082A2001  compare_var_to_value var=0x800D value=2
+    082A2006  goto_if              condition=1 destination=0x082A1D58
+    082A200C  msgbox_multilang     type=0 text_0="BRANDON: Hahahah!\nRemarkable!\pYes, it’s grand, indeed!\pYoung explorer!\pYou’ve bested me through and through!\nHere! I want you to have this!" text_1="BRANDON: Hahahah!\nRemarkable!\pYes, it’s grand, indeed!\pYoung explorer!\pYou’ve bested me through and through!\nHere! I want you to have this!" text_2="BRANDON: Hahahah!\nRemarkable!\pYes, it’s grand, indeed!\pYoung explorer!\pYou’ve bested me through and through!\nHere! I want you to have this!" text_3="BRANDON: Hahahah!\nRemarkable!\pYes, it’s grand, indeed!\pYoung explorer!\pYou’ve bested me through and through!\nHere! I want you to have this!" text_4="BRANDON: Hahahah!\nRemarkable!\pYes, it’s grand, indeed!\pYoung explorer!\pYou’ve bested me through and through!\nHere! I want you to have this!" text_5="BRANDON: Hahahah!\nRemarkable!\pYes, it’s grand, indeed!\pYoung explorer!\pYou’ve bested me through and through!\nHere! I want you to have this!" text_6="BRANDON: Hahahah!\nRemarkable!\pYes, it’s grand, indeed!\pYoung explorer!\pYou’ve bested me through and through!\nHere! I want you to have this!"
+    082A202A  callstd              function=MSGBOX_DEFAULT(4)
+    082A202C  playfanfare          song=466
+    082A202F  message              text="The Brave Symbol took on\na golden shine!"
+
+  script 0x082A1D58  [ok]
+    082A1D58  setvar               destination=VAR_0x8004 value=2
+    082A1D5D  setvar               destination=VAR_0x8005 value=0
+    082A1D62  setvar               destination=VAR_0x8006 value=3
+    082A1D67  special              SPECIAL_\function=148
+    082A1D6A  warp                 mapGroup=41 mapNum=16 WARP_ID_NONE=255 -1=7 -1=13
+    082A1D72  waitstate            
+
+  map script type 5 -> 0x082A1C02
+  script 0x082A1C02  [ok]
+    082A1C02  setvar               destination=VAR_0x8004 value=9
+    082A1C07  special              SPECIAL_\function=148
+    082A1C0A  compare_var_to_value var=0x800D value=0
+    082A1C0F  goto_if              condition=1 destination=0x082A1C1A
+    082A1C15  call                 destination=0x0828D0B7
+    082A1C1A  copyvar              destination=VAR_0x400C source=VAR_0x800D
+    082A1C1F  setvar               destination=VAR_0x8004 value=0
+    082A1C24  special              SPECIAL_\function=148
+    082A1C27  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    082A1C2C  compare_var_to_value var=0x8000 value=0
+    082A1C31  goto_if              condition=1 destination=0x082A1CA1
+    082A1C37  compare_var_to_value var=0x8000 value=1
+    082A1C3C  goto_if              condition=1 destination=0x0829F674
+    082A1C42  compare_var_to_value var=0x8000 value=2
+    082A1C47  goto_if              condition=1 destination=0x082A1CA1
+    082A1C4D  setvar               destination=VAR_0x8004 value=1
+    082A1C52  setvar               destination=VAR_0x8005 value=5
+    082A1C57  special              SPECIAL_\function=148
+    082A1C5A  compare_var_to_value var=0x800D value=2
+    082A1C5F  goto_if              condition=1 destination=0x0829F650
+    082A1C65  compare_var_to_value var=0x800D value=3
+    082A1C6A  goto_if              condition=1 destination=0x0829F650
+    082A1C70  compare_var_to_value var=0x800D value=9
+    082A1C75  goto_if              condition=1 destination=0x0829F650
+    082A1C7B  end                  
+
+  script 0x082A1C1A  [ok]
+    082A1C1A  copyvar              destination=VAR_0x400C source=VAR_0x800D
+    082A1C1F  setvar               destination=VAR_0x8004 value=0
+    082A1C24  special              SPECIAL_\function=148
+    082A1C27  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    082A1C2C  compare_var_to_value var=0x8000 value=0
+    082A1C31  goto_if              condition=1 destination=0x082A1CA1
+    082A1C37  compare_var_to_value var=0x8000 value=1
+    082A1C3C  goto_if              condition=1 destination=0x0829F674
+    082A1C42  compare_var_to_value var=0x8000 value=2
+    082A1C47  goto_if              condition=1 destination=0x082A1CA1
+    082A1C4D  setvar               destination=VAR_0x8004 value=1
+    082A1C52  setvar               destination=VAR_0x8005 value=5
+    082A1C57  special              SPECIAL_\function=148
+    082A1C5A  compare_var_to_value var=0x800D value=2
+    082A1C5F  goto_if              condition=1 destination=0x0829F650
+    082A1C65  compare_var_to_value var=0x800D value=3
+    082A1C6A  goto_if              condition=1 destination=0x0829F650
+    082A1C70  compare_var_to_value var=0x800D value=9
+    082A1C75  goto_if              condition=1 destination=0x0829F650
+    082A1C7B  end                  
+
+  script 0x0828D0B7  [ok]
+    0828D0B7  setvar               destination=VAR_0x8004 value=22
+    0828D0BC  special              SPECIAL_\function=148
+    0828D0BF  return               
+
+  script 0x082A1CA1  [ok]
+    082A1CA1  setvar               destination=VAR_0x8004 value=3
+    082A1CA6  setvar               destination=VAR_0x8005 value=1
+    082A1CAB  special              SPECIAL_\function=156
+    082A1CAE  special              SPECIAL_\function=18
+    082A1CB1  setvar               destination=VAR_0x8004 value=2
+    082A1CB6  setvar               destination=VAR_0x8005 value=0
+    082A1CBB  setvar               destination=VAR_0x8006 value=0
+    082A1CC0  special              SPECIAL_\function=148
+    082A1CC3  setvar               destination=VAR_0x8004 value=9
+    082A1CC8  special              SPECIAL_\function=156
+    082A1CCB  setvar               destination=VAR_0x8004 value=3
+    082A1CD0  setvar               destination=VAR_0x8005 value=3
+    082A1CD5  special              SPECIAL_\function=148
+    082A1CD8  setvar               destination=VAR_0x400F value=1
+    082A1CDD  end                  
+
+  script 0x0829F674  [ok]
+    0829F674  setvar               destination=VAR_0x8004 value=13
+    0829F679  setvar               destination=VAR_0x8005 value=0
+    0829F67E  setvar               destination=VAR_0x8006 value=0
+    0829F683  special              SPECIAL_\function=156
+    0829F686  setvar               destination=VAR_0x8004 value=14
+    0829F68B  special              SPECIAL_\function=156
+    0829F68E  special              SPECIAL_\function=0
+    0829F691  warpsilent           mapGroup=41 mapNum=16 WARP_ID_NONE=255 -1=7 -1=13
+    0829F699  waitstate            
+
+  map script type 2 (var 0x400E == 0) -> 0x082A1C8E
+  script 0x082A1C8E  [ok]
+    082A1C8E  playbgm              song=462 save_song=0
+    082A1C92  setvar               destination=VAR_0x400E value=1
+    082A1C97  end                  
+
+  map script type 2 (var 0x400F == 1) -> 0x082A1C98
+  script 0x082A1C98  [ok]
+    082A1C98  special              SPECIAL_\function=254
+    082A1C9B  setvar               destination=VAR_0x400F value=0
+    082A1CA0  end                  
+
+  map script type 3 -> 0x082A1BC4
+  script 0x082A1BC4  [ok]
+    082A1BC4  setvar               destination=VAR_0x8004 value=13
+    082A1BC9  setvar               destination=VAR_0x8005 value=200
+    082A1BCE  setvar               destination=VAR_0x8006 value=0
+    082A1BD3  special              SPECIAL_\function=156
+    082A1BD6  setvar               destination=VAR_0x400F value=1
+    082A1BDB  end                  
+
+  map script type 4 (var 0x4001 == 0) -> 0x082A1BE6
+  script 0x082A1BE6  [ok]
+    082A1BE6  setvar               destination=VAR_0x4001 value=1
+    082A1BEB  turnobject           localId=255 direction=2
+    082A1BEF  compare_var_to_value var=0x400C value=0
+    082A1BF4  goto_if              condition=5 destination=0x082A1C01
+    082A1BFA  setobjectxyperm      localId=2 x=0 y=0
+    082A1C01  end                  
+
+  script 0x082A1C01  [ok]
+    082A1C01  end                  
+

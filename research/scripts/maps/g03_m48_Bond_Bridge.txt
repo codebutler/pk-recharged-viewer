@@ -1,0 +1,194 @@
+Bond Bridge  (group 3, map 48)  header 0x08B3CC04
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x4F, flag 0x0000) -> 0x0823C4DC
+  script 0x0823C4DC  [ok]
+    0823C4DC  trainerbattle        type=0 trainer=0x20B localId=0 ptr1=0x0823C7EE ptr2=0x0823C81E
+    0823C4EA  specialvar           output=32781 SPECIAL_\function=37
+    0823C4EF  compare_var_to_value var=0x800D value=1
+    0823C4F4  goto_if              condition=1 destination=0x0823C51B
+    0823C4FA  msgbox_multilang     type=0 text_0="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_1="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_2="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_3="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_4="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_5="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_6="Perhaps that reek is your sweaty\nPokémon’s body odor…"
+    0823C518  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C51A  end                  
+
+  script 0x0823C51B  [ok]
+    0823C51B  trainerbattle        type=5 trainer=0x20B localId=0 ptr1=0x082BA5A1 ptr2=0x0823C81E
+    0823C529  msgbox_multilang     type=0 text_0="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_1="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_2="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_3="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_4="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_5="Perhaps that reek is your sweaty\nPokémon’s body odor…" text_6="Perhaps that reek is your sweaty\nPokémon’s body odor…"
+    0823C547  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C549  end                  
+
+  object 2 (gfx 0x4F, flag 0x0000) -> 0x0823C54A
+  script 0x0823C54A  [ok]
+    0823C54A  trainerbattle        type=0 trainer=0x22E localId=0 ptr1=0x0823C880 ptr2=0x0823C8A6
+    0823C558  specialvar           output=32781 SPECIAL_\function=37
+    0823C55D  compare_var_to_value var=0x800D value=1
+    0823C562  goto_if              condition=1 destination=0x0823C589
+    0823C568  msgbox_multilang     type=0 text_0="If you keep going this way, you’ll\neventually reach Berry Forest." text_1="If you keep going this way, you’ll\neventually reach Berry Forest." text_2="If you keep going this way, you’ll\neventually reach Berry Forest." text_3="If you keep going this way, you’ll\neventually reach Berry Forest." text_4="If you keep going this way, you’ll\neventually reach Berry Forest." text_5="If you keep going this way, you’ll\neventually reach Berry Forest." text_6="If you keep going this way, you’ll\neventually reach Berry Forest."
+    0823C586  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C588  end                  
+
+  script 0x0823C589  [ok]
+    0823C589  trainerbattle        type=5 trainer=0x22E localId=0 ptr1=0x082BA5B9 ptr2=0x0823C8A6
+    0823C597  msgbox_multilang     type=0 text_0="If you keep going this way, you’ll\neventually reach Berry Forest." text_1="If you keep going this way, you’ll\neventually reach Berry Forest." text_2="If you keep going this way, you’ll\neventually reach Berry Forest." text_3="If you keep going this way, you’ll\neventually reach Berry Forest." text_4="If you keep going this way, you’ll\neventually reach Berry Forest." text_5="If you keep going this way, you’ll\neventually reach Berry Forest." text_6="If you keep going this way, you’ll\neventually reach Berry Forest."
+    0823C5B5  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C5B7  end                  
+
+  object 3 (gfx 0x35, flag 0x0000) -> 0x0823C5B8
+  script 0x0823C5B8  [ok]
+    0823C5B8  trainerbattle        type=0 trainer=0x207 localId=0 ptr1=0x0823C90F ptr2=0x0823C946
+    0823C5C6  specialvar           output=32781 SPECIAL_\function=37
+    0823C5CB  compare_var_to_value var=0x800D value=1
+    0823C5D0  goto_if              condition=1 destination=0x0823C5F7
+    0823C5D6  msgbox_multilang     type=0 text_0="This year, I’m going to finally\nlearn how to swim!" text_1="This year, I’m going to finally\nlearn how to swim!" text_2="This year, I’m going to finally\nlearn how to swim!" text_3="This year, I’m going to finally\nlearn how to swim!" text_4="This year, I’m going to finally\nlearn how to swim!" text_5="This year, I’m going to finally\nlearn how to swim!" text_6="This year, I’m going to finally\nlearn how to swim!"
+    0823C5F4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C5F6  end                  
+
+  script 0x0823C5F7  [ok]
+    0823C5F7  trainerbattle        type=5 trainer=0x207 localId=0 ptr1=0x082BA5EC ptr2=0x0823C946
+    0823C605  msgbox_multilang     type=0 text_0="This year, I’m going to finally\nlearn how to swim!" text_1="This year, I’m going to finally\nlearn how to swim!" text_2="This year, I’m going to finally\nlearn how to swim!" text_3="This year, I’m going to finally\nlearn how to swim!" text_4="This year, I’m going to finally\nlearn how to swim!" text_5="This year, I’m going to finally\nlearn how to swim!" text_6="This year, I’m going to finally\nlearn how to swim!"
+    0823C623  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C625  end                  
+
+  object 4 (gfx 0x35, flag 0x0000) -> 0x0823C626
+  script 0x0823C626  [ok]
+    0823C626  trainerbattle        type=0 trainer=0x22F localId=0 ptr1=0x0823C987 ptr2=0x0823C99A
+    0823C634  specialvar           output=32781 SPECIAL_\function=37
+    0823C639  compare_var_to_value var=0x800D value=1
+    0823C63E  goto_if              condition=1 destination=0x0823C665
+    0823C644  msgbox_multilang     type=0 text_0="Did I just win?\nOr did I lose?" text_1="Did I just win?\nOr did I lose?" text_2="Did I just win?\nOr did I lose?" text_3="Did I just win?\nOr did I lose?" text_4="Did I just win?\nOr did I lose?" text_5="Did I just win?\nOr did I lose?" text_6="Did I just win?\nOr did I lose?"
+    0823C662  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C664  end                  
+
+  script 0x0823C665  [ok]
+    0823C665  trainerbattle        type=5 trainer=0x22F localId=0 ptr1=0x082BA617 ptr2=0x0823C99A
+    0823C673  msgbox_multilang     type=0 text_0="Did I just win?\nOr did I lose?" text_1="Did I just win?\nOr did I lose?" text_2="Did I just win?\nOr did I lose?" text_3="Did I just win?\nOr did I lose?" text_4="Did I just win?\nOr did I lose?" text_5="Did I just win?\nOr did I lose?" text_6="Did I just win?\nOr did I lose?"
+    0823C691  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C693  end                  
+
+  object 5 (gfx 0xFD, flag 0x0000) -> 0x0823C694
+  script 0x0823C694  [ok]
+    0823C694  trainerbattle        type=0 trainer=0x231 localId=0 ptr1=0x0823C9CB ptr2=0x0823C9FF
+    0823C6A2  specialvar           output=32781 SPECIAL_\function=37
+    0823C6A7  compare_var_to_value var=0x800D value=1
+    0823C6AC  goto_if              condition=1 destination=0x0823C6D3
+    0823C6B2  msgbox_multilang     type=0 text_0="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_1="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_2="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_3="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_4="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_5="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_6="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!"
+    0823C6D0  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C6D2  end                  
+
+  script 0x0823C6D3  [ok]
+    0823C6D3  trainerbattle        type=5 trainer=0x231 localId=0 ptr1=0x082BA62A ptr2=0x0823C9FF
+    0823C6E1  msgbox_multilang     type=0 text_0="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_1="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_2="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_3="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_4="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_5="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!" text_6="A Pokémon bit through my \nswimsuit.\pI can’t get out of the water!"
+    0823C6FF  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C701  end                  
+
+  object 6 (gfx 0x06, flag 0x0000) -> 0x0823C702
+  script 0x0823C702  [ok]
+    0823C702  trainerbattle        type=4 trainer=0x230 localId=0 ptr1=0x0823CA70 ptr2=0x0823CAA3 ptr3=0x0823CAE4
+    0823C714  specialvar           output=32781 SPECIAL_\function=37
+    0823C719  compare_var_to_value var=0x800D value=1
+    0823C71E  goto_if              condition=1 destination=0x0823C745
+    0823C724  msgbox_multilang     type=0 text_0="Joy: Wasn’t that fun?\nI hope we can battle again!" text_1="Joy: Wasn’t that fun?\nI hope we can battle again!" text_2="Joy: Wasn’t that fun?\nI hope we can battle again!" text_3="Joy: Wasn’t that fun?\nI hope we can battle again!" text_4="Joy: Wasn’t that fun?\nI hope we can battle again!" text_5="Joy: Wasn’t that fun?\nI hope we can battle again!" text_6="Joy: Wasn’t that fun?\nI hope we can battle again!"
+    0823C742  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C744  end                  
+
+  script 0x0823C745  [ok]
+    0823C745  trainerbattle        type=7 trainer=0x230 localId=0 ptr1=0x082BA668 ptr2=0x0823CAA3 ptr3=0x0823CAE4
+    0823C757  msgbox_multilang     type=0 text_0="Joy: Wasn’t that fun?\nI hope we can battle again!" text_1="Joy: Wasn’t that fun?\nI hope we can battle again!" text_2="Joy: Wasn’t that fun?\nI hope we can battle again!" text_3="Joy: Wasn’t that fun?\nI hope we can battle again!" text_4="Joy: Wasn’t that fun?\nI hope we can battle again!" text_5="Joy: Wasn’t that fun?\nI hope we can battle again!" text_6="Joy: Wasn’t that fun?\nI hope we can battle again!"
+    0823C775  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C777  end                  
+
+  object 7 (gfx 0x06, flag 0x0000) -> 0x0823C778
+  script 0x0823C778  [ok]
+    0823C778  trainerbattle        type=4 trainer=0x230 localId=0 ptr1=0x0823CB25 ptr2=0x0823CB4F ptr3=0x0823CB79
+    0823C78A  specialvar           output=32781 SPECIAL_\function=37
+    0823C78F  compare_var_to_value var=0x800D value=1
+    0823C794  goto_if              condition=1 destination=0x0823C7BB
+    0823C79A  msgbox_multilang     type=0 text_0="Meg: Joy, wasn’t that fun?" text_1="Meg: Joy, wasn’t that fun?" text_2="Meg: Joy, wasn’t that fun?" text_3="Meg: Joy, wasn’t that fun?" text_4="Meg: Joy, wasn’t that fun?" text_5="Meg: Joy, wasn’t that fun?" text_6="Meg: Joy, wasn’t that fun?"
+    0823C7B8  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C7BA  end                  
+
+  script 0x0823C7BB  [ok]
+    0823C7BB  trainerbattle        type=7 trainer=0x230 localId=0 ptr1=0x082BA693 ptr2=0x0823CB4F ptr3=0x0823CB79
+    0823C7CD  msgbox_multilang     type=0 text_0="Meg: Joy, wasn’t that fun?" text_1="Meg: Joy, wasn’t that fun?" text_2="Meg: Joy, wasn’t that fun?" text_3="Meg: Joy, wasn’t that fun?" text_4="Meg: Joy, wasn’t that fun?" text_5="Meg: Joy, wasn’t that fun?" text_6="Meg: Joy, wasn’t that fun?"
+    0823C7EB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823C7ED  end                  
+
+  object 8 (gfx 0x52, flag 0x0320) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 9 (gfx 0x52, flag 0x031F) -> 0x082050CF
+  sign 0 at (14,7) -> 0x0823C49A
+  script 0x0823C49A  [ok]
+    0823C49A  msgbox_multilang     type=0 text_0="Berry Forest Ahead" text_1="Berry Forest Ahead" text_2="Berry Forest Ahead" text_3="Berry Forest Ahead" text_4="Berry Forest Ahead" text_5="Berry Forest Ahead" text_6="Berry Forest Ahead"
+    0823C4B8  callstd              function=MSGBOX_SIGN(3)
+    0823C4BA  end                  
+
+  hidden item at (61,5): Max Repel
+
+  hidden item at (44,12): Pearl
+
+  hidden item at (33,7): Stardust
+
+  sign 4 at (91,9) -> 0x0823C4BB
+  script 0x0823C4BB  [ok]
+    0823C4BB  msgbox_multilang     type=0 text_0="Bond Bridge\nPlease be quiet when crossing.\pBerry Forest Ahead" text_1="Bond Bridge\nPlease be quiet when crossing.\pBerry Forest Ahead" text_2="Bond Bridge\nPlease be quiet when crossing.\pBerry Forest Ahead" text_3="Bond Bridge\nPlease be quiet when crossing.\pBerry Forest Ahead" text_4="Bond Bridge\nPlease be quiet when crossing.\pBerry Forest Ahead" text_5="Bond Bridge\nPlease be quiet when crossing.\pBerry Forest Ahead" text_6="Bond Bridge\nPlease be quiet when crossing.\pBerry Forest Ahead"
+    0823C4D9  callstd              function=MSGBOX_SIGN(3)
+    0823C4DB  end                  
+

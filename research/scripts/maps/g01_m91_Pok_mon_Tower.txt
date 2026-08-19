@@ -1,0 +1,57 @@
+Pokémon Tower  (group 1, map 91)  header 0x08B3BC0C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0A, flag 0x0000) -> 0x08217370
+  script 0x08217370  [ok]
+    08217370  trainerbattle        type=0 trainer=0x1BD localId=0 ptr1=0x08217410 ptr2=0x0821742B
+    0821737E  msgbox_multilang     type=0 text_0="We can’t determine the identity of\nthe ghosts…" text_1="We can’t determine the identity of\nthe ghosts…" text_2="We can’t determine the identity of\nthe ghosts…" text_3="We can’t determine the identity of\nthe ghosts…" text_4="We can’t determine the identity of\nthe ghosts…" text_5="We can’t determine the identity of\nthe ghosts…" text_6="We can’t determine the identity of\nthe ghosts…"
+    0821739C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821739E  end                  
+
+  object 2 (gfx 0x0A, flag 0x0000) -> 0x0821739F
+  script 0x0821739F  [ok]
+    0821739F  trainerbattle        type=0 trainer=0x1BE localId=0 ptr1=0x08217460 ptr2=0x08217475
+    082173AD  msgbox_multilang     type=0 text_0="May the departed Pokémon rest in\npeace…" text_1="May the departed Pokémon rest in\npeace…" text_2="May the departed Pokémon rest in\npeace…" text_3="May the departed Pokémon rest in\npeace…" text_4="May the departed Pokémon rest in\npeace…" text_5="May the departed Pokémon rest in\npeace…" text_6="May the departed Pokémon rest in\npeace…"
+    082173CB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    082173CD  end                  
+
+  object 3 (gfx 0x0A, flag 0x0000) -> 0x08217341
+  script 0x08217341  [ok]
+    08217341  trainerbattle        type=0 trainer=0x1BC localId=0 ptr1=0x082173CE ptr2=0x082173E1
+    0821734F  msgbox_multilang     type=0 text_0="I must have been dreaming…" text_1="I must have been dreaming…" text_2="I must have been dreaming…" text_3="I must have been dreaming…" text_4="I must have been dreaming…" text_5="I must have been dreaming…" text_6="I must have been dreaming…"
+    0821736D  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0821736F  end                  
+
+  object 4 (gfx 0x35, flag 0x0178) -> 0x082D5786
+  script 0x082D5786  [ok]
+    082D5786  setorcopyvar         destination=VAR_0x8000 source=36
+    082D578B  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5790  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Elixir
+    082D5792  end                  
+
+  object 5 (gfx 0x35, flag 0x0179) -> 0x082D5793
+  script 0x082D5793  [ok]
+    082D5793  setorcopyvar         destination=VAR_0x8000 source=17
+    082D5798  setorcopyvar         destination=VAR_0x8001 source=1
+    082D579D  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Awakening
+    082D579F  end                  
+
+  object 6 (gfx 0x35, flag 0x017A) -> 0x082D57A0
+  script 0x082D57A0  [ok]
+    082D57A0  setorcopyvar         destination=VAR_0x8000 source=3
+    082D57A5  setorcopyvar         destination=VAR_0x8001 source=1
+    082D57AA  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Great Ball
+    082D57AC  end                  
+

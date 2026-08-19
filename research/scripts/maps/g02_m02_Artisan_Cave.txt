@@ -1,0 +1,33 @@
+Artisan Cave  (group 2, map 2)  header 0x08B3BFC4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x04AB) -> 0x082D553D
+  script 0x082D553D  [ok]
+    082D553D  setorcopyvar         destination=VAR_0x8000 source=63
+    082D5542  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5547  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: HP Up
+    082D5549  end                  
+
+  hidden item at (32,29): Zinc
+
+  hidden item at (27,8): Calcium
+
+  hidden item at (7,5): Protein
+
+  hidden item at (19,43): Iron
+
+  map script type 3 -> 0x08286EEE
+  script 0x08286EEE  [ok]
+    08286EEE  setflag              flag=0x8DF
+    08286EF1  end                  
+

@@ -1,0 +1,216 @@
+Pokémon League  (group 1, map 76)  header 0x08B3BA68
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1C, flag 0x0000) -> 0x08213566
+  script 0x08213566  [ok]
+    08213566  lock                 
+    08213567  faceplayer           
+    08213568  speakername          name="Bruno"
+    0821356D  setvar               destination=VAR_0x8004 value=10
+    08213572  setvar               destination=VAR_0x8005 value=2
+    08213577  special              SPECIAL_\function=348
+    0821357A  checkflag            flag=0x4B9
+    0821357D  goto_if              condition=1 destination=0x08213637
+    08213583  setvar               destination=VAR_0x8004 value=10
+    08213588  setvar               destination=VAR_0x8005 value=0
+    0821358D  special              SPECIAL_\function=347
+    08213590  setvar               destination=VAR_0x8004 value=10
+    08213595  setvar               destination=VAR_0x8005 value=1
+    0821359A  special              SPECIAL_\function=347
+    0821359D  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    082135A0  goto_if              condition=0 destination=0x0821367F
+    082135A6  msgbox_multilang     type=0 text_0="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_1="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_2="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_3="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_4="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_5="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_6="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}"
+    082135C4  callstd              function=MSGBOX_DEFAULT(4)
+    082135C6  setflag              flag=0x003
+    082135C9  setflag              flag=0x005
+    082135CC  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    082135CF  goto_if              condition=0 destination=0x082136BC
+    082135D5  trainerbattle        type=3 trainer=0x2E0 localId=0 ptr1=0x082137E6
+    082135DF  clearflag            flag=0x005
+    082135E2  setflag              flag=0x4B9
+    082135E5  call                 destination=0x0820110A
+    082135EA  speakername          name="Bruno"
+    082135EF  msgbox_multilang     type=0 text_0="My job is done.\nGo face your next challenge." text_1="My job is done.\nGo face your next challenge." text_2="My job is done.\nGo face your next challenge." text_3="My job is done.\nGo face your next challenge." text_4="My job is done.\nGo face your next challenge." text_5="My job is done.\nGo face your next challenge." text_6="My job is done.\nGo face your next challenge."
+    0821360D  callstd              function=MSGBOX_DEFAULT(4)
+    0821360F  closemessage         
+    08213610  copyvar              destination=VAR_0x8000 source=VAR_0x800C
+    08213615  compare_var_to_value var=0x8000 value=2
+    0821361A  goto_if              condition=1 destination=0x082136CB
+    08213620  compare_var_to_value var=0x8000 value=1
+    08213625  goto_if              condition=1 destination=0x082136D7
+    0821362B  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    08213632  waitmovement         localId=0
+    08213635  release              
+
+  script 0x08213637  [ok]
+    08213637  msgbox_multilang     type=0 text_0="My job is done.\nGo face your next challenge." text_1="My job is done.\nGo face your next challenge." text_2="My job is done.\nGo face your next challenge." text_3="My job is done.\nGo face your next challenge." text_4="My job is done.\nGo face your next challenge." text_5="My job is done.\nGo face your next challenge." text_6="My job is done.\nGo face your next challenge."
+    08213655  callstd              function=MSGBOX_DEFAULT(4)
+    08213657  closemessage         
+    08213658  copyvar              destination=VAR_0x8000 source=VAR_0x800C
+    0821365D  compare_var_to_value var=0x8000 value=2
+    08213662  goto_if              condition=1 destination=0x082136A4
+    08213668  compare_var_to_value var=0x8000 value=1
+    0821366D  goto_if              condition=1 destination=0x082136B0
+    08213673  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    0821367A  waitmovement         localId=0
+    0821367D  release              
+
+  script 0x0821367F  [ok]
+    0821367F  msgbox_multilang     type=0 text_0="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_1="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_2="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_3="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_4="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_5="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}" text_6="I am Bruno of the Elite Four!\pThrough rigorous training, people and\nPokémon can become stronger without\plimit.\pI’ve lived and trained with my\nfighting Pokémon!\pAnd that will never change!\p{PLAYER}!\pWe will grind you down with our\nsuperior power!\pHoo hah!{CTRL_0B}"
+    0821369D  callstd              function=MSGBOX_DEFAULT(4)
+    0821369F  goto                 destination=0x082135C6
+
+  script 0x082136BC  [ok]
+    082136BC  trainerbattle        type=3 trainer=0x19B localId=0 ptr1=0x082137E6
+    082136C6  goto                 destination=0x082135DF
+
+  script 0x0820110A  [ok]
+    0820110A  applymovement        localId=255 movements=[delay_16 delay_16]
+    08201111  waitmovement         localId=0
+    08201114  playse               song=248
+    08201117  call                 destination=0x0820113C
+    0820111C  special              SPECIAL_\function=79
+    0820111F  setflag              flag=0x004
+    08201122  return               
+
+  script 0x082136CB  [ok]
+    082136CB  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    082136D2  goto                 destination=0x08213632
+
+  script 0x082136D7  [ok]
+    082136D7  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    082136DE  goto                 destination=0x08213632
+
+  script 0x082136A4  [ok]
+    082136A4  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    082136AB  goto                 destination=0x0821367A
+
+  script 0x082136B0  [ok]
+    082136B0  applymovement        localId=1 movements=[walk_in_place_faster_left]
+    082136B7  goto                 destination=0x0821367A
+
+  script 0x082135C6  [ok]
+    082135C6  setflag              flag=0x003
+    082135C9  setflag              flag=0x005
+    082135CC  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    082135CF  goto_if              condition=0 destination=0x082136BC
+    082135D5  trainerbattle        type=3 trainer=0x2E0 localId=0 ptr1=0x082137E6
+    082135DF  clearflag            flag=0x005
+    082135E2  setflag              flag=0x4B9
+    082135E5  call                 destination=0x0820110A
+    082135EA  speakername          name="Bruno"
+    082135EF  msgbox_multilang     type=0 text_0="My job is done.\nGo face your next challenge." text_1="My job is done.\nGo face your next challenge." text_2="My job is done.\nGo face your next challenge." text_3="My job is done.\nGo face your next challenge." text_4="My job is done.\nGo face your next challenge." text_5="My job is done.\nGo face your next challenge." text_6="My job is done.\nGo face your next challenge."
+    0821360D  callstd              function=MSGBOX_DEFAULT(4)
+    0821360F  closemessage         
+    08213610  copyvar              destination=VAR_0x8000 source=VAR_0x800C
+    08213615  compare_var_to_value var=0x8000 value=2
+    0821361A  goto_if              condition=1 destination=0x082136CB
+    08213620  compare_var_to_value var=0x8000 value=1
+    08213625  goto_if              condition=1 destination=0x082136D7
+    0821362B  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    08213632  waitmovement         localId=0
+    08213635  release              
+
+  script 0x082135DF  [ok]
+    082135DF  clearflag            flag=0x005
+    082135E2  setflag              flag=0x4B9
+    082135E5  call                 destination=0x0820110A
+    082135EA  speakername          name="Bruno"
+    082135EF  msgbox_multilang     type=0 text_0="My job is done.\nGo face your next challenge." text_1="My job is done.\nGo face your next challenge." text_2="My job is done.\nGo face your next challenge." text_3="My job is done.\nGo face your next challenge." text_4="My job is done.\nGo face your next challenge." text_5="My job is done.\nGo face your next challenge." text_6="My job is done.\nGo face your next challenge."
+    0821360D  callstd              function=MSGBOX_DEFAULT(4)
+    0821360F  closemessage         
+    08213610  copyvar              destination=VAR_0x8000 source=VAR_0x800C
+    08213615  compare_var_to_value var=0x8000 value=2
+    0821361A  goto_if              condition=1 destination=0x082136CB
+    08213620  compare_var_to_value var=0x8000 value=1
+    08213625  goto_if              condition=1 destination=0x082136D7
+    0821362B  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    08213632  waitmovement         localId=0
+    08213635  release              
+
+  script 0x0820113C  [ok]
+    0820113C  setmetatile          x=6 y=1 metatileId=654 impassable=1
+    08201145  setmetatile          x=6 y=2 metatileId=662 impassable=0
+    0820114E  return               
+
+  script 0x08213632  [ok]
+    08213632  waitmovement         localId=0
+    08213635  release              
+
+  script 0x0821367A  [ok]
+    0821367A  waitmovement         localId=0
+    0821367D  release              
+
+  map script type 5 -> 0x0821350C
+  script 0x0821350C  [ok]
+    0821350C  setvar               destination=VAR_0x8004 value=1
+    08213511  call                 destination=0x082011F1
+    08213516  end                  
+
+  script 0x082011F1  [ok]
+    082011F1  special              SPECIAL_\function=368
+    082011F4  return               
+
+  map script type 1 -> 0x08213517
+  script 0x08213517  [ok]
+    08213517  checkflag            flag=0x4B9
+    0821351A  goto_if              condition=1 destination=0x0821352C
+    08213520  compare_var_to_value var=0x4068 value=2
+    08213525  goto_if              condition=1 destination=0x08213536
+    0821352B  end                  
+
+  script 0x0821352C  [ok]
+    0821352C  call                 destination=0x0820113C
+    08213531  goto                 destination=0x08213520
+
+  script 0x08213536  [ok]
+    08213536  call                 destination=0x082011B8
+    0821353B  goto                 destination=0x0821352B
+
+  script 0x08213520  [ok]
+    08213520  compare_var_to_value var=0x4068 value=2
+    08213525  goto_if              condition=1 destination=0x08213536
+    0821352B  end                  
+
+  script 0x082011B8  [ok]
+    082011B8  setmetatile          x=5 y=11 metatileId=669 impassable=1
+    082011C1  setmetatile          x=6 y=11 metatileId=670 impassable=1
+    082011CA  setmetatile          x=7 y=11 metatileId=671 impassable=1
+    082011D3  setmetatile          x=5 y=12 metatileId=677 impassable=1
+    082011DC  setmetatile          x=6 y=12 metatileId=678 impassable=1
+    082011E5  setmetatile          x=7 y=12 metatileId=679 impassable=1
+    082011EE  return               
+
+  script 0x0821352B  [ok]
+    0821352B  end                  
+
+  map script type 4 (var 0x4001 == 0) -> 0x0821354A
+  script 0x0821354A  [ok]
+    0821354A  turnobject           localId=255 direction=2
+    0821354E  end                  
+
+  map script type 2 (var 0x4068 == 1) -> 0x08213559
+  script 0x08213559  [ok]
+    08213559  lockall              
+    0821355A  call                 destination=0x08201123
+    0821355F  setvar               destination=VAR_0x4068 value=2
+    08213564  releaseall           
+
+  script 0x08201123  [ok]
+    08201123  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up]
+    0820112A  waitmovement         localId=0
+    0820112D  setflag              flag=0x002
+    08201130  playse               song=44
+    08201133  call                 destination=0x082011B8
+    08201138  special              SPECIAL_\function=79
+    0820113B  return               
+

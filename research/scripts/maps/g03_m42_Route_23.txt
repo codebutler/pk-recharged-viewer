@@ -1,0 +1,395 @@
+Route 23  (group 3, map 42)  header 0x08B3CB5C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0000) -> 0x08239FFB
+  script 0x08239FFB  [ok]
+    08239FFB  lock                 
+    08239FFC  faceplayer           
+    08239FFD  setvar               destination=VAR_0x4001 value=2
+    0823A002  bufferstdstring      stringVarId=0 index=36
+    0823A006  goto                 destination=0x0823A264
+
+  script 0x0823A264  [ok]
+    0823A264  compare_var_to_var   var1=16479 var2=16385
+    0823A269  goto_if              condition=4 destination=0x0823A1D9
+    0823A26F  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0823A274  compare_var_to_value var=0x8000 value=1
+    0823A279  goto_if              condition=1 destination=0x0823A2CD
+    0823A27F  compare_var_to_value var=0x8000 value=2
+    0823A284  goto_if              condition=1 destination=0x0823A2DC
+    0823A28A  compare_var_to_value var=0x8000 value=3
+    0823A28F  goto_if              condition=1 destination=0x0823A2EB
+    0823A295  compare_var_to_value var=0x8000 value=4
+    0823A29A  goto_if              condition=1 destination=0x0823A2FA
+    0823A2A0  compare_var_to_value var=0x8000 value=5
+    0823A2A5  goto_if              condition=1 destination=0x0823A309
+    0823A2AB  compare_var_to_value var=0x8000 value=6
+    0823A2B0  goto_if              condition=1 destination=0x0823A318
+    0823A2B6  compare_var_to_value var=0x8000 value=7
+    0823A2BB  goto_if              condition=1 destination=0x0823A327
+    0823A2C1  compare_var_to_value var=0x8000 value=8
+    0823A2C6  goto_if              condition=1 destination=0x0823A336
+    0823A2CC  end                  
+
+  script 0x0823A1D9  [ok]
+    0823A1D9  msgbox_multilang     type=0 text_0="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_1="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_2="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_3="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_4="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_5="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_6="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead."
+    0823A1F7  callstd              function=MSGBOX_DEFAULT(4)
+    0823A1F9  release              
+
+  script 0x0823A2CD  [ok]
+    0823A2CD  checkflag            flag=0x880:BADGE1_BOULDER
+    0823A2D0  goto_if              condition=1 destination=0x0823A345
+    0823A2D6  goto                 destination=0x0823A149
+
+  script 0x0823A2DC  [ok]
+    0823A2DC  checkflag            flag=0x881:BADGE2_CASCADE
+    0823A2DF  goto_if              condition=1 destination=0x0823A36F
+    0823A2E5  goto                 destination=0x0823A18E
+
+  script 0x0823A2EB  [ok]
+    0823A2EB  checkflag            flag=0x882:BADGE3_THUNDER
+    0823A2EE  goto_if              condition=1 destination=0x0823A36F
+    0823A2F4  goto                 destination=0x0823A18E
+
+  script 0x0823A2FA  [ok]
+    0823A2FA  checkflag            flag=0x883:BADGE4_RAINBOW
+    0823A2FD  goto_if              condition=1 destination=0x0823A36F
+    0823A303  goto                 destination=0x0823A18E
+
+  script 0x0823A309  [ok]
+    0823A309  checkflag            flag=0x884:BADGE5_SOUL
+    0823A30C  goto_if              condition=1 destination=0x0823A36F
+    0823A312  goto                 destination=0x0823A18E
+
+  script 0x0823A318  [ok]
+    0823A318  checkflag            flag=0x885:BADGE6_MARSH
+    0823A31B  goto_if              condition=1 destination=0x0823A36F
+    0823A321  goto                 destination=0x0823A18E
+
+  script 0x0823A327  [ok]
+    0823A327  checkflag            flag=0x886:BADGE7_VOLCANO
+    0823A32A  goto_if              condition=1 destination=0x0823A36F
+    0823A330  goto                 destination=0x0823A18E
+
+  script 0x0823A336  [ok]
+    0823A336  checkflag            flag=0x887:BADGE8_EARTH
+    0823A339  goto_if              condition=1 destination=0x0823A36F
+    0823A33F  goto                 destination=0x0823A18E
+
+  script 0x0823A345  [ok]
+    0823A345  message              text="Oh! That is the {STR_VAR_1}!\nGo right ahead."
+    0823A34A  comparehiddenvar     
+    0823A34B  doweather            
+    0823A34C  callnative           func=598068232
+    0823A351  gotostd              function=204
+    0823A353  doweather            
+    0823A354  callnative           func=598068232
+    0823A359  gotostd              function=204
+    0823A35B  doweather            
+    0823A35C  callnative           func=598068232
+    0823A361  gotostd              function=102
+    0823A363  playfanfare          song=367
+    0823A366  waitfanfare          
+    0823A367  waitbuttonpress      
+    0823A368  copyvar              destination=VAR_0x405F source=VAR_0x4001
+    0823A36D  release              
+
+  script 0x0823A149  [ok]
+    0823A149  msgbox_multilang     type=0 text_0="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_1="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_2="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_3="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_4="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_5="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_6="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!"
+    0823A167  callstd              function=MSGBOX_DEFAULT(4)
+    0823A169  playse               song=22
+    0823A16C  msgbox_multilang     type=0 text_0="Rules are rules.\nI can’t let you pass." text_1="Rules are rules.\nI can’t let you pass." text_2="Rules are rules.\nI can’t let you pass." text_3="Rules are rules.\nI can’t let you pass." text_4="Rules are rules.\nI can’t let you pass." text_5="Rules are rules.\nI can’t let you pass." text_6="Rules are rules.\nI can’t let you pass."
+    0823A18A  callstd              function=MSGBOX_DEFAULT(4)
+    0823A18C  release              
+
+  script 0x0823A36F  [ok]
+    0823A36F  msgbox_multilang     type=0 text_0="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_1="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_2="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_3="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_4="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_5="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_6="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead."
+    0823A38D  callstd              function=MSGBOX_DEFAULT(4)
+    0823A38F  copyvar              destination=VAR_0x405F source=VAR_0x4001
+    0823A394  release              
+
+  script 0x0823A18E  [opcode-out-of-range:0xF0]
+    0823A18E  message              text="You can pass here only if you have\nthe {STR_VAR_1}.\pYou don’t have the {STR_VAR_1}\nyet.\pYou have to have it to get to\nthe Pokémon League."
+
+  object 2 (gfx 0x0C, flag 0x0000) -> 0x0823A00C
+  script 0x0823A00C  [ok]
+    0823A00C  lock                 
+    0823A00D  faceplayer           
+    0823A00E  setvar               destination=VAR_0x4001 value=3
+    0823A013  bufferstdstring      stringVarId=0 index=37
+    0823A017  goto                 destination=0x0823A264
+
+  object 3 (gfx 0x0C, flag 0x0000) -> 0x0823A01D
+  script 0x0823A01D  [ok]
+    0823A01D  lock                 
+    0823A01E  faceplayer           
+    0823A01F  setvar               destination=VAR_0x4001 value=4
+    0823A024  bufferstdstring      stringVarId=0 index=38
+    0823A028  goto                 destination=0x0823A264
+
+  object 4 (gfx 0x0C, flag 0x0000) -> 0x0823A02E
+  script 0x0823A02E  [ok]
+    0823A02E  lock                 
+    0823A02F  faceplayer           
+    0823A030  setvar               destination=VAR_0x4001 value=5
+    0823A035  bufferstdstring      stringVarId=0 index=39
+    0823A039  goto                 destination=0x0823A264
+
+  object 5 (gfx 0x0C, flag 0x0000) -> 0x0823A03F
+  script 0x0823A03F  [ok]
+    0823A03F  lock                 
+    0823A040  faceplayer           
+    0823A041  setvar               destination=VAR_0x4001 value=6
+    0823A046  bufferstdstring      stringVarId=0 index=40
+    0823A04A  goto                 destination=0x0823A264
+
+  object 6 (gfx 0x0C, flag 0x0000) -> 0x0823A050
+  script 0x0823A050  [ok]
+    0823A050  lock                 
+    0823A051  faceplayer           
+    0823A052  setvar               destination=VAR_0x4001 value=7
+    0823A057  bufferstdstring      stringVarId=0 index=41
+    0823A05B  goto                 destination=0x0823A264
+
+  object 7 (gfx 0x0C, flag 0x0000) -> 0x0823A061
+  script 0x0823A061  [ok]
+    0823A061  lock                 
+    0823A062  faceplayer           
+    0823A063  setvar               destination=VAR_0x4001 value=8
+    0823A068  bufferstdstring      stringVarId=0 index=42
+    0823A06C  goto                 destination=0x0823A264
+
+  coord trigger 0 (var 0x405F == 1) -> 0x0823A072
+  script 0x0823A072  [ok]
+    0823A072  lockall              
+    0823A073  setvar               destination=VAR_0x4001 value=2
+    0823A078  setvar               destination=VAR_0x8009 value=1
+    0823A07D  bufferstdstring      stringVarId=0 index=36
+    0823A081  goto                 destination=0x0823A396
+
+  script 0x0823A396  [ok]
+    0823A396  textcolor            color=0
+    0823A398  applymovement        localId=32777 movements=[walk_in_place_faster_left]
+    0823A39F  waitmovement         localId=0
+    0823A3A2  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0823A3A7  compare_var_to_value var=0x8000 value=1
+    0823A3AC  goto_if              condition=1 destination=0x0823A400
+    0823A3B2  compare_var_to_value var=0x8000 value=2
+    0823A3B7  goto_if              condition=1 destination=0x0823A40F
+    0823A3BD  compare_var_to_value var=0x8000 value=3
+    0823A3C2  goto_if              condition=1 destination=0x0823A41E
+    0823A3C8  compare_var_to_value var=0x8000 value=4
+    0823A3CD  goto_if              condition=1 destination=0x0823A42D
+    0823A3D3  compare_var_to_value var=0x8000 value=5
+    0823A3D8  goto_if              condition=1 destination=0x0823A43C
+    0823A3DE  compare_var_to_value var=0x8000 value=6
+    0823A3E3  goto_if              condition=1 destination=0x0823A44B
+    0823A3E9  compare_var_to_value var=0x8000 value=7
+    0823A3EE  goto_if              condition=1 destination=0x0823A45A
+    0823A3F4  compare_var_to_value var=0x8000 value=8
+    0823A3F9  goto_if              condition=1 destination=0x0823A469
+    0823A3FF  end                  
+
+  script 0x0823A400  [ok]
+    0823A400  checkflag            flag=0x880:BADGE1_BOULDER
+    0823A403  goto_if              condition=1 destination=0x0823A506
+    0823A409  goto                 destination=0x0823A478
+
+  script 0x0823A40F  [ok]
+    0823A40F  checkflag            flag=0x881:BADGE2_CASCADE
+    0823A412  goto_if              condition=1 destination=0x0823A530
+    0823A418  goto                 destination=0x0823A4CF
+
+  script 0x0823A41E  [ok]
+    0823A41E  checkflag            flag=0x882:BADGE3_THUNDER
+    0823A421  goto_if              condition=1 destination=0x0823A530
+    0823A427  goto                 destination=0x0823A4CF
+
+  script 0x0823A42D  [ok]
+    0823A42D  checkflag            flag=0x883:BADGE4_RAINBOW
+    0823A430  goto_if              condition=1 destination=0x0823A530
+    0823A436  goto                 destination=0x0823A4CF
+
+  script 0x0823A43C  [ok]
+    0823A43C  checkflag            flag=0x884:BADGE5_SOUL
+    0823A43F  goto_if              condition=1 destination=0x0823A530
+    0823A445  goto                 destination=0x0823A4CF
+
+  script 0x0823A44B  [ok]
+    0823A44B  checkflag            flag=0x885:BADGE6_MARSH
+    0823A44E  goto_if              condition=1 destination=0x0823A530
+    0823A454  goto                 destination=0x0823A4CF
+
+  script 0x0823A45A  [ok]
+    0823A45A  checkflag            flag=0x886:BADGE7_VOLCANO
+    0823A45D  goto_if              condition=1 destination=0x0823A530
+    0823A463  goto                 destination=0x0823A4CF
+
+  script 0x0823A469  [ok]
+    0823A469  checkflag            flag=0x887:BADGE8_EARTH
+    0823A46C  goto_if              condition=1 destination=0x0823A530
+    0823A472  goto                 destination=0x0823A4CF
+
+  script 0x0823A506  [ok]
+    0823A506  message              text="Oh! That is the {STR_VAR_1}!\nGo right ahead."
+    0823A50B  comparehiddenvar     
+    0823A50C  doweather            
+    0823A50D  callnative           func=598068232
+    0823A512  gotostd              function=204
+    0823A514  doweather            
+    0823A515  callnative           func=598068232
+    0823A51A  gotostd              function=204
+    0823A51C  doweather            
+    0823A51D  callnative           func=598068232
+    0823A522  gotostd              function=102
+    0823A524  playfanfare          song=367
+    0823A527  waitfanfare          
+    0823A528  waitbuttonpress      
+    0823A529  copyvar              destination=VAR_0x405F source=VAR_0x4001
+    0823A52E  releaseall           
+
+  script 0x0823A478  [ok]
+    0823A478  msgbox_multilang     type=0 text_0="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_1="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_2="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_3="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_4="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_5="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!" text_6="Only truly skilled Trainers are\nallowed through.\pYou don’t have the {STR_VAR_1}\nyet!"
+    0823A496  callstd              function=MSGBOX_DEFAULT(4)
+    0823A498  playse               song=22
+    0823A49B  msgbox_multilang     type=0 text_0="Rules are rules.\nI can’t let you pass." text_1="Rules are rules.\nI can’t let you pass." text_2="Rules are rules.\nI can’t let you pass." text_3="Rules are rules.\nI can’t let you pass." text_4="Rules are rules.\nI can’t let you pass." text_5="Rules are rules.\nI can’t let you pass." text_6="Rules are rules.\nI can’t let you pass."
+    0823A4B9  callstd              function=MSGBOX_DEFAULT(4)
+    0823A4BB  closemessage         
+    0823A4BC  applymovement        localId=255 movements=[walk_down]
+    0823A4C3  applymovement        localId=32777 movements=[walk_in_place_faster_down]
+    0823A4CA  waitmovement         localId=0
+    0823A4CD  releaseall           
+
+  script 0x0823A530  [ok]
+    0823A530  msgbox_multilang     type=0 text_0="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_1="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_2="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_3="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_4="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_5="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead." text_6="You can pass here only if you have\nthe {STR_VAR_1}.\pOh! That is the {STR_VAR_1}!{CTRL_17}{CTRL_0B}{CTRL_08}{CTRL_18}\pOkay, then.\nPlease, go right ahead."
+    0823A54E  callstd              function=MSGBOX_DEFAULT(4)
+    0823A550  copyvar              destination=VAR_0x405F source=VAR_0x4001
+    0823A555  releaseall           
+
+  script 0x0823A4CF  [opcode-out-of-range:0xF0]
+    0823A4CF  message              text="You can pass here only if you have\nthe {STR_VAR_1}.\pYou don’t have the {STR_VAR_1}\nyet.\pYou have to have it to get to\nthe Pokémon League."
+
+  coord trigger 1 (var 0x405F == 2) -> 0x0823A087
+  script 0x0823A087  [ok]
+    0823A087  lockall              
+    0823A088  setvar               destination=VAR_0x4001 value=3
+    0823A08D  setvar               destination=VAR_0x8009 value=2
+    0823A092  bufferstdstring      stringVarId=0 index=37
+    0823A096  goto                 destination=0x0823A396
+
+  coord trigger 2 (var 0x405F == 3) -> 0x0823A09C
+  script 0x0823A09C  [ok]
+    0823A09C  lockall              
+    0823A09D  setvar               destination=VAR_0x4001 value=4
+    0823A0A2  setvar               destination=VAR_0x8009 value=3
+    0823A0A7  bufferstdstring      stringVarId=0 index=38
+    0823A0AB  goto                 destination=0x0823A396
+
+  coord trigger 3 (var 0x405F == 4) -> 0x0823A0B1
+  script 0x0823A0B1  [ok]
+    0823A0B1  lockall              
+    0823A0B2  setvar               destination=VAR_0x4001 value=5
+    0823A0B7  setvar               destination=VAR_0x8009 value=4
+    0823A0BC  bufferstdstring      stringVarId=0 index=39
+    0823A0C0  goto                 destination=0x0823A396
+
+  coord trigger 4 (var 0x405F == 5) -> 0x0823A0C6
+  script 0x0823A0C6  [ok]
+    0823A0C6  lockall              
+    0823A0C7  setvar               destination=VAR_0x4001 value=6
+    0823A0CC  setvar               destination=VAR_0x8009 value=5
+    0823A0D1  bufferstdstring      stringVarId=0 index=40
+    0823A0D5  goto                 destination=0x0823A396
+
+  coord trigger 5 (var 0x405F == 6) -> 0x0823A0DB
+  script 0x0823A0DB  [ok]
+    0823A0DB  lockall              
+    0823A0DC  setvar               destination=VAR_0x4001 value=7
+    0823A0E1  setvar               destination=VAR_0x8009 value=6
+    0823A0E6  bufferstdstring      stringVarId=0 index=41
+    0823A0EA  goto                 destination=0x0823A396
+
+  coord trigger 6 (var 0x405F == 7) -> 0x0823A0F0
+  script 0x0823A0F0  [ok]
+    0823A0F0  lockall              
+    0823A0F1  setvar               destination=VAR_0x4001 value=8
+    0823A0F6  setvar               destination=VAR_0x8009 value=7
+    0823A0FB  bufferstdstring      stringVarId=0 index=42
+    0823A0FF  goto                 destination=0x0823A396
+
+  coord trigger 7 (var 0x405F == 7) -> 0x0823A0F0
+  coord trigger 8 (var 0x405F == 7) -> 0x0823A0F0
+  coord trigger 9 (var 0x405F == 7) -> 0x0823A0F0
+  coord trigger 10 (var 0x405F == 7) -> 0x0823A0F0
+  coord trigger 11 (var 0x405F == 7) -> 0x0823A0F0
+  coord trigger 12 (var 0x405F == 7) -> 0x0823A0F0
+  coord trigger 13 (var 0x405F == 7) -> 0x0823A0F0
+  coord trigger 14 (var 0x405F == 6) -> 0x0823A0DB
+  coord trigger 15 (var 0x405F == 6) -> 0x0823A0DB
+  coord trigger 16 (var 0x405F == 6) -> 0x0823A0DB
+  coord trigger 17 (var 0x405F == 5) -> 0x0823A0C6
+  coord trigger 18 (var 0x405F == 5) -> 0x0823A0C6
+  coord trigger 19 (var 0x405F == 5) -> 0x0823A0C6
+  coord trigger 20 (var 0x405F == 5) -> 0x0823A0C6
+  coord trigger 21 (var 0x405F == 5) -> 0x0823A0C6
+  coord trigger 22 (var 0x405F == 5) -> 0x0823A0C6
+  coord trigger 23 (var 0x405F == 2) -> 0x0823A087
+  coord trigger 24 (var 0x405F == 2) -> 0x0823A087
+  coord trigger 25 (var 0x405F == 2) -> 0x0823A087
+  coord trigger 26 (var 0x405F == 3) -> 0x0823A09C
+  coord trigger 27 (var 0x405F == 3) -> 0x0823A09C
+  coord trigger 28 (var 0x405F == 3) -> 0x0823A09C
+  coord trigger 29 (var 0x405F == 4) -> 0x0823A0B1
+  coord trigger 30 (var 0x405F == 4) -> 0x0823A0B1
+  coord trigger 31 (var 0x405F == 4) -> 0x0823A0B1
+  coord trigger 32 (var 0x405F == 4) -> 0x0823A0B1
+  coord trigger 33 (var 0x405F == 4) -> 0x0823A0B1
+  coord trigger 34 (var 0x405F == 4) -> 0x0823A0B1
+  coord trigger 35 (var 0x405F == 4) -> 0x0823A0B1
+  coord trigger 36 (var 0x405F == 4) -> 0x0823A0B1
+  coord trigger 37 (var 0x405F == 4) -> 0x0823A0B1
+  coord trigger 38 (var 0x405F == 1) -> 0x0823A072
+  coord trigger 39 (var 0x405F == 1) -> 0x0823A072
+  coord trigger 40 (var 0x405F == 1) -> 0x0823A072
+  coord trigger 41 (var 0x405F == 1) -> 0x0823A072
+  hidden item at (19,42): Full Restore
+
+  hidden item at (20,72): Ultra Ball
+
+  hidden item at (11,101): Max Ether
+
+  hidden item at (3,18): Lum Berry
+
+  hidden item at (2,29): Sitrus Berry
+
+  hidden item at (10,67): Aspear Berry
+
+  hidden item at (3,128): Leppa Berry
+
+  hidden item at (9,8): Max Elixir
+
+  sign 8 at (3,31) -> 0x0823A105
+  script 0x0823A105  [ok]
+    0823A105  msgbox_multilang     type=0 text_0="VICTORY ROAD GATE -\nPokémon League" text_1="VICTORY ROAD GATE -\nPokémon League" text_2="VICTORY ROAD GATE -\nPokémon League" text_3="VICTORY ROAD GATE -\nPokémon League" text_4="VICTORY ROAD GATE -\nPokémon League" text_5="VICTORY ROAD GATE -\nPokémon League" text_6="VICTORY ROAD GATE -\nPokémon League"
+    0823A123  callstd              function=MSGBOX_SIGN(3)
+    0823A125  end                  
+
+  map script type 3 -> 0x08239FE0
+  script 0x08239FE0  [ok]
+    08239FE0  clearflag            flag=0x059
+    08239FE3  setflag              flag=0x058
+    08239FE6  setvar               destination=VAR_0x4064 value=0
+    08239FEB  setvar               destination=VAR_0x4065 value=0
+    08239FF0  setvar               destination=VAR_0x4066 value=0
+    08239FF5  setvar               destination=VAR_0x4067 value=0
+    08239FFA  end                  
+

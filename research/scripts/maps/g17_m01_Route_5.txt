@@ -1,0 +1,114 @@
+Route 5  (group 17, map 1)  header 0x08B3D8EC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0000) -> 0x08277328
+  script 0x08277328  [ok]
+    08277328  call                 destination=0x08277321
+    0827732D  msgbox_multilang     type=0 text_0="Hi, how’s it going?" text_1="Hi, how’s it going?" text_2="Hi, how’s it going?" text_3="Hi, how’s it going?" text_4="Hi, how’s it going?" text_5="Hi, how’s it going?" text_6="Hi, how’s it going?"
+    0827734B  callstd              function=MSGBOX_NPC(2)
+    0827734D  end                  
+
+  script 0x08277321  [ok]
+    08277321  speakername          name="Guard"
+    08277326  return               
+
+  coord trigger 0 (var 0x4062 == 0) -> 0x0827734E
+  script 0x0827734E  [ok]
+    0827734E  lockall              
+    0827734F  setvar               destination=VAR_0x4001 value=0
+    08277354  goto                 destination=0x08277372
+
+  script 0x08277372  [ok]
+    08277372  textcolor            color=0
+    08277374  applymovement        localId=255 movements=[walk_in_place_faster_left]
+    0827737B  waitmovement         localId=0
+    0827737E  checkflag            flag=0x2A6
+    08277381  goto_if              condition=1 destination=0x082773B9
+    08277387  call                 destination=0x08277321
+    0827738C  msgbox_multilang     type=0 text_0="I’m on guard duty.\nGee, I’m thirsty, though!\pOh, wait there, the road’s closed." text_1="I’m on guard duty.\nGee, I’m thirsty, though!\pOh, wait there, the road’s closed." text_2="I’m on guard duty.\nGee, I’m thirsty, though!\pOh, wait there, the road’s closed." text_3="I’m on guard duty.\nGee, I’m thirsty, though!\pOh, wait there, the road’s closed." text_4="I’m on guard duty.\nGee, I’m thirsty, though!\pOh, wait there, the road’s closed." text_5="I’m on guard duty.\nGee, I’m thirsty, though!\pOh, wait there, the road’s closed." text_6="I’m on guard duty.\nGee, I’m thirsty, though!\pOh, wait there, the road’s closed."
+    082773AA  callstd              function=MSGBOX_DEFAULT(4)
+    082773AC  closemessage         
+    082773AD  applymovement        localId=255 movements=[walk_up]
+    082773B4  waitmovement         localId=0
+    082773B7  releaseall           
+
+  script 0x082773B9  [ok]
+    082773B9  goto                 destination=0x082773C3
+
+  script 0x082773C3  [ok]
+    082773C3  removeitem           itemId=Tea(369) quantity=1
+    082773C8  goto                 destination=0x082773CE
+
+  script 0x082773CE  [ok]
+    082773CE  call                 destination=0x08277321
+    082773D3  msgbox_multilang     type=0 text_0="Oh, that Tea…\nIt looks awfully tasty…" text_1="Oh, that Tea…\nIt looks awfully tasty…" text_2="Oh, that Tea…\nIt looks awfully tasty…" text_3="Oh, that Tea…\nIt looks awfully tasty…" text_4="Oh, that Tea…\nIt looks awfully tasty…" text_5="Oh, that Tea…\nIt looks awfully tasty…" text_6="Oh, that Tea…\nIt looks awfully tasty…"
+    082773F1  callstd              function=MSGBOX_DEFAULT(4)
+    082773F3  closemessage         
+    082773F4  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    082773F9  compare_var_to_value var=0x8000 value=0
+    082773FE  goto_if              condition=1 destination=0x08277446
+    08277404  compare_var_to_value var=0x8000 value=1
+    08277409  goto_if              condition=1 destination=0x08277450
+    0827740F  compare_var_to_value var=0x8000 value=2
+    08277414  goto_if              condition=1 destination=0x0827745A
+    0827741A  call                 destination=0x08277321
+    0827741F  msgbox_multilang     type=0 text_0="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_1="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_2="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_3="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_4="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_5="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_6="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!"
+    0827743D  callstd              function=MSGBOX_DEFAULT(4)
+    0827743F  setvar               destination=VAR_0x4062 value=1
+    08277444  releaseall           
+
+  script 0x08277446  [ok]
+    08277446  call                 destination=0x08277464
+    0827744B  goto                 destination=0x0827741A
+
+  script 0x08277450  [ok]
+    08277450  call                 destination=0x0827746F
+    08277455  goto                 destination=0x0827741A
+
+  script 0x0827745A  [ok]
+    0827745A  call                 destination=0x0827747A
+    0827745F  goto                 destination=0x0827741A
+
+  script 0x08277464  [ok]
+    08277464  applymovement        localId=255 movements=[walk_in_place_left]
+    0827746B  waitmovement         localId=0
+    0827746E  return               
+
+  script 0x0827741A  [ok]
+    0827741A  call                 destination=0x08277321
+    0827741F  msgbox_multilang     type=0 text_0="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_1="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_2="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_3="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_4="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_5="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!" text_6="Huh? I can have this drink?\nGee, thanks!\p… …\pGlug, glug…\p… …\pGulp…\pIf you want to go to Saffron\pCity…\p… …\pYou can go on through.\pI’ll share this Tea with the other\nguards!"
+    0827743D  callstd              function=MSGBOX_DEFAULT(4)
+    0827743F  setvar               destination=VAR_0x4062 value=1
+    08277444  releaseall           
+
+  script 0x0827746F  [ok]
+    0827746F  applymovement        localId=255 movements=[walk_left]
+    08277476  waitmovement         localId=0
+    08277479  return               
+
+  script 0x0827747A  [ok]
+    0827747A  applymovement        localId=255 movements=[walk_left walk_left]
+    08277481  waitmovement         localId=0
+    08277484  return               
+
+  coord trigger 1 (var 0x4062 == 0) -> 0x0827735A
+  script 0x0827735A  [ok]
+    0827735A  lockall              
+    0827735B  setvar               destination=VAR_0x4001 value=1
+    08277360  goto                 destination=0x08277372
+
+  coord trigger 2 (var 0x4062 == 0) -> 0x08277366
+  script 0x08277366  [ok]
+    08277366  lockall              
+    08277367  setvar               destination=VAR_0x4001 value=2
+    0827736C  goto                 destination=0x08277372
+

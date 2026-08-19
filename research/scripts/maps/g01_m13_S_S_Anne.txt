@@ -1,0 +1,40 @@
+S.S. Anne  (group 1, map 13)  header 0x08B3B384
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2F, flag 0x0000) -> 0x0820BA2B
+  script 0x0820BA2B  [ok]
+    0820BA2B  trainerbattle        type=0 trainer=0x7E localId=0 ptr1=0x0820BABE ptr2=0x0820BAF3
+    0820BA39  msgbox_multilang     type=0 text_0="You hurt my poor Pokémon!\pI demand that you heal them at a\nPokémon Center!" text_1="You hurt my poor Pokémon!\pI demand that you heal them at a\nPokémon Center!" text_2="You hurt my poor Pokémon!\pI demand that you heal them at a\nPokémon Center!" text_3="You hurt my poor Pokémon!\pI demand that you heal them at a\nPokémon Center!" text_4="You hurt my poor Pokémon!\pI demand that you heal them at a\nPokémon Center!" text_5="You hurt my poor Pokémon!\pI demand that you heal them at a\nPokémon Center!" text_6="You hurt my poor Pokémon!\pI demand that you heal them at a\nPokémon Center!"
+    0820BA57  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820BA59  end                  
+
+  object 2 (gfx 0x23, flag 0x0000) -> 0x0820BA5A
+  script 0x0820BA5A  [ok]
+    0820BA5A  trainerbattle        type=0 trainer=0x60 localId=0 ptr1=0x0820BB69 ptr2=0x0820BB81
+    0820BA68  msgbox_multilang     type=0 text_0="Listen, listen!\nLet me be your friend, okay?\pThen we can trade Pokémon and do\nstuff." text_1="Listen, listen!\nLet me be your friend, okay?\pThen we can trade Pokémon and do\nstuff." text_2="Listen, listen!\nLet me be your friend, okay?\pThen we can trade Pokémon and do\nstuff." text_3="Listen, listen!\nLet me be your friend, okay?\pThen we can trade Pokémon and do\nstuff." text_4="Listen, listen!\nLet me be your friend, okay?\pThen we can trade Pokémon and do\nstuff." text_5="Listen, listen!\nLet me be your friend, okay?\pThen we can trade Pokémon and do\nstuff." text_6="Listen, listen!\nLet me be your friend, okay?\pThen we can trade Pokémon and do\nstuff."
+    0820BA86  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820BA88  end                  
+
+  object 3 (gfx 0x14, flag 0x0000) -> 0x0820BA0A
+  script 0x0820BA0A  [ok]
+    0820BA0A  msgbox_multilang     type=0 text_0="We are cruising around the world, my\nchildren and I." text_1="We are cruising around the world, my\nchildren and I." text_2="We are cruising around the world, my\nchildren and I." text_3="We are cruising around the world, my\nchildren and I." text_4="We are cruising around the world, my\nchildren and I." text_5="We are cruising around the world, my\nchildren and I." text_6="We are cruising around the world, my\nchildren and I."
+    0820BA28  callstd              function=MSGBOX_NPC(2)
+    0820BA2A  end                  
+
+  object 4 (gfx 0x55, flag 0x0164) -> 0x082D5682
+  script 0x082D5682  [ok]
+    082D5682  setorcopyvar         destination=VAR_0x8000 source=319
+    082D5687  setorcopyvar         destination=VAR_0x8001 source=1
+    082D568C  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM31
+    082D568E  end                  
+

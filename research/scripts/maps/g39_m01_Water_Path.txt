@@ -1,0 +1,18 @@
+Water Path  (group 39, map 1)  header 0x08B3E078
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF2, flag 0x0000) -> 0x0827FE49
+  script 0x0827FE49  [ok]
+    0827FE49  msgbox_multilang     type=0 text_0="My height is 67.0 inches on the\nbutton.\pI know it is this precisely because\nmy neighbor measured me." text_1="My height is 67.0 inches on the\nbutton.\pI know it is this precisely because\nmy neighbor measured me." text_2="My height is 67.0 inches on the\nbutton.\pI know it is this precisely because\nmy neighbor measured me." text_3="My height is 67.0 inches on the\nbutton.\pI know it is this precisely because\nmy neighbor measured me." text_4="My height is 67.0 inches on the\nbutton.\pI know it is this precisely because\nmy neighbor measured me." text_5="My height is 67.0 inches on the\nbutton.\pI know it is this precisely because\nmy neighbor measured me." text_6="My height is 67.0 inches on the\nbutton.\pI know it is this precisely because\nmy neighbor measured me."
+    0827FE67  callstd              function=MSGBOX_NPC(2)
+    0827FE69  end                  
+

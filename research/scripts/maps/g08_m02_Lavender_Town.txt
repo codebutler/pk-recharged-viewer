@@ -1,0 +1,115 @@
+Lavender Town  (group 8, map 2)  header 0x08B3D144
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1B, flag 0x0035) -> 0x0825C49B
+  script 0x0825C49B  [unknown-opcode:0xE9]
+    0825C49B  lock                 
+    0825C49C  faceplayer           
+    0825C49D  checkflag            flag=0x23D
+    0825C4A0  goto_if              condition=1 destination=0x0825C522
+    0825C4A6  call                 destination=0x0825C494
+    0825C4AB  msgbox_multilang     type=0 text_0="{PLAYER}…\pYour Pokédex quest is one that\nrequires strong dedication.\pWithout deep love for Pokémon,\nyour quest may fail.\pI’m not sure if this will help you,\nbut I’d like you to have it." text_1="{PLAYER}…\pYour Pokédex quest is one that\nrequires strong dedication.\pWithout deep love for Pokémon,\nyour quest may fail.\pI’m not sure if this will help you,\nbut I’d like you to have it." text_2="{PLAYER}…\pYour Pokédex quest is one that\nrequires strong dedication.\pWithout deep love for Pokémon,\nyour quest may fail.\pI’m not sure if this will help you,\nbut I’d like you to have it." text_3="{PLAYER}…\pYour Pokédex quest is one that\nrequires strong dedication.\pWithout deep love for Pokémon,\nyour quest may fail.\pI’m not sure if this will help you,\nbut I’d like you to have it." text_4="{PLAYER}…\pYour Pokédex quest is one that\nrequires strong dedication.\pWithout deep love for Pokémon,\nyour quest may fail.\pI’m not sure if this will help you,\nbut I’d like you to have it." text_5="{PLAYER}…\pYour Pokédex quest is one that\nrequires strong dedication.\pWithout deep love for Pokémon,\nyour quest may fail.\pI’m not sure if this will help you,\nbut I’d like you to have it." text_6="{PLAYER}…\pYour Pokédex quest is one that\nrequires strong dedication.\pWithout deep love for Pokémon,\nyour quest may fail.\pI’m not sure if this will help you,\nbut I’d like you to have it."
+    0825C4C9  callstd              function=MSGBOX_DEFAULT(4)
+    0825C4CB  checkitemspace       itemId=Poké Flute(350) quantity=1
+    0825C4D0  compare_var_to_value var=0x800D value=0
+    0825C4D5  goto_if              condition=1 destination=0x0825C549
+    0825C4DB  setflag              flag=0x23D
+    0825C4DE  additem              itemId=Poké Flute(350) quantity=1
+
+  script 0x0825C522  [ok]
+    0825C522  call                 destination=0x0825C494
+    0825C527  msgbox_multilang     type=0 text_0="Has my Poké Flute\nhelped you?" text_1="Has my Poké Flute\nhelped you?" text_2="Has my Poké Flute\nhelped you?" text_3="Has my Poké Flute\nhelped you?" text_4="Has my Poké Flute\nhelped you?" text_5="Has my Poké Flute\nhelped you?" text_6="Has my Poké Flute\nhelped you?"
+    0825C545  callstd              function=MSGBOX_DEFAULT(4)
+    0825C547  release              
+
+  script 0x0825C494  [ok]
+    0825C494  speakername          name="Mr. Fuji"
+    0825C499  return               
+
+  script 0x0825C549  [ok]
+    0825C549  msgbox_multilang     type=0 text_0="You must make room for this!" text_1="You must make room for this!" text_2="You must make room for this!" text_3="You must make room for this!" text_4="You must make room for this!" text_5="You must make room for this!" text_6="You must make room for this!"
+    0825C567  callstd              function=MSGBOX_DEFAULT(4)
+    0825C569  release              
+
+  object 2 (gfx 0x21, flag 0x0000) -> 0x0825C60C
+  script 0x0825C60C  [ok]
+    0825C60C  bufferspeciesname    stringVarId=0 species=NIDORINO(33)
+    0825C610  lock                 
+    0825C611  faceplayer           
+    0825C612  waitse               
+    0825C613  playmoncry           species=NIDORINO(33) mode=0
+    0825C618  msgbox_multilang     type=0 text_0="Nidorino: Gaoo!" text_1="Nidorino: Gaoo!" text_2="Nidorino: Gaoo!" text_3="Nidorino: Gaoo!" text_4="Nidorino: Gaoo!" text_5="Nidorino: Gaoo!" text_6="Nidorino: Gaoo!"
+    0825C636  callstd              function=MSGBOX_DEFAULT(4)
+    0825C638  waitmoncry           
+    0825C639  release              
+
+  object 3 (gfx 0x36, flag 0x0000) -> 0x0825C63B
+  script 0x0825C63B  [ok]
+    0825C63B  bufferspeciesname    stringVarId=0 species=PSYDUCK(54)
+    0825C63F  lock                 
+    0825C640  faceplayer           
+    0825C641  waitse               
+    0825C642  playmoncry           species=PSYDUCK(54) mode=0
+    0825C647  msgbox_multilang     type=0 text_0="Psyduck: Gwappa!" text_1="Psyduck: Gwappa!" text_2="Psyduck: Gwappa!" text_3="Psyduck: Gwappa!" text_4="Psyduck: Gwappa!" text_5="Psyduck: Gwappa!" text_6="Psyduck: Gwappa!"
+    0825C665  callstd              function=MSGBOX_DEFAULT(4)
+    0825C667  waitmoncry           
+    0825C668  release              
+
+  object 4 (gfx 0x0B, flag 0x0000) -> 0x0825C59C
+  script 0x0825C59C  [ok]
+    0825C59C  msgbox_multilang     type=0 text_0="It’s so warm!\nPokémon are so nice to hug." text_1="It’s so warm!\nPokémon are so nice to hug." text_2="It’s so warm!\nPokémon are so nice to hug." text_3="It’s so warm!\nPokémon are so nice to hug." text_4="It’s so warm!\nPokémon are so nice to hug." text_5="It’s so warm!\nPokémon are so nice to hug." text_6="It’s so warm!\nPokémon are so nice to hug."
+    0825C5BA  callstd              function=MSGBOX_NPC(2)
+    0825C5BC  end                  
+
+  object 5 (gfx 0x23, flag 0x0000) -> 0x0825C5BD
+  script 0x0825C5BD  [ok]
+    0825C5BD  lock                 
+    0825C5BE  faceplayer           
+    0825C5BF  checkflag            flag=0x23C
+    0825C5C2  goto_if              condition=1 destination=0x0825C5EA
+    0825C5C8  msgbox_multilang     type=0 text_0="That’s odd, Mr. Fuji isn’t here.\nWhere’d he go?" text_1="That’s odd, Mr. Fuji isn’t here.\nWhere’d he go?" text_2="That’s odd, Mr. Fuji isn’t here.\nWhere’d he go?" text_3="That’s odd, Mr. Fuji isn’t here.\nWhere’d he go?" text_4="That’s odd, Mr. Fuji isn’t here.\nWhere’d he go?" text_5="That’s odd, Mr. Fuji isn’t here.\nWhere’d he go?" text_6="That’s odd, Mr. Fuji isn’t here.\nWhere’d he go?"
+    0825C5E6  callstd              function=MSGBOX_DEFAULT(4)
+    0825C5E8  release              
+
+  script 0x0825C5EA  [ok]
+    0825C5EA  msgbox_multilang     type=0 text_0="Mr. Fuji had been praying alone\nfor Cubone’s mother." text_1="Mr. Fuji had been praying alone\nfor Cubone’s mother." text_2="Mr. Fuji had been praying alone\nfor Cubone’s mother." text_3="Mr. Fuji had been praying alone\nfor Cubone’s mother." text_4="Mr. Fuji had been praying alone\nfor Cubone’s mother." text_5="Mr. Fuji had been praying alone\nfor Cubone’s mother." text_6="Mr. Fuji had been praying alone\nfor Cubone’s mother."
+    0825C608  callstd              function=MSGBOX_DEFAULT(4)
+    0825C60A  release              
+
+  object 6 (gfx 0x0C, flag 0x0000) -> 0x0825C56B
+  script 0x0825C56B  [ok]
+    0825C56B  lock                 
+    0825C56C  faceplayer           
+    0825C56D  setvar               destination=VAR_0x8004 value=14
+    0825C572  setvar               destination=VAR_0x8005 value=0
+    0825C577  special              SPECIAL_\function=347
+    0825C57A  msgbox_multilang     type=0 text_0="This is really Mr. Fuji’s house.\pHe’s really kind.\pHe looks after abandoned and\norphaned Pokémon." text_1="This is really Mr. Fuji’s house.\pHe’s really kind.\pHe looks after abandoned and\norphaned Pokémon." text_2="This is really Mr. Fuji’s house.\pHe’s really kind.\pHe looks after abandoned and\norphaned Pokémon." text_3="This is really Mr. Fuji’s house.\pHe’s really kind.\pHe looks after abandoned and\norphaned Pokémon." text_4="This is really Mr. Fuji’s house.\pHe’s really kind.\pHe looks after abandoned and\norphaned Pokémon." text_5="This is really Mr. Fuji’s house.\pHe’s really kind.\pHe looks after abandoned and\norphaned Pokémon." text_6="This is really Mr. Fuji’s house.\pHe’s really kind.\pHe looks after abandoned and\norphaned Pokémon."
+    0825C598  callstd              function=MSGBOX_DEFAULT(4)
+    0825C59A  release              
+
+  sign 0 at (5,4) -> 0x0825C66A
+  script 0x0825C66A  [ok]
+    0825C66A  lockall              
+    0825C66B  setvar               destination=VAR_0x8004 value=14
+    0825C670  setvar               destination=VAR_0x8005 value=2
+    0825C675  special              SPECIAL_\function=347
+    0825C678  msgbox_multilang     type=0 text_0="Pokémon Fan Magazine\nMonthly Grand Prize Drawing!\pThe application form is…\pGone! It’s been clipped out.\nSomeone must have applied already." text_1="Pokémon Fan Magazine\nMonthly Grand Prize Drawing!\pThe application form is…\pGone! It’s been clipped out.\nSomeone must have applied already." text_2="Pokémon Fan Magazine\nMonthly Grand Prize Drawing!\pThe application form is…\pGone! It’s been clipped out.\nSomeone must have applied already." text_3="Pokémon Fan Magazine\nMonthly Grand Prize Drawing!\pThe application form is…\pGone! It’s been clipped out.\nSomeone must have applied already." text_4="Pokémon Fan Magazine\nMonthly Grand Prize Drawing!\pThe application form is…\pGone! It’s been clipped out.\nSomeone must have applied already." text_5="Pokémon Fan Magazine\nMonthly Grand Prize Drawing!\pThe application form is…\pGone! It’s been clipped out.\nSomeone must have applied already." text_6="Pokémon Fan Magazine\nMonthly Grand Prize Drawing!\pThe application form is…\pGone! It’s been clipped out.\nSomeone must have applied already."
+    0825C696  callstd              function=MSGBOX_DEFAULT(4)
+    0825C698  releaseall           
+
+  sign 1 at (3,1) -> 0x0825C69A
+  script 0x0825C69A  [ok]
+    0825C69A  msgbox_multilang     type=0 text_0="Pokémon magazines line the shelf.\pPokémon Insider…\pPokémon Fan…" text_1="Pokémon magazines line the shelf.\pPokémon Insider…\pPokémon Fan…" text_2="Pokémon magazines line the shelf.\pPokémon Insider…\pPokémon Fan…" text_3="Pokémon magazines line the shelf.\pPokémon Insider…\pPokémon Fan…" text_4="Pokémon magazines line the shelf.\pPokémon Insider…\pPokémon Fan…" text_5="Pokémon magazines line the shelf.\pPokémon Insider…\pPokémon Fan…" text_6="Pokémon magazines line the shelf.\pPokémon Insider…\pPokémon Fan…"
+    0825C6B8  callstd              function=MSGBOX_SIGN(3)
+    0825C6BA  end                  
+
+  sign 2 at (4,1) -> 0x0825C69A

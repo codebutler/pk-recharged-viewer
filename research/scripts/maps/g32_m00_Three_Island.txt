@@ -1,0 +1,27 @@
+Three Island  (group 32, map 0)  header 0x08B3DD30
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x06, flag 0x0076) -> 0x0827CDE0
+  script 0x0827CDE0  [ok]
+    0827CDE0  lock                 
+    0827CDE1  faceplayer           
+    0827CDE2  special              SPECIAL_\function=85
+    0827CDE5  msgbox_multilang     type=0 text_0="Lostelle: Hi, {PLAYER}!\nYou’re always so cool!\pI’ll make lunch for you, too, one\nday, {PLAYER}." text_1="Lostelle: Hi, {PLAYER}!\nYou’re always so cool!\pI’ll make lunch for you, too, one\nday, {PLAYER}." text_2="Lostelle: Hi, {PLAYER}!\nYou’re always so cool!\pI’ll make lunch for you, too, one\nday, {PLAYER}." text_3="Lostelle: Hi, {PLAYER}!\nYou’re always so cool!\pI’ll make lunch for you, too, one\nday, {PLAYER}." text_4="Lostelle: Hi, {PLAYER}!\nYou’re always so cool!\pI’ll make lunch for you, too, one\nday, {PLAYER}." text_5="Lostelle: Hi, {PLAYER}!\nYou’re always so cool!\pI’ll make lunch for you, too, one\nday, {PLAYER}." text_6="Lostelle: Hi, {PLAYER}!\nYou’re always so cool!\pI’ll make lunch for you, too, one\nday, {PLAYER}."
+    0827CE03  callstd              function=MSGBOX_DEFAULT(4)
+    0827CE05  release              
+
+  sign 0 at (2,1) -> 0x0827CE07
+  script 0x0827CE07  [ok]
+    0827CE07  msgbox_multilang     type=0 text_0="Rare rocks and gems are displayed." text_1="Rare rocks and gems are displayed." text_2="Rare rocks and gems are displayed." text_3="Rare rocks and gems are displayed." text_4="Rare rocks and gems are displayed." text_5="Rare rocks and gems are displayed." text_6="Rare rocks and gems are displayed."
+    0827CE25  callstd              function=MSGBOX_SIGN(3)
+    0827CE27  end                  
+

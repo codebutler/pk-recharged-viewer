@@ -1,0 +1,76 @@
+Cinnabar Island  (group 12, map 5)  header 0x08B3D684
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0826EEF4
+  script 0x0826EEF4  [ok]
+    0826EEF4  lock                 
+    0826EEF5  faceplayer           
+    0826EEF6  call                 destination=0x082BB336
+    0826EEFB  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0xFB, flag 0x0000) -> 0x0826EF1E
+  script 0x0826EF1E  [ok]
+    0826EF1E  msgbox_multilang     type=0 text_0="I came to visit the Cinnabar Gym, but\nthe door is locked tight.\pThere should be a key for it\nsomewhere.\pCould it be in that burned-out\nmansion?\pThe Gym Leader’s friend used to live\nthere, they say." text_1="I came to visit the Cinnabar Gym, but\nthe door is locked tight.\pThere should be a key for it\nsomewhere.\pCould it be in that burned-out\nmansion?\pThe Gym Leader’s friend used to live\nthere, they say." text_2="I came to visit the Cinnabar Gym, but\nthe door is locked tight.\pThere should be a key for it\nsomewhere.\pCould it be in that burned-out\nmansion?\pThe Gym Leader’s friend used to live\nthere, they say." text_3="I came to visit the Cinnabar Gym, but\nthe door is locked tight.\pThere should be a key for it\nsomewhere.\pCould it be in that burned-out\nmansion?\pThe Gym Leader’s friend used to live\nthere, they say." text_4="I came to visit the Cinnabar Gym, but\nthe door is locked tight.\pThere should be a key for it\nsomewhere.\pCould it be in that burned-out\nmansion?\pThe Gym Leader’s friend used to live\nthere, they say." text_5="I came to visit the Cinnabar Gym, but\nthe door is locked tight.\pThere should be a key for it\nsomewhere.\pCould it be in that burned-out\nmansion?\pThe Gym Leader’s friend used to live\nthere, they say." text_6="I came to visit the Cinnabar Gym, but\nthe door is locked tight.\pThere should be a key for it\nsomewhere.\pCould it be in that burned-out\nmansion?\pThe Gym Leader’s friend used to live\nthere, they say."
+    0826EF3C  callstd              function=MSGBOX_NPC(2)
+    0826EF3E  end                  
+
+  object 3 (gfx 0x30, flag 0x0000) -> 0x0826EEFD
+  script 0x0826EEFD  [ok]
+    0826EEFD  msgbox_multilang     type=0 text_0="Do you have lots of friends?\pLinking up with the usual friends is\nfun, of course.\pBut how about visiting the Union Room\nevery so often?\pWho knows, you may end up making new\nfriends.\pI think it would be worth your time\nto check the Union Room." text_1="Do you have lots of friends?\pLinking up with the usual friends is\nfun, of course.\pBut how about visiting the Union Room\nevery so often?\pWho knows, you may end up making new\nfriends.\pI think it would be worth your time\nto check the Union Room." text_2="Do you have lots of friends?\pLinking up with the usual friends is\nfun, of course.\pBut how about visiting the Union Room\nevery so often?\pWho knows, you may end up making new\nfriends.\pI think it would be worth your time\nto check the Union Room." text_3="Do you have lots of friends?\pLinking up with the usual friends is\nfun, of course.\pBut how about visiting the Union Room\nevery so often?\pWho knows, you may end up making new\nfriends.\pI think it would be worth your time\nto check the Union Room." text_4="Do you have lots of friends?\pLinking up with the usual friends is\nfun, of course.\pBut how about visiting the Union Room\nevery so often?\pWho knows, you may end up making new\nfriends.\pI think it would be worth your time\nto check the Union Room." text_5="Do you have lots of friends?\pLinking up with the usual friends is\nfun, of course.\pBut how about visiting the Union Room\nevery so often?\pWho knows, you may end up making new\nfriends.\pI think it would be worth your time\nto check the Union Room." text_6="Do you have lots of friends?\pLinking up with the usual friends is\nfun, of course.\pBut how about visiting the Union Room\nevery so often?\pWho knows, you may end up making new\nfriends.\pI think it would be worth your time\nto check the Union Room."
+    0826EF1B  callstd              function=MSGBOX_NPC(2)
+    0826EF1D  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0826EF3F
+  script 0x0826EF3F  [ok]
+    0826EF3F  msgbox_multilang     type=0 text_0="Pokémon can still learn techniques\nafter canceling evolution.\pEvolution can wait until new moves\nhave been learned." text_1="Pokémon can still learn techniques\nafter canceling evolution.\pEvolution can wait until new moves\nhave been learned." text_2="Pokémon can still learn techniques\nafter canceling evolution.\pEvolution can wait until new moves\nhave been learned." text_3="Pokémon can still learn techniques\nafter canceling evolution.\pEvolution can wait until new moves\nhave been learned." text_4="Pokémon can still learn techniques\nafter canceling evolution.\pEvolution can wait until new moves\nhave been learned." text_5="Pokémon can still learn techniques\nafter canceling evolution.\pEvolution can wait until new moves\nhave been learned." text_6="Pokémon can still learn techniques\nafter canceling evolution.\pEvolution can wait until new moves\nhave been learned."
+    0826EF5D  callstd              function=MSGBOX_NPC(2)
+    0826EF5F  end                  
+
+  object 5 (gfx 0x00, flag 0x009D) -> 0x081F2A6C
+  script 0x081F2A6C  [ok]
+    081F2A6C  lock                 
+    081F2A6D  faceplayer           
+    081F2A6E  setvar               destination=VAR_0x8004 value=14
+    081F2A73  setvar               destination=VAR_0x8005 value=5
+    081F2A78  special              SPECIAL_\function=347
+    081F2A7B  textcolor            color=3
+    081F2A7D  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature:\nMr. Fuji of Pokémon House!\pEditor: The shy Mr. Fuji turned\ndown our interview requests.\pHe is a kindly man who is adored\nand respected in Lavender Town." text_1="Pokémon Journal\pSpecial Feature:\nMr. Fuji of Pokémon House!\pEditor: The shy Mr. Fuji turned\ndown our interview requests.\pHe is a kindly man who is adored\nand respected in Lavender Town." text_2="Pokémon Journal\pSpecial Feature:\nMr. Fuji of Pokémon House!\pEditor: The shy Mr. Fuji turned\ndown our interview requests.\pHe is a kindly man who is adored\nand respected in Lavender Town." text_3="Pokémon Journal\pSpecial Feature:\nMr. Fuji of Pokémon House!\pEditor: The shy Mr. Fuji turned\ndown our interview requests.\pHe is a kindly man who is adored\nand respected in Lavender Town." text_4="Pokémon Journal\pSpecial Feature:\nMr. Fuji of Pokémon House!\pEditor: The shy Mr. Fuji turned\ndown our interview requests.\pHe is a kindly man who is adored\nand respected in Lavender Town." text_5="Pokémon Journal\pSpecial Feature:\nMr. Fuji of Pokémon House!\pEditor: The shy Mr. Fuji turned\ndown our interview requests.\pHe is a kindly man who is adored\nand respected in Lavender Town." text_6="Pokémon Journal\pSpecial Feature:\nMr. Fuji of Pokémon House!\pEditor: The shy Mr. Fuji turned\ndown our interview requests.\pHe is a kindly man who is adored\nand respected in Lavender Town."
+    081F2A9B  callstd              function=MSGBOX_DEFAULT(4)
+    081F2A9D  release              
+
+  object 6 (gfx 0x00, flag 0x009D) -> 0x081F2A6C
+  object 7 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0826EEF0
+  script 0x0826EEF0  [ok]
+    0826EEF0  setrespawn           heallocation=9
+    0826EEF3  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

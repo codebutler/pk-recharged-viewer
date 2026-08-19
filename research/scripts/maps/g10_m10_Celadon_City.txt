@@ -1,0 +1,19 @@
+Celadon City  (group 10, map 10)  header 0x08B3D3C8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  sign 0 at (4,12) -> 0x08264090
+  script 0x08264090  [ok]
+    08264090  msgbox_multilang     type=0 text_0="I Know Everything!" text_1="I Know Everything!" text_2="I Know Everything!" text_3="I Know Everything!" text_4="I Know Everything!" text_5="I Know Everything!" text_6="I Know Everything!"
+    082640AE  callstd              function=MSGBOX_SIGN(3)
+    082640B0  end                  
+
+  sign 1 at (3,12) -> 0x08264090

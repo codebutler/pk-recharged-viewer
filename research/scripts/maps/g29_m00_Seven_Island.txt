@@ -1,0 +1,80 @@
+Seven Island  (group 29, map 0)  header 0x08B3DB38
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1E, flag 0x0000) -> 0x0827B182
+  script 0x0827B182  [ok]
+    0827B182  lock                 
+    0827B183  faceplayer           
+    0827B184  call                 destination=0x0827B1AB
+    0827B189  msgbox_multilang     type=0 text_0="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_1="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_2="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_3="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_4="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_5="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_6="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles."
+    0827B1A7  callstd              function=MSGBOX_DEFAULT(4)
+    0827B1A9  release              
+
+  script 0x0827B1AB  [ok]
+    0827B1AB  msgbox_multilang     type=0 text_0="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_1="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_2="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_3="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_4="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_5="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles." text_6="I may not look like much now,\nbut when I was younger…\pI flew everywhere, challenging\nTrainers wherever I found them.\pNow, my only source of enjoyment\nis reminiscing about the past while\pwatching battles."
+    0827B1C9  callstd              function=MSGBOX_DEFAULT(4)
+    0827B1CB  release              
+
+  sign 0 at (4,1) -> 0x0827B32D
+  script 0x0827B32D  [ok]
+    0827B32D  msgbox_multilang     type=0 text_0="There is a slight breeze blowing\naround the box." text_1="There is a slight breeze blowing\naround the box." text_2="There is a slight breeze blowing\naround the box." text_3="There is a slight breeze blowing\naround the box." text_4="There is a slight breeze blowing\naround the box." text_5="There is a slight breeze blowing\naround the box." text_6="There is a slight breeze blowing\naround the box."
+    0827B34B  callstd              function=MSGBOX_SIGN(3)
+    0827B34D  end                  
+
+  map script type 3 -> 0x0827B08B
+  script 0x0827B08B  [ok]
+    0827B08B  call                 destination=0x0827B0A5
+    0827B090  end                  
+
+  script 0x0827B0A5  [ok]
+    0827B0A5  setobjectxyperm      localId=1 x=3 y=2
+    0827B0AC  setobjectmovementtype localId=1 movementType=10
+    0827B0B0  return               
+
+  map script type 2 (var 0x4074 == 1) -> 0x0827B0CB
+  script 0x0827B0CB  [ok]
+    0827B0CB  lockall              
+    0827B0CC  textcolor            color=1
+    0827B0CE  applymovement        localId=255 movements=[walk_down]
+    0827B0D5  waitmovement         localId=0
+    0827B0D8  applymovement        localId=1 movements=[walk_right walk_in_place_faster_down]
+    0827B0DF  waitmovement         localId=0
+    0827B0E2  copyobjectxytoperm   localId=1
+    0827B0E5  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    0827B0EC  waitmovement         localId=0
+    0827B0EF  compare_var_to_value var=0x4074 value=1
+    0827B0F4  call_if              condition=1 destination=0x0827B11A
+    0827B0FA  compare_var_to_value var=0x4074 value=2
+    0827B0FF  call_if              condition=1 destination=0x0827B13B
+    0827B105  compare_var_to_value var=0x4074 value=3
+    0827B10A  call_if              condition=1 destination=0x0827B15C
+    0827B110  special              SPECIAL_\function=19
+    0827B113  setvar               destination=VAR_0x4074 value=0
+    0827B118  releaseall           
+
+  script 0x0827B11A  [ok]
+    0827B11A  msgbox_multilang     type=0 text_0="Bravo!\pBravo, indeed!\nWhat an astounding battle!\pIt was so astounding, why, it keeps\nfilling my eyes with tears!\pThe thrust and parry of expertly\nused techniques!\pThe clash of power upon power!\pYes!\nIt was sheer magnificence!" text_1="Bravo!\pBravo, indeed!\nWhat an astounding battle!\pIt was so astounding, why, it keeps\nfilling my eyes with tears!\pThe thrust and parry of expertly\nused techniques!\pThe clash of power upon power!\pYes!\nIt was sheer magnificence!" text_2="Bravo!\pBravo, indeed!\nWhat an astounding battle!\pIt was so astounding, why, it keeps\nfilling my eyes with tears!\pThe thrust and parry of expertly\nused techniques!\pThe clash of power upon power!\pYes!\nIt was sheer magnificence!" text_3="Bravo!\pBravo, indeed!\nWhat an astounding battle!\pIt was so astounding, why, it keeps\nfilling my eyes with tears!\pThe thrust and parry of expertly\nused techniques!\pThe clash of power upon power!\pYes!\nIt was sheer magnificence!" text_4="Bravo!\pBravo, indeed!\nWhat an astounding battle!\pIt was so astounding, why, it keeps\nfilling my eyes with tears!\pThe thrust and parry of expertly\nused techniques!\pThe clash of power upon power!\pYes!\nIt was sheer magnificence!" text_5="Bravo!\pBravo, indeed!\nWhat an astounding battle!\pIt was so astounding, why, it keeps\nfilling my eyes with tears!\pThe thrust and parry of expertly\nused techniques!\pThe clash of power upon power!\pYes!\nIt was sheer magnificence!" text_6="Bravo!\pBravo, indeed!\nWhat an astounding battle!\pIt was so astounding, why, it keeps\nfilling my eyes with tears!\pThe thrust and parry of expertly\nused techniques!\pThe clash of power upon power!\pYes!\nIt was sheer magnificence!"
+    0827B138  callstd              function=MSGBOX_DEFAULT(4)
+    0827B13A  return               
+
+  script 0x0827B13B  [ok]
+    0827B13B  msgbox_multilang     type=0 text_0="Too bad!\nI feel your disappointment.\pHowever, that disappointment is\nwhat will make you better.\pUse it, learn from it, and make it\nmotivate you to seek greatness.\pForget not this disappointment\nand redouble your training!" text_1="Too bad!\nI feel your disappointment.\pHowever, that disappointment is\nwhat will make you better.\pUse it, learn from it, and make it\nmotivate you to seek greatness.\pForget not this disappointment\nand redouble your training!" text_2="Too bad!\nI feel your disappointment.\pHowever, that disappointment is\nwhat will make you better.\pUse it, learn from it, and make it\nmotivate you to seek greatness.\pForget not this disappointment\nand redouble your training!" text_3="Too bad!\nI feel your disappointment.\pHowever, that disappointment is\nwhat will make you better.\pUse it, learn from it, and make it\nmotivate you to seek greatness.\pForget not this disappointment\nand redouble your training!" text_4="Too bad!\nI feel your disappointment.\pHowever, that disappointment is\nwhat will make you better.\pUse it, learn from it, and make it\nmotivate you to seek greatness.\pForget not this disappointment\nand redouble your training!" text_5="Too bad!\nI feel your disappointment.\pHowever, that disappointment is\nwhat will make you better.\pUse it, learn from it, and make it\nmotivate you to seek greatness.\pForget not this disappointment\nand redouble your training!" text_6="Too bad!\nI feel your disappointment.\pHowever, that disappointment is\nwhat will make you better.\pUse it, learn from it, and make it\nmotivate you to seek greatness.\pForget not this disappointment\nand redouble your training!"
+    0827B159  callstd              function=MSGBOX_DEFAULT(4)
+    0827B15B  return               
+
+  script 0x0827B15C  [ok]
+    0827B15C  msgbox_multilang     type=0 text_0="A draw, was it?\pHowever, let me say that it was\na worthy spectacle.\pI’d say it was a wonderful battle\nwith a real sense of depth!" text_1="A draw, was it?\pHowever, let me say that it was\na worthy spectacle.\pI’d say it was a wonderful battle\nwith a real sense of depth!" text_2="A draw, was it?\pHowever, let me say that it was\na worthy spectacle.\pI’d say it was a wonderful battle\nwith a real sense of depth!" text_3="A draw, was it?\pHowever, let me say that it was\na worthy spectacle.\pI’d say it was a wonderful battle\nwith a real sense of depth!" text_4="A draw, was it?\pHowever, let me say that it was\na worthy spectacle.\pI’d say it was a wonderful battle\nwith a real sense of depth!" text_5="A draw, was it?\pHowever, let me say that it was\na worthy spectacle.\pI’d say it was a wonderful battle\nwith a real sense of depth!" text_6="A draw, was it?\pHowever, let me say that it was\na worthy spectacle.\pI’d say it was a wonderful battle\nwith a real sense of depth!"
+    0827B17A  callstd              function=MSGBOX_DEFAULT(4)
+    0827B17C  return               
+
+  map script type 2 (var 0x4074 == 2) -> 0x0827B0CB
+  map script type 2 (var 0x4074 == 3) -> 0x0827B0CB

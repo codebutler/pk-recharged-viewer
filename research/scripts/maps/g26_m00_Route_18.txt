@@ -1,0 +1,119 @@
+Route 18  (group 26, map 0)  header 0x08B3DAC8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0000) -> 0x0827A39F
+  script 0x0827A39F  [ok]
+    0827A39F  msgbox_multilang     type=0 text_0="Cycling Road is all uphill from\nhere." text_1="Cycling Road is all uphill from\nhere." text_2="Cycling Road is all uphill from\nhere." text_3="Cycling Road is all uphill from\nhere." text_4="Cycling Road is all uphill from\nhere." text_5="Cycling Road is all uphill from\nhere." text_6="Cycling Road is all uphill from\nhere."
+    0827A3BD  callstd              function=MSGBOX_NPC(2)
+    0827A3BF  end                  
+
+  coord trigger 0 (var 0x405E == 0) -> 0x082F80C0
+  script 0x082F80C0  [ok]
+    082F80C0  lockall              
+    082F80C1  setvar               destination=VAR_0x405E value=1
+    082F80C6  releaseall           
+
+  coord trigger 1 (var 0x4001 == 0) -> 0x0827A3C0
+  script 0x0827A3C0  [ok]
+    0827A3C0  lockall              
+    0827A3C1  setvar               destination=VAR_0x8008 value=0
+    0827A3C6  goto                 destination=0x0827A3FC
+
+  script 0x0827A3FC  [ok]
+    0827A3FC  textcolor            color=0
+    0827A3FE  msgbox_multilang     type=0 text_0="Excuse me!" text_1="Excuse me!" text_2="Excuse me!" text_3="Excuse me!" text_4="Excuse me!" text_5="Excuse me!" text_6="Excuse me!"
+    0827A41C  callstd              function=MSGBOX_DEFAULT(4)
+    0827A41E  closemessage         
+    0827A41F  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    0827A426  waitmovement         localId=0
+    0827A429  delay                frames=20
+    0827A42C  compare_var_to_value var=0x8008 value=1
+    0827A431  call_if              condition=1 destination=0x0827A485
+    0827A437  compare_var_to_value var=0x8008 value=2
+    0827A43C  call_if              condition=1 destination=0x0827A490
+    0827A442  compare_var_to_value var=0x8008 value=3
+    0827A447  call_if              condition=1 destination=0x0827A49B
+    0827A44D  compare_var_to_value var=0x8008 value=4
+    0827A452  call_if              condition=1 destination=0x0827A4A6
+    0827A458  msgbox_multilang     type=0 text_0="You need a Bicycle to go out on\nCycling Road!" text_1="You need a Bicycle to go out on\nCycling Road!" text_2="You need a Bicycle to go out on\nCycling Road!" text_3="You need a Bicycle to go out on\nCycling Road!" text_4="You need a Bicycle to go out on\nCycling Road!" text_5="You need a Bicycle to go out on\nCycling Road!" text_6="You need a Bicycle to go out on\nCycling Road!"
+    0827A476  callstd              function=MSGBOX_DEFAULT(4)
+    0827A478  closemessage         
+    0827A479  applymovement        localId=255 movements=[walk_right]
+    0827A480  waitmovement         localId=0
+    0827A483  releaseall           
+
+  script 0x0827A485  [ok]
+    0827A485  applymovement        localId=255 movements=[walk_up]
+    0827A48C  waitmovement         localId=0
+    0827A48F  return               
+
+  script 0x0827A490  [ok]
+    0827A490  applymovement        localId=255 movements=[walk_up walk_up]
+    0827A497  waitmovement         localId=0
+    0827A49A  return               
+
+  script 0x0827A49B  [ok]
+    0827A49B  applymovement        localId=255 movements=[walk_up walk_up walk_up]
+    0827A4A2  waitmovement         localId=0
+    0827A4A5  return               
+
+  script 0x0827A4A6  [ok]
+    0827A4A6  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up]
+    0827A4AD  waitmovement         localId=0
+    0827A4B0  return               
+
+  coord trigger 2 (var 0x4001 == 0) -> 0x0827A3CC
+  script 0x0827A3CC  [ok]
+    0827A3CC  lockall              
+    0827A3CD  setvar               destination=VAR_0x8008 value=1
+    0827A3D2  goto                 destination=0x0827A3FC
+
+  coord trigger 3 (var 0x4001 == 0) -> 0x0827A3D8
+  script 0x0827A3D8  [ok]
+    0827A3D8  lockall              
+    0827A3D9  setvar               destination=VAR_0x8008 value=2
+    0827A3DE  goto                 destination=0x0827A3FC
+
+  coord trigger 4 (var 0x4001 == 0) -> 0x0827A3E4
+  script 0x0827A3E4  [ok]
+    0827A3E4  lockall              
+    0827A3E5  setvar               destination=VAR_0x8008 value=3
+    0827A3EA  goto                 destination=0x0827A3FC
+
+  coord trigger 5 (var 0x4001 == 0) -> 0x0827A3F0
+  script 0x0827A3F0  [ok]
+    0827A3F0  lockall              
+    0827A3F1  setvar               destination=VAR_0x8008 value=4
+    0827A3F6  goto                 destination=0x0827A3FC
+
+  coord trigger 6 (var 0x405E == 1) -> 0x082F80B5
+  script 0x082F80B5  [ok]
+    082F80B5  lockall              
+    082F80B6  clearflag            flag=0x890
+    082F80B9  setvar               destination=VAR_0x405E value=0
+    082F80BE  releaseall           
+
+  coord trigger 7 (var 0x405E == 1) -> 0x082F80B5
+  coord trigger 8 (var 0x405E == 1) -> 0x082F80B5
+  coord trigger 9 (var 0x405E == 0) -> 0x082F80C0
+  coord trigger 10 (var 0x405E == 0) -> 0x082F80C0
+  map script type 3 -> 0x0827A38C
+  script 0x0827A38C  [ok]
+    0827A38C  clearflag            flag=0x890
+    0827A38F  checkflag            flag=0x271
+    0827A392  call_if              condition=1 destination=0x0827A399
+    0827A398  end                  
+
+  script 0x0827A399  [ok]
+    0827A399  setvar               destination=VAR_0x4001 value=1
+    0827A39E  return               
+

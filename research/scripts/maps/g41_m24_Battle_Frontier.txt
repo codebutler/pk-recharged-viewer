@@ -1,0 +1,394 @@
+Battle Frontier  (group 41, map 24)  header 0x08B3E350
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x5A, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x08, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0x08, flag 0x0000) -> 0x00000000
+  object 5 (gfx 0x08, flag 0x0000) -> 0x00000000
+  object 6 (gfx 0x08, flag 0x0000) -> 0x00000000
+  object 7 (gfx 0x08, flag 0x0000) -> 0x00000000
+  object 8 (gfx 0x69, flag 0x0000) -> 0x00000000
+  map script type 3 -> 0x082A88EA
+  script 0x082A88EA  [ok]
+    082A88EA  setvar               destination=VAR_0x8004 value=5
+    082A88EF  special              SPECIAL_\function=148
+    082A88F2  checkplayergender    
+    082A88F3  compare_var_to_value var=0x800D value=0
+    082A88F8  goto_if              condition=1 destination=0x082A891C
+    082A88FE  setvar               destination=VAR_0x401F value=89
+    082A8903  setvar               destination=VAR_0x8004 value=9
+    082A8908  special              SPECIAL_\function=148
+    082A890B  copyvar              destination=VAR_0x400F source=VAR_0x800D
+    082A8910  compare_var_to_value var=0x800D value=0
+    082A8915  goto_if              condition=5 destination=0x082A8926
+    082A891B  end                  
+
+  script 0x082A891C  [ok]
+    082A891C  setvar               destination=VAR_0x401F value=0
+    082A8921  goto                 destination=0x082A8903
+
+  script 0x082A8926  [ok]
+    082A8926  call                 destination=0x0828D0B7
+    082A892B  setobjectxyperm      localId=2 x=7 y=9
+    082A8932  goto                 destination=0x082A891B
+
+  script 0x082A8903  [ok]
+    082A8903  setvar               destination=VAR_0x8004 value=9
+    082A8908  special              SPECIAL_\function=148
+    082A890B  copyvar              destination=VAR_0x400F source=VAR_0x800D
+    082A8910  compare_var_to_value var=0x800D value=0
+    082A8915  goto_if              condition=5 destination=0x082A8926
+    082A891B  end                  
+
+  script 0x0828D0B7  [ok]
+    0828D0B7  setvar               destination=VAR_0x8004 value=22
+    0828D0BC  special              SPECIAL_\function=148
+    0828D0BF  return               
+
+  script 0x082A891B  [ok]
+    082A891B  end                  
+
+  map script type 4 (var 0x4001 == 0) -> 0x082A8941
+  script 0x082A8941  [ok]
+    082A8941  setvar               destination=VAR_0x4001 value=1
+    082A8946  hideobjectat         localId=255 mapGroup=41 mapNum=24
+    082A894B  compare_var_to_value var=0x400F value=0
+    082A8950  goto_if              condition=5 destination=0x082A895C
+    082A8956  hideobjectat         localId=2 mapGroup=41 mapNum=24
+    082A895B  end                  
+
+  script 0x082A895C  [ok]
+    082A895C  end                  
+
+  map script type 2 (var 0x4000 == 0) -> 0x082A8967
+  script 0x082A8967  [ok]
+    082A8967  compare_var_to_value var=0x400F value=0
+    082A896C  goto_if              condition=5 destination=0x082A89AD
+    082A8972  applymovement        localId=8 movements=[walk_up walk_up walk_up walk_up walk_up face_right]
+    082A8979  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up face_right]
+    082A8980  waitmovement         localId=0
+    082A8983  call                 destination=0x082A8E8F
+    082A8988  setvar               destination=VAR_0x8004 value=11
+    082A898D  special              SPECIAL_\function=154
+    082A8990  removeobject         localId=2
+    082A8993  setobjectxyperm      localId=2 x=7 y=1
+    082A899A  addobject            localId=2
+    082A899D  applymovement        localId=2 movements=[walk_down walk_down walk_down walk_down walk_down face_left]
+    082A89A4  waitmovement         localId=0
+    082A89A7  goto                 destination=0x082A89F1
+
+  script 0x082A89AD  [ok]
+    082A89AD  msgbox_multilang     type=0 text_0="Hey, hey!\nGet a move on!" text_1="Hey, hey!\nGet a move on!" text_2="Hey, hey!\nGet a move on!" text_3="Hey, hey!\nGet a move on!" text_4="Hey, hey!\nGet a move on!" text_5="Hey, hey!\nGet a move on!" text_6="Hey, hey!\nGet a move on!"
+    082A89CB  callstd              function=MSGBOX_DEFAULT(4)
+    082A89CD  closemessage         
+    082A89CE  applymovement        localId=2 movements=[walk_up walk_up walk_up face_left]
+    082A89D5  applymovement        localId=8 movements=[walk_up walk_up walk_up walk_up walk_up face_right]
+    082A89DC  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up face_right]
+    082A89E3  waitmovement         localId=0
+    082A89E6  call                 destination=0x082A8E8F
+    082A89EB  goto                 destination=0x082A89F1
+
+  script 0x082A8E8F  [ok]
+    082A8E8F  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    082A8E96  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    082A8E9D  applymovement        localId=4 movements=[walk_in_place_faster_right]
+    082A8EA4  applymovement        localId=5 movements=[walk_in_place_faster_left]
+    082A8EAB  applymovement        localId=6 movements=[walk_in_place_faster_left]
+    082A8EB2  applymovement        localId=7 movements=[walk_in_place_faster_left]
+    082A8EB9  waitmovement         localId=0
+    082A8EBC  return               
+
+  script 0x082A89F1  [ok]
+    082A89F1  compare_var_to_value var=0x400F value=0
+    082A89F6  goto_if              condition=5 destination=0x082A8A5B
+    082A89FC  setvar               destination=VAR_0x8004 value=5
+    082A8A01  special              SPECIAL_\function=151
+    082A8A04  lockall              
+    082A8A05  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    082A8A23  callstd              function=MSGBOX_DEFAULT(4)
+    082A8A25  waitmessage          
+    082A8A26  closemessage         
+    082A8A27  setvar               destination=VAR_0x8004 value=2
+    082A8A2C  setvar               destination=VAR_0x8005 value=6
+    082A8A31  setvar               destination=VAR_0x8006 value=0
+    082A8A36  special              SPECIAL_\function=148
+    082A8A39  special              SPECIAL_\function=0
+    082A8A3C  setvar               destination=VAR_0x8004 value=6
+    082A8A41  setvar               destination=VAR_0x8005 value=0
+    082A8A46  special              SPECIAL_\function=152
+    082A8A49  waitstate            
+
+  script 0x082A8A5B  [ok]
+    082A8A5B  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    082A8A60  compare_var_to_value var=0x8000 value=2
+    082A8A65  goto_if              condition=1 destination=0x082A8B09
+    082A8A6B  compare_var_to_value var=0x8000 value=3
+    082A8A70  goto_if              condition=1 destination=0x082A8B58
+    082A8A76  compare_var_to_value var=0x8000 value=4
+    082A8A7B  goto_if              condition=1 destination=0x082A8B62
+    082A8A81  setvar               destination=VAR_0x8004 value=1
+    082A8A86  setvar               destination=VAR_0x8005 value=7
+    082A8A8B  special              SPECIAL_\function=148
+    082A8A8E  compare_var_to_value var=0x800D value=0
+    082A8A93  goto_if              condition=5 destination=0x082A8B76
+    082A8A99  msgbox_multilang     type=0 text_0="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_1="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_2="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_3="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_4="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_5="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_6="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!"
+    082A8AB7  callstd              function=MSGBOX_DEFAULT(4)
+    082A8AB9  setvar               destination=VAR_0x8004 value=2
+    082A8ABE  setvar               destination=VAR_0x8005 value=7
+    082A8AC3  special              SPECIAL_\function=148
+    082A8AC6  goto                 destination=0x082A8CE7
+
+  script 0x082A8B09  [ok]
+    082A8B09  setvar               destination=VAR_0x8004 value=1
+    082A8B0E  setvar               destination=VAR_0x8005 value=7
+    082A8B13  special              SPECIAL_\function=148
+    082A8B16  compare_var_to_value var=0x800D value=0
+    082A8B1B  goto_if              condition=5 destination=0x082A8B80
+    082A8B21  msgbox_multilang     type=0 text_0="Noland: Hey, hey! How’s it going?\nYou keeping up with your studies?\p…Oh?\pYou’ve taken on a harder look than\nthe last time I saw you.\pNow, this should be fun!\nI’m getting excited, hey!" text_1="Noland: Hey, hey! How’s it going?\nYou keeping up with your studies?\p…Oh?\pYou’ve taken on a harder look than\nthe last time I saw you.\pNow, this should be fun!\nI’m getting excited, hey!" text_2="Noland: Hey, hey! How’s it going?\nYou keeping up with your studies?\p…Oh?\pYou’ve taken on a harder look than\nthe last time I saw you.\pNow, this should be fun!\nI’m getting excited, hey!" text_3="Noland: Hey, hey! How’s it going?\nYou keeping up with your studies?\p…Oh?\pYou’ve taken on a harder look than\nthe last time I saw you.\pNow, this should be fun!\nI’m getting excited, hey!" text_4="Noland: Hey, hey! How’s it going?\nYou keeping up with your studies?\p…Oh?\pYou’ve taken on a harder look than\nthe last time I saw you.\pNow, this should be fun!\nI’m getting excited, hey!" text_5="Noland: Hey, hey! How’s it going?\nYou keeping up with your studies?\p…Oh?\pYou’ve taken on a harder look than\nthe last time I saw you.\pNow, this should be fun!\nI’m getting excited, hey!" text_6="Noland: Hey, hey! How’s it going?\nYou keeping up with your studies?\p…Oh?\pYou’ve taken on a harder look than\nthe last time I saw you.\pNow, this should be fun!\nI’m getting excited, hey!"
+    082A8B3F  callstd              function=MSGBOX_DEFAULT(4)
+    082A8B41  setvar               destination=VAR_0x8004 value=2
+    082A8B46  setvar               destination=VAR_0x8005 value=7
+    082A8B4B  special              SPECIAL_\function=148
+    082A8B4E  goto                 destination=0x082A8BE5
+
+  script 0x082A8B58  [ok]
+    082A8B58  call                 destination=0x082A8CE7
+    082A8B5D  goto                 destination=0x082A8A81
+
+  script 0x082A8B62  [ok]
+    082A8B62  call                 destination=0x082A8BE5
+    082A8B67  goto                 destination=0x082A8A81
+
+  script 0x082A8B76  [ok]
+    082A8B76  goto                 destination=0x082A8CE7
+
+  script 0x082A8CE7  [ok]
+    082A8CE7  msgbox_multilang     type=0 text_0="Shake out every last bit of your\nknowledge and bring it on!" text_1="Shake out every last bit of your\nknowledge and bring it on!" text_2="Shake out every last bit of your\nknowledge and bring it on!" text_3="Shake out every last bit of your\nknowledge and bring it on!" text_4="Shake out every last bit of your\nknowledge and bring it on!" text_5="Shake out every last bit of your\nknowledge and bring it on!" text_6="Shake out every last bit of your\nknowledge and bring it on!"
+    082A8D05  callstd              function=MSGBOX_DEFAULT(4)
+    082A8D07  call                 destination=0x082A8DB9
+    082A8D0C  compare_var_to_value var=0x800D value=1
+    082A8D11  goto_if              condition=1 destination=0x082A8D1D
+    082A8D17  goto                 destination=0x082A8CB7
+
+  script 0x082A8B80  [ok]
+    082A8B80  goto                 destination=0x082A8BE5
+
+  script 0x082A8BE5  [ok]
+    082A8BE5  msgbox_multilang     type=0 text_0="All right!\nBring it on!" text_1="All right!\nBring it on!" text_2="All right!\nBring it on!" text_3="All right!\nBring it on!" text_4="All right!\nBring it on!" text_5="All right!\nBring it on!" text_6="All right!\nBring it on!"
+    082A8C03  callstd              function=MSGBOX_DEFAULT(4)
+    082A8C05  call                 destination=0x082A8DB9
+    082A8C0A  compare_var_to_value var=0x800D value=1
+    082A8C0F  goto_if              condition=1 destination=0x082A8C1B
+    082A8C15  goto                 destination=0x082A8CB7
+
+  script 0x082A8A81  [ok]
+    082A8A81  setvar               destination=VAR_0x8004 value=1
+    082A8A86  setvar               destination=VAR_0x8005 value=7
+    082A8A8B  special              SPECIAL_\function=148
+    082A8A8E  compare_var_to_value var=0x800D value=0
+    082A8A93  goto_if              condition=5 destination=0x082A8B76
+    082A8A99  msgbox_multilang     type=0 text_0="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_1="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_2="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_3="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_4="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_5="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!" text_6="Hey, my name’s Noland!\nI’m basically in charge of this\pplace, which is why I’m the Factory\pHead!\pI had a look at your Battle Swap\ndata.\pYou seem to have the right idea, but\nyou’re still square in your head!\pListen up, okay? Knowledge isn’t only\nabout reading books or doing desk\pwork.\pJust doing that sort of thing…\nIt may as well be useless!\pYou have to experience things with\nyour heart and your body,\punderstand?\pI’ll take you on under the same\nconditions as you.\pI’ll be using rental Pokémon, too!"
+    082A8AB7  callstd              function=MSGBOX_DEFAULT(4)
+    082A8AB9  setvar               destination=VAR_0x8004 value=2
+    082A8ABE  setvar               destination=VAR_0x8005 value=7
+    082A8AC3  special              SPECIAL_\function=148
+    082A8AC6  goto                 destination=0x082A8CE7
+
+  script 0x082A8DB9  [ok]
+    082A8DB9  closemessage         
+    082A8DBA  setvar               destination=VAR_0x8004 value=2
+    082A8DBF  setvar               destination=VAR_0x8005 value=6
+    082A8DC4  setvar               destination=VAR_0x8006 value=0
+    082A8DC9  special              SPECIAL_\function=148
+    082A8DCC  special              SPECIAL_\function=0
+    082A8DCF  setvar               destination=VAR_0x8004 value=6
+    082A8DD4  setvar               destination=VAR_0x8005 value=0
+    082A8DD9  special              SPECIAL_\function=152
+    082A8DDC  waitstate            
+
+  script 0x082A8D1D  [opcode-out-of-range:0xFF]
+    082A8D1D  setvar               destination=VAR_0x8004 value=12
+    082A8D22  special              SPECIAL_\function=148
+    082A8D25  compare_var_to_value var=0x800D value=0
+    082A8D2A  goto_if              condition=5 destination=0x082A8DAF
+    082A8D30  msgbox_multilang     type=0 text_0="Noland: Smart going!\nLet’s see your Frontier Pass." text_1="Noland: Smart going!\nLet’s see your Frontier Pass." text_2="Noland: Smart going!\nLet’s see your Frontier Pass." text_3="Noland: Smart going!\nLet’s see your Frontier Pass." text_4="Noland: Smart going!\nLet’s see your Frontier Pass." text_5="Noland: Smart going!\nLet’s see your Frontier Pass." text_6="Noland: Smart going!\nLet’s see your Frontier Pass."
+    082A8D4E  callstd              function=MSGBOX_DEFAULT(4)
+    082A8D50  closemessage         
+    082A8D51  applymovement        localId=8 movements=[walk_right]
+    082A8D58  waitmovement         localId=0
+    082A8D5B  playfanfare          song=466
+    082A8D5E  message              text="The Knowledge Symbol was embossed\non the Frontier Pass!"
+
+  script 0x082A8CB7  [ok]
+    082A8CB7  setvar               destination=VAR_0x8004 value=2
+    082A8CBC  setvar               destination=VAR_0x8005 value=0
+    082A8CC1  setvar               destination=VAR_0x8006 value=4
+    082A8CC6  special              SPECIAL_\function=148
+    082A8CC9  goto                 destination=0x082A8E68
+
+  script 0x082A8C1B  [ok]
+    082A8C1B  setvar               destination=VAR_0x8004 value=12
+    082A8C20  special              SPECIAL_\function=148
+    082A8C23  compare_var_to_value var=0x800D value=2
+    082A8C28  goto_if              condition=1 destination=0x082A8CAD
+    082A8C2E  msgbox_multilang     type=0 text_0="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_1="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_2="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_3="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_4="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_5="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_6="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!"
+    082A8C4C  callstd              function=MSGBOX_DEFAULT(4)
+    082A8C4E  waitmessage          
+    082A8C4F  applymovement        localId=8 movements=[walk_right]
+    082A8C56  waitmovement         localId=0
+    082A8C59  playfanfare          song=466
+    082A8C5C  message              text="The Knowledge Symbol took on a\ngolden shine!"
+    082A8C61  gotostd_if           condition=146 function=42
+    082A8C64  gotostd              function=MSGBOX_POKENAV(10)
+    082A8C66  checkmoney           value=2450130986 disable=42
+    082A8C6C  gotostd              function=MSGBOX_POKENAV(10)
+    082A8C6E  checkmoney           value=2450130986 disable=42
+    082A8C74  gotostd              function=MSGBOX_POKENAV(10)
+    082A8C76  checkmoney           value=845547562 disable=22
+    082A8C7C  call                 destination=620760448
+    082A8C81  hidemoneybox         0=0 0=230
+    082A8C84  nop                  
+    082A8C85  fadeoutbgm           speed=146
+    082A8C87  clearflag            flag=0x3708
+    082A8C8A  checkmoney           value=2453080106 disable=42
+    082A8C90  gotostd              function=55
+    082A8C92  checkmoney           value=2453080106 disable=42
+    082A8C98  gotostd              function=55
+    082A8C9A  checkmoney           value=2453080106 disable=42
+    082A8CA0  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A8CA2  call                 destination=713940485
+    082A8CA7  gotostd              function=MSGBOX_YESNO(5)
+    082A8CA9  copybyte             destination=84421260 source=0x082A8DDE
+    082A8CB2  goto                 destination=0x082A8C2E
+
+  script 0x082A8DAF  [ok]
+    082A8DAF  goto                 destination=0x082A8DDE
+
+  script 0x082A8E68  [ok]
+    082A8E68  copyvar              destination=VAR_0x800D source=VAR_0x408C
+    082A8E6D  compare_var_to_value var=0x800D value=1
+    082A8E72  goto_if              condition=1 destination=0x082A8E82
+    082A8E78  warp                 mapGroup=41 mapNum=22 WARP_ID_NONE=255 -1=4 -1=8
+    082A8E80  waitstate            
+
+  script 0x082A8CAD  [ok]
+    082A8CAD  goto                 destination=0x082A8DDE
+
+  script 0x082A8C2E  [ok]
+    082A8C2E  msgbox_multilang     type=0 text_0="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_1="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_2="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_3="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_4="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_5="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!" text_6="Noland: What the…\nYou’re getting out of my league!\pSheesh!\nLet’s see that Frontier Pass!"
+    082A8C4C  callstd              function=MSGBOX_DEFAULT(4)
+    082A8C4E  waitmessage          
+    082A8C4F  applymovement        localId=8 movements=[walk_right]
+    082A8C56  waitmovement         localId=0
+    082A8C59  playfanfare          song=466
+    082A8C5C  message              text="The Knowledge Symbol took on a\ngolden shine!"
+    082A8C61  gotostd_if           condition=146 function=42
+    082A8C64  gotostd              function=MSGBOX_POKENAV(10)
+    082A8C66  checkmoney           value=2450130986 disable=42
+    082A8C6C  gotostd              function=MSGBOX_POKENAV(10)
+    082A8C6E  checkmoney           value=2450130986 disable=42
+    082A8C74  gotostd              function=MSGBOX_POKENAV(10)
+    082A8C76  checkmoney           value=845547562 disable=22
+    082A8C7C  call                 destination=620760448
+    082A8C81  hidemoneybox         0=0 0=230
+    082A8C84  nop                  
+    082A8C85  fadeoutbgm           speed=146
+    082A8C87  clearflag            flag=0x3708
+    082A8C8A  checkmoney           value=2453080106 disable=42
+    082A8C90  gotostd              function=55
+    082A8C92  checkmoney           value=2453080106 disable=42
+    082A8C98  gotostd              function=55
+    082A8C9A  checkmoney           value=2453080106 disable=42
+    082A8CA0  gotostd              function=MSGBOX_GETPOINTS(9)
+    082A8CA2  call                 destination=713940485
+    082A8CA7  gotostd              function=MSGBOX_YESNO(5)
+    082A8CA9  copybyte             destination=84421260 source=0x082A8DDE
+    082A8CB2  goto                 destination=0x082A8C2E
+
+  script 0x082A8DDE  [ok]
+    082A8DDE  setvar               destination=VAR_0x8004 value=1
+    082A8DE3  setvar               destination=VAR_0x8005 value=3
+    082A8DE8  special              SPECIAL_\function=154
+    082A8DEB  compare_var_to_value var=0x800D value=9999
+    082A8DF0  goto_if              condition=1 destination=0x082A8E54
+    082A8DF6  addvar               destination=VAR_0x800D value=1
+    082A8DFB  setorcopyvar         destination=VAR_0x8006 source=VAR_0x800D
+    082A8E00  setvar               destination=VAR_0x8004 value=2
+    082A8E05  setvar               destination=VAR_0x8005 value=3
+    082A8E0A  special              SPECIAL_\function=154
+    082A8E0D  setvar               destination=VAR_0x8004 value=1
+    082A8E12  setvar               destination=VAR_0x8005 value=1
+    082A8E17  special              SPECIAL_\function=154
+    082A8E1A  compare_var_to_value var=0x800D value=9999
+    082A8E1F  goto_if              condition=1 destination=0x082A8E5E
+    082A8E25  addvar               destination=VAR_0x800D value=1
+    082A8E2A  setvar               destination=VAR_0x8004 value=2
+    082A8E2F  setvar               destination=VAR_0x8005 value=1
+    082A8E34  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082A8E39  special              SPECIAL_\function=154
+    082A8E3C  setvar               destination=VAR_0x8004 value=1
+    082A8E41  setvar               destination=VAR_0x8005 value=2
+    082A8E46  special              SPECIAL_\function=148
+    082A8E49  addvar               destination=VAR_0x800D value=1
+    082A8E4E  goto                 destination=0x082A8CCF
+
+  script 0x082A8E82  [ok]
+    082A8E82  warp                 mapGroup=41 mapNum=22 WARP_ID_NONE=255 -1=14 -1=8
+    082A8E8A  goto                 destination=0x082A8E80
+
+  script 0x082A8E54  [ok]
+    082A8E54  goto                 destination=0x082A8B8A
+
+  script 0x082A8E5E  [ok]
+    082A8E5E  goto                 destination=0x082A8B98
+
+  script 0x082A8CCF  [ok]
+    082A8CCF  setvar               destination=VAR_0x8004 value=2
+    082A8CD4  setvar               destination=VAR_0x8005 value=0
+    082A8CD9  setvar               destination=VAR_0x8006 value=3
+    082A8CDE  special              SPECIAL_\function=148
+    082A8CE1  goto                 destination=0x082A8E68
+
+  script 0x082A8E80  [ok]
+    082A8E80  waitstate            
+
+  script 0x082A8B8A  [ok]
+    082A8B8A  setvar               destination=VAR_0x8004 value=17
+    082A8B8F  special              SPECIAL_\function=148
+    082A8B92  call                 destination=0x082A8B98
+    082A8B97  return               
+
+  script 0x082A8B98  [ok]
+    082A8B98  setvar               destination=VAR_0x8004 value=1
+    082A8B9D  setvar               destination=VAR_0x8005 value=2
+    082A8BA2  special              SPECIAL_\function=148
+    082A8BA5  addvar               destination=VAR_0x800D value=1
+    082A8BAA  setvar               destination=VAR_0x8004 value=2
+    082A8BAF  setvar               destination=VAR_0x8005 value=2
+    082A8BB4  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082A8BB9  special              SPECIAL_\function=148
+    082A8BBC  compare_var_to_value var=0x800D value=7
+    082A8BC1  goto_if              condition=1 destination=0x082A8BDB
+    082A8BC7  setvar               destination=VAR_0x8006 value=1
+    082A8BCC  warp                 mapGroup=41 mapNum=23 WARP_ID_NONE=255 -1=8 -1=8
+    082A8BD4  waitstate            
+
+  script 0x082A8BDB  [ok]
+    082A8BDB  call                 destination=0x082A8CCF
+    082A8BE0  goto                 destination=0x082A8BC7
+
+  script 0x082A8BC7  [ok]
+    082A8BC7  setvar               destination=VAR_0x8006 value=1
+    082A8BCC  warp                 mapGroup=41 mapNum=23 WARP_ID_NONE=255 -1=8 -1=8
+    082A8BD4  waitstate            
+

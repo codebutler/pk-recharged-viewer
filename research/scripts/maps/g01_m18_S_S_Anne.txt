@@ -1,0 +1,26 @@
+S.S. Anne  (group 1, map 18)  header 0x08B3B410
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x30, flag 0x0000) -> 0x0820BEFB
+  script 0x0820BEFB  [ok]
+    0820BEFB  lock                 
+    0820BEFC  faceplayer           
+    0820BEFD  message              text="I’ve journeyed far and wide, but in\nall my travels I’ve never seen any\pPokémon sleep like this one!\pIt was something like this!"
+    0820BF02  initclock            hour=8383 minute=11272
+    0820BF07  vbufferstring        stringVarId=32 text=549399560
+    0820BF0D  gotostd              function=44
+    0820BF0F  vbufferstring        stringVarId=32 text=549399560
+    0820BF15  gotostd              function=44
+    0820BF17  vbufferstring        stringVarId=32 text=68576776
+    0820BF1D  bufferitemname       stringVarId=143 item=9472
+    0820BF21  release              
+

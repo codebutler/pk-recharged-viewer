@@ -1,0 +1,52 @@
+Cinnabar Island  (group 12, map 1)  header 0x08B3D614
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x0826C7EF
+  script 0x0826C7EF  [ok]
+    0826C7EF  msgbox_multilang     type=0 text_0="We study Pokémon extensively every\nday.\pPeople often bring us rare Pokémon\nfor examination." text_1="We study Pokémon extensively every\nday.\pPeople often bring us rare Pokémon\nfor examination." text_2="We study Pokémon extensively every\nday.\pPeople often bring us rare Pokémon\nfor examination." text_3="We study Pokémon extensively every\nday.\pPeople often bring us rare Pokémon\nfor examination." text_4="We study Pokémon extensively every\nday.\pPeople often bring us rare Pokémon\nfor examination." text_5="We study Pokémon extensively every\nday.\pPeople often bring us rare Pokémon\nfor examination." text_6="We study Pokémon extensively every\nday.\pPeople often bring us rare Pokémon\nfor examination."
+    0826C80D  callstd              function=MSGBOX_NPC(2)
+    0826C80F  end                  
+
+  sign 0 at (4,1) -> 0x0826C810
+  script 0x0826C810  [ok]
+    0826C810  msgbox_multilang     type=0 text_0="A photo of the Lab’s founder…\nDr. Fuji?!" text_1="A photo of the Lab’s founder…\nDr. Fuji?!" text_2="A photo of the Lab’s founder…\nDr. Fuji?!" text_3="A photo of the Lab’s founder…\nDr. Fuji?!" text_4="A photo of the Lab’s founder…\nDr. Fuji?!" text_5="A photo of the Lab’s founder…\nDr. Fuji?!" text_6="A photo of the Lab’s founder…\nDr. Fuji?!"
+    0826C82E  callstd              function=MSGBOX_SIGN(3)
+    0826C830  end                  
+
+  sign 1 at (12,5) -> 0x0826C831
+  script 0x0826C831  [ok]
+    0826C831  msgbox_multilang     type=0 text_0="Pokémon Lab\nMeeting Room" text_1="Pokémon Lab\nMeeting Room" text_2="Pokémon Lab\nMeeting Room" text_3="Pokémon Lab\nMeeting Room" text_4="Pokémon Lab\nMeeting Room" text_5="Pokémon Lab\nMeeting Room" text_6="Pokémon Lab\nMeeting Room"
+    0826C84F  callstd              function=MSGBOX_SIGN(3)
+    0826C851  end                  
+
+  sign 2 at (18,5) -> 0x0826C852
+  script 0x0826C852  [ok]
+    0826C852  msgbox_multilang     type=0 text_0="Pokémon Lab\nR & D Room" text_1="Pokémon Lab\nR & D Room" text_2="Pokémon Lab\nR & D Room" text_3="Pokémon Lab\nR & D Room" text_4="Pokémon Lab\nR & D Room" text_5="Pokémon Lab\nR & D Room" text_6="Pokémon Lab\nR & D Room"
+    0826C870  callstd              function=MSGBOX_SIGN(3)
+    0826C872  end                  
+
+  sign 3 at (24,5) -> 0x0826C873
+  script 0x0826C873  [ok]
+    0826C873  msgbox_multilang     type=0 text_0="Pokémon Lab\nTesting Room" text_1="Pokémon Lab\nTesting Room" text_2="Pokémon Lab\nTesting Room" text_3="Pokémon Lab\nTesting Room" text_4="Pokémon Lab\nTesting Room" text_5="Pokémon Lab\nTesting Room" text_6="Pokémon Lab\nTesting Room"
+    0826C891  callstd              function=MSGBOX_SIGN(3)
+    0826C893  end                  
+
+  map script type 3 -> 0x0826C7DD
+  script 0x0826C7DD  [ok]
+    0826C7DD  compare_var_to_value var=0x406A value=1
+    0826C7E2  goto_if              condition=1 destination=0x0826C7E9
+    0826C7E8  return               
+
+  script 0x0826C7E9  [ok]
+    0826C7E9  setvar               destination=VAR_0x406A value=2
+    0826C7EE  return               
+

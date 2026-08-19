@@ -1,0 +1,27 @@
+S.S. Anne  (group 1, map 25)  header 0x08B3B4D4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x31, flag 0x0000) -> 0x0820C621
+  script 0x0820C621  [ok]
+    0820C621  trainerbattle        type=0 trainer=0x8A localId=0 ptr1=0x0820C650 ptr2=0x0820C673
+    0820C62F  msgbox_multilang     type=0 text_0="We caught all our Pokémon while we\nwere out at sea." text_1="We caught all our Pokémon while we\nwere out at sea." text_2="We caught all our Pokémon while we\nwere out at sea." text_3="We caught all our Pokémon while we\nwere out at sea." text_4="We caught all our Pokémon while we\nwere out at sea." text_5="We caught all our Pokémon while we\nwere out at sea." text_6="We caught all our Pokémon while we\nwere out at sea."
+    0820C64D  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820C64F  end                  
+
+  object 2 (gfx 0x55, flag 0x0167) -> 0x082D56A9
+  script 0x082D56A9  [ok]
+    082D56A9  setorcopyvar         destination=VAR_0x8000 source=332
+    082D56AE  setorcopyvar         destination=VAR_0x8001 source=1
+    082D56B3  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM44
+    082D56B5  end                  
+

@@ -1,0 +1,621 @@
+Vermilion City  (group 9, map 8)  header 0x08B3D294
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x08280900
+  script 0x08280900  [ok]
+    08280900  special              SPECIAL_\function=282
+    08280903  call                 destination=0x082C0B46
+    08280908  call                 destination=0x0828013D
+    0828090D  special              SPECIAL_\function=49
+    08280910  call                 destination=0x0828764F
+    08280915  call                 destination=0x08280921
+    0828091A  call                 destination=0x0828096B
+    0828091F  waitstate            
+
+  script 0x082C0B46  [ok]
+    082C0B46  lock                 
+    082C0B47  faceplayer           
+    082C0B48  textcolor            color=1
+    082C0B4A  compare_var_to_value var=0x40D5 value=0
+    082C0B4F  goto_if              condition=5 destination=0x082C0BBE
+    082C0B55  checkflag            flag=0x0EC
+    082C0B58  call_if              condition=1 destination=0x082C0B25
+    082C0B5E  checkflag            flag=0x0EC
+    082C0B61  call_if              condition=0 destination=0x082C0B6D
+    082C0B67  goto                 destination=0x082C099E
+
+  script 0x0828013D  [unknown-opcode:0xE7]
+    0828013D  lockall              
+    0828013E  applymovement        localId=1 movements=[walk_left walk_in_place_faster_down]
+    08280145  waitmovement         localId=0
+    08280148  playse               song=71
+    0828014B  setmetatile          x=12 y=3 metatileId=655 impassable=1
+    08280154  special              SPECIAL_\function=79
+
+  script 0x0828764F  [ok]
+    0828764F  checkplayergender    
+    08287650  compare_var_to_value var=0x800D value=0
+    08287655  goto_if              condition=1 destination=0x08287667
+    0828765B  compare_var_to_value var=0x800D value=1
+    08287660  goto_if              condition=1 destination=0x0828766D
+    08287666  return               
+
+  script 0x08280921  [ok]
+    08280921  copyvar              destination=VAR_0x8000 source=VAR_0x8015
+    08280926  compare_var_to_value var=0x8000 value=0
+    0828092B  goto_if              condition=1 destination=0x08280953
+    08280931  compare_var_to_value var=0x8000 value=1
+    08280936  goto_if              condition=1 destination=0x08280959
+    0828093C  compare_var_to_value var=0x8000 value=2
+    08280941  goto_if              condition=1 destination=0x0828095F
+    08280947  compare_var_to_value var=0x8000 value=3
+    0828094C  goto_if              condition=1 destination=0x08280965
+    08280952  return               
+
+  script 0x0828096B  [ok]
+    0828096B  setflag              flag=0x109
+    0828096E  copyvar              destination=VAR_0x8000 source=VAR_0x8016
+    08280973  compare_var_to_value var=0x8000 value=0
+    08280978  goto_if              condition=1 destination=0x082809AB
+    0828097E  compare_var_to_value var=0x8000 value=1
+    08280983  goto_if              condition=1 destination=0x082809B8
+    08280989  compare_var_to_value var=0x8000 value=2
+    0828098E  goto_if              condition=1 destination=0x082809C5
+    08280994  compare_var_to_value var=0x8000 value=3
+    08280999  goto_if              condition=1 destination=0x082809D2
+    0828099F  compare_var_to_value var=0x8000 value=4
+    082809A4  goto_if              condition=1 destination=0x082809DF
+    082809AA  return               
+
+  script 0x082C0BBE  [ok]
+    082C0BBE  msgbox_multilang     type=0 text_0="Congratulations! Your Pokémon is the\nContest winner!\pWe have your prize right here.\nPlease, right this way!" text_1="Congratulations! Your Pokémon is the\nContest winner!\pWe have your prize right here.\nPlease, right this way!" text_2="Congratulations! Your Pokémon is the\nContest winner!\pWe have your prize right here.\nPlease, right this way!" text_3="Congratulations! Your Pokémon is the\nContest winner!\pWe have your prize right here.\nPlease, right this way!" text_4="Congratulations! Your Pokémon is the\nContest winner!\pWe have your prize right here.\nPlease, right this way!" text_5="Congratulations! Your Pokémon is the\nContest winner!\pWe have your prize right here.\nPlease, right this way!" text_6="Congratulations! Your Pokémon is the\nContest winner!\pWe have your prize right here.\nPlease, right this way!"
+    082C0BDC  callstd              function=MSGBOX_DEFAULT(4)
+    082C0BDE  copyvar              destination=VAR_0x8000 source=VAR_0x40D5
+    082C0BE3  compare_var_to_value var=0x8000 value=4
+    082C0BE8  goto_if              condition=1 destination=0x082C0BEF
+    082C0BEE  end                  
+
+  script 0x082C0B25  [ok]
+    082C0B25  msgbox_multilang     type=0 text_0="Hello!\pThis is the reception counter for\nPokémon Contests." text_1="Hello!\pThis is the reception counter for\nPokémon Contests." text_2="Hello!\pThis is the reception counter for\nPokémon Contests." text_3="Hello!\pThis is the reception counter for\nPokémon Contests." text_4="Hello!\pThis is the reception counter for\nPokémon Contests." text_5="Hello!\pThis is the reception counter for\nPokémon Contests." text_6="Hello!\pThis is the reception counter for\nPokémon Contests."
+    082C0B43  callstd              function=MSGBOX_DEFAULT(4)
+    082C0B45  return               
+
+  script 0x082C0B6D  [unknown-opcode:0xE9]
+    082C0B6D  msgbox_multilang     type=0 text_0="Hello!\pThis is the reception counter for\nPokémon Contests.\pOh? It appears that you don’t have a\nPokéblock Case yet.\pIn that case, we need to provide you\nwith this!" text_1="Hello!\pThis is the reception counter for\nPokémon Contests.\pOh? It appears that you don’t have a\nPokéblock Case yet.\pIn that case, we need to provide you\nwith this!" text_2="Hello!\pThis is the reception counter for\nPokémon Contests.\pOh? It appears that you don’t have a\nPokéblock Case yet.\pIn that case, we need to provide you\nwith this!" text_3="Hello!\pThis is the reception counter for\nPokémon Contests.\pOh? It appears that you don’t have a\nPokéblock Case yet.\pIn that case, we need to provide you\nwith this!" text_4="Hello!\pThis is the reception counter for\nPokémon Contests.\pOh? It appears that you don’t have a\nPokéblock Case yet.\pIn that case, we need to provide you\nwith this!" text_5="Hello!\pThis is the reception counter for\nPokémon Contests.\pOh? It appears that you don’t have a\nPokéblock Case yet.\pIn that case, we need to provide you\nwith this!" text_6="Hello!\pThis is the reception counter for\nPokémon Contests.\pOh? It appears that you don’t have a\nPokéblock Case yet.\pIn that case, we need to provide you\nwith this!"
+    082C0B8B  callstd              function=MSGBOX_DEFAULT(4)
+
+  script 0x082C099E  [ok]
+    082C099E  message              text="Would you like to enter your Pokémon\nin our Contests?"
+    082C09A3  removecoins          count=11313
+    082C09A6  gotostd              function=181
+    082C09A8  playfanfare          song=2092
+    082C09AB  removecoins          count=11313
+    082C09AE  gotostd              function=181
+    082C09B0  playfanfare          song=2092
+    082C09B3  removecoins          count=11313
+    082C09B6  gotostd              function=181
+    082C09B8  playfanfare          song=2092
+    082C09BB  waitmessage          
+    082C09BC  multichoice          x=0 y=0 multichoiceId=66 ignoreBPress=0
+    082C09C1  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082C09C6  compare_var_to_value var=0x8000 value=0
+    082C09CB  goto_if              condition=1 destination=0x082C09F3
+    082C09D1  compare_var_to_value var=0x8000 value=1
+    082C09D6  goto_if              condition=1 destination=0x082C09FD
+    082C09DC  compare_var_to_value var=0x8000 value=2
+    082C09E1  goto_if              condition=1 destination=0x082C0A07
+    082C09E7  compare_var_to_value var=0x8000 value=127
+    082C09EC  goto_if              condition=1 destination=0x082C0A11
+    082C09F2  end                  
+
+  script 0x08287667  [ok]
+    08287667  setvar               destination=VAR_0x4013 value=0
+    0828766C  return               
+
+  script 0x0828766D  [ok]
+    0828766D  setvar               destination=VAR_0x4013 value=89
+    08287672  return               
+
+  script 0x08280953  [ok]
+    08280953  setvar               destination=VAR_0x40D2 value=1
+    08280958  return               
+
+  script 0x08280959  [ok]
+    08280959  setvar               destination=VAR_0x40D2 value=2
+    0828095E  return               
+
+  script 0x0828095F  [ok]
+    0828095F  setvar               destination=VAR_0x40D2 value=3
+    08280964  return               
+
+  script 0x08280965  [ok]
+    08280965  setvar               destination=VAR_0x40D2 value=4
+    0828096A  return               
+
+  script 0x082809AB  [ok]
+    082809AB  setwarp              mapGroup=43 mapNum=12 WARP_ID_NONE=255 -1=7 -1=5
+    082809B3  special              SPECIAL_\function=212
+    082809B6  waitstate            
+
+  script 0x082809B8  [ok]
+    082809B8  setwarp              mapGroup=43 mapNum=10 WARP_ID_NONE=255 -1=7 -1=5
+    082809C0  special              SPECIAL_\function=212
+    082809C3  waitstate            
+
+  script 0x082809C5  [ok]
+    082809C5  setwarp              mapGroup=43 mapNum=14 WARP_ID_NONE=255 -1=7 -1=5
+    082809CD  special              SPECIAL_\function=212
+    082809D0  waitstate            
+
+  script 0x082809D2  [ok]
+    082809D2  setwarp              mapGroup=43 mapNum=13 WARP_ID_NONE=255 -1=7 -1=5
+    082809DA  special              SPECIAL_\function=212
+    082809DD  waitstate            
+
+  script 0x082809DF  [ok]
+    082809DF  setwarp              mapGroup=43 mapNum=11 WARP_ID_NONE=255 -1=7 -1=5
+    082809E7  special              SPECIAL_\function=212
+    082809EA  waitstate            
+
+  script 0x082C0BEF  [unknown-opcode:0xE9]
+
+  script 0x082C09F3  [ok]
+    082C09F3  goto                 destination=0x082C0C9D
+
+  script 0x082C09FD  [ok]
+    082C09FD  goto                 destination=0x082C0A1B
+
+  script 0x082C0A07  [ok]
+    082C0A07  goto                 destination=0x082C0B03
+
+  script 0x082C0A11  [ok]
+    082C0A11  goto                 destination=0x082C0B03
+
+  script 0x082C0C9D  [ok]
+    082C0C9D  message              text="Which Rank would you like to enter?"
+    082C0CA2  setmonmetlocation    slot=11294 location=8
+    082C0CA6  setmonmetlocation    slot=11294 location=8
+    082C0CAA  setmonmetlocation    slot=11294 location=8
+    082C0CAE  setmonmetlocation    slot=11294 location=8
+    082C0CB2  setmonmetlocation    slot=11294 location=8
+    082C0CB6  setmonmetlocation    slot=11294 location=8
+    082C0CBA  waitmessage          
+    082C0CBB  multichoice          x=0 y=0 multichoiceId=82 ignoreBPress=0
+    082C0CC0  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082C0CC5  compare_var_to_value var=0x8000 value=0
+    082C0CCA  goto_if              condition=1 destination=0x082C0D08
+    082C0CD0  compare_var_to_value var=0x8000 value=1
+    082C0CD5  goto_if              condition=1 destination=0x082C0D13
+    082C0CDB  compare_var_to_value var=0x8000 value=2
+    082C0CE0  goto_if              condition=1 destination=0x082C0D1E
+    082C0CE6  compare_var_to_value var=0x8000 value=3
+    082C0CEB  goto_if              condition=1 destination=0x082C0D29
+    082C0CF1  compare_var_to_value var=0x8000 value=4
+    082C0CF6  goto_if              condition=1 destination=0x082C0B03
+    082C0CFC  compare_var_to_value var=0x8000 value=127
+    082C0D01  goto_if              condition=1 destination=0x082C0B03
+    082C0D07  end                  
+
+  script 0x082C0A1B  [opcode-out-of-range:0xEB]
+    082C0A1B  message              text="Which topic would you like?"
+
+  script 0x082C0B03  [ok]
+    082C0B03  msgbox_multilang     type=0 text_0="We hope you will participate another\ntime." text_1="We hope you will participate another\ntime." text_2="We hope you will participate another\ntime." text_3="We hope you will participate another\ntime." text_4="We hope you will participate another\ntime." text_5="We hope you will participate another\ntime." text_6="We hope you will participate another\ntime."
+    082C0B21  callstd              function=MSGBOX_DEFAULT(4)
+    082C0B23  release              
+
+  script 0x082C0D08  [ok]
+    082C0D08  setvar               destination=VAR_0x8015 value=0
+    082C0D0D  goto                 destination=0x082C0D34
+
+  script 0x082C0D13  [ok]
+    082C0D13  setvar               destination=VAR_0x8015 value=1
+    082C0D18  goto                 destination=0x082C0D34
+
+  script 0x082C0D1E  [ok]
+    082C0D1E  setvar               destination=VAR_0x8015 value=2
+    082C0D23  goto                 destination=0x082C0D34
+
+  script 0x082C0D29  [ok]
+    082C0D29  setvar               destination=VAR_0x8015 value=3
+    082C0D2E  goto                 destination=0x082C0D34
+
+  script 0x082C0D34  [opcode-out-of-range:0xF6]
+    082C0D34  message              text="Which Contest would you like to\nenter?"
+
+  object 2 (gfx 0xF2, flag 0x0000) -> 0x082811CE
+  script 0x082811CE  [ok]
+    082811CE  msgbox_multilang     type=0 text_0="Okay! Today’s going to be the day\nthat I set a new Blender speed\precord!" text_1="Okay! Today’s going to be the day\nthat I set a new Blender speed\precord!" text_2="Okay! Today’s going to be the day\nthat I set a new Blender speed\precord!" text_3="Okay! Today’s going to be the day\nthat I set a new Blender speed\precord!" text_4="Okay! Today’s going to be the day\nthat I set a new Blender speed\precord!" text_5="Okay! Today’s going to be the day\nthat I set a new Blender speed\precord!" text_6="Okay! Today’s going to be the day\nthat I set a new Blender speed\precord!"
+    082811EC  callstd              function=MSGBOX_NPC(2)
+    082811EE  end                  
+
+  object 3 (gfx 0x07, flag 0x0000) -> 0x082801F7
+  script 0x082801F7  [ok]
+    082801F7  msgbox_multilang     type=0 text_0="Hoo, boy… Master Rank Contests, here\nI come.\pThe world will know that my dearest\nPokémon is the cutest being in all\pexistence. The time has come!\pUheheheh." text_1="Hoo, boy… Master Rank Contests, here\nI come.\pThe world will know that my dearest\nPokémon is the cutest being in all\pexistence. The time has come!\pUheheheh." text_2="Hoo, boy… Master Rank Contests, here\nI come.\pThe world will know that my dearest\nPokémon is the cutest being in all\pexistence. The time has come!\pUheheheh." text_3="Hoo, boy… Master Rank Contests, here\nI come.\pThe world will know that my dearest\nPokémon is the cutest being in all\pexistence. The time has come!\pUheheheh." text_4="Hoo, boy… Master Rank Contests, here\nI come.\pThe world will know that my dearest\nPokémon is the cutest being in all\pexistence. The time has come!\pUheheheh." text_5="Hoo, boy… Master Rank Contests, here\nI come.\pThe world will know that my dearest\nPokémon is the cutest being in all\pexistence. The time has come!\pUheheheh." text_6="Hoo, boy… Master Rank Contests, here\nI come.\pThe world will know that my dearest\nPokémon is the cutest being in all\pexistence. The time has come!\pUheheheh."
+    08280215  callstd              function=MSGBOX_NPC(2)
+    08280217  end                  
+
+  object 4 (gfx 0x0C, flag 0x0000) -> 0x08280218
+  script 0x08280218  [ok]
+    08280218  msgbox_multilang     type=0 text_0="Only participants are allowed." text_1="Only participants are allowed." text_2="Only participants are allowed." text_3="Only participants are allowed." text_4="Only participants are allowed." text_5="Only participants are allowed." text_6="Only participants are allowed."
+    08280236  callstd              function=MSGBOX_NPC(2)
+    08280238  end                  
+
+  object 5 (gfx 0xF1, flag 0x0000) -> 0x08280239
+  script 0x08280239  [ok]
+    08280239  lock                 
+    0828023A  checkitem            itemId=Appeal Sensor(400) quantity=1
+    0828023F  compare_var_to_value var=0x800D value=0
+    08280244  goto_if              condition=1 destination=0x0828026C
+    0828024A  msgbox_multilang     type=0 text_0="Wow, coming out to a Contest is the\nbest thing!\pSo many cute Pokémon!" text_1="Wow, coming out to a Contest is the\nbest thing!\pSo many cute Pokémon!" text_2="Wow, coming out to a Contest is the\nbest thing!\pSo many cute Pokémon!" text_3="Wow, coming out to a Contest is the\nbest thing!\pSo many cute Pokémon!" text_4="Wow, coming out to a Contest is the\nbest thing!\pSo many cute Pokémon!" text_5="Wow, coming out to a Contest is the\nbest thing!\pSo many cute Pokémon!" text_6="Wow, coming out to a Contest is the\nbest thing!\pSo many cute Pokémon!"
+    08280268  callstd              function=MSGBOX_NPC(2)
+    0828026A  release              
+
+  script 0x0828026C  [unknown-opcode:0xE9]
+    0828026C  msgbox_multilang     type=0 text_0="I love seeing how cute Pokémon on\nthose paintings look.\pWhat? You can’t tell how cute they\nare? Try this then!" text_1="I love seeing how cute Pokémon on\nthose paintings look.\pWhat? You can’t tell how cute they\nare? Try this then!" text_2="I love seeing how cute Pokémon on\nthose paintings look.\pWhat? You can’t tell how cute they\nare? Try this then!" text_3="I love seeing how cute Pokémon on\nthose paintings look.\pWhat? You can’t tell how cute they\nare? Try this then!" text_4="I love seeing how cute Pokémon on\nthose paintings look.\pWhat? You can’t tell how cute they\nare? Try this then!" text_5="I love seeing how cute Pokémon on\nthose paintings look.\pWhat? You can’t tell how cute they\nare? Try this then!" text_6="I love seeing how cute Pokémon on\nthose paintings look.\pWhat? You can’t tell how cute they\nare? Try this then!"
+    0828028A  callstd              function=MSGBOX_NPC(2)
+
+  object 6 (gfx 0xEF, flag 0x0000) -> 0x0828032C
+  script 0x0828032C  [ok]
+    0828032C  msgbox_multilang     type=0 text_0="Let’s get blending already!" text_1="Let’s get blending already!" text_2="Let’s get blending already!" text_3="Let’s get blending already!" text_4="Let’s get blending already!" text_5="Let’s get blending already!" text_6="Let’s get blending already!"
+    0828034A  callstd              function=MSGBOX_NPC(2)
+    0828034C  end                  
+
+  object 7 (gfx 0x06, flag 0x0000) -> 0x08281210
+  script 0x08281210  [ok]
+    08281210  msgbox_multilang     type=0 text_0="I’m going to make delicious\nPokéblocks and make my Pokémon\pcuter." text_1="I’m going to make delicious\nPokéblocks and make my Pokémon\pcuter." text_2="I’m going to make delicious\nPokéblocks and make my Pokémon\pcuter." text_3="I’m going to make delicious\nPokéblocks and make my Pokémon\pcuter." text_4="I’m going to make delicious\nPokéblocks and make my Pokémon\pcuter." text_5="I’m going to make delicious\nPokéblocks and make my Pokémon\pcuter." text_6="I’m going to make delicious\nPokéblocks and make my Pokémon\pcuter."
+    0828122E  callstd              function=MSGBOX_NPC(2)
+    08281230  end                  
+
+  object 8 (gfx 0x09, flag 0x0000) -> 0x082802C0
+  script 0x082802C0  [ok]
+    082802C0  msgbox_multilang     type=0 text_0="Day in and day out, I lavished my\ncare on this Pokémon.\pIts condition is peaking.\nToday, victory is mine!" text_1="Day in and day out, I lavished my\ncare on this Pokémon.\pIts condition is peaking.\nToday, victory is mine!" text_2="Day in and day out, I lavished my\ncare on this Pokémon.\pIts condition is peaking.\nToday, victory is mine!" text_3="Day in and day out, I lavished my\ncare on this Pokémon.\pIts condition is peaking.\nToday, victory is mine!" text_4="Day in and day out, I lavished my\ncare on this Pokémon.\pIts condition is peaking.\nToday, victory is mine!" text_5="Day in and day out, I lavished my\ncare on this Pokémon.\pIts condition is peaking.\nToday, victory is mine!" text_6="Day in and day out, I lavished my\ncare on this Pokémon.\pIts condition is peaking.\nToday, victory is mine!"
+    082802DE  callstd              function=MSGBOX_NPC(2)
+    082802E0  end                  
+
+  object 9 (gfx 0x11, flag 0x0000) -> 0x0828029F
+  script 0x0828029F  [ok]
+    0828029F  msgbox_multilang     type=0 text_0="The Toughness Contest is like\nextreme, man!\pThose muscular appeals…\nCascading sweat… I swoon!" text_1="The Toughness Contest is like\nextreme, man!\pThose muscular appeals…\nCascading sweat… I swoon!" text_2="The Toughness Contest is like\nextreme, man!\pThose muscular appeals…\nCascading sweat… I swoon!" text_3="The Toughness Contest is like\nextreme, man!\pThose muscular appeals…\nCascading sweat… I swoon!" text_4="The Toughness Contest is like\nextreme, man!\pThose muscular appeals…\nCascading sweat… I swoon!" text_5="The Toughness Contest is like\nextreme, man!\pThose muscular appeals…\nCascading sweat… I swoon!" text_6="The Toughness Contest is like\nextreme, man!\pThose muscular appeals…\nCascading sweat… I swoon!"
+    082802BD  callstd              function=MSGBOX_NPC(2)
+    082802BF  end                  
+
+  object 10 (gfx 0x05, flag 0x0000) -> 0x082802E1
+  script 0x082802E1  [ok]
+    082802E1  msgbox_multilang     type=0 text_0="I made Pokéblocks with Mom, Dad, and\nBig Sister. They turned out great!\pI bet you can make smoother, better\nPokéblocks if you have more people." text_1="I made Pokéblocks with Mom, Dad, and\nBig Sister. They turned out great!\pI bet you can make smoother, better\nPokéblocks if you have more people." text_2="I made Pokéblocks with Mom, Dad, and\nBig Sister. They turned out great!\pI bet you can make smoother, better\nPokéblocks if you have more people." text_3="I made Pokéblocks with Mom, Dad, and\nBig Sister. They turned out great!\pI bet you can make smoother, better\nPokéblocks if you have more people." text_4="I made Pokéblocks with Mom, Dad, and\nBig Sister. They turned out great!\pI bet you can make smoother, better\nPokéblocks if you have more people." text_5="I made Pokéblocks with Mom, Dad, and\nBig Sister. They turned out great!\pI bet you can make smoother, better\nPokéblocks if you have more people." text_6="I made Pokéblocks with Mom, Dad, and\nBig Sister. They turned out great!\pI bet you can make smoother, better\nPokéblocks if you have more people."
+    082802FF  callstd              function=MSGBOX_NPC(2)
+    08280301  end                  
+
+  object 11 (gfx 0x18, flag 0x0000) -> 0x082811EF
+  script 0x082811EF  [ok]
+    082811EF  msgbox_multilang     type=0 text_0="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_1="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_2="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_3="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_4="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_5="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_6="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?"
+    0828120D  callstd              function=MSGBOX_NPC(2)
+    0828120F  end                  
+
+  object 12 (gfx 0xF6, flag 0x0000) -> 0x08281231
+  script 0x08281231  [ok]
+    08281231  setvar               destination=VAR_0x8008 value=15
+    08281236  goto                 destination=0x0828123C
+
+  script 0x0828123C  [ok]
+    0828123C  lock                 
+    0828123D  faceplayer           
+    0828123E  msgbox_multilang     type=0 text_0="I love making Pokéblocks.\pI always have some Berries with me." text_1="I love making Pokéblocks.\pI always have some Berries with me." text_2="I love making Pokéblocks.\pI always have some Berries with me." text_3="I love making Pokéblocks.\pI always have some Berries with me." text_4="I love making Pokéblocks.\pI always have some Berries with me." text_5="I love making Pokéblocks.\pI always have some Berries with me." text_6="I love making Pokéblocks.\pI always have some Berries with me."
+    0828125C  callstd              function=MSGBOX_DEFAULT(4)
+    0828125E  specialvar           output=32781 SPECIAL_\function=30
+    08281263  compare_var_to_value var=0x800D value=1
+    08281268  goto_if              condition=1 destination=0x0828127A
+    0828126E  compare_var_to_value var=0x800D value=0
+    08281273  goto_if              condition=1 destination=0x0828129C
+    08281279  end                  
+
+  script 0x0828127A  [ok]
+    0828127A  msgbox_multilang     type=0 text_0="If you’d like, we could make some\nPokéblocks together using the Berry\pBlender." text_1="If you’d like, we could make some\nPokéblocks together using the Berry\pBlender." text_2="If you’d like, we could make some\nPokéblocks together using the Berry\pBlender." text_3="If you’d like, we could make some\nPokéblocks together using the Berry\pBlender." text_4="If you’d like, we could make some\nPokéblocks together using the Berry\pBlender." text_5="If you’d like, we could make some\nPokéblocks together using the Berry\pBlender." text_6="If you’d like, we could make some\nPokéblocks together using the Berry\pBlender."
+    08281298  callstd              function=MSGBOX_DEFAULT(4)
+    0828129A  release              
+
+  script 0x0828129C  [ok]
+    0828129C  checkitem            itemId=Pokéblock Case(273) quantity=1
+    082812A1  compare_var_to_value var=0x800D value=0
+    082812A6  goto_if              condition=1 destination=0x082812CC
+    082812AC  specialvar           output=32781 SPECIAL_\function=97
+    082812B1  compare_var_to_value var=0x800D value=VAR_0xFFFF
+    082812B6  goto_if              condition=1 destination=0x082812CC
+    082812BC  dotimebasedevents    
+    082812BD  checkflag            flag=0x929
+    082812C0  goto_if              condition=1 destination=0x082812CC
+    082812C6  goto                 destination=0x082812EE
+
+  script 0x082812CC  [ok]
+    082812CC  msgbox_multilang     type=0 text_0="Oh?\nYou don’t have any Berries?\pIf I had some left over, I’d gladly\ngive you one…\pBut, I don’t have any to spare\ntoday.\nSorry about that." text_1="Oh?\nYou don’t have any Berries?\pIf I had some left over, I’d gladly\ngive you one…\pBut, I don’t have any to spare\ntoday.\nSorry about that." text_2="Oh?\nYou don’t have any Berries?\pIf I had some left over, I’d gladly\ngive you one…\pBut, I don’t have any to spare\ntoday.\nSorry about that." text_3="Oh?\nYou don’t have any Berries?\pIf I had some left over, I’d gladly\ngive you one…\pBut, I don’t have any to spare\ntoday.\nSorry about that." text_4="Oh?\nYou don’t have any Berries?\pIf I had some left over, I’d gladly\ngive you one…\pBut, I don’t have any to spare\ntoday.\nSorry about that." text_5="Oh?\nYou don’t have any Berries?\pIf I had some left over, I’d gladly\ngive you one…\pBut, I don’t have any to spare\ntoday.\nSorry about that." text_6="Oh?\nYou don’t have any Berries?\pIf I had some left over, I’d gladly\ngive you one…\pBut, I don’t have any to spare\ntoday.\nSorry about that."
+    082812EA  callstd              function=MSGBOX_DEFAULT(4)
+    082812EC  release              
+
+  script 0x082812EE  [unknown-opcode:0xE9]
+    082812EE  msgbox_multilang     type=0 text_0="Oh?\nYou don’t have any Berries?\pWell, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries." text_1="Oh?\nYou don’t have any Berries?\pWell, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries." text_2="Oh?\nYou don’t have any Berries?\pWell, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries." text_3="Oh?\nYou don’t have any Berries?\pWell, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries." text_4="Oh?\nYou don’t have any Berries?\pWell, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries." text_5="Oh?\nYou don’t have any Berries?\pWell, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries." text_6="Oh?\nYou don’t have any Berries?\pWell, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries."
+    0828130C  callstd              function=MSGBOX_DEFAULT(4)
+
+  object 13 (gfx 0x10, flag 0x0000) -> 0x0828011C
+  script 0x0828011C  [ok]
+    0828011C  msgbox_multilang     type=0 text_0="I wonder what kind of Pokéblock I’ll\nget? This is so exciting!" text_1="I wonder what kind of Pokéblock I’ll\nget? This is so exciting!" text_2="I wonder what kind of Pokéblock I’ll\nget? This is so exciting!" text_3="I wonder what kind of Pokéblock I’ll\nget? This is so exciting!" text_4="I wonder what kind of Pokéblock I’ll\nget? This is so exciting!" text_5="I wonder what kind of Pokéblock I’ll\nget? This is so exciting!" text_6="I wonder what kind of Pokéblock I’ll\nget? This is so exciting!"
+    0828013A  callstd              function=MSGBOX_NPC(2)
+    0828013C  end                  
+
+  object 14 (gfx 0x88, flag 0x0000) -> 0x082C1E30
+  script 0x082C1E30  [ok]
+    082C1E30  lock                 
+    082C1E31  faceplayer           
+    082C1E32  waitse               
+    082C1E33  playmoncry           species=FLAREON(136) mode=0
+    082C1E38  msgbox_multilang     type=0 text_0="Flareon: Flaaaaareon!" text_1="Flareon: Flaaaaareon!" text_2="Flareon: Flaaaaareon!" text_3="Flareon: Flaaaaareon!" text_4="Flareon: Flaaaaareon!" text_5="Flareon: Flaaaaareon!" text_6="Flareon: Flaaaaareon!"
+    082C1E56  callstd              function=MSGBOX_DEFAULT(4)
+    082C1E58  waitmoncry           
+    082C1E59  release              
+
+  sign 0 at (6,5) -> 0x0828070C
+  script 0x0828070C  [ok]
+    0828070C  lockall              
+    0828070D  textcolor            color=1
+    0828070F  setvar               destination=VAR_0x8008 value=11
+    08280714  setvar               destination=VAR_0x8009 value=3
+    08280719  setflag              flag=0x4005 (temp)
+    0828071C  applymovement        localId=6 movements=[face_original_direction]
+    08280723  applymovement        localId=13 movements=[face_original_direction]
+    0828072A  applymovement        localId=11 movements=[walk_in_place_faster_right]
+    08280731  waitmovement         localId=0
+    08280734  clearflag            flag=0x4005 (temp)
+    08280737  msgbox_multilang     type=0 text_0="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_1="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_2="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_3="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_4="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_5="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?" text_6="Oh, dear!\nYou look as if you’re good at\pblending.\pWould you like to join us?"
+    08280755  callstd              function=MSGBOX_YESNO(5)
+    08280757  compare_var_to_value var=0x800D value=1
+    0828075C  goto_if              condition=1 destination=0x08280784
+    08280762  msgbox_multilang     type=0 text_0="Oh, dear me…\pYou’ve left us in shock!" text_1="Oh, dear me…\pYou’ve left us in shock!" text_2="Oh, dear me…\pYou’ve left us in shock!" text_3="Oh, dear me…\pYou’ve left us in shock!" text_4="Oh, dear me…\pYou’ve left us in shock!" text_5="Oh, dear me…\pYou’ve left us in shock!" text_6="Oh, dear me…\pYou’ve left us in shock!"
+    08280780  callstd              function=MSGBOX_DEFAULT(4)
+    08280782  releaseall           
+
+  script 0x08280784  [ok]
+    08280784  specialvar           output=32781 SPECIAL_\function=30
+    08280789  compare_var_to_value var=0x800D value=0
+    0828078E  goto_if              condition=1 destination=0x082807E0
+    08280794  checkitem            itemId=Pokéblock Case(273) quantity=1
+    08280799  compare_var_to_value var=0x800D value=0
+    0828079E  goto_if              condition=1 destination=0x08280802
+    082807A4  msgbox_multilang     type=0 text_0="Oh, dear!" text_1="Oh, dear!" text_2="Oh, dear!" text_3="Oh, dear!" text_4="Oh, dear!" text_5="Oh, dear!" text_6="Oh, dear!"
+    082807C2  callstd              function=MSGBOX_DEFAULT(4)
+    082807C4  specialvar           output=32781 SPECIAL_\function=97
+    082807C9  compare_var_to_value var=0x800D value=VAR_0xFFFF
+    082807CE  goto_if              condition=5 destination=0x08280824
+    082807D4  compare_var_to_value var=0x800D value=VAR_0xFFFF
+    082807D9  goto_if              condition=1 destination=0x08280851
+    082807DF  end                  
+
+  script 0x082807E0  [ok]
+    082807E0  msgbox_multilang     type=0 text_0="You don’t have any Berries, do you?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks.\pWe’ll always be making Pokéblocks\nhere, so let’s make some together\pwhen you get a Berry or two." text_1="You don’t have any Berries, do you?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks.\pWe’ll always be making Pokéblocks\nhere, so let’s make some together\pwhen you get a Berry or two." text_2="You don’t have any Berries, do you?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks.\pWe’ll always be making Pokéblocks\nhere, so let’s make some together\pwhen you get a Berry or two." text_3="You don’t have any Berries, do you?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks.\pWe’ll always be making Pokéblocks\nhere, so let’s make some together\pwhen you get a Berry or two." text_4="You don’t have any Berries, do you?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks.\pWe’ll always be making Pokéblocks\nhere, so let’s make some together\pwhen you get a Berry or two." text_5="You don’t have any Berries, do you?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks.\pWe’ll always be making Pokéblocks\nhere, so let’s make some together\pwhen you get a Berry or two." text_6="You don’t have any Berries, do you?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks.\pWe’ll always be making Pokéblocks\nhere, so let’s make some together\pwhen you get a Berry or two."
+    082807FE  callstd              function=MSGBOX_DEFAULT(4)
+    08280800  release              
+
+  script 0x08280802  [ok]
+    08280802  msgbox_multilang     type=0 text_0="You haven’t gotten a Pokéblock Case\nyet, it looks like.\pYou need to get a Pokéblock Case\nbefore you come back." text_1="You haven’t gotten a Pokéblock Case\nyet, it looks like.\pYou need to get a Pokéblock Case\nbefore you come back." text_2="You haven’t gotten a Pokéblock Case\nyet, it looks like.\pYou need to get a Pokéblock Case\nbefore you come back." text_3="You haven’t gotten a Pokéblock Case\nyet, it looks like.\pYou need to get a Pokéblock Case\nbefore you come back." text_4="You haven’t gotten a Pokéblock Case\nyet, it looks like.\pYou need to get a Pokéblock Case\nbefore you come back." text_5="You haven’t gotten a Pokéblock Case\nyet, it looks like.\pYou need to get a Pokéblock Case\nbefore you come back." text_6="You haven’t gotten a Pokéblock Case\nyet, it looks like.\pYou need to get a Pokéblock Case\nbefore you come back."
+    08280820  callstd              function=MSGBOX_DEFAULT(4)
+    08280822  releaseall           
+
+  script 0x08280824  [ok]
+    08280824  msgbox_multilang     type=0 text_0="Naturally, you know how to make\nPokéblocks, don’t you?" text_1="Naturally, you know how to make\nPokéblocks, don’t you?" text_2="Naturally, you know how to make\nPokéblocks, don’t you?" text_3="Naturally, you know how to make\nPokéblocks, don’t you?" text_4="Naturally, you know how to make\nPokéblocks, don’t you?" text_5="Naturally, you know how to make\nPokéblocks, don’t you?" text_6="Naturally, you know how to make\nPokéblocks, don’t you?"
+    08280842  callstd              function=MSGBOX_YESNO(5)
+    08280844  compare_var_to_value var=0x800D value=1
+    08280849  goto_if              condition=1 destination=0x08280873
+    0828084F  releaseall           
+
+  script 0x08280851  [ok]
+    08280851  msgbox_multilang     type=0 text_0="Your Pokéblock Case is full, it looks\nlike.\pYou should use some Pokéblocks up\nand then come back." text_1="Your Pokéblock Case is full, it looks\nlike.\pYou should use some Pokéblocks up\nand then come back." text_2="Your Pokéblock Case is full, it looks\nlike.\pYou should use some Pokéblocks up\nand then come back." text_3="Your Pokéblock Case is full, it looks\nlike.\pYou should use some Pokéblocks up\nand then come back." text_4="Your Pokéblock Case is full, it looks\nlike.\pYou should use some Pokéblocks up\nand then come back." text_5="Your Pokéblock Case is full, it looks\nlike.\pYou should use some Pokéblocks up\nand then come back." text_6="Your Pokéblock Case is full, it looks\nlike.\pYou should use some Pokéblocks up\nand then come back."
+    0828086F  callstd              function=MSGBOX_DEFAULT(4)
+    08280871  releaseall           
+
+  script 0x08280873  [ok]
+    08280873  goto                 destination=0x0828087D
+
+  script 0x0828087D  [ok]
+    0828087D  msgbox_multilang     type=0 text_0="Okay, dear!\nLet’s get started!\pLet’s Berry Blender!" text_1="Okay, dear!\nLet’s get started!\pLet’s Berry Blender!" text_2="Okay, dear!\nLet’s get started!\pLet’s Berry Blender!" text_3="Okay, dear!\nLet’s get started!\pLet’s Berry Blender!" text_4="Okay, dear!\nLet’s get started!\pLet’s Berry Blender!" text_5="Okay, dear!\nLet’s get started!\pLet’s Berry Blender!" text_6="Okay, dear!\nLet’s get started!\pLet’s Berry Blender!"
+    0828089B  callstd              function=MSGBOX_DEFAULT(4)
+    0828089D  goto                 destination=0x08280558
+
+  script 0x08280558  [ok]
+    08280558  copyvar              destination=VAR_0x8004 source=VAR_0x8009
+    0828055D  fadescreen           mode=1
+    0828055F  special              SPECIAL_\function=98
+    08280562  waitstate            
+
+  sign 1 at (18,1) -> 0x08280317
+  script 0x08280317  [ok]
+    08280317  lockall              
+    08280318  fadescreen           mode=1
+    0828031A  showcontestpainting  winnerId=4
+    0828031C  releaseall           
+
+  sign 2 at (20,1) -> 0x0828031E
+  script 0x0828031E  [ok]
+    0828031E  lockall              
+    0828031F  fadescreen           mode=1
+    08280321  showcontestpainting  winnerId=5
+    08280323  releaseall           
+
+  sign 3 at (22,1) -> 0x08280325
+  script 0x08280325  [ok]
+    08280325  lockall              
+    08280326  fadescreen           mode=1
+    08280328  showcontestpainting  winnerId=6
+    0828032A  releaseall           
+
+  sign 4 at (15,3) -> 0x0828034D
+  script 0x0828034D  [ok]
+    0828034D  lockall              
+    0828034E  special              SPECIAL_\function=174
+    08280351  waitbuttonpress      
+    08280352  special              SPECIAL_\function=342
+    08280355  releaseall           
+
+  sign 5 at (3,1) -> 0x08280302
+  script 0x08280302  [ok]
+    08280302  lockall              
+    08280303  fadescreen           mode=1
+    08280305  showcontestpainting  winnerId=1
+    08280307  releaseall           
+
+  sign 6 at (5,1) -> 0x08280309
+  script 0x08280309  [ok]
+    08280309  lockall              
+    0828030A  fadescreen           mode=1
+    0828030C  showcontestpainting  winnerId=2
+    0828030E  releaseall           
+
+  sign 7 at (7,1) -> 0x08280310
+  script 0x08280310  [ok]
+    08280310  lockall              
+    08280311  fadescreen           mode=1
+    08280313  showcontestpainting  winnerId=3
+    08280315  releaseall           
+
+  sign 8 at (20,6) -> 0x08280357
+  script 0x08280357  [ok]
+    08280357  setflag              flag=0x4005 (temp)
+    0828035A  lockall              
+    0828035B  setvar               destination=VAR_0x8009 value=1
+    08280360  applymovement        localId=12 movements=[walk_in_place_faster_right]
+    08280367  waitmovement         localId=0
+    0828036A  clearflag            flag=0x4005 (temp)
+    0828036D  textcolor            color=0
+    0828036F  msgbox_multilang     type=0 text_0="Oh? Did you want to make some\nPokéblocks with this old-timer?" text_1="Oh? Did you want to make some\nPokéblocks with this old-timer?" text_2="Oh? Did you want to make some\nPokéblocks with this old-timer?" text_3="Oh? Did you want to make some\nPokéblocks with this old-timer?" text_4="Oh? Did you want to make some\nPokéblocks with this old-timer?" text_5="Oh? Did you want to make some\nPokéblocks with this old-timer?" text_6="Oh? Did you want to make some\nPokéblocks with this old-timer?"
+    0828038D  callstd              function=MSGBOX_YESNO(5)
+    0828038F  compare_var_to_value var=0x800D value=1
+    08280394  goto_if              condition=1 destination=0x082803BE
+    0828039A  msgbox_multilang     type=0 text_0="Oh… You’ve made this old-timer sad…" text_1="Oh… You’ve made this old-timer sad…" text_2="Oh… You’ve made this old-timer sad…" text_3="Oh… You’ve made this old-timer sad…" text_4="Oh… You’ve made this old-timer sad…" text_5="Oh… You’ve made this old-timer sad…" text_6="Oh… You’ve made this old-timer sad…"
+    082803B8  callstd              function=MSGBOX_DEFAULT(4)
+    082803BA  releaseall           
+
+  script 0x082803BE  [ok]
+    082803BE  checkitem            itemId=Pokéblock Case(273) quantity=1
+    082803C3  compare_var_to_value var=0x800D value=0
+    082803C8  goto_if              condition=1 destination=0x08280418
+    082803CE  specialvar           output=32781 SPECIAL_\function=97
+    082803D3  compare_var_to_value var=0x800D value=VAR_0xFFFF
+    082803D8  goto_if              condition=1 destination=0x0828043A
+    082803DE  specialvar           output=32781 SPECIAL_\function=30
+    082803E3  compare_var_to_value var=0x800D value=0
+    082803E8  goto_if              condition=1 destination=0x0828045C
+    082803EE  msgbox_multilang     type=0 text_0="Excellent!" text_1="Excellent!" text_2="Excellent!" text_3="Excellent!" text_4="Excellent!" text_5="Excellent!" text_6="Excellent!"
+    0828040C  callstd              function=MSGBOX_DEFAULT(4)
+    0828040E  goto                 destination=0x082804E2
+
+  script 0x08280418  [ok]
+    08280418  msgbox_multilang     type=0 text_0="But you don’t have a Pokéblock\nCase.\pYou should get a Pokéblock Case and\nthen come see me." text_1="But you don’t have a Pokéblock\nCase.\pYou should get a Pokéblock Case and\nthen come see me." text_2="But you don’t have a Pokéblock\nCase.\pYou should get a Pokéblock Case and\nthen come see me." text_3="But you don’t have a Pokéblock\nCase.\pYou should get a Pokéblock Case and\nthen come see me." text_4="But you don’t have a Pokéblock\nCase.\pYou should get a Pokéblock Case and\nthen come see me." text_5="But you don’t have a Pokéblock\nCase.\pYou should get a Pokéblock Case and\nthen come see me." text_6="But you don’t have a Pokéblock\nCase.\pYou should get a Pokéblock Case and\nthen come see me."
+    08280436  callstd              function=MSGBOX_DEFAULT(4)
+    08280438  releaseall           
+
+  script 0x0828043A  [ok]
+    0828043A  msgbox_multilang     type=0 text_0="But your Pokéblock Case is full.\pYou should use some Pokéblocks\nbefore you come see me again." text_1="But your Pokéblock Case is full.\pYou should use some Pokéblocks\nbefore you come see me again." text_2="But your Pokéblock Case is full.\pYou should use some Pokéblocks\nbefore you come see me again." text_3="But your Pokéblock Case is full.\pYou should use some Pokéblocks\nbefore you come see me again." text_4="But your Pokéblock Case is full.\pYou should use some Pokéblocks\nbefore you come see me again." text_5="But your Pokéblock Case is full.\pYou should use some Pokéblocks\nbefore you come see me again." text_6="But your Pokéblock Case is full.\pYou should use some Pokéblocks\nbefore you come see me again."
+    08280458  callstd              function=MSGBOX_DEFAULT(4)
+    0828045A  releaseall           
+
+  script 0x0828045C  [unknown-opcode:0xE9]
+    0828045C  msgbox_multilang     type=0 text_0="Oh?\nYou don’t have any Berries?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks." text_1="Oh?\nYou don’t have any Berries?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks." text_2="Oh?\nYou don’t have any Berries?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks." text_3="Oh?\nYou don’t have any Berries?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks." text_4="Oh?\nYou don’t have any Berries?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks." text_5="Oh?\nYou don’t have any Berries?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks." text_6="Oh?\nYou don’t have any Berries?\pIf you don’t have any Berries, you\ncan’t make any Pokéblocks."
+    0828047A  callstd              function=MSGBOX_DEFAULT(4)
+    0828047C  dotimebasedevents    
+    0828047D  checkflag            flag=0x929
+    08280480  goto_if              condition=1 destination=0x082804BC
+    08280486  msgbox_multilang     type=0 text_0="Well, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries.\pThat way, we could make some\nPokéblocks\ntogether using the Berry Blender." text_1="Well, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries.\pThat way, we could make some\nPokéblocks\ntogether using the Berry Blender." text_2="Well, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries.\pThat way, we could make some\nPokéblocks\ntogether using the Berry Blender." text_3="Well, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries.\pThat way, we could make some\nPokéblocks\ntogether using the Berry Blender." text_4="Well, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries.\pThat way, we could make some\nPokéblocks\ntogether using the Berry Blender." text_5="Well, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries.\pThat way, we could make some\nPokéblocks\ntogether using the Berry Blender." text_6="Well, that won’t do at all now, will\nit?\pIf you don’t mind leftovers, you can\nhave one of my Berries.\pThat way, we could make some\nPokéblocks\ntogether using the Berry Blender."
+    082804A4  callstd              function=MSGBOX_DEFAULT(4)
+
+  script 0x082804E2  [ok]
+    082804E2  msgbox_multilang     type=0 text_0="Do you know how to make a\nPokéblock?" text_1="Do you know how to make a\nPokéblock?" text_2="Do you know how to make a\nPokéblock?" text_3="Do you know how to make a\nPokéblock?" text_4="Do you know how to make a\nPokéblock?" text_5="Do you know how to make a\nPokéblock?" text_6="Do you know how to make a\nPokéblock?"
+    08280500  callstd              function=MSGBOX_YESNO(5)
+    08280502  compare_var_to_value var=0x800D value=0
+    08280507  goto_if              condition=1 destination=0x08280533
+    0828050D  msgbox_multilang     type=0 text_0="Let’s get started, then!\pLet’s Berry Blender!" text_1="Let’s get started, then!\pLet’s Berry Blender!" text_2="Let’s get started, then!\pLet’s Berry Blender!" text_3="Let’s get started, then!\pLet’s Berry Blender!" text_4="Let’s get started, then!\pLet’s Berry Blender!" text_5="Let’s get started, then!\pLet’s Berry Blender!" text_6="Let’s get started, then!\pLet’s Berry Blender!"
+    0828052B  callstd              function=MSGBOX_DEFAULT(4)
+    0828052D  goto                 destination=0x08280558
+
+  script 0x082804BC  [ok]
+    082804BC  msgbox_multilang     type=0 text_0="If I had some Berries left over,\nI’d gladly give you one…\pBut, I don’t have any to spare today.\nWe’ll have to do this another time." text_1="If I had some Berries left over,\nI’d gladly give you one…\pBut, I don’t have any to spare today.\nWe’ll have to do this another time." text_2="If I had some Berries left over,\nI’d gladly give you one…\pBut, I don’t have any to spare today.\nWe’ll have to do this another time." text_3="If I had some Berries left over,\nI’d gladly give you one…\pBut, I don’t have any to spare today.\nWe’ll have to do this another time." text_4="If I had some Berries left over,\nI’d gladly give you one…\pBut, I don’t have any to spare today.\nWe’ll have to do this another time." text_5="If I had some Berries left over,\nI’d gladly give you one…\pBut, I don’t have any to spare today.\nWe’ll have to do this another time." text_6="If I had some Berries left over,\nI’d gladly give you one…\pBut, I don’t have any to spare today.\nWe’ll have to do this another time."
+    082804DA  callstd              function=MSGBOX_DEFAULT(4)
+    082804DC  releaseall           
+
+  script 0x08280533  [ok]
+    08280533  msgbox_multilang     type=0 text_0="Okay, a little explanation, then.\pOh, don’t worry, it’s quite simple.\pWhen the Blender’s arrow comes to\nyour marker, just press the A\pButton.\pThat’s all you have to do.\nYou’ll see how easy it is when you\ptry." text_1="Okay, a little explanation, then.\pOh, don’t worry, it’s quite simple.\pWhen the Blender’s arrow comes to\nyour marker, just press the A\pButton.\pThat’s all you have to do.\nYou’ll see how easy it is when you\ptry." text_2="Okay, a little explanation, then.\pOh, don’t worry, it’s quite simple.\pWhen the Blender’s arrow comes to\nyour marker, just press the A\pButton.\pThat’s all you have to do.\nYou’ll see how easy it is when you\ptry." text_3="Okay, a little explanation, then.\pOh, don’t worry, it’s quite simple.\pWhen the Blender’s arrow comes to\nyour marker, just press the A\pButton.\pThat’s all you have to do.\nYou’ll see how easy it is when you\ptry." text_4="Okay, a little explanation, then.\pOh, don’t worry, it’s quite simple.\pWhen the Blender’s arrow comes to\nyour marker, just press the A\pButton.\pThat’s all you have to do.\nYou’ll see how easy it is when you\ptry." text_5="Okay, a little explanation, then.\pOh, don’t worry, it’s quite simple.\pWhen the Blender’s arrow comes to\nyour marker, just press the A\pButton.\pThat’s all you have to do.\nYou’ll see how easy it is when you\ptry." text_6="Okay, a little explanation, then.\pOh, don’t worry, it’s quite simple.\pWhen the Blender’s arrow comes to\nyour marker, just press the A\pButton.\pThat’s all you have to do.\nYou’ll see how easy it is when you\ptry."
+    08280551  callstd              function=MSGBOX_DEFAULT(4)
+    08280553  goto                 destination=0x0828050D
+
+  script 0x0828050D  [ok]
+    0828050D  msgbox_multilang     type=0 text_0="Let’s get started, then!\pLet’s Berry Blender!" text_1="Let’s get started, then!\pLet’s Berry Blender!" text_2="Let’s get started, then!\pLet’s Berry Blender!" text_3="Let’s get started, then!\pLet’s Berry Blender!" text_4="Let’s get started, then!\pLet’s Berry Blender!" text_5="Let’s get started, then!\pLet’s Berry Blender!" text_6="Let’s get started, then!\pLet’s Berry Blender!"
+    0828052B  callstd              function=MSGBOX_DEFAULT(4)
+    0828052D  goto                 destination=0x08280558
+
+  sign 9 at (6,8) -> 0x08280565
+  script 0x08280565  [ok]
+    08280565  lockall              
+    08280566  setvar               destination=VAR_0x8009 value=2
+    0828056B  applymovement        localId=7 movements=[face_original_direction]
+    08280572  applymovement        localId=2 movements=[walk_in_place_faster_right]
+    08280579  waitmovement         localId=0
+    0828057C  msgbox_multilang     type=0 text_0="Hi, there! Did you want to blend\nsome Pokéblocks with us?" text_1="Hi, there! Did you want to blend\nsome Pokéblocks with us?" text_2="Hi, there! Did you want to blend\nsome Pokéblocks with us?" text_3="Hi, there! Did you want to blend\nsome Pokéblocks with us?" text_4="Hi, there! Did you want to blend\nsome Pokéblocks with us?" text_5="Hi, there! Did you want to blend\nsome Pokéblocks with us?" text_6="Hi, there! Did you want to blend\nsome Pokéblocks with us?"
+    0828059A  callstd              function=MSGBOX_YESNO(5)
+    0828059C  compare_var_to_value var=0x800D value=1
+    082805A1  goto_if              condition=1 destination=0x082805C9
+    082805A7  msgbox_multilang     type=0 text_0="That’s too bad…\pBut we’ll always be around whenever\nyou get the urge to blend!" text_1="That’s too bad…\pBut we’ll always be around whenever\nyou get the urge to blend!" text_2="That’s too bad…\pBut we’ll always be around whenever\nyou get the urge to blend!" text_3="That’s too bad…\pBut we’ll always be around whenever\nyou get the urge to blend!" text_4="That’s too bad…\pBut we’ll always be around whenever\nyou get the urge to blend!" text_5="That’s too bad…\pBut we’ll always be around whenever\nyou get the urge to blend!" text_6="That’s too bad…\pBut we’ll always be around whenever\nyou get the urge to blend!"
+    082805C5  callstd              function=MSGBOX_DEFAULT(4)
+    082805C7  releaseall           
+
+  script 0x082805C9  [ok]
+    082805C9  specialvar           output=32781 SPECIAL_\function=30
+    082805CE  compare_var_to_value var=0x800D value=0
+    082805D3  goto_if              condition=1 destination=0x08280625
+    082805D9  checkitem            itemId=Pokéblock Case(273) quantity=1
+    082805DE  compare_var_to_value var=0x800D value=0
+    082805E3  goto_if              condition=1 destination=0x08280647
+    082805E9  msgbox_multilang     type=0 text_0="Okay!" text_1="Okay!" text_2="Okay!" text_3="Okay!" text_4="Okay!" text_5="Okay!" text_6="Okay!"
+    08280607  callstd              function=MSGBOX_DEFAULT(4)
+    08280609  specialvar           output=32781 SPECIAL_\function=97
+    0828060E  compare_var_to_value var=0x800D value=VAR_0xFFFF
+    08280613  goto_if              condition=5 destination=0x08280669
+    08280619  compare_var_to_value var=0x800D value=VAR_0xFFFF
+    0828061E  goto_if              condition=1 destination=0x082806BA
+    08280624  end                  
+
+  script 0x08280625  [ok]
+    08280625  msgbox_multilang     type=0 text_0="Oh, but wait a second here…\nYou don’t have any Berries.\pYou can’t make any Pokéblocks without\nBerries…\pWe’ll always be around whenever you\nget hold of some Berries to blend." text_1="Oh, but wait a second here…\nYou don’t have any Berries.\pYou can’t make any Pokéblocks without\nBerries…\pWe’ll always be around whenever you\nget hold of some Berries to blend." text_2="Oh, but wait a second here…\nYou don’t have any Berries.\pYou can’t make any Pokéblocks without\nBerries…\pWe’ll always be around whenever you\nget hold of some Berries to blend." text_3="Oh, but wait a second here…\nYou don’t have any Berries.\pYou can’t make any Pokéblocks without\nBerries…\pWe’ll always be around whenever you\nget hold of some Berries to blend." text_4="Oh, but wait a second here…\nYou don’t have any Berries.\pYou can’t make any Pokéblocks without\nBerries…\pWe’ll always be around whenever you\nget hold of some Berries to blend." text_5="Oh, but wait a second here…\nYou don’t have any Berries.\pYou can’t make any Pokéblocks without\nBerries…\pWe’ll always be around whenever you\nget hold of some Berries to blend." text_6="Oh, but wait a second here…\nYou don’t have any Berries.\pYou can’t make any Pokéblocks without\nBerries…\pWe’ll always be around whenever you\nget hold of some Berries to blend."
+    08280643  callstd              function=MSGBOX_DEFAULT(4)
+    08280645  release              
+
+  script 0x08280647  [ok]
+    08280647  msgbox_multilang     type=0 text_0="Oh, but wait a second here…\nYou don’t have a Pokéblock Case.\pYou should get a Pokéblock Case and\nthen come back." text_1="Oh, but wait a second here…\nYou don’t have a Pokéblock Case.\pYou should get a Pokéblock Case and\nthen come back." text_2="Oh, but wait a second here…\nYou don’t have a Pokéblock Case.\pYou should get a Pokéblock Case and\nthen come back." text_3="Oh, but wait a second here…\nYou don’t have a Pokéblock Case.\pYou should get a Pokéblock Case and\nthen come back." text_4="Oh, but wait a second here…\nYou don’t have a Pokéblock Case.\pYou should get a Pokéblock Case and\nthen come back." text_5="Oh, but wait a second here…\nYou don’t have a Pokéblock Case.\pYou should get a Pokéblock Case and\nthen come back." text_6="Oh, but wait a second here…\nYou don’t have a Pokéblock Case.\pYou should get a Pokéblock Case and\nthen come back."
+    08280665  callstd              function=MSGBOX_DEFAULT(4)
+    08280667  releaseall           
+
+  script 0x08280669  [ok]
+    08280669  msgbox_multilang     type=0 text_0="Of course, you do know how to blend\nPokéblocks, don’t you?" text_1="Of course, you do know how to blend\nPokéblocks, don’t you?" text_2="Of course, you do know how to blend\nPokéblocks, don’t you?" text_3="Of course, you do know how to blend\nPokéblocks, don’t you?" text_4="Of course, you do know how to blend\nPokéblocks, don’t you?" text_5="Of course, you do know how to blend\nPokéblocks, don’t you?" text_6="Of course, you do know how to blend\nPokéblocks, don’t you?"
+    08280687  callstd              function=MSGBOX_YESNO(5)
+    08280689  compare_var_to_value var=0x800D value=1
+    0828068E  goto_if              condition=1 destination=0x082806DC
+    08280694  msgbox_multilang     type=0 text_0="Okay!\nLet me explain it to you!\pWhen the spinning Blender’s arrow\nreaches your marker, just press the\pA Button.\pThat’s all it takes.\nPretty easy, don’t you think?" text_1="Okay!\nLet me explain it to you!\pWhen the spinning Blender’s arrow\nreaches your marker, just press the\pA Button.\pThat’s all it takes.\nPretty easy, don’t you think?" text_2="Okay!\nLet me explain it to you!\pWhen the spinning Blender’s arrow\nreaches your marker, just press the\pA Button.\pThat’s all it takes.\nPretty easy, don’t you think?" text_3="Okay!\nLet me explain it to you!\pWhen the spinning Blender’s arrow\nreaches your marker, just press the\pA Button.\pThat’s all it takes.\nPretty easy, don’t you think?" text_4="Okay!\nLet me explain it to you!\pWhen the spinning Blender’s arrow\nreaches your marker, just press the\pA Button.\pThat’s all it takes.\nPretty easy, don’t you think?" text_5="Okay!\nLet me explain it to you!\pWhen the spinning Blender’s arrow\nreaches your marker, just press the\pA Button.\pThat’s all it takes.\nPretty easy, don’t you think?" text_6="Okay!\nLet me explain it to you!\pWhen the spinning Blender’s arrow\nreaches your marker, just press the\pA Button.\pThat’s all it takes.\nPretty easy, don’t you think?"
+    082806B2  callstd              function=MSGBOX_DEFAULT(4)
+    082806B4  goto                 destination=0x082806E6
+
+  script 0x082806BA  [ok]
+    082806BA  msgbox_multilang     type=0 text_0="Oh, but wait a second here…\nYour Pokéblock Case is full.\pYou should use some Pokéblocks and\nthen come back." text_1="Oh, but wait a second here…\nYour Pokéblock Case is full.\pYou should use some Pokéblocks and\nthen come back." text_2="Oh, but wait a second here…\nYour Pokéblock Case is full.\pYou should use some Pokéblocks and\nthen come back." text_3="Oh, but wait a second here…\nYour Pokéblock Case is full.\pYou should use some Pokéblocks and\nthen come back." text_4="Oh, but wait a second here…\nYour Pokéblock Case is full.\pYou should use some Pokéblocks and\nthen come back." text_5="Oh, but wait a second here…\nYour Pokéblock Case is full.\pYou should use some Pokéblocks and\nthen come back." text_6="Oh, but wait a second here…\nYour Pokéblock Case is full.\pYou should use some Pokéblocks and\nthen come back."
+    082806D8  callstd              function=MSGBOX_DEFAULT(4)
+    082806DA  releaseall           
+
+  script 0x082806DC  [ok]
+    082806DC  goto                 destination=0x082806E6
+
+  script 0x082806E6  [ok]
+    082806E6  msgbox_multilang     type=0 text_0="Let’s get started, then!\pLet’s Berry Blender!" text_1="Let’s get started, then!\pLet’s Berry Blender!" text_2="Let’s get started, then!\pLet’s Berry Blender!" text_3="Let’s get started, then!\pLet’s Berry Blender!" text_4="Let’s get started, then!\pLet’s Berry Blender!" text_5="Let’s get started, then!\pLet’s Berry Blender!" text_6="Let’s get started, then!\pLet’s Berry Blender!"
+    08280704  callstd              function=MSGBOX_DEFAULT(4)
+    08280706  goto                 destination=0x08280558
+

@@ -1,0 +1,42 @@
+Seven Island  (group 29, map 2)  header 0x08B3DB70
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0827B9DC
+  script 0x0827B9DC  [opcode-out-of-range:0xFE]
+    0827B9DC  lock                 
+    0827B9DD  faceplayer           
+    0827B9DE  call                 destination=0x082BB330
+    0827B9E3  message              text="Hi, there!\nMay I help you?"
+    0827B9E8  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x2F, flag 0x0000) -> 0x0827BA48
+  script 0x0827BA48  [ok]
+    0827BA48  msgbox_multilang     type=0 text_0="Pokémon have personalities of their\nown, just like people.\pMy Pikachu has a Hasty nature,\nso it grew to be a speedy Pokémon." text_1="Pokémon have personalities of their\nown, just like people.\pMy Pikachu has a Hasty nature,\nso it grew to be a speedy Pokémon." text_2="Pokémon have personalities of their\nown, just like people.\pMy Pikachu has a Hasty nature,\nso it grew to be a speedy Pokémon." text_3="Pokémon have personalities of their\nown, just like people.\pMy Pikachu has a Hasty nature,\nso it grew to be a speedy Pokémon." text_4="Pokémon have personalities of their\nown, just like people.\pMy Pikachu has a Hasty nature,\nso it grew to be a speedy Pokémon." text_5="Pokémon have personalities of their\nown, just like people.\pMy Pikachu has a Hasty nature,\nso it grew to be a speedy Pokémon." text_6="Pokémon have personalities of their\nown, just like people.\pMy Pikachu has a Hasty nature,\nso it grew to be a speedy Pokémon."
+    0827BA66  callstd              function=MSGBOX_NPC(2)
+    0827BA68  end                  
+
+  object 3 (gfx 0x09, flag 0x0000) -> 0x0827BA8A
+  script 0x0827BA8A  [ok]
+    0827BA8A  msgbox_multilang     type=0 text_0="I need to fish on Seven Island.\pThat will complete my fishing tour\nof the Sevii Islands.\pI’d better stock up on some\nPoké Balls first, though." text_1="I need to fish on Seven Island.\pThat will complete my fishing tour\nof the Sevii Islands.\pI’d better stock up on some\nPoké Balls first, though." text_2="I need to fish on Seven Island.\pThat will complete my fishing tour\nof the Sevii Islands.\pI’d better stock up on some\nPoké Balls first, though." text_3="I need to fish on Seven Island.\pThat will complete my fishing tour\nof the Sevii Islands.\pI’d better stock up on some\nPoké Balls first, though." text_4="I need to fish on Seven Island.\pThat will complete my fishing tour\nof the Sevii Islands.\pI’d better stock up on some\nPoké Balls first, though." text_5="I need to fish on Seven Island.\pThat will complete my fishing tour\nof the Sevii Islands.\pI’d better stock up on some\nPoké Balls first, though." text_6="I need to fish on Seven Island.\pThat will complete my fishing tour\nof the Sevii Islands.\pI’d better stock up on some\nPoké Balls first, though."
+    0827BAA8  callstd              function=MSGBOX_NPC(2)
+    0827BAAA  end                  
+
+  object 4 (gfx 0x37, flag 0x0000) -> 0x0827BA69
+  script 0x0827BA69  [ok]
+    0827BA69  msgbox_multilang     type=0 text_0="Okay, preparations are complete\nfor me to explore the Ruins." text_1="Okay, preparations are complete\nfor me to explore the Ruins." text_2="Okay, preparations are complete\nfor me to explore the Ruins." text_3="Okay, preparations are complete\nfor me to explore the Ruins." text_4="Okay, preparations are complete\nfor me to explore the Ruins." text_5="Okay, preparations are complete\nfor me to explore the Ruins." text_6="Okay, preparations are complete\nfor me to explore the Ruins."
+    0827BA87  callstd              function=MSGBOX_NPC(2)
+    0827BA89  end                  
+

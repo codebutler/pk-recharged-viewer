@@ -1,0 +1,139 @@
+Victory Road  (group 1, map 39)  header 0x08B3B65C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xFA, flag 0x0000) -> 0x0820CF42
+  script 0x0820CF42  [ok]
+    0820CF42  trainerbattle        type=0 trainer=0x18C localId=0 ptr1=0x0820CFE5 ptr2=0x0820D019
+    0820CF50  msgbox_multilang     type=0 text_0="Tch!\nI concede, you are better than I!" text_1="Tch!\nI concede, you are better than I!" text_2="Tch!\nI concede, you are better than I!" text_3="Tch!\nI concede, you are better than I!" text_4="Tch!\nI concede, you are better than I!" text_5="Tch!\nI concede, you are better than I!" text_6="Tch!\nI concede, you are better than I!"
+    0820CF6E  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820CF70  end                  
+
+  object 2 (gfx 0xFB, flag 0x0000) -> 0x0820CF13
+  script 0x0820CF13  [ok]
+    0820CF13  trainerbattle        type=0 trainer=0x196 localId=0 ptr1=0x0820CF71 ptr2=0x0820CF99
+    0820CF21  msgbox_multilang     type=0 text_0="I never wanted to lose to anybody,\nespecially to a younger kid…" text_1="I never wanted to lose to anybody,\nespecially to a younger kid…" text_2="I never wanted to lose to anybody,\nespecially to a younger kid…" text_3="I never wanted to lose to anybody,\nespecially to a younger kid…" text_4="I never wanted to lose to anybody,\nespecially to a younger kid…" text_5="I never wanted to lose to anybody,\nespecially to a younger kid…" text_6="I never wanted to lose to anybody,\nespecially to a younger kid…"
+    0820CF3F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820CF41  end                  
+
+  object 3 (gfx 0x35, flag 0x01A9) -> 0x082D59F6
+  script 0x082D59F6  [ok]
+    082D59F6  setorcopyvar         destination=VAR_0x8000 source=68
+    082D59FB  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5A00  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Rare Candy
+    082D5A02  end                  
+
+  object 4 (gfx 0x55, flag 0x01AA) -> 0x082D5A03
+  script 0x082D5A03  [ok]
+    082D5A03  setorcopyvar         destination=VAR_0x8000 source=290
+    082D5A08  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5A0D  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM02
+    082D5A0F  end                  
+
+  object 5 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  script 0x0820540E  [ok]
+    0820540E  lockall              
+    0820540F  checkflag            flag=0x883:BADGE4_RAINBOW
+    08205412  goto_if              condition=0 destination=0x082054BA
+    08205418  checkflag            flag=0x23A
+    0820541B  goto_if              condition=0 destination=0x082054BA
+    08205421  checkflag            flag=0x865
+    08205424  goto_if              condition=1 destination=0x082054DB
+    0820542A  checkpartymove       move=Strength(70)
+    0820542D  compare_var_to_value var=0x800D value=6
+    08205432  goto_if              condition=1 destination=0x082054AC
+    08205438  compare_var_to_value var=0x800D value=6
+    0820543D  goto_if              condition=1 destination=0x082054BA
+    08205443  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205447  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?" text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside.\pWould you like to use Strength?"
+    08205465  callstd              function=MSGBOX_YESNO(5)
+    08205467  compare_var_to_value var=0x800D value=0
+    0820546C  goto_if              condition=1 destination=0x082054FC
+    08205472  closemessage         
+    08205473  dofieldeffect        animation=40
+    08205476  waitstate            
+
+  script 0x082054BA  [ok]
+    082054BA  msgbox_multilang     type=0 text_0="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_1="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_2="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_3="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_4="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_5="It’s a big boulder, but a Pokémon\nmay be able to push it aside." text_6="It’s a big boulder, but a Pokémon\nmay be able to push it aside."
+    082054D8  callstd              function=MSGBOX_SIGN(3)
+    082054DA  end                  
+
+  script 0x082054DB  [ok]
+    082054DB  msgbox_multilang     type=0 text_0="Strength made it possible to move\nboulders around." text_1="Strength made it possible to move\nboulders around." text_2="Strength made it possible to move\nboulders around." text_3="Strength made it possible to move\nboulders around." text_4="Strength made it possible to move\nboulders around." text_5="Strength made it possible to move\nboulders around." text_6="Strength made it possible to move\nboulders around."
+    082054F9  callstd              function=MSGBOX_SIGN(3)
+    082054FB  end                  
+
+  script 0x082054AC  [unknown-opcode:0xE5]
+
+  script 0x082054FC  [ok]
+    082054FC  closemessage         
+    082054FD  releaseall           
+
+  object 6 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  object 7 (gfx 0x57, flag 0x0000) -> 0x0820540E
+  coord trigger 0 (var 0x4064 == 99) -> 0x0820CEDF
+  script 0x0820CEDF  [ok]
+    0820CEDF  lockall              
+    0820CEE0  compare_var_to_value var=0x4064 value=100
+    0820CEE5  goto_if              condition=1 destination=0x0820CF11
+    0820CEEB  setmetatile          x=12 y=14 metatileId=721 impassable=0
+    0820CEF4  setmetatile          x=12 y=15 metatileId=737 impassable=0
+    0820CEFD  playse               song=41
+    0820CF00  special              SPECIAL_\function=79
+    0820CF03  waitse               
+    0820CF04  copyobjectxytoperm   localId=5
+    0820CF07  setvar               destination=VAR_0x4064 value=100
+    0820CF0C  setflag              flag=0x133
+    0820CF0F  releaseall           
+
+  script 0x0820CF11  [ok]
+    0820CF11  releaseall           
+
+  hidden item at (12,12): Ultra Ball
+
+  hidden item at (16,1): Full Restore
+
+  map script type 1 -> 0x0820CE99
+  script 0x0820CE99  [ok]
+    0820CE99  compare_var_to_value var=0x4064 value=100
+    0820CE9E  goto_if              condition=5 destination=0x0820CEA5
+    0820CEA4  return               
+
+  script 0x0820CEA5  [ok]
+    0820CEA5  checkflag            flag=0x133
+    0820CEA8  goto_if              condition=0 destination=0x0820CEAF
+    0820CEAE  end                  
+
+  script 0x0820CEAF  [ok]
+    0820CEAF  setmetatile          x=12 y=14 metatileId=775 impassable=1
+    0820CEB8  setmetatile          x=12 y=15 metatileId=791 impassable=1
+    0820CEC1  goto                 destination=0x0820CEAE
+
+  script 0x0820CEAE  [ok]
+    0820CEAE  end                  
+
+  map script type 3 -> 0x0820CEC6
+  script 0x0820CEC6  [ok]
+    0820CEC6  checkflag            flag=0x133
+    0820CEC9  goto_if              condition=1 destination=0x0820CED3
+    0820CECF  setworldmapflag      flag=0x90A
+    0820CED2  end                  
+
+  script 0x0820CED3  [ok]
+    0820CED3  setobjectxyperm      localId=5 x=20 y=16
+    0820CEDA  goto                 destination=0x0820CECF
+
+  script 0x0820CECF  [ok]
+    0820CECF  setworldmapflag      flag=0x90A
+    0820CED2  end                  
+

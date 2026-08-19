@@ -1,0 +1,74 @@
+Lavender Town  (group 8, map 0)  header 0x08B3D10C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0825C2D8
+  script 0x0825C2D8  [ok]
+    0825C2D8  lock                 
+    0825C2D9  faceplayer           
+    0825C2DA  call                 destination=0x082BB336
+    0825C2DF  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x30, flag 0x0000) -> 0x0825C2E1
+  script 0x0825C2E1  [ok]
+    0825C2E1  msgbox_multilang     type=0 text_0="Team Rocket will do anything for\nthe sake of money!\pThere is no job too dirty, no deed\ntoo heinous, no crime too wicked!" text_1="Team Rocket will do anything for\nthe sake of money!\pThere is no job too dirty, no deed\ntoo heinous, no crime too wicked!" text_2="Team Rocket will do anything for\nthe sake of money!\pThere is no job too dirty, no deed\ntoo heinous, no crime too wicked!" text_3="Team Rocket will do anything for\nthe sake of money!\pThere is no job too dirty, no deed\ntoo heinous, no crime too wicked!" text_4="Team Rocket will do anything for\nthe sake of money!\pThere is no job too dirty, no deed\ntoo heinous, no crime too wicked!" text_5="Team Rocket will do anything for\nthe sake of money!\pThere is no job too dirty, no deed\ntoo heinous, no crime too wicked!" text_6="Team Rocket will do anything for\nthe sake of money!\pThere is no job too dirty, no deed\ntoo heinous, no crime too wicked!"
+    0825C2FF  callstd              function=MSGBOX_NPC(2)
+    0825C301  end                  
+
+  object 3 (gfx 0x2F, flag 0x0000) -> 0x0825C302
+  script 0x0825C302  [ok]
+    0825C302  msgbox_multilang     type=0 text_0="I saw Cubone’s mother trying to\nescape from Team Rocket.\pShe was killed trying to get away…" text_1="I saw Cubone’s mother trying to\nescape from Team Rocket.\pShe was killed trying to get away…" text_2="I saw Cubone’s mother trying to\nescape from Team Rocket.\pShe was killed trying to get away…" text_3="I saw Cubone’s mother trying to\nescape from Team Rocket.\pShe was killed trying to get away…" text_4="I saw Cubone’s mother trying to\nescape from Team Rocket.\pShe was killed trying to get away…" text_5="I saw Cubone’s mother trying to\nescape from Team Rocket.\pShe was killed trying to get away…" text_6="I saw Cubone’s mother trying to\nescape from Team Rocket.\pShe was killed trying to get away…"
+    0825C320  callstd              function=MSGBOX_NPC(2)
+    0825C322  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0825C323
+  script 0x0825C323  [ok]
+    0825C323  msgbox_multilang     type=0 text_0="You know how the Cubone species\nwears skulls, right?\pPeople will pay a lot for one." text_1="You know how the Cubone species\nwears skulls, right?\pPeople will pay a lot for one." text_2="You know how the Cubone species\nwears skulls, right?\pPeople will pay a lot for one." text_3="You know how the Cubone species\nwears skulls, right?\pPeople will pay a lot for one." text_4="You know how the Cubone species\nwears skulls, right?\pPeople will pay a lot for one." text_5="You know how the Cubone species\nwears skulls, right?\pPeople will pay a lot for one." text_6="You know how the Cubone species\nwears skulls, right?\pPeople will pay a lot for one."
+    0825C341  callstd              function=MSGBOX_NPC(2)
+    0825C343  end                  
+
+  object 5 (gfx 0xF4, flag 0x009D) -> 0x081F2A3B
+  script 0x081F2A3B  [ok]
+    081F2A3B  lock                 
+    081F2A3C  faceplayer           
+    081F2A3D  setvar               destination=VAR_0x8004 value=14
+    081F2A42  setvar               destination=VAR_0x8005 value=3
+    081F2A47  special              SPECIAL_\function=347
+    081F2A4A  msgbox_multilang     type=0 text_0="I recently moved to this town.\pI hear that Mr. Fuji’s not from\nthese parts originally, either." text_1="I recently moved to this town.\pI hear that Mr. Fuji’s not from\nthese parts originally, either." text_2="I recently moved to this town.\pI hear that Mr. Fuji’s not from\nthese parts originally, either." text_3="I recently moved to this town.\pI hear that Mr. Fuji’s not from\nthese parts originally, either." text_4="I recently moved to this town.\pI hear that Mr. Fuji’s not from\nthese parts originally, either." text_5="I recently moved to this town.\pI hear that Mr. Fuji’s not from\nthese parts originally, either." text_6="I recently moved to this town.\pI hear that Mr. Fuji’s not from\nthese parts originally, either."
+    081F2A68  callstd              function=MSGBOX_DEFAULT(4)
+    081F2A6A  release              
+
+  object 6 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0825C2D4
+  script 0x0825C2D4  [ok]
+    0825C2D4  setrespawn           heallocation=5
+    0825C2D7  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

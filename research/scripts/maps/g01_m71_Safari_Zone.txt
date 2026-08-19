@@ -1,0 +1,35 @@
+Safari Zone  (group 1, map 71)  header 0x08B3B9DC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x00, flag 0x0000) -> 0x08212ECB
+  script 0x08212ECB  [unknown-opcode:0xE9]
+    08212ECB  lock                 
+    08212ECC  faceplayer           
+    08212ECD  checkflag            flag=0x239
+    08212ED0  goto_if              condition=1 destination=0x08212F6A
+    08212ED6  msgbox_multilang     type=0 text_0="Ah! Finally!\pYou’re the first person to reach\nthe Secret House!\pAlthough I made a campaign\nfor our grand opening,\pI was getting worried that no one\nwould win our campaign prize.\pCongratulations!\nYou have won!" text_1="Ah! Finally!\pYou’re the first person to reach\nthe Secret House!\pAlthough I made a campaign\nfor our grand opening,\pI was getting worried that no one\nwould win our campaign prize.\pCongratulations!\nYou have won!" text_2="Ah! Finally!\pYou’re the first person to reach\nthe Secret House!\pAlthough I made a campaign\nfor our grand opening,\pI was getting worried that no one\nwould win our campaign prize.\pCongratulations!\nYou have won!" text_3="Ah! Finally!\pYou’re the first person to reach\nthe Secret House!\pAlthough I made a campaign\nfor our grand opening,\pI was getting worried that no one\nwould win our campaign prize.\pCongratulations!\nYou have won!" text_4="Ah! Finally!\pYou’re the first person to reach\nthe Secret House!\pAlthough I made a campaign\nfor our grand opening,\pI was getting worried that no one\nwould win our campaign prize.\pCongratulations!\nYou have won!" text_5="Ah! Finally!\pYou’re the first person to reach\nthe Secret House!\pAlthough I made a campaign\nfor our grand opening,\pI was getting worried that no one\nwould win our campaign prize.\pCongratulations!\nYou have won!" text_6="Ah! Finally!\pYou’re the first person to reach\nthe Secret House!\pAlthough I made a campaign\nfor our grand opening,\pI was getting worried that no one\nwould win our campaign prize.\pCongratulations!\nYou have won!"
+    08212EF4  callstd              function=MSGBOX_DEFAULT(4)
+    08212EF6  checkitemspace       itemId=HM03(341) quantity=1
+    08212EFB  compare_var_to_value var=0x800D value=0
+    08212F00  goto_if              condition=1 destination=0x08212F48
+    08212F06  additem              itemId=HM03(341) quantity=1
+
+  script 0x08212F6A  [ok]
+    08212F6A  msgbox_multilang     type=0 text_0="HM03 is Surf.\pPokémon will be able to ferry you\nacross water using it.\pAnd, this HM isn’t disposable, so\nyou can use it over and over.\pYou’re super lucky for winning this\nfabulous prize!" text_1="HM03 is Surf.\pPokémon will be able to ferry you\nacross water using it.\pAnd, this HM isn’t disposable, so\nyou can use it over and over.\pYou’re super lucky for winning this\nfabulous prize!" text_2="HM03 is Surf.\pPokémon will be able to ferry you\nacross water using it.\pAnd, this HM isn’t disposable, so\nyou can use it over and over.\pYou’re super lucky for winning this\nfabulous prize!" text_3="HM03 is Surf.\pPokémon will be able to ferry you\nacross water using it.\pAnd, this HM isn’t disposable, so\nyou can use it over and over.\pYou’re super lucky for winning this\nfabulous prize!" text_4="HM03 is Surf.\pPokémon will be able to ferry you\nacross water using it.\pAnd, this HM isn’t disposable, so\nyou can use it over and over.\pYou’re super lucky for winning this\nfabulous prize!" text_5="HM03 is Surf.\pPokémon will be able to ferry you\nacross water using it.\pAnd, this HM isn’t disposable, so\nyou can use it over and over.\pYou’re super lucky for winning this\nfabulous prize!" text_6="HM03 is Surf.\pPokémon will be able to ferry you\nacross water using it.\pAnd, this HM isn’t disposable, so\nyou can use it over and over.\pYou’re super lucky for winning this\nfabulous prize!"
+    08212F88  callstd              function=MSGBOX_DEFAULT(4)
+    08212F8A  release              
+
+  script 0x08212F48  [ok]
+    08212F48  msgbox_multilang     type=0 text_0="You don’t have room for this\nfabulous prize!" text_1="You don’t have room for this\nfabulous prize!" text_2="You don’t have room for this\nfabulous prize!" text_3="You don’t have room for this\nfabulous prize!" text_4="You don’t have room for this\nfabulous prize!" text_5="You don’t have room for this\nfabulous prize!" text_6="You don’t have room for this\nfabulous prize!"
+    08212F66  callstd              function=MSGBOX_DEFAULT(4)
+    08212F68  release              
+

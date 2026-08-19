@@ -1,0 +1,99 @@
+Battle Frontier  (group 41, map 14)  header 0x08B3E238
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x15, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0xD6, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0xE1, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0xD1, flag 0x0000) -> 0x00000000
+  object 5 (gfx 0xD0, flag 0x0000) -> 0x00000000
+  object 6 (gfx 0xD2, flag 0x0000) -> 0x00000000
+  object 7 (gfx 0xD3, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x0829B695
+  script 0x0829B695  [ok]
+    0829B695  delay                frames=16
+    0829B698  applymovement        localId=1 movements=[walk_up walk_up walk_up walk_up]
+    0829B69F  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up]
+    0829B6A6  waitmovement         localId=0
+    0829B6A9  lockall              
+    0829B6AA  setvar               destination=VAR_0x8004 value=3
+    0829B6AF  special              SPECIAL_\function=151
+    0829B6B2  compare_var_to_value var=0x800D value=0
+    0829B6B7  call_if              condition=1 destination=0x0829B76D
+    0829B6BD  compare_var_to_value var=0x800D value=1
+    0829B6C2  call_if              condition=1 destination=0x0829B78E
+    0829B6C8  compare_var_to_value var=0x800D value=2
+    0829B6CD  call_if              condition=1 destination=0x0829B7AF
+    0829B6D3  compare_var_to_value var=0x800D value=3
+    0829B6D8  call_if              condition=1 destination=0x0829B7D0
+    0829B6DE  compare_var_to_value var=0x800D value=4
+    0829B6E3  call_if              condition=1 destination=0x0829B7F1
+    0829B6E9  closemessage         
+    0829B6EA  setvar               destination=VAR_0x8004 value=1
+    0829B6EF  setvar               destination=VAR_0x8005 value=1
+    0829B6F4  special              SPECIAL_\function=148
+    0829B6F7  compare_var_to_value var=0x800D value=1
+    0829B6FC  goto_if              condition=1 destination=0x0829B735
+    0829B702  applymovement        localId=1 movements=[walk_up walk_up walk_left walk_left walk_up walk_up]
+    0829B709  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_left walk_left walk_up]
+    0829B710  waitmovement         localId=0
+    0829B713  opendoor             x=6 y=3
+    0829B718  waitdooranim         
+    0829B719  applymovement        localId=1 movements=[walk_up set_invisible]
+    0829B720  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    0829B727  waitmovement         localId=0
+    0829B72A  closedoor            x=6 y=3
+    0829B72F  waitdooranim         
+    0829B730  goto                 destination=0x0829B763
+
+  script 0x0829B76D  [ok]
+    0829B76D  msgbox_multilang     type=0 text_0="People and POKéMON, they are but\nthe same…\pTheir individual nature makes them\ngood at certain things, and not good\pat others." text_1="People and POKéMON, they are but\nthe same…\pTheir individual nature makes them\ngood at certain things, and not good\pat others." text_2="People and POKéMON, they are but\nthe same…\pTheir individual nature makes them\ngood at certain things, and not good\pat others." text_3="People and POKéMON, they are but\nthe same…\pTheir individual nature makes them\ngood at certain things, and not good\pat others." text_4="People and POKéMON, they are but\nthe same…\pTheir individual nature makes them\ngood at certain things, and not good\pat others." text_5="People and POKéMON, they are but\nthe same…\pTheir individual nature makes them\ngood at certain things, and not good\pat others." text_6="People and POKéMON, they are but\nthe same…\pTheir individual nature makes them\ngood at certain things, and not good\pat others."
+    0829B78B  callstd              function=MSGBOX_DEFAULT(4)
+    0829B78D  return               
+
+  script 0x0829B78E  [ok]
+    0829B78E  msgbox_multilang     type=0 text_0="Rather than trying to make a POKéMON\ndo what it dislikes, try to let it do\pwhat it likes and is good at doing.\pPut yourself in the POKéMON’s position\nand consider what moves it would like." text_1="Rather than trying to make a POKéMON\ndo what it dislikes, try to let it do\pwhat it likes and is good at doing.\pPut yourself in the POKéMON’s position\nand consider what moves it would like." text_2="Rather than trying to make a POKéMON\ndo what it dislikes, try to let it do\pwhat it likes and is good at doing.\pPut yourself in the POKéMON’s position\nand consider what moves it would like." text_3="Rather than trying to make a POKéMON\ndo what it dislikes, try to let it do\pwhat it likes and is good at doing.\pPut yourself in the POKéMON’s position\nand consider what moves it would like." text_4="Rather than trying to make a POKéMON\ndo what it dislikes, try to let it do\pwhat it likes and is good at doing.\pPut yourself in the POKéMON’s position\nand consider what moves it would like." text_5="Rather than trying to make a POKéMON\ndo what it dislikes, try to let it do\pwhat it likes and is good at doing.\pPut yourself in the POKéMON’s position\nand consider what moves it would like." text_6="Rather than trying to make a POKéMON\ndo what it dislikes, try to let it do\pwhat it likes and is good at doing.\pPut yourself in the POKéMON’s position\nand consider what moves it would like."
+    0829B7AC  callstd              function=MSGBOX_DEFAULT(4)
+    0829B7AE  return               
+
+  script 0x0829B7AF  [ok]
+    0829B7AF  msgbox_multilang     type=0 text_0="A POKéMON’s nature is a remarkable\nthing…\pSome POKéMON behave in a completely\ndifferent way when they are cornered." text_1="A POKéMON’s nature is a remarkable\nthing…\pSome POKéMON behave in a completely\ndifferent way when they are cornered." text_2="A POKéMON’s nature is a remarkable\nthing…\pSome POKéMON behave in a completely\ndifferent way when they are cornered." text_3="A POKéMON’s nature is a remarkable\nthing…\pSome POKéMON behave in a completely\ndifferent way when they are cornered." text_4="A POKéMON’s nature is a remarkable\nthing…\pSome POKéMON behave in a completely\ndifferent way when they are cornered." text_5="A POKéMON’s nature is a remarkable\nthing…\pSome POKéMON behave in a completely\ndifferent way when they are cornered." text_6="A POKéMON’s nature is a remarkable\nthing…\pSome POKéMON behave in a completely\ndifferent way when they are cornered."
+    0829B7CD  callstd              function=MSGBOX_DEFAULT(4)
+    0829B7CF  return               
+
+  script 0x0829B7D0  [ok]
+    0829B7D0  msgbox_multilang     type=0 text_0="Are you beginning to understand how\na POKéMON’s nature makes it behave?" text_1="Are you beginning to understand how\na POKéMON’s nature makes it behave?" text_2="Are you beginning to understand how\na POKéMON’s nature makes it behave?" text_3="Are you beginning to understand how\na POKéMON’s nature makes it behave?" text_4="Are you beginning to understand how\na POKéMON’s nature makes it behave?" text_5="Are you beginning to understand how\na POKéMON’s nature makes it behave?" text_6="Are you beginning to understand how\na POKéMON’s nature makes it behave?"
+    0829B7EE  callstd              function=MSGBOX_DEFAULT(4)
+    0829B7F0  return               
+
+  script 0x0829B7F1  [ok]
+    0829B7F1  msgbox_multilang     type=0 text_0="Ah… I see a strong, heartfelt bond\nbetween you and your POKéMON…" text_1="Ah… I see a strong, heartfelt bond\nbetween you and your POKéMON…" text_2="Ah… I see a strong, heartfelt bond\nbetween you and your POKéMON…" text_3="Ah… I see a strong, heartfelt bond\nbetween you and your POKéMON…" text_4="Ah… I see a strong, heartfelt bond\nbetween you and your POKéMON…" text_5="Ah… I see a strong, heartfelt bond\nbetween you and your POKéMON…" text_6="Ah… I see a strong, heartfelt bond\nbetween you and your POKéMON…"
+    0829B80F  callstd              function=MSGBOX_DEFAULT(4)
+    0829B811  return               
+
+  script 0x0829B735  [ok]
+    0829B735  applymovement        localId=1 movements=[walk_up walk_right walk_right walk_up walk_up walk_up]
+    0829B73C  applymovement        localId=255 movements=[walk_up walk_up walk_right walk_right walk_up walk_up]
+    0829B743  waitmovement         localId=0
+    0829B746  opendoor             x=10 y=3
+    0829B74B  waitdooranim         
+    0829B74C  applymovement        localId=1 movements=[walk_up set_invisible]
+    0829B753  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    0829B75A  waitmovement         localId=0
+    0829B75D  closedoor            x=10 y=3
+    0829B762  waitdooranim         
+    0829B763  warp                 mapGroup=41 mapNum=15 WARP_ID_NONE=255 -1=7 -1=4
+    0829B76B  waitstate            
+
+  script 0x0829B763  [ok]
+    0829B763  warp                 mapGroup=41 mapNum=15 WARP_ID_NONE=255 -1=7 -1=4
+    0829B76B  waitstate            
+

@@ -1,0 +1,38 @@
+S.S. Anne  (group 1, map 28)  header 0x08B3B528
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xEF, flag 0x0000) -> 0x0820C89F
+  script 0x0820C89F  [ok]
+    0820C89F  msgbox_multilang     type=0 text_0="My buddy Machoke is super strong!\pHe has enough Strength to move big\nrocks!" text_1="My buddy Machoke is super strong!\pHe has enough Strength to move big\nrocks!" text_2="My buddy Machoke is super strong!\pHe has enough Strength to move big\nrocks!" text_3="My buddy Machoke is super strong!\pHe has enough Strength to move big\nrocks!" text_4="My buddy Machoke is super strong!\pHe has enough Strength to move big\nrocks!" text_5="My buddy Machoke is super strong!\pHe has enough Strength to move big\nrocks!" text_6="My buddy Machoke is super strong!\pHe has enough Strength to move big\nrocks!"
+    0820C8BD  callstd              function=MSGBOX_NPC(2)
+    0820C8BF  end                  
+
+  object 2 (gfx 0x43, flag 0x0000) -> 0x0820C8C0
+  script 0x0820C8C0  [ok]
+    0820C8C0  bufferspeciesname    stringVarId=0 species=MACHOKE(67)
+    0820C8C4  lock                 
+    0820C8C5  faceplayer           
+    0820C8C6  waitse               
+    0820C8C7  playmoncry           species=MACHOKE(67) mode=0
+    0820C8CC  msgbox_multilang     type=0 text_0="Machoke: Gwoh! Goggoh!" text_1="Machoke: Gwoh! Goggoh!" text_2="Machoke: Gwoh! Goggoh!" text_3="Machoke: Gwoh! Goggoh!" text_4="Machoke: Gwoh! Goggoh!" text_5="Machoke: Gwoh! Goggoh!" text_6="Machoke: Gwoh! Goggoh!"
+    0820C8EA  callstd              function=MSGBOX_DEFAULT(4)
+    0820C8EC  waitmoncry           
+    0820C8ED  release              
+
+  object 3 (gfx 0x35, flag 0x0169) -> 0x082D56C3
+  script 0x082D56C3  [ok]
+    082D56C3  setorcopyvar         destination=VAR_0x8000 source=22
+    082D56C8  setorcopyvar         destination=VAR_0x8001 source=1
+    082D56CD  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Super Potion
+    082D56CF  end                  
+

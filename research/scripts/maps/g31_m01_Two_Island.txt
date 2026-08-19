@@ -1,0 +1,78 @@
+Two Island  (group 31, map 1)  header 0x08B3DCC0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0827C705
+  script 0x0827C705  [ok]
+    0827C705  lock                 
+    0827C706  faceplayer           
+    0827C707  clearflag            flag=0x002
+    0827C70A  clearflag            flag=0x003
+    0827C70D  clearflag            flag=0x004
+    0827C710  checkflag            flag=0x001
+    0827C713  goto_if              condition=1 destination=0x0827C742
+    0827C719  msgbox_multilang     type=0 text_0="I’m the Pokémon Move Maniac.\pI know every single move that\nPokémon learn growing up.\pI’m also a mushroom maniac.\pBring me two Tinymushrooms,\nor one Big Mushroom.\pIf you do that for me, I’ll teach\na move to one Pokémon." text_1="I’m the Pokémon Move Maniac.\pI know every single move that\nPokémon learn growing up.\pI’m also a mushroom maniac.\pBring me two Tinymushrooms,\nor one Big Mushroom.\pIf you do that for me, I’ll teach\na move to one Pokémon." text_2="I’m the Pokémon Move Maniac.\pI know every single move that\nPokémon learn growing up.\pI’m also a mushroom maniac.\pBring me two Tinymushrooms,\nor one Big Mushroom.\pIf you do that for me, I’ll teach\na move to one Pokémon." text_3="I’m the Pokémon Move Maniac.\pI know every single move that\nPokémon learn growing up.\pI’m also a mushroom maniac.\pBring me two Tinymushrooms,\nor one Big Mushroom.\pIf you do that for me, I’ll teach\na move to one Pokémon." text_4="I’m the Pokémon Move Maniac.\pI know every single move that\nPokémon learn growing up.\pI’m also a mushroom maniac.\pBring me two Tinymushrooms,\nor one Big Mushroom.\pIf you do that for me, I’ll teach\na move to one Pokémon." text_5="I’m the Pokémon Move Maniac.\pI know every single move that\nPokémon learn growing up.\pI’m also a mushroom maniac.\pBring me two Tinymushrooms,\nor one Big Mushroom.\pIf you do that for me, I’ll teach\na move to one Pokémon." text_6="I’m the Pokémon Move Maniac.\pI know every single move that\nPokémon learn growing up.\pI’m also a mushroom maniac.\pBring me two Tinymushrooms,\nor one Big Mushroom.\pIf you do that for me, I’ll teach\na move to one Pokémon."
+    0827C737  callstd              function=MSGBOX_DEFAULT(4)
+    0827C739  setflag              flag=0x001
+    0827C73C  goto                 destination=0x0827C742
+
+  script 0x0827C742  [ok]
+    0827C742  checkitem            itemId=Big Mushroom(104) quantity=1
+    0827C747  compare_var_to_value var=0x800D value=1
+    0827C74C  call_if              condition=1 destination=0x0827C970
+    0827C752  checkitem            itemId=TinyMushroom(103) quantity=2
+    0827C757  compare_var_to_value var=0x800D value=1
+    0827C75C  call_if              condition=1 destination=0x0827C974
+    0827C762  checkflag            flag=0x002
+    0827C765  goto_if              condition=1 destination=0x0827C77A
+    0827C76B  checkflag            flag=0x003
+    0827C76E  goto_if              condition=1 destination=0x0827C789
+    0827C774  goto                 destination=0x0827C94E
+
+  script 0x0827C970  [ok]
+    0827C970  setflag              flag=0x002
+    0827C973  return               
+
+  script 0x0827C974  [ok]
+    0827C974  setflag              flag=0x003
+    0827C977  return               
+
+  script 0x0827C77A  [ok]
+    0827C77A  checkflag            flag=0x003
+    0827C77D  call_if              condition=1 destination=0x0827C978
+    0827C783  goto                 destination=0x0827C798
+
+  script 0x0827C789  [ok]
+    0827C789  checkflag            flag=0x002
+    0827C78C  call_if              condition=1 destination=0x0827C978
+    0827C792  goto                 destination=0x0827C798
+
+  script 0x0827C94E  [ok]
+    0827C94E  msgbox_multilang     type=0 text_0="If your Pokémon need to learn a\nmove, I need a Mushroom or two." text_1="If your Pokémon need to learn a\nmove, I need a Mushroom or two." text_2="If your Pokémon need to learn a\nmove, I need a Mushroom or two." text_3="If your Pokémon need to learn a\nmove, I need a Mushroom or two." text_4="If your Pokémon need to learn a\nmove, I need a Mushroom or two." text_5="If your Pokémon need to learn a\nmove, I need a Mushroom or two." text_6="If your Pokémon need to learn a\nmove, I need a Mushroom or two."
+    0827C96C  callstd              function=MSGBOX_DEFAULT(4)
+    0827C96E  release              
+
+  script 0x0827C978  [ok]
+    0827C978  setflag              flag=0x004
+    0827C97B  return               
+
+  script 0x0827C798  [ok]
+    0827C798  msgbox_multilang     type=0 text_0="Sniff, sniff…\nHm! You smell of Mushrooms!\pDo you want me to teach a move\nto a Pokémon of yours?" text_1="Sniff, sniff…\nHm! You smell of Mushrooms!\pDo you want me to teach a move\nto a Pokémon of yours?" text_2="Sniff, sniff…\nHm! You smell of Mushrooms!\pDo you want me to teach a move\nto a Pokémon of yours?" text_3="Sniff, sniff…\nHm! You smell of Mushrooms!\pDo you want me to teach a move\nto a Pokémon of yours?" text_4="Sniff, sniff…\nHm! You smell of Mushrooms!\pDo you want me to teach a move\nto a Pokémon of yours?" text_5="Sniff, sniff…\nHm! You smell of Mushrooms!\pDo you want me to teach a move\nto a Pokémon of yours?" text_6="Sniff, sniff…\nHm! You smell of Mushrooms!\pDo you want me to teach a move\nto a Pokémon of yours?"
+    0827C7B6  callstd              function=MSGBOX_YESNO(5)
+    0827C7B8  compare_var_to_value var=0x800D value=0
+    0827C7BD  goto_if              condition=1 destination=0x0827C94E
+    0827C7C3  goto                 destination=0x0827C7C9
+
+  script 0x0827C7C9  [ok]
+    0827C7C9  msgbox_multilang     type=0 text_0="Which Pokémon needs tutoring?" text_1="Which Pokémon needs tutoring?" text_2="Which Pokémon needs tutoring?" text_3="Which Pokémon needs tutoring?" text_4="Which Pokémon needs tutoring?" text_5="Which Pokémon needs tutoring?" text_6="Which Pokémon needs tutoring?"
+    0827C7E7  callstd              function=MSGBOX_DEFAULT(4)
+    0827C7E9  waitstate            
+

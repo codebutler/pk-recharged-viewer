@@ -1,0 +1,98 @@
+Mt. Ember  (group 1, map 96)  header 0x08B3BC98
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  sign 0 at (3,7) -> 0x08218308
+  script 0x08218308  [ok]
+    08218308  lockall              
+    08218309  braillemessage       text="ÀÈÂ"
+    0821830E  waitbuttonpress      
+    0821830F  releaseall           
+
+  sign 1 at (4,7) -> 0x08218308
+  sign 2 at (5,7) -> 0x08218308
+  sign 3 at (4,9) -> 0x08218311
+  script 0x08218311  [ok]
+    08218311  lockall              
+    08218312  braillemessage       text="ÔÒÉ"
+    08218317  waitbuttonpress      
+    08218318  releaseall           
+
+  sign 4 at (3,9) -> 0x08218311
+  sign 5 at (5,9) -> 0x08218311
+  sign 6 at (3,11) -> 0x0821831A
+  script 0x0821831A  [ok]
+    0821831A  lockall              
+    0821831B  braillemessage       text="Ûéç"
+    08218320  waitbuttonpress      
+    08218321  releaseall           
+
+  sign 7 at (4,11) -> 0x0821831A
+  sign 8 at (5,11) -> 0x0821831A
+  sign 9 at (3,13) -> 0x08218323
+  script 0x08218323  [ok]
+    08218323  lockall              
+    08218324  braillemessage       text="ìぅゅ"
+    08218329  waitbuttonpress      
+    0821832A  releaseall           
+
+  sign 10 at (4,13) -> 0x08218323
+  sign 11 at (5,13) -> 0x08218323
+  sign 12 at (7,7) -> 0x0821832C
+  script 0x0821832C  [ok]
+    0821832C  lockall              
+    0821832D  braillemessage       text="ÎÌÊ"
+    08218332  waitbuttonpress      
+    08218333  releaseall           
+
+  sign 13 at (8,7) -> 0x0821832C
+  sign 14 at (9,7) -> 0x0821832C
+  sign 15 at (7,9) -> 0x08218335
+  script 0x08218335  [ok]
+    08218335  lockall              
+    08218336  braillemessage       text="ÓÙß"
+    0821833B  waitbuttonpress      
+    0821833C  releaseall           
+
+  sign 16 at (8,9) -> 0x08218335
+  sign 17 at (9,9) -> 0x08218335
+  sign 18 at (7,11) -> 0x0821833E
+  script 0x0821833E  [ok]
+    0821833E  lockall              
+    0821833F  braillemessage       text="áまëà"
+    08218344  waitbuttonpress      
+    08218345  releaseall           
+
+  sign 19 at (11,7) -> 0x08218350
+  script 0x08218350  [ok]
+    08218350  lockall              
+    08218351  braillemessage       text="わ"
+    08218356  waitbuttonpress      
+    08218357  releaseall           
+
+  sign 20 at (11,9) -> 0x08218359
+  script 0x08218359  [ok]
+    08218359  lockall              
+    0821835A  braillemessage       text="Ç"
+    0821835F  waitbuttonpress      
+    08218360  releaseall           
+
+  sign 21 at (8,11) -> 0x0821833E
+  sign 22 at (9,11) -> 0x0821833E
+  sign 23 at (7,13) -> 0x08218347
+  script 0x08218347  [ok]
+    08218347  lockall              
+    08218348  braillemessage       text="+ぉごぐ"
+    0821834D  waitbuttonpress      
+    0821834E  releaseall           
+
+  sign 24 at (9,13) -> 0x08218347
+  sign 25 at (8,13) -> 0x08218347

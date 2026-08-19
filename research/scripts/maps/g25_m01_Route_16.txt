@@ -1,0 +1,125 @@
+Route 16  (group 25, map 1)  header 0x08B3DA90
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0000) -> 0x08279D1B
+  script 0x08279D1B  [ok]
+    08279D1B  msgbox_multilang     type=0 text_0="Cycling Road is a downhill course\nby the sea. It’s a great ride." text_1="Cycling Road is a downhill course\nby the sea. It’s a great ride." text_2="Cycling Road is a downhill course\nby the sea. It’s a great ride." text_3="Cycling Road is a downhill course\nby the sea. It’s a great ride." text_4="Cycling Road is a downhill course\nby the sea. It’s a great ride." text_5="Cycling Road is a downhill course\nby the sea. It’s a great ride." text_6="Cycling Road is a downhill course\nby the sea. It’s a great ride."
+    08279D39  callstd              function=MSGBOX_NPC(2)
+    08279D3B  end                  
+
+  object 2 (gfx 0xF5, flag 0x0000) -> 0x08279E3D
+  script 0x08279E3D  [ok]
+    08279E3D  msgbox_multilang     type=0 text_0="How’d you get in?\nGood effort!" text_1="How’d you get in?\nGood effort!" text_2="How’d you get in?\nGood effort!" text_3="How’d you get in?\nGood effort!" text_4="How’d you get in?\nGood effort!" text_5="How’d you get in?\nGood effort!" text_6="How’d you get in?\nGood effort!"
+    08279E5B  callstd              function=MSGBOX_NPC(2)
+    08279E5D  end                  
+
+  coord trigger 0 (var 0x405E == 1) -> 0x082F80B5
+  script 0x082F80B5  [ok]
+    082F80B5  lockall              
+    082F80B6  clearflag            flag=0x890
+    082F80B9  setvar               destination=VAR_0x405E value=0
+    082F80BE  releaseall           
+
+  coord trigger 1 (var 0x405E == 0) -> 0x082F80C0
+  script 0x082F80C0  [ok]
+    082F80C0  lockall              
+    082F80C1  setvar               destination=VAR_0x405E value=1
+    082F80C6  releaseall           
+
+  coord trigger 2 (var 0x4001 == 0) -> 0x08279D3C
+  script 0x08279D3C  [ok]
+    08279D3C  lockall              
+    08279D3D  setvar               destination=VAR_0x8008 value=0
+    08279D42  goto                 destination=0x08279D78
+
+  script 0x08279D78  [ok]
+    08279D78  textcolor            color=0
+    08279D7A  msgbox_multilang     type=0 text_0="Excuse me!\nWait up, please!" text_1="Excuse me!\nWait up, please!" text_2="Excuse me!\nWait up, please!" text_3="Excuse me!\nWait up, please!" text_4="Excuse me!\nWait up, please!" text_5="Excuse me!\nWait up, please!" text_6="Excuse me!\nWait up, please!"
+    08279D98  callstd              function=MSGBOX_DEFAULT(4)
+    08279D9A  closemessage         
+    08279D9B  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    08279DA2  waitmovement         localId=0
+    08279DA5  delay                frames=20
+    08279DA8  compare_var_to_value var=0x8008 value=1
+    08279DAD  call_if              condition=1 destination=0x08279E01
+    08279DB3  compare_var_to_value var=0x8008 value=2
+    08279DB8  call_if              condition=1 destination=0x08279E0C
+    08279DBE  compare_var_to_value var=0x8008 value=3
+    08279DC3  call_if              condition=1 destination=0x08279E17
+    08279DC9  compare_var_to_value var=0x8008 value=4
+    08279DCE  call_if              condition=1 destination=0x08279E22
+    08279DD4  msgbox_multilang     type=0 text_0="No pedestrians are allowed on\nCycling Road!" text_1="No pedestrians are allowed on\nCycling Road!" text_2="No pedestrians are allowed on\nCycling Road!" text_3="No pedestrians are allowed on\nCycling Road!" text_4="No pedestrians are allowed on\nCycling Road!" text_5="No pedestrians are allowed on\nCycling Road!" text_6="No pedestrians are allowed on\nCycling Road!"
+    08279DF2  callstd              function=MSGBOX_DEFAULT(4)
+    08279DF4  closemessage         
+    08279DF5  applymovement        localId=255 movements=[walk_right]
+    08279DFC  waitmovement         localId=0
+    08279DFF  releaseall           
+
+  script 0x08279E01  [ok]
+    08279E01  applymovement        localId=255 movements=[walk_up]
+    08279E08  waitmovement         localId=0
+    08279E0B  return               
+
+  script 0x08279E0C  [ok]
+    08279E0C  applymovement        localId=255 movements=[walk_up walk_up]
+    08279E13  waitmovement         localId=0
+    08279E16  return               
+
+  script 0x08279E17  [ok]
+    08279E17  applymovement        localId=255 movements=[walk_up walk_up walk_up]
+    08279E1E  waitmovement         localId=0
+    08279E21  return               
+
+  script 0x08279E22  [ok]
+    08279E22  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up]
+    08279E29  waitmovement         localId=0
+    08279E2C  return               
+
+  coord trigger 3 (var 0x4001 == 0) -> 0x08279D48
+  script 0x08279D48  [ok]
+    08279D48  lockall              
+    08279D49  setvar               destination=VAR_0x8008 value=1
+    08279D4E  goto                 destination=0x08279D78
+
+  coord trigger 4 (var 0x405E == 0) -> 0x082F80C0
+  coord trigger 5 (var 0x405E == 0) -> 0x082F80C0
+  coord trigger 6 (var 0x405E == 1) -> 0x082F80B5
+  coord trigger 7 (var 0x405E == 1) -> 0x082F80B5
+  coord trigger 8 (var 0x4001 == 0) -> 0x08279D54
+  script 0x08279D54  [ok]
+    08279D54  lockall              
+    08279D55  setvar               destination=VAR_0x8008 value=2
+    08279D5A  goto                 destination=0x08279D78
+
+  coord trigger 9 (var 0x4001 == 0) -> 0x08279D60
+  script 0x08279D60  [ok]
+    08279D60  lockall              
+    08279D61  setvar               destination=VAR_0x8008 value=3
+    08279D66  goto                 destination=0x08279D78
+
+  coord trigger 10 (var 0x4001 == 0) -> 0x08279D6C
+  script 0x08279D6C  [ok]
+    08279D6C  lockall              
+    08279D6D  setvar               destination=VAR_0x8008 value=4
+    08279D72  goto                 destination=0x08279D78
+
+  map script type 3 -> 0x08279D08
+  script 0x08279D08  [ok]
+    08279D08  clearflag            flag=0x890
+    08279D0B  checkflag            flag=0x271
+    08279D0E  call_if              condition=1 destination=0x08279D15
+    08279D14  end                  
+
+  script 0x08279D15  [ok]
+    08279D15  setvar               destination=VAR_0x4001 value=1
+    08279D1A  return               
+

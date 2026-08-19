@@ -1,0 +1,38 @@
+Lavender Town  (group 8, map 3)  header 0x08B3D160
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0A, flag 0x0000) -> 0x0825CA8E
+  script 0x0825CA8E  [ok]
+    0825CA8E  lock                 
+    0825CA8F  faceplayer           
+    0825CA90  msgbox_multilang     type=0 text_0="I can sense the potential.\pThe potential was woken in me.\nWhat’s my hidden power?\pIt’s allows me to see the Hidden\nPower of a Pokémon.\pWhen they learn that move, I can\ntell what type the move will be.\pSo, you want me to use my power?\pI’ll tell you what type your\nPokémon’s Hidden Power will be." text_1="I can sense the potential.\pThe potential was woken in me.\nWhat’s my hidden power?\pIt’s allows me to see the Hidden\nPower of a Pokémon.\pWhen they learn that move, I can\ntell what type the move will be.\pSo, you want me to use my power?\pI’ll tell you what type your\nPokémon’s Hidden Power will be." text_2="I can sense the potential.\pThe potential was woken in me.\nWhat’s my hidden power?\pIt’s allows me to see the Hidden\nPower of a Pokémon.\pWhen they learn that move, I can\ntell what type the move will be.\pSo, you want me to use my power?\pI’ll tell you what type your\nPokémon’s Hidden Power will be." text_3="I can sense the potential.\pThe potential was woken in me.\nWhat’s my hidden power?\pIt’s allows me to see the Hidden\nPower of a Pokémon.\pWhen they learn that move, I can\ntell what type the move will be.\pSo, you want me to use my power?\pI’ll tell you what type your\nPokémon’s Hidden Power will be." text_4="I can sense the potential.\pThe potential was woken in me.\nWhat’s my hidden power?\pIt’s allows me to see the Hidden\nPower of a Pokémon.\pWhen they learn that move, I can\ntell what type the move will be.\pSo, you want me to use my power?\pI’ll tell you what type your\nPokémon’s Hidden Power will be." text_5="I can sense the potential.\pThe potential was woken in me.\nWhat’s my hidden power?\pIt’s allows me to see the Hidden\nPower of a Pokémon.\pWhen they learn that move, I can\ntell what type the move will be.\pSo, you want me to use my power?\pI’ll tell you what type your\nPokémon’s Hidden Power will be." text_6="I can sense the potential.\pThe potential was woken in me.\nWhat’s my hidden power?\pIt’s allows me to see the Hidden\nPower of a Pokémon.\pWhen they learn that move, I can\ntell what type the move will be.\pSo, you want me to use my power?\pI’ll tell you what type your\nPokémon’s Hidden Power will be."
+    0825CAAE  callstd              function=MSGBOX_YESNO(5)
+    0825CAB0  compare_var_to_value var=0x800D value=1
+    0825CAB5  goto_if              condition=1 destination=0x0825CABD
+    0825CABB  release              
+
+  script 0x0825CABD  [ok]
+    0825CABD  special              SPECIAL_\function=96
+    0825CAC0  waitstate            
+
+  object 2 (gfx 0x68, flag 0x02E6) -> 0x0825CB5D
+  script 0x0825CB5D  [ok]
+    0825CB5D  bufferspeciesname    stringVarId=0 species=CUBONE(104)
+    0825CB61  lock                 
+    0825CB62  faceplayer           
+    0825CB63  waitse               
+    0825CB64  playmoncry           species=CUBONE(104) mode=0
+    0825CB69  msgbox_multilang     type=0 text_0="Cubone: Kyarugoo!" text_1="Cubone: Kyarugoo!" text_2="Cubone: Kyarugoo!" text_3="Cubone: Kyarugoo!" text_4="Cubone: Kyarugoo!" text_5="Cubone: Kyarugoo!" text_6="Cubone: Kyarugoo!"
+    0825CB87  callstd              function=MSGBOX_DEFAULT(4)
+    0825CB89  waitmoncry           
+    0825CB8A  release              
+

@@ -1,0 +1,42 @@
+Cerulean City  (group 7, map 1)  header 0x08B3D010
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x37, flag 0x0000) -> 0x08256108
+  script 0x08256108  [ok]
+    08256108  lock                 
+    08256109  faceplayer           
+    0825610A  checkflag            flag=0x23F
+    0825610D  goto_if              condition=1 destination=0x08256135
+    08256113  msgbox_multilang     type=0 text_0="Those miserable Rockets!\pLook what they’ve done to my\nhouse!\pThey stole a TM for teaching Pokémon\nhow to Dig holes!\pI was going to use it on a Mankey or\na Sandshrew…\pThat cost me a bundle, it did!" text_1="Those miserable Rockets!\pLook what they’ve done to my\nhouse!\pThey stole a TM for teaching Pokémon\nhow to Dig holes!\pI was going to use it on a Mankey or\na Sandshrew…\pThat cost me a bundle, it did!" text_2="Those miserable Rockets!\pLook what they’ve done to my\nhouse!\pThey stole a TM for teaching Pokémon\nhow to Dig holes!\pI was going to use it on a Mankey or\na Sandshrew…\pThat cost me a bundle, it did!" text_3="Those miserable Rockets!\pLook what they’ve done to my\nhouse!\pThey stole a TM for teaching Pokémon\nhow to Dig holes!\pI was going to use it on a Mankey or\na Sandshrew…\pThat cost me a bundle, it did!" text_4="Those miserable Rockets!\pLook what they’ve done to my\nhouse!\pThey stole a TM for teaching Pokémon\nhow to Dig holes!\pI was going to use it on a Mankey or\na Sandshrew…\pThat cost me a bundle, it did!" text_5="Those miserable Rockets!\pLook what they’ve done to my\nhouse!\pThey stole a TM for teaching Pokémon\nhow to Dig holes!\pI was going to use it on a Mankey or\na Sandshrew…\pThat cost me a bundle, it did!" text_6="Those miserable Rockets!\pLook what they’ve done to my\nhouse!\pThey stole a TM for teaching Pokémon\nhow to Dig holes!\pI was going to use it on a Mankey or\na Sandshrew…\pThat cost me a bundle, it did!"
+    08256131  callstd              function=MSGBOX_DEFAULT(4)
+    08256133  release              
+
+  script 0x08256135  [ok]
+    08256135  msgbox_multilang     type=0 text_0="I figure what’s lost is lost.\pI decided to teach Diglett how to\nDig without a TM." text_1="I figure what’s lost is lost.\pI decided to teach Diglett how to\nDig without a TM." text_2="I figure what’s lost is lost.\pI decided to teach Diglett how to\nDig without a TM." text_3="I figure what’s lost is lost.\pI decided to teach Diglett how to\nDig without a TM." text_4="I figure what’s lost is lost.\pI decided to teach Diglett how to\nDig without a TM." text_5="I figure what’s lost is lost.\pI decided to teach Diglett how to\nDig without a TM." text_6="I figure what’s lost is lost.\pI decided to teach Diglett how to\nDig without a TM."
+    08256153  callstd              function=MSGBOX_DEFAULT(4)
+    08256155  goto                 destination=0x08256133
+
+  script 0x08256133  [ok]
+    08256133  release              
+
+  object 2 (gfx 0x2F, flag 0x0000) -> 0x0825615A
+  script 0x0825615A  [ok]
+    0825615A  msgbox_multilang     type=0 text_0="Team Rocket must be trying to Dig\ntheir way into no good!" text_1="Team Rocket must be trying to Dig\ntheir way into no good!" text_2="Team Rocket must be trying to Dig\ntheir way into no good!" text_3="Team Rocket must be trying to Dig\ntheir way into no good!" text_4="Team Rocket must be trying to Dig\ntheir way into no good!" text_5="Team Rocket must be trying to Dig\ntheir way into no good!" text_6="Team Rocket must be trying to Dig\ntheir way into no good!"
+    08256178  callstd              function=MSGBOX_NPC(2)
+    0825617A  end                  
+
+  sign 0 at (4,1) -> 0x0825617B
+  script 0x0825617B  [ok]
+    0825617B  msgbox_multilang     type=0 text_0="Team Rocket left a way out!" text_1="Team Rocket left a way out!" text_2="Team Rocket left a way out!" text_3="Team Rocket left a way out!" text_4="Team Rocket left a way out!" text_5="Team Rocket left a way out!" text_6="Team Rocket left a way out!"
+    08256199  callstd              function=MSGBOX_SIGN(3)
+    0825619B  end                  
+

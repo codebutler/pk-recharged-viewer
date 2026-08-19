@@ -1,0 +1,327 @@
+Battle Frontier  (group 41, map 25)  header 0x08B3E36C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1C, flag 0x0000) -> 0x082A963A
+  script 0x082A963A  [ok]
+    082A963A  lock                 
+    082A963B  faceplayer           
+    082A963C  setvar               destination=VAR_0x40CF value=5
+    082A9641  setvar               destination=VAR_0x408C value=0
+    082A9646  special              SPECIAL_\function=18
+    082A9649  msgbox_multilang     type=0 text_0="Where the luck of TRAINERS\nis put to the test…\pWelcome to the BATTLE PIKE…\pI am your guide to the BATTLE PIKE…" text_1="Where the luck of TRAINERS\nis put to the test…\pWelcome to the BATTLE PIKE…\pI am your guide to the BATTLE PIKE…" text_2="Where the luck of TRAINERS\nis put to the test…\pWelcome to the BATTLE PIKE…\pI am your guide to the BATTLE PIKE…" text_3="Where the luck of TRAINERS\nis put to the test…\pWelcome to the BATTLE PIKE…\pI am your guide to the BATTLE PIKE…" text_4="Where the luck of TRAINERS\nis put to the test…\pWelcome to the BATTLE PIKE…\pI am your guide to the BATTLE PIKE…" text_5="Where the luck of TRAINERS\nis put to the test…\pWelcome to the BATTLE PIKE…\pI am your guide to the BATTLE PIKE…" text_6="Where the luck of TRAINERS\nis put to the test…\pWelcome to the BATTLE PIKE…\pI am your guide to the BATTLE PIKE…"
+    082A9667  callstd              function=MSGBOX_DEFAULT(4)
+    082A9669  message              text="Would you like to take the Battle\nChoice challenge?"
+    082A966E  checkdecor           decoration=10907
+    082A9671  gotostd              function=77
+    082A9673  messageautoscroll    text=2605516842
+    082A9678  clearflag            flag=0x4D08 (temp)
+    082A967B  messageautoscroll    text=2605516842
+    082A9680  clearflag            flag=0x4D08 (temp)
+    082A9683  messageautoscroll    text=1868957738
+    082A9688  setptr               value=6 ptr=1638465
+    082A968E  bufferitemname       stringVarId=13 item=8576
+    082A9692  nop                  
+    082A9693  bufferitemname       stringVarId=0 item=1536
+    082A9697  nop1                 
+    082A9698  vmessage             text=554183318
+    082A969D  nop                  
+    082A969E  bufferitemname       stringVarId=1 item=1536
+    082A96A2  nop1                 
+    082A96A3  bufferdecorationname stringVarId=152 decoration=2090
+    082A96A7  compare_var_to_value var=0x8000 value=2
+    082A96AC  goto_if              condition=1 destination=0x082A992A
+    082A96B2  compare_var_to_value var=0x8000 value=127
+    082A96B7  goto_if              condition=1 destination=0x082A992A
+    082A96BD  message              text="You have the choice of two courses,\nLevel 50 and Open Level.\pWhich will you challenge?"
+    082A96C2  hidecoinsbox         x=157 y=42
+    082A96C5  gotostd              function=193
+    082A96C7  setfieldeffectargument argNum=42 value=VAR_0xC108
+    082A96CB  setfieldeffectargument argNum=42 value=VAR_0xC108
+    082A96CF  setfieldeffectargument argNum=42 value=VAR_0xC108
+    082A96D3  setfieldeffectargument argNum=42 value=VAR_0xC108
+    082A96D7  setfieldeffectargument argNum=42 value=VAR_0x6608
+    082A96DB  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    082A96E0  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A96E5  compare_var_to_value var=0x8000 value=2
+    082A96EA  goto_if              condition=1 destination=0x082A992A
+    082A96F0  compare_var_to_value var=0x8000 value=127
+    082A96F5  goto_if              condition=1 destination=0x082A992A
+    082A96FB  setvar               destination=VAR_0x8004 value=15
+    082A9700  special              SPECIAL_\function=148
+    082A9703  compare_var_to_value var=0x8004 value=1
+    082A9708  goto_if              condition=1 destination=0x082A98A6
+    082A970E  setvar               destination=VAR_0x8004 value=2
+    082A9713  setvar               destination=VAR_0x8005 value=1
+    082A9718  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082A971D  special              SPECIAL_\function=148
+    082A9720  msgbox_multilang     type=0 text_0="Please choose the three POKéMON\nyou wish to enter in the challenge…" text_1="Please choose the three POKéMON\nyou wish to enter in the challenge…" text_2="Please choose the three POKéMON\nyou wish to enter in the challenge…" text_3="Please choose the three POKéMON\nyou wish to enter in the challenge…" text_4="Please choose the three POKéMON\nyou wish to enter in the challenge…" text_5="Please choose the three POKéMON\nyou wish to enter in the challenge…" text_6="Please choose the three POKéMON\nyou wish to enter in the challenge…"
+    082A973E  callstd              function=MSGBOX_DEFAULT(4)
+    082A9740  fadescreen           mode=1
+    082A9742  callnative           func=0x080D5995
+    082A9747  call                 destination=0x08289DDE
+    082A974C  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082A9751  setvar               destination=VAR_0x8005 value=3
+    082A9756  special              SPECIAL_\function=161
+    082A9759  waitstate            
+
+  script 0x082A992A  [ok]
+    082A992A  msgbox_multilang     type=0 text_0="We look forward to seeing you\non another occasion…" text_1="We look forward to seeing you\non another occasion…" text_2="We look forward to seeing you\non another occasion…" text_3="We look forward to seeing you\non another occasion…" text_4="We look forward to seeing you\non another occasion…" text_5="We look forward to seeing you\non another occasion…" text_6="We look forward to seeing you\non another occasion…"
+    082A9948  callstd              function=MSGBOX_DEFAULT(4)
+    082A994A  release              
+
+  script 0x082A98A6  [ok]
+    082A98A6  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A98AB  compare_var_to_value var=0x8000 value=0
+    082A98B0  goto_if              condition=1 destination=0x082A98C1
+    082A98B6  compare_var_to_value var=0x8000 value=1
+    082A98BB  goto_if              condition=1 destination=0x082A98E6
+    082A98C1  msgbox_multilang     type=0 text_0="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_1="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_2="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_3="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_4="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_5="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_6="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…"
+    082A98DF  callstd              function=MSGBOX_DEFAULT(4)
+    082A98E1  goto                 destination=0x082A994A
+
+  script 0x08289DDE  [ok]
+    08289DDE  setvar               destination=VAR_0x8004 value=1
+    08289DE3  setvar               destination=VAR_0x8005 value=1
+    08289DE8  special              SPECIAL_\function=148
+    08289DEB  return               
+
+  script 0x082A98C1  [ok]
+    082A98C1  msgbox_multilang     type=0 text_0="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_1="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_2="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_3="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_4="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_5="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_6="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different POKéMON\nof Level 50 or less to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…"
+    082A98DF  callstd              function=MSGBOX_DEFAULT(4)
+    082A98E1  goto                 destination=0x082A994A
+
+  script 0x082A98E6  [ok]
+    082A98E6  msgbox_multilang     type=0 text_0="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different\nPOKéMON to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_1="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different\nPOKéMON to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_2="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different\nPOKéMON to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_3="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different\nPOKéMON to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_4="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different\nPOKéMON to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_5="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different\nPOKéMON to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…" text_6="I beg your pardon, but…\pYou do not have three eligible\nPOKéMON for the Battle Choice event.\pYou must have three different\nPOKéMON to enter.\pThey also must be holding different\nkinds of items.\pEGGS{STR_VAR_1} ineligible.\pPlease come see me when\nyou are ready…"
+    082A9904  callstd              function=MSGBOX_DEFAULT(4)
+    082A9906  goto                 destination=0x082A994A
+
+  script 0x082A994A  [ok]
+    082A994A  release              
+
+  object 2 (gfx 0x37, flag 0x0000) -> 0x082A9977
+  script 0x082A9977  [ok]
+    082A9977  msgbox_multilang     type=0 text_0="Arrgh! I blew my chance!\nI was one room away from the goal!\pIn this place, you’d better watch out\nfor poison, freezing, and so on." text_1="Arrgh! I blew my chance!\nI was one room away from the goal!\pIn this place, you’d better watch out\nfor poison, freezing, and so on." text_2="Arrgh! I blew my chance!\nI was one room away from the goal!\pIn this place, you’d better watch out\nfor poison, freezing, and so on." text_3="Arrgh! I blew my chance!\nI was one room away from the goal!\pIn this place, you’d better watch out\nfor poison, freezing, and so on." text_4="Arrgh! I blew my chance!\nI was one room away from the goal!\pIn this place, you’d better watch out\nfor poison, freezing, and so on." text_5="Arrgh! I blew my chance!\nI was one room away from the goal!\pIn this place, you’d better watch out\nfor poison, freezing, and so on." text_6="Arrgh! I blew my chance!\nI was one room away from the goal!\pIn this place, you’d better watch out\nfor poison, freezing, and so on."
+    082A9995  callstd              function=MSGBOX_NPC(2)
+    082A9997  end                  
+
+  object 3 (gfx 0x06, flag 0x0000) -> 0x082A9998
+  script 0x082A9998  [ok]
+    082A9998  msgbox_multilang     type=0 text_0="I’ve completed the challenge 10 times\nnow, but I’ve never had to battle\pa TRAINER once." text_1="I’ve completed the challenge 10 times\nnow, but I’ve never had to battle\pa TRAINER once." text_2="I’ve completed the challenge 10 times\nnow, but I’ve never had to battle\pa TRAINER once." text_3="I’ve completed the challenge 10 times\nnow, but I’ve never had to battle\pa TRAINER once." text_4="I’ve completed the challenge 10 times\nnow, but I’ve never had to battle\pa TRAINER once." text_5="I’ve completed the challenge 10 times\nnow, but I’ve never had to battle\pa TRAINER once." text_6="I’ve completed the challenge 10 times\nnow, but I’ve never had to battle\pa TRAINER once."
+    082A99B6  callstd              function=MSGBOX_NPC(2)
+    082A99B8  end                  
+
+  object 4 (gfx 0x2D, flag 0x0000) -> 0x082A99B9
+  script 0x082A99B9  [ok]
+    082A99B9  msgbox_multilang     type=0 text_0="Listen! Listen!\pDon’t you think that the special\nabilities of POKéMON will be useful\phere?" text_1="Listen! Listen!\pDon’t you think that the special\nabilities of POKéMON will be useful\phere?" text_2="Listen! Listen!\pDon’t you think that the special\nabilities of POKéMON will be useful\phere?" text_3="Listen! Listen!\pDon’t you think that the special\nabilities of POKéMON will be useful\phere?" text_4="Listen! Listen!\pDon’t you think that the special\nabilities of POKéMON will be useful\phere?" text_5="Listen! Listen!\pDon’t you think that the special\nabilities of POKéMON will be useful\phere?" text_6="Listen! Listen!\pDon’t you think that the special\nabilities of POKéMON will be useful\phere?"
+    082A99D7  callstd              function=MSGBOX_NPC(2)
+    082A99D9  end                  
+
+  sign 0 at (8,3) -> 0x082A994C
+  script 0x082A994C  [ok]
+    082A994C  lockall              
+    082A994D  setvar               destination=VAR_0x8004 value=7
+    082A9952  setvar               destination=VAR_0x8005 value=5
+    082A9957  special              SPECIAL_\function=148
+    082A995A  waitbuttonpress      
+    082A995B  special              SPECIAL_\function=342
+    082A995E  releaseall           
+
+  sign 1 at (1,3) -> 0x082A99DA
+  script 0x082A99DA  [ok]
+    082A99DA  lockall              
+    082A99DB  msgbox_multilang     type=0 text_0="The Battle Choice’s rules are listed." text_1="The Battle Choice’s rules are listed." text_2="The Battle Choice’s rules are listed." text_3="The Battle Choice’s rules are listed." text_4="The Battle Choice’s rules are listed." text_5="The Battle Choice’s rules are listed." text_6="The Battle Choice’s rules are listed."
+    082A99F9  callstd              function=MSGBOX_DEFAULT(4)
+    082A99FB  goto                 destination=0x082A9A01
+
+  script 0x082A9A01  [ok]
+    082A9A01  message              text="Which heading do you want to read?"
+    082A9A06  closedoor            x=10917 y=44296
+    082A9A0B  doweather            
+    082A9A0C  clearflag            flag=0xAD08 (temp)
+    082A9A0F  doweather            
+    082A9A10  clearflag            flag=0xAD08 (temp)
+    082A9A13  doweather            
+    082A9A14  clearflag            flag=0xAD08 (temp)
+    082A9A17  doweather            
+    082A9A18  clearflag            flag=0xAD08 (temp)
+    082A9A1B  doweather            
+    082A9A1C  clearflag            flag=0x6608 (temp)
+    082A9A1F  multichoice          x=16 y=4 multichoiceId=102 ignoreBPress=0
+    082A9A24  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082A9A29  compare_var_to_value var=0x8000 value=0
+    082A9A2E  goto_if              condition=1 destination=0x082A9A61
+    082A9A34  compare_var_to_value var=0x8000 value=1
+    082A9A39  goto_if              condition=1 destination=0x082A9A87
+    082A9A3F  compare_var_to_value var=0x8000 value=2
+    082A9A44  goto_if              condition=1 destination=0x082A9AAD
+    082A9A4A  compare_var_to_value var=0x8000 value=3
+    082A9A4F  goto_if              condition=1 destination=0x082A9AD3
+    082A9A55  compare_var_to_value var=0x8000 value=127
+    082A9A5A  goto_if              condition=1 destination=0x082A9AD3
+    082A9A60  end                  
+
+  script 0x082A9A61  [ok]
+    082A9A61  msgbox_multilang     type=0 text_0="The BAG and POKéNAV may not be used\nduring a Battle Choice challenge." text_1="The BAG and POKéNAV may not be used\nduring a Battle Choice challenge." text_2="The BAG and POKéNAV may not be used\nduring a Battle Choice challenge." text_3="The BAG and POKéNAV may not be used\nduring a Battle Choice challenge." text_4="The BAG and POKéNAV may not be used\nduring a Battle Choice challenge." text_5="The BAG and POKéNAV may not be used\nduring a Battle Choice challenge." text_6="The BAG and POKéNAV may not be used\nduring a Battle Choice challenge."
+    082A9A7F  callstd              function=MSGBOX_DEFAULT(4)
+    082A9A81  goto                 destination=0x082A9A01
+
+  script 0x082A9A87  [ok]
+    082A9A87  msgbox_multilang     type=0 text_0="During a Battle Choice challenge,\nany BERRY or HERB held by POKéMON\pwill be effective only once." text_1="During a Battle Choice challenge,\nany BERRY or HERB held by POKéMON\pwill be effective only once." text_2="During a Battle Choice challenge,\nany BERRY or HERB held by POKéMON\pwill be effective only once." text_3="During a Battle Choice challenge,\nany BERRY or HERB held by POKéMON\pwill be effective only once." text_4="During a Battle Choice challenge,\nany BERRY or HERB held by POKéMON\pwill be effective only once." text_5="During a Battle Choice challenge,\nany BERRY or HERB held by POKéMON\pwill be effective only once." text_6="During a Battle Choice challenge,\nany BERRY or HERB held by POKéMON\pwill be effective only once."
+    082A9AA5  callstd              function=MSGBOX_DEFAULT(4)
+    082A9AA7  goto                 destination=0x082A9A01
+
+  script 0x082A9AAD  [ok]
+    082A9AAD  msgbox_multilang     type=0 text_0="During a Battle Choice challenge,\nthe sequence of POKéMON cannot be\pchanged.\pThe sequence must be set before\nstarting your challenge." text_1="During a Battle Choice challenge,\nthe sequence of POKéMON cannot be\pchanged.\pThe sequence must be set before\nstarting your challenge." text_2="During a Battle Choice challenge,\nthe sequence of POKéMON cannot be\pchanged.\pThe sequence must be set before\nstarting your challenge." text_3="During a Battle Choice challenge,\nthe sequence of POKéMON cannot be\pchanged.\pThe sequence must be set before\nstarting your challenge." text_4="During a Battle Choice challenge,\nthe sequence of POKéMON cannot be\pchanged.\pThe sequence must be set before\nstarting your challenge." text_5="During a Battle Choice challenge,\nthe sequence of POKéMON cannot be\pchanged.\pThe sequence must be set before\nstarting your challenge." text_6="During a Battle Choice challenge,\nthe sequence of POKéMON cannot be\pchanged.\pThe sequence must be set before\nstarting your challenge."
+    082A9ACB  callstd              function=MSGBOX_DEFAULT(4)
+    082A9ACD  goto                 destination=0x082A9A01
+
+  script 0x082A9AD3  [ok]
+    082A9AD3  releaseall           
+
+  map script type 2 (var 0x4000 == 0) -> 0x082A93F7
+  script 0x082A93F7  [ok]
+    082A93F7  setvar               destination=VAR_0x8004 value=0
+    082A93FC  special              SPECIAL_\function=148
+    082A93FF  end                  
+
+  map script type 2 (var 0x4000 == 1) -> 0x082A9400
+  script 0x082A9400  [ok]
+    082A9400  special              SPECIAL_\function=0
+    082A9403  setvar               destination=VAR_0x8004 value=27
+    082A9408  special              SPECIAL_\function=155
+    082A940B  lockall              
+    082A940C  msgbox_multilang     type=0 text_0="I beg your pardon, but…\pYou failed to save before you quit\nyour challenge the last time.\pBecause of that, your challenge so far\nhas been disqualified. I am sorry…" text_1="I beg your pardon, but…\pYou failed to save before you quit\nyour challenge the last time.\pBecause of that, your challenge so far\nhas been disqualified. I am sorry…" text_2="I beg your pardon, but…\pYou failed to save before you quit\nyour challenge the last time.\pBecause of that, your challenge so far\nhas been disqualified. I am sorry…" text_3="I beg your pardon, but…\pYou failed to save before you quit\nyour challenge the last time.\pBecause of that, your challenge so far\nhas been disqualified. I am sorry…" text_4="I beg your pardon, but…\pYou failed to save before you quit\nyour challenge the last time.\pBecause of that, your challenge so far\nhas been disqualified. I am sorry…" text_5="I beg your pardon, but…\pYou failed to save before you quit\nyour challenge the last time.\pBecause of that, your challenge so far\nhas been disqualified. I am sorry…" text_6="I beg your pardon, but…\pYou failed to save before you quit\nyour challenge the last time.\pBecause of that, your challenge so far\nhas been disqualified. I am sorry…"
+    082A942A  callstd              function=MSGBOX_DEFAULT(4)
+    082A942C  closemessage         
+    082A942D  setvar               destination=VAR_0x8004 value=2
+    082A9432  setvar               destination=VAR_0x8005 value=1
+    082A9437  setvar               destination=VAR_0x8006 value=0
+    082A943C  special              SPECIAL_\function=155
+    082A943F  setvar               destination=VAR_0x8004 value=2
+    082A9444  setvar               destination=VAR_0x8005 value=4
+    082A9449  setvar               destination=VAR_0x8006 value=0
+    082A944E  special              SPECIAL_\function=155
+    082A9451  setvar               destination=VAR_0x8004 value=2
+    082A9456  setvar               destination=VAR_0x8005 value=0
+    082A945B  setvar               destination=VAR_0x8006 value=0
+    082A9460  special              SPECIAL_\function=148
+    082A9463  setvar               destination=VAR_0x4000 value=255
+    082A9468  releaseall           
+
+  map script type 2 (var 0x4000 == 3) -> 0x082A946A
+  script 0x082A946A  [ok]
+    082A946A  lockall              
+    082A946B  setvar               destination=VAR_0x8004 value=10
+    082A9470  special              SPECIAL_\function=148
+    082A9473  compare_var_to_value var=0x800D value=1
+    082A9478  goto_if              condition=1 destination=0x082A94A4
+    082A947E  msgbox_multilang     type=0 text_0="You have completed the challenge…\pI must say… You seem to possess luck\nin abundance…" text_1="You have completed the challenge…\pI must say… You seem to possess luck\nin abundance…" text_2="You have completed the challenge…\pI must say… You seem to possess luck\nin abundance…" text_3="You have completed the challenge…\pI must say… You seem to possess luck\nin abundance…" text_4="You have completed the challenge…\pI must say… You seem to possess luck\nin abundance…" text_5="You have completed the challenge…\pI must say… You seem to possess luck\nin abundance…" text_6="You have completed the challenge…\pI must say… You seem to possess luck\nin abundance…"
+    082A949C  callstd              function=MSGBOX_DEFAULT(4)
+    082A949E  waitmessage          
+    082A949F  goto                 destination=0x082A94C5
+
+  script 0x082A94A4  [ok]
+    082A94A4  msgbox_multilang     type=0 text_0="Congratulations…\pYou have snatched victory from the\nPIKE QUEEN and cleared the event…" text_1="Congratulations…\pYou have snatched victory from the\nPIKE QUEEN and cleared the event…" text_2="Congratulations…\pYou have snatched victory from the\nPIKE QUEEN and cleared the event…" text_3="Congratulations…\pYou have snatched victory from the\nPIKE QUEEN and cleared the event…" text_4="Congratulations…\pYou have snatched victory from the\nPIKE QUEEN and cleared the event…" text_5="Congratulations…\pYou have snatched victory from the\nPIKE QUEEN and cleared the event…" text_6="Congratulations…\pYou have snatched victory from the\nPIKE QUEEN and cleared the event…"
+    082A94C2  callstd              function=MSGBOX_DEFAULT(4)
+    082A94C4  waitmessage          
+    082A94C5  msgbox_multilang     type=0 text_0="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_1="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_2="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_3="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_4="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_5="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_6="In recognition of your amazing luck,\nwe award you these Battle Point(s)…"
+    082A94E3  callstd              function=MSGBOX_DEFAULT(4)
+    082A94E5  setvar               destination=VAR_0x8004 value=11
+    082A94EA  special              SPECIAL_\function=148
+    082A94ED  msgbox_multilang     type=0 text_0="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained {STR_VAR_1} Battle Point(s)."
+    082A950B  callstd              function=11
+    082A950D  setvar               destination=VAR_0x8004 value=8
+    082A9512  special              SPECIAL_\function=148
+    082A9515  setvar               destination=VAR_0x8004 value=1
+    082A951A  setvar               destination=VAR_0x8005 value=3
+    082A951F  special              SPECIAL_\function=155
+    082A9522  addvar               destination=VAR_0x800D value=1
+    082A9527  setvar               destination=VAR_0x8004 value=2
+    082A952C  setvar               destination=VAR_0x8005 value=3
+    082A9531  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082A9536  special              SPECIAL_\function=155
+    082A9539  special              SPECIAL_\function=19
+    082A953C  special              SPECIAL_\function=0
+    082A953F  callnative           func=0x080D5785
+    082A9544  setvar               destination=VAR_0x8004 value=27
+    082A9549  special              SPECIAL_\function=155
+    082A954C  message              text="I shall record your results.\nPlease wait…"
+    082A9551  releaseall           
+
+  script 0x082A94C5  [ok]
+    082A94C5  msgbox_multilang     type=0 text_0="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_1="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_2="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_3="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_4="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_5="In recognition of your amazing luck,\nwe award you these Battle Point(s)…" text_6="In recognition of your amazing luck,\nwe award you these Battle Point(s)…"
+    082A94E3  callstd              function=MSGBOX_DEFAULT(4)
+    082A94E5  setvar               destination=VAR_0x8004 value=11
+    082A94EA  special              SPECIAL_\function=148
+    082A94ED  msgbox_multilang     type=0 text_0="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_1="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_2="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_3="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_4="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_5="{PLAYER} obtained {STR_VAR_1} Battle Point(s)." text_6="{PLAYER} obtained {STR_VAR_1} Battle Point(s)."
+    082A950B  callstd              function=11
+    082A950D  setvar               destination=VAR_0x8004 value=8
+    082A9512  special              SPECIAL_\function=148
+    082A9515  setvar               destination=VAR_0x8004 value=1
+    082A951A  setvar               destination=VAR_0x8005 value=3
+    082A951F  special              SPECIAL_\function=155
+    082A9522  addvar               destination=VAR_0x800D value=1
+    082A9527  setvar               destination=VAR_0x8004 value=2
+    082A952C  setvar               destination=VAR_0x8005 value=3
+    082A9531  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    082A9536  special              SPECIAL_\function=155
+    082A9539  special              SPECIAL_\function=19
+    082A953C  special              SPECIAL_\function=0
+    082A953F  callnative           func=0x080D5785
+    082A9544  setvar               destination=VAR_0x8004 value=27
+    082A9549  special              SPECIAL_\function=155
+    082A954C  message              text="I shall record your results.\nPlease wait…"
+    082A9551  releaseall           
+
+  map script type 2 (var 0x4000 == 4) -> 0x082A95A3
+  script 0x082A95A3  [ok]
+    082A95A3  lockall              
+    082A95A4  message              text="Your challenge has ended…\pI shall record your results.\nPlease wait…"
+    082A95A9  setmonmetlocation    slot=10912 location=8
+    082A95AD  setmonmetlocation    slot=10912 location=8
+    082A95B1  setmonmetlocation    slot=10912 location=8
+    082A95B5  setmonmetlocation    slot=10912 location=8
+    082A95B9  setmonmetlocation    slot=10912 location=8
+    082A95BD  setmonmetlocation    slot=10912 location=8
+    082A95C1  waitmessage          
+    082A95C2  setvar               destination=VAR_0x8004 value=8
+    082A95C7  special              SPECIAL_\function=148
+    082A95CA  setvar               destination=VAR_0x8004 value=2
+    082A95CF  setvar               destination=VAR_0x8005 value=2
+    082A95D4  setvar               destination=VAR_0x8006 value=0
+    082A95D9  special              SPECIAL_\function=148
+    082A95DC  setvar               destination=VAR_0x8004 value=2
+    082A95E1  setvar               destination=VAR_0x8005 value=4
+    082A95E6  setvar               destination=VAR_0x8006 value=0
+    082A95EB  special              SPECIAL_\function=155
+    082A95EE  special              SPECIAL_\function=19
+    082A95F1  special              SPECIAL_\function=0
+    082A95F4  callnative           func=0x080D5785
+    082A95F9  setvar               destination=VAR_0x8004 value=27
+    082A95FE  special              SPECIAL_\function=155
+    082A9601  setvar               destination=VAR_0x8004 value=8
+    082A9606  setvar               destination=VAR_0x8005 value=0
+    082A960B  special              SPECIAL_\function=155
+    082A960E  playse               song=55
+    082A9611  waitse               
+    082A9612  msgbox_multilang     type=0 text_0="We look forward to seeing you\non another occasion…" text_1="We look forward to seeing you\non another occasion…" text_2="We look forward to seeing you\non another occasion…" text_3="We look forward to seeing you\non another occasion…" text_4="We look forward to seeing you\non another occasion…" text_5="We look forward to seeing you\non another occasion…" text_6="We look forward to seeing you\non another occasion…"
+    082A9630  callstd              function=MSGBOX_DEFAULT(4)
+    082A9632  closemessage         
+    082A9633  setvar               destination=VAR_0x4000 value=255
+    082A9638  releaseall           
+
+  map script type 4 (var 0x4001 == 0) -> 0x082A93ED
+  script 0x082A93ED  [ok]
+    082A93ED  setvar               destination=VAR_0x4001 value=1
+    082A93F2  turnobject           localId=255 direction=2
+    082A93F6  end                  
+

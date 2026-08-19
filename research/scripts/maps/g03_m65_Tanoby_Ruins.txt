@@ -1,0 +1,96 @@
+Tanoby Ruins  (group 3, map 65)  header 0x08B3CDE0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x4B, flag 0x0000) -> 0x081FEA6F
+  script 0x081FEA6F  [ok]
+    081FEA6F  trainerbattle        type=0 trainer=0x25A localId=0 ptr1=0x0823FFFD ptr2=0x0824002C
+    081FEA7D  specialvar           output=32781 SPECIAL_\function=37
+    081FEA82  compare_var_to_value var=0x800D value=1
+    081FEA87  goto_if              condition=1 destination=0x081FEAAE
+    081FEA8D  msgbox_multilang     type=0 text_0="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_1="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_2="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_3="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_4="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_5="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_6="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place."
+    081FEAAB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FEAAD  end                  
+
+  script 0x081FEAAE  [ok]
+    081FEAAE  goto                 destination=0x081FEAB8
+
+  script 0x081FEAB8  [ok]
+    081FEAB8  trainerbattle        type=5 trainer=0x25A localId=0 ptr1=0x082BB1CD ptr2=0x0824002C
+    081FEAC6  msgbox_multilang     type=0 text_0="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_1="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_2="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_3="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_4="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_5="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place." text_6="The Tanoby Ruins date back at\nleast 1,500 years.\pBut it’s a baffling mystery as to\nwhy it was built in the first place."
+    081FEAE4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FEAE6  end                  
+
+  object 2 (gfx 0x4B, flag 0x0000) -> 0x081FEAE7
+  script 0x081FEAE7  [ok]
+    081FEAE7  trainerbattle        type=0 trainer=0x25B localId=0 ptr1=0x082400DB ptr2=0x0824010A
+    081FEAF5  specialvar           output=32781 SPECIAL_\function=37
+    081FEAFA  compare_var_to_value var=0x800D value=1
+    081FEAFF  goto_if              condition=1 destination=0x081FEB26
+    081FEB05  msgbox_multilang     type=0 text_0="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_1="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_2="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_3="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_4="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_5="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_6="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?"
+    081FEB23  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FEB25  end                  
+
+  script 0x081FEB26  [ok]
+    081FEB26  goto                 destination=0x081FEB30
+
+  script 0x081FEB30  [ok]
+    081FEB30  trainerbattle        type=5 trainer=0x25B localId=0 ptr1=0x082BB204 ptr2=0x0824010A
+    081FEB3E  msgbox_multilang     type=0 text_0="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_1="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_2="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_3="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_4="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_5="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?" text_6="I hear there are other ruins like\nthe one here.\pMight they be the resting places\nof other mystic Pokémon?"
+    081FEB5C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FEB5E  end                  
+
+  object 3 (gfx 0x3E, flag 0x0000) -> 0x081FEB5F
+  script 0x081FEB5F  [ok]
+    081FEB5F  trainerbattle        type=0 trainer=0x25C localId=0 ptr1=0x08240191 ptr2=0x082401B7
+    081FEB6D  specialvar           output=32781 SPECIAL_\function=37
+    081FEB72  compare_var_to_value var=0x800D value=1
+    081FEB77  goto_if              condition=1 destination=0x081FEB9E
+    081FEB7D  msgbox_multilang     type=0 text_0="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_1="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_2="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_3="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_4="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_5="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_6="I said that I wanted to paint an\nold building.\pSo Clifford brought me here."
+    081FEB9B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FEB9D  end                  
+
+  script 0x081FEB9E  [ok]
+    081FEB9E  goto                 destination=0x081FEBA8
+
+  script 0x081FEBA8  [ok]
+    081FEBA8  trainerbattle        type=5 trainer=0x25C localId=0 ptr1=0x082BB233 ptr2=0x082401B7
+    081FEBB6  msgbox_multilang     type=0 text_0="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_1="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_2="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_3="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_4="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_5="I said that I wanted to paint an\nold building.\pSo Clifford brought me here." text_6="I said that I wanted to paint an\nold building.\pSo Clifford brought me here."
+    081FEBD4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FEBD6  end                  
+
+  object 4 (gfx 0x30, flag 0x0000) -> 0x081FEBD7
+  script 0x081FEBD7  [ok]
+    081FEBD7  trainerbattle        type=0 trainer=0x25D localId=0 ptr1=0x08240231 ptr2=0x0824026F
+    081FEBE5  specialvar           output=32781 SPECIAL_\function=37
+    081FEBEA  compare_var_to_value var=0x800D value=1
+    081FEBEF  goto_if              condition=1 destination=0x081FEC16
+    081FEBF5  msgbox_multilang     type=0 text_0="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_1="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_2="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_3="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_4="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_5="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_6="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed."
+    081FEC13  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FEC15  end                  
+
+  script 0x081FEC16  [ok]
+    081FEC16  goto                 destination=0x081FEC20
+
+  script 0x081FEC20  [ok]
+    081FEC20  trainerbattle        type=5 trainer=0x25D localId=0 ptr1=0x082BB264 ptr2=0x0824026F
+    081FEC2E  msgbox_multilang     type=0 text_0="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_1="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_2="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_3="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_4="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_5="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed." text_6="Ah, so you are studying Pokémon\non your own…\pYes, you certainly are quite the\nextraordinary person, indeed."
+    081FEC4C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FEC4E  end                  
+
+  hidden item at (33,10): Heart Scale
+
+  hidden item at (86,9): Heart Scale
+
+  hidden item at (125,5): Heart Scale
+
+  hidden item at (8,2): Heart Scale
+

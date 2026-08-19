@@ -1,0 +1,87 @@
+Cerulean City  (group 7, map 3)  header 0x08B3D048
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x082570C2
+  script 0x082570C2  [ok]
+    082570C2  lock                 
+    082570C3  faceplayer           
+    082570C4  call                 destination=0x082BB336
+    082570C9  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x30, flag 0x0000) -> 0x082570CB
+  script 0x082570CB  [ok]
+    082570CB  msgbox_multilang     type=0 text_0="Have you heard about Bill?\pEveryone calls him a Pokémaniac!\pI think people are just jealous of\nBill, though.\pWho wouldn’t want to boast about\ntheir Pokémon?" text_1="Have you heard about Bill?\pEveryone calls him a Pokémaniac!\pI think people are just jealous of\nBill, though.\pWho wouldn’t want to boast about\ntheir Pokémon?" text_2="Have you heard about Bill?\pEveryone calls him a Pokémaniac!\pI think people are just jealous of\nBill, though.\pWho wouldn’t want to boast about\ntheir Pokémon?" text_3="Have you heard about Bill?\pEveryone calls him a Pokémaniac!\pI think people are just jealous of\nBill, though.\pWho wouldn’t want to boast about\ntheir Pokémon?" text_4="Have you heard about Bill?\pEveryone calls him a Pokémaniac!\pI think people are just jealous of\nBill, though.\pWho wouldn’t want to boast about\ntheir Pokémon?" text_5="Have you heard about Bill?\pEveryone calls him a Pokémaniac!\pI think people are just jealous of\nBill, though.\pWho wouldn’t want to boast about\ntheir Pokémon?" text_6="Have you heard about Bill?\pEveryone calls him a Pokémaniac!\pI think people are just jealous of\nBill, though.\pWho wouldn’t want to boast about\ntheir Pokémon?"
+    082570E9  callstd              function=MSGBOX_NPC(2)
+    082570EB  end                  
+
+  object 3 (gfx 0xF3, flag 0x0000) -> 0x082570EC
+  script 0x082570EC  [ok]
+    082570EC  msgbox_multilang     type=0 text_0="That Bill!\pI heard that he’ll do whatever it\ntakes to get rare Pokémon.\pHe’s not above doing all sorts of\nthings, I’ve heard." text_1="That Bill!\pI heard that he’ll do whatever it\ntakes to get rare Pokémon.\pHe’s not above doing all sorts of\nthings, I’ve heard." text_2="That Bill!\pI heard that he’ll do whatever it\ntakes to get rare Pokémon.\pHe’s not above doing all sorts of\nthings, I’ve heard." text_3="That Bill!\pI heard that he’ll do whatever it\ntakes to get rare Pokémon.\pHe’s not above doing all sorts of\nthings, I’ve heard." text_4="That Bill!\pI heard that he’ll do whatever it\ntakes to get rare Pokémon.\pHe’s not above doing all sorts of\nthings, I’ve heard." text_5="That Bill!\pI heard that he’ll do whatever it\ntakes to get rare Pokémon.\pHe’s not above doing all sorts of\nthings, I’ve heard." text_6="That Bill!\pI heard that he’ll do whatever it\ntakes to get rare Pokémon.\pHe’s not above doing all sorts of\nthings, I’ve heard."
+    0825710A  callstd              function=MSGBOX_NPC(2)
+    0825710C  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0825710D
+  script 0x0825710D  [ok]
+    0825710D  lock                 
+    0825710E  faceplayer           
+    0825710F  setvar               destination=VAR_0x8004 value=13
+    08257114  setvar               destination=VAR_0x8005 value=1
+    08257119  special              SPECIAL_\function=347
+    0825711C  msgbox_multilang     type=0 text_0="Bill has lots of Pokémon!\nHe collects rare ones, too!" text_1="Bill has lots of Pokémon!\nHe collects rare ones, too!" text_2="Bill has lots of Pokémon!\nHe collects rare ones, too!" text_3="Bill has lots of Pokémon!\nHe collects rare ones, too!" text_4="Bill has lots of Pokémon!\nHe collects rare ones, too!" text_5="Bill has lots of Pokémon!\nHe collects rare ones, too!" text_6="Bill has lots of Pokémon!\nHe collects rare ones, too!"
+    0825713A  callstd              function=MSGBOX_DEFAULT(4)
+    0825713C  release              
+
+  object 5 (gfx 0x2F, flag 0x0000) -> 0x0825713E
+  script 0x0825713E  [ok]
+    0825713E  msgbox_multilang     type=0 text_0="Why don’t you go upstairs and try\ntrading Pokémon with your friends?\pYou could get a lot more variety by\ntrading.\pThe Pokémon you get in trades grow\nquickly, too." text_1="Why don’t you go upstairs and try\ntrading Pokémon with your friends?\pYou could get a lot more variety by\ntrading.\pThe Pokémon you get in trades grow\nquickly, too." text_2="Why don’t you go upstairs and try\ntrading Pokémon with your friends?\pYou could get a lot more variety by\ntrading.\pThe Pokémon you get in trades grow\nquickly, too." text_3="Why don’t you go upstairs and try\ntrading Pokémon with your friends?\pYou could get a lot more variety by\ntrading.\pThe Pokémon you get in trades grow\nquickly, too." text_4="Why don’t you go upstairs and try\ntrading Pokémon with your friends?\pYou could get a lot more variety by\ntrading.\pThe Pokémon you get in trades grow\nquickly, too." text_5="Why don’t you go upstairs and try\ntrading Pokémon with your friends?\pYou could get a lot more variety by\ntrading.\pThe Pokémon you get in trades grow\nquickly, too." text_6="Why don’t you go upstairs and try\ntrading Pokémon with your friends?\pYou could get a lot more variety by\ntrading.\pThe Pokémon you get in trades grow\nquickly, too."
+    0825715C  callstd              function=MSGBOX_NPC(2)
+    0825715E  end                  
+
+  object 6 (gfx 0x00, flag 0x009D) -> 0x081F263C
+  script 0x081F263C  [ok]
+    081F263C  lock                 
+    081F263D  faceplayer           
+    081F263E  setvar               destination=VAR_0x8004 value=3
+    081F2643  setvar               destination=VAR_0x8005 value=5
+    081F2648  special              SPECIAL_\function=347
+    081F264B  textcolor            color=3
+    081F264D  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature: Cerulean Gym\nLeader Misty!\pMisty is said to worship Lorelei\nof the Elite Four." text_1="Pokémon Journal\pSpecial Feature: Cerulean Gym\nLeader Misty!\pMisty is said to worship Lorelei\nof the Elite Four." text_2="Pokémon Journal\pSpecial Feature: Cerulean Gym\nLeader Misty!\pMisty is said to worship Lorelei\nof the Elite Four." text_3="Pokémon Journal\pSpecial Feature: Cerulean Gym\nLeader Misty!\pMisty is said to worship Lorelei\nof the Elite Four." text_4="Pokémon Journal\pSpecial Feature: Cerulean Gym\nLeader Misty!\pMisty is said to worship Lorelei\nof the Elite Four." text_5="Pokémon Journal\pSpecial Feature: Cerulean Gym\nLeader Misty!\pMisty is said to worship Lorelei\nof the Elite Four." text_6="Pokémon Journal\pSpecial Feature: Cerulean Gym\nLeader Misty!\pMisty is said to worship Lorelei\nof the Elite Four."
+    081F266B  callstd              function=MSGBOX_DEFAULT(4)
+    081F266D  release              
+
+  object 7 (gfx 0x00, flag 0x009D) -> 0x081F263C
+  object 8 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x082570BE
+  script 0x082570BE  [ok]
+    082570BE  setrespawn           heallocation=4
+    082570C1  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

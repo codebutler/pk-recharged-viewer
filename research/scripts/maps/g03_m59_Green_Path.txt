@@ -1,0 +1,45 @@
+Green Path  (group 3, map 59)  header 0x08B3CD38
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x4E, flag 0x0000) -> 0x081FDCA7
+  script 0x081FDCA7  [ok]
+    081FDCA7  trainerbattle        type=0 trainer=0x205 localId=0 ptr1=0x0823E60B ptr2=0x0823E64B
+    081FDCB5  specialvar           output=32781 SPECIAL_\function=37
+    081FDCBA  compare_var_to_value var=0x800D value=1
+    081FDCBF  goto_if              condition=1 destination=0x081FDCE6
+    081FDCC5  msgbox_multilang     type=0 text_0="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_1="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_2="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_3="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_4="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_5="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_6="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!"
+    081FDCE3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDCE5  end                  
+
+  script 0x081FDCE6  [ok]
+    081FDCE6  goto                 destination=0x081FDCF0
+
+  script 0x081FDCF0  [ok]
+    081FDCF0  trainerbattle        type=5 trainer=0x205 localId=0 ptr1=0x082BAAE3 ptr2=0x0823E64B
+    081FDCFE  msgbox_multilang     type=0 text_0="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_1="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_2="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_3="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_4="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_5="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!" text_6="I am so scatterbrained!\pI need to focus so I can Teleport\nproperly to my house!"
+    081FDD1C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDD1E  end                  
+
+  sign 0 at (40,10) -> 0x0823E5EA
+  script 0x0823E5EA  [ok]
+    0823E5EA  msgbox_multilang     type=0 text_0="Green Path\nThink Green, Keep Nature Clean!" text_1="Green Path\nThink Green, Keep Nature Clean!" text_2="Green Path\nThink Green, Keep Nature Clean!" text_3="Green Path\nThink Green, Keep Nature Clean!" text_4="Green Path\nThink Green, Keep Nature Clean!" text_5="Green Path\nThink Green, Keep Nature Clean!" text_6="Green Path\nThink Green, Keep Nature Clean!"
+    0823E608  callstd              function=MSGBOX_SIGN(3)
+    0823E60A  end                  
+
+  sign 1 at (69,10) -> 0x0823E5C9
+  script 0x0823E5C9  [ok]
+    0823E5C9  msgbox_multilang     type=0 text_0="Green Path\nPattern Bush Ahead" text_1="Green Path\nPattern Bush Ahead" text_2="Green Path\nPattern Bush Ahead" text_3="Green Path\nPattern Bush Ahead" text_4="Green Path\nPattern Bush Ahead" text_5="Green Path\nPattern Bush Ahead" text_6="Green Path\nPattern Bush Ahead"
+    0823E5E7  callstd              function=MSGBOX_SIGN(3)
+    0823E5E9  end                  
+
+  hidden item at (12,9): Ultra Ball
+

@@ -1,0 +1,59 @@
+Four Island  (group 33, map 4)  header 0x08B3DE80
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1A, flag 0x008C) -> 0x0827DAFD
+  script 0x0827DAFD  [ok]
+    0827DAFD  lock                 
+    0827DAFE  faceplayer           
+    0827DAFF  checkflag            flag=0x2D4
+    0827DB02  goto_if              condition=1 destination=0x0827DB58
+    0827DB08  checkflag            flag=0x2D5
+    0827DB0B  goto_if              condition=1 destination=0x0827DB33
+    0827DB11  msgbox_multilang     type=0 text_0="Lorelei: There’s something weighing\nheavily on my mind.\pIf anything were to happen on\nthe island where I was born…\pI wouldn’t know about it if I were\nin the Pokémon League.\pI wonder if that would make me\nirresponsible to my home…" text_1="Lorelei: There’s something weighing\nheavily on my mind.\pIf anything were to happen on\nthe island where I was born…\pI wouldn’t know about it if I were\nin the Pokémon League.\pI wonder if that would make me\nirresponsible to my home…" text_2="Lorelei: There’s something weighing\nheavily on my mind.\pIf anything were to happen on\nthe island where I was born…\pI wouldn’t know about it if I were\nin the Pokémon League.\pI wonder if that would make me\nirresponsible to my home…" text_3="Lorelei: There’s something weighing\nheavily on my mind.\pIf anything were to happen on\nthe island where I was born…\pI wouldn’t know about it if I were\nin the Pokémon League.\pI wonder if that would make me\nirresponsible to my home…" text_4="Lorelei: There’s something weighing\nheavily on my mind.\pIf anything were to happen on\nthe island where I was born…\pI wouldn’t know about it if I were\nin the Pokémon League.\pI wonder if that would make me\nirresponsible to my home…" text_5="Lorelei: There’s something weighing\nheavily on my mind.\pIf anything were to happen on\nthe island where I was born…\pI wouldn’t know about it if I were\nin the Pokémon League.\pI wonder if that would make me\nirresponsible to my home…" text_6="Lorelei: There’s something weighing\nheavily on my mind.\pIf anything were to happen on\nthe island where I was born…\pI wouldn’t know about it if I were\nin the Pokémon League.\pI wonder if that would make me\nirresponsible to my home…"
+    0827DB2F  callstd              function=MSGBOX_DEFAULT(4)
+    0827DB31  release              
+
+  script 0x0827DB58  [ok]
+    0827DB58  msgbox_multilang     type=0 text_0="I don’t know what will happen in\nthe future, but…\pI will do what I can here and now.\nThat’s all I can do." text_1="I don’t know what will happen in\nthe future, but…\pI will do what I can here and now.\nThat’s all I can do." text_2="I don’t know what will happen in\nthe future, but…\pI will do what I can here and now.\nThat’s all I can do." text_3="I don’t know what will happen in\nthe future, but…\pI will do what I can here and now.\nThat’s all I can do." text_4="I don’t know what will happen in\nthe future, but…\pI will do what I can here and now.\nThat’s all I can do." text_5="I don’t know what will happen in\nthe future, but…\pI will do what I can here and now.\nThat’s all I can do." text_6="I don’t know what will happen in\nthe future, but…\pI will do what I can here and now.\nThat’s all I can do."
+    0827DB76  callstd              function=MSGBOX_DEFAULT(4)
+    0827DB78  release              
+
+  script 0x0827DB33  [ok]
+    0827DB33  setflag              flag=0x2D4
+    0827DB36  msgbox_multilang     type=0 text_0="Lorelei: So, you managed to solve\nall the problems here?\pThat’s wonderful.\pThat means there isn’t any reason\nfor me to be here all the time.\pThank you…\pI’ll return to the Pokémon League\nin a short while." text_1="Lorelei: So, you managed to solve\nall the problems here?\pThat’s wonderful.\pThat means there isn’t any reason\nfor me to be here all the time.\pThank you…\pI’ll return to the Pokémon League\nin a short while." text_2="Lorelei: So, you managed to solve\nall the problems here?\pThat’s wonderful.\pThat means there isn’t any reason\nfor me to be here all the time.\pThank you…\pI’ll return to the Pokémon League\nin a short while." text_3="Lorelei: So, you managed to solve\nall the problems here?\pThat’s wonderful.\pThat means there isn’t any reason\nfor me to be here all the time.\pThank you…\pI’ll return to the Pokémon League\nin a short while." text_4="Lorelei: So, you managed to solve\nall the problems here?\pThat’s wonderful.\pThat means there isn’t any reason\nfor me to be here all the time.\pThank you…\pI’ll return to the Pokémon League\nin a short while." text_5="Lorelei: So, you managed to solve\nall the problems here?\pThat’s wonderful.\pThat means there isn’t any reason\nfor me to be here all the time.\pThank you…\pI’ll return to the Pokémon League\nin a short while." text_6="Lorelei: So, you managed to solve\nall the problems here?\pThat’s wonderful.\pThat means there isn’t any reason\nfor me to be here all the time.\pThank you…\pI’ll return to the Pokémon League\nin a short while."
+    0827DB54  callstd              function=MSGBOX_DEFAULT(4)
+    0827DB56  release              
+
+  object 2 (gfx 0x28, flag 0x0000) -> 0x0827DB7A
+  script 0x0827DB7A  [ok]
+    0827DB7A  lock                 
+    0827DB7B  msgbox_multilang     type=0 text_0="Stuffed Pokémon dolls galore!" text_1="Stuffed Pokémon dolls galore!" text_2="Stuffed Pokémon dolls galore!" text_3="Stuffed Pokémon dolls galore!" text_4="Stuffed Pokémon dolls galore!" text_5="Stuffed Pokémon dolls galore!" text_6="Stuffed Pokémon dolls galore!"
+    0827DB99  callstd              function=MSGBOX_DEFAULT(4)
+    0827DB9B  release              
+
+  object 3 (gfx 0x56, flag 0x0000) -> 0x0827DB7A
+  object 4 (gfx 0xD1, flag 0x0000) -> 0x0827DB7A
+  object 5 (gfx 0x4F, flag 0x0000) -> 0x0827DB7A
+  object 6 (gfx 0x50, flag 0x0000) -> 0x0827DB7A
+  object 7 (gfx 0x36, flag 0x0000) -> 0x0827DB7A
+  object 8 (gfx 0x34, flag 0x00A5) -> 0x0827DB7A
+  object 9 (gfx 0x71, flag 0x00A6) -> 0x0827DB7A
+  object 10 (gfx 0x27, flag 0x00A8) -> 0x0827DB7A
+  object 11 (gfx 0x1D, flag 0x00A7) -> 0x0827DB7A
+  object 12 (gfx 0x20, flag 0x00A9) -> 0x0827DB7A
+  object 13 (gfx 0x12, flag 0x00AB) -> 0x0827DB7A
+  object 14 (gfx 0x16, flag 0x00AA) -> 0x0827DB7A
+  object 15 (gfx 0x6B, flag 0x00AC) -> 0x0827DB7A
+  map script type 3 -> 0x0827DAFC
+  script 0x0827DAFC  [ok]
+    0827DAFC  end                  
+

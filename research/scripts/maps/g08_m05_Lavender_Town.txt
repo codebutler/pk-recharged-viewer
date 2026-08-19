@@ -1,0 +1,42 @@
+Lavender Town  (group 8, map 5)  header 0x08B3D198
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x0825D22C
+  script 0x0825D22C  [opcode-out-of-range:0xFE]
+    0825D22C  lock                 
+    0825D22D  faceplayer           
+    0825D22E  call                 destination=0x082BB330
+    0825D233  message              text="Hi, there!\nMay I help you?"
+    0825D238  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0xF4, flag 0x0000) -> 0x0825D1C9
+  script 0x0825D1C9  [ok]
+    0825D1C9  msgbox_multilang     type=0 text_0="I’m searching for items that raise\nthe stats of Pokémon.\pThey’re effective over the course\nof a single battle.\pX Attack, X Defend, X Speed, \nand X Special are what I’m after.\pDo you know where I can get them?" text_1="I’m searching for items that raise\nthe stats of Pokémon.\pThey’re effective over the course\nof a single battle.\pX Attack, X Defend, X Speed, \nand X Special are what I’m after.\pDo you know where I can get them?" text_2="I’m searching for items that raise\nthe stats of Pokémon.\pThey’re effective over the course\nof a single battle.\pX Attack, X Defend, X Speed, \nand X Special are what I’m after.\pDo you know where I can get them?" text_3="I’m searching for items that raise\nthe stats of Pokémon.\pThey’re effective over the course\nof a single battle.\pX Attack, X Defend, X Speed, \nand X Special are what I’m after.\pDo you know where I can get them?" text_4="I’m searching for items that raise\nthe stats of Pokémon.\pThey’re effective over the course\nof a single battle.\pX Attack, X Defend, X Speed, \nand X Special are what I’m after.\pDo you know where I can get them?" text_5="I’m searching for items that raise\nthe stats of Pokémon.\pThey’re effective over the course\nof a single battle.\pX Attack, X Defend, X Speed, \nand X Special are what I’m after.\pDo you know where I can get them?" text_6="I’m searching for items that raise\nthe stats of Pokémon.\pThey’re effective over the course\nof a single battle.\pX Attack, X Defend, X Speed, \nand X Special are what I’m after.\pDo you know where I can get them?"
+    0825D1E7  callstd              function=MSGBOX_NPC(2)
+    0825D1E9  end                  
+
+  object 3 (gfx 0xF3, flag 0x0000) -> 0x0825D1EA
+  script 0x0825D1EA  [ok]
+    0825D1EA  msgbox_multilang     type=0 text_0="Did you buy some Revives?\nThey revive any fainted Pokémon!" text_1="Did you buy some Revives?\nThey revive any fainted Pokémon!" text_2="Did you buy some Revives?\nThey revive any fainted Pokémon!" text_3="Did you buy some Revives?\nThey revive any fainted Pokémon!" text_4="Did you buy some Revives?\nThey revive any fainted Pokémon!" text_5="Did you buy some Revives?\nThey revive any fainted Pokémon!" text_6="Did you buy some Revives?\nThey revive any fainted Pokémon!"
+    0825D208  callstd              function=MSGBOX_NPC(2)
+    0825D20A  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0825D20B
+  script 0x0825D20B  [ok]
+    0825D20B  msgbox_multilang     type=0 text_0="Sometimes, a Trainer duo will\nchallenge you with two Pokémon\pat the same time.\pIf that happens, you have to send\nout two Pokémon to battle, too." text_1="Sometimes, a Trainer duo will\nchallenge you with two Pokémon\pat the same time.\pIf that happens, you have to send\nout two Pokémon to battle, too." text_2="Sometimes, a Trainer duo will\nchallenge you with two Pokémon\pat the same time.\pIf that happens, you have to send\nout two Pokémon to battle, too." text_3="Sometimes, a Trainer duo will\nchallenge you with two Pokémon\pat the same time.\pIf that happens, you have to send\nout two Pokémon to battle, too." text_4="Sometimes, a Trainer duo will\nchallenge you with two Pokémon\pat the same time.\pIf that happens, you have to send\nout two Pokémon to battle, too." text_5="Sometimes, a Trainer duo will\nchallenge you with two Pokémon\pat the same time.\pIf that happens, you have to send\nout two Pokémon to battle, too." text_6="Sometimes, a Trainer duo will\nchallenge you with two Pokémon\pat the same time.\pIf that happens, you have to send\nout two Pokémon to battle, too."
+    0825D229  callstd              function=MSGBOX_NPC(2)
+    0825D22B  end                  
+

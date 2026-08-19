@@ -1,0 +1,141 @@
+Five Isle Meadow  (group 3, map 56)  header 0x08B3CCE4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x03, flag 0x0088) -> 0x0823D6F3
+  script 0x0823D6F3  [ok]
+    0823D6F3  trainerbattle        type=0 trainer=0x239 localId=0 ptr1=0x0823D95A ptr2=0x0823D98F
+    0823D701  msgbox_multilang     type=0 text_0="You won’t be able to get in without\nthe passwords anyway." text_1="You won’t be able to get in without\nthe passwords anyway." text_2="You won’t be able to get in without\nthe passwords anyway." text_3="You won’t be able to get in without\nthe passwords anyway." text_4="You won’t be able to get in without\nthe passwords anyway." text_5="You won’t be able to get in without\nthe passwords anyway." text_6="You won’t be able to get in without\nthe passwords anyway."
+    0823D71F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823D721  end                  
+
+  object 2 (gfx 0x02, flag 0x0088) -> 0x0823D695
+  script 0x0823D695  [ok]
+    0823D695  trainerbattle        type=0 trainer=0x237 localId=0 ptr1=0x0823D81C ptr2=0x0823D847
+    0823D6A3  msgbox_multilang     type=0 text_0="You don’t have any business here!\nGo home!" text_1="You don’t have any business here!\nGo home!" text_2="You don’t have any business here!\nGo home!" text_3="You don’t have any business here!\nGo home!" text_4="You don’t have any business here!\nGo home!" text_5="You don’t have any business here!\nGo home!" text_6="You don’t have any business here!\nGo home!"
+    0823D6C1  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823D6C3  end                  
+
+  object 3 (gfx 0x02, flag 0x0088) -> 0x0823D6C4
+  script 0x0823D6C4  [ok]
+    0823D6C4  trainerbattle        type=0 trainer=0x238 localId=0 ptr1=0x0823D884 ptr2=0x0823D8CD
+    0823D6D2  msgbox_multilang     type=0 text_0="You’re wanting to know what’s inside\nthis Warehouse?\pIt’s better you didn’t know.\nFor your own sake, I mean." text_1="You’re wanting to know what’s inside\nthis Warehouse?\pIt’s better you didn’t know.\nFor your own sake, I mean." text_2="You’re wanting to know what’s inside\nthis Warehouse?\pIt’s better you didn’t know.\nFor your own sake, I mean." text_3="You’re wanting to know what’s inside\nthis Warehouse?\pIt’s better you didn’t know.\nFor your own sake, I mean." text_4="You’re wanting to know what’s inside\nthis Warehouse?\pIt’s better you didn’t know.\nFor your own sake, I mean." text_5="You’re wanting to know what’s inside\nthis Warehouse?\pIt’s better you didn’t know.\nFor your own sake, I mean." text_6="You’re wanting to know what’s inside\nthis Warehouse?\pIt’s better you didn’t know.\nFor your own sake, I mean."
+    0823D6F0  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0823D6F2  end                  
+
+  object 4 (gfx 0x52, flag 0x0321) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 5 (gfx 0x52, flag 0x0322) -> 0x082050CF
+  object 6 (gfx 0x35, flag 0x01DE) -> 0x082D5C8D
+  script 0x082D5C8D  [ok]
+    082D5C8D  setorcopyvar         destination=VAR_0x8000 source=20
+    082D5C92  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5C97  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Max Potion
+    082D5C99  end                  
+
+  object 7 (gfx 0x35, flag 0x01DF) -> 0x082D5C9A
+  script 0x082D5C9A  [ok]
+    082D5C9A  setorcopyvar         destination=VAR_0x8000 source=69
+    082D5C9F  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5CA4  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: PP Up
+    082D5CA6  end                  
+
+  sign 0 at (12,21) -> 0x0823D602
+  script 0x0823D602  [ok]
+    0823D602  lockall              
+    0823D603  checkflag            flag=0x2D6
+    0823D606  goto_if              condition=1 destination=0x0823D669
+    0823D60C  checkflag            flag=0x2D8
+    0823D60F  goto_if              condition=1 destination=0x0823D637
+    0823D615  msgbox_multilang     type=0 text_0="{PLAYER} entered a password.\p“Goldeen need log.”\p… …  … …  … …\pAnother password is needed to\nopen the door…" text_1="{PLAYER} entered a password.\p“Goldeen need log.”\p… …  … …  … …\pAnother password is needed to\nopen the door…" text_2="{PLAYER} entered a password.\p“Goldeen need log.”\p… …  … …  … …\pAnother password is needed to\nopen the door…" text_3="{PLAYER} entered a password.\p“Goldeen need log.”\p… …  … …  … …\pAnother password is needed to\nopen the door…" text_4="{PLAYER} entered a password.\p“Goldeen need log.”\p… …  … …  … …\pAnother password is needed to\nopen the door…" text_5="{PLAYER} entered a password.\p“Goldeen need log.”\p… …  … …  … …\pAnother password is needed to\nopen the door…" text_6="{PLAYER} entered a password.\p“Goldeen need log.”\p… …  … …  … …\pAnother password is needed to\nopen the door…"
+    0823D633  callstd              function=MSGBOX_DEFAULT(4)
+    0823D635  releaseall           
+
+  script 0x0823D669  [ok]
+    0823D669  msgbox_multilang     type=0 text_0="The Warehouse’s door is already\nopen." text_1="The Warehouse’s door is already\nopen." text_2="The Warehouse’s door is already\nopen." text_3="The Warehouse’s door is already\nopen." text_4="The Warehouse’s door is already\nopen." text_5="The Warehouse’s door is already\nopen." text_6="The Warehouse’s door is already\nopen."
+    0823D687  callstd              function=MSGBOX_DEFAULT(4)
+    0823D689  releaseall           
+
+  script 0x0823D637  [ok]
+    0823D637  setflag              flag=0x2D6
+    0823D63A  message              text="{PLAYER} entered two passwords.\p“Goldeen need log.”\n“Yes, nah, Chansey.”\p… …  … …  … …\pThe Warehouse’s door opened!"
+    0823D63F  pokemartdecoration2  products=2282234839
+    0823D644  warpmossdeepgym      mapGroup=35 mapNum=8 WARP_ID_NONE=136 -1=9175 -1=34824
+    0823D64C  warpmossdeepgym      mapGroup=35 mapNum=8 WARP_ID_NONE=136 -1=9175 -1=34824
+    0823D654  warpmossdeepgym      mapGroup=35 mapNum=8 WARP_ID_NONE=102 -1=15400 -1=1024
+    0823D65C  choosecontestmon     
+    0823D65D  freerotatingtilepuzzle 
+    0823D65E  callnative           func=5186824
+    0823D663  playse               song=21
+    0823D666  waitse               
+    0823D667  releaseall           
+
+  map script type 1 -> 0x0823D5F8
+  script 0x0823D5F8  [ok]
+    0823D5F8  checkflag            flag=0x2D6
+    0823D5FB  call_if              condition=1 destination=0x0823D68B
+    0823D601  end                  
+
+  script 0x0823D68B  [ok]
+    0823D68B  setmetatile          x=12 y=21 metatileId=687 impassable=1
+    0823D694  return               
+

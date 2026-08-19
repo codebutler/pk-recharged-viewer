@@ -1,0 +1,24 @@
+Route 11  (group 22, map 0)  header 0x08B3D9B0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0000) -> 0x0827824C
+  script 0x0827824C  [ok]
+    0827824C  msgbox_multilang     type=0 text_0="Don’t you think it’s hard to think\nup good names for Pokémon?\pEspecially if you’ve caught a\nwhole bunch?\pIn Lavender Town, there’s a man\nwho rates Pokémon nicknames.\pHe can even help you rename your\nPokémon, too." text_1="Don’t you think it’s hard to think\nup good names for Pokémon?\pEspecially if you’ve caught a\nwhole bunch?\pIn Lavender Town, there’s a man\nwho rates Pokémon nicknames.\pHe can even help you rename your\nPokémon, too." text_2="Don’t you think it’s hard to think\nup good names for Pokémon?\pEspecially if you’ve caught a\nwhole bunch?\pIn Lavender Town, there’s a man\nwho rates Pokémon nicknames.\pHe can even help you rename your\nPokémon, too." text_3="Don’t you think it’s hard to think\nup good names for Pokémon?\pEspecially if you’ve caught a\nwhole bunch?\pIn Lavender Town, there’s a man\nwho rates Pokémon nicknames.\pHe can even help you rename your\nPokémon, too." text_4="Don’t you think it’s hard to think\nup good names for Pokémon?\pEspecially if you’ve caught a\nwhole bunch?\pIn Lavender Town, there’s a man\nwho rates Pokémon nicknames.\pHe can even help you rename your\nPokémon, too." text_5="Don’t you think it’s hard to think\nup good names for Pokémon?\pEspecially if you’ve caught a\nwhole bunch?\pIn Lavender Town, there’s a man\nwho rates Pokémon nicknames.\pHe can even help you rename your\nPokémon, too." text_6="Don’t you think it’s hard to think\nup good names for Pokémon?\pEspecially if you’ve caught a\nwhole bunch?\pIn Lavender Town, there’s a man\nwho rates Pokémon nicknames.\pHe can even help you rename your\nPokémon, too."
+    0827826A  callstd              function=MSGBOX_NPC(2)
+    0827826C  end                  
+
+  object 2 (gfx 0x0C, flag 0x0000) -> 0x0827826D
+  script 0x0827826D  [ok]
+    0827826D  msgbox_multilang     type=0 text_0="If you’re aiming to reach Lavender\nTown, take Rock Tunnel.\pYou can get to Rock Tunnel from\nCerulean City." text_1="If you’re aiming to reach Lavender\nTown, take Rock Tunnel.\pYou can get to Rock Tunnel from\nCerulean City." text_2="If you’re aiming to reach Lavender\nTown, take Rock Tunnel.\pYou can get to Rock Tunnel from\nCerulean City." text_3="If you’re aiming to reach Lavender\nTown, take Rock Tunnel.\pYou can get to Rock Tunnel from\nCerulean City." text_4="If you’re aiming to reach Lavender\nTown, take Rock Tunnel.\pYou can get to Rock Tunnel from\nCerulean City." text_5="If you’re aiming to reach Lavender\nTown, take Rock Tunnel.\pYou can get to Rock Tunnel from\nCerulean City." text_6="If you’re aiming to reach Lavender\nTown, take Rock Tunnel.\pYou can get to Rock Tunnel from\nCerulean City."
+    0827828B  callstd              function=MSGBOX_NPC(2)
+    0827828D  end                  
+

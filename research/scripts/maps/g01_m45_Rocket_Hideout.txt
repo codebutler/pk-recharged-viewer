@@ -1,0 +1,165 @@
+Rocket Hideout  (group 1, map 45)  header 0x08B3B704
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x24, flag 0x0038) -> 0x0820E0B0
+  script 0x0820E0B0  [unknown-opcode:0xE4]
+    0820E0B0  lock                 
+    0820E0B1  faceplayer           
+    0820E0B2  setvar               destination=VAR_0x8004 value=15
+    0820E0B7  setvar               destination=VAR_0x8005 value=0
+    0820E0BC  special              SPECIAL_\function=347
+    0820E0BF  speakername          name="Giovanni"
+    0820E0C4  message              text="So! I must say, I am impressed you\ngot here.\pTeam Rocket captures Pokémon from\naround the world.\pThey’re important tools for keeping\nour criminal enterprise going.\pI am the leader, Giovanni!\pFor your insolence, you will feel a\nworld of pain!"
+    0820E0C9  resetobjectsubpriority localId=8420 mapGroup=8 mapNum=169
+
+  object 2 (gfx 0x35, flag 0x0037) -> 0x0820E145
+  script 0x0820E145  [unknown-opcode:0xE9]
+    0820E145  lock                 
+    0820E146  faceplayer           
+    0820E147  removeobject         localId=2
+
+  object 3 (gfx 0x02, flag 0x00AD) -> 0x0820E159
+  script 0x0820E159  [ok]
+    0820E159  trainerbattle        type=2 trainer=0x170 localId=0 ptr1=0x0820E664 ptr2=0x0820E695 ptr3=0x0820E18D
+    0820E16B  msgbox_multilang     type=0 text_0="Oh, no!\nI dropped the Lift Key!" text_1="Oh, no!\nI dropped the Lift Key!" text_2="Oh, no!\nI dropped the Lift Key!" text_3="Oh, no!\nI dropped the Lift Key!" text_4="Oh, no!\nI dropped the Lift Key!" text_5="Oh, no!\nI dropped the Lift Key!" text_6="Oh, no!\nI dropped the Lift Key!"
+    0820E189  callstd              function=MSGBOX_DEFAULT(4)
+    0820E18B  release              
+
+  script 0x0820E18D  [ok]
+    0820E18D  msgbox_multilang     type=0 text_0="Oh, no!\nI dropped the Lift Key!" text_1="Oh, no!\nI dropped the Lift Key!" text_2="Oh, no!\nI dropped the Lift Key!" text_3="Oh, no!\nI dropped the Lift Key!" text_4="Oh, no!\nI dropped the Lift Key!" text_5="Oh, no!\nI dropped the Lift Key!" text_6="Oh, no!\nI dropped the Lift Key!"
+    0820E1AB  callstd              function=MSGBOX_DEFAULT(4)
+    0820E1AD  addobject            localId=4
+    0820E1B0  clearflag            flag=0x036
+    0820E1B3  release              
+
+  object 4 (gfx 0x35, flag 0x0036) -> 0x0820E1B5
+  script 0x0820E1B5  [unknown-opcode:0xE9]
+    0820E1B5  lock                 
+    0820E1B6  faceplayer           
+    0820E1B7  setflag              flag=0x2A5
+    0820E1BA  removeobject         localId=4
+
+  object 5 (gfx 0x55, flag 0x0174) -> 0x082D5752
+  script 0x082D5752  [ok]
+    082D5752  setorcopyvar         destination=VAR_0x8000 source=337
+    082D5757  setorcopyvar         destination=VAR_0x8001 source=1
+    082D575C  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM49
+    082D575E  end                  
+
+  object 6 (gfx 0x35, flag 0x0175) -> 0x082D575F
+  script 0x082D575F  [ok]
+    082D575F  setorcopyvar         destination=VAR_0x8000 source=35
+    082D5764  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5769  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Max Ether
+    082D576B  end                  
+
+  object 7 (gfx 0x35, flag 0x0176) -> 0x082D576C
+  script 0x082D576C  [ok]
+    082D576C  setorcopyvar         destination=VAR_0x8000 source=67
+    082D5771  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5776  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Calcium
+    082D5778  end                  
+
+  object 8 (gfx 0x41, flag 0x012B) -> 0x00000000
+  object 9 (gfx 0x42, flag 0x012B) -> 0x00000000
+  object 10 (gfx 0x40, flag 0x012B) -> 0x00000000
+  coord trigger 0 (var 0x405D == 2) -> 0x0820E1E1
+  script 0x0820E1E1  [unknown-opcode:0xE3]
+    0820E1E1  lockall              
+    0820E1E2  getplayerxy          x=32772 y=32773
+    0820E1E7  compare_var_to_value var=0x8004 value=16
+    0820E1EC  goto_if              condition=1 destination=0x0820E431
+    0820E1F2  applymovement        localId=255 movements=[walk_up walk_right walk_up]
+    0820E1F9  waitmovement         localId=0
+    0820E1FC  textcolor            color=1
+    0820E1FE  playse               song=21
+    0820E201  applymovement        localId=9 movements=[emote_exclamation_mark]
+    0820E208  delay                frames=8
+    0820E20B  applymovement        localId=8 movements=[emote_exclamation_mark]
+    0820E212  delay                frames=8
+    0820E215  applymovement        localId=10 movements=[emote_exclamation_mark]
+    0820E21C  waitmovement         localId=0
+    0820E21F  delay                frames=16
+    0820E222  playbgm              song=495 save_song=0
+    0820E226  speakername          name="Jessie"
+    0820E22B  msgbox_multilang     type=0 text_0="You…\nYou’re that twerp from Mt. Moon!" text_1="You…\nYou’re that twerp from Mt. Moon!" text_2="You…\nYou’re that twerp from Mt. Moon!" text_3="You…\nYou’re that twerp from Mt. Moon!" text_4="You…\nYou’re that twerp from Mt. Moon!" text_5="You…\nYou’re that twerp from Mt. Moon!" text_6="You…\nYou’re that twerp from Mt. Moon!"
+    0820E249  callstd              function=MSGBOX_DEFAULT(4)
+    0820E24B  closemessage         
+    0820E24C  delay                frames=16
+    0820E24F  speakername          name="Jessie"
+    0820E254  message              text="Just how long are you gonna follow\nus around? I know I’m beautiful,\pbut what do you want?"
+    0820E259  bufferboxname        stringVarId=230 box=2080
+    0820E25D  bufferboxname        stringVarId=230 box=2080
+    0820E261  bufferboxname        stringVarId=230 box=2080
+    0820E265  bufferboxname        stringVarId=230 box=2080
+    0820E269  bufferboxname        stringVarId=230 box=2080
+    0820E26D  bufferboxname        stringVarId=230 box=2080
+    0820E271  waitmessage          
+    0820E272  delay                frames=8
+
+  script 0x0820E431  [ok]
+    0820E431  applymovement        localId=255 movements=[walk_up walk_right walk_right walk_up]
+    0820E438  goto                 destination=0x0820E1F9
+
+  script 0x0820E1F9  [unknown-opcode:0xE3]
+    0820E1F9  waitmovement         localId=0
+    0820E1FC  textcolor            color=1
+    0820E1FE  playse               song=21
+    0820E201  applymovement        localId=9 movements=[emote_exclamation_mark]
+    0820E208  delay                frames=8
+    0820E20B  applymovement        localId=8 movements=[emote_exclamation_mark]
+    0820E212  delay                frames=8
+    0820E215  applymovement        localId=10 movements=[emote_exclamation_mark]
+    0820E21C  waitmovement         localId=0
+    0820E21F  delay                frames=16
+    0820E222  playbgm              song=495 save_song=0
+    0820E226  speakername          name="Jessie"
+    0820E22B  msgbox_multilang     type=0 text_0="You…\nYou’re that twerp from Mt. Moon!" text_1="You…\nYou’re that twerp from Mt. Moon!" text_2="You…\nYou’re that twerp from Mt. Moon!" text_3="You…\nYou’re that twerp from Mt. Moon!" text_4="You…\nYou’re that twerp from Mt. Moon!" text_5="You…\nYou’re that twerp from Mt. Moon!" text_6="You…\nYou’re that twerp from Mt. Moon!"
+    0820E249  callstd              function=MSGBOX_DEFAULT(4)
+    0820E24B  closemessage         
+    0820E24C  delay                frames=16
+    0820E24F  speakername          name="Jessie"
+    0820E254  message              text="Just how long are you gonna follow\nus around? I know I’m beautiful,\pbut what do you want?"
+    0820E259  bufferboxname        stringVarId=230 box=2080
+    0820E25D  bufferboxname        stringVarId=230 box=2080
+    0820E261  bufferboxname        stringVarId=230 box=2080
+    0820E265  bufferboxname        stringVarId=230 box=2080
+    0820E269  bufferboxname        stringVarId=230 box=2080
+    0820E26D  bufferboxname        stringVarId=230 box=2080
+    0820E271  waitmessage          
+    0820E272  delay                frames=8
+
+  coord trigger 1 (var 0x405D == 2) -> 0x0820E1E1
+  hidden item at (22,6): Nest Ball
+
+  hidden item at (16,6): Net Ball
+
+  map script type 1 -> 0x0820E066
+  script 0x0820E066  [ok]
+    0820E066  checktrainerflag     trainer=0x16E
+    0820E069  goto_if              condition=1 destination=0x0820E079
+    0820E06F  checktrainerflag     trainer=0x16F
+    0820E072  goto_if              condition=1 destination=0x0820E079
+    0820E078  return               
+
+  script 0x0820E079  [ok]
+    0820E079  setmetatile          x=17 y=12 metatileId=642 impassable=0
+    0820E082  setmetatile          x=18 y=12 metatileId=641 impassable=0
+    0820E08B  setmetatile          x=17 y=13 metatileId=642 impassable=0
+    0820E094  setmetatile          x=18 y=13 metatileId=641 impassable=0
+    0820E09D  setmetatile          x=17 y=14 metatileId=642 impassable=0
+    0820E0A6  setmetatile          x=18 y=14 metatileId=641 impassable=0
+    0820E0AF  return               
+

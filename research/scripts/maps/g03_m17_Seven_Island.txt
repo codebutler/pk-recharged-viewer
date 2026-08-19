@@ -1,0 +1,35 @@
+Seven Island  (group 3, map 17)  header 0x08B3C8A0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1E, flag 0x0000) -> 0x08230F1A
+  script 0x08230F1A  [ok]
+    08230F1A  msgbox_multilang     type=0 text_0="These islands are called the Sevii\nIslands because there are seven.\p…Or at least that’s what the young\npeople believe.\pThe truth is, these islands are so\nnamed because they are said to\phave been made in seven days." text_1="These islands are called the Sevii\nIslands because there are seven.\p…Or at least that’s what the young\npeople believe.\pThe truth is, these islands are so\nnamed because they are said to\phave been made in seven days." text_2="These islands are called the Sevii\nIslands because there are seven.\p…Or at least that’s what the young\npeople believe.\pThe truth is, these islands are so\nnamed because they are said to\phave been made in seven days." text_3="These islands are called the Sevii\nIslands because there are seven.\p…Or at least that’s what the young\npeople believe.\pThe truth is, these islands are so\nnamed because they are said to\phave been made in seven days." text_4="These islands are called the Sevii\nIslands because there are seven.\p…Or at least that’s what the young\npeople believe.\pThe truth is, these islands are so\nnamed because they are said to\phave been made in seven days." text_5="These islands are called the Sevii\nIslands because there are seven.\p…Or at least that’s what the young\npeople believe.\pThe truth is, these islands are so\nnamed because they are said to\phave been made in seven days." text_6="These islands are called the Sevii\nIslands because there are seven.\p…Or at least that’s what the young\npeople believe.\pThe truth is, these islands are so\nnamed because they are said to\phave been made in seven days."
+    08230F38  callstd              function=MSGBOX_NPC(2)
+    08230F3A  end                  
+
+  object 2 (gfx 0x08, flag 0x0000) -> 0x08230F3B
+  script 0x08230F3B  [ok]
+    08230F3B  msgbox_multilang     type=0 text_0="This island has been left virtually\nuntouched in its natural state.\pIt could be a little difficult to hike\naround because of that." text_1="This island has been left virtually\nuntouched in its natural state.\pIt could be a little difficult to hike\naround because of that." text_2="This island has been left virtually\nuntouched in its natural state.\pIt could be a little difficult to hike\naround because of that." text_3="This island has been left virtually\nuntouched in its natural state.\pIt could be a little difficult to hike\naround because of that." text_4="This island has been left virtually\nuntouched in its natural state.\pIt could be a little difficult to hike\naround because of that." text_5="This island has been left virtually\nuntouched in its natural state.\pIt could be a little difficult to hike\naround because of that." text_6="This island has been left virtually\nuntouched in its natural state.\pIt could be a little difficult to hike\naround because of that."
+    08230F59  callstd              function=MSGBOX_NPC(2)
+    08230F5B  end                  
+
+  sign 0 at (17,9) -> 0x08230EF9
+  script 0x08230EF9  [ok]
+    08230EF9  msgbox_multilang     type=0 text_0="Seven Island\nQuest Island of Infinity" text_1="Seven Island\nQuest Island of Infinity" text_2="Seven Island\nQuest Island of Infinity" text_3="Seven Island\nQuest Island of Infinity" text_4="Seven Island\nQuest Island of Infinity" text_5="Seven Island\nQuest Island of Infinity" text_6="Seven Island\nQuest Island of Infinity"
+    08230F17  callstd              function=MSGBOX_SIGN(3)
+    08230F19  return               
+
+  map script type 3 -> 0x08230EF5
+  script 0x08230EF5  [ok]
+    08230EF5  setworldmapflag      flag=0x900
+    08230EF8  return               
+

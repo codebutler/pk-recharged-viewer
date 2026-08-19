@@ -1,0 +1,281 @@
+Slateport City  (group 42, map 7)  header 0x08B3E858
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x08286BA7
+  script 0x08286BA7  [ok]
+    08286BA7  compare_var_to_value var=0x8006 value=1
+    08286BAC  goto_if              condition=1 destination=0x08286C20
+    08286BB2  setvar               destination=VAR_0x4000 value=1
+    08286BB7  applymovement        localId=1 movements=[walk_up walk_up walk_up walk_up walk_in_place_faster_down]
+    08286BBE  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up]
+    08286BC5  waitmovement         localId=0
+    08286BC8  compare_var_to_value var=0x8006 value=2
+    08286BCD  goto_if              condition=1 destination=0x08286D62
+    08286BD3  setvar               destination=VAR_0x8004 value=9
+    08286BD8  special              SPECIAL_\function=160
+    08286BDB  setvar               destination=VAR_0x8004 value=8
+    08286BE0  special              SPECIAL_\function=160
+    08286BE3  fadescreen           mode=1
+    08286BE5  setvar               destination=VAR_0x8004 value=6
+    08286BEA  special              SPECIAL_\function=160
+    08286BED  waitstate            
+
+  script 0x08286C20  [ok]
+    08286C20  setvar               destination=VAR_0x8004 value=9
+    08286C25  special              SPECIAL_\function=154
+    08286C28  setvar               destination=VAR_0x8004 value=16
+    08286C2D  special              SPECIAL_\function=154
+    08286C30  playfanfare          song=368
+    08286C33  waitfanfare          
+    08286C34  special              SPECIAL_\function=0
+    08286C37  setvar               destination=VAR_0x8004 value=1
+    08286C3C  setvar               destination=VAR_0x8005 value=2
+    08286C41  special              SPECIAL_\function=148
+    08286C44  compare_var_to_value var=0x800D value=1
+    08286C49  call_if              condition=1 destination=0x08286D41
+    08286C4F  compare_var_to_value var=0x800D value=2
+    08286C54  call_if              condition=1 destination=0x08286D43
+    08286C5A  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    08286C5F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286C64  compare_var_to_value var=0x8000 value=0
+    08286C69  goto_if              condition=1 destination=0x08286CD8
+    08286C6F  compare_var_to_value var=0x8000 value=1
+    08286C74  goto_if              condition=1 destination=0x08286C85
+    08286C7A  compare_var_to_value var=0x8000 value=2
+    08286C7F  goto_if              condition=1 destination=0x08286CAB
+    08286C85  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286C8A  compare_var_to_value var=0x8000 value=0
+    08286C8F  goto_if              condition=1 destination=0x08286C37
+    08286C95  compare_var_to_value var=0x8000 value=1
+    08286C9A  goto_if              condition=1 destination=0x08286D45
+    08286CA0  compare_var_to_value var=0x8000 value=127
+    08286CA5  goto_if              condition=1 destination=0x08286C37
+    08286CAB  waitmessage          
+    08286CAC  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    08286CB2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286CB7  compare_var_to_value var=0x8000 value=1
+    08286CBC  goto_if              condition=1 destination=0x08286C37
+    08286CC2  compare_var_to_value var=0x8000 value=0
+    08286CC7  goto_if              condition=1 destination=0x08286E5F
+    08286CCD  compare_var_to_value var=0x8000 value=127
+    08286CD2  goto_if              condition=1 destination=0x08286C37
+    08286CD8  setvar               destination=VAR_0x8004 value=8
+    08286CDD  special              SPECIAL_\function=160
+    08286CE0  msgbox_multilang     type=0 text_0="Before starting the battle, would you\nlike to swap a Pokémon?" text_1="Before starting the battle, would you\nlike to swap a Pokémon?" text_2="Before starting the battle, would you\nlike to swap a Pokémon?" text_3="Before starting the battle, would you\nlike to swap a Pokémon?" text_4="Before starting the battle, would you\nlike to swap a Pokémon?" text_5="Before starting the battle, would you\nlike to swap a Pokémon?" text_6="Before starting the battle, would you\nlike to swap a Pokémon?"
+    08286CFE  callstd              function=MSGBOX_YESNO(5)
+    08286D00  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286D05  compare_var_to_value var=0x8000 value=0
+    08286D0A  goto_if              condition=1 destination=0x08286BEE
+    08286D10  compare_var_to_value var=0x8000 value=1
+    08286D15  goto_if              condition=1 destination=0x08286D26
+    08286D1B  compare_var_to_value var=0x8000 value=127
+    08286D20  goto_if              condition=1 destination=0x08286BEE
+    08286D26  fadescreen           mode=1
+    08286D28  setvar               destination=VAR_0x8004 value=7
+    08286D2D  special              SPECIAL_\function=160
+    08286D30  waitstate            
+
+  script 0x08286D62  [ok]
+    08286D62  special              SPECIAL_\function=18
+    08286D65  setvar               destination=VAR_0x8004 value=10
+    08286D6A  setvar               destination=VAR_0x8005 value=0
+    08286D6F  special              SPECIAL_\function=154
+    08286D72  goto                 destination=0x08286C37
+
+  script 0x08286D41  [ok]
+    08286D41  waitmessage          
+    08286D42  return               
+
+  script 0x08286D43  [ok]
+    08286D43  waitmessage          
+    08286D44  return               
+
+  script 0x08286CD8  [ok]
+    08286CD8  setvar               destination=VAR_0x8004 value=8
+    08286CDD  special              SPECIAL_\function=160
+    08286CE0  msgbox_multilang     type=0 text_0="Before starting the battle, would you\nlike to swap a Pokémon?" text_1="Before starting the battle, would you\nlike to swap a Pokémon?" text_2="Before starting the battle, would you\nlike to swap a Pokémon?" text_3="Before starting the battle, would you\nlike to swap a Pokémon?" text_4="Before starting the battle, would you\nlike to swap a Pokémon?" text_5="Before starting the battle, would you\nlike to swap a Pokémon?" text_6="Before starting the battle, would you\nlike to swap a Pokémon?"
+    08286CFE  callstd              function=MSGBOX_YESNO(5)
+    08286D00  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286D05  compare_var_to_value var=0x8000 value=0
+    08286D0A  goto_if              condition=1 destination=0x08286BEE
+    08286D10  compare_var_to_value var=0x8000 value=1
+    08286D15  goto_if              condition=1 destination=0x08286D26
+    08286D1B  compare_var_to_value var=0x8000 value=127
+    08286D20  goto_if              condition=1 destination=0x08286BEE
+    08286D26  fadescreen           mode=1
+    08286D28  setvar               destination=VAR_0x8004 value=7
+    08286D2D  special              SPECIAL_\function=160
+    08286D30  waitstate            
+
+  script 0x08286C85  [ok]
+    08286C85  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286C8A  compare_var_to_value var=0x8000 value=0
+    08286C8F  goto_if              condition=1 destination=0x08286C37
+    08286C95  compare_var_to_value var=0x8000 value=1
+    08286C9A  goto_if              condition=1 destination=0x08286D45
+    08286CA0  compare_var_to_value var=0x8000 value=127
+    08286CA5  goto_if              condition=1 destination=0x08286C37
+    08286CAB  waitmessage          
+    08286CAC  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    08286CB2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286CB7  compare_var_to_value var=0x8000 value=1
+    08286CBC  goto_if              condition=1 destination=0x08286C37
+    08286CC2  compare_var_to_value var=0x8000 value=0
+    08286CC7  goto_if              condition=1 destination=0x08286E5F
+    08286CCD  compare_var_to_value var=0x8000 value=127
+    08286CD2  goto_if              condition=1 destination=0x08286C37
+    08286CD8  setvar               destination=VAR_0x8004 value=8
+    08286CDD  special              SPECIAL_\function=160
+    08286CE0  msgbox_multilang     type=0 text_0="Before starting the battle, would you\nlike to swap a Pokémon?" text_1="Before starting the battle, would you\nlike to swap a Pokémon?" text_2="Before starting the battle, would you\nlike to swap a Pokémon?" text_3="Before starting the battle, would you\nlike to swap a Pokémon?" text_4="Before starting the battle, would you\nlike to swap a Pokémon?" text_5="Before starting the battle, would you\nlike to swap a Pokémon?" text_6="Before starting the battle, would you\nlike to swap a Pokémon?"
+    08286CFE  callstd              function=MSGBOX_YESNO(5)
+    08286D00  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286D05  compare_var_to_value var=0x8000 value=0
+    08286D0A  goto_if              condition=1 destination=0x08286BEE
+    08286D10  compare_var_to_value var=0x8000 value=1
+    08286D15  goto_if              condition=1 destination=0x08286D26
+    08286D1B  compare_var_to_value var=0x8000 value=127
+    08286D20  goto_if              condition=1 destination=0x08286BEE
+    08286D26  fadescreen           mode=1
+    08286D28  setvar               destination=VAR_0x8004 value=7
+    08286D2D  special              SPECIAL_\function=160
+    08286D30  waitstate            
+
+  script 0x08286CAB  [ok]
+    08286CAB  waitmessage          
+    08286CAC  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    08286CB2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286CB7  compare_var_to_value var=0x8000 value=1
+    08286CBC  goto_if              condition=1 destination=0x08286C37
+    08286CC2  compare_var_to_value var=0x8000 value=0
+    08286CC7  goto_if              condition=1 destination=0x08286E5F
+    08286CCD  compare_var_to_value var=0x8000 value=127
+    08286CD2  goto_if              condition=1 destination=0x08286C37
+    08286CD8  setvar               destination=VAR_0x8004 value=8
+    08286CDD  special              SPECIAL_\function=160
+    08286CE0  msgbox_multilang     type=0 text_0="Before starting the battle, would you\nlike to swap a Pokémon?" text_1="Before starting the battle, would you\nlike to swap a Pokémon?" text_2="Before starting the battle, would you\nlike to swap a Pokémon?" text_3="Before starting the battle, would you\nlike to swap a Pokémon?" text_4="Before starting the battle, would you\nlike to swap a Pokémon?" text_5="Before starting the battle, would you\nlike to swap a Pokémon?" text_6="Before starting the battle, would you\nlike to swap a Pokémon?"
+    08286CFE  callstd              function=MSGBOX_YESNO(5)
+    08286D00  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286D05  compare_var_to_value var=0x8000 value=0
+    08286D0A  goto_if              condition=1 destination=0x08286BEE
+    08286D10  compare_var_to_value var=0x8000 value=1
+    08286D15  goto_if              condition=1 destination=0x08286D26
+    08286D1B  compare_var_to_value var=0x8000 value=127
+    08286D20  goto_if              condition=1 destination=0x08286BEE
+    08286D26  fadescreen           mode=1
+    08286D28  setvar               destination=VAR_0x8004 value=7
+    08286D2D  special              SPECIAL_\function=160
+    08286D30  waitstate            
+
+  script 0x08286C37  [ok]
+    08286C37  setvar               destination=VAR_0x8004 value=1
+    08286C3C  setvar               destination=VAR_0x8005 value=2
+    08286C41  special              SPECIAL_\function=148
+    08286C44  compare_var_to_value var=0x800D value=1
+    08286C49  call_if              condition=1 destination=0x08286D41
+    08286C4F  compare_var_to_value var=0x800D value=2
+    08286C54  call_if              condition=1 destination=0x08286D43
+    08286C5A  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    08286C5F  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286C64  compare_var_to_value var=0x8000 value=0
+    08286C69  goto_if              condition=1 destination=0x08286CD8
+    08286C6F  compare_var_to_value var=0x8000 value=1
+    08286C74  goto_if              condition=1 destination=0x08286C85
+    08286C7A  compare_var_to_value var=0x8000 value=2
+    08286C7F  goto_if              condition=1 destination=0x08286CAB
+    08286C85  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286C8A  compare_var_to_value var=0x8000 value=0
+    08286C8F  goto_if              condition=1 destination=0x08286C37
+    08286C95  compare_var_to_value var=0x8000 value=1
+    08286C9A  goto_if              condition=1 destination=0x08286D45
+    08286CA0  compare_var_to_value var=0x8000 value=127
+    08286CA5  goto_if              condition=1 destination=0x08286C37
+    08286CAB  waitmessage          
+    08286CAC  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    08286CB2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286CB7  compare_var_to_value var=0x8000 value=1
+    08286CBC  goto_if              condition=1 destination=0x08286C37
+    08286CC2  compare_var_to_value var=0x8000 value=0
+    08286CC7  goto_if              condition=1 destination=0x08286E5F
+    08286CCD  compare_var_to_value var=0x8000 value=127
+    08286CD2  goto_if              condition=1 destination=0x08286C37
+    08286CD8  setvar               destination=VAR_0x8004 value=8
+    08286CDD  special              SPECIAL_\function=160
+    08286CE0  msgbox_multilang     type=0 text_0="Before starting the battle, would you\nlike to swap a Pokémon?" text_1="Before starting the battle, would you\nlike to swap a Pokémon?" text_2="Before starting the battle, would you\nlike to swap a Pokémon?" text_3="Before starting the battle, would you\nlike to swap a Pokémon?" text_4="Before starting the battle, would you\nlike to swap a Pokémon?" text_5="Before starting the battle, would you\nlike to swap a Pokémon?" text_6="Before starting the battle, would you\nlike to swap a Pokémon?"
+    08286CFE  callstd              function=MSGBOX_YESNO(5)
+    08286D00  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08286D05  compare_var_to_value var=0x8000 value=0
+    08286D0A  goto_if              condition=1 destination=0x08286BEE
+    08286D10  compare_var_to_value var=0x8000 value=1
+    08286D15  goto_if              condition=1 destination=0x08286D26
+    08286D1B  compare_var_to_value var=0x8000 value=127
+    08286D20  goto_if              condition=1 destination=0x08286BEE
+    08286D26  fadescreen           mode=1
+    08286D28  setvar               destination=VAR_0x8004 value=7
+    08286D2D  special              SPECIAL_\function=160
+    08286D30  waitstate            
+
+  script 0x08286D45  [ok]
+    08286D45  waitmessage          
+    08286D46  setvar               destination=VAR_0x8004 value=3
+    08286D4B  setvar               destination=VAR_0x8005 value=2
+    08286D50  special              SPECIAL_\function=160
+    08286D53  playse               song=55
+    08286D56  waitse               
+    08286D57  fadescreen           mode=1
+    08286D59  setvar               destination=VAR_0x8004 value=4
+    08286D5E  special              SPECIAL_\function=148
+    08286D61  end                  
+
+  script 0x08286E5F  [ok]
+    08286E5F  setvar               destination=VAR_0x8004 value=2
+    08286E64  setvar               destination=VAR_0x8005 value=0
+    08286E69  setvar               destination=VAR_0x8006 value=4
+    08286E6E  special              SPECIAL_\function=148
+    08286E71  special              SPECIAL_\function=19
+    08286E74  warp                 mapGroup=43 mapNum=6 WARP_ID_NONE=255 -1=6 -1=6
+    08286E7C  waitstate            
+
+  script 0x08286BEE  [ok]
+    08286BEE  closemessage         
+    08286BEF  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    08286BF6  waitmovement         localId=0
+    08286BF9  opendoor             x=2 y=1
+    08286BFE  waitdooranim         
+    08286BFF  applymovement        localId=1 movements=[walk_up set_invisible]
+    08286C06  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08286C0D  waitmovement         localId=0
+    08286C10  closedoor            x=2 y=1
+    08286C15  waitdooranim         
+    08286C16  warp                 mapGroup=43 mapNum=8 WARP_ID_NONE=255 -1=4 -1=4
+    08286C1E  waitstate            
+
+  script 0x08286D26  [ok]
+    08286D26  fadescreen           mode=1
+    08286D28  setvar               destination=VAR_0x8004 value=7
+    08286D2D  special              SPECIAL_\function=160
+    08286D30  waitstate            
+
+  map script type 4 (var 0x4001 == 0) -> 0x08286B7D
+  script 0x08286B7D  [ok]
+    08286B7D  setvar               destination=VAR_0x4001 value=1
+    08286B82  compare_var_to_value var=0x8006 value=1
+    08286B87  goto_if              condition=5 destination=0x08286B98
+    08286B8D  setobjectxy          localId=1 x=2 y=2
+    08286B94  turnobject           localId=1 direction=1
+    08286B98  turnobject           localId=255 direction=2
+    08286B9C  end                  
+
+  script 0x08286B98  [ok]
+    08286B98  turnobject           localId=255 direction=2
+    08286B9C  end                  
+

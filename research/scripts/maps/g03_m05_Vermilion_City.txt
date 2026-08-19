@@ -1,0 +1,430 @@
+Vermilion City  (group 3, map 5)  header 0x08B3C750
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x10, flag 0x0000) -> 0x0822AA2F
+  script 0x0822AA2F  [ok]
+    0822AA2F  msgbox_multilang     type=0 text_0="We’re careful about pollution here.\pWe’ve heard Grimer multiplies in toxic\nsludge." text_1="¡Nos preocupa la contaminación!\p¡Dicen que Grimer se convierte en\ncantidades enormes de residuos\ptóxicos!" text_2="We’re careful about pollution here.\pWe’ve heard Grimer multiplies in toxic\nsludge." text_3="We’re careful about pollution here.\pWe’ve heard Grimer multiplies in toxic\nsludge." text_4="We’re careful about pollution here.\pWe’ve heard Grimer multiplies in toxic\nsludge." text_5="We’re careful about pollution here.\pWe’ve heard Grimer multiplies in toxic\nsludge." text_6="We’re careful about pollution here.\pWe’ve heard Grimer multiplies in toxic\nsludge."
+    0822AA4D  callstd              function=MSGBOX_NPC(2)
+    0822AA4F  end                  
+
+  object 2 (gfx 0xF5, flag 0x0000) -> 0x0822AA50
+  script 0x0822AA50  [ok]
+    0822AA50  lock                 
+    0822AA51  faceplayer           
+    0822AA52  compare_var_to_value var=0x407E value=3
+    0822AA57  goto_if              condition=1 destination=0x0822AA7F
+    0822AA5D  msgbox_multilang     type=0 text_0="Did you see the S.S. Anne moored in\nthe harbor?" text_1="¿Viste al S.S. Anne anclado en el\npuerto?" text_2="Did you see the S.S. Anne moored in\nthe harbor?" text_3="Did you see the S.S. Anne moored in\nthe harbor?" text_4="Did you see the S.S. Anne moored in\nthe harbor?" text_5="Did you see the S.S. Anne moored in\nthe harbor?" text_6="Did you see the S.S. Anne moored in\nthe harbor?"
+    0822AA7B  callstd              function=MSGBOX_DEFAULT(4)
+    0822AA7D  release              
+
+  script 0x0822AA7F  [ok]
+    0822AA7F  msgbox_multilang     type=0 text_0="So, the S.S. Anne has departed?\pShe’ll be back in Vermilion about this\ntime next year." text_1="¡El S.S. Anne ha zarpado!\nVolverá a Carmín en un año." text_2="So, the S.S. Anne has departed?\pShe’ll be back in Vermilion about this\ntime next year." text_3="So, the S.S. Anne has departed?\pShe’ll be back in Vermilion about this\ntime next year." text_4="So, the S.S. Anne has departed?\pShe’ll be back in Vermilion about this\ntime next year." text_5="So, the S.S. Anne has departed?\pShe’ll be back in Vermilion about this\ntime next year." text_6="So, the S.S. Anne has departed?\pShe’ll be back in Vermilion about this\ntime next year."
+    0822AA9D  callstd              function=MSGBOX_DEFAULT(4)
+    0822AA9F  goto                 destination=0x0822AA7D
+
+  script 0x0822AA7D  [ok]
+    0822AA7D  release              
+
+  object 3 (gfx 0x31, flag 0x0000) -> 0x0822AAA4
+  script 0x0822AAA4  [ok]
+    0822AAA4  msgbox_multilang     type=0 text_0="The S.S. Anne is a famous luxury\ncruise ship.\pIt visits Vermilion once a year." text_1="El S.S. Anne es un famoso y lujoso\ncrucero.\pVisitamos Carmín una vez al año." text_2="The S.S. Anne is a famous luxury\ncruise ship.\pIt visits Vermilion once a year." text_3="The S.S. Anne is a famous luxury\ncruise ship.\pIt visits Vermilion once a year." text_4="The S.S. Anne is a famous luxury\ncruise ship.\pIt visits Vermilion once a year." text_5="The S.S. Anne is a famous luxury\ncruise ship.\pIt visits Vermilion once a year." text_6="The S.S. Anne is a famous luxury\ncruise ship.\pIt visits Vermilion once a year."
+    0822AAC2  callstd              function=MSGBOX_NPC(2)
+    0822AAC4  end                  
+
+  object 4 (gfx 0x31, flag 0x0000) -> 0x0822AC7C
+  script 0x0822AC7C  [ok]
+    0822AC7C  lock                 
+    0822AC7D  faceplayer           
+    0822AC7E  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0822AC81  goto_if              condition=1 destination=0x0822ACBB
+    0822AC87  compare_var_to_value var=0x407E value=3
+    0822AC8C  goto_if              condition=1 destination=0x0822AD67
+    0822AC92  speakername          name="Sailor"
+    0822AC97  msgbox_multilang     type=0 text_0="Welcome to the S.S. Anne!" text_1="Welcome to the S.S. Anne!" text_2="Welcome to the S.S. Anne!" text_3="Welcome to the S.S. Anne!" text_4="Welcome to the S.S. Anne!" text_5="Welcome to the S.S. Anne!" text_6="Welcome to the S.S. Anne!"
+    0822ACB5  callstd              function=MSGBOX_DEFAULT(4)
+    0822ACB7  release              
+
+  script 0x0822ACBB  [unknown-opcode:0xE3]
+    0822ACBB  speakername          name="Sailor"
+    0822ACC0  message              text="Ahoy! How can I help you?"
+    0822ACC5  animateflash         level=180
+    0822ACC7  compare_var_to_var   var1=39432 var2=8884
+    0822ACCC  gotostd              function=154
+    0822ACCE  addcoins             count=2082
+    0822ACD1  animateflash         level=180
+    0822ACD3  compare_var_to_var   var1=39432 var2=8884
+    0822ACD8  gotostd              function=154
+    0822ACDA  addcoins             count=2082
+    0822ACDD  waitmessage          
+
+  script 0x0822AD67  [ok]
+    0822AD67  speakername          name="Sailor"
+    0822AD6C  msgbox_multilang     type=0 text_0="Hello! Sorry, the S.S. Anne has\nalready departed." text_1="Hello! Sorry, the S.S. Anne has\nalready departed." text_2="Hello! Sorry, the S.S. Anne has\nalready departed." text_3="Hello! Sorry, the S.S. Anne has\nalready departed." text_4="Hello! Sorry, the S.S. Anne has\nalready departed." text_5="Hello! Sorry, the S.S. Anne has\nalready departed." text_6="Hello! Sorry, the S.S. Anne has\nalready departed."
+    0822AD8A  callstd              function=MSGBOX_DEFAULT(4)
+    0822AD8C  goto                 destination=0x0822ACB7
+
+  script 0x0822ACB7  [ok]
+    0822ACB7  release              
+
+  object 5 (gfx 0x52, flag 0x011C) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 6 (gfx 0x08, flag 0x00A1) -> 0x0822AAC5
+  script 0x0822AAC5  [ok]
+    0822AAC5  lock                 
+    0822AAC6  faceplayer           
+    0822AAC7  setflag              flag=0x2F9
+    0822AACA  msgbox_multilang     type=0 text_0="Oh, hello, {PLAYER}!\nHow are you doing?\pIt’s me, one of Prof. Oak’s Aides.\pDid you meet the other Aide?\pHe had a package from Prof. Oak for\nyou, {PLAYER}.\pHe said he’d look for you around\nRoute 2, {PLAYER}.\pIf you’re in the Route 2 area, please\nlook for him." text_1="Oh, hello, {PLAYER}!\nHow are you doing?\pIt’s me, one of Prof. Oak’s Aides.\pDid you meet the other Aide?\pHe had a package from Prof. Oak for\nyou, {PLAYER}.\pHe said he’d look for you around\nRoute 2, {PLAYER}.\pIf you’re in the Route 2 area, please\nlook for him." text_2="Oh, hello, {PLAYER}!\nHow are you doing?\pIt’s me, one of Prof. Oak’s Aides.\pDid you meet the other Aide?\pHe had a package from Prof. Oak for\nyou, {PLAYER}.\pHe said he’d look for you around\nRoute 2, {PLAYER}.\pIf you’re in the Route 2 area, please\nlook for him." text_3="Oh, hello, {PLAYER}!\nHow are you doing?\pIt’s me, one of Prof. Oak’s Aides.\pDid you meet the other Aide?\pHe had a package from Prof. Oak for\nyou, {PLAYER}.\pHe said he’d look for you around\nRoute 2, {PLAYER}.\pIf you’re in the Route 2 area, please\nlook for him." text_4="Oh, hello, {PLAYER}!\nHow are you doing?\pIt’s me, one of Prof. Oak’s Aides.\pDid you meet the other Aide?\pHe had a package from Prof. Oak for\nyou, {PLAYER}.\pHe said he’d look for you around\nRoute 2, {PLAYER}.\pIf you’re in the Route 2 area, please\nlook for him." text_5="Oh, hello, {PLAYER}!\nHow are you doing?\pIt’s me, one of Prof. Oak’s Aides.\pDid you meet the other Aide?\pHe had a package from Prof. Oak for\nyou, {PLAYER}.\pHe said he’d look for you around\nRoute 2, {PLAYER}.\pIf you’re in the Route 2 area, please\nlook for him." text_6="Oh, hello, {PLAYER}!\nHow are you doing?\pIt’s me, one of Prof. Oak’s Aides.\pDid you meet the other Aide?\pHe had a package from Prof. Oak for\nyou, {PLAYER}.\pHe said he’d look for you around\nRoute 2, {PLAYER}.\pIf you’re in the Route 2 area, please\nlook for him."
+    0822AAE8  callstd              function=MSGBOX_DEFAULT(4)
+    0822AAEA  release              
+
+  object 7 (gfx 0x52, flag 0x011E) -> 0x082050CF
+  object 8 (gfx 0x0C, flag 0x0000) -> 0x0822ADC3
+  script 0x0822ADC3  [ok]
+    0822ADC3  lock                 
+    0822ADC4  checkflag            flag=0x12F
+    0822ADC7  goto_if              condition=1 destination=0x0822AE18
+    0822ADCD  msgbox_multilang     type=0 text_0="I’m looking for a competent Pokémon\ntrainer." text_1="I’m looking for a competent Pokémon\ntrainer." text_2="I’m looking for a competent Pokémon\ntrainer." text_3="I’m looking for a competent Pokémon\ntrainer." text_4="I’m looking for a competent Pokémon\ntrainer." text_5="I’m looking for a competent Pokémon\ntrainer." text_6="I’m looking for a competent Pokémon\ntrainer."
+    0822ADEB  callstd              function=MSGBOX_NPC(2)
+    0822ADED  checkflag            flag=0x4B2
+    0822ADF0  goto_if              condition=1 destination=0x0822AE3A
+    0822ADF6  msgbox_multilang     type=0 text_0="If you see someone as strong as\nLt. Surge, let me know." text_1="If you see someone as strong as\nLt. Surge, let me know." text_2="If you see someone as strong as\nLt. Surge, let me know." text_3="If you see someone as strong as\nLt. Surge, let me know." text_4="If you see someone as strong as\nLt. Surge, let me know." text_5="If you see someone as strong as\nLt. Surge, let me know." text_6="If you see someone as strong as\nLt. Surge, let me know."
+    0822AE14  callstd              function=MSGBOX_NPC(2)
+    0822AE16  release              
+
+  script 0x0822AE18  [ok]
+    0822AE18  msgbox_multilang     type=0 text_0="Are you taking good care of\nSquirtle?" text_1="Are you taking good care of\nSquirtle?" text_2="Are you taking good care of\nSquirtle?" text_3="Are you taking good care of\nSquirtle?" text_4="Are you taking good care of\nSquirtle?" text_5="Are you taking good care of\nSquirtle?" text_6="Are you taking good care of\nSquirtle?"
+    0822AE36  callstd              function=MSGBOX_NPC(2)
+    0822AE38  release              
+
+  script 0x0822AE3A  [ok]
+    0822AE3A  msgbox_multilang     type=0 text_0="What did you say? You defeated Lt.\nSurge?\pWould you like to take care of this\nSquirtle?\pIts trainer abandoned it." text_1="What did you say? You defeated Lt.\nSurge?\pWould you like to take care of this\nSquirtle?\pIts trainer abandoned it." text_2="What did you say? You defeated Lt.\nSurge?\pWould you like to take care of this\nSquirtle?\pIts trainer abandoned it." text_3="What did you say? You defeated Lt.\nSurge?\pWould you like to take care of this\nSquirtle?\pIts trainer abandoned it." text_4="What did you say? You defeated Lt.\nSurge?\pWould you like to take care of this\nSquirtle?\pIts trainer abandoned it." text_5="What did you say? You defeated Lt.\nSurge?\pWould you like to take care of this\nSquirtle?\pIts trainer abandoned it." text_6="What did you say? You defeated Lt.\nSurge?\pWould you like to take care of this\nSquirtle?\pIts trainer abandoned it."
+    0822AE58  callstd              function=MSGBOX_YESNO(5)
+    0822AE5A  compare_var_to_value var=0x800D value=1
+    0822AE5F  goto_if              condition=1 destination=0x0822AE87
+    0822AE65  msgbox_multilang     type=0 text_0="Let’s hope it finds a trainer as soon\nas possible." text_1="Let’s hope it finds a trainer as soon\nas possible." text_2="Let’s hope it finds a trainer as soon\nas possible." text_3="Let’s hope it finds a trainer as soon\nas possible." text_4="Let’s hope it finds a trainer as soon\nas possible." text_5="Let’s hope it finds a trainer as soon\nas possible." text_6="Let’s hope it finds a trainer as soon\nas possible."
+    0822AE83  callstd              function=MSGBOX_NPC(2)
+    0822AE85  release              
+
+  script 0x0822AE87  [ok]
+    0822AE87  setvar               destination=VAR_0x4001 value=7
+    0822AE8C  givemon              species=SQUIRTLE(7) level=15 item=0 0=0 0=0 0=0
+    0822AE9B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0822AEA0  compare_var_to_value var=0x8000 value=0
+    0822AEA5  goto_if              condition=1 destination=0x0822AEC6
+    0822AEAB  compare_var_to_value var=0x8000 value=1
+    0822AEB0  goto_if              condition=1 destination=0x0822AEE8
+    0822AEB6  compare_var_to_value var=0x8000 value=2
+    0822AEBB  goto_if              condition=1 destination=0x0822AF0A
+    0822AEC1  goto                 destination=0x0822AE16
+
+  script 0x0822AEC6  [ok]
+    0822AEC6  call                 destination=0x0822AF29
+    0822AECB  compare_var_to_value var=0x800D value=0
+    0822AED0  goto_if              condition=1 destination=0x0822AF14
+    0822AED6  call                 destination=0x082BCF8B
+    0822AEDB  call                 destination=0x082F80EB
+    0822AEE0  setflag              flag=0x12F
+    0822AEE3  addelevmenuitem      a=13 b=27648 c=1026 d=44841
+    0822AEEB  compare_var_to_var   var1=8456 var2=32781
+    0822AEF0  nop                  
+    0822AEF1  nop                  
+    0822AEF2  goto_if              condition=1 destination=0x0822AF1C
+    0822AEF8  call                 destination=0x082BCF97
+    0822AEFD  call                 destination=0x082BCFA0
+    0822AF02  setflag              flag=0x12F
+    0822AF05  addelevmenuitem      a=13 b=27648 c=1282 d=33026
+    0822AF0D  playse               song=1288
+    0822AF10  setvar               destination=8878 value=10504
+    0822AF15  playse               song=45313
+    0822AF18  endram               
+    0822AF19  nop                  
+    0822AF1A  release              
+
+  script 0x0822AEE8  [ok]
+    0822AEE8  call                 destination=0x0822AF29
+    0822AEED  compare_var_to_value var=0x800D value=0
+    0822AEF2  goto_if              condition=1 destination=0x0822AF1C
+    0822AEF8  call                 destination=0x082BCF97
+    0822AEFD  call                 destination=0x082BCFA0
+    0822AF02  setflag              flag=0x12F
+    0822AF05  addelevmenuitem      a=13 b=27648 c=1282 d=33026
+    0822AF0D  playse               song=1288
+    0822AF10  setvar               destination=8878 value=10504
+    0822AF15  playse               song=45313
+    0822AF18  endram               
+    0822AF19  nop                  
+    0822AF1A  release              
+
+  script 0x0822AF0A  [ok]
+    0822AF0A  goto                 destination=0x082F8102
+
+  script 0x0822AE16  [ok]
+    0822AE16  release              
+
+  script 0x0822AF29  [ok]
+    0822AF29  playfanfare          song=367
+    0822AF2C  message              text="{PLAYER} took care of the Squirtle!"
+    0822AF31  normalmsg            
+    0822AF32  dowildbattle         
+    0822AF33  compare_var_to_var   var1=51976 var2=8887
+    0822AF38  gotostd              function=203
+    0822AF3A  dowildbattle         
+    0822AF3B  compare_var_to_var   var1=51976 var2=8887
+    0822AF40  gotostd              function=203
+    0822AF42  dowildbattle         
+    0822AF43  compare_var_to_var   var1=51976 var2=8887
+    0822AF48  gotostd              function=102
+    0822AF4A  waitfanfare          
+    0822AF4B  bufferspeciesname    stringVarId=0 species=SQUIRTLE(7)
+    0822AF4F  msgbox_multilang     type=0 text_0="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_1="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_2="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_3="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_4="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_5="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_6="Do you want to give a nickname to\nthis {STR_VAR_1}?"
+    0822AF6D  callstd              function=MSGBOX_YESNO(5)
+    0822AF6F  return               
+
+  script 0x0822AF14  [ok]
+    0822AF14  setflag              flag=0x12F
+    0822AF17  addelevmenuitem      a=13 b=27648 c=1026 d=53152
+    0822AF1F  checkflag            flag=0x2908
+    0822AF22  playse               song=45313
+    0822AF25  endram               
+    0822AF26  nop                  
+    0822AF27  release              
+
+  script 0x082BCF8B  [ok]
+    082BCF8B  getpartysize         
+    082BCF8C  subvar               destination=VAR_0x800D value=1
+    082BCF91  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082BCF96  return               
+
+  script 0x082F80EB  [ok]
+    082F80EB  fadescreen           mode=1
+    082F80ED  special              SPECIAL_\function=95
+    082F80F0  waitstate            
+
+  script 0x0822AF1C  [ok]
+    0822AF1C  call                 destination=0x082BCFA0
+    0822AF21  setflag              flag=0x12F
+    0822AF24  addelevmenuitem      a=13 b=27648 c=12546 d=367
+    0822AF2C  message              text="{PLAYER} took care of the Squirtle!"
+    0822AF31  normalmsg            
+    0822AF32  dowildbattle         
+    0822AF33  compare_var_to_var   var1=51976 var2=8887
+    0822AF38  gotostd              function=203
+    0822AF3A  dowildbattle         
+    0822AF3B  compare_var_to_var   var1=51976 var2=8887
+    0822AF40  gotostd              function=203
+    0822AF42  dowildbattle         
+    0822AF43  compare_var_to_var   var1=51976 var2=8887
+    0822AF48  gotostd              function=102
+    0822AF4A  waitfanfare          
+    0822AF4B  bufferspeciesname    stringVarId=0 species=SQUIRTLE(7)
+    0822AF4F  msgbox_multilang     type=0 text_0="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_1="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_2="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_3="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_4="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_5="Do you want to give a nickname to\nthis {STR_VAR_1}?" text_6="Do you want to give a nickname to\nthis {STR_VAR_1}?"
+    0822AF6D  callstd              function=MSGBOX_YESNO(5)
+    0822AF6F  return               
+
+  script 0x082BCF97  [ok]
+    082BCF97  fadescreen           mode=1
+    082BCF99  special              SPECIAL_\function=318
+    082BCF9C  waitstate            
+
+  script 0x082BCFA0  [ok]
+    082BCFA0  bufferboxname        stringVarId=0 box=16439
+    082BCFA4  bufferspeciesname    stringVarId=1 species=?(16385)
+    082BCFA8  checkflag            flag=0x894
+    082BCFAB  call_if              condition=0 destination=0x082BCFBB
+    082BCFB1  checkflag            flag=0x894
+    082BCFB4  call_if              condition=1 destination=0x082BD016
+    082BCFBA  return               
+
+  script 0x082F8102  [ok]
+    082F8102  textcolor            color=3
+    082F8104  msgbox_multilang     type=0 text_0="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_1="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_2="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_3="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_4="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_5="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_6="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!"
+    082F8122  callstd              function=MSGBOX_DEFAULT(4)
+    082F8124  release              
+
+  script 0x082BCFBB  [ok]
+    082BCFBB  specialvar           output=32781 SPECIAL_\function=320
+    082BCFC0  compare_var_to_value var=0x800D value=1
+    082BCFC5  goto_if              condition=1 destination=0x082BCFEC
+    082BCFCB  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BCFE9  callstd              function=MSGBOX_DEFAULT(4)
+    082BCFEB  return               
+
+  script 0x082BD016  [ok]
+    082BD016  specialvar           output=32781 SPECIAL_\function=320
+    082BD01B  compare_var_to_value var=0x800D value=1
+    082BD020  goto_if              condition=1 destination=0x082BD047
+    082BD026  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BD044  callstd              function=MSGBOX_DEFAULT(4)
+    082BD046  return               
+
+  script 0x082BCFEC  [ok]
+    082BCFEC  specialvar           output=32781 SPECIAL_\function=319
+    082BCFF1  bufferboxname        stringVarId=2 box=32781
+    082BCFF5  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD013  callstd              function=MSGBOX_DEFAULT(4)
+    082BD015  return               
+
+  script 0x082BD047  [ok]
+    082BD047  specialvar           output=32781 SPECIAL_\function=319
+    082BD04C  bufferboxname        stringVarId=2 box=32781
+    082BD050  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD06E  callstd              function=MSGBOX_DEFAULT(4)
+    082BD070  return               
+
+  coord trigger 0 (var 0x4053 == 0) -> 0x0822ABA0
+  script 0x0822ABA0  [unknown-opcode:0xE9]
+    0822ABA0  compare_var_to_value var=0x4053 value=1
+    0822ABA5  goto_if              condition=1 destination=0x0822AC4A
+    0822ABAB  compare_var_to_value var=0x407E value=3
+    0822ABB0  goto_if              condition=1 destination=0x0822AC4A
+    0822ABB6  lockall              
+    0822ABB7  textcolor            color=0
+    0822ABB9  applymovement        localId=4 movements=[walk_in_place_faster_left]
+    0822ABC0  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    0822ABC7  waitmovement         localId=0
+    0822ABCA  speakername          name="Sailor"
+    0822ABCF  msgbox_multilang     type=0 text_0="Welcome to the S.S. Anne!\pExcuse me, do you have a ticket?" text_1="Welcome to the S.S. Anne!\pExcuse me, do you have a ticket?" text_2="Welcome to the S.S. Anne!\pExcuse me, do you have a ticket?" text_3="Welcome to the S.S. Anne!\pExcuse me, do you have a ticket?" text_4="Welcome to the S.S. Anne!\pExcuse me, do you have a ticket?" text_5="Welcome to the S.S. Anne!\pExcuse me, do you have a ticket?" text_6="Welcome to the S.S. Anne!\pExcuse me, do you have a ticket?"
+    0822ABED  callstd              function=MSGBOX_DEFAULT(4)
+    0822ABEF  checkflag            flag=0x234
+    0822ABF2  goto_if              condition=0 destination=0x0822AC4C
+
+  script 0x0822AC4A  [ok]
+    0822AC4A  releaseall           
+
+  script 0x0822AC4C  [ok]
+    0822AC4C  speakername          name="Sailor"
+    0822AC51  msgbox_multilang     type=0 text_0="{PLAYER} doesn’t have the needed\nS.S. Ticket.\p{CTRL_06}Sorry!\pYou need a ticket to get aboard." text_1="{PLAYER} doesn’t have the needed\nS.S. Ticket.\p{CTRL_06}Sorry!\pYou need a ticket to get aboard." text_2="{PLAYER} doesn’t have the needed\nS.S. Ticket.\p{CTRL_06}Sorry!\pYou need a ticket to get aboard." text_3="{PLAYER} doesn’t have the needed\nS.S. Ticket.\p{CTRL_06}Sorry!\pYou need a ticket to get aboard." text_4="{PLAYER} doesn’t have the needed\nS.S. Ticket.\p{CTRL_06}Sorry!\pYou need a ticket to get aboard." text_5="{PLAYER} doesn’t have the needed\nS.S. Ticket.\p{CTRL_06}Sorry!\pYou need a ticket to get aboard." text_6="{PLAYER} doesn’t have the needed\nS.S. Ticket.\p{CTRL_06}Sorry!\pYou need a ticket to get aboard."
+    0822AC6F  callstd              function=MSGBOX_DEFAULT(4)
+    0822AC71  closemessage         
+    0822AC72  goto                 destination=0x081F22FB
+
+  script 0x081F22FB  [ok]
+    081F22FB  closemessage         
+    081F22FC  applymovement        localId=4 movements=[face_original_direction]
+    081F2303  applymovement        localId=255 movements=[walk_up]
+    081F230A  waitmovement         localId=0
+    081F230D  releaseall           
+
+  coord trigger 1 (var 0x4053 == 0) -> 0x0822ABA0
+  coord trigger 2 (var 0x4001 == 0) -> 0x0822ADBB
+  script 0x0822ADBB  [ok]
+    0822ADBB  lockall              
+    0822ADBC  setvar               destination=VAR_0x4053 value=0
+    0822ADC1  releaseall           
+
+  coord trigger 3 (var 0x4001 == 0) -> 0x0822ADBB
+  coord trigger 4 (var 0x4001 == 0) -> 0x0822ADBB
+  sign 0 at (22,10) -> 0x0822AAEC
+  script 0x0822AAEC  [ok]
+    0822AAEC  msgbox_multilang     type=0 text_0="Vermilion City\nThe Port of Exquisite Sunsets" text_1="Vermilion City\nThe Port of Exquisite Sunsets" text_2="Vermilion City\nThe Port of Exquisite Sunsets" text_3="Vermilion City\nThe Port of Exquisite Sunsets" text_4="Vermilion City\nThe Port of Exquisite Sunsets" text_5="Vermilion City\nThe Port of Exquisite Sunsets" text_6="Vermilion City\nThe Port of Exquisite Sunsets"
+    0822AB0A  callstd              function=MSGBOX_SIGN(3)
+    0822AB0C  end                  
+
+  sign 1 at (9,17) -> 0x0822AB2E
+  script 0x0822AB2E  [ok]
+    0822AB2E  msgbox_multilang     type=0 text_0="Pokémon Fan Club\nAll Pokémon fans welcome!" text_1="Pokémon Fan Club\nAll Pokémon fans welcome!" text_2="Pokémon Fan Club\nAll Pokémon fans welcome!" text_3="Pokémon Fan Club\nAll Pokémon fans welcome!" text_4="Pokémon Fan Club\nAll Pokémon fans welcome!" text_5="Pokémon Fan Club\nAll Pokémon fans welcome!" text_6="Pokémon Fan Club\nAll Pokémon fans welcome!"
+    0822AB4C  callstd              function=MSGBOX_SIGN(3)
+    0822AB4E  end                  
+
+  sign 2 at (10,24) -> 0x0822AB4F
+  script 0x0822AB4F  [ok]
+    0822AB4F  lockall              
+    0822AB50  setvar               destination=VAR_0x8004 value=4
+    0822AB55  setvar               destination=VAR_0x8005 value=0
+    0822AB5A  special              SPECIAL_\function=347
+    0822AB5D  msgbox_multilang     type=0 text_0="Vermilion City Pokémon Gym\nLeader: Lt. Surge\pThe Lightning American!" text_1="Vermilion City Pokémon Gym\nLeader: Lt. Surge\pThe Lightning American!" text_2="Vermilion City Pokémon Gym\nLeader: Lt. Surge\pThe Lightning American!" text_3="Vermilion City Pokémon Gym\nLeader: Lt. Surge\pThe Lightning American!" text_4="Vermilion City Pokémon Gym\nLeader: Lt. Surge\pThe Lightning American!" text_5="Vermilion City Pokémon Gym\nLeader: Lt. Surge\pThe Lightning American!" text_6="Vermilion City Pokémon Gym\nLeader: Lt. Surge\pThe Lightning American!"
+    0822AB7B  callstd              function=MSGBOX_DEFAULT(4)
+    0822AB7D  releaseall           
+
+  sign 3 at (34,17) -> 0x0822AB7F
+  script 0x0822AB7F  [ok]
+    0822AB7F  msgbox_multilang     type=0 text_0="Vermilion Harbor" text_1="Vermilion Harbor" text_2="Vermilion Harbor" text_3="Vermilion Harbor" text_4="Vermilion Harbor" text_5="Vermilion Harbor" text_6="Vermilion Harbor"
+    0822AB9D  callstd              function=MSGBOX_SIGN(3)
+    0822AB9F  end                  
+
+  sign 4 at (45,17) -> 0x0822AB0D
+  script 0x0822AB0D  [ok]
+    0822AB0D  msgbox_multilang     type=0 text_0="Notice!\pRoute 12 may be blocked off by a\nsleeping Pokémon.\pDetour through Rock Tunnel to\nLavender Town.\pVermilion Police" text_1="Notice!\pRoute 12 may be blocked off by a\nsleeping Pokémon.\pDetour through Rock Tunnel to\nLavender Town.\pVermilion Police" text_2="Notice!\pRoute 12 may be blocked off by a\nsleeping Pokémon.\pDetour through Rock Tunnel to\nLavender Town.\pVermilion Police" text_3="Notice!\pRoute 12 may be blocked off by a\nsleeping Pokémon.\pDetour through Rock Tunnel to\nLavender Town.\pVermilion Police" text_4="Notice!\pRoute 12 may be blocked off by a\nsleeping Pokémon.\pDetour through Rock Tunnel to\nLavender Town.\pVermilion Police" text_5="Notice!\pRoute 12 may be blocked off by a\nsleeping Pokémon.\pDetour through Rock Tunnel to\nLavender Town.\pVermilion Police" text_6="Notice!\pRoute 12 may be blocked off by a\nsleeping Pokémon.\pDetour through Rock Tunnel to\nLavender Town.\pVermilion Police"
+    0822AB2B  callstd              function=MSGBOX_SIGN(3)
+    0822AB2D  end                  
+
+  hidden item at (14,11): Max Ether
+
+  map script type 3 -> 0x0822A9FF
+  script 0x0822A9FF  [ok]
+    0822A9FF  setworldmapflag      flag=0x8F5
+    0822AA02  checkflag            flag=0x23B
+    0822AA05  goto_if              condition=1 destination=0x0822AA0C
+    0822AA0B  return               
+
+  script 0x0822AA0C  [ok]
+    0822AA0C  setflag              flag=0x0A1
+    0822AA0F  return               
+
+  map script type 2 (var 0x407E == 2) -> 0x0822AA1A
+  script 0x0822AA1A  [ok]
+    0822AA1A  lockall              
+    0822AA1B  applymovement        localId=255 movements=[walk_up walk_up]
+    0822AA22  waitmovement         localId=0
+    0822AA25  setvar               destination=VAR_0x407E value=3
+    0822AA2A  clearflag            flag=0x2E7
+    0822AA2D  releaseall           
+

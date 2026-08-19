@@ -1,0 +1,30 @@
+Battle Frontier  (group 41, map 3)  header 0x08B3E104
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x0828C6F7
+  script 0x0828C6F7  [ok]
+    0828C6F7  setvar               destination=VAR_0x4000 value=1
+    0828C6FC  applymovement        localId=1 movements=[walk_up walk_right face_down]
+    0828C703  applymovement        localId=255 movements=[walk_up walk_up face_down]
+    0828C70A  waitmovement         localId=0
+    0828C70D  special              SPECIAL_\function=286
+    0828C710  waitse               
+    0828C711  special              SPECIAL_\function=188
+    0828C714  waitstate            
+
+  map script type 4 (var 0x4001 == 0) -> 0x0828C7A7
+  script 0x0828C7A7  [ok]
+    0828C7A7  setvar               destination=VAR_0x4001 value=1
+    0828C7AC  turnobject           localId=255 direction=2
+    0828C7B0  end                  
+

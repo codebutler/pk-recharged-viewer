@@ -1,0 +1,30 @@
+Celadon City  (group 10, map 18)  header 0x08B3D4A8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF6, flag 0x0000) -> 0x082685B4
+  script 0x082685B4  [ok]
+    082685B4  msgbox_multilang     type=0 text_0="Hehehe!\pThe slots just reel in the dough,\nbig-time!" text_1="Hehehe!\pThe slots just reel in the dough,\nbig-time!" text_2="Hehehe!\pThe slots just reel in the dough,\nbig-time!" text_3="Hehehe!\pThe slots just reel in the dough,\nbig-time!" text_4="Hehehe!\pThe slots just reel in the dough,\nbig-time!" text_5="Hehehe!\pThe slots just reel in the dough,\nbig-time!" text_6="Hehehe!\pThe slots just reel in the dough,\nbig-time!"
+    082685D2  callstd              function=MSGBOX_NPC(2)
+    082685D4  end                  
+
+  object 2 (gfx 0x02, flag 0x0000) -> 0x082685D5
+  script 0x082685D5  [ok]
+    082685D5  msgbox_multilang     type=0 text_0="Chief!\pWe just shipped two thousand\nmore Pokémon as slot prizes\pagain today!" text_1="Chief!\pWe just shipped two thousand\nmore Pokémon as slot prizes\pagain today!" text_2="Chief!\pWe just shipped two thousand\nmore Pokémon as slot prizes\pagain today!" text_3="Chief!\pWe just shipped two thousand\nmore Pokémon as slot prizes\pagain today!" text_4="Chief!\pWe just shipped two thousand\nmore Pokémon as slot prizes\pagain today!" text_5="Chief!\pWe just shipped two thousand\nmore Pokémon as slot prizes\pagain today!" text_6="Chief!\pWe just shipped two thousand\nmore Pokémon as slot prizes\pagain today!"
+    082685F3  callstd              function=MSGBOX_NPC(2)
+    082685F5  end                  
+
+  object 3 (gfx 0x02, flag 0x0000) -> 0x082685F6
+  script 0x082685F6  [ok]
+    082685F6  msgbox_multilang     type=0 text_0="Don’t touch the poster at the Game\nCorner!\pThere’s no secret switch behind it!" text_1="Don’t touch the poster at the Game\nCorner!\pThere’s no secret switch behind it!" text_2="Don’t touch the poster at the Game\nCorner!\pThere’s no secret switch behind it!" text_3="Don’t touch the poster at the Game\nCorner!\pThere’s no secret switch behind it!" text_4="Don’t touch the poster at the Game\nCorner!\pThere’s no secret switch behind it!" text_5="Don’t touch the poster at the Game\nCorner!\pThere’s no secret switch behind it!" text_6="Don’t touch the poster at the Game\nCorner!\pThere’s no secret switch behind it!"
+    08268614  callstd              function=MSGBOX_NPC(2)
+    08268616  end                  
+

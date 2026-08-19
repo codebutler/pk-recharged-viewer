@@ -1,0 +1,68 @@
+Trainer Tower  (group 3, map 62)  header 0x08B3CD8C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xEF, flag 0x0000) -> 0x081FE2CF
+  script 0x081FE2CF  [ok]
+    081FE2CF  trainerbattle        type=0 trainer=0x24A localId=0 ptr1=0x0823F1E0 ptr2=0x0823F1F8
+    081FE2DD  specialvar           output=32781 SPECIAL_\function=37
+    081FE2E2  compare_var_to_value var=0x800D value=1
+    081FE2E7  goto_if              condition=1 destination=0x081FE30E
+    081FE2ED  msgbox_multilang     type=0 text_0="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_1="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_2="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_3="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_4="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_5="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_6="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power."
+    081FE30B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE30D  end                  
+
+  script 0x081FE30E  [ok]
+    081FE30E  goto                 destination=0x081FE318
+
+  script 0x081FE318  [ok]
+    081FE318  trainerbattle        type=5 trainer=0x24A localId=0 ptr1=0x082BADD0 ptr2=0x0823F1F8
+    081FE326  msgbox_multilang     type=0 text_0="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_1="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_2="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_3="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_4="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_5="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power." text_6="In your future, I sense that you\nwill meet many others.\pI think you will be linked to each\nother by a strange power."
+    081FE344  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE346  end                  
+
+  object 2 (gfx 0x10, flag 0x0000) -> 0x081FE347
+  script 0x081FE347  [ok]
+    081FE347  trainerbattle        type=0 trainer=0x24B localId=0 ptr1=0x0823F276 ptr2=0x0823F2AF
+    081FE355  specialvar           output=32781 SPECIAL_\function=37
+    081FE35A  compare_var_to_value var=0x800D value=1
+    081FE35F  goto_if              condition=1 destination=0x081FE386
+    081FE365  msgbox_multilang     type=0 text_0="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_1="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_2="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_3="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_4="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_5="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_6="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?"
+    081FE383  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE385  end                  
+
+  script 0x081FE386  [ok]
+    081FE386  goto                 destination=0x081FE390
+
+  script 0x081FE390  [ok]
+    081FE390  trainerbattle        type=5 trainer=0x24B localId=0 ptr1=0x082BADE8 ptr2=0x0823F2AF
+    081FE39E  msgbox_multilang     type=0 text_0="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_1="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_2="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_3="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_4="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_5="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?" text_6="Somewhere on this island, peculiar\nPokémon are sleeping.\pCould it be that they’re waiting\nfor you?"
+    081FE3BC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE3BE  end                  
+
+  hidden item at (49,27): Big Pearl
+
+  hidden item at (47,30): Pearl
+
+  hidden item at (59,32): Nanab Berry
+
+  sign 3 at (56,8) -> 0x0823F19E
+  script 0x0823F19E  [ok]
+    0823F19E  msgbox_multilang     type=0 text_0="Battle Factory Entrance\nRise to the Challenge, Trainers!" text_1="Battle Factory Entrance\nRise to the Challenge, Trainers!" text_2="Battle Factory Entrance\nRise to the Challenge, Trainers!" text_3="Battle Factory Entrance\nRise to the Challenge, Trainers!" text_4="Battle Factory Entrance\nRise to the Challenge, Trainers!" text_5="Battle Factory Entrance\nRise to the Challenge, Trainers!" text_6="Battle Factory Entrance\nRise to the Challenge, Trainers!"
+    0823F1BC  callstd              function=MSGBOX_SIGN(3)
+    0823F1BE  end                  
+
+  sign 4 at (50,30) -> 0x0823F1BF
+  script 0x0823F1BF  [ok]
+    0823F1BF  msgbox_multilang     type=0 text_0="Battle Factory Ahead" text_1="Battle Factory Ahead" text_2="Battle Factory Ahead" text_3="Battle Factory Ahead" text_4="Battle Factory Ahead" text_5="Battle Factory Ahead" text_6="Battle Factory Ahead"
+    0823F1DD  callstd              function=MSGBOX_SIGN(3)
+    0823F1DF  end                  
+

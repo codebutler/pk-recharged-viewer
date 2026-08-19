@@ -1,0 +1,36 @@
+Saffron City  (group 14, map 5)  header 0x08B3D79C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x08271404
+  script 0x08271404  [opcode-out-of-range:0xFE]
+    08271404  lock                 
+    08271405  faceplayer           
+    08271406  call                 destination=0x082BB330
+    0827140B  message              text="Hi, there!\nMay I help you?"
+    08271410  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x23, flag 0x0000) -> 0x082713E3
+  script 0x082713E3  [ok]
+    082713E3  msgbox_multilang     type=0 text_0="Max Repel keeps weaker Pokémon\nfrom appearing.\pMax Repel stays effective longer\nthan Super Repel." text_1="Max Repel keeps weaker Pokémon\nfrom appearing.\pMax Repel stays effective longer\nthan Super Repel." text_2="Max Repel keeps weaker Pokémon\nfrom appearing.\pMax Repel stays effective longer\nthan Super Repel." text_3="Max Repel keeps weaker Pokémon\nfrom appearing.\pMax Repel stays effective longer\nthan Super Repel." text_4="Max Repel keeps weaker Pokémon\nfrom appearing.\pMax Repel stays effective longer\nthan Super Repel." text_5="Max Repel keeps weaker Pokémon\nfrom appearing.\pMax Repel stays effective longer\nthan Super Repel." text_6="Max Repel keeps weaker Pokémon\nfrom appearing.\pMax Repel stays effective longer\nthan Super Repel."
+    08271401  callstd              function=MSGBOX_NPC(2)
+    08271403  end                  
+
+  object 3 (gfx 0x2F, flag 0x0000) -> 0x082713C2
+  script 0x082713C2  [ok]
+    082713C2  msgbox_multilang     type=0 text_0="Revive is costly, but it revives\nfainted Pokémon!" text_1="Revive is costly, but it revives\nfainted Pokémon!" text_2="Revive is costly, but it revives\nfainted Pokémon!" text_3="Revive is costly, but it revives\nfainted Pokémon!" text_4="Revive is costly, but it revives\nfainted Pokémon!" text_5="Revive is costly, but it revives\nfainted Pokémon!" text_6="Revive is costly, but it revives\nfainted Pokémon!"
+    082713E0  callstd              function=MSGBOX_NPC(2)
+    082713E2  end                  
+

@@ -1,0 +1,43 @@
+Vermilion City  (group 9, map 7)  header 0x08B3D278
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xEF, flag 0x0000) -> 0x0825F8FF
+  script 0x0825F8FF  [ok]
+    0825F8FF  msgbox_multilang     type=0 text_0="I’m getting my Pidgey to fly a\nletter to Saffron in the north." text_1="I’m getting my Pidgey to fly a\nletter to Saffron in the north." text_2="I’m getting my Pidgey to fly a\nletter to Saffron in the north." text_3="I’m getting my Pidgey to fly a\nletter to Saffron in the north." text_4="I’m getting my Pidgey to fly a\nletter to Saffron in the north." text_5="I’m getting my Pidgey to fly a\nletter to Saffron in the north." text_6="I’m getting my Pidgey to fly a\nletter to Saffron in the north."
+    0825F91D  callstd              function=MSGBOX_NPC(2)
+    0825F91F  end                  
+
+  object 2 (gfx 0x10, flag 0x0000) -> 0x0825F941
+  script 0x0825F941  [ok]
+    0825F941  bufferspeciesname    stringVarId=0 species=PIDGEY(16)
+    0825F945  lock                 
+    0825F946  faceplayer           
+    0825F947  waitse               
+    0825F948  playmoncry           species=PIDGEY(16) mode=0
+    0825F94D  msgbox_multilang     type=0 text_0="Pidgey: Kurukkoo!" text_1="Pidgey: Kurukkoo!" text_2="Pidgey: Kurukkoo!" text_3="Pidgey: Kurukkoo!" text_4="Pidgey: Kurukkoo!" text_5="Pidgey: Kurukkoo!" text_6="Pidgey: Kurukkoo!"
+    0825F96B  callstd              function=MSGBOX_DEFAULT(4)
+    0825F96D  waitmoncry           
+    0825F96E  release              
+
+  object 3 (gfx 0x31, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0x2F, flag 0x0000) -> 0x0825F920
+  script 0x0825F920  [ok]
+    0825F920  msgbox_multilang     type=0 text_0="I want to exchange Mail with all\nsorts of people.\pI send my Pidgey to a Union Room\nto exchange Mail for me." text_1="I want to exchange Mail with all\nsorts of people.\pI send my Pidgey to a Union Room\nto exchange Mail for me." text_2="I want to exchange Mail with all\nsorts of people.\pI send my Pidgey to a Union Room\nto exchange Mail for me." text_3="I want to exchange Mail with all\nsorts of people.\pI send my Pidgey to a Union Room\nto exchange Mail for me." text_4="I want to exchange Mail with all\nsorts of people.\pI send my Pidgey to a Union Room\nto exchange Mail for me." text_5="I want to exchange Mail with all\nsorts of people.\pI send my Pidgey to a Union Room\nto exchange Mail for me." text_6="I want to exchange Mail with all\nsorts of people.\pI send my Pidgey to a Union Room\nto exchange Mail for me."
+    0825F93E  callstd              function=MSGBOX_NPC(2)
+    0825F940  end                  
+
+  sign 0 at (6,4) -> 0x0825F970
+  script 0x0825F970  [ok]
+    0825F970  msgbox_multilang     type=0 text_0="Dear Pippi,\nI hope to see you soon.\pI heard Saffron has problems with\nTeam Rocket.\pVermilion appears to be safe." text_1="Dear Pippi,\nI hope to see you soon.\pI heard Saffron has problems with\nTeam Rocket.\pVermilion appears to be safe." text_2="Dear Pippi,\nI hope to see you soon.\pI heard Saffron has problems with\nTeam Rocket.\pVermilion appears to be safe." text_3="Dear Pippi,\nI hope to see you soon.\pI heard Saffron has problems with\nTeam Rocket.\pVermilion appears to be safe." text_4="Dear Pippi,\nI hope to see you soon.\pI heard Saffron has problems with\nTeam Rocket.\pVermilion appears to be safe." text_5="Dear Pippi,\nI hope to see you soon.\pI heard Saffron has problems with\nTeam Rocket.\pVermilion appears to be safe." text_6="Dear Pippi,\nI hope to see you soon.\pI heard Saffron has problems with\nTeam Rocket.\pVermilion appears to be safe."
+    0825F98E  callstd              function=MSGBOX_SIGN(3)
+    0825F990  end                  
+

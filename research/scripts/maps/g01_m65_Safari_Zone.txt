@@ -1,0 +1,66 @@
+Safari Zone  (group 1, map 65)  header 0x08B3B934
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x0186) -> 0x082D583C
+  script 0x082D583C  [ok]
+    082D583C  setorcopyvar         destination=VAR_0x8000 source=64
+    082D5841  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5846  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Protein
+    082D5848  end                  
+
+  object 2 (gfx 0x55, flag 0x0187) -> 0x082D5849
+  script 0x082D5849  [ok]
+    082D5849  setorcopyvar         destination=VAR_0x8000 source=335
+    082D584E  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5853  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: TM47
+    082D5855  end                  
+
+  object 3 (gfx 0x35, flag 0x01D3) -> 0x082D5BFE
+  script 0x082D5BFE  [ok]
+    082D5BFE  setorcopyvar         destination=VAR_0x8000 source=183
+    082D5C03  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5C08  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Quick Claw
+    082D5C0A  end                  
+
+  sign 0 at (13,27) -> 0x0821272E
+  script 0x0821272E  [ok]
+    0821272E  msgbox_multilang     type=0 text_0="Trainer Tips\pThe Secret House is still ahead." text_1="Trainer Tips\pThe Secret House is still ahead." text_2="Trainer Tips\pThe Secret House is still ahead." text_3="Trainer Tips\pThe Secret House is still ahead." text_4="Trainer Tips\pThe Secret House is still ahead." text_5="Trainer Tips\pThe Secret House is still ahead." text_6="Trainer Tips\pThe Secret House is still ahead."
+    0821274C  callstd              function=MSGBOX_SIGN(3)
+    0821274E  end                  
+
+  sign 1 at (23,31) -> 0x0821274F
+  script 0x0821274F  [ok]
+    0821274F  msgbox_multilang     type=0 text_0="Area 2" text_1="Area 2" text_2="Area 2" text_3="Area 2" text_4="Area 2" text_5="Area 2" text_6="Area 2"
+    0821276D  callstd              function=MSGBOX_SIGN(3)
+    0821276F  end                  
+
+  sign 2 at (29,32) -> 0x08212770
+  script 0x08212770  [ok]
+    08212770  msgbox_multilang     type=0 text_0="Trainer Tips\pPokémon hide in tall grass.\pZigzag through grassy areas to\nflush them out." text_1="Trainer Tips\pPokémon hide in tall grass.\pZigzag through grassy areas to\nflush them out." text_2="Trainer Tips\pPokémon hide in tall grass.\pZigzag through grassy areas to\nflush them out." text_3="Trainer Tips\pPokémon hide in tall grass.\pZigzag through grassy areas to\nflush them out." text_4="Trainer Tips\pPokémon hide in tall grass.\pZigzag through grassy areas to\nflush them out." text_5="Trainer Tips\pPokémon hide in tall grass.\pZigzag through grassy areas to\nflush them out." text_6="Trainer Tips\pPokémon hide in tall grass.\pZigzag through grassy areas to\nflush them out."
+    0821278E  callstd              function=MSGBOX_SIGN(3)
+    08212790  end                  
+
+  sign 3 at (34,28) -> 0x08212791
+  script 0x08212791  [ok]
+    08212791  msgbox_multilang     type=0 text_0="Trainer Tips\pWin a free HM for finding the\nSecret House." text_1="Trainer Tips\pWin a free HM for finding the\nSecret House." text_2="Trainer Tips\pWin a free HM for finding the\nSecret House." text_3="Trainer Tips\pWin a free HM for finding the\nSecret House." text_4="Trainer Tips\pWin a free HM for finding the\nSecret House." text_5="Trainer Tips\pWin a free HM for finding the\nSecret House." text_6="Trainer Tips\pWin a free HM for finding the\nSecret House."
+    082127AF  callstd              function=MSGBOX_SIGN(3)
+    082127B1  end                  
+
+  sign 4 at (44,9) -> 0x0821270D
+  script 0x0821270D  [ok]
+    0821270D  msgbox_multilang     type=0 text_0="Rest House" text_1="Rest House" text_2="Rest House" text_3="Rest House" text_4="Rest House" text_5="Rest House" text_6="Rest House"
+    0821272B  callstd              function=MSGBOX_SIGN(3)
+    0821272D  end                  
+

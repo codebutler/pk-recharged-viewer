@@ -1,0 +1,29 @@
+Seven Island  (group 29, map 1)  header 0x08B3DB54
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x5A, flag 0x0000) -> 0x00000000
+  map script type 3 -> 0x0827B90D
+  script 0x0827B90D  [ok]
+    0827B90D  end                  
+
+  map script type 2 (var 0x4001 == 0) -> 0x0827B918
+  script 0x0827B918  [ok]
+    0827B918  lockall              
+    0827B919  applymovement        localId=255 movements=[walk_down walk_down walk_down walk_right walk_right]
+    0827B920  waitmovement         localId=0
+    0827B923  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    0827B941  callstd              function=MSGBOX_DEFAULT(4)
+    0827B943  closemessage         
+    0827B944  setvar               destination=VAR_0x8004 value=2
+    0827B949  setvar               destination=VAR_0x8005 value=0
+    0827B94E  waitstate            
+

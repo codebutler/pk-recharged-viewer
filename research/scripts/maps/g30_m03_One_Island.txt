@@ -1,0 +1,18 @@
+One Island  (group 30, map 3)  header 0x08B3DC50
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2F, flag 0x0000) -> 0x0827C05D
+  script 0x0827C05D  [ok]
+    0827C05D  msgbox_multilang     type=0 text_0="Young people all want to go off to\nbig cities.\pBut I want to stay here forever!" text_1="Young people all want to go off to\nbig cities.\pBut I want to stay here forever!" text_2="Young people all want to go off to\nbig cities.\pBut I want to stay here forever!" text_3="Young people all want to go off to\nbig cities.\pBut I want to stay here forever!" text_4="Young people all want to go off to\nbig cities.\pBut I want to stay here forever!" text_5="Young people all want to go off to\nbig cities.\pBut I want to stay here forever!" text_6="Young people all want to go off to\nbig cities.\pBut I want to stay here forever!"
+    0827C07B  callstd              function=MSGBOX_NPC(2)
+    0827C07D  end                  
+

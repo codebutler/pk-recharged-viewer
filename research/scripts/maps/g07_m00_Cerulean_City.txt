@@ -1,0 +1,25 @@
+Cerulean City  (group 7, map 0)  header 0x08B3CFF4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x30, flag 0x0000) -> 0x08253AA1
+  script 0x08253AA1  [ok]
+    08253AA1  lock                 
+    08253AA2  faceplayer           
+    08253AA3  msgbox_multilang     type=0 text_0="Only skilled Trainers can collect\nPokémon Badges.\pI see you have at least one.\pThose Badges have amazing secrets,\ndid you know?" text_1="Only skilled Trainers can collect\nPokémon Badges.\pI see you have at least one.\pThose Badges have amazing secrets,\ndid you know?" text_2="Only skilled Trainers can collect\nPokémon Badges.\pI see you have at least one.\pThose Badges have amazing secrets,\ndid you know?" text_3="Only skilled Trainers can collect\nPokémon Badges.\pI see you have at least one.\pThose Badges have amazing secrets,\ndid you know?" text_4="Only skilled Trainers can collect\nPokémon Badges.\pI see you have at least one.\pThose Badges have amazing secrets,\ndid you know?" text_5="Only skilled Trainers can collect\nPokémon Badges.\pI see you have at least one.\pThose Badges have amazing secrets,\ndid you know?" text_6="Only skilled Trainers can collect\nPokémon Badges.\pI see you have at least one.\pThose Badges have amazing secrets,\ndid you know?"
+    08253AC1  callstd              function=MSGBOX_DEFAULT(4)
+    08253AC3  message              text="Now then…\pWhich of the eight Badges should\nI describe?"
+    08253AC8  bufferpartymonnick   stringVarId=66 slot=2085
+    08253ACC  turnvobject          id=71 direction=37
+    08253ACF  gotostd              function=215
+    08253AD1  removedecoration     decoration=2085
+    08253AD4  return               
+

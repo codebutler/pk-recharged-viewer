@@ -1,0 +1,24 @@
+One Island  (group 30, map 2)  header 0x08B3DC34
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF5, flag 0x0000) -> 0x0827BF94
+  script 0x0827BF94  [ok]
+    0827BF94  msgbox_multilang     type=0 text_0="On sunny days, I step out and gaze\nupon the volcano.\pThat’s my daily routine." text_1="On sunny days, I step out and gaze\nupon the volcano.\pThat’s my daily routine." text_2="On sunny days, I step out and gaze\nupon the volcano.\pThat’s my daily routine." text_3="On sunny days, I step out and gaze\nupon the volcano.\pThat’s my daily routine." text_4="On sunny days, I step out and gaze\nupon the volcano.\pThat’s my daily routine." text_5="On sunny days, I step out and gaze\nupon the volcano.\pThat’s my daily routine." text_6="On sunny days, I step out and gaze\nupon the volcano.\pThat’s my daily routine."
+    0827BFB2  callstd              function=MSGBOX_NPC(2)
+    0827BFB4  end                  
+
+  object 2 (gfx 0x1E, flag 0x0000) -> 0x0827BFB5
+  script 0x0827BFB5  [ok]
+    0827BFB5  msgbox_multilang     type=0 text_0="Let me think… When was the last time\nMt. Ember erupted?" text_1="Let me think… When was the last time\nMt. Ember erupted?" text_2="Let me think… When was the last time\nMt. Ember erupted?" text_3="Let me think… When was the last time\nMt. Ember erupted?" text_4="Let me think… When was the last time\nMt. Ember erupted?" text_5="Let me think… When was the last time\nMt. Ember erupted?" text_6="Let me think… When was the last time\nMt. Ember erupted?"
+    0827BFD3  callstd              function=MSGBOX_NPC(2)
+    0827BFD5  end                  
+

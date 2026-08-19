@@ -1,0 +1,46 @@
+Saffron City  (group 14, map 1)  header 0x08B3D72C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x54, flag 0x0000) -> 0x0826F993
+  script 0x0826F993  [ok]
+    0826F993  bufferspeciesname    stringVarId=0 species=DODUO(84)
+    0826F997  lock                 
+    0826F998  faceplayer           
+    0826F999  waitse               
+    0826F99A  playmoncry           species=DODUO(84) mode=0
+    0826F99F  msgbox_multilang     type=0 text_0="Doduo: Giiih!\pPretty Mirror Look AT ME,\nSee How Pretty I Can BE?" text_1="Doduo: Giiih!\pPretty Mirror Look AT ME,\nSee How Pretty I Can BE?" text_2="Doduo: Giiih!\pPretty Mirror Look AT ME,\nSee How Pretty I Can BE?" text_3="Doduo: Giiih!\pPretty Mirror Look AT ME,\nSee How Pretty I Can BE?" text_4="Doduo: Giiih!\pPretty Mirror Look AT ME,\nSee How Pretty I Can BE?" text_5="Doduo: Giiih!\pPretty Mirror Look AT ME,\nSee How Pretty I Can BE?" text_6="Doduo: Giiih!\pPretty Mirror Look AT ME,\nSee How Pretty I Can BE?"
+    0826F9BD  callstd              function=MSGBOX_DEFAULT(4)
+    0826F9BF  waitmoncry           
+    0826F9C0  release              
+
+  object 2 (gfx 0xD1, flag 0x0000) -> 0x0826F9C2
+  script 0x0826F9C2  [ok]
+    0826F9C2  lock                 
+    0826F9C3  msgbox_multilang     type=0 text_0="This is a rare Pokémon!\nHuh? It’s only a doll!" text_1="This is a rare Pokémon!\nHuh? It’s only a doll!" text_2="This is a rare Pokémon!\nHuh? It’s only a doll!" text_3="This is a rare Pokémon!\nHuh? It’s only a doll!" text_4="This is a rare Pokémon!\nHuh? It’s only a doll!" text_5="This is a rare Pokémon!\nHuh? It’s only a doll!" text_6="This is a rare Pokémon!\nHuh? It’s only a doll!"
+    0826F9E1  callstd              function=MSGBOX_DEFAULT(4)
+    0826F9E3  release              
+
+  object 3 (gfx 0x27, flag 0x0000) -> 0x0826F9C2
+  sign 0 at (1,1) -> 0x0826F9E5
+  script 0x0826F9E5  [ok]
+    0826F9E5  msgbox_multilang     type=0 text_0="…\pMy Secrets!\pSkill: Mimicry!\nHobby: Collecting dolls!\pFavorite Pokémon: Clefairy!" text_1="…\pMy Secrets!\pSkill: Mimicry!\nHobby: Collecting dolls!\pFavorite Pokémon: Clefairy!" text_2="…\pMy Secrets!\pSkill: Mimicry!\nHobby: Collecting dolls!\pFavorite Pokémon: Clefairy!" text_3="…\pMy Secrets!\pSkill: Mimicry!\nHobby: Collecting dolls!\pFavorite Pokémon: Clefairy!" text_4="…\pMy Secrets!\pSkill: Mimicry!\nHobby: Collecting dolls!\pFavorite Pokémon: Clefairy!" text_5="…\pMy Secrets!\pSkill: Mimicry!\nHobby: Collecting dolls!\pFavorite Pokémon: Clefairy!" text_6="…\pMy Secrets!\pSkill: Mimicry!\nHobby: Collecting dolls!\pFavorite Pokémon: Clefairy!"
+    0826FA03  callstd              function=MSGBOX_SIGN(3)
+    0826FA05  end                  
+
+  sign 1 at (3,5) -> 0x0826FA06
+  script 0x0826FA06  [ok]
+    0826FA06  msgbox_multilang     type=0 text_0="A game with Mario wearing a bucket\non his head!" text_1="A game with Mario wearing a bucket\non his head!" text_2="A game with Mario wearing a bucket\non his head!" text_3="A game with Mario wearing a bucket\non his head!" text_4="A game with Mario wearing a bucket\non his head!" text_5="A game with Mario wearing a bucket\non his head!" text_6="A game with Mario wearing a bucket\non his head!"
+    0826FA24  callstd              function=MSGBOX_SIGN(3)
+    0826FA26  end                  
+
+  hidden item at (2,1): Nugget
+

@@ -1,0 +1,148 @@
+Two Island  (group 31, map 0)  header 0x08B3DCA4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF2, flag 0x0000) -> 0x0827C3DD
+  script 0x0827C3DD  [ok]
+    0827C3DD  lock                 
+    0827C3DE  faceplayer           
+    0827C3DF  message              text="I can explain game rules to you, if\nyou’d like.\pWhich game should I describe?"
+    0827C3E4  animateflash         level=196
+    0827C3E6  waitstate            
+
+  object 2 (gfx 0xF4, flag 0x0000) -> 0x082BD8AA
+  script 0x082BD8AA  [unknown-opcode:0xE3]
+    082BD8AA  lock                 
+    082BD8AB  faceplayer           
+    082BD8AC  message              text="Hi, welcome!\nYou can play games over the\pWireless Communication System or\plocally.\pHow do you want to play?"
+    082BD8B1  call                 destination=67644425
+    082BD8B6  callstd              function=44
+    082BD8B8  gotostd              function=MSGBOX_DEFAULT(4)
+    082BD8BA  callstd              function=44
+    082BD8BC  gotostd              function=MSGBOX_DEFAULT(4)
+    082BD8BE  callstd              function=44
+    082BD8C0  gotostd              function=MSGBOX_DEFAULT(4)
+    082BD8C2  callstd              function=44
+    082BD8C4  gotostd              function=MSGBOX_DEFAULT(4)
+    082BD8C6  callstd              function=44
+    082BD8C8  gotostd              function=102
+    082BD8CA  delay                frames=8
+
+  sign 0 at (1,1) -> 0x082BEE48
+  script 0x082BEE48  [ok]
+    082BEE48  lockall              
+    082BEE49  special              SPECIAL_\function=268
+    082BEE4C  waitstate            
+
+  sign 1 at (0,1) -> 0x082BEE4F
+  script 0x082BEE4F  [ok]
+    082BEE4F  lockall              
+    082BEE50  special              SPECIAL_\function=270
+    082BEE53  waitstate            
+
+  map script type 1 -> 0x082BDA16
+  script 0x082BDA16  [ok]
+    082BDA16  compare_var_to_value var=0x406F value=1
+    082BDA1B  goto_if              condition=1 destination=0x082BDA64
+    082BDA21  compare_var_to_value var=0x406F value=2
+    082BDA26  goto_if              condition=1 destination=0x082BDA64
+    082BDA2C  compare_var_to_value var=0x406F value=5
+    082BDA31  goto_if              condition=1 destination=0x082BDA64
+    082BDA37  compare_var_to_value var=0x406F value=3
+    082BDA3C  goto_if              condition=1 destination=0x082BDA6A
+    082BDA42  compare_var_to_value var=0x406F value=6
+    082BDA47  goto_if              condition=1 destination=0x082BDA70
+    082BDA4D  compare_var_to_value var=0x406F value=7
+    082BDA52  goto_if              condition=1 destination=0x082BDA76
+    082BDA58  compare_var_to_value var=0x406F value=8
+    082BDA5D  goto_if              condition=1 destination=0x082BDA7C
+    082BDA63  end                  
+
+  script 0x082BDA64  [ok]
+    082BDA64  call                 destination=0x082BEBC7
+    082BDA69  end                  
+
+  script 0x082BDA6A  [ok]
+    082BDA6A  call                 destination=0x082BEBC7
+    082BDA6F  end                  
+
+  script 0x082BDA70  [ok]
+    082BDA70  call                 destination=0x082BEBB3
+    082BDA75  end                  
+
+  script 0x082BDA76  [ok]
+    082BDA76  call                 destination=0x082BEBC7
+    082BDA7B  end                  
+
+  script 0x082BDA7C  [ok]
+    082BDA7C  call                 destination=0x082BEBDB
+    082BDA81  end                  
+
+  script 0x082BEBC7  [ok]
+    082BEBC7  setmetatile          x=9 y=3 metatileId=709 impassable=0
+    082BEBD0  return               
+
+  script 0x082BEBB3  [ok]
+    082BEBB3  setmetatile          x=5 y=3 metatileId=709 impassable=0
+    082BEBBC  return               
+
+  script 0x082BEBDB  [ok]
+    082BEBDB  setmetatile          x=5 y=3 metatileId=737 impassable=0
+    082BEBE4  return               
+
+  map script type 4 (var 0x4079 == 2) -> 0x0827C3CE
+  script 0x0827C3CE  [ok]
+    0827C3CE  turnobject           localId=255 direction=2
+    0827C3D2  end                  
+
+  map script type 4 (var 0x406F == 8) -> 0x082BDA06
+  script 0x082BDA06  [ok]
+    082BDA06  compare_var_to_value var=0x8007 value=0
+    082BDA0B  goto_if              condition=1 destination=0x082BDA15
+    082BDA11  turnobject           localId=32775 direction=3
+    082BDA15  end                  
+
+  script 0x082BDA15  [ok]
+    082BDA15  end                  
+
+  map script type 2 (var 0x406F == 8) -> 0x082BDADC
+  script 0x082BDADC  [ok]
+    082BDADC  lockall              
+    082BDADD  call                 destination=0x082BDAF4
+    082BDAE2  call                 destination=0x082BEBE5
+    082BDAE7  special              SPECIAL_\function=79
+    082BDAEA  playse               song=36
+    082BDAED  erasebox             left=0 top=0 right=29 bottom=19
+    082BDAF2  releaseall           
+
+  script 0x082BDAF4  [ok]
+    082BDAF4  special              SPECIAL_\function=10
+    082BDAF7  setvar               destination=VAR_0x406F value=0
+    082BDAFC  textcolor            color=1
+    082BDAFE  compare_var_to_value var=0x8007 value=0
+    082BDB03  goto_if              condition=1 destination=0x082BDC07
+    082BDB09  applymovement        localId=32775 movements=[face_left]
+    082BDB10  waitmovement         localId=0
+    082BDB13  applymovement        localId=255 movements=[walk_down walk_down]
+    082BDB1A  waitmovement         localId=0
+    082BDB1D  applymovement        localId=32775 movements=[face_down]
+    082BDB24  waitmovement         localId=0
+    082BDB27  return               
+
+  script 0x082BEBE5  [ok]
+    082BEBE5  setmetatile          x=5 y=3 metatileId=759 impassable=1
+    082BEBEE  return               
+
+  script 0x082BDC07  [ok]
+    082BDC07  applymovement        localId=255 movements=[walk_down walk_down]
+    082BDC0E  waitmovement         localId=0
+    082BDC11  return               
+

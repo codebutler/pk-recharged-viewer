@@ -1,0 +1,163 @@
+Pokémon League  (group 1, map 77)  header 0x08B3BA84
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x18, flag 0x0000) -> 0x08213899
+  script 0x08213899  [ok]
+    08213899  lock                 
+    0821389A  faceplayer           
+    0821389B  speakername          name="Agatha"
+    082138A0  setvar               destination=VAR_0x8004 value=11
+    082138A5  setvar               destination=VAR_0x8005 value=2
+    082138AA  special              SPECIAL_\function=348
+    082138AD  checkflag            flag=0x4BA
+    082138B0  goto_if              condition=1 destination=0x08213951
+    082138B6  setvar               destination=VAR_0x8004 value=11
+    082138BB  setvar               destination=VAR_0x8005 value=0
+    082138C0  special              SPECIAL_\function=347
+    082138C3  setvar               destination=VAR_0x8004 value=11
+    082138C8  setvar               destination=VAR_0x8005 value=4
+    082138CD  special              SPECIAL_\function=347
+    082138D0  setvar               destination=VAR_0x8004 value=0
+    082138D5  setvar               destination=VAR_0x8005 value=4
+    082138DA  special              SPECIAL_\function=347
+    082138DD  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    082138E0  goto_if              condition=0 destination=0x08213973
+    082138E6  msgbox_multilang     type=0 text_0="I am Agatha of the Elite Four.\pYou’re the child that Oak’s taken\nunder his wing, aren’t you?\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_1="I am Agatha of the Elite Four.\pYou’re the child that Oak’s taken\nunder his wing, aren’t you?\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_2="I am Agatha of the Elite Four.\pYou’re the child that Oak’s taken\nunder his wing, aren’t you?\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_3="I am Agatha of the Elite Four.\pYou’re the child that Oak’s taken\nunder his wing, aren’t you?\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_4="I am Agatha of the Elite Four.\pYou’re the child that Oak’s taken\nunder his wing, aren’t you?\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_5="I am Agatha of the Elite Four.\pYou’re the child that Oak’s taken\nunder his wing, aren’t you?\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_6="I am Agatha of the Elite Four.\pYou’re the child that Oak’s taken\nunder his wing, aren’t you?\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}"
+    08213904  callstd              function=MSGBOX_DEFAULT(4)
+    08213906  setflag              flag=0x003
+    08213909  setflag              flag=0x005
+    0821390C  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0821390F  goto_if              condition=0 destination=0x08213998
+    08213915  trainerbattle        type=3 trainer=0x2E1 localId=0 ptr1=0x08213C38
+    0821391F  clearflag            flag=0x005
+    08213922  setflag              flag=0x4BA
+    08213925  call                 destination=0x0820110A
+    0821392A  speakername          name="Agatha"
+    0821392F  msgbox_multilang     type=0 text_0="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_1="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_2="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_3="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_4="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_5="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_6="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!"
+    0821394D  callstd              function=MSGBOX_DEFAULT(4)
+    0821394F  release              
+
+  script 0x08213951  [ok]
+    08213951  msgbox_multilang     type=0 text_0="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_1="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_2="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_3="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_4="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_5="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_6="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!"
+    0821396F  callstd              function=MSGBOX_DEFAULT(4)
+    08213971  release              
+
+  script 0x08213973  [ok]
+    08213973  msgbox_multilang     type=0 text_0="I am Agatha of the Elite Four.\pI hear Oak’s taken a lot of interest\nin you, child.\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_1="I am Agatha of the Elite Four.\pI hear Oak’s taken a lot of interest\nin you, child.\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_2="I am Agatha of the Elite Four.\pI hear Oak’s taken a lot of interest\nin you, child.\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_3="I am Agatha of the Elite Four.\pI hear Oak’s taken a lot of interest\nin you, child.\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_4="I am Agatha of the Elite Four.\pI hear Oak’s taken a lot of interest\nin you, child.\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_5="I am Agatha of the Elite Four.\pI hear Oak’s taken a lot of interest\nin you, child.\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}" text_6="I am Agatha of the Elite Four.\pI hear Oak’s taken a lot of interest\nin you, child.\pThat old duff was once tough and\nhandsome.\pBut that was decades ago.\nHe’s a shadow of his former self.\pNow he just wants to fiddle with his\nPokédex.\pHe’s wrong.\nPokémon are for battling!\p{PLAYER}! I’ll show you how a real\nTrainer battles!{CTRL_0B}"
+    08213991  callstd              function=MSGBOX_DEFAULT(4)
+    08213993  goto                 destination=0x08213906
+
+  script 0x08213998  [ok]
+    08213998  trainerbattle        type=3 trainer=0x19C localId=0 ptr1=0x08213C38
+    082139A2  goto                 destination=0x0821391F
+
+  script 0x0820110A  [ok]
+    0820110A  applymovement        localId=255 movements=[delay_16 delay_16]
+    08201111  waitmovement         localId=0
+    08201114  playse               song=248
+    08201117  call                 destination=0x0820113C
+    0820111C  special              SPECIAL_\function=79
+    0820111F  setflag              flag=0x004
+    08201122  return               
+
+  script 0x08213906  [ok]
+    08213906  setflag              flag=0x003
+    08213909  setflag              flag=0x005
+    0821390C  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0821390F  goto_if              condition=0 destination=0x08213998
+    08213915  trainerbattle        type=3 trainer=0x2E1 localId=0 ptr1=0x08213C38
+    0821391F  clearflag            flag=0x005
+    08213922  setflag              flag=0x4BA
+    08213925  call                 destination=0x0820110A
+    0821392A  speakername          name="Agatha"
+    0821392F  msgbox_multilang     type=0 text_0="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_1="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_2="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_3="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_4="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_5="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_6="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!"
+    0821394D  callstd              function=MSGBOX_DEFAULT(4)
+    0821394F  release              
+
+  script 0x0821391F  [ok]
+    0821391F  clearflag            flag=0x005
+    08213922  setflag              flag=0x4BA
+    08213925  call                 destination=0x0820110A
+    0821392A  speakername          name="Agatha"
+    0821392F  msgbox_multilang     type=0 text_0="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_1="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_2="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_3="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_4="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_5="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!" text_6="You win!\pI see what the old duff sees in you\nnow.\pI have nothing else to say.\nRun along now, child!"
+    0821394D  callstd              function=MSGBOX_DEFAULT(4)
+    0821394F  release              
+
+  script 0x0820113C  [ok]
+    0820113C  setmetatile          x=6 y=1 metatileId=654 impassable=1
+    08201145  setmetatile          x=6 y=2 metatileId=662 impassable=0
+    0820114E  return               
+
+  map script type 5 -> 0x0821383F
+  script 0x0821383F  [ok]
+    0821383F  setvar               destination=VAR_0x8004 value=2
+    08213844  call                 destination=0x082011F1
+    08213849  end                  
+
+  script 0x082011F1  [ok]
+    082011F1  special              SPECIAL_\function=368
+    082011F4  return               
+
+  map script type 1 -> 0x0821384A
+  script 0x0821384A  [ok]
+    0821384A  checkflag            flag=0x4BA
+    0821384D  goto_if              condition=1 destination=0x0821385F
+    08213853  compare_var_to_value var=0x4068 value=3
+    08213858  goto_if              condition=1 destination=0x08213869
+    0821385E  end                  
+
+  script 0x0821385F  [ok]
+    0821385F  call                 destination=0x0820113C
+    08213864  goto                 destination=0x08213853
+
+  script 0x08213869  [ok]
+    08213869  call                 destination=0x082011B8
+    0821386E  goto                 destination=0x0821385E
+
+  script 0x08213853  [ok]
+    08213853  compare_var_to_value var=0x4068 value=3
+    08213858  goto_if              condition=1 destination=0x08213869
+    0821385E  end                  
+
+  script 0x082011B8  [ok]
+    082011B8  setmetatile          x=5 y=11 metatileId=669 impassable=1
+    082011C1  setmetatile          x=6 y=11 metatileId=670 impassable=1
+    082011CA  setmetatile          x=7 y=11 metatileId=671 impassable=1
+    082011D3  setmetatile          x=5 y=12 metatileId=677 impassable=1
+    082011DC  setmetatile          x=6 y=12 metatileId=678 impassable=1
+    082011E5  setmetatile          x=7 y=12 metatileId=679 impassable=1
+    082011EE  return               
+
+  script 0x0821385E  [ok]
+    0821385E  end                  
+
+  map script type 4 (var 0x4001 == 0) -> 0x0821387D
+  script 0x0821387D  [ok]
+    0821387D  turnobject           localId=255 direction=2
+    08213881  end                  
+
+  map script type 2 (var 0x4068 == 2) -> 0x0821388C
+  script 0x0821388C  [ok]
+    0821388C  lockall              
+    0821388D  call                 destination=0x08201123
+    08213892  setvar               destination=VAR_0x4068 value=3
+    08213897  releaseall           
+
+  script 0x08201123  [ok]
+    08201123  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up]
+    0820112A  waitmovement         localId=0
+    0820112D  setflag              flag=0x002
+    08201130  playse               song=44
+    08201133  call                 destination=0x082011B8
+    08201138  special              SPECIAL_\function=79
+    0820113B  return               
+

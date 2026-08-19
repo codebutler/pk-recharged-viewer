@@ -1,0 +1,45 @@
+Safari Zone  (group 1, map 63)  header 0x08B3B8FC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x35, flag 0x0181) -> 0x082D57FB
+  script 0x082D57FB  [ok]
+    082D57FB  setorcopyvar         destination=VAR_0x8000 source=110
+    082D5800  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5805  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Nugget
+    082D5807  end                  
+
+  sign 0 at (30,26) -> 0x0821259A
+  script 0x0821259A  [ok]
+    0821259A  msgbox_multilang     type=0 text_0="Rest House" text_1="Rest House" text_2="Rest House" text_3="Rest House" text_4="Rest House" text_5="Rest House" text_6="Rest House"
+    082125B8  callstd              function=MSGBOX_SIGN(3)
+    082125BA  end                  
+
+  sign 1 at (25,27) -> 0x082125BB
+  script 0x082125BB  [ok]
+    082125BB  msgbox_multilang     type=0 text_0="Trainer Tips\pPress Start to check\nremaining time." text_1="Trainer Tips\pPress Start to check\nremaining time." text_2="Trainer Tips\pPress Start to check\nremaining time." text_3="Trainer Tips\pPress Start to check\nremaining time." text_4="Trainer Tips\pPress Start to check\nremaining time." text_5="Trainer Tips\pPress Start to check\nremaining time." text_6="Trainer Tips\pPress Start to check\nremaining time."
+    082125D9  callstd              function=MSGBOX_SIGN(3)
+    082125DB  end                  
+
+  hidden item at (27,15): Leaf Stone
+
+  sign 3 at (33,20) -> 0x082125DC
+  script 0x082125DC  [ok]
+    082125DC  msgbox_multilang     type=0 text_0="Center Area" text_1="Center Area" text_2="Center Area" text_3="Center Area" text_4="Center Area" text_5="Center Area" text_6="Center Area"
+    082125FA  callstd              function=MSGBOX_SIGN(3)
+    082125FC  end                  
+
+  map script type 3 -> 0x08212596
+  script 0x08212596  [ok]
+    08212596  setworldmapflag      flag=0x90E
+    08212599  end                  
+

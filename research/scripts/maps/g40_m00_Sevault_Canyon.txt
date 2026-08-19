@@ -1,0 +1,102 @@
+Sevault Canyon  (group 40, map 0)  header 0x08B3E094
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF4, flag 0x0000) -> 0x0827FED0
+  script 0x0827FED0  [ok]
+    0827FED0  lock                 
+    0827FED1  checkflag            flag=0x002
+    0827FED4  goto_if              condition=1 destination=0x0827FFBE
+    0827FEDA  playbgm              song=435 save_song=0
+    0827FEDE  applymovement        localId=1 movements=[walk_in_place_down delay_16 walk_in_place_down delay_16 walk_in_place_down delay_16 walk_in_place_down delay_16 walk_in_place_faster_right delay_4 walk_in_place_faster_up delay_4 walk_in_place_faster_left delay_4 walk_in_place_faster_down delay_4]
+    0827FEE5  waitmovement         localId=0
+    0827FEE8  fadedefaultbgm       
+    0827FEE9  delay                frames=30
+    0827FEEC  applymovement        localId=1 movements=[face_player]
+    0827FEF3  waitmovement         localId=0
+    0827FEF6  msgbox_multilang     type=0 text_0="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_1="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_2="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_3="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_4="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_5="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_6="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!"
+    0827FF14  callstd              function=MSGBOX_DEFAULT(4)
+    0827FF16  textcolor            color=3
+    0827FF18  msgbox_multilang     type=0 text_0="Would you like to dance?" text_1="Would you like to dance?" text_2="Would you like to dance?" text_3="Would you like to dance?" text_4="Would you like to dance?" text_5="Would you like to dance?" text_6="Would you like to dance?"
+    0827FF36  callstd              function=MSGBOX_YESNO(5)
+    0827FF38  compare_var_to_value var=0x800D value=0
+    0827FF3D  goto_if              condition=1 destination=0x0827FFEA
+    0827FF43  msgbox_multilang     type=0 text_0="{PLAYER} danced the Chansey Dance!" text_1="{PLAYER} danced the Chansey Dance!" text_2="{PLAYER} danced the Chansey Dance!" text_3="{PLAYER} danced the Chansey Dance!" text_4="{PLAYER} danced the Chansey Dance!" text_5="{PLAYER} danced the Chansey Dance!" text_6="{PLAYER} danced the Chansey Dance!"
+    0827FF61  callstd              function=MSGBOX_DEFAULT(4)
+    0827FF63  closemessage         
+    0827FF64  call                 destination=0x082BB551
+    0827FF69  compare_var_to_value var=0x800C value=1
+    0827FF6E  call_if              condition=5 destination=0x0827FFB3
+    0827FF74  delay                frames=30
+    0827FF77  playbgm              song=435 save_song=0
+    0827FF7B  applymovement        localId=255 movements=[walk_in_place_down delay_16 walk_in_place_down delay_16 walk_in_place_down delay_16 walk_in_place_down delay_16 walk_in_place_faster_right delay_4 walk_in_place_faster_up delay_4 walk_in_place_faster_left delay_4 walk_in_place_faster_down delay_4]
+    0827FF82  waitmovement         localId=0
+    0827FF85  fadedefaultbgm       
+    0827FF86  delay                frames=30
+    0827FF89  call                 destination=0x082F81AB
+    0827FF8E  msgbox_multilang     type=0 text_0="Ahahahaha!\pThere, you’re all chipper now!\nLucky!" text_1="Ahahahaha!\pThere, you’re all chipper now!\nLucky!" text_2="Ahahahaha!\pThere, you’re all chipper now!\nLucky!" text_3="Ahahahaha!\pThere, you’re all chipper now!\nLucky!" text_4="Ahahahaha!\pThere, you’re all chipper now!\nLucky!" text_5="Ahahahaha!\pThere, you’re all chipper now!\nLucky!" text_6="Ahahahaha!\pThere, you’re all chipper now!\nLucky!"
+    0827FFAC  callstd              function=MSGBOX_DEFAULT(4)
+    0827FFAE  setflag              flag=0x002
+    0827FFB1  release              
+
+  script 0x0827FFBE  [ok]
+    0827FFBE  applymovement        localId=1 movements=[face_player]
+    0827FFC5  waitmovement         localId=0
+    0827FFC8  msgbox_multilang     type=0 text_0="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_1="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_2="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_3="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_4="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_5="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!" text_6="Dance, dance!\nChansey Dance!\pYou join in, too!\nDance, dance!"
+    0827FFE6  callstd              function=MSGBOX_DEFAULT(4)
+    0827FFE8  release              
+
+  script 0x0827FFEA  [ok]
+    0827FFEA  textcolor            color=0
+    0827FFEC  msgbox_multilang     type=0 text_0="Come on, dance!" text_1="Come on, dance!" text_2="Come on, dance!" text_3="Come on, dance!" text_4="Come on, dance!" text_5="Come on, dance!" text_6="Come on, dance!"
+    0828000A  callstd              function=MSGBOX_DEFAULT(4)
+    0828000C  release              
+
+  script 0x082BB551  [ok]
+    082BB551  copyvar              destination=VAR_0x8012 source=VAR_0x8013
+    082BB556  return               
+
+  script 0x0827FFB3  [ok]
+    0827FFB3  applymovement        localId=255 movements=[walk_in_place_faster_down]
+    0827FFBA  waitmovement         localId=0
+    0827FFBD  return               
+
+  script 0x082F81AB  [ok]
+    082F81AB  fadescreenswapbuffers mode=1
+    082F81AD  nop                  
+    082F81AE  playfanfare          song=368
+    082F81B1  waitfanfare          
+    082F81B2  special              SPECIAL_\function=0
+    082F81B5  callnative           func=0x080D5785
+    082F81BA  fadescreenswapbuffers mode=0
+    082F81BC  nop                  
+    082F81BD  return               
+
+  object 2 (gfx 0x71, flag 0x0000) -> 0x0828001F
+  script 0x0828001F  [ok]
+    0828001F  bufferspeciesname    stringVarId=0 species=CHANSEY(113)
+    08280023  lock                 
+    08280024  faceplayer           
+    08280025  waitse               
+    08280026  playmoncry           species=CHANSEY(113) mode=0
+    0828002B  msgbox_multilang     type=0 text_0="Chansey: Chansi! Chansi!" text_1="Chansey: Chansi! Chansi!" text_2="Chansey: Chansi! Chansi!" text_3="Chansey: Chansi! Chansi!" text_4="Chansey: Chansi! Chansi!" text_5="Chansey: Chansi! Chansi!" text_6="Chansey: Chansi! Chansi!"
+    08280049  callstd              function=MSGBOX_DEFAULT(4)
+    0828004B  waitmoncry           
+    0828004C  release              
+
+  object 3 (gfx 0x35, flag 0x01FD) -> 0x082D5E20
+  script 0x082D5E20  [ok]
+    082D5E20  setorcopyvar         destination=VAR_0x8000 source=222
+    082D5E25  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5E2A  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Lucky Punch
+    082D5E2C  end                  
+

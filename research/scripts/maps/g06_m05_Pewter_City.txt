@@ -1,0 +1,154 @@
+Pewter City  (group 6, map 5)  header 0x08B3CFA0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x27, flag 0x0000) -> 0x082535E3
+  script 0x082535E3  [ok]
+    082535E3  bufferspeciesname    stringVarId=0 species=JIGGLYPUFF(39)
+    082535E7  lock                 
+    082535E8  faceplayer           
+    082535E9  fadeoutbgm           speed=0
+    082535EB  playbgm              song=488 save_song=0
+    082535EF  message              text="Jigglypuff: Puu pupuu!"
+    082535F4  vcall_if             condition=54 destination=918292517
+    082535FA  special              SPECIAL_\function=48136
+    082535FD  fadenewbgm           song=2085
+    08253600  vcall_if             condition=54 destination=918292517
+    08253606  special              SPECIAL_\function=48136
+    08253609  fadenewbgm           song=2085
+    0825360C  waitmessage          
+    0825360D  delay                frames=455
+    08253610  playbgm              song=515 save_song=1
+    08253614  release              
+
+  object 2 (gfx 0x30, flag 0x0000) -> 0x082535C2
+  script 0x082535C2  [ok]
+    082535C2  msgbox_multilang     type=0 text_0="What!?\pTeam Rocket is at Mt. Moon?\nHuh?\pI’m on the phone!\nScram!" text_1="What!?\pTeam Rocket is at Mt. Moon?\nHuh?\pI’m on the phone!\nScram!" text_2="What!?\pTeam Rocket is at Mt. Moon?\nHuh?\pI’m on the phone!\nScram!" text_3="What!?\pTeam Rocket is at Mt. Moon?\nHuh?\pI’m on the phone!\nScram!" text_4="What!?\pTeam Rocket is at Mt. Moon?\nHuh?\pI’m on the phone!\nScram!" text_5="What!?\pTeam Rocket is at Mt. Moon?\nHuh?\pI’m on the phone!\nScram!" text_6="What!?\pTeam Rocket is at Mt. Moon?\nHuh?\pI’m on the phone!\nScram!"
+    082535E0  callstd              function=MSGBOX_NPC(2)
+    082535E2  end                  
+
+  object 3 (gfx 0x3A, flag 0x0000) -> 0x082535B9
+  script 0x082535B9  [ok]
+    082535B9  lock                 
+    082535BA  faceplayer           
+    082535BB  call                 destination=0x082BB336
+    082535C0  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x08253616
+  script 0x08253616  [ok]
+    08253616  msgbox_multilang     type=0 text_0="Yawn!\pWhen Jigglypuff sings, Pokémon get\ndrowsy…\p…Me, too…\nSnore…" text_1="Yawn!\pWhen Jigglypuff sings, Pokémon get\ndrowsy…\p…Me, too…\nSnore…" text_2="Yawn!\pWhen Jigglypuff sings, Pokémon get\ndrowsy…\p…Me, too…\nSnore…" text_3="Yawn!\pWhen Jigglypuff sings, Pokémon get\ndrowsy…\p…Me, too…\nSnore…" text_4="Yawn!\pWhen Jigglypuff sings, Pokémon get\ndrowsy…\p…Me, too…\nSnore…" text_5="Yawn!\pWhen Jigglypuff sings, Pokémon get\ndrowsy…\p…Me, too…\nSnore…" text_6="Yawn!\pWhen Jigglypuff sings, Pokémon get\ndrowsy…\p…Me, too…\nSnore…"
+    08253634  callstd              function=MSGBOX_NPC(2)
+    08253636  end                  
+
+  object 5 (gfx 0x10, flag 0x0000) -> 0x00000000
+  object 6 (gfx 0x04, flag 0x0000) -> 0x08253637
+  script 0x08253637  [ok]
+    08253637  lock                 
+    08253638  msgbox_multilang     type=0 text_0="I really want a Pikachu, so I’m\ntrading my Clefairy for one." text_1="I really want a Pikachu, so I’m\ntrading my Clefairy for one." text_2="I really want a Pikachu, so I’m\ntrading my Clefairy for one." text_3="I really want a Pikachu, so I’m\ntrading my Clefairy for one." text_4="I really want a Pikachu, so I’m\ntrading my Clefairy for one." text_5="I really want a Pikachu, so I’m\ntrading my Clefairy for one." text_6="I really want a Pikachu, so I’m\ntrading my Clefairy for one."
+    08253656  callstd              function=MSGBOX_DEFAULT(4)
+    08253658  release              
+
+  object 7 (gfx 0x04, flag 0x0000) -> 0x0825365A
+  script 0x0825365A  [ok]
+    0825365A  msgbox_multilang     type=0 text_0="I’m trading Pokémon with that kid\nthere.\pI had two Pikachu, so I figured\nI might as well trade one." text_1="I’m trading Pokémon with that kid\nthere.\pI had two Pikachu, so I figured\nI might as well trade one." text_2="I’m trading Pokémon with that kid\nthere.\pI had two Pikachu, so I figured\nI might as well trade one." text_3="I’m trading Pokémon with that kid\nthere.\pI had two Pikachu, so I figured\nI might as well trade one." text_4="I’m trading Pokémon with that kid\nthere.\pI had two Pikachu, so I figured\nI might as well trade one." text_5="I’m trading Pokémon with that kid\nthere.\pI had two Pikachu, so I figured\nI might as well trade one." text_6="I’m trading Pokémon with that kid\nthere.\pI had two Pikachu, so I figured\nI might as well trade one."
+    08253678  callstd              function=MSGBOX_NPC(2)
+    0825367A  end                  
+
+  object 8 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  object 9 (gfx 0xF4, flag 0x0000) -> 0x08253444
+  script 0x08253444  [ok]
+    08253444  lockall              
+    08253445  checkflag            flag=0x92B
+    08253448  goto_if              condition=0 destination=0x08253470
+    0825344E  msgbox_multilang     type=0 text_0="You’re limited to one package per\nday.\pPlease come back tomorrow." text_1="You’re limited to one package per\nday.\pPlease come back tomorrow." text_2="You’re limited to one package per\nday.\pPlease come back tomorrow." text_3="You’re limited to one package per\nday.\pPlease come back tomorrow." text_4="You’re limited to one package per\nday.\pPlease come back tomorrow." text_5="You’re limited to one package per\nday.\pPlease come back tomorrow." text_6="You’re limited to one package per\nday.\pPlease come back tomorrow."
+    0825346C  callstd              function=MSGBOX_NPC(2)
+    0825346E  releaseall           
+
+  script 0x08253470  [ok]
+    08253470  msgbox_multilang     type=0 text_0="The Pewter City specialty-Pewter\nArare! They’re ¥500!" text_1="The Pewter City specialty-Pewter\nArare! They’re ¥500!" text_2="The Pewter City specialty-Pewter\nArare! They’re ¥500!" text_3="The Pewter City specialty-Pewter\nArare! They’re ¥500!" text_4="The Pewter City specialty-Pewter\nArare! They’re ¥500!" text_5="The Pewter City specialty-Pewter\nArare! They’re ¥500!" text_6="The Pewter City specialty-Pewter\nArare! They’re ¥500!"
+    0825348E  callstd              function=MSGBOX_NPC(2)
+    08253490  checkitemspace       itemId=Pewter Arare(62) quantity=1
+    08253495  compare_var_to_value var=0x800D value=0
+    0825349A  goto_if              condition=1 destination=0x082534FB
+    082534A0  message              text="You’re limited to one package per\nday, though.\pDo you want some?"
+    082534A5  loadbytefromptr      destIndex=56 source=940705829
+    082534AB  special              SPECIAL_\function=4616
+    082534AE  fadeinbgm            speed=37
+    082534B0  gotostd              function=18
+    082534B2  fadeinbgm            speed=37
+    082534B4  gotostd              function=18
+    082534B6  fadeinbgm            speed=37
+    082534B8  gotostd              function=18
+    082534BA  fadeinbgm            speed=37
+    082534BC  gotostd              function=102
+    082534BE  showmoneybox         x=0 y=0 disable=0
+    082534C2  multichoice          x=19 y=8 multichoiceId=0 ignoreBPress=0
+    082534C7  compare_var_to_value var=0x800D value=0
+    082534CC  goto_if              condition=1 destination=0x0825351D
+    082534D2  msgbox_multilang     type=0 text_0="That’s too bad!\nNext time!" text_1="That’s too bad!\nNext time!" text_2="That’s too bad!\nNext time!" text_3="That’s too bad!\nNext time!" text_4="That’s too bad!\nNext time!" text_5="That’s too bad!\nNext time!" text_6="That’s too bad!\nNext time!"
+    082534F0  callstd              function=MSGBOX_DEFAULT(4)
+    082534F2  closemessage         
+    082534F3  hidemoneybox         0=0 0=0
+    082534F6  goto                 destination=0x0825346E
+
+  script 0x082534FB  [ok]
+    082534FB  msgbox_multilang     type=0 text_0="But you don’t have space in your\nbag…" text_1="But you don’t have space in your\nbag…" text_2="But you don’t have space in your\nbag…" text_3="But you don’t have space in your\nbag…" text_4="But you don’t have space in your\nbag…" text_5="But you don’t have space in your\nbag…" text_6="But you don’t have space in your\nbag…"
+    08253519  callstd              function=MSGBOX_YESNO(5)
+    0825351B  releaseall           
+
+  script 0x0825351D  [unknown-opcode:0xE9]
+    0825351D  checkmoney           value=500 disable=0
+    08253523  compare_var_to_value var=0x800D value=0
+    08253528  goto_if              condition=1 destination=0x08253584
+    0825352E  playse               song=95
+    08253531  removemoney          value=500 disable=0
+    08253537  updatemoneybox       0=0 0=0 disable=0
+    0825353B  waitse               
+    0825353C  hidemoneybox         0=0 0=0
+    0825353F  msgbox_multilang     type=0 text_0="Thanks!\nThey are very hard, so be careful!" text_1="Thanks!\nThey are very hard, so be careful!" text_2="Thanks!\nThey are very hard, so be careful!" text_3="Thanks!\nThey are very hard, so be careful!" text_4="Thanks!\nThey are very hard, so be careful!" text_5="Thanks!\nThey are very hard, so be careful!" text_6="Thanks!\nThey are very hard, so be careful!"
+    0825355D  callstd              function=MSGBOX_DEFAULT(4)
+    0825355F  additem              itemId=Pewter Arare(62) quantity=1
+
+  script 0x0825346E  [ok]
+    0825346E  releaseall           
+
+  script 0x08253584  [ok]
+    08253584  msgbox_multilang     type=0 text_0="Oh, you don’t have enough money!\nPlease come back again!" text_1="Oh, you don’t have enough money!\nPlease come back again!" text_2="Oh, you don’t have enough money!\nPlease come back again!" text_3="Oh, you don’t have enough money!\nPlease come back again!" text_4="Oh, you don’t have enough money!\nPlease come back again!" text_5="Oh, you don’t have enough money!\nPlease come back again!" text_6="Oh, you don’t have enough money!\nPlease come back again!"
+    082535A2  callstd              function=MSGBOX_DEFAULT(4)
+    082535A4  closemessage         
+    082535A5  hidemoneybox         0=0 0=0
+    082535A8  releaseall           
+
+  map script type 3 -> 0x082535B5
+  script 0x082535B5  [ok]
+    082535B5  setrespawn           heallocation=3
+    082535B8  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

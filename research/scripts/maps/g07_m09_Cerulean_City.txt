@@ -1,0 +1,64 @@
+Cerulean City  (group 7, map 9)  header 0x08B3D0F0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF6, flag 0x0000) -> 0x0825B9E4
+  script 0x0825B9E4  [unknown-opcode:0xE9]
+    0825B9E4  lock                 
+    0825B9E5  faceplayer           
+    0825B9E6  checkflag            flag=0x2BB
+    0825B9E9  goto_if              condition=1 destination=0x0825BA87
+    0825B9EF  msgbox_multilang     type=0 text_0="I concoct a variety of medicine from\nBerry Powder.\pUsing good Berry Powder, I can make\nany kind of medicine.\pNow tell me, have you any interest in\nBerries?" text_1="I concoct a variety of medicine from\nBerry Powder.\pUsing good Berry Powder, I can make\nany kind of medicine.\pNow tell me, have you any interest in\nBerries?" text_2="I concoct a variety of medicine from\nBerry Powder.\pUsing good Berry Powder, I can make\nany kind of medicine.\pNow tell me, have you any interest in\nBerries?" text_3="I concoct a variety of medicine from\nBerry Powder.\pUsing good Berry Powder, I can make\nany kind of medicine.\pNow tell me, have you any interest in\nBerries?" text_4="I concoct a variety of medicine from\nBerry Powder.\pUsing good Berry Powder, I can make\nany kind of medicine.\pNow tell me, have you any interest in\nBerries?" text_5="I concoct a variety of medicine from\nBerry Powder.\pUsing good Berry Powder, I can make\nany kind of medicine.\pNow tell me, have you any interest in\nBerries?" text_6="I concoct a variety of medicine from\nBerry Powder.\pUsing good Berry Powder, I can make\nany kind of medicine.\pNow tell me, have you any interest in\nBerries?"
+    0825BA0D  callstd              function=MSGBOX_YESNO(5)
+    0825BA0F  compare_var_to_value var=0x800D value=0
+    0825BA14  goto_if              condition=1 destination=0x0825BAB0
+    0825BA1A  checkitem            itemId=Berry Pouch(365) quantity=1
+    0825BA1F  compare_var_to_value var=0x800D value=0
+    0825BA24  goto_if              condition=1 destination=0x0825BAD2
+    0825BA2A  msgbox_multilang     type=0 text_0="Ah, good! For you, then, I have just\nthe thing." text_1="Ah, good! For you, then, I have just\nthe thing." text_2="Ah, good! For you, then, I have just\nthe thing." text_3="Ah, good! For you, then, I have just\nthe thing." text_4="Ah, good! For you, then, I have just\nthe thing." text_5="Ah, good! For you, then, I have just\nthe thing." text_6="Ah, good! For you, then, I have just\nthe thing."
+    0825BA48  callstd              function=MSGBOX_DEFAULT(4)
+    0825BA4A  setflag              flag=0x2BB
+
+  script 0x0825BA87  [ok]
+    0825BA87  special              SPECIAL_\function=301
+    0825BA8A  msgbox_multilang     type=0 text_0="Er-hem! Have you brought me some\nBerry Powder?" text_1="Er-hem! Have you brought me some\nBerry Powder?" text_2="Er-hem! Have you brought me some\nBerry Powder?" text_3="Er-hem! Have you brought me some\nBerry Powder?" text_4="Er-hem! Have you brought me some\nBerry Powder?" text_5="Er-hem! Have you brought me some\nBerry Powder?" text_6="Er-hem! Have you brought me some\nBerry Powder?"
+    0825BAA8  callstd              function=MSGBOX_DEFAULT(4)
+    0825BAAA  goto                 destination=0x0825BAFE
+
+  script 0x0825BAB0  [ok]
+    0825BAB0  msgbox_multilang     type=0 text_0="You have no interest in Berries?\pYoung one, it’s important to take an\ninterest in all sorts of things." text_1="You have no interest in Berries?\pYoung one, it’s important to take an\ninterest in all sorts of things." text_2="You have no interest in Berries?\pYoung one, it’s important to take an\ninterest in all sorts of things." text_3="You have no interest in Berries?\pYoung one, it’s important to take an\ninterest in all sorts of things." text_4="You have no interest in Berries?\pYoung one, it’s important to take an\ninterest in all sorts of things." text_5="You have no interest in Berries?\pYoung one, it’s important to take an\ninterest in all sorts of things." text_6="You have no interest in Berries?\pYoung one, it’s important to take an\ninterest in all sorts of things."
+    0825BACE  callstd              function=MSGBOX_DEFAULT(4)
+    0825BAD0  release              
+
+  script 0x0825BAD2  [ok]
+    0825BAD2  msgbox_multilang     type=0 text_0="Why must you lie to me?\pHow many Berries do you have?\nNot a one!" text_1="Why must you lie to me?\pHow many Berries do you have?\nNot a one!" text_2="Why must you lie to me?\pHow many Berries do you have?\nNot a one!" text_3="Why must you lie to me?\pHow many Berries do you have?\nNot a one!" text_4="Why must you lie to me?\pHow many Berries do you have?\nNot a one!" text_5="Why must you lie to me?\pHow many Berries do you have?\nNot a one!" text_6="Why must you lie to me?\pHow many Berries do you have?\nNot a one!"
+    0825BAF0  callstd              function=MSGBOX_DEFAULT(4)
+    0825BAF2  release              
+
+  script 0x0825BAFE  [ok]
+    0825BAFE  message              text="With what would you like to exchange\nit?"
+    0825BB03  hideobjectat         localId=9665 mapGroup=8 mapNum=89
+    0825BB08  hidecoinsbox         x=37 y=8
+    0825BB0B  hideobjectat         localId=9665 mapGroup=8 mapNum=89
+    0825BB10  hidecoinsbox         x=37 y=8
+    0825BB13  hideobjectat         localId=9665 mapGroup=8 mapNum=89
+    0825BB18  hidecoinsbox         x=37 y=8
+    0825BB1B  waitmessage          
+    0825BB1C  setvar               destination=VAR_0x8004 value=5
+    0825BB21  special              SPECIAL_\function=362
+    0825BB24  waitstate            
+
+  sign 0 at (3,1) -> 0x0825BDC5
+  script 0x0825BDC5  [ok]
+    0825BDC5  lockall              
+    0825BDC6  special              SPECIAL_\function=335
+    0825BDC9  waitstate            
+

@@ -1,0 +1,126 @@
+Viridian City  (group 5, map 2)  header 0x08B3CEA4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2F, flag 0x0000) -> 0x0824F3EF
+  script 0x0824F3EF  [ok]
+    0824F3EF  lock                 
+    0824F3F0  faceplayer           
+    0824F3F1  setflag              flag=0x4005 (temp)
+    0824F3F4  speakername          name="Student"
+    0824F3F9  msgbox_multilang     type=0 text_0="Whew! I’m trying to memorize all my\nnotes." text_1="Estoy intentando memorizar todos\nmis apuntes." text_2="Pfouh!\nJ’essaie d’apprendre mes leçons." text_3="Sto cercando di memorizzare tutti\ngli appunti." text_4="Puh! Ich versuche, meine Notizen\nauswendig zu lernen." text_5="Ufa! Estou a tentar memorizar\ntodos os meus apontamentos." text_6="Whew! I’m trying to memorize all my\nnotes."
+    0824F417  callstd              function=MSGBOX_DEFAULT(4)
+    0824F419  closemessage         
+    0824F41A  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    0824F421  waitmovement         localId=0
+    0824F424  release              
+
+  object 2 (gfx 0x14, flag 0x0000) -> 0x0824F3B8
+  script 0x0824F3B8  [ok]
+    0824F3B8  lock                 
+    0824F3B9  faceplayer           
+    0824F3BA  setflag              flag=0x4005 (temp)
+    0824F3BD  speakername          name="Teacher"
+    0824F3C2  msgbox_multilang     type=0 text_0="Okay!\pBe sure to read what’s on the\nblackboard carefully! " text_1="¡Muy bien!\p¡No olvides leer la pizarra con\nmucha atención!" text_2="OK!\pLis attentivement le tableau\navant de partir!" text_3="Va bene!\pLeggi molto attentamente la\nlavagna!" text_4="O.K.!\pLies sorgfältig den Text auf der\nTafel!" text_5="Ok!\pCertifica-te de ler o que está no\nquadro com atençぇo!" text_6="Okay!\pBe sure to read what’s on the\nblackboard carefully! "
+    0824F3E0  callstd              function=MSGBOX_DEFAULT(4)
+    0824F3E2  closemessage         
+    0824F3E3  applymovement        localId=2 movements=[face_original_direction]
+    0824F3EA  waitmovement         localId=0
+    0824F3ED  release              
+
+  object 3 (gfx 0x08, flag 0x0000) -> 0x0824F2D7
+  script 0x0824F2D7  [ok]
+    0824F2D7  lock                 
+    0824F2D8  faceplayer           
+    0824F2D9  checkitem            itemId=DexNav(407) quantity=1
+    0824F2DE  speakername          name="Scientist"
+    0824F2E3  compare_var_to_value var=0x800D value=0
+    0824F2E8  goto_if              condition=1 destination=0x0824F310
+    0824F2EE  msgbox_multilang     type=0 text_0="How is your Pokémon search going?" text_1="¿Cómo va tu búsqueda de Pokémon?" text_2="Comment se passe ta recherche de\nPokémon ?" text_3="Come sta andando la tua ricerca di\nPokémon?" text_4="Wie läuft deine Pokémon-Suche?" text_5="Como está indo sua busca por\nPokémon?" text_6="How is your Pokémon search going?"
+    0824F30C  callstd              function=MSGBOX_DEFAULT(4)
+    0824F30E  release              
+
+  script 0x0824F310  [ok]
+    0824F310  msgbox_multilang     type=0 text_0="Coming to the School to learn more\nabout Pokémon?\pI feel like people would learn a lot\nif finding new Pokémon wasn’t that\pdifficult.\pDon’t you think the same?" text_1="¿Vienes a la Escuela para aprender\nmás sobre Pokémon?\pSiento que la gente aprendería mucho\nsi encontrar nuevos Pokémon no\pfuera tan difícil.\p¿No crees lo mismo?" text_2="Tu viens à l’École pour en apprendre\ndavantage sur les Pokémon ?\pJe pense que les gens apprendraient\nbeaucoup plus si trouver de\pnouveaux Pokémon n’était pas si\pdifficile.\pTu ne crois pas ?" text_3="Sei venuto a Scuola per imparare di\npiù sui Pokémon?\pPenso che la gente imparerebbe molto\ndi più se trovare nuovi Pokémon non\pfosse così difficile.\pNon credi anche tu?" text_4="Kommst du zur Schule, um mehr über\nPokémon zu lernen?\pIch denke, die Leute würden viel\nmehr lernen, wenn es nicht so\pschwer wäre, neue Pokémon zu\pfinden.\pFindest du nicht auch?" text_5="Você veio para a Escola para\naprender mais sobre Pokémon?\pEu acho que as pessoas aprenderiam\nmuito mais se encontrar novos\pPokémon nぇo fosse tぇo difícil.\pVocê nぇo acha?" text_6="Coming to the School to learn more\nabout Pokémon?\pI feel like people would learn a lot\nif finding new Pokémon wasn’t that\pdifficult.\pDon’t you think the same?"
+    0824F32E  callstd              function=MSGBOX_YESNO(5)
+    0824F330  compare_var_to_value var=0x800D value=1
+    0824F335  goto_if              condition=1 destination=0x0824F35D
+    0824F33B  msgbox_multilang     type=0 text_0="So you prefer finding them yourself,\nI can see the appealing." text_1="Entonces prefieres buscarlos por ti\nmismo, tiene su encanto." text_2="Donc tu préfères les trouver\ntoi-même, je comprends l’attrait." text_3="Quindi preferisci trovarli da solo,\nposso capirne il fascino." text_4="Also, du bevorzugst es, sie selbst zu\nfinden. Ich kann den Reiz verstehen." text_5="Entぇo você prefere encontrá-los\nsozinho, consigo ver o apelo." text_6="So you prefer finding them yourself,\nI can see the appealing."
+    0824F359  callstd              function=MSGBOX_DEFAULT(4)
+    0824F35B  release              
+
+  script 0x0824F35D  [unknown-opcode:0xE9]
+    0824F35D  msgbox_multilang     type=0 text_0="I think the same, thats why I’m\ndeveloping a new device.\pThere! Take a sample!" text_1="Pienso lo mismo, por eso estoy\ndesarrollando un nuevo dispositivo.\p¡Ahí está! ¡Toma una muestra!" text_2="Je pense la même chose, c’est\npourquoi je développe un nouveau\pdispositif.\pVoilà ! Prends un échantillon !" text_3="La penso allo stesso modo, ecco\nperché sto sviluppando un nuovo\pdispositivo.\pEcco! Prendi un campione!" text_4="Ich denke genauso, deshalb entwickle\nich ein neues Gerät.\pDa! Nimm eine Probe!" text_5="Eu penso o mesmo, por isso estou\ndesenvolvendo um novo dispositivo.\pAqui! Pegue uma amostra!" text_6="I think the same, thats why I’m\ndeveloping a new device.\pThere! Take a sample!"
+    0824F37B  callstd              function=MSGBOX_DEFAULT(4)
+    0824F37D  closemessage         
+
+  sign 0 at (4,4) -> 0x0824F426
+  script 0x0824F426  [ok]
+    0824F426  lockall              
+    0824F427  setflag              flag=0x4005 (temp)
+    0824F42A  msgbox_multilang     type=0 text_0="Let’s check out the notebook.\pFirst page…\pPoké Balls are used to catch\nPokémon.\pUp to six Pokémon can be carried\nin your party.\pPeople who raise and battle\nwith Pokémon are called Trainers." text_1="Let’s check out the notebook.\pFirst page…\pPoké Balls are used to catch\nPokémon.\pUp to six Pokémon can be carried\nin your party.\pPeople who raise and battle\nwith Pokémon are called Trainers." text_2="Let’s check out the notebook.\pFirst page…\pPoké Balls are used to catch\nPokémon.\pUp to six Pokémon can be carried\nin your party.\pPeople who raise and battle\nwith Pokémon are called Trainers." text_3="Let’s check out the notebook.\pFirst page…\pPoké Balls are used to catch\nPokémon.\pUp to six Pokémon can be carried\nin your party.\pPeople who raise and battle\nwith Pokémon are called Trainers." text_4="Let’s check out the notebook.\pFirst page…\pPoké Balls are used to catch\nPokémon.\pUp to six Pokémon can be carried\nin your party.\pPeople who raise and battle\nwith Pokémon are called Trainers." text_5="Let’s check out the notebook.\pFirst page…\pPoké Balls are used to catch\nPokémon.\pUp to six Pokémon can be carried\nin your party.\pPeople who raise and battle\nwith Pokémon are called Trainers." text_6="Let’s check out the notebook.\pFirst page…\pPoké Balls are used to catch\nPokémon.\pUp to six Pokémon can be carried\nin your party.\pPeople who raise and battle\nwith Pokémon are called Trainers."
+    0824F448  callstd              function=MSGBOX_DEFAULT(4)
+    0824F44A  msgbox_multilang     type=0 text_0="Turn the page?" text_1="Turn the page?" text_2="Turn the page?" text_3="Turn the page?" text_4="Turn the page?" text_5="Turn the page?" text_6="Turn the page?"
+    0824F468  callstd              function=MSGBOX_YESNO(5)
+    0824F46A  compare_var_to_value var=0x800D value=0
+    0824F46F  goto_if              condition=1 destination=0x0824F559
+    0824F475  msgbox_multilang     type=0 text_0="Second page…\pA healthy Pokémon may be hard to\ncatch, so weaken it first.\pPoison, burn, or cause another\nstatus problem to weaken it." text_1="Second page…\pA healthy Pokémon may be hard to\ncatch, so weaken it first.\pPoison, burn, or cause another\nstatus problem to weaken it." text_2="Second page…\pA healthy Pokémon may be hard to\ncatch, so weaken it first.\pPoison, burn, or cause another\nstatus problem to weaken it." text_3="Second page…\pA healthy Pokémon may be hard to\ncatch, so weaken it first.\pPoison, burn, or cause another\nstatus problem to weaken it." text_4="Second page…\pA healthy Pokémon may be hard to\ncatch, so weaken it first.\pPoison, burn, or cause another\nstatus problem to weaken it." text_5="Second page…\pA healthy Pokémon may be hard to\ncatch, so weaken it first.\pPoison, burn, or cause another\nstatus problem to weaken it." text_6="Second page…\pA healthy Pokémon may be hard to\ncatch, so weaken it first.\pPoison, burn, or cause another\nstatus problem to weaken it."
+    0824F493  callstd              function=MSGBOX_DEFAULT(4)
+    0824F495  msgbox_multilang     type=0 text_0="Turn the page?" text_1="Turn the page?" text_2="Turn the page?" text_3="Turn the page?" text_4="Turn the page?" text_5="Turn the page?" text_6="Turn the page?"
+    0824F4B3  callstd              function=MSGBOX_YESNO(5)
+    0824F4B5  compare_var_to_value var=0x800D value=0
+    0824F4BA  goto_if              condition=1 destination=0x0824F559
+    0824F4C0  msgbox_multilang     type=0 text_0="Third page…\pPokémon Trainers seek others to\nengage in Pokémon battles.\pTo Trainers, the taste of victory\nis sweet, indeed.\pBattles are constantly waged at\nPokémon Gyms everywhere." text_1="Third page…\pPokémon Trainers seek others to\nengage in Pokémon battles.\pTo Trainers, the taste of victory\nis sweet, indeed.\pBattles are constantly waged at\nPokémon Gyms everywhere." text_2="Third page…\pPokémon Trainers seek others to\nengage in Pokémon battles.\pTo Trainers, the taste of victory\nis sweet, indeed.\pBattles are constantly waged at\nPokémon Gyms everywhere." text_3="Third page…\pPokémon Trainers seek others to\nengage in Pokémon battles.\pTo Trainers, the taste of victory\nis sweet, indeed.\pBattles are constantly waged at\nPokémon Gyms everywhere." text_4="Third page…\pPokémon Trainers seek others to\nengage in Pokémon battles.\pTo Trainers, the taste of victory\nis sweet, indeed.\pBattles are constantly waged at\nPokémon Gyms everywhere." text_5="Third page…\pPokémon Trainers seek others to\nengage in Pokémon battles.\pTo Trainers, the taste of victory\nis sweet, indeed.\pBattles are constantly waged at\nPokémon Gyms everywhere." text_6="Third page…\pPokémon Trainers seek others to\nengage in Pokémon battles.\pTo Trainers, the taste of victory\nis sweet, indeed.\pBattles are constantly waged at\nPokémon Gyms everywhere."
+    0824F4DE  callstd              function=MSGBOX_DEFAULT(4)
+    0824F4E0  msgbox_multilang     type=0 text_0="Turn the page?" text_1="Turn the page?" text_2="Turn the page?" text_3="Turn the page?" text_4="Turn the page?" text_5="Turn the page?" text_6="Turn the page?"
+    0824F4FE  callstd              function=MSGBOX_YESNO(5)
+    0824F500  compare_var_to_value var=0x800D value=0
+    0824F505  goto_if              condition=1 destination=0x0824F559
+    0824F50B  msgbox_multilang     type=0 text_0="Fourth page…\pThe ultimate goal for all Pokémon\nTrainers is simple.\pIt is to defeat the top eight\nPokémon Gym Leaders.\pDo so to earn the right to face…\pThe Elite Four of the Pokémon\nLeague!" text_1="Fourth page…\pThe ultimate goal for all Pokémon\nTrainers is simple.\pIt is to defeat the top eight\nPokémon Gym Leaders.\pDo so to earn the right to face…\pThe Elite Four of the Pokémon\nLeague!" text_2="Fourth page…\pThe ultimate goal for all Pokémon\nTrainers is simple.\pIt is to defeat the top eight\nPokémon Gym Leaders.\pDo so to earn the right to face…\pThe Elite Four of the Pokémon\nLeague!" text_3="Fourth page…\pThe ultimate goal for all Pokémon\nTrainers is simple.\pIt is to defeat the top eight\nPokémon Gym Leaders.\pDo so to earn the right to face…\pThe Elite Four of the Pokémon\nLeague!" text_4="Fourth page…\pThe ultimate goal for all Pokémon\nTrainers is simple.\pIt is to defeat the top eight\nPokémon Gym Leaders.\pDo so to earn the right to face…\pThe Elite Four of the Pokémon\nLeague!" text_5="Fourth page…\pThe ultimate goal for all Pokémon\nTrainers is simple.\pIt is to defeat the top eight\nPokémon Gym Leaders.\pDo so to earn the right to face…\pThe Elite Four of the Pokémon\nLeague!" text_6="Fourth page…\pThe ultimate goal for all Pokémon\nTrainers is simple.\pIt is to defeat the top eight\nPokémon Gym Leaders.\pDo so to earn the right to face…\pThe Elite Four of the Pokémon\nLeague!"
+    0824F529  callstd              function=MSGBOX_DEFAULT(4)
+    0824F52B  applymovement        localId=1 movements=[walk_in_place_faster_up]
+    0824F532  waitmovement         localId=0
+    0824F535  textcolor            color=1
+    0824F537  msgbox_multilang     type=0 text_0="Girl: Hey!\nDon’t look at my notes!" text_1="Girl: Hey!\nDon’t look at my notes!" text_2="Girl: Hey!\nDon’t look at my notes!" text_3="Girl: Hey!\nDon’t look at my notes!" text_4="Girl: Hey!\nDon’t look at my notes!" text_5="Girl: Hey!\nDon’t look at my notes!" text_6="Girl: Hey!\nDon’t look at my notes!"
+    0824F555  callstd              function=MSGBOX_DEFAULT(4)
+    0824F557  releaseall           
+
+  script 0x0824F559  [ok]
+    0824F559  releaseall           
+
+  sign 1 at (4,1) -> 0x0824F55B
+  script 0x0824F55B  [ok]
+    0824F55B  lockall              
+    0824F55C  msgbox_multilang     type=0 text_0="The blackboard lists Pokémon\nStatus problems during battles." text_1="The blackboard lists Pokémon\nStatus problems during battles." text_2="The blackboard lists Pokémon\nStatus problems during battles." text_3="The blackboard lists Pokémon\nStatus problems during battles." text_4="The blackboard lists Pokémon\nStatus problems during battles." text_5="The blackboard lists Pokémon\nStatus problems during battles." text_6="The blackboard lists Pokémon\nStatus problems during battles."
+    0824F57A  callstd              function=MSGBOX_DEFAULT(4)
+    0824F57C  goto                 destination=0x0824F582
+
+  script 0x0824F582  [opcode-out-of-range:0xFA]
+    0824F582  message              text="Which topic do you want to read?"
+    0824F587  setvar               destination=9466 value=5640
+
+  sign 2 at (5,1) -> 0x0824F55B
+  sign 3 at (8,2) -> 0x081F2461
+  script 0x081F2461  [ok]
+    081F2461  lock                 
+    081F2462  faceplayer           
+    081F2463  setvar               destination=VAR_0x8004 value=0
+    081F2468  setvar               destination=VAR_0x8005 value=3
+    081F246D  special              SPECIAL_\function=347
+    081F2470  setvar               destination=VAR_0x8004 value=1
+    081F2475  setvar               destination=VAR_0x8005 value=3
+    081F247A  special              SPECIAL_\function=347
+    081F247D  textcolor            color=3
+    081F247F  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature: Prof. Oak,\nthe Pokémon Researcher!\pProf. Oak reportedly lives with his\ngrandchildren Daisy and {RIVAL}." text_1="Pokémon Journal\pSpecial Feature: Prof. Oak,\nthe Pokémon Researcher!\pProf. Oak reportedly lives with his\ngrandchildren Daisy and {RIVAL}." text_2="Pokémon Journal\pSpecial Feature: Prof. Oak,\nthe Pokémon Researcher!\pProf. Oak reportedly lives with his\ngrandchildren Daisy and {RIVAL}." text_3="Pokémon Journal\pSpecial Feature: Prof. Oak,\nthe Pokémon Researcher!\pProf. Oak reportedly lives with his\ngrandchildren Daisy and {RIVAL}." text_4="Pokémon Journal\pSpecial Feature: Prof. Oak,\nthe Pokémon Researcher!\pProf. Oak reportedly lives with his\ngrandchildren Daisy and {RIVAL}." text_5="Pokémon Journal\pSpecial Feature: Prof. Oak,\nthe Pokémon Researcher!\pProf. Oak reportedly lives with his\ngrandchildren Daisy and {RIVAL}." text_6="Pokémon Journal\pSpecial Feature: Prof. Oak,\nthe Pokémon Researcher!\pProf. Oak reportedly lives with his\ngrandchildren Daisy and {RIVAL}."
+    081F249D  callstd              function=MSGBOX_DEFAULT(4)
+    081F249F  release              
+
+  sign 4 at (9,2) -> 0x081F2461

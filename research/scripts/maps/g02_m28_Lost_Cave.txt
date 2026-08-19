@@ -1,0 +1,57 @@
+Lost Cave  (group 2, map 28)  header 0x08B3C29C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x54, flag 0x0093) -> 0x00000000
+  object 2 (gfx 0x35, flag 0x01F8) -> 0x082D5DDF
+  script 0x082D5DDF  [ok]
+    082D5DDF  setorcopyvar         destination=VAR_0x8000 source=217
+    082D5DE4  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5DE9  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Silk Scarf
+    082D5DEB  end                  
+
+  map script type 5 -> 0x0821C45D
+  script 0x0821C45D  [ok]
+    0821C45D  checktrainerflag     trainer=0x25E
+    0821C460  call_if              condition=1 destination=0x0821C467
+    0821C466  end                  
+
+  script 0x0821C467  [ok]
+    0821C467  setvar               destination=VAR_0x4083 value=1
+    0821C46C  return               
+
+  map script type 2 (var 0x4083 == 0) -> 0x0821C477
+  script 0x0821C477  [ok]
+    0821C477  lockall              
+    0821C478  textcolor            color=1
+    0821C47A  applymovement        localId=1 movements=[walk_left delay_16 walk_right delay_16 walk_in_place_faster_up delay_16 walk_in_place_faster_down]
+    0821C481  waitmovement         localId=0
+    0821C484  delay                frames=100
+    0821C487  applymovement        localId=1 movements=[walk_down walk_down]
+    0821C48E  waitmovement         localId=0
+    0821C491  msgbox_multilang     type=0 text_0="W-what do you intend to do with\nme?" text_1="W-what do you intend to do with\nme?" text_2="W-what do you intend to do with\nme?" text_3="W-what do you intend to do with\nme?" text_4="W-what do you intend to do with\nme?" text_5="W-what do you intend to do with\nme?" text_6="W-what do you intend to do with\nme?"
+    0821C4AF  callstd              function=MSGBOX_DEFAULT(4)
+    0821C4B1  trainerbattle        type=3 trainer=0x25E localId=0 ptr1=0x0821C536
+    0821C4BB  msgbox_multilang     type=0 text_0="I am so glad that you happened\nhere.\pI grew rather bored of walking,\nand I am feeling fatigued.\pMay I ask you to take me home\nfrom here?" text_1="I am so glad that you happened\nhere.\pI grew rather bored of walking,\nand I am feeling fatigued.\pMay I ask you to take me home\nfrom here?" text_2="I am so glad that you happened\nhere.\pI grew rather bored of walking,\nand I am feeling fatigued.\pMay I ask you to take me home\nfrom here?" text_3="I am so glad that you happened\nhere.\pI grew rather bored of walking,\nand I am feeling fatigued.\pMay I ask you to take me home\nfrom here?" text_4="I am so glad that you happened\nhere.\pI grew rather bored of walking,\nand I am feeling fatigued.\pMay I ask you to take me home\nfrom here?" text_5="I am so glad that you happened\nhere.\pI grew rather bored of walking,\nand I am feeling fatigued.\pMay I ask you to take me home\nfrom here?" text_6="I am so glad that you happened\nhere.\pI grew rather bored of walking,\nand I am feeling fatigued.\pMay I ask you to take me home\nfrom here?"
+    0821C4D9  callstd              function=MSGBOX_DEFAULT(4)
+    0821C4DB  closemessage         
+    0821C4DC  call                 destination=0x0821C4EC
+    0821C4E1  warp                 mapGroup=3 mapNum=54 WARP_ID_NONE=255 -1=39 -1=10
+    0821C4E9  waitstate            
+
+  script 0x0821C4EC  [ok]
+    0821C4EC  setflag              flag=0x093
+    0821C4EF  clearflag            flag=0x094
+    0821C4F2  setvar               destination=VAR_0x4083 value=1
+    0821C4F7  setvar               destination=VAR_0x4084 value=1
+    0821C4FC  return               
+

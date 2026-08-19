@@ -1,0 +1,312 @@
+Cinnabar Island  (group 12, map 4)  header 0x08B3D668
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xEF, flag 0x0000) -> 0x0826CF94
+  script 0x0826CF94  [ok]
+    0826CF94  lock                 
+    0826CF95  faceplayer           
+    0826CF96  setvar               destination=VAR_0x8008 value=8
+    0826CF9B  call                 destination=0x082F80DB
+    0826CFA0  checkflag            flag=0x276
+    0826CFA3  goto_if              condition=1 destination=0x0826D01E
+    0826CFA9  msgbox_multilang     type=0 text_0="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_1="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_2="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_3="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_4="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_5="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?" text_6="I’m looking for the POKéMON\n{STR_VAR_1}!\pWanna trade one for my\n{STR_VAR_2}?"
+    0826CFC7  callstd              function=MSGBOX_YESNO(5)
+    0826CFC9  compare_var_to_value var=0x800D value=0
+    0826CFCE  goto_if              condition=1 destination=0x0826D040
+    0826CFD4  call                 destination=0x082F814F
+    0826CFD9  compare_var_to_value var=0x8004 value=6
+    0826CFDE  goto_if              condition=4 destination=0x0826D04A
+    0826CFE4  call                 destination=0x082F80F2
+    0826CFE9  compare_var_to_var   var1=32781 var2=32777
+    0826CFEE  goto_if              condition=5 destination=0x0826D054
+    0826CFF4  call                 destination=0x082F813B
+    0826CFF9  msgbox_multilang     type=0 text_0="Hey, thanks!" text_1="Hey, thanks!" text_2="Hey, thanks!" text_3="Hey, thanks!" text_4="Hey, thanks!" text_5="Hey, thanks!" text_6="Hey, thanks!"
+    0826D017  callstd              function=MSGBOX_DEFAULT(4)
+    0826D019  setflag              flag=0x276
+    0826D01C  release              
+
+  script 0x082F80DB  [ok]
+    082F80DB  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    082F80E0  specialvar           output=32781 SPECIAL_\function=167
+    082F80E5  copyvar              destination=VAR_0x8009 source=VAR_0x800D
+    082F80EA  return               
+
+  script 0x0826D01E  [ok]
+    0826D01E  msgbox_multilang     type=0 text_0="Isn’t my old {STR_VAR_2} great?" text_1="Isn’t my old {STR_VAR_2} great?" text_2="Isn’t my old {STR_VAR_2} great?" text_3="Isn’t my old {STR_VAR_2} great?" text_4="Isn’t my old {STR_VAR_2} great?" text_5="Isn’t my old {STR_VAR_2} great?" text_6="Isn’t my old {STR_VAR_2} great?"
+    0826D03C  callstd              function=MSGBOX_DEFAULT(4)
+    0826D03E  release              
+
+  script 0x0826D040  [ok]
+    0826D040  goto                 destination=0x0826D07A
+
+  script 0x082F814F  [ok]
+    082F814F  special              SPECIAL_\function=96
+    082F8152  waitstate            
+
+  script 0x0826D04A  [ok]
+    0826D04A  goto                 destination=0x0826D07A
+
+  script 0x082F80F2  [ok]
+    082F80F2  copyvar              destination=VAR_0x8005 source=VAR_0x800A
+    082F80F7  specialvar           output=32781 SPECIAL_\function=170
+    082F80FC  copyvar              destination=VAR_0x800B source=VAR_0x800D
+    082F8101  return               
+
+  script 0x0826D054  [ok]
+    0826D054  bufferspeciesname    stringVarId=0 species=?(32777)
+    0826D058  msgbox_multilang     type=0 text_0="What?\nThat’s no {STR_VAR_1}!" text_1="What?\nThat’s no {STR_VAR_1}!" text_2="What?\nThat’s no {STR_VAR_1}!" text_3="What?\nThat’s no {STR_VAR_1}!" text_4="What?\nThat’s no {STR_VAR_1}!" text_5="What?\nThat’s no {STR_VAR_1}!" text_6="What?\nThat’s no {STR_VAR_1}!"
+    0826D076  callstd              function=MSGBOX_DEFAULT(4)
+    0826D078  release              
+
+  script 0x082F813B  [ok]
+    082F813B  copyvar              destination=VAR_0x8004 source=VAR_0x8008
+    082F8140  copyvar              destination=VAR_0x8005 source=VAR_0x800A
+    082F8145  special              SPECIAL_\function=168
+    082F8148  special              SPECIAL_\function=169
+    082F814B  waitstate            
+
+  script 0x0826D07A  [ok]
+    0826D07A  msgbox_multilang     type=0 text_0="Awww!\nOh, well…" text_1="Awww!\nOh, well…" text_2="Awww!\nOh, well…" text_3="Awww!\nOh, well…" text_4="Awww!\nOh, well…" text_5="Awww!\nOh, well…" text_6="Awww!\nOh, well…"
+    0826D098  callstd              function=MSGBOX_DEFAULT(4)
+    0826D09A  release              
+
+  object 2 (gfx 0x08, flag 0x0000) -> 0x0826D09C
+  script 0x0826D09C  [unknown-opcode:0xE7]
+    0826D09C  lock                 
+    0826D09D  faceplayer           
+    0826D09E  call                 destination=0x0826D4DE
+    0826D0A3  checkflag            flag=0x103
+    0826D0A6  goto_if              condition=1 destination=0x0826D0F4
+    0826D0AC  message              text="Hiya!\pI am important doctor.\nYes, very much so, indeed.\pHere, I study rare Pokémon fossils.\nAll the time, I study.\pYou!\nHave you a fossil for me?"
+    0826D0B1  copyvar              destination=9945 source=VAR_0xC408
+    0826D0B6  fadescreenswapbuffers mode=38
+    0826D0B8  gotostd              function=111
+    0826D0BA  warpwhitefade        mapGroup=38 mapNum=8 WARP_ID_NONE=26 -1=9956 -1=50440
+
+  script 0x0826D4DE  [ok]
+    0826D4DE  checkitem            itemId=Helix Fossil(357) quantity=1
+    0826D4E3  compare_var_to_value var=0x800D value=1
+    0826D4E8  goto_if              condition=1 destination=0x0826D50F
+    0826D4EE  checkitem            itemId=Dome Fossil(358) quantity=1
+    0826D4F3  compare_var_to_value var=0x800D value=1
+    0826D4F8  goto_if              condition=1 destination=0x0826D51E
+    0826D4FE  checkitem            itemId=Old Amber(354) quantity=1
+    0826D503  compare_var_to_value var=0x800D value=1
+    0826D508  goto_if              condition=1 destination=0x0826D52D
+    0826D50E  return               
+
+  script 0x0826D0F4  [ok]
+    0826D0F4  checkflag            flag=0x00D
+    0826D0F7  goto_if              condition=1 destination=0x0826D103
+    0826D0FD  goto                 destination=0x0826D162
+
+  script 0x0826D50F  [ok]
+    0826D50F  removeitem           itemId=Helix Fossil(357) quantity=1
+    0826D514  additem              itemId=Helix Fossil(401) quantity=1
+    0826D519  goto                 destination=0x0826D4EE
+
+  script 0x0826D51E  [ok]
+    0826D51E  removeitem           itemId=Dome Fossil(358) quantity=1
+    0826D523  additem              itemId=Dome Fossil(402) quantity=1
+    0826D528  goto                 destination=0x0826D4FE
+
+  script 0x0826D52D  [ok]
+    0826D52D  removeitem           itemId=Old Amber(354) quantity=1
+    0826D532  additem              itemId=Old Amber(403) quantity=1
+    0826D537  return               
+
+  script 0x0826D103  [ok]
+    0826D103  msgbox_multilang     type=0 text_0="I take a little time!\nYou go for walk a little while!" text_1="I take a little time!\nYou go for walk a little while!" text_2="I take a little time!\nYou go for walk a little while!" text_3="I take a little time!\nYou go for walk a little while!" text_4="I take a little time!\nYou go for walk a little while!" text_5="I take a little time!\nYou go for walk a little while!" text_6="I take a little time!\nYou go for walk a little while!"
+    0826D121  callstd              function=MSGBOX_DEFAULT(4)
+    0826D123  release              
+
+  script 0x0826D162  [ok]
+    0826D162  copyvar              destination=VAR_0x8000 source=VAR_0x40E4
+    0826D167  compare_var_to_value var=0x8000 value=1
+    0826D16C  goto_if              condition=1 destination=0x0826D1F7
+    0826D172  compare_var_to_value var=0x8000 value=2
+    0826D177  goto_if              condition=1 destination=0x0826D205
+    0826D17D  compare_var_to_value var=0x8000 value=3
+    0826D182  goto_if              condition=1 destination=0x0826D213
+    0826D188  compare_var_to_value var=0x8000 value=4
+    0826D18D  goto_if              condition=1 destination=0x0826D221
+    0826D193  compare_var_to_value var=0x8000 value=5
+    0826D198  goto_if              condition=1 destination=0x0826D22F
+    0826D19E  givemon              species=?(16385) level=5 item=0 0=0 0=0 0=0
+    0826D1AD  msgbox_multilang     type=0 text_0="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_1="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_2="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_3="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_4="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_5="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_6="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!"
+    0826D1CB  callstd              function=MSGBOX_DEFAULT(4)
+    0826D1CD  compare_var_to_value var=0x800D value=2
+    0826D1D2  goto_if              condition=1 destination=0x0826D23D
+    0826D1D8  clearflag            flag=0x103
+    0826D1DB  setvar               destination=VAR_0x40E4 value=0
+    0826D1E0  compare_var_to_value var=0x800D value=0
+    0826D1E5  goto_if              condition=1 destination=0x0826D247
+    0826D1EB  compare_var_to_value var=0x800D value=1
+    0826D1F0  goto_if              condition=1 destination=0x0826D251
+    0826D1F6  end                  
+
+  script 0x0826D4EE  [ok]
+    0826D4EE  checkitem            itemId=Dome Fossil(358) quantity=1
+    0826D4F3  compare_var_to_value var=0x800D value=1
+    0826D4F8  goto_if              condition=1 destination=0x0826D51E
+    0826D4FE  checkitem            itemId=Old Amber(354) quantity=1
+    0826D503  compare_var_to_value var=0x800D value=1
+    0826D508  goto_if              condition=1 destination=0x0826D52D
+    0826D50E  return               
+
+  script 0x0826D4FE  [ok]
+    0826D4FE  checkitem            itemId=Old Amber(354) quantity=1
+    0826D503  compare_var_to_value var=0x800D value=1
+    0826D508  goto_if              condition=1 destination=0x0826D52D
+    0826D50E  return               
+
+  script 0x0826D1F7  [ok]
+    0826D1F7  setvar               destination=VAR_0x4001 value=138
+    0826D1FC  bufferspeciesname    stringVarId=0 species=OMANYTE(138)
+    0826D200  goto                 destination=0x0826D19E
+
+  script 0x0826D205  [ok]
+    0826D205  setvar               destination=VAR_0x4001 value=140
+    0826D20A  bufferspeciesname    stringVarId=0 species=KABUTO(140)
+    0826D20E  goto                 destination=0x0826D19E
+
+  script 0x0826D213  [ok]
+    0826D213  setvar               destination=VAR_0x4001 value=142
+    0826D218  bufferspeciesname    stringVarId=0 species=AERODACTYL(142)
+    0826D21C  goto                 destination=0x0826D19E
+
+  script 0x0826D221  [ok]
+    0826D221  setvar               destination=VAR_0x4001 value=390
+    0826D226  bufferspeciesname    stringVarId=0 species=ANORITH(390)
+    0826D22A  goto                 destination=0x0826D19E
+
+  script 0x0826D22F  [ok]
+    0826D22F  setvar               destination=VAR_0x4001 value=388
+    0826D234  bufferspeciesname    stringVarId=0 species=LILEEP(388)
+    0826D238  goto                 destination=0x0826D19E
+
+  script 0x0826D23D  [ok]
+    0826D23D  goto                 destination=0x082F8102
+
+  script 0x0826D247  [ok]
+    0826D247  goto                 destination=0x0826D25B
+
+  script 0x0826D251  [ok]
+    0826D251  goto                 destination=0x0826D279
+
+  script 0x0826D19E  [ok]
+    0826D19E  givemon              species=?(16385) level=5 item=0 0=0 0=0 0=0
+    0826D1AD  msgbox_multilang     type=0 text_0="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_1="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_2="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_3="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_4="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_5="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!" text_6="You late.\nWhere were you?\pYour fossil is back to life!\nIt was {STR_VAR_1} like I think!"
+    0826D1CB  callstd              function=MSGBOX_DEFAULT(4)
+    0826D1CD  compare_var_to_value var=0x800D value=2
+    0826D1D2  goto_if              condition=1 destination=0x0826D23D
+    0826D1D8  clearflag            flag=0x103
+    0826D1DB  setvar               destination=VAR_0x40E4 value=0
+    0826D1E0  compare_var_to_value var=0x800D value=0
+    0826D1E5  goto_if              condition=1 destination=0x0826D247
+    0826D1EB  compare_var_to_value var=0x800D value=1
+    0826D1F0  goto_if              condition=1 destination=0x0826D251
+    0826D1F6  end                  
+
+  script 0x082F8102  [ok]
+    082F8102  textcolor            color=3
+    082F8104  msgbox_multilang     type=0 text_0="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_1="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_2="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_3="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_4="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_5="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!" text_6="There’s no more room for Pokémon!\pThe Pokémon Boxes are full and\ncan’t accept any more!"
+    082F8122  callstd              function=MSGBOX_DEFAULT(4)
+    082F8124  release              
+
+  script 0x0826D25B  [ok]
+    0826D25B  call                 destination=0x0826D29C
+    0826D260  compare_var_to_value var=0x800D value=0
+    0826D265  goto_if              condition=1 destination=0x0826D277
+    0826D26B  call                 destination=0x082BCF8B
+    0826D270  call                 destination=0x082F80EB
+    0826D275  release              
+
+  script 0x0826D279  [ok]
+    0826D279  call                 destination=0x0826D29C
+    0826D27E  compare_var_to_value var=0x800D value=0
+    0826D283  goto_if              condition=1 destination=0x0826D295
+    0826D289  call                 destination=0x082BCF97
+    0826D28E  call                 destination=0x082BCFA0
+    0826D293  release              
+
+  script 0x0826D29C  [unknown-opcode:0xE5]
+    0826D29C  textcolor            color=3
+    0826D29E  playfanfare          song=367
+    0826D2A1  message              text="{PLAYER} received the {STR_VAR_1}\nfrom the doctor."
+    0826D2A6  gotostd_if           condition=218 function=38
+    0826D2A9  gotostd              function=181
+    0826D2AB  buffertrainerclassname stringVarId=38 trainerId=24584
+    0826D2AF  buffercontestname    stringVarId=38 category=2824
+
+  script 0x0826D277  [ok]
+    0826D277  release              
+
+  script 0x082BCF8B  [ok]
+    082BCF8B  getpartysize         
+    082BCF8C  subvar               destination=VAR_0x800D value=1
+    082BCF91  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    082BCF96  return               
+
+  script 0x082F80EB  [ok]
+    082F80EB  fadescreen           mode=1
+    082F80ED  special              SPECIAL_\function=95
+    082F80F0  waitstate            
+
+  script 0x0826D295  [ok]
+    0826D295  call                 destination=0x082BCFA0
+    0826D29A  release              
+
+  script 0x082BCF97  [ok]
+    082BCF97  fadescreen           mode=1
+    082BCF99  special              SPECIAL_\function=318
+    082BCF9C  waitstate            
+
+  script 0x082BCFA0  [ok]
+    082BCFA0  bufferboxname        stringVarId=0 box=16439
+    082BCFA4  bufferspeciesname    stringVarId=1 species=?(16385)
+    082BCFA8  checkflag            flag=0x894
+    082BCFAB  call_if              condition=0 destination=0x082BCFBB
+    082BCFB1  checkflag            flag=0x894
+    082BCFB4  call_if              condition=1 destination=0x082BD016
+    082BCFBA  return               
+
+  script 0x082BCFBB  [ok]
+    082BCFBB  specialvar           output=32781 SPECIAL_\function=320
+    082BCFC0  compare_var_to_value var=0x800D value=1
+    082BCFC5  goto_if              condition=1 destination=0x082BCFEC
+    082BCFCB  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nSomeone’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BCFE9  callstd              function=MSGBOX_DEFAULT(4)
+    082BCFEB  return               
+
+  script 0x082BD016  [ok]
+    082BD016  specialvar           output=32781 SPECIAL_\function=320
+    082BD01B  compare_var_to_value var=0x800D value=1
+    082BD020  goto_if              condition=1 destination=0x082BD047
+    082BD026  msgbox_multilang     type=0 text_0="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_1="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_2="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_3="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_4="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_5="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”" text_6="{STR_VAR_2} was transferred to\nBill’s PC.\pIt was placed in \nBox “{STR_VAR_1}.”"
+    082BD044  callstd              function=MSGBOX_DEFAULT(4)
+    082BD046  return               
+
+  script 0x082BCFEC  [ok]
+    082BCFEC  specialvar           output=32781 SPECIAL_\function=319
+    082BCFF1  bufferboxname        stringVarId=2 box=32781
+    082BCFF5  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nSomeone’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD013  callstd              function=MSGBOX_DEFAULT(4)
+    082BD015  return               
+
+  script 0x082BD047  [ok]
+    082BD047  specialvar           output=32781 SPECIAL_\function=319
+    082BD04C  bufferboxname        stringVarId=2 box=32781
+    082BD050  msgbox_multilang     type=0 text_0="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_1="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_2="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_3="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_4="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_5="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”" text_6="Box “{STR_VAR_3}” on\nBill’s PC was full.\p{STR_VAR_2} was transferred to\nBox “{STR_VAR_1}.”"
+    082BD06E  callstd              function=MSGBOX_DEFAULT(4)
+    082BD070  return               
+

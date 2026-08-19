@@ -1,0 +1,115 @@
+Battle Frontier  (group 41, map 7)  header 0x08B3E174
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x69, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x55, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x55, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0x68, flag 0x0000) -> 0x00000000
+  map script type 3 -> 0x08294073
+  script 0x08294073  [ok]
+    08294073  compare_var_to_value var=0x408C value=2
+    08294078  call_if              condition=1 destination=0x0829408A
+    0829407E  compare_var_to_value var=0x408C value=3
+    08294083  call_if              condition=1 destination=0x082940AA
+    08294089  end                  
+
+  script 0x0829408A  [ok]
+    0829408A  setvar               destination=VAR_0x8004 value=14
+    0829408F  special              SPECIAL_\function=149
+    08294092  checkplayergender    
+    08294093  compare_var_to_value var=0x800D value=1
+    08294098  goto_if              condition=1 destination=0x082940A4
+    0829409E  setvar               destination=VAR_0x401F value=0
+    082940A3  return               
+
+  script 0x082940AA  [ok]
+    082940AA  special              SPECIAL_\function=291
+    082940AD  return               
+
+  script 0x082940A4  [ok]
+    082940A4  setvar               destination=VAR_0x401F value=89
+    082940A9  return               
+
+  map script type 4 (var 0x4001 == 0) -> 0x082940B8
+  script 0x082940B8  [ok]
+    082940B8  hideobjectat         localId=255 mapGroup=41 mapNum=7
+    082940BD  hideobjectat         localId=1 mapGroup=41 mapNum=7
+    082940C2  hideobjectat         localId=4 mapGroup=41 mapNum=7
+    082940C7  special              SPECIAL_\function=271
+    082940CA  end                  
+
+  map script type 2 (var 0x4001 == 0) -> 0x082940D5
+  script 0x082940D5  [ok]
+    082940D5  lockall              
+    082940D6  setflag              flag=0x4002 (temp)
+    082940D9  setvar               destination=VAR_0x8004 value=14
+    082940DE  setvar               destination=VAR_0x8005 value=1
+    082940E3  opendoor             x=1 y=1
+    082940E8  waitdooranim         
+    082940E9  clearflag            flag=0x4002 (temp)
+    082940EC  showobjectat         localId=1 mapGroup=41 mapNum=7
+    082940F1  showobjectat         localId=4 mapGroup=41 mapNum=7
+    082940F6  applymovement        localId=1 movements=[walk_down]
+    082940FD  applymovement        localId=4 movements=[walk_down]
+    08294104  waitmovement         localId=0
+    08294107  setflag              flag=0x4002 (temp)
+    0829410A  setvar               destination=VAR_0x8004 value=14
+    0829410F  setvar               destination=VAR_0x8005 value=1
+    08294114  closedoor            x=1 y=1
+    08294119  waitdooranim         
+    0829411A  clearflag            flag=0x4002 (temp)
+    0829411D  applymovement        localId=1 movements=[walk_down walk_right walk_right walk_right walk_right walk_right walk_right]
+    08294124  applymovement        localId=4 movements=[walk_down walk_left walk_left walk_left walk_left walk_left walk_left]
+    0829412B  applymovement        localId=3 movements=[walk_right walk_right walk_right walk_right walk_right walk_right walk_up walk_in_place_faster_right]
+    08294132  applymovement        localId=2 movements=[walk_left walk_left walk_left walk_left walk_left walk_left walk_up walk_in_place_faster_left]
+    08294139  waitmovement         localId=0
+    0829413C  delay                frames=40
+    0829413F  applymovement        localId=3 movements=[walk_in_place_faster_up]
+    08294146  applymovement        localId=2 movements=[walk_in_place_faster_up]
+    0829414D  waitmovement         localId=0
+    08294150  opendoor             x=7 y=1
+    08294155  waitdooranim         
+    08294156  applymovement        localId=3 movements=[walk_up set_invisible]
+    0829415D  applymovement        localId=2 movements=[walk_up set_invisible]
+    08294164  applymovement        localId=1 movements=[delay_16 walk_up walk_up set_invisible]
+    0829416B  applymovement        localId=4 movements=[delay_16 walk_up walk_up set_invisible]
+    08294172  waitmovement         localId=0
+    08294175  closedoor            x=7 y=1
+    0829417A  waitdooranim         
+    0829417B  delay                frames=30
+    0829417E  setvar               destination=VAR_0x4001 value=1
+    08294183  call                 destination=0x0829418A
+    08294188  releaseall           
+
+  script 0x0829418A  [ok]
+    0829418A  compare_var_to_value var=0x408C value=0
+    0829418F  call_if              condition=1 destination=0x082941B7
+    08294195  compare_var_to_value var=0x408C value=1
+    0829419A  call_if              condition=1 destination=0x082941B7
+    082941A0  compare_var_to_value var=0x408C value=2
+    082941A5  call_if              condition=1 destination=0x082941C1
+    082941AB  compare_var_to_value var=0x408C value=3
+    082941B0  call_if              condition=1 destination=0x082941CB
+    082941B6  return               
+
+  script 0x082941B7  [ok]
+    082941B7  warp                 mapGroup=41 mapNum=5 WARP_ID_NONE=255 -1=4 -1=8
+    082941BF  waitstate            
+
+  script 0x082941C1  [ok]
+    082941C1  warp                 mapGroup=41 mapNum=8 WARP_ID_NONE=255 -1=4 -1=5
+    082941C9  waitstate            
+
+  script 0x082941CB  [ok]
+    082941CB  warp                 mapGroup=41 mapNum=8 WARP_ID_NONE=255 -1=4 -1=5
+    082941D3  waitstate            
+

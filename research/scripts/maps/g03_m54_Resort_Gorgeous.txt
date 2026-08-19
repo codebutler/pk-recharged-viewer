@@ -1,0 +1,185 @@
+Resort Gorgeous  (group 3, map 54)  header 0x08B3CCAC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3E, flag 0x0000) -> 0x081FD517
+  script 0x081FD517  [ok]
+    081FD517  trainerbattle        type=0 trainer=0x20E localId=0 ptr1=0x0823CCE5 ptr2=0x0823CD11
+    081FD525  specialvar           output=32781 SPECIAL_\function=37
+    081FD52A  compare_var_to_value var=0x800D value=1
+    081FD52F  goto_if              condition=1 destination=0x081FD556
+    081FD535  msgbox_multilang     type=0 text_0="Uh-oh, my paint tubes have\nscattered everywhere!" text_1="Uh-oh, my paint tubes have\nscattered everywhere!" text_2="Uh-oh, my paint tubes have\nscattered everywhere!" text_3="Uh-oh, my paint tubes have\nscattered everywhere!" text_4="Uh-oh, my paint tubes have\nscattered everywhere!" text_5="Uh-oh, my paint tubes have\nscattered everywhere!" text_6="Uh-oh, my paint tubes have\nscattered everywhere!"
+    081FD553  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD555  end                  
+
+  script 0x081FD556  [ok]
+    081FD556  goto                 destination=0x081FD560
+
+  script 0x081FD560  [ok]
+    081FD560  trainerbattle        type=5 trainer=0x20E localId=0 ptr1=0x082BA6F0 ptr2=0x0823CD11
+    081FD56E  msgbox_multilang     type=0 text_0="Uh-oh, my paint tubes have\nscattered everywhere!" text_1="Uh-oh, my paint tubes have\nscattered everywhere!" text_2="Uh-oh, my paint tubes have\nscattered everywhere!" text_3="Uh-oh, my paint tubes have\nscattered everywhere!" text_4="Uh-oh, my paint tubes have\nscattered everywhere!" text_5="Uh-oh, my paint tubes have\nscattered everywhere!" text_6="Uh-oh, my paint tubes have\nscattered everywhere!"
+    081FD58C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD58E  end                  
+
+  object 2 (gfx 0x3E, flag 0x0000) -> 0x081FD58F
+  script 0x081FD58F  [ok]
+    081FD58F  trainerbattle        type=0 trainer=0x232 localId=0 ptr1=0x0823CD64 ptr2=0x0823CDA1
+    081FD59D  specialvar           output=32781 SPECIAL_\function=37
+    081FD5A2  compare_var_to_value var=0x800D value=1
+    081FD5A7  goto_if              condition=1 destination=0x081FD5CE
+    081FD5AD  msgbox_multilang     type=0 text_0="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_1="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_2="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_3="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_4="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_5="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_6="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!"
+    081FD5CB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD5CD  end                  
+
+  script 0x081FD5CE  [ok]
+    081FD5CE  goto                 destination=0x081FD5D8
+
+  script 0x081FD5D8  [ok]
+    081FD5D8  trainerbattle        type=5 trainer=0x232 localId=0 ptr1=0x082BA722 ptr2=0x0823CDA1
+    081FD5E6  msgbox_multilang     type=0 text_0="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_1="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_2="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_3="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_4="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_5="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!" text_6="Gillian?\nPlease tilt your head slightly…\pThere! That’s the look I want!"
+    081FD604  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD606  end                  
+
+  object 3 (gfx 0x3E, flag 0x0000) -> 0x081FD607
+  script 0x081FD607  [ok]
+    081FD607  trainerbattle        type=0 trainer=0x233 localId=0 ptr1=0x0823CE11 ptr2=0x0823CE38
+    081FD615  specialvar           output=32781 SPECIAL_\function=37
+    081FD61A  compare_var_to_value var=0x800D value=1
+    081FD61F  goto_if              condition=1 destination=0x081FD646
+    081FD625  msgbox_multilang     type=0 text_0="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_1="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_2="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_3="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_4="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_5="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_6="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture."
+    081FD643  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD645  end                  
+
+  script 0x081FD646  [ok]
+    081FD646  goto                 destination=0x081FD650
+
+  script 0x081FD650  [ok]
+    081FD650  trainerbattle        type=5 trainer=0x233 localId=0 ptr1=0x082BA76A ptr2=0x0823CE38
+    081FD65E  msgbox_multilang     type=0 text_0="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_1="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_2="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_3="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_4="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_5="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture." text_6="The sky and the sea…\nThey are so fickle.\pTheir changing expressions make\nthem difficult to capture."
+    081FD67C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD67E  end                  
+
+  object 4 (gfx 0x54, flag 0x0000) -> 0x081FD67F
+  script 0x081FD67F  [ok]
+    081FD67F  trainerbattle        type=0 trainer=0x20D localId=0 ptr1=0x0823CEBC ptr2=0x0823CEF1
+    081FD68D  specialvar           output=32781 SPECIAL_\function=37
+    081FD692  compare_var_to_value var=0x800D value=1
+    081FD697  goto_if              condition=1 destination=0x081FD6BE
+    081FD69D  msgbox_multilang     type=0 text_0="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_1="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_2="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_3="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_4="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_5="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_6="I find it pleasurable to leisurely\nbattle in the gentle sea breeze."
+    081FD6BB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD6BD  end                  
+
+  script 0x081FD6BE  [ok]
+    081FD6BE  goto                 destination=0x081FD6C8
+
+  script 0x081FD6C8  [ok]
+    081FD6C8  trainerbattle        type=5 trainer=0x20D localId=0 ptr1=0x082BA7AA ptr2=0x0823CEF1
+    081FD6D6  msgbox_multilang     type=0 text_0="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_1="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_2="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_3="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_4="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_5="I find it pleasurable to leisurely\nbattle in the gentle sea breeze." text_6="I find it pleasurable to leisurely\nbattle in the gentle sea breeze."
+    081FD6F4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD6F6  end                  
+
+  object 5 (gfx 0x54, flag 0x0000) -> 0x081FD6F7
+  script 0x081FD6F7  [ok]
+    081FD6F7  trainerbattle        type=0 trainer=0x234 localId=0 ptr1=0x0823CF48 ptr2=0x0823CF82
+    081FD705  specialvar           output=32781 SPECIAL_\function=37
+    081FD70A  compare_var_to_value var=0x800D value=1
+    081FD70F  goto_if              condition=1 destination=0x081FD736
+    081FD715  msgbox_multilang     type=0 text_0="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_1="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_2="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_3="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_4="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_5="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_6="A pool would be nice, but I must\nsay, a sun-room may be sublime."
+    081FD733  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD735  end                  
+
+  script 0x081FD736  [ok]
+    081FD736  goto                 destination=0x081FD740
+
+  script 0x081FD740  [ok]
+    081FD740  trainerbattle        type=5 trainer=0x234 localId=0 ptr1=0x082BA7EB ptr2=0x0823CF82
+    081FD74E  msgbox_multilang     type=0 text_0="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_1="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_2="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_3="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_4="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_5="A pool would be nice, but I must\nsay, a sun-room may be sublime." text_6="A pool would be nice, but I must\nsay, a sun-room may be sublime."
+    081FD76C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD76E  end                  
+
+  object 6 (gfx 0x23, flag 0x0000) -> 0x081FD76F
+  script 0x081FD76F  [ok]
+    081FD76F  trainerbattle        type=0 trainer=0x235 localId=0 ptr1=0x0823CFDD ptr2=0x0823D001
+    081FD77D  specialvar           output=32781 SPECIAL_\function=37
+    081FD782  compare_var_to_value var=0x800D value=1
+    081FD787  goto_if              condition=1 destination=0x081FD7AE
+    081FD78D  msgbox_multilang     type=0 text_0="When I run with the wind, it feels\nlike I could fly!" text_1="When I run with the wind, it feels\nlike I could fly!" text_2="When I run with the wind, it feels\nlike I could fly!" text_3="When I run with the wind, it feels\nlike I could fly!" text_4="When I run with the wind, it feels\nlike I could fly!" text_5="When I run with the wind, it feels\nlike I could fly!" text_6="When I run with the wind, it feels\nlike I could fly!"
+    081FD7AB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD7AD  end                  
+
+  script 0x081FD7AE  [ok]
+    081FD7AE  goto                 destination=0x081FD7B8
+
+  script 0x081FD7B8  [ok]
+    081FD7B8  trainerbattle        type=5 trainer=0x235 localId=0 ptr1=0x082BA841 ptr2=0x0823D001
+    081FD7C6  msgbox_multilang     type=0 text_0="When I run with the wind, it feels\nlike I could fly!" text_1="When I run with the wind, it feels\nlike I could fly!" text_2="When I run with the wind, it feels\nlike I could fly!" text_3="When I run with the wind, it feels\nlike I could fly!" text_4="When I run with the wind, it feels\nlike I could fly!" text_5="When I run with the wind, it feels\nlike I could fly!" text_6="When I run with the wind, it feels\nlike I could fly!"
+    081FD7E4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD7E6  end                  
+
+  object 7 (gfx 0xFC, flag 0x0000) -> 0x081FD7E7
+  script 0x081FD7E7  [ok]
+    081FD7E7  trainerbattle        type=0 trainer=0x236 localId=0 ptr1=0x0823D04D ptr2=0x0823D089
+    081FD7F5  specialvar           output=32781 SPECIAL_\function=37
+    081FD7FA  compare_var_to_value var=0x800D value=1
+    081FD7FF  goto_if              condition=1 destination=0x081FD826
+    081FD805  msgbox_multilang     type=0 text_0="Getting so serious over this…\nHow nonsensical." text_1="Getting so serious over this…\nHow nonsensical." text_2="Getting so serious over this…\nHow nonsensical." text_3="Getting so serious over this…\nHow nonsensical." text_4="Getting so serious over this…\nHow nonsensical." text_5="Getting so serious over this…\nHow nonsensical." text_6="Getting so serious over this…\nHow nonsensical."
+    081FD823  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD825  end                  
+
+  script 0x081FD826  [ok]
+    081FD826  goto                 destination=0x081FD830
+
+  script 0x081FD830  [ok]
+    081FD830  trainerbattle        type=5 trainer=0x236 localId=0 ptr1=0x082BA86D ptr2=0x0823D089
+    081FD83E  msgbox_multilang     type=0 text_0="Getting so serious over this…\nHow nonsensical." text_1="Getting so serious over this…\nHow nonsensical." text_2="Getting so serious over this…\nHow nonsensical." text_3="Getting so serious over this…\nHow nonsensical." text_4="Getting so serious over this…\nHow nonsensical." text_5="Getting so serious over this…\nHow nonsensical." text_6="Getting so serious over this…\nHow nonsensical."
+    081FD85C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FD85E  end                  
+
+  object 8 (gfx 0x54, flag 0x0094) -> 0x00000000
+  hidden item at (10,7): Nest Ball
+
+  hidden item at (27,11): Stardust
+
+  hidden item at (40,12): Star Piece
+
+  hidden item at (27,5): Stardust
+
+  sign 4 at (42,9) -> 0x0823CCC4
+  script 0x0823CCC4  [ok]
+    0823CCC4  msgbox_multilang     type=0 text_0="Selphy’s House" text_1="Selphy’s House" text_2="Selphy’s House" text_3="Selphy’s House" text_4="Selphy’s House" text_5="Selphy’s House" text_6="Selphy’s House"
+    0823CCE2  callstd              function=MSGBOX_SIGN(3)
+    0823CCE4  end                  
+
+  map script type 4 (var 0x4084 == 1) -> 0x0823CC61
+  script 0x0823CC61  [ok]
+    0823CC61  turnobject           localId=255 direction=2
+    0823CC65  end                  
+
+  map script type 2 (var 0x4084 == 1) -> 0x0823CC70
+  script 0x0823CC70  [ok]
+    0823CC70  lockall              
+    0823CC71  textcolor            color=1
+    0823CC73  msgbox_multilang     type=0 text_0="Selphy: Thank you.\pYou may go now." text_1="Selphy: Thank you.\pYou may go now." text_2="Selphy: Thank you.\pYou may go now." text_3="Selphy: Thank you.\pYou may go now." text_4="Selphy: Thank you.\pYou may go now." text_5="Selphy: Thank you.\pYou may go now." text_6="Selphy: Thank you.\pYou may go now."
+    0823CC91  callstd              function=MSGBOX_DEFAULT(4)
+    0823CC93  closemessage         
+    0823CC94  applymovement        localId=8 movements=[walk_in_place_faster_up]
+    0823CC9B  waitmovement         localId=0
+    0823CC9E  opendoor             x=39 y=8
+    0823CCA3  waitdooranim         
+    0823CCA4  applymovement        localId=8 movements=[walk_up set_invisible]
+    0823CCAB  waitmovement         localId=0
+    0823CCAE  closedoor            x=39 y=8
+    0823CCB3  waitdooranim         
+    0823CCB4  removeobject         localId=8
+    0823CCB7  clearflag            flag=0x095
+    0823CCBA  setvar               destination=VAR_0x4084 value=2
+    0823CCBF  releaseall           
+

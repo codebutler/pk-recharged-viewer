@@ -1,0 +1,906 @@
+Battle Frontier  (group 41, map 15)  header 0x08B3E254
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x5B, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0x5A, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x15, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0xE2, flag 0x0000) -> 0x00000000
+  object 5 (gfx 0xD6, flag 0x0000) -> 0x00000000
+  map script type 3 -> 0x0829BA7F
+  script 0x0829BA7F  [ok]
+    0829BA7F  setvar               destination=VAR_0x8004 value=5
+    0829BA84  special              SPECIAL_\function=148
+    0829BA87  call                 destination=0x0829BA8D
+    0829BA8C  end                  
+
+  script 0x0829BA8D  [ok]
+    0829BA8D  checkplayergender    
+    0829BA8E  compare_var_to_value var=0x800D value=0
+    0829BA93  goto_if              condition=1 destination=0x0829BAA5
+    0829BA99  compare_var_to_value var=0x800D value=1
+    0829BA9E  goto_if              condition=1 destination=0x0829BAB0
+    0829BAA4  return               
+
+  script 0x0829BAA5  [ok]
+    0829BAA5  setvar               destination=VAR_0x4011 value=0
+    0829BAAA  setvar               destination=VAR_0x4010 value=0
+    0829BAAF  return               
+
+  script 0x0829BAB0  [ok]
+    0829BAB0  setvar               destination=VAR_0x4011 value=89
+    0829BAB5  setvar               destination=VAR_0x4010 value=89
+    0829BABA  return               
+
+  map script type 2 (var 0x4000 == 0) -> 0x0829BAC5
+  script 0x0829BAC5  [ok]
+    0829BAC5  showobjectat         localId=1 mapGroup=41 mapNum=15
+    0829BACA  setvar               destination=VAR_0x8004 value=1
+    0829BACF  setvar               destination=VAR_0x8005 value=2
+    0829BAD4  special              SPECIAL_\function=148
+    0829BAD7  compare_var_to_value var=0x800D value=0
+    0829BADC  goto_if              condition=1 destination=0x0829BB0F
+    0829BAE2  applymovement        localId=1 movements=[set_visible walk_up walk_up walk_up walk_up]
+    0829BAE9  waitmovement         localId=0
+    0829BAEC  applymovement        localId=3 movements=[face_down]
+    0829BAF3  setvar               destination=VAR_0x4002 value=1
+    0829BAF8  setvar               destination=VAR_0x8004 value=2
+    0829BAFD  setvar               destination=VAR_0x8005 value=6
+    0829BB02  setvar               destination=VAR_0x8006 value=1
+    0829BB07  special              SPECIAL_\function=148
+    0829BB0A  goto                 destination=0x0829BC14
+
+  script 0x0829BB0F  [ok]
+    0829BB0F  applymovement        localId=1 movements=[set_visible walk_up walk_up walk_up walk_up face_right]
+    0829BB16  waitmovement         localId=0
+    0829BB19  setvar               destination=VAR_0x8004 value=3
+    0829BB1E  special              SPECIAL_\function=149
+    0829BB21  addobject            localId=2
+    0829BB24  applymovement        localId=2 movements=[walk_down walk_down walk_down walk_down face_left]
+    0829BB2B  waitmovement         localId=0
+    0829BB2E  setvar               destination=VAR_0x8004 value=5
+    0829BB33  special              SPECIAL_\function=151
+    0829BB36  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    0829BB54  callstd              function=MSGBOX_DEFAULT(4)
+    0829BB56  waitmessage          
+    0829BB57  call                 destination=0x0829C249
+    0829BB5C  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BB61  compare_var_to_value var=0x8000 value=1
+    0829BB66  goto_if              condition=1 destination=0x0829BB83
+    0829BB6C  setvar               destination=VAR_0x8004 value=2
+    0829BB71  setvar               destination=VAR_0x8005 value=0
+    0829BB76  setvar               destination=VAR_0x8006 value=4
+    0829BB7B  special              SPECIAL_\function=148
+    0829BB7E  goto                 destination=0x0829C39D
+
+  script 0x0829BC14  [ok]
+    0829BC14  setvar               destination=VAR_0x8004 value=9
+    0829BC19  special              SPECIAL_\function=148
+    0829BC1C  copyvar              destination=VAR_0x400F source=VAR_0x800D
+    0829BC21  compare_var_to_value var=0x800D value=0
+    0829BC26  goto_if              condition=5 destination=0x0829BE4B
+    0829BC2C  setvar               destination=VAR_0x8004 value=1
+    0829BC31  setvar               destination=VAR_0x8005 value=2
+    0829BC36  special              SPECIAL_\function=148
+    0829BC39  compare_var_to_value var=0x800D value=1
+    0829BC3E  call_if              condition=1 destination=0x0829C2B8
+    0829BC44  compare_var_to_value var=0x800D value=2
+    0829BC49  call_if              condition=1 destination=0x0829C2D7
+    0829BC4F  compare_var_to_value var=0x800D value=3
+    0829BC54  call_if              condition=1 destination=0x0829C2F6
+    0829BC5A  compare_var_to_value var=0x800D value=4
+    0829BC5F  call_if              condition=1 destination=0x0829C315
+    0829BC65  compare_var_to_value var=0x800D value=5
+    0829BC6A  call_if              condition=1 destination=0x0829C334
+    0829BC70  compare_var_to_value var=0x800D value=6
+    0829BC75  call_if              condition=1 destination=0x0829C353
+    0829BC7B  call                 destination=0x0828900D
+    0829BC80  compare_var_to_value var=0x800D value=1
+    0829BC85  goto_if              condition=1 destination=0x0829BCCC
+    0829BC8B  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    0829BC90  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BC95  compare_var_to_value var=0x8000 value=0
+    0829BC9A  goto_if              condition=1 destination=0x0829BDE6
+    0829BCA0  compare_var_to_value var=0x8000 value=1
+    0829BCA5  goto_if              condition=1 destination=0x0829BD02
+    0829BCAB  compare_var_to_value var=0x8000 value=2
+    0829BCB0  goto_if              condition=1 destination=0x0829BD56
+    0829BCB6  compare_var_to_value var=0x8000 value=3
+    0829BCBB  goto_if              condition=1 destination=0x0829BD9C
+    0829BCC1  compare_var_to_value var=0x8000 value=127
+    0829BCC6  goto_if              condition=1 destination=0x0829BC14
+    0829BCCC  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0829BCD1  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BCD6  compare_var_to_value var=0x8000 value=0
+    0829BCDB  goto_if              condition=1 destination=0x0829BDE6
+    0829BCE1  compare_var_to_value var=0x8000 value=1
+    0829BCE6  goto_if              condition=1 destination=0x0829BD56
+    0829BCEC  compare_var_to_value var=0x8000 value=2
+    0829BCF1  goto_if              condition=1 destination=0x0829BD9C
+    0829BCF7  compare_var_to_value var=0x8000 value=127
+    0829BCFC  goto_if              condition=1 destination=0x0829BC14
+    0829BD02  message              text="Do you wish to record your latest\nmatch on your FRONTIER PASS?"
+    0829BD07  bufferitemname       stringVarId=197 item=2089
+    0829BD0B  bufferitemname       stringVarId=197 item=2089
+    0829BD0F  bufferitemname       stringVarId=197 item=2089
+    0829BD13  bufferitemname       stringVarId=197 item=2089
+    0829BD17  bufferitemname       stringVarId=197 item=2089
+    0829BD1B  bufferitemname       stringVarId=197 item=2089
+    0829BD1F  waitmessage          
+    0829BD20  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0829BD26  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BD2B  compare_var_to_value var=0x8000 value=1
+    0829BD30  goto_if              condition=1 destination=0x0829BC14
+    0829BD36  compare_var_to_value var=0x8000 value=0
+    0829BD3B  goto_if              condition=1 destination=0x0829BD4C
+    0829BD41  compare_var_to_value var=0x8000 value=127
+    0829BD46  goto_if              condition=1 destination=0x0829BC14
+    0829BD4C  call                 destination=0x08288FB1
+    0829BD51  goto                 destination=0x0829BC14
+
+  script 0x0829C249  [ok]
+    0829C249  closemessage         
+    0829C24A  setvar               destination=VAR_0x4002 value=0
+    0829C24F  setvar               destination=VAR_0x8004 value=2
+    0829C254  setvar               destination=VAR_0x8005 value=6
+    0829C259  setvar               destination=VAR_0x8006 value=0
+    0829C25E  special              SPECIAL_\function=148
+    0829C261  special              SPECIAL_\function=0
+    0829C264  setvar               destination=VAR_0x8004 value=4
+    0829C269  setvar               destination=VAR_0x8005 value=0
+    0829C26E  special              SPECIAL_\function=152
+    0829C271  waitstate            
+
+  script 0x0829BB83  [ok]
+    0829BB83  call                 destination=0x0828CCE1
+    0829BB88  setvar               destination=VAR_0x8004 value=1
+    0829BB8D  setvar               destination=VAR_0x8005 value=2
+    0829BB92  special              SPECIAL_\function=148
+    0829BB95  addvar               destination=VAR_0x800D value=1
+    0829BB9A  setvar               destination=VAR_0x8004 value=2
+    0829BB9F  setvar               destination=VAR_0x8005 value=2
+    0829BBA4  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    0829BBA9  special              SPECIAL_\function=148
+    0829BBAC  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BBB1  compare_var_to_value var=0x8000 value=7
+    0829BBB6  goto_if              condition=1 destination=0x0829BDFA
+    0829BBBC  applymovement        localId=2 movements=[walk_up walk_up walk_up walk_up]
+    0829BBC3  waitmovement         localId=0
+    0829BBC6  removeobject         localId=2
+    0829BBC9  applymovement        localId=1 movements=[face_up]
+    0829BBD0  applymovement        localId=3 movements=[face_down]
+    0829BBD7  waitmovement         localId=0
+    0829BBDA  msgbox_multilang     type=0 text_0="Excellent…\nLet me restore your POKéMON." text_1="Excellent…\nLet me restore your POKéMON." text_2="Excellent…\nLet me restore your POKéMON." text_3="Excellent…\nLet me restore your POKéMON." text_4="Excellent…\nLet me restore your POKéMON." text_5="Excellent…\nLet me restore your POKéMON." text_6="Excellent…\nLet me restore your POKéMON."
+    0829BBF8  callstd              function=MSGBOX_DEFAULT(4)
+    0829BBFA  special              SPECIAL_\function=19
+    0829BBFD  special              SPECIAL_\function=18
+    0829BC00  setvar               destination=VAR_0x8004 value=3
+    0829BC05  setvar               destination=VAR_0x8005 value=3
+    0829BC0A  special              SPECIAL_\function=148
+    0829BC0D  playfanfare          song=368
+    0829BC10  waitfanfare          
+    0829BC11  special              SPECIAL_\function=0
+    0829BC14  setvar               destination=VAR_0x8004 value=9
+    0829BC19  special              SPECIAL_\function=148
+    0829BC1C  copyvar              destination=VAR_0x400F source=VAR_0x800D
+    0829BC21  compare_var_to_value var=0x800D value=0
+    0829BC26  goto_if              condition=5 destination=0x0829BE4B
+    0829BC2C  setvar               destination=VAR_0x8004 value=1
+    0829BC31  setvar               destination=VAR_0x8005 value=2
+    0829BC36  special              SPECIAL_\function=148
+    0829BC39  compare_var_to_value var=0x800D value=1
+    0829BC3E  call_if              condition=1 destination=0x0829C2B8
+    0829BC44  compare_var_to_value var=0x800D value=2
+    0829BC49  call_if              condition=1 destination=0x0829C2D7
+    0829BC4F  compare_var_to_value var=0x800D value=3
+    0829BC54  call_if              condition=1 destination=0x0829C2F6
+    0829BC5A  compare_var_to_value var=0x800D value=4
+    0829BC5F  call_if              condition=1 destination=0x0829C315
+    0829BC65  compare_var_to_value var=0x800D value=5
+    0829BC6A  call_if              condition=1 destination=0x0829C334
+    0829BC70  compare_var_to_value var=0x800D value=6
+    0829BC75  call_if              condition=1 destination=0x0829C353
+    0829BC7B  call                 destination=0x0828900D
+    0829BC80  compare_var_to_value var=0x800D value=1
+    0829BC85  goto_if              condition=1 destination=0x0829BCCC
+    0829BC8B  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    0829BC90  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BC95  compare_var_to_value var=0x8000 value=0
+    0829BC9A  goto_if              condition=1 destination=0x0829BDE6
+    0829BCA0  compare_var_to_value var=0x8000 value=1
+    0829BCA5  goto_if              condition=1 destination=0x0829BD02
+    0829BCAB  compare_var_to_value var=0x8000 value=2
+    0829BCB0  goto_if              condition=1 destination=0x0829BD56
+    0829BCB6  compare_var_to_value var=0x8000 value=3
+    0829BCBB  goto_if              condition=1 destination=0x0829BD9C
+    0829BCC1  compare_var_to_value var=0x8000 value=127
+    0829BCC6  goto_if              condition=1 destination=0x0829BC14
+    0829BCCC  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0829BCD1  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BCD6  compare_var_to_value var=0x8000 value=0
+    0829BCDB  goto_if              condition=1 destination=0x0829BDE6
+    0829BCE1  compare_var_to_value var=0x8000 value=1
+    0829BCE6  goto_if              condition=1 destination=0x0829BD56
+    0829BCEC  compare_var_to_value var=0x8000 value=2
+    0829BCF1  goto_if              condition=1 destination=0x0829BD9C
+    0829BCF7  compare_var_to_value var=0x8000 value=127
+    0829BCFC  goto_if              condition=1 destination=0x0829BC14
+    0829BD02  message              text="Do you wish to record your latest\nmatch on your FRONTIER PASS?"
+    0829BD07  bufferitemname       stringVarId=197 item=2089
+    0829BD0B  bufferitemname       stringVarId=197 item=2089
+    0829BD0F  bufferitemname       stringVarId=197 item=2089
+    0829BD13  bufferitemname       stringVarId=197 item=2089
+    0829BD17  bufferitemname       stringVarId=197 item=2089
+    0829BD1B  bufferitemname       stringVarId=197 item=2089
+    0829BD1F  waitmessage          
+    0829BD20  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0829BD26  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BD2B  compare_var_to_value var=0x8000 value=1
+    0829BD30  goto_if              condition=1 destination=0x0829BC14
+    0829BD36  compare_var_to_value var=0x8000 value=0
+    0829BD3B  goto_if              condition=1 destination=0x0829BD4C
+    0829BD41  compare_var_to_value var=0x8000 value=127
+    0829BD46  goto_if              condition=1 destination=0x0829BC14
+    0829BD4C  call                 destination=0x08288FB1
+    0829BD51  goto                 destination=0x0829BC14
+
+  script 0x0829C39D  [ok]
+    0829C39D  copyvar              destination=VAR_0x800D source=VAR_0x408C
+    0829C3A2  compare_var_to_value var=0x800D value=1
+    0829C3A7  goto_if              condition=1 destination=0x0829C3B7
+    0829C3AD  warp                 mapGroup=41 mapNum=13 WARP_ID_NONE=255 -1=5 -1=7
+    0829C3B5  waitstate            
+
+  script 0x0829BE4B  [ok]
+    0829BE4B  compare_var_to_value var=0x4002 value=1
+    0829BE50  goto_if              condition=1 destination=0x0829BE7B
+    0829BE56  msgbox_multilang     type=0 text_0="And now…\pBy winning consistently, you have\nearned the privilege of challenging\pour master, the PALACE MAVEN…" text_1="And now…\pBy winning consistently, you have\nearned the privilege of challenging\pour master, the PALACE MAVEN…" text_2="And now…\pBy winning consistently, you have\nearned the privilege of challenging\pour master, the PALACE MAVEN…" text_3="And now…\pBy winning consistently, you have\nearned the privilege of challenging\pour master, the PALACE MAVEN…" text_4="And now…\pBy winning consistently, you have\nearned the privilege of challenging\pour master, the PALACE MAVEN…" text_5="And now…\pBy winning consistently, you have\nearned the privilege of challenging\pour master, the PALACE MAVEN…" text_6="And now…\pBy winning consistently, you have\nearned the privilege of challenging\pour master, the PALACE MAVEN…"
+    0829BE74  callstd              function=MSGBOX_DEFAULT(4)
+    0829BE76  setvar               destination=VAR_0x4002 value=1
+    0829BE7B  message              text="I shall send for the PALACE MAVEN.\nAre you ready?"
+    0829BE80  initclock            hour=10694 minute=11272
+    0829BE85  bufferboxname        stringVarId=41 box=11272
+    0829BE89  bufferboxname        stringVarId=41 box=11272
+    0829BE8D  bufferboxname        stringVarId=41 box=11272
+    0829BE91  bufferboxname        stringVarId=41 box=11272
+    0829BE95  bufferboxname        stringVarId=41 box=26120
+    0829BE99  call                 destination=0x0828900D
+    0829BE9E  compare_var_to_value var=0x800D value=1
+    0829BEA3  goto_if              condition=1 destination=0x0829BEEA
+    0829BEA9  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    0829BEAE  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BEB3  compare_var_to_value var=0x8000 value=0
+    0829BEB8  goto_if              condition=1 destination=0x0829BF20
+    0829BEBE  compare_var_to_value var=0x8000 value=1
+    0829BEC3  goto_if              condition=1 destination=0x0829BD02
+    0829BEC9  compare_var_to_value var=0x8000 value=2
+    0829BECE  goto_if              condition=1 destination=0x0829BD56
+    0829BED4  compare_var_to_value var=0x8000 value=3
+    0829BED9  goto_if              condition=1 destination=0x0829BD9C
+    0829BEDF  compare_var_to_value var=0x8000 value=127
+    0829BEE4  goto_if              condition=1 destination=0x0829BE7B
+    0829BEEA  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0829BEEF  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BEF4  compare_var_to_value var=0x8000 value=0
+    0829BEF9  goto_if              condition=1 destination=0x0829BF20
+    0829BEFF  compare_var_to_value var=0x8000 value=1
+    0829BF04  goto_if              condition=1 destination=0x0829BD56
+    0829BF0A  compare_var_to_value var=0x8000 value=2
+    0829BF0F  goto_if              condition=1 destination=0x0829BD9C
+    0829BF15  compare_var_to_value var=0x8000 value=127
+    0829BF1A  goto_if              condition=1 destination=0x0829BE7B
+    0829BF20  call                 destination=0x0828D0B7
+    0829BF25  msgbox_multilang     type=0 text_0="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_1="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_2="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_3="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_4="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_5="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_6="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!"
+    0829BF43  callstd              function=MSGBOX_DEFAULT(4)
+    0829BF45  closemessage         
+    0829BF46  applymovement        localId=1 movements=[face_right]
+    0829BF4D  applymovement        localId=3 movements=[face_right]
+    0829BF54  setobjectxyperm      localId=2 x=15 y=1
+    0829BF5B  addobject            localId=2
+    0829BF5E  hideobjectat         localId=2 mapGroup=41 mapNum=15
+    0829BF63  setobjectxy          localId=2 x=13 y=1
+    0829BF6A  setobjectxyperm      localId=2 x=13 y=1
+    0829BF71  applymovement        localId=4 movements=[delay_16 delay_16 set_visible walk_down walk_right walk_down walk_in_place_faster_left]
+    0829BF78  applymovement        localId=5 movements=[set_visible walk_fast_down walk_fast_right walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_in_place_faster_left delay_16]
+    0829BF7F  applymovement        localId=2 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 set_visible walk_slow_down walk_slow_down walk_slow_down walk_slow_down face_left]
+    0829BF86  waitmovement         localId=0
+    0829BF89  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    0829BF8E  compare_var_to_value var=0x8000 value=2
+    0829BF93  goto_if              condition=1 destination=0x0829C0FC
+    0829BF99  compare_var_to_value var=0x8000 value=3
+    0829BF9E  goto_if              condition=1 destination=0x0829BFF4
+    0829BFA4  compare_var_to_value var=0x8000 value=4
+    0829BFA9  goto_if              condition=1 destination=0x0829C141
+    0829BFAF  setvar               destination=VAR_0x8004 value=1
+    0829BFB4  setvar               destination=VAR_0x8005 value=7
+    0829BFB9  special              SPECIAL_\function=148
+    0829BFBC  compare_var_to_value var=0x800D value=0
+    0829BFC1  goto_if              condition=5 destination=0x0829BFF4
+    0829BFC7  msgbox_multilang     type=0 text_0="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_1="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_2="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_3="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_4="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_5="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_6="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!"
+    0829BFE5  callstd              function=MSGBOX_DEFAULT(4)
+    0829BFE7  setvar               destination=VAR_0x8004 value=2
+    0829BFEC  setvar               destination=VAR_0x8005 value=7
+    0829BFF1  special              SPECIAL_\function=148
+    0829BFF4  msgbox_multilang     type=0 text_0="The bond you share with your POKéMON!\nProve it to me here!" text_1="The bond you share with your POKéMON!\nProve it to me here!" text_2="The bond you share with your POKéMON!\nProve it to me here!" text_3="The bond you share with your POKéMON!\nProve it to me here!" text_4="The bond you share with your POKéMON!\nProve it to me here!" text_5="The bond you share with your POKéMON!\nProve it to me here!" text_6="The bond you share with your POKéMON!\nProve it to me here!"
+    0829C012  callstd              function=MSGBOX_DEFAULT(4)
+    0829C014  call                 destination=0x0829C249
+    0829C019  compare_var_to_value var=0x800D value=1
+    0829C01E  goto_if              condition=1 destination=0x0829C029
+    0829C024  goto                 destination=0x0829BB6C
+
+  script 0x0829C2B8  [ok]
+    0829C2B8  message              text="The 2nd opponent is next.\nAre you prepared?"
+    0829C2BD  gotostd_if           condition=196 function=41
+    0829C2C0  gotostd              function=MSGBOX_POKENAV(10)
+    0829C2C2  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=10 -1=10692 -1=2568
+    0829C2CA  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=10 -1=10692 -1=2568
+    0829C2D2  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=102 -1=26371 -1=50230
+    0829C2DA  setflag              flag=0x3608
+    0829C2DD  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=13832
+    0829C2E5  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=13832
+    0829C2ED  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=26120
+    0829C2F5  return               
+
+  script 0x0829C2D7  [ok]
+    0829C2D7  message              text="The 3rd opponent is next.\nAre you prepared?"
+    0829C2DC  fadenewbgm           song=10692
+    0829C2DF  gotostd              function=54
+    0829C2E1  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=13832
+    0829C2E9  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=54 -1=10692 -1=13832
+    0829C2F1  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=102 -1=26371 -1=50274
+    0829C2F9  setflag              flag=0x6208 (temp)
+    0829C2FC  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=98 -1=10692 -1=25096
+    0829C304  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=98 -1=10692 -1=25096
+    0829C30C  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=98 -1=10692 -1=26120
+    0829C314  return               
+
+  script 0x0829C2F6  [ok]
+    0829C2F6  message              text="The 4th opponent is next.\nAre you prepared?"
+    0829C2FB  cleartrainerflag     trainer=0x29C4
+    0829C2FE  gotostd              function=98
+    0829C300  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=98 -1=10692 -1=25096
+    0829C308  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=98 -1=10692 -1=25096
+    0829C310  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=102 -1=26371 -1=50318
+    0829C318  setflag              flag=0x8E08 (temp)
+    0829C31B  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=142 -1=10692 -1=36360
+    0829C323  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=142 -1=10692 -1=36360
+    0829C32B  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=142 -1=10692 -1=26120
+    0829C333  return               
+
+  script 0x0829C315  [ok]
+    0829C315  message              text="The 5th opponent is next.\nAre you prepared?"
+    0829C31A  contestlinktransfer  
+    0829C31B  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=142 -1=10692 -1=36360
+    0829C323  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=142 -1=10692 -1=36360
+    0829C32B  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=142 -1=10692 -1=26120
+    0829C333  return               
+
+  script 0x0829C334  [ok]
+    0829C334  message              text="The 6th opponent is next.\nAre you prepared?"
+    0829C339  vcall                destination=3121097156
+    0829C33E  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=186 -1=10692 -1=47624
+    0829C346  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=186 -1=10692 -1=47624
+    0829C34E  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=102 -1=26371 -1=50406
+    0829C356  setflag              flag=0xE608 (temp)
+    0829C359  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=230 -1=10692 -1=58888
+    0829C361  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=230 -1=10692 -1=58888
+    0829C369  setescapewarp        mapGroup=41 mapNum=8 WARP_ID_NONE=230 -1=10692 -1=26120
+    0829C371  return               
+
+  script 0x0829C353  [opcode-out-of-range:0xFE]
+    0829C353  message              text="The 7th opponent is next.\nAre you prepared?"
+    0829C358  msgbox_multilang     type=196 text_0=3303409705 text_1=3303409705 text_2=3303409705 text_3=3303409705 text_4=3303409705 text_5=57018409 text_6=156630612
+    0829C376  callstd              function=MSGBOX_GETPOINTS(9)
+    0829C378  callstd              function=MSGBOX_SIGN(3)
+
+  script 0x0828900D  [ok]
+    0828900D  setvar               destination=VAR_0x8004 value=1
+    08289012  setvar               destination=VAR_0x8005 value=6
+    08289017  special              SPECIAL_\function=148
+    0828901A  return               
+
+  script 0x0829BCCC  [ok]
+    0829BCCC  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0829BCD1  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BCD6  compare_var_to_value var=0x8000 value=0
+    0829BCDB  goto_if              condition=1 destination=0x0829BDE6
+    0829BCE1  compare_var_to_value var=0x8000 value=1
+    0829BCE6  goto_if              condition=1 destination=0x0829BD56
+    0829BCEC  compare_var_to_value var=0x8000 value=2
+    0829BCF1  goto_if              condition=1 destination=0x0829BD9C
+    0829BCF7  compare_var_to_value var=0x8000 value=127
+    0829BCFC  goto_if              condition=1 destination=0x0829BC14
+    0829BD02  message              text="Do you wish to record your latest\nmatch on your FRONTIER PASS?"
+    0829BD07  bufferitemname       stringVarId=197 item=2089
+    0829BD0B  bufferitemname       stringVarId=197 item=2089
+    0829BD0F  bufferitemname       stringVarId=197 item=2089
+    0829BD13  bufferitemname       stringVarId=197 item=2089
+    0829BD17  bufferitemname       stringVarId=197 item=2089
+    0829BD1B  bufferitemname       stringVarId=197 item=2089
+    0829BD1F  waitmessage          
+    0829BD20  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0829BD26  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BD2B  compare_var_to_value var=0x8000 value=1
+    0829BD30  goto_if              condition=1 destination=0x0829BC14
+    0829BD36  compare_var_to_value var=0x8000 value=0
+    0829BD3B  goto_if              condition=1 destination=0x0829BD4C
+    0829BD41  compare_var_to_value var=0x8000 value=127
+    0829BD46  goto_if              condition=1 destination=0x0829BC14
+    0829BD4C  call                 destination=0x08288FB1
+    0829BD51  goto                 destination=0x0829BC14
+
+  script 0x0829BDE6  [ok]
+    0829BDE6  applymovement        localId=1 movements=[face_right]
+    0829BDED  applymovement        localId=3 movements=[face_right]
+    0829BDF4  closemessage         
+    0829BDF5  goto                 destination=0x0829BB19
+
+  script 0x0829BD02  [ok]
+    0829BD02  message              text="Do you wish to record your latest\nmatch on your FRONTIER PASS?"
+    0829BD07  bufferitemname       stringVarId=197 item=2089
+    0829BD0B  bufferitemname       stringVarId=197 item=2089
+    0829BD0F  bufferitemname       stringVarId=197 item=2089
+    0829BD13  bufferitemname       stringVarId=197 item=2089
+    0829BD17  bufferitemname       stringVarId=197 item=2089
+    0829BD1B  bufferitemname       stringVarId=197 item=2089
+    0829BD1F  waitmessage          
+    0829BD20  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0829BD26  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BD2B  compare_var_to_value var=0x8000 value=1
+    0829BD30  goto_if              condition=1 destination=0x0829BC14
+    0829BD36  compare_var_to_value var=0x8000 value=0
+    0829BD3B  goto_if              condition=1 destination=0x0829BD4C
+    0829BD41  compare_var_to_value var=0x8000 value=127
+    0829BD46  goto_if              condition=1 destination=0x0829BC14
+    0829BD4C  call                 destination=0x08288FB1
+    0829BD51  goto                 destination=0x0829BC14
+
+  script 0x0829BD56  [ok]
+    0829BD56  msgbox_multilang     type=0 text_0="Would you like to save and quit\nthe game?" text_1="Would you like to save and quit\nthe game?" text_2="Would you like to save and quit\nthe game?" text_3="Would you like to save and quit\nthe game?" text_4="Would you like to save and quit\nthe game?" text_5="Would you like to save and quit\nthe game?" text_6="Would you like to save and quit\nthe game?"
+    0829BD74  callstd              function=MSGBOX_YESNO(5)
+    0829BD76  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BD7B  compare_var_to_value var=0x8000 value=0
+    0829BD80  goto_if              condition=1 destination=0x0829BC14
+    0829BD86  compare_var_to_value var=0x8000 value=1
+    0829BD8B  goto_if              condition=1 destination=0x0829BE11
+    0829BD91  compare_var_to_value var=0x8000 value=127
+    0829BD96  goto_if              condition=1 destination=0x0829BC14
+    0829BD9C  message              text="Do you wish to quit your challenge?"
+    0829BDA1  warphole             mapGroup=197 mapNum=41
+    0829BDA4  gotostd              function=60
+    0829BDA6  waitmoncry           
+    0829BDA7  setflag              flag=0x3C08
+    0829BDAA  waitmoncry           
+    0829BDAB  setflag              flag=0x3C08
+    0829BDAE  waitmoncry           
+    0829BDAF  setflag              flag=0x3C08
+    0829BDB2  waitmoncry           
+    0829BDB3  setflag              flag=0x3C08
+    0829BDB6  waitmoncry           
+    0829BDB7  setflag              flag=0x6608 (temp)
+    0829BDBA  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0829BDC0  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BDC5  compare_var_to_value var=0x8000 value=1
+    0829BDCA  goto_if              condition=1 destination=0x0829BC14
+    0829BDD0  compare_var_to_value var=0x8000 value=0
+    0829BDD5  goto_if              condition=1 destination=0x0829BB6C
+    0829BDDB  compare_var_to_value var=0x8000 value=127
+    0829BDE0  goto_if              condition=1 destination=0x0829BC14
+    0829BDE6  applymovement        localId=1 movements=[face_right]
+    0829BDED  applymovement        localId=3 movements=[face_right]
+    0829BDF4  closemessage         
+    0829BDF5  goto                 destination=0x0829BB19
+
+  script 0x0829BD9C  [ok]
+    0829BD9C  message              text="Do you wish to quit your challenge?"
+    0829BDA1  warphole             mapGroup=197 mapNum=41
+    0829BDA4  gotostd              function=60
+    0829BDA6  waitmoncry           
+    0829BDA7  setflag              flag=0x3C08
+    0829BDAA  waitmoncry           
+    0829BDAB  setflag              flag=0x3C08
+    0829BDAE  waitmoncry           
+    0829BDAF  setflag              flag=0x3C08
+    0829BDB2  waitmoncry           
+    0829BDB3  setflag              flag=0x3C08
+    0829BDB6  waitmoncry           
+    0829BDB7  setflag              flag=0x6608 (temp)
+    0829BDBA  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0829BDC0  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BDC5  compare_var_to_value var=0x8000 value=1
+    0829BDCA  goto_if              condition=1 destination=0x0829BC14
+    0829BDD0  compare_var_to_value var=0x8000 value=0
+    0829BDD5  goto_if              condition=1 destination=0x0829BB6C
+    0829BDDB  compare_var_to_value var=0x8000 value=127
+    0829BDE0  goto_if              condition=1 destination=0x0829BC14
+    0829BDE6  applymovement        localId=1 movements=[face_right]
+    0829BDED  applymovement        localId=3 movements=[face_right]
+    0829BDF4  closemessage         
+    0829BDF5  goto                 destination=0x0829BB19
+
+  script 0x0829BD4C  [ok]
+    0829BD4C  call                 destination=0x08288FB1
+    0829BD51  goto                 destination=0x0829BC14
+
+  script 0x08288FB1  [ok]
+    08288FB1  setvar               destination=VAR_0x8004 value=19
+    08288FB6  special              SPECIAL_\function=148
+    08288FB9  compare_var_to_value var=0x800D value=0
+    08288FBE  goto_if              condition=1 destination=0x08288FEC
+    08288FC4  playse               song=55
+    08288FC7  msgbox_multilang     type=0 text_0="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_1="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_2="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_3="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_4="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_5="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_6="{PLAYER}’s battle was recorded\non the FRONTIER PASS."
+    08288FE5  callstd              function=MSGBOX_DEFAULT(4)
+    08288FE7  goto                 destination=0x0828900C
+
+  script 0x0828CCE1  [ok]
+    0828CCE1  setvar               destination=VAR_0x8004 value=17
+    0828CCE6  special              SPECIAL_\function=148
+    0828CCE9  return               
+
+  script 0x0829BDFA  [ok]
+    0829BDFA  setvar               destination=VAR_0x8004 value=2
+    0829BDFF  setvar               destination=VAR_0x8005 value=0
+    0829BE04  setvar               destination=VAR_0x8006 value=3
+    0829BE09  special              SPECIAL_\function=148
+    0829BE0C  goto                 destination=0x0829C39D
+
+  script 0x0829C3B7  [ok]
+    0829C3B7  warp                 mapGroup=41 mapNum=13 WARP_ID_NONE=255 -1=19 -1=7
+    0829C3BF  waitstate            
+
+  script 0x0829BE7B  [ok]
+    0829BE7B  message              text="I shall send for the PALACE MAVEN.\nAre you ready?"
+    0829BE80  initclock            hour=10694 minute=11272
+    0829BE85  bufferboxname        stringVarId=41 box=11272
+    0829BE89  bufferboxname        stringVarId=41 box=11272
+    0829BE8D  bufferboxname        stringVarId=41 box=11272
+    0829BE91  bufferboxname        stringVarId=41 box=11272
+    0829BE95  bufferboxname        stringVarId=41 box=26120
+    0829BE99  call                 destination=0x0828900D
+    0829BE9E  compare_var_to_value var=0x800D value=1
+    0829BEA3  goto_if              condition=1 destination=0x0829BEEA
+    0829BEA9  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    0829BEAE  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BEB3  compare_var_to_value var=0x8000 value=0
+    0829BEB8  goto_if              condition=1 destination=0x0829BF20
+    0829BEBE  compare_var_to_value var=0x8000 value=1
+    0829BEC3  goto_if              condition=1 destination=0x0829BD02
+    0829BEC9  compare_var_to_value var=0x8000 value=2
+    0829BECE  goto_if              condition=1 destination=0x0829BD56
+    0829BED4  compare_var_to_value var=0x8000 value=3
+    0829BED9  goto_if              condition=1 destination=0x0829BD9C
+    0829BEDF  compare_var_to_value var=0x8000 value=127
+    0829BEE4  goto_if              condition=1 destination=0x0829BE7B
+    0829BEEA  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0829BEEF  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BEF4  compare_var_to_value var=0x8000 value=0
+    0829BEF9  goto_if              condition=1 destination=0x0829BF20
+    0829BEFF  compare_var_to_value var=0x8000 value=1
+    0829BF04  goto_if              condition=1 destination=0x0829BD56
+    0829BF0A  compare_var_to_value var=0x8000 value=2
+    0829BF0F  goto_if              condition=1 destination=0x0829BD9C
+    0829BF15  compare_var_to_value var=0x8000 value=127
+    0829BF1A  goto_if              condition=1 destination=0x0829BE7B
+    0829BF20  call                 destination=0x0828D0B7
+    0829BF25  msgbox_multilang     type=0 text_0="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_1="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_2="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_3="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_4="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_5="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_6="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!"
+    0829BF43  callstd              function=MSGBOX_DEFAULT(4)
+    0829BF45  closemessage         
+    0829BF46  applymovement        localId=1 movements=[face_right]
+    0829BF4D  applymovement        localId=3 movements=[face_right]
+    0829BF54  setobjectxyperm      localId=2 x=15 y=1
+    0829BF5B  addobject            localId=2
+    0829BF5E  hideobjectat         localId=2 mapGroup=41 mapNum=15
+    0829BF63  setobjectxy          localId=2 x=13 y=1
+    0829BF6A  setobjectxyperm      localId=2 x=13 y=1
+    0829BF71  applymovement        localId=4 movements=[delay_16 delay_16 set_visible walk_down walk_right walk_down walk_in_place_faster_left]
+    0829BF78  applymovement        localId=5 movements=[set_visible walk_fast_down walk_fast_right walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_in_place_faster_left delay_16]
+    0829BF7F  applymovement        localId=2 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 set_visible walk_slow_down walk_slow_down walk_slow_down walk_slow_down face_left]
+    0829BF86  waitmovement         localId=0
+    0829BF89  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    0829BF8E  compare_var_to_value var=0x8000 value=2
+    0829BF93  goto_if              condition=1 destination=0x0829C0FC
+    0829BF99  compare_var_to_value var=0x8000 value=3
+    0829BF9E  goto_if              condition=1 destination=0x0829BFF4
+    0829BFA4  compare_var_to_value var=0x8000 value=4
+    0829BFA9  goto_if              condition=1 destination=0x0829C141
+    0829BFAF  setvar               destination=VAR_0x8004 value=1
+    0829BFB4  setvar               destination=VAR_0x8005 value=7
+    0829BFB9  special              SPECIAL_\function=148
+    0829BFBC  compare_var_to_value var=0x800D value=0
+    0829BFC1  goto_if              condition=5 destination=0x0829BFF4
+    0829BFC7  msgbox_multilang     type=0 text_0="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_1="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_2="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_3="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_4="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_5="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_6="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!"
+    0829BFE5  callstd              function=MSGBOX_DEFAULT(4)
+    0829BFE7  setvar               destination=VAR_0x8004 value=2
+    0829BFEC  setvar               destination=VAR_0x8005 value=7
+    0829BFF1  special              SPECIAL_\function=148
+    0829BFF4  msgbox_multilang     type=0 text_0="The bond you share with your POKéMON!\nProve it to me here!" text_1="The bond you share with your POKéMON!\nProve it to me here!" text_2="The bond you share with your POKéMON!\nProve it to me here!" text_3="The bond you share with your POKéMON!\nProve it to me here!" text_4="The bond you share with your POKéMON!\nProve it to me here!" text_5="The bond you share with your POKéMON!\nProve it to me here!" text_6="The bond you share with your POKéMON!\nProve it to me here!"
+    0829C012  callstd              function=MSGBOX_DEFAULT(4)
+    0829C014  call                 destination=0x0829C249
+    0829C019  compare_var_to_value var=0x800D value=1
+    0829C01E  goto_if              condition=1 destination=0x0829C029
+    0829C024  goto                 destination=0x0829BB6C
+
+  script 0x0829BEEA  [ok]
+    0829BEEA  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0829BEEF  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BEF4  compare_var_to_value var=0x8000 value=0
+    0829BEF9  goto_if              condition=1 destination=0x0829BF20
+    0829BEFF  compare_var_to_value var=0x8000 value=1
+    0829BF04  goto_if              condition=1 destination=0x0829BD56
+    0829BF0A  compare_var_to_value var=0x8000 value=2
+    0829BF0F  goto_if              condition=1 destination=0x0829BD9C
+    0829BF15  compare_var_to_value var=0x8000 value=127
+    0829BF1A  goto_if              condition=1 destination=0x0829BE7B
+    0829BF20  call                 destination=0x0828D0B7
+    0829BF25  msgbox_multilang     type=0 text_0="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_1="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_2="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_3="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_4="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_5="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_6="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!"
+    0829BF43  callstd              function=MSGBOX_DEFAULT(4)
+    0829BF45  closemessage         
+    0829BF46  applymovement        localId=1 movements=[face_right]
+    0829BF4D  applymovement        localId=3 movements=[face_right]
+    0829BF54  setobjectxyperm      localId=2 x=15 y=1
+    0829BF5B  addobject            localId=2
+    0829BF5E  hideobjectat         localId=2 mapGroup=41 mapNum=15
+    0829BF63  setobjectxy          localId=2 x=13 y=1
+    0829BF6A  setobjectxyperm      localId=2 x=13 y=1
+    0829BF71  applymovement        localId=4 movements=[delay_16 delay_16 set_visible walk_down walk_right walk_down walk_in_place_faster_left]
+    0829BF78  applymovement        localId=5 movements=[set_visible walk_fast_down walk_fast_right walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_in_place_faster_left delay_16]
+    0829BF7F  applymovement        localId=2 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 set_visible walk_slow_down walk_slow_down walk_slow_down walk_slow_down face_left]
+    0829BF86  waitmovement         localId=0
+    0829BF89  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    0829BF8E  compare_var_to_value var=0x8000 value=2
+    0829BF93  goto_if              condition=1 destination=0x0829C0FC
+    0829BF99  compare_var_to_value var=0x8000 value=3
+    0829BF9E  goto_if              condition=1 destination=0x0829BFF4
+    0829BFA4  compare_var_to_value var=0x8000 value=4
+    0829BFA9  goto_if              condition=1 destination=0x0829C141
+    0829BFAF  setvar               destination=VAR_0x8004 value=1
+    0829BFB4  setvar               destination=VAR_0x8005 value=7
+    0829BFB9  special              SPECIAL_\function=148
+    0829BFBC  compare_var_to_value var=0x800D value=0
+    0829BFC1  goto_if              condition=5 destination=0x0829BFF4
+    0829BFC7  msgbox_multilang     type=0 text_0="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_1="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_2="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_3="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_4="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_5="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_6="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!"
+    0829BFE5  callstd              function=MSGBOX_DEFAULT(4)
+    0829BFE7  setvar               destination=VAR_0x8004 value=2
+    0829BFEC  setvar               destination=VAR_0x8005 value=7
+    0829BFF1  special              SPECIAL_\function=148
+    0829BFF4  msgbox_multilang     type=0 text_0="The bond you share with your POKéMON!\nProve it to me here!" text_1="The bond you share with your POKéMON!\nProve it to me here!" text_2="The bond you share with your POKéMON!\nProve it to me here!" text_3="The bond you share with your POKéMON!\nProve it to me here!" text_4="The bond you share with your POKéMON!\nProve it to me here!" text_5="The bond you share with your POKéMON!\nProve it to me here!" text_6="The bond you share with your POKéMON!\nProve it to me here!"
+    0829C012  callstd              function=MSGBOX_DEFAULT(4)
+    0829C014  call                 destination=0x0829C249
+    0829C019  compare_var_to_value var=0x800D value=1
+    0829C01E  goto_if              condition=1 destination=0x0829C029
+    0829C024  goto                 destination=0x0829BB6C
+
+  script 0x0829BF20  [ok]
+    0829BF20  call                 destination=0x0828D0B7
+    0829BF25  msgbox_multilang     type=0 text_0="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_1="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_2="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_3="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_4="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_5="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!" text_6="Let great fanfare announce the arrival\nof the PALACE MAVEN, SPENSER!"
+    0829BF43  callstd              function=MSGBOX_DEFAULT(4)
+    0829BF45  closemessage         
+    0829BF46  applymovement        localId=1 movements=[face_right]
+    0829BF4D  applymovement        localId=3 movements=[face_right]
+    0829BF54  setobjectxyperm      localId=2 x=15 y=1
+    0829BF5B  addobject            localId=2
+    0829BF5E  hideobjectat         localId=2 mapGroup=41 mapNum=15
+    0829BF63  setobjectxy          localId=2 x=13 y=1
+    0829BF6A  setobjectxyperm      localId=2 x=13 y=1
+    0829BF71  applymovement        localId=4 movements=[delay_16 delay_16 set_visible walk_down walk_right walk_down walk_in_place_faster_left]
+    0829BF78  applymovement        localId=5 movements=[set_visible walk_fast_down walk_fast_right walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_fast_down walk_in_place_faster_left delay_16]
+    0829BF7F  applymovement        localId=2 movements=[delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 delay_16 set_visible walk_slow_down walk_slow_down walk_slow_down walk_slow_down face_left]
+    0829BF86  waitmovement         localId=0
+    0829BF89  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    0829BF8E  compare_var_to_value var=0x8000 value=2
+    0829BF93  goto_if              condition=1 destination=0x0829C0FC
+    0829BF99  compare_var_to_value var=0x8000 value=3
+    0829BF9E  goto_if              condition=1 destination=0x0829BFF4
+    0829BFA4  compare_var_to_value var=0x8000 value=4
+    0829BFA9  goto_if              condition=1 destination=0x0829C141
+    0829BFAF  setvar               destination=VAR_0x8004 value=1
+    0829BFB4  setvar               destination=VAR_0x8005 value=7
+    0829BFB9  special              SPECIAL_\function=148
+    0829BFBC  compare_var_to_value var=0x800D value=0
+    0829BFC1  goto_if              condition=5 destination=0x0829BFF4
+    0829BFC7  msgbox_multilang     type=0 text_0="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_1="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_2="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_3="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_4="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_5="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!" text_6="SPENSER: My physical being is with\nPOKéMON always!\pMy heart beats as one with\nPOKéMON always!\pYoung one of a TRAINER!\nDo you believe in your POKéMON?\pCan you believe them through\nand through?\pIf your bonds of trust are frail,\nyou will never beat my brethren!"
+    0829BFE5  callstd              function=MSGBOX_DEFAULT(4)
+    0829BFE7  setvar               destination=VAR_0x8004 value=2
+    0829BFEC  setvar               destination=VAR_0x8005 value=7
+    0829BFF1  special              SPECIAL_\function=148
+    0829BFF4  msgbox_multilang     type=0 text_0="The bond you share with your POKéMON!\nProve it to me here!" text_1="The bond you share with your POKéMON!\nProve it to me here!" text_2="The bond you share with your POKéMON!\nProve it to me here!" text_3="The bond you share with your POKéMON!\nProve it to me here!" text_4="The bond you share with your POKéMON!\nProve it to me here!" text_5="The bond you share with your POKéMON!\nProve it to me here!" text_6="The bond you share with your POKéMON!\nProve it to me here!"
+    0829C012  callstd              function=MSGBOX_DEFAULT(4)
+    0829C014  call                 destination=0x0829C249
+    0829C019  compare_var_to_value var=0x800D value=1
+    0829C01E  goto_if              condition=1 destination=0x0829C029
+    0829C024  goto                 destination=0x0829BB6C
+
+  script 0x0828D0B7  [ok]
+    0828D0B7  setvar               destination=VAR_0x8004 value=22
+    0828D0BC  special              SPECIAL_\function=148
+    0828D0BF  return               
+
+  script 0x0829C0FC  [ok]
+    0829C0FC  setvar               destination=VAR_0x8004 value=1
+    0829C101  setvar               destination=VAR_0x8005 value=7
+    0829C106  special              SPECIAL_\function=148
+    0829C109  compare_var_to_value var=0x800D value=0
+    0829C10E  goto_if              condition=5 destination=0x0829C141
+    0829C114  msgbox_multilang     type=0 text_0="SPENSER: Gwahahah!\nYou’ve battled your way up again?\pYou must have developed a truly\nformidable bond with your POKéMON.\pSo be it!\pThis time, I won’t bluster or hold back.\nThis time, there’s no fooling around.\pReady now?\nPrepare to lose!" text_1="SPENSER: Gwahahah!\nYou’ve battled your way up again?\pYou must have developed a truly\nformidable bond with your POKéMON.\pSo be it!\pThis time, I won’t bluster or hold back.\nThis time, there’s no fooling around.\pReady now?\nPrepare to lose!" text_2="SPENSER: Gwahahah!\nYou’ve battled your way up again?\pYou must have developed a truly\nformidable bond with your POKéMON.\pSo be it!\pThis time, I won’t bluster or hold back.\nThis time, there’s no fooling around.\pReady now?\nPrepare to lose!" text_3="SPENSER: Gwahahah!\nYou’ve battled your way up again?\pYou must have developed a truly\nformidable bond with your POKéMON.\pSo be it!\pThis time, I won’t bluster or hold back.\nThis time, there’s no fooling around.\pReady now?\nPrepare to lose!" text_4="SPENSER: Gwahahah!\nYou’ve battled your way up again?\pYou must have developed a truly\nformidable bond with your POKéMON.\pSo be it!\pThis time, I won’t bluster or hold back.\nThis time, there’s no fooling around.\pReady now?\nPrepare to lose!" text_5="SPENSER: Gwahahah!\nYou’ve battled your way up again?\pYou must have developed a truly\nformidable bond with your POKéMON.\pSo be it!\pThis time, I won’t bluster or hold back.\nThis time, there’s no fooling around.\pReady now?\nPrepare to lose!" text_6="SPENSER: Gwahahah!\nYou’ve battled your way up again?\pYou must have developed a truly\nformidable bond with your POKéMON.\pSo be it!\pThis time, I won’t bluster or hold back.\nThis time, there’s no fooling around.\pReady now?\nPrepare to lose!"
+    0829C132  callstd              function=MSGBOX_DEFAULT(4)
+    0829C134  setvar               destination=VAR_0x8004 value=2
+    0829C139  setvar               destination=VAR_0x8005 value=7
+    0829C13E  special              SPECIAL_\function=148
+    0829C141  msgbox_multilang     type=0 text_0="… … …Kaaah!" text_1="… … …Kaaah!" text_2="… … …Kaaah!" text_3="… … …Kaaah!" text_4="… … …Kaaah!" text_5="… … …Kaaah!" text_6="… … …Kaaah!"
+    0829C15F  callstd              function=MSGBOX_DEFAULT(4)
+    0829C161  call                 destination=0x0829C249
+    0829C166  compare_var_to_value var=0x800D value=1
+    0829C16B  goto_if              condition=1 destination=0x0829C176
+    0829C171  goto                 destination=0x0829BB6C
+
+  script 0x0829BFF4  [ok]
+    0829BFF4  msgbox_multilang     type=0 text_0="The bond you share with your POKéMON!\nProve it to me here!" text_1="The bond you share with your POKéMON!\nProve it to me here!" text_2="The bond you share with your POKéMON!\nProve it to me here!" text_3="The bond you share with your POKéMON!\nProve it to me here!" text_4="The bond you share with your POKéMON!\nProve it to me here!" text_5="The bond you share with your POKéMON!\nProve it to me here!" text_6="The bond you share with your POKéMON!\nProve it to me here!"
+    0829C012  callstd              function=MSGBOX_DEFAULT(4)
+    0829C014  call                 destination=0x0829C249
+    0829C019  compare_var_to_value var=0x800D value=1
+    0829C01E  goto_if              condition=1 destination=0x0829C029
+    0829C024  goto                 destination=0x0829BB6C
+
+  script 0x0829C141  [ok]
+    0829C141  msgbox_multilang     type=0 text_0="… … …Kaaah!" text_1="… … …Kaaah!" text_2="… … …Kaaah!" text_3="… … …Kaaah!" text_4="… … …Kaaah!" text_5="… … …Kaaah!" text_6="… … …Kaaah!"
+    0829C15F  callstd              function=MSGBOX_DEFAULT(4)
+    0829C161  call                 destination=0x0829C249
+    0829C166  compare_var_to_value var=0x800D value=1
+    0829C16B  goto_if              condition=1 destination=0x0829C176
+    0829C171  goto                 destination=0x0829BB6C
+
+  script 0x0829C029  [ok]
+    0829C029  setvar               destination=VAR_0x8004 value=6
+    0829C02E  special              SPECIAL_\function=151
+    0829C031  setvar               destination=VAR_0x8004 value=12
+    0829C036  special              SPECIAL_\function=148
+    0829C039  compare_var_to_value var=0x800D value=0
+    0829C03E  goto_if              condition=5 destination=0x0829BDFA
+    0829C044  msgbox_multilang     type=0 text_0="SPENSER: Gwahahah!\pHah, you never fell for my bluster!\nSorry for trying that stunt!\pHere!\nBring me the thing!" text_1="SPENSER: Gwahahah!\pHah, you never fell for my bluster!\nSorry for trying that stunt!\pHere!\nBring me the thing!" text_2="SPENSER: Gwahahah!\pHah, you never fell for my bluster!\nSorry for trying that stunt!\pHere!\nBring me the thing!" text_3="SPENSER: Gwahahah!\pHah, you never fell for my bluster!\nSorry for trying that stunt!\pHere!\nBring me the thing!" text_4="SPENSER: Gwahahah!\pHah, you never fell for my bluster!\nSorry for trying that stunt!\pHere!\nBring me the thing!" text_5="SPENSER: Gwahahah!\pHah, you never fell for my bluster!\nSorry for trying that stunt!\pHere!\nBring me the thing!" text_6="SPENSER: Gwahahah!\pHah, you never fell for my bluster!\nSorry for trying that stunt!\pHere!\nBring me the thing!"
+    0829C062  callstd              function=MSGBOX_DEFAULT(4)
+    0829C064  applymovement        localId=1 movements=[face_up]
+    0829C06B  applymovement        localId=3 movements=[face_down]
+    0829C072  msgbox_multilang     type=0 text_0="My, my, if only you could maintain that\nfacade of distinguished authority…\pHere!\nLet’s see your FRONTIER PASS!" text_1="My, my, if only you could maintain that\nfacade of distinguished authority…\pHere!\nLet’s see your FRONTIER PASS!" text_2="My, my, if only you could maintain that\nfacade of distinguished authority…\pHere!\nLet’s see your FRONTIER PASS!" text_3="My, my, if only you could maintain that\nfacade of distinguished authority…\pHere!\nLet’s see your FRONTIER PASS!" text_4="My, my, if only you could maintain that\nfacade of distinguished authority…\pHere!\nLet’s see your FRONTIER PASS!" text_5="My, my, if only you could maintain that\nfacade of distinguished authority…\pHere!\nLet’s see your FRONTIER PASS!" text_6="My, my, if only you could maintain that\nfacade of distinguished authority…\pHere!\nLet’s see your FRONTIER PASS!"
+    0829C090  callstd              function=MSGBOX_DEFAULT(4)
+    0829C092  playfanfare          song=466
+    0829C095  message              text="The Spirits Symbol was embossed on\nthe FRONTIER PASS!"
+    0829C09A  vbuffermessage       text=3188206024
+    0829C09F  loadhelp             
+    0829C0A0  setflag              flag=0xBE08 (temp)
+    0829C0A3  loadhelp             
+    0829C0A4  setflag              flag=0xBE08 (temp)
+    0829C0A7  loadhelp             
+    0829C0A8  setflag              flag=0xBE08 (temp)
+    0829C0AB  loadhelp             
+    0829C0AC  setflag              flag=0xBE08 (temp)
+    0829C0AF  loadhelp             
+    0829C0B0  setflag              flag=0x6608 (temp)
+    0829C0B3  waitfanfare          
+    0829C0B4  setvar               destination=VAR_0x8004 value=13
+    0829C0B9  special              SPECIAL_\function=148
+    0829C0BC  applymovement        localId=2 movements=[walk_in_place_left]
+    0829C0C3  waitmovement         localId=0
+    0829C0C6  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    0829C0CD  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    0829C0D4  waitmovement         localId=0
+    0829C0D7  msgbox_multilang     type=0 text_0="SPENSER: Your POKéMON’s eyes are \ntruly clear and unclouded.\pI will eagerly await the next\nopportunity to see you." text_1="SPENSER: Your POKéMON’s eyes are \ntruly clear and unclouded.\pI will eagerly await the next\nopportunity to see you." text_2="SPENSER: Your POKéMON’s eyes are \ntruly clear and unclouded.\pI will eagerly await the next\nopportunity to see you." text_3="SPENSER: Your POKéMON’s eyes are \ntruly clear and unclouded.\pI will eagerly await the next\nopportunity to see you." text_4="SPENSER: Your POKéMON’s eyes are \ntruly clear and unclouded.\pI will eagerly await the next\nopportunity to see you." text_5="SPENSER: Your POKéMON’s eyes are \ntruly clear and unclouded.\pI will eagerly await the next\nopportunity to see you." text_6="SPENSER: Your POKéMON’s eyes are \ntruly clear and unclouded.\pI will eagerly await the next\nopportunity to see you."
+    0829C0F5  callstd              function=MSGBOX_DEFAULT(4)
+    0829C0F7  goto                 destination=0x0829BDFA
+
+  script 0x0829BB6C  [ok]
+    0829BB6C  setvar               destination=VAR_0x8004 value=2
+    0829BB71  setvar               destination=VAR_0x8005 value=0
+    0829BB76  setvar               destination=VAR_0x8006 value=4
+    0829BB7B  special              SPECIAL_\function=148
+    0829BB7E  goto                 destination=0x0829C39D
+
+  script 0x0829BB19  [ok]
+    0829BB19  setvar               destination=VAR_0x8004 value=3
+    0829BB1E  special              SPECIAL_\function=149
+    0829BB21  addobject            localId=2
+    0829BB24  applymovement        localId=2 movements=[walk_down walk_down walk_down walk_down face_left]
+    0829BB2B  waitmovement         localId=0
+    0829BB2E  setvar               destination=VAR_0x8004 value=5
+    0829BB33  special              SPECIAL_\function=151
+    0829BB36  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    0829BB54  callstd              function=MSGBOX_DEFAULT(4)
+    0829BB56  waitmessage          
+    0829BB57  call                 destination=0x0829C249
+    0829BB5C  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829BB61  compare_var_to_value var=0x8000 value=1
+    0829BB66  goto_if              condition=1 destination=0x0829BB83
+    0829BB6C  setvar               destination=VAR_0x8004 value=2
+    0829BB71  setvar               destination=VAR_0x8005 value=0
+    0829BB76  setvar               destination=VAR_0x8006 value=4
+    0829BB7B  special              SPECIAL_\function=148
+    0829BB7E  goto                 destination=0x0829C39D
+
+  script 0x0829BE11  [ok]
+    0829BE11  message              text="Saving the data.\nHave patience…"
+    0829BE16  checktrainerflag     trainer=0x29C5
+    0829BE19  gotostd              function=96
+    0829BE1B  waitmoncry           
+    0829BE1C  setflag              flag=0x6008 (temp)
+    0829BE1F  waitmoncry           
+    0829BE20  setflag              flag=0x6008 (temp)
+    0829BE23  waitmoncry           
+    0829BE24  setflag              flag=0x6008 (temp)
+    0829BE27  waitmoncry           
+    0829BE28  setflag              flag=0x6008 (temp)
+    0829BE2B  waitmoncry           
+    0829BE2C  setflag              flag=0x6608 (temp)
+    0829BE2F  setvar               destination=VAR_0x8004 value=7
+    0829BE34  setvar               destination=VAR_0x8005 value=2
+    0829BE39  special              SPECIAL_\function=151
+    0829BE3C  playse               song=55
+    0829BE3F  waitse               
+    0829BE40  fadescreen           mode=1
+    0829BE42  setvar               destination=VAR_0x8004 value=4
+    0829BE47  special              SPECIAL_\function=148
+    0829BE4A  end                  
+
+  script 0x08288FEC  [ok]
+    08288FEC  msgbox_multilang     type=0 text_0="There was an error of some sort.\nYour record could not be saved." text_1="There was an error of some sort.\nYour record could not be saved." text_2="There was an error of some sort.\nYour record could not be saved." text_3="There was an error of some sort.\nYour record could not be saved." text_4="There was an error of some sort.\nYour record could not be saved." text_5="There was an error of some sort.\nYour record could not be saved." text_6="There was an error of some sort.\nYour record could not be saved."
+    0828900A  callstd              function=MSGBOX_DEFAULT(4)
+    0828900C  return               
+
+  script 0x0828900C  [ok]
+    0828900C  return               
+
+  script 0x0829C176  [ok]
+    0829C176  setvar               destination=VAR_0x8004 value=6
+    0829C17B  special              SPECIAL_\function=151
+    0829C17E  setvar               destination=VAR_0x8004 value=12
+    0829C183  special              SPECIAL_\function=148
+    0829C186  compare_var_to_value var=0x800D value=2
+    0829C18B  goto_if              condition=1 destination=0x0829BDFA
+    0829C191  msgbox_multilang     type=0 text_0="SPENSER: Well, that was some display!\nEven fully unleashed, my brethren\pcould not overpower you.\pYour team spirit is truly admirable!\pHere!\nBring me that thing, will you?" text_1="SPENSER: Well, that was some display!\nEven fully unleashed, my brethren\pcould not overpower you.\pYour team spirit is truly admirable!\pHere!\nBring me that thing, will you?" text_2="SPENSER: Well, that was some display!\nEven fully unleashed, my brethren\pcould not overpower you.\pYour team spirit is truly admirable!\pHere!\nBring me that thing, will you?" text_3="SPENSER: Well, that was some display!\nEven fully unleashed, my brethren\pcould not overpower you.\pYour team spirit is truly admirable!\pHere!\nBring me that thing, will you?" text_4="SPENSER: Well, that was some display!\nEven fully unleashed, my brethren\pcould not overpower you.\pYour team spirit is truly admirable!\pHere!\nBring me that thing, will you?" text_5="SPENSER: Well, that was some display!\nEven fully unleashed, my brethren\pcould not overpower you.\pYour team spirit is truly admirable!\pHere!\nBring me that thing, will you?" text_6="SPENSER: Well, that was some display!\nEven fully unleashed, my brethren\pcould not overpower you.\pYour team spirit is truly admirable!\pHere!\nBring me that thing, will you?"
+    0829C1AF  callstd              function=MSGBOX_DEFAULT(4)
+    0829C1B1  applymovement        localId=1 movements=[face_up]
+    0829C1B8  applymovement        localId=3 movements=[face_down]
+    0829C1BF  msgbox_multilang     type=0 text_0="My, my, if only you could maintain\na certain level of decorum…\pGaaah, here!\nHurry with that FRONTIER PASS, you!" text_1="My, my, if only you could maintain\na certain level of decorum…\pGaaah, here!\nHurry with that FRONTIER PASS, you!" text_2="My, my, if only you could maintain\na certain level of decorum…\pGaaah, here!\nHurry with that FRONTIER PASS, you!" text_3="My, my, if only you could maintain\na certain level of decorum…\pGaaah, here!\nHurry with that FRONTIER PASS, you!" text_4="My, my, if only you could maintain\na certain level of decorum…\pGaaah, here!\nHurry with that FRONTIER PASS, you!" text_5="My, my, if only you could maintain\na certain level of decorum…\pGaaah, here!\nHurry with that FRONTIER PASS, you!" text_6="My, my, if only you could maintain\na certain level of decorum…\pGaaah, here!\nHurry with that FRONTIER PASS, you!"
+    0829C1DD  callstd              function=MSGBOX_DEFAULT(4)
+    0829C1DF  playfanfare          song=466
+    0829C1E2  message              text="The Spirits Symbol took on\na golden shine!"
+    0829C1E7  setmonmove           partyIndex=203 slot=41 move=?(31496)
+    0829C1EC  normalmsg            
+    0829C1ED  setflag              flag=0x7B08 (temp)
+    0829C1F0  normalmsg            
+    0829C1F1  setflag              flag=0x7B08 (temp)
+    0829C1F4  normalmsg            
+    0829C1F5  setflag              flag=0x7B08 (temp)
+    0829C1F8  normalmsg            
+    0829C1F9  setflag              flag=0x7B08 (temp)
+    0829C1FC  normalmsg            
+    0829C1FD  setflag              flag=0x6608 (temp)
+    0829C200  waitfanfare          
+    0829C201  setvar               destination=VAR_0x8004 value=13
+    0829C206  special              SPECIAL_\function=148
+    0829C209  applymovement        localId=2 movements=[walk_in_place_left]
+    0829C210  waitmovement         localId=0
+    0829C213  applymovement        localId=1 movements=[walk_in_place_faster_right]
+    0829C21A  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    0829C221  waitmovement         localId=0
+    0829C224  msgbox_multilang     type=0 text_0="SPENSER: Gwahahah!\pCome see me time and again!\nMy brethren and I will be waiting!" text_1="SPENSER: Gwahahah!\pCome see me time and again!\nMy brethren and I will be waiting!" text_2="SPENSER: Gwahahah!\pCome see me time and again!\nMy brethren and I will be waiting!" text_3="SPENSER: Gwahahah!\pCome see me time and again!\nMy brethren and I will be waiting!" text_4="SPENSER: Gwahahah!\pCome see me time and again!\nMy brethren and I will be waiting!" text_5="SPENSER: Gwahahah!\pCome see me time and again!\nMy brethren and I will be waiting!" text_6="SPENSER: Gwahahah!\pCome see me time and again!\nMy brethren and I will be waiting!"
+    0829C242  callstd              function=MSGBOX_DEFAULT(4)
+    0829C244  goto                 destination=0x0829BDFA
+
+  map script type 4 (var 0x4001 == 0) -> 0x0829C290
+  script 0x0829C290  [ok]
+    0829C290  hideobjectat         localId=1 mapGroup=41 mapNum=15
+    0829C295  call                 destination=0x0829BA8D
+    0829C29A  setvar               destination=VAR_0x4001 value=1
+    0829C29F  applymovement        localId=255 movements=[set_invisible]
+    0829C2A6  removeobject         localId=2
+    0829C2A9  applymovement        localId=4 movements=[set_invisible]
+    0829C2B0  applymovement        localId=5 movements=[set_invisible]
+    0829C2B7  end                  
+

@@ -1,0 +1,144 @@
+Pokémon League  (group 1, map 75)  header 0x08B3BA4C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1A, flag 0x0000) -> 0x082132B9
+  script 0x082132B9  [ok]
+    082132B9  lock                 
+    082132BA  faceplayer           
+    082132BB  speakername          name="Lorelei"
+    082132C0  setvar               destination=VAR_0x8004 value=9
+    082132C5  setvar               destination=VAR_0x8005 value=2
+    082132CA  special              SPECIAL_\function=348
+    082132CD  checkflag            flag=0x4B8
+    082132D0  goto_if              condition=1 destination=0x0821335B
+    082132D6  setvar               destination=VAR_0x8004 value=9
+    082132DB  setvar               destination=VAR_0x8005 value=0
+    082132E0  special              SPECIAL_\function=347
+    082132E3  setvar               destination=VAR_0x8004 value=9
+    082132E8  setvar               destination=VAR_0x8005 value=1
+    082132ED  special              SPECIAL_\function=347
+    082132F0  msgbox_multilang     type=0 text_0="Welcome to the Pokémon League.\pI am Lorelei of the Elite Four.\pNo one can best me when it comes to\nicy Pokémon.\pFreezing moves are powerful.\pYour Pokémon will be at my mercy\nwhen they are frozen solid.\pHahaha!\nAre you ready?{CTRL_0B}" text_1="Welcome to the Pokémon League.\pI am Lorelei of the Elite Four.\pNo one can best me when it comes to\nicy Pokémon.\pFreezing moves are powerful.\pYour Pokémon will be at my mercy\nwhen they are frozen solid.\pHahaha!\nAre you ready?{CTRL_0B}" text_2="Welcome to the Pokémon League.\pI am Lorelei of the Elite Four.\pNo one can best me when it comes to\nicy Pokémon.\pFreezing moves are powerful.\pYour Pokémon will be at my mercy\nwhen they are frozen solid.\pHahaha!\nAre you ready?{CTRL_0B}" text_3="Welcome to the Pokémon League.\pI am Lorelei of the Elite Four.\pNo one can best me when it comes to\nicy Pokémon.\pFreezing moves are powerful.\pYour Pokémon will be at my mercy\nwhen they are frozen solid.\pHahaha!\nAre you ready?{CTRL_0B}" text_4="Welcome to the Pokémon League.\pI am Lorelei of the Elite Four.\pNo one can best me when it comes to\nicy Pokémon.\pFreezing moves are powerful.\pYour Pokémon will be at my mercy\nwhen they are frozen solid.\pHahaha!\nAre you ready?{CTRL_0B}" text_5="Welcome to the Pokémon League.\pI am Lorelei of the Elite Four.\pNo one can best me when it comes to\nicy Pokémon.\pFreezing moves are powerful.\pYour Pokémon will be at my mercy\nwhen they are frozen solid.\pHahaha!\nAre you ready?{CTRL_0B}" text_6="Welcome to the Pokémon League.\pI am Lorelei of the Elite Four.\pNo one can best me when it comes to\nicy Pokémon.\pFreezing moves are powerful.\pYour Pokémon will be at my mercy\nwhen they are frozen solid.\pHahaha!\nAre you ready?{CTRL_0B}"
+    0821330E  callstd              function=MSGBOX_DEFAULT(4)
+    08213310  setflag              flag=0x003
+    08213313  setflag              flag=0x005
+    08213316  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    08213319  goto_if              condition=0 destination=0x0821337D
+    0821331F  trainerbattle        type=3 trainer=0x2DF localId=0 ptr1=0x08213479
+    08213329  clearflag            flag=0x005
+    0821332C  setflag              flag=0x4B8
+    0821332F  call                 destination=0x0820110A
+    08213334  speakername          name="Lorelei"
+    08213339  msgbox_multilang     type=0 text_0="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_1="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_2="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_3="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_4="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_5="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_6="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power."
+    08213357  callstd              function=MSGBOX_DEFAULT(4)
+    08213359  release              
+
+  script 0x0821335B  [ok]
+    0821335B  msgbox_multilang     type=0 text_0="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_1="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_2="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_3="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_4="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_5="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_6="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power."
+    08213379  callstd              function=MSGBOX_DEFAULT(4)
+    0821337B  release              
+
+  script 0x0821337D  [ok]
+    0821337D  trainerbattle        type=3 trainer=0x19A localId=0 ptr1=0x08213479
+    08213387  goto                 destination=0x08213329
+
+  script 0x0820110A  [ok]
+    0820110A  applymovement        localId=255 movements=[delay_16 delay_16]
+    08201111  waitmovement         localId=0
+    08201114  playse               song=248
+    08201117  call                 destination=0x0820113C
+    0820111C  special              SPECIAL_\function=79
+    0820111F  setflag              flag=0x004
+    08201122  return               
+
+  script 0x08213329  [ok]
+    08213329  clearflag            flag=0x005
+    0821332C  setflag              flag=0x4B8
+    0821332F  call                 destination=0x0820110A
+    08213334  speakername          name="Lorelei"
+    08213339  msgbox_multilang     type=0 text_0="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_1="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_2="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_3="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_4="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_5="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power." text_6="You’re better than I thought.\nGo on ahead.\pYou only got a taste of the Pokémon\nLeague’s power."
+    08213357  callstd              function=MSGBOX_DEFAULT(4)
+    08213359  release              
+
+  script 0x0820113C  [ok]
+    0820113C  setmetatile          x=6 y=1 metatileId=654 impassable=1
+    08201145  setmetatile          x=6 y=2 metatileId=662 impassable=0
+    0820114E  return               
+
+  map script type 5 -> 0x0821325B
+  script 0x0821325B  [ok]
+    0821325B  setvar               destination=VAR_0x8004 value=0
+    08213260  call                 destination=0x082011F1
+    08213265  end                  
+
+  script 0x082011F1  [ok]
+    082011F1  special              SPECIAL_\function=368
+    082011F4  return               
+
+  map script type 1 -> 0x08213266
+  script 0x08213266  [ok]
+    08213266  checkflag            flag=0x4B8
+    08213269  goto_if              condition=1 destination=0x0821327B
+    0821326F  compare_var_to_value var=0x4068 value=1
+    08213274  goto_if              condition=1 destination=0x08213285
+    0821327A  end                  
+
+  script 0x0821327B  [ok]
+    0821327B  call                 destination=0x0820113C
+    08213280  goto                 destination=0x0821326F
+
+  script 0x08213285  [ok]
+    08213285  call                 destination=0x082011B8
+    0821328A  goto                 destination=0x0821327A
+
+  script 0x0821326F  [ok]
+    0821326F  compare_var_to_value var=0x4068 value=1
+    08213274  goto_if              condition=1 destination=0x08213285
+    0821327A  end                  
+
+  script 0x082011B8  [ok]
+    082011B8  setmetatile          x=5 y=11 metatileId=669 impassable=1
+    082011C1  setmetatile          x=6 y=11 metatileId=670 impassable=1
+    082011CA  setmetatile          x=7 y=11 metatileId=671 impassable=1
+    082011D3  setmetatile          x=5 y=12 metatileId=677 impassable=1
+    082011DC  setmetatile          x=6 y=12 metatileId=678 impassable=1
+    082011E5  setmetatile          x=7 y=12 metatileId=679 impassable=1
+    082011EE  return               
+
+  script 0x0821327A  [ok]
+    0821327A  end                  
+
+  map script type 3 -> 0x0821328F
+  script 0x0821328F  [ok]
+    0821328F  setworldmapflag      flag=0x90F
+    08213292  end                  
+
+  map script type 4 (var 0x4001 == 0) -> 0x0821329D
+  script 0x0821329D  [ok]
+    0821329D  turnobject           localId=255 direction=2
+    082132A1  end                  
+
+  map script type 2 (var 0x4068 == 0) -> 0x082132AC
+  script 0x082132AC  [ok]
+    082132AC  lockall              
+    082132AD  call                 destination=0x08201123
+    082132B2  setvar               destination=VAR_0x4068 value=1
+    082132B7  releaseall           
+
+  script 0x08201123  [ok]
+    08201123  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up]
+    0820112A  waitmovement         localId=0
+    0820112D  setflag              flag=0x002
+    08201130  playse               song=44
+    08201133  call                 destination=0x082011B8
+    08201138  special              SPECIAL_\function=79
+    0820113B  return               
+

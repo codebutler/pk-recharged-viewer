@@ -1,0 +1,44 @@
+Fuchsia City  (group 11, map 8)  header 0x08B3D5C0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x09, flag 0x0000) -> 0x0826AA4A
+  script 0x0826AA4A  [ok]
+    0826AA4A  lock                 
+    0826AA4B  faceplayer           
+    0826AA4C  checkflag            flag=0x244
+    0826AA4F  goto_if              condition=1 destination=0x0826AAA2
+    0826AA55  msgbox_multilang     type=0 text_0="I’m the Fishing Guru’s older\nbrother.\pI simply looove fishing!\nI can’t bear to go without.\pTell me, do you like to fish?" text_1="I’m the Fishing Guru’s older\nbrother.\pI simply looove fishing!\nI can’t bear to go without.\pTell me, do you like to fish?" text_2="I’m the Fishing Guru’s older\nbrother.\pI simply looove fishing!\nI can’t bear to go without.\pTell me, do you like to fish?" text_3="I’m the Fishing Guru’s older\nbrother.\pI simply looove fishing!\nI can’t bear to go without.\pTell me, do you like to fish?" text_4="I’m the Fishing Guru’s older\nbrother.\pI simply looove fishing!\nI can’t bear to go without.\pTell me, do you like to fish?" text_5="I’m the Fishing Guru’s older\nbrother.\pI simply looove fishing!\nI can’t bear to go without.\pTell me, do you like to fish?" text_6="I’m the Fishing Guru’s older\nbrother.\pI simply looove fishing!\nI can’t bear to go without.\pTell me, do you like to fish?"
+    0826AA73  callstd              function=MSGBOX_YESNO(5)
+    0826AA75  compare_var_to_value var=0x800D value=1
+    0826AA7A  goto_if              condition=1 destination=0x0826AAC4
+    0826AA80  msgbox_multilang     type=0 text_0="Oh…\nThat’s so disappointing…" text_1="Oh…\nThat’s so disappointing…" text_2="Oh…\nThat’s so disappointing…" text_3="Oh…\nThat’s so disappointing…" text_4="Oh…\nThat’s so disappointing…" text_5="Oh…\nThat’s so disappointing…" text_6="Oh…\nThat’s so disappointing…"
+    0826AA9E  callstd              function=MSGBOX_DEFAULT(4)
+    0826AAA0  release              
+
+  script 0x0826AAA2  [ok]
+    0826AAA2  msgbox_multilang     type=0 text_0="Hello there, {PLAYER}!\pHow are the fish biting?" text_1="Hello there, {PLAYER}!\pHow are the fish biting?" text_2="Hello there, {PLAYER}!\pHow are the fish biting?" text_3="Hello there, {PLAYER}!\pHow are the fish biting?" text_4="Hello there, {PLAYER}!\pHow are the fish biting?" text_5="Hello there, {PLAYER}!\pHow are the fish biting?" text_6="Hello there, {PLAYER}!\pHow are the fish biting?"
+    0826AAC0  callstd              function=MSGBOX_DEFAULT(4)
+    0826AAC2  release              
+
+  script 0x0826AAC4  [unknown-opcode:0xE9]
+    0826AAC4  msgbox_multilang     type=0 text_0="Grand! I like your style.\nI think we can be friends.\pTake this and fish, young friend!" text_1="Grand! I like your style.\nI think we can be friends.\pTake this and fish, young friend!" text_2="Grand! I like your style.\nI think we can be friends.\pTake this and fish, young friend!" text_3="Grand! I like your style.\nI think we can be friends.\pTake this and fish, young friend!" text_4="Grand! I like your style.\nI think we can be friends.\pTake this and fish, young friend!" text_5="Grand! I like your style.\nI think we can be friends.\pTake this and fish, young friend!" text_6="Grand! I like your style.\nI think we can be friends.\pTake this and fish, young friend!"
+    0826AAE2  callstd              function=MSGBOX_DEFAULT(4)
+    0826AAE4  checkitemspace       itemId=Good Rod(263) quantity=1
+    0826AAE9  compare_var_to_value var=0x800D value=0
+    0826AAEE  goto_if              condition=1 destination=0x0826AB3B
+    0826AAF4  additem              itemId=Good Rod(263) quantity=1
+
+  script 0x0826AB3B  [ok]
+    0826AB3B  msgbox_multilang     type=0 text_0="Oh, no!\pI had a gift for you, but you have\nno room for it!" text_1="Oh, no!\pI had a gift for you, but you have\nno room for it!" text_2="Oh, no!\pI had a gift for you, but you have\nno room for it!" text_3="Oh, no!\pI had a gift for you, but you have\nno room for it!" text_4="Oh, no!\pI had a gift for you, but you have\nno room for it!" text_5="Oh, no!\pI had a gift for you, but you have\nno room for it!" text_6="Oh, no!\pI had a gift for you, but you have\nno room for it!"
+    0826AB59  callstd              function=MSGBOX_DEFAULT(4)
+    0826AB5B  release              
+

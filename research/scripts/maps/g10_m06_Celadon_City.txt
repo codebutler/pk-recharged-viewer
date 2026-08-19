@@ -1,0 +1,142 @@
+Celadon City  (group 10, map 6)  header 0x08B3D358
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  sign 0 at (0,2) -> 0x08261F99
+  script 0x08261F99  [ok]
+    08261F99  lockall              
+    08261F9A  setvar               destination=VAR_0x8004 value=3
+    08261F9F  checkflag            flag=0x002
+    08261FA2  call_if              condition=0 destination=0x082F8187
+    08261FA8  copyvar              destination=VAR_0x8005 source=VAR_0x403A
+    08261FAD  special              SPECIAL_\function=352
+    08261FB0  message              text="Which floor do you want?"
+    08261FB5  turnobject           localId=12161 direction=8
+    08261FB9  turnobject           localId=12161 direction=8
+    08261FBD  turnobject           localId=12161 direction=8
+    08261FC1  turnobject           localId=12161 direction=8
+    08261FC5  turnobject           localId=12161 direction=8
+    08261FC9  turnobject           localId=12161 direction=8
+    08261FCD  waitmessage          
+    08261FCE  setvar               destination=VAR_0x8004 value=3
+    08261FD3  specialvar           output=32781 SPECIAL_\function=353
+    08261FD8  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08261FDD  compare_var_to_value var=0x8000 value=0
+    08261FE2  goto_if              condition=1 destination=0x08262015
+    08261FE8  compare_var_to_value var=0x8000 value=1
+    08261FED  goto_if              condition=1 destination=0x08262021
+    08261FF3  compare_var_to_value var=0x8000 value=2
+    08261FF8  goto_if              condition=1 destination=0x0826202D
+    08261FFE  compare_var_to_value var=0x8000 value=3
+    08262003  goto_if              condition=1 destination=0x08262039
+    08262009  compare_var_to_value var=0x8000 value=4
+    0826200E  goto_if              condition=1 destination=0x08262045
+    08262014  end                  
+
+  script 0x082F8187  [ok]
+    082F8187  special              SPECIAL_\function=385
+    082F818A  return               
+
+  script 0x08262015  [ok]
+    08262015  multichoicedefault   x=0 y=0 multichoiceId=31 default=0 ignoreBPress=0
+    0826201B  goto                 destination=0x08262051
+
+  script 0x08262021  [ok]
+    08262021  multichoicedefault   x=0 y=0 multichoiceId=31 default=1 ignoreBPress=0
+    08262027  goto                 destination=0x08262051
+
+  script 0x0826202D  [ok]
+    0826202D  multichoicedefault   x=0 y=0 multichoiceId=31 default=2 ignoreBPress=0
+    08262033  goto                 destination=0x08262051
+
+  script 0x08262039  [ok]
+    08262039  multichoicedefault   x=0 y=0 multichoiceId=31 default=3 ignoreBPress=0
+    0826203F  goto                 destination=0x08262051
+
+  script 0x08262045  [ok]
+    08262045  multichoicedefault   x=0 y=0 multichoiceId=31 default=4 ignoreBPress=0
+    0826204B  goto                 destination=0x08262051
+
+  script 0x08262051  [ok]
+    08262051  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    08262056  compare_var_to_value var=0x8000 value=0
+    0826205B  goto_if              condition=1 destination=0x08262144
+    08262061  compare_var_to_value var=0x8000 value=1
+    08262066  goto_if              condition=1 destination=0x0826211C
+    0826206C  compare_var_to_value var=0x8000 value=2
+    08262071  goto_if              condition=1 destination=0x082620F4
+    08262077  compare_var_to_value var=0x8000 value=3
+    0826207C  goto_if              condition=1 destination=0x082620CC
+    08262082  compare_var_to_value var=0x8000 value=4
+    08262087  goto_if              condition=1 destination=0x082620A4
+    0826208D  compare_var_to_value var=0x8000 value=5
+    08262092  goto_if              condition=1 destination=0x0826216C
+    08262098  compare_var_to_value var=0x8000 value=127
+    0826209D  goto_if              condition=1 destination=0x0826216C
+    082620A3  end                  
+
+  script 0x08262144  [ok]
+    08262144  setvar               destination=VAR_0x8006 value=8
+    08262149  setdynamicwarp       mapGroup=10 mapNum=4 WARP_ID_NONE=255 -1=6 -1=1
+    08262151  compare_var_to_value var=0x403A value=8
+    08262156  goto_if              condition=1 destination=0x0826216C
+    0826215C  call                 destination=0x08262171
+    08262161  setvar               destination=VAR_0x403A value=8
+    08262166  goto                 destination=0x0826216C
+
+  script 0x0826211C  [ok]
+    0826211C  setvar               destination=VAR_0x8006 value=7
+    08262121  setdynamicwarp       mapGroup=10 mapNum=3 WARP_ID_NONE=255 -1=6 -1=1
+    08262129  compare_var_to_value var=0x403A value=7
+    0826212E  goto_if              condition=1 destination=0x0826216C
+    08262134  call                 destination=0x08262171
+    08262139  setvar               destination=VAR_0x403A value=7
+    0826213E  goto                 destination=0x0826216C
+
+  script 0x082620F4  [ok]
+    082620F4  setvar               destination=VAR_0x8006 value=6
+    082620F9  setdynamicwarp       mapGroup=10 mapNum=2 WARP_ID_NONE=255 -1=6 -1=1
+    08262101  compare_var_to_value var=0x403A value=6
+    08262106  goto_if              condition=1 destination=0x0826216C
+    0826210C  call                 destination=0x08262171
+    08262111  setvar               destination=VAR_0x403A value=6
+    08262116  goto                 destination=0x0826216C
+
+  script 0x082620CC  [ok]
+    082620CC  setvar               destination=VAR_0x8006 value=5
+    082620D1  setdynamicwarp       mapGroup=10 mapNum=1 WARP_ID_NONE=255 -1=6 -1=1
+    082620D9  compare_var_to_value var=0x403A value=5
+    082620DE  goto_if              condition=1 destination=0x0826216C
+    082620E4  call                 destination=0x08262171
+    082620E9  setvar               destination=VAR_0x403A value=5
+    082620EE  goto                 destination=0x0826216C
+
+  script 0x082620A4  [ok]
+    082620A4  setvar               destination=VAR_0x8006 value=4
+    082620A9  setdynamicwarp       mapGroup=10 mapNum=0 WARP_ID_NONE=255 -1=6 -1=1
+    082620B1  compare_var_to_value var=0x403A value=4
+    082620B6  goto_if              condition=1 destination=0x0826216C
+    082620BC  call                 destination=0x08262171
+    082620C1  setvar               destination=VAR_0x403A value=4
+    082620C6  goto                 destination=0x0826216C
+
+  script 0x0826216C  [ok]
+    0826216C  special              SPECIAL_\function=354
+    0826216F  releaseall           
+
+  script 0x08262171  [ok]
+    08262171  special              SPECIAL_\function=354
+    08262174  closemessage         
+    08262175  waitse               
+    08262176  special              SPECIAL_\function=355
+    08262179  waitstate            
+
+  sign 1 at (4,1) -> 0x08261F99

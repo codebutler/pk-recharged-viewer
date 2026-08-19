@@ -1,0 +1,361 @@
+Four Island  (group 33, map 6)  header 0x08B3DEB8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF2, flag 0x0000) -> 0x081F76CD
+  script 0x081F76CD  [ok]
+    081F76CD  lock                 
+    081F76CE  specialvar           output=32776 SPECIAL_\function=398
+    081F76D3  checkflag            flag=0x290
+    081F76D6  goto_if              condition=0 destination=0x081F76E6
+    081F76DC  checkflag            flag=0x290
+    081F76DF  goto_if              condition=1 destination=0x081F7759
+    081F76E5  end                  
+
+  script 0x081F76E6  [ok]
+    081F76E6  setflag              flag=0x290
+    081F76E9  msgbox_multilang     type=0 text_0="Giggle…\nI collected a ton of STICKERS.\pI wish I could show them off…" text_1="Giggle…\nI collected a ton of STICKERS.\pI wish I could show them off…" text_2="Giggle…\nI collected a ton of STICKERS.\pI wish I could show them off…" text_3="Giggle…\nI collected a ton of STICKERS.\pI wish I could show them off…" text_4="Giggle…\nI collected a ton of STICKERS.\pI wish I could show them off…" text_5="Giggle…\nI collected a ton of STICKERS.\pI wish I could show them off…" text_6="Giggle…\nI collected a ton of STICKERS.\pI wish I could show them off…"
+    081F7707  callstd              function=MSGBOX_DEFAULT(4)
+    081F7709  applymovement        localId=1 movements=[face_player]
+    081F7710  waitmovement         localId=0
+    081F7713  playse               song=21
+    081F7716  applymovement        localId=1 movements=[emote_exclamation_mark]
+    081F771D  waitmovement         localId=0
+    081F7720  applymovement        localId=1 movements=[delay_16 delay_16 delay_16]
+    081F7727  waitmovement         localId=0
+    081F772A  compare_var_to_value var=0x8008 value=0
+    081F772F  goto_if              condition=1 destination=0x081F7943
+    081F7735  message              text="Oh, excellent!\nYou’ve come to the right place!\pLook, look! See? See?\nThese are my Stickers!\pLook how many I got!\pI bet you want some.\nI bet you do!\pI’ll give a Sticker if you can tell\nme something awesome about\pyourself.\pWhat will you brag about?"
+    081F773A  fadeinbgm            speed=127
+    081F773C  compare_ptr_to_value ptr=528431112 value=8
+    081F7742  fadeinbgm            speed=127
+    081F7744  compare_ptr_to_value ptr=528431112 value=8
+    081F774A  fadeinbgm            speed=127
+    081F774C  compare_ptr_to_value ptr=528431112 value=8
+    081F7752  waitmessage          
+    081F7753  goto                 destination=0x081F7785
+
+  script 0x081F7759  [ok]
+    081F7759  applymovement        localId=1 movements=[face_player]
+    081F7760  waitmovement         localId=0
+    081F7763  msgbox_multilang     type=0 text_0="Brag about something for me.\nI’ll give you a Sticker." text_1="Brag about something for me.\nI’ll give you a Sticker." text_2="Brag about something for me.\nI’ll give you a Sticker." text_3="Brag about something for me.\nI’ll give you a Sticker." text_4="Brag about something for me.\nI’ll give you a Sticker." text_5="Brag about something for me.\nI’ll give you a Sticker." text_6="Brag about something for me.\nI’ll give you a Sticker."
+    081F7781  callstd              function=MSGBOX_DEFAULT(4)
+    081F7783  release              
+
+  script 0x081F7943  [ok]
+    081F7943  msgbox_multilang     type=0 text_0="Oh, excellent!\nYou’ve come to the right place!\pLook, look! See? See?\nThese are my Stickers!\pLook how many I got!\pI bet you want some.\nI bet you do!\pI’ll give a Sticker if you can tell\nme something awesome about\pyourself.\pWhat will you brag about?" text_1="Oh, excellent!\nYou’ve come to the right place!\pLook, look! See? See?\nThese are my Stickers!\pLook how many I got!\pI bet you want some.\nI bet you do!\pI’ll give a Sticker if you can tell\nme something awesome about\pyourself.\pWhat will you brag about?" text_2="Oh, excellent!\nYou’ve come to the right place!\pLook, look! See? See?\nThese are my Stickers!\pLook how many I got!\pI bet you want some.\nI bet you do!\pI’ll give a Sticker if you can tell\nme something awesome about\pyourself.\pWhat will you brag about?" text_3="Oh, excellent!\nYou’ve come to the right place!\pLook, look! See? See?\nThese are my Stickers!\pLook how many I got!\pI bet you want some.\nI bet you do!\pI’ll give a Sticker if you can tell\nme something awesome about\pyourself.\pWhat will you brag about?" text_4="Oh, excellent!\nYou’ve come to the right place!\pLook, look! See? See?\nThese are my Stickers!\pLook how many I got!\pI bet you want some.\nI bet you do!\pI’ll give a Sticker if you can tell\nme something awesome about\pyourself.\pWhat will you brag about?" text_5="Oh, excellent!\nYou’ve come to the right place!\pLook, look! See? See?\nThese are my Stickers!\pLook how many I got!\pI bet you want some.\nI bet you do!\pI’ll give a Sticker if you can tell\nme something awesome about\pyourself.\pWhat will you brag about?" text_6="Oh, excellent!\nYou’ve come to the right place!\pLook, look! See? See?\nThese are my Stickers!\pLook how many I got!\pI bet you want some.\nI bet you do!\pI’ll give a Sticker if you can tell\nme something awesome about\pyourself.\pWhat will you brag about?"
+    081F7961  callstd              function=MSGBOX_DEFAULT(4)
+    081F7963  release              
+
+  script 0x081F7785  [ok]
+    081F7785  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    081F778A  compare_var_to_value var=0x8000 value=1
+    081F778F  goto_if              condition=1 destination=0x081F77D8
+    081F7795  compare_var_to_value var=0x8000 value=2
+    081F779A  goto_if              condition=1 destination=0x081F7804
+    081F77A0  compare_var_to_value var=0x8000 value=4
+    081F77A5  goto_if              condition=1 destination=0x081F7830
+    081F77AB  compare_var_to_value var=0x8000 value=3
+    081F77B0  goto_if              condition=1 destination=0x081F785C
+    081F77B6  compare_var_to_value var=0x8000 value=5
+    081F77BB  goto_if              condition=1 destination=0x081F7893
+    081F77C1  compare_var_to_value var=0x8000 value=6
+    081F77C6  goto_if              condition=1 destination=0x081F78CA
+    081F77CC  compare_var_to_value var=0x8000 value=7
+    081F77D1  goto_if              condition=1 destination=0x081F7901
+    081F77D7  end                  
+
+  script 0x081F77D8  [ok]
+    081F77D8  multichoice          x=15 y=8 multichoiceId=3 ignoreBPress=0
+    081F77DD  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081F77E2  compare_var_to_value var=0x8000 value=0
+    081F77E7  goto_if              condition=1 destination=0x081F7965
+    081F77ED  compare_var_to_value var=0x8000 value=1
+    081F77F2  goto_if              condition=1 destination=0x081F7DBB
+    081F77F8  compare_var_to_value var=0x8000 value=127
+    081F77FD  goto_if              condition=1 destination=0x081F7DBB
+    081F7803  end                  
+
+  script 0x081F7804  [ok]
+    081F7804  multichoice          x=16 y=8 multichoiceId=4 ignoreBPress=0
+    081F7809  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081F780E  compare_var_to_value var=0x8000 value=0
+    081F7813  goto_if              condition=1 destination=0x081F7AD7
+    081F7819  compare_var_to_value var=0x8000 value=1
+    081F781E  goto_if              condition=1 destination=0x081F7DBB
+    081F7824  compare_var_to_value var=0x8000 value=127
+    081F7829  goto_if              condition=1 destination=0x081F7DBB
+    081F782F  end                  
+
+  script 0x081F7830  [ok]
+    081F7830  multichoice          x=15 y=8 multichoiceId=5 ignoreBPress=0
+    081F7835  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081F783A  compare_var_to_value var=0x8000 value=0
+    081F783F  goto_if              condition=1 destination=0x081F7C49
+    081F7845  compare_var_to_value var=0x8000 value=1
+    081F784A  goto_if              condition=1 destination=0x081F7DBB
+    081F7850  compare_var_to_value var=0x8000 value=127
+    081F7855  goto_if              condition=1 destination=0x081F7DBB
+    081F785B  end                  
+
+  script 0x081F785C  [ok]
+    081F785C  multichoice          x=15 y=6 multichoiceId=6 ignoreBPress=0
+    081F7861  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081F7866  compare_var_to_value var=0x8000 value=0
+    081F786B  goto_if              condition=1 destination=0x081F7965
+    081F7871  compare_var_to_value var=0x8000 value=1
+    081F7876  goto_if              condition=1 destination=0x081F7AD7
+    081F787C  compare_var_to_value var=0x8000 value=2
+    081F7881  goto_if              condition=1 destination=0x081F7DBB
+    081F7887  compare_var_to_value var=0x8000 value=127
+    081F788C  goto_if              condition=1 destination=0x081F7DBB
+    081F7892  end                  
+
+  script 0x081F7893  [ok]
+    081F7893  multichoice          x=15 y=6 multichoiceId=7 ignoreBPress=0
+    081F7898  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081F789D  compare_var_to_value var=0x8000 value=0
+    081F78A2  goto_if              condition=1 destination=0x081F7965
+    081F78A8  compare_var_to_value var=0x8000 value=1
+    081F78AD  goto_if              condition=1 destination=0x081F7C49
+    081F78B3  compare_var_to_value var=0x8000 value=2
+    081F78B8  goto_if              condition=1 destination=0x081F7DBB
+    081F78BE  compare_var_to_value var=0x8000 value=127
+    081F78C3  goto_if              condition=1 destination=0x081F7DBB
+    081F78C9  end                  
+
+  script 0x081F78CA  [ok]
+    081F78CA  multichoice          x=15 y=6 multichoiceId=8 ignoreBPress=0
+    081F78CF  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081F78D4  compare_var_to_value var=0x8000 value=0
+    081F78D9  goto_if              condition=1 destination=0x081F7AD7
+    081F78DF  compare_var_to_value var=0x8000 value=1
+    081F78E4  goto_if              condition=1 destination=0x081F7C49
+    081F78EA  compare_var_to_value var=0x8000 value=2
+    081F78EF  goto_if              condition=1 destination=0x081F7DBB
+    081F78F5  compare_var_to_value var=0x8000 value=127
+    081F78FA  goto_if              condition=1 destination=0x081F7DBB
+    081F7900  end                  
+
+  script 0x081F7901  [ok]
+    081F7901  multichoice          x=15 y=5 multichoiceId=9 ignoreBPress=0
+    081F7906  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    081F790B  compare_var_to_value var=0x8000 value=0
+    081F7910  goto_if              condition=1 destination=0x081F7965
+    081F7916  compare_var_to_value var=0x8000 value=1
+    081F791B  goto_if              condition=1 destination=0x081F7AD7
+    081F7921  compare_var_to_value var=0x8000 value=2
+    081F7926  goto_if              condition=1 destination=0x081F7C49
+    081F792C  compare_var_to_value var=0x8000 value=3
+    081F7931  goto_if              condition=1 destination=0x081F7DBB
+    081F7937  compare_var_to_value var=0x8000 value=127
+    081F793C  goto_if              condition=1 destination=0x081F7DBB
+    081F7942  end                  
+
+  script 0x081F7965  [ok]
+    081F7965  compare_var_to_value var=0x8004 value=39
+    081F796A  goto_if              condition=3 destination=0x081F7992
+    081F7970  compare_var_to_value var=0x8004 value=99
+    081F7975  goto_if              condition=3 destination=0x081F79C8
+    081F797B  compare_var_to_value var=0x8004 value=199
+    081F7980  goto_if              condition=3 destination=0x081F79FE
+    081F7986  compare_var_to_value var=0x8004 value=200
+    081F798B  goto_if              condition=4 destination=0x081F7A34
+    081F7991  end                  
+
+  script 0x081F7DBB  [ok]
+    081F7DBB  release              
+
+  script 0x081F7AD7  [ok]
+    081F7AD7  compare_var_to_value var=0x8005 value=99
+    081F7ADC  goto_if              condition=3 destination=0x081F7B04
+    081F7AE2  compare_var_to_value var=0x8005 value=199
+    081F7AE7  goto_if              condition=3 destination=0x081F7B3A
+    081F7AED  compare_var_to_value var=0x8005 value=299
+    081F7AF2  goto_if              condition=3 destination=0x081F7B70
+    081F7AF8  compare_var_to_value var=0x8005 value=300
+    081F7AFD  goto_if              condition=4 destination=0x081F7BA6
+    081F7B03  end                  
+
+  script 0x081F7C49  [ok]
+    081F7C49  compare_var_to_value var=0x8006 value=19
+    081F7C4E  goto_if              condition=3 destination=0x081F7C76
+    081F7C54  compare_var_to_value var=0x8006 value=49
+    081F7C59  goto_if              condition=3 destination=0x081F7CAC
+    081F7C5F  compare_var_to_value var=0x8006 value=99
+    081F7C64  goto_if              condition=3 destination=0x081F7CE2
+    081F7C6A  compare_var_to_value var=0x8006 value=100
+    081F7C6F  goto_if              condition=4 destination=0x081F7D18
+    081F7C75  end                  
+
+  script 0x081F7992  [ok]
+    081F7992  compare_var_to_value var=0x4049 value=1
+    081F7997  goto_if              condition=1 destination=0x081F7A6A
+    081F799D  setvar               destination=VAR_0x4049 value=1
+    081F79A2  msgbox_multilang     type=0 text_0="Oh, wow, you made it into the\nHall of Fame.\pThat’s pretty good, yup!\nI’ll give you one of these." text_1="Oh, wow, you made it into the\nHall of Fame.\pThat’s pretty good, yup!\nI’ll give you one of these." text_2="Oh, wow, you made it into the\nHall of Fame.\pThat’s pretty good, yup!\nI’ll give you one of these." text_3="Oh, wow, you made it into the\nHall of Fame.\pThat’s pretty good, yup!\nI’ll give you one of these." text_4="Oh, wow, you made it into the\nHall of Fame.\pThat’s pretty good, yup!\nI’ll give you one of these." text_5="Oh, wow, you made it into the\nHall of Fame.\pThat’s pretty good, yup!\nI’ll give you one of these." text_6="Oh, wow, you made it into the\nHall of Fame.\pThat’s pretty good, yup!\nI’ll give you one of these."
+    081F79C0  callstd              function=MSGBOX_DEFAULT(4)
+    081F79C2  goto                 destination=0x081F7AAE
+
+  script 0x081F79C8  [ok]
+    081F79C8  compare_var_to_value var=0x4049 value=2
+    081F79CD  goto_if              condition=1 destination=0x081F7A6A
+    081F79D3  setvar               destination=VAR_0x4049 value=2
+    081F79D8  msgbox_multilang     type=0 text_0="Oh, wow, you’ve entered the\nHall of Fame often!\pThat’s impressive, yup!\nI’ll give you one of these." text_1="Oh, wow, you’ve entered the\nHall of Fame often!\pThat’s impressive, yup!\nI’ll give you one of these." text_2="Oh, wow, you’ve entered the\nHall of Fame often!\pThat’s impressive, yup!\nI’ll give you one of these." text_3="Oh, wow, you’ve entered the\nHall of Fame often!\pThat’s impressive, yup!\nI’ll give you one of these." text_4="Oh, wow, you’ve entered the\nHall of Fame often!\pThat’s impressive, yup!\nI’ll give you one of these." text_5="Oh, wow, you’ve entered the\nHall of Fame often!\pThat’s impressive, yup!\nI’ll give you one of these." text_6="Oh, wow, you’ve entered the\nHall of Fame often!\pThat’s impressive, yup!\nI’ll give you one of these."
+    081F79F6  callstd              function=MSGBOX_DEFAULT(4)
+    081F79F8  goto                 destination=0x081F7AAE
+
+  script 0x081F79FE  [ok]
+    081F79FE  compare_var_to_value var=0x4049 value=3
+    081F7A03  goto_if              condition=1 destination=0x081F7A6A
+    081F7A09  setvar               destination=VAR_0x4049 value=3
+    081F7A0E  msgbox_multilang     type=0 text_0="Whoa! You’ve made it into the\nHall of Fame that often?\pThat’s seriously incredible, yup!\pYou own the Pokémon League!\nI’ll give you one of these." text_1="Whoa! You’ve made it into the\nHall of Fame that often?\pThat’s seriously incredible, yup!\pYou own the Pokémon League!\nI’ll give you one of these." text_2="Whoa! You’ve made it into the\nHall of Fame that often?\pThat’s seriously incredible, yup!\pYou own the Pokémon League!\nI’ll give you one of these." text_3="Whoa! You’ve made it into the\nHall of Fame that often?\pThat’s seriously incredible, yup!\pYou own the Pokémon League!\nI’ll give you one of these." text_4="Whoa! You’ve made it into the\nHall of Fame that often?\pThat’s seriously incredible, yup!\pYou own the Pokémon League!\nI’ll give you one of these." text_5="Whoa! You’ve made it into the\nHall of Fame that often?\pThat’s seriously incredible, yup!\pYou own the Pokémon League!\nI’ll give you one of these." text_6="Whoa! You’ve made it into the\nHall of Fame that often?\pThat’s seriously incredible, yup!\pYou own the Pokémon League!\nI’ll give you one of these."
+    081F7A2C  callstd              function=MSGBOX_DEFAULT(4)
+    081F7A2E  goto                 destination=0x081F7AAE
+
+  script 0x081F7A34  [ok]
+    081F7A34  compare_var_to_value var=0x4049 value=4
+    081F7A39  goto_if              condition=1 destination=0x081F7A8C
+    081F7A3F  setvar               destination=VAR_0x4049 value=4
+    081F7A44  msgbox_multilang     type=0 text_0="No way! You’ve gone into the\nHall of Fame that many times?\pYou’re beyond incredible, yup!\nThat’s it, I have to give you this." text_1="No way! You’ve gone into the\nHall of Fame that many times?\pYou’re beyond incredible, yup!\nThat’s it, I have to give you this." text_2="No way! You’ve gone into the\nHall of Fame that many times?\pYou’re beyond incredible, yup!\nThat’s it, I have to give you this." text_3="No way! You’ve gone into the\nHall of Fame that many times?\pYou’re beyond incredible, yup!\nThat’s it, I have to give you this." text_4="No way! You’ve gone into the\nHall of Fame that many times?\pYou’re beyond incredible, yup!\nThat’s it, I have to give you this." text_5="No way! You’ve gone into the\nHall of Fame that many times?\pYou’re beyond incredible, yup!\nThat’s it, I have to give you this." text_6="No way! You’ve gone into the\nHall of Fame that many times?\pYou’re beyond incredible, yup!\nThat’s it, I have to give you this."
+    081F7A62  callstd              function=MSGBOX_DEFAULT(4)
+    081F7A64  goto                 destination=0x081F7AAE
+
+  script 0x081F7B04  [ok]
+    081F7B04  compare_var_to_value var=0x404A value=1
+    081F7B09  goto_if              condition=1 destination=0x081F7BDC
+    081F7B0F  setvar               destination=VAR_0x404A value=1
+    081F7B14  msgbox_multilang     type=0 text_0="Oh, wow, there are Pokémon Eggs?\nI didn’t know that!\pThat’s pretty good, yup!\nI’ll give you one of these." text_1="Oh, wow, there are Pokémon Eggs?\nI didn’t know that!\pThat’s pretty good, yup!\nI’ll give you one of these." text_2="Oh, wow, there are Pokémon Eggs?\nI didn’t know that!\pThat’s pretty good, yup!\nI’ll give you one of these." text_3="Oh, wow, there are Pokémon Eggs?\nI didn’t know that!\pThat’s pretty good, yup!\nI’ll give you one of these." text_4="Oh, wow, there are Pokémon Eggs?\nI didn’t know that!\pThat’s pretty good, yup!\nI’ll give you one of these." text_5="Oh, wow, there are Pokémon Eggs?\nI didn’t know that!\pThat’s pretty good, yup!\nI’ll give you one of these." text_6="Oh, wow, there are Pokémon Eggs?\nI didn’t know that!\pThat’s pretty good, yup!\nI’ll give you one of these."
+    081F7B32  callstd              function=MSGBOX_DEFAULT(4)
+    081F7B34  goto                 destination=0x081F7C20
+
+  script 0x081F7B3A  [ok]
+    081F7B3A  compare_var_to_value var=0x404A value=2
+    081F7B3F  goto_if              condition=1 destination=0x081F7BDC
+    081F7B45  setvar               destination=VAR_0x404A value=2
+    081F7B4A  msgbox_multilang     type=0 text_0="You’ve hatched that many Eggs?\nYou really must like them!\pThat’s impressive, yup!\nI’ll give you one of these." text_1="You’ve hatched that many Eggs?\nYou really must like them!\pThat’s impressive, yup!\nI’ll give you one of these." text_2="You’ve hatched that many Eggs?\nYou really must like them!\pThat’s impressive, yup!\nI’ll give you one of these." text_3="You’ve hatched that many Eggs?\nYou really must like them!\pThat’s impressive, yup!\nI’ll give you one of these." text_4="You’ve hatched that many Eggs?\nYou really must like them!\pThat’s impressive, yup!\nI’ll give you one of these." text_5="You’ve hatched that many Eggs?\nYou really must like them!\pThat’s impressive, yup!\nI’ll give you one of these." text_6="You’ve hatched that many Eggs?\nYou really must like them!\pThat’s impressive, yup!\nI’ll give you one of these."
+    081F7B68  callstd              function=MSGBOX_DEFAULT(4)
+    081F7B6A  goto                 destination=0x081F7C20
+
+  script 0x081F7B70  [ok]
+    081F7B70  compare_var_to_value var=0x404A value=3
+    081F7B75  goto_if              condition=1 destination=0x081F7BDC
+    081F7B7B  setvar               destination=VAR_0x404A value=3
+    081F7B80  msgbox_multilang     type=0 text_0="Whoa! You’ve hatched a whole\nbunch of Eggs!\pYou’re an Egg-hatching machine!\nI’ll give you one of these." text_1="Whoa! You’ve hatched a whole\nbunch of Eggs!\pYou’re an Egg-hatching machine!\nI’ll give you one of these." text_2="Whoa! You’ve hatched a whole\nbunch of Eggs!\pYou’re an Egg-hatching machine!\nI’ll give you one of these." text_3="Whoa! You’ve hatched a whole\nbunch of Eggs!\pYou’re an Egg-hatching machine!\nI’ll give you one of these." text_4="Whoa! You’ve hatched a whole\nbunch of Eggs!\pYou’re an Egg-hatching machine!\nI’ll give you one of these." text_5="Whoa! You’ve hatched a whole\nbunch of Eggs!\pYou’re an Egg-hatching machine!\nI’ll give you one of these." text_6="Whoa! You’ve hatched a whole\nbunch of Eggs!\pYou’re an Egg-hatching machine!\nI’ll give you one of these."
+    081F7B9E  callstd              function=MSGBOX_DEFAULT(4)
+    081F7BA0  goto                 destination=0x081F7C20
+
+  script 0x081F7BA6  [ok]
+    081F7BA6  compare_var_to_value var=0x404A value=4
+    081F7BAB  goto_if              condition=1 destination=0x081F7BFE
+    081F7BB1  setvar               destination=VAR_0x404A value=4
+    081F7BB6  msgbox_multilang     type=0 text_0="Wh… You hatched that many Eggs?\pWhat’s behind your love of Eggs?\nIt’s beyond incredible, yup!\pYou’re too awesome, I tell you.\nThat’s it, I have to give you this." text_1="Wh… You hatched that many Eggs?\pWhat’s behind your love of Eggs?\nIt’s beyond incredible, yup!\pYou’re too awesome, I tell you.\nThat’s it, I have to give you this." text_2="Wh… You hatched that many Eggs?\pWhat’s behind your love of Eggs?\nIt’s beyond incredible, yup!\pYou’re too awesome, I tell you.\nThat’s it, I have to give you this." text_3="Wh… You hatched that many Eggs?\pWhat’s behind your love of Eggs?\nIt’s beyond incredible, yup!\pYou’re too awesome, I tell you.\nThat’s it, I have to give you this." text_4="Wh… You hatched that many Eggs?\pWhat’s behind your love of Eggs?\nIt’s beyond incredible, yup!\pYou’re too awesome, I tell you.\nThat’s it, I have to give you this." text_5="Wh… You hatched that many Eggs?\pWhat’s behind your love of Eggs?\nIt’s beyond incredible, yup!\pYou’re too awesome, I tell you.\nThat’s it, I have to give you this." text_6="Wh… You hatched that many Eggs?\pWhat’s behind your love of Eggs?\nIt’s beyond incredible, yup!\pYou’re too awesome, I tell you.\nThat’s it, I have to give you this."
+    081F7BD4  callstd              function=MSGBOX_DEFAULT(4)
+    081F7BD6  goto                 destination=0x081F7C20
+
+  script 0x081F7C76  [ok]
+    081F7C76  compare_var_to_value var=0x404B value=1
+    081F7C7B  goto_if              condition=1 destination=0x081F7D4E
+    081F7C81  setvar               destination=VAR_0x404B value=1
+    081F7C86  msgbox_multilang     type=0 text_0="Oh, wow, you’ve had success\nlink battling?\pYou’re pretty strong, yup!\nI’ll give you one of these." text_1="Oh, wow, you’ve had success\nlink battling?\pYou’re pretty strong, yup!\nI’ll give you one of these." text_2="Oh, wow, you’ve had success\nlink battling?\pYou’re pretty strong, yup!\nI’ll give you one of these." text_3="Oh, wow, you’ve had success\nlink battling?\pYou’re pretty strong, yup!\nI’ll give you one of these." text_4="Oh, wow, you’ve had success\nlink battling?\pYou’re pretty strong, yup!\nI’ll give you one of these." text_5="Oh, wow, you’ve had success\nlink battling?\pYou’re pretty strong, yup!\nI’ll give you one of these." text_6="Oh, wow, you’ve had success\nlink battling?\pYou’re pretty strong, yup!\nI’ll give you one of these."
+    081F7CA4  callstd              function=MSGBOX_DEFAULT(4)
+    081F7CA6  goto                 destination=0x081F7D92
+
+  script 0x081F7CAC  [ok]
+    081F7CAC  compare_var_to_value var=0x404B value=2
+    081F7CB1  goto_if              condition=1 destination=0x081F7D4E
+    081F7CB7  setvar               destination=VAR_0x404B value=2
+    081F7CBC  msgbox_multilang     type=0 text_0="You’ve beaten your friends a lot\nlink battling, huh?\pYou’re impressively strong, yup!\nI’ll give you one of these." text_1="You’ve beaten your friends a lot\nlink battling, huh?\pYou’re impressively strong, yup!\nI’ll give you one of these." text_2="You’ve beaten your friends a lot\nlink battling, huh?\pYou’re impressively strong, yup!\nI’ll give you one of these." text_3="You’ve beaten your friends a lot\nlink battling, huh?\pYou’re impressively strong, yup!\nI’ll give you one of these." text_4="You’ve beaten your friends a lot\nlink battling, huh?\pYou’re impressively strong, yup!\nI’ll give you one of these." text_5="You’ve beaten your friends a lot\nlink battling, huh?\pYou’re impressively strong, yup!\nI’ll give you one of these." text_6="You’ve beaten your friends a lot\nlink battling, huh?\pYou’re impressively strong, yup!\nI’ll give you one of these."
+    081F7CDA  callstd              function=MSGBOX_DEFAULT(4)
+    081F7CDC  goto                 destination=0x081F7D92
+
+  script 0x081F7CE2  [ok]
+    081F7CE2  compare_var_to_value var=0x404B value=3
+    081F7CE7  goto_if              condition=1 destination=0x081F7D4E
+    081F7CED  setvar               destination=VAR_0x404B value=3
+    081F7CF2  msgbox_multilang     type=0 text_0="Whoa! You’ve beaten your friends\na frightful number of times.\pHave you lost friends over this?\nI’ll give you one of these." text_1="Whoa! You’ve beaten your friends\na frightful number of times.\pHave you lost friends over this?\nI’ll give you one of these." text_2="Whoa! You’ve beaten your friends\na frightful number of times.\pHave you lost friends over this?\nI’ll give you one of these." text_3="Whoa! You’ve beaten your friends\na frightful number of times.\pHave you lost friends over this?\nI’ll give you one of these." text_4="Whoa! You’ve beaten your friends\na frightful number of times.\pHave you lost friends over this?\nI’ll give you one of these." text_5="Whoa! You’ve beaten your friends\na frightful number of times.\pHave you lost friends over this?\nI’ll give you one of these." text_6="Whoa! You’ve beaten your friends\na frightful number of times.\pHave you lost friends over this?\nI’ll give you one of these."
+    081F7D10  callstd              function=MSGBOX_DEFAULT(4)
+    081F7D12  goto                 destination=0x081F7D92
+
+  script 0x081F7D18  [ok]
+    081F7D18  compare_var_to_value var=0x404B value=4
+    081F7D1D  goto_if              condition=1 destination=0x081F7D70
+    081F7D23  setvar               destination=VAR_0x404B value=4
+    081F7D28  msgbox_multilang     type=0 text_0="Wh… Wickedly whoa!\nYou’ve won mind-blowingly often!\pIt just knocks me out thinking\nabout how tough you are.\pYou’re the stuff of nightmares!\nThat’s it, I have to give you this." text_1="Wh… Wickedly whoa!\nYou’ve won mind-blowingly often!\pIt just knocks me out thinking\nabout how tough you are.\pYou’re the stuff of nightmares!\nThat’s it, I have to give you this." text_2="Wh… Wickedly whoa!\nYou’ve won mind-blowingly often!\pIt just knocks me out thinking\nabout how tough you are.\pYou’re the stuff of nightmares!\nThat’s it, I have to give you this." text_3="Wh… Wickedly whoa!\nYou’ve won mind-blowingly often!\pIt just knocks me out thinking\nabout how tough you are.\pYou’re the stuff of nightmares!\nThat’s it, I have to give you this." text_4="Wh… Wickedly whoa!\nYou’ve won mind-blowingly often!\pIt just knocks me out thinking\nabout how tough you are.\pYou’re the stuff of nightmares!\nThat’s it, I have to give you this." text_5="Wh… Wickedly whoa!\nYou’ve won mind-blowingly often!\pIt just knocks me out thinking\nabout how tough you are.\pYou’re the stuff of nightmares!\nThat’s it, I have to give you this." text_6="Wh… Wickedly whoa!\nYou’ve won mind-blowingly often!\pIt just knocks me out thinking\nabout how tough you are.\pYou’re the stuff of nightmares!\nThat’s it, I have to give you this."
+    081F7D46  callstd              function=MSGBOX_DEFAULT(4)
+    081F7D48  goto                 destination=0x081F7D92
+
+  script 0x081F7A6A  [ok]
+    081F7A6A  msgbox_multilang     type=0 text_0="Hmm…\pCome back with a better story next\ntime, okay?" text_1="Hmm…\pCome back with a better story next\ntime, okay?" text_2="Hmm…\pCome back with a better story next\ntime, okay?" text_3="Hmm…\pCome back with a better story next\ntime, okay?" text_4="Hmm…\pCome back with a better story next\ntime, okay?" text_5="Hmm…\pCome back with a better story next\ntime, okay?" text_6="Hmm…\pCome back with a better story next\ntime, okay?"
+    081F7A88  callstd              function=MSGBOX_DEFAULT(4)
+    081F7A8A  release              
+
+  script 0x081F7AAE  [ok]
+    081F7AAE  textcolor            color=3
+    081F7AB0  playfanfare          song=367
+    081F7AB3  message              text="The Hall of Fame Sticker was\napplied to the Trainer Card."
+    081F7AB8  buffermovename       stringVarId=130 move=?(2079)
+    081F7ABC  buffermovename       stringVarId=130 move=?(2079)
+    081F7AC0  buffermovename       stringVarId=130 move=?(2079)
+    081F7AC4  buffermovename       stringVarId=130 move=?(2079)
+    081F7AC8  buffermovename       stringVarId=130 move=?(2079)
+    081F7ACC  buffermovename       stringVarId=130 move=?(2079)
+    081F7AD0  waitmessage          
+    081F7AD1  waitfanfare          
+    081F7AD2  delay                frames=90
+    081F7AD5  release              
+
+  script 0x081F7A8C  [ok]
+    081F7A8C  msgbox_multilang     type=0 text_0="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_1="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_2="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_3="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_4="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_5="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_6="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give."
+    081F7AAA  callstd              function=MSGBOX_DEFAULT(4)
+    081F7AAC  release              
+
+  script 0x081F7BDC  [ok]
+    081F7BDC  msgbox_multilang     type=0 text_0="Hmm…\pCome back with a better story next\ntime, okay?" text_1="Hmm…\pCome back with a better story next\ntime, okay?" text_2="Hmm…\pCome back with a better story next\ntime, okay?" text_3="Hmm…\pCome back with a better story next\ntime, okay?" text_4="Hmm…\pCome back with a better story next\ntime, okay?" text_5="Hmm…\pCome back with a better story next\ntime, okay?" text_6="Hmm…\pCome back with a better story next\ntime, okay?"
+    081F7BFA  callstd              function=MSGBOX_DEFAULT(4)
+    081F7BFC  release              
+
+  script 0x081F7C20  [ok]
+    081F7C20  textcolor            color=3
+    081F7C22  playfanfare          song=367
+    081F7C25  message              text="The Egg Sticker was applied\nto the Trainer Card."
+    081F7C2A  clearflag            flag=0x1F85
+    081F7C2D  gotostd              function=42
+    081F7C2F  bufferstring         stringVarId=31 text=528820744
+    081F7C35  gotostd              function=42
+    081F7C37  bufferstring         stringVarId=31 text=528820744
+    081F7C3D  gotostd              function=42
+    081F7C3F  bufferstring         stringVarId=31 text=674391560
+    081F7C45  faceplayer           
+    081F7C46  nop                  
+    081F7C47  release              
+
+  script 0x081F7BFE  [ok]
+    081F7BFE  msgbox_multilang     type=0 text_0="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_1="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_2="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_3="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_4="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_5="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_6="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give."
+    081F7C1C  callstd              function=MSGBOX_DEFAULT(4)
+    081F7C1E  release              
+
+  script 0x081F7D4E  [ok]
+    081F7D4E  msgbox_multilang     type=0 text_0="Hmm…\pCome back with a better story next\ntime, okay?" text_1="Hmm…\pCome back with a better story next\ntime, okay?" text_2="Hmm…\pCome back with a better story next\ntime, okay?" text_3="Hmm…\pCome back with a better story next\ntime, okay?" text_4="Hmm…\pCome back with a better story next\ntime, okay?" text_5="Hmm…\pCome back with a better story next\ntime, okay?" text_6="Hmm…\pCome back with a better story next\ntime, okay?"
+    081F7D6C  callstd              function=MSGBOX_DEFAULT(4)
+    081F7D6E  release              
+
+  script 0x081F7D92  [ok]
+    081F7D92  textcolor            color=3
+    081F7D94  playfanfare          song=367
+    081F7D97  message              text="The Victory Sticker was applied\nto the Trainer Card."
+    081F7D9C  msgbox_multilang     type=135 text_0=2279999519 text_1=2279999519 text_2=2279999519 text_3=2279999519 text_4=2279999519 text_5=845547551 text_6=1811962408
+    081F7DBA  end                  
+
+  script 0x081F7D70  [ok]
+    081F7D70  msgbox_multilang     type=0 text_0="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_1="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_2="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_3="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_4="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_5="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give." text_6="Oh, no, no can do.\pYou’re practically a living legend.\nI have no Stickers left to give."
+    081F7D8E  callstd              function=MSGBOX_DEFAULT(4)
+    081F7D90  release              
+

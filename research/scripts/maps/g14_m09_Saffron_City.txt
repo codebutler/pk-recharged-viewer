@@ -1,0 +1,440 @@
+Saffron City  (group 14, map 9)  header 0x08B3D80C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF1, flag 0x0000) -> 0x08271A74
+  script 0x08271A74  [ok]
+    08271A74  lock                 
+    08271A75  faceplayer           
+    08271A76  setvar               destination=VAR_0x8004 value=8
+    08271A7B  special              SPECIAL_\function=420
+    08271A7E  compare_var_to_value var=0x4073 value=0
+    08271A83  goto_if              condition=1 destination=0x08271B41
+    08271A89  specialvar           output=32781 SPECIAL_\function=418
+    08271A8E  compare_var_to_value var=0x800D value=1
+    08271A93  goto_if              condition=1 destination=0x08271ACB
+    08271A99  specialvar           output=32781 SPECIAL_\function=422
+    08271A9E  compare_var_to_value var=0x800D value=7
+    08271AA3  goto_if              condition=1 destination=0x08271B1F
+    08271AA9  msgbox_multilang     type=0 text_0="I’m sorry.\nI was your fan before.\pBut now, you seem to have lost\nthe drive you had before.\pLately, I think {STR_VAR_1} has been\na lot cooler." text_1="I’m sorry.\nI was your fan before.\pBut now, you seem to have lost\nthe drive you had before.\pLately, I think {STR_VAR_1} has been\na lot cooler." text_2="I’m sorry.\nI was your fan before.\pBut now, you seem to have lost\nthe drive you had before.\pLately, I think {STR_VAR_1} has been\na lot cooler." text_3="I’m sorry.\nI was your fan before.\pBut now, you seem to have lost\nthe drive you had before.\pLately, I think {STR_VAR_1} has been\na lot cooler." text_4="I’m sorry.\nI was your fan before.\pBut now, you seem to have lost\nthe drive you had before.\pLately, I think {STR_VAR_1} has been\na lot cooler." text_5="I’m sorry.\nI was your fan before.\pBut now, you seem to have lost\nthe drive you had before.\pLately, I think {STR_VAR_1} has been\na lot cooler." text_6="I’m sorry.\nI was your fan before.\pBut now, you seem to have lost\nthe drive you had before.\pLately, I think {STR_VAR_1} has been\na lot cooler."
+    08271AC7  callstd              function=MSGBOX_DEFAULT(4)
+    08271AC9  release              
+
+  script 0x08271B41  [ok]
+    08271B41  msgbox_multilang     type=0 text_0="I think Trainers are so cool when\nthey’re battling.\pDon’t you think so, too?" text_1="I think Trainers are so cool when\nthey’re battling.\pDon’t you think so, too?" text_2="I think Trainers are so cool when\nthey’re battling.\pDon’t you think so, too?" text_3="I think Trainers are so cool when\nthey’re battling.\pDon’t you think so, too?" text_4="I think Trainers are so cool when\nthey’re battling.\pDon’t you think so, too?" text_5="I think Trainers are so cool when\nthey’re battling.\pDon’t you think so, too?" text_6="I think Trainers are so cool when\nthey’re battling.\pDon’t you think so, too?"
+    08271B5F  callstd              function=MSGBOX_DEFAULT(4)
+    08271B61  release              
+
+  script 0x08271ACB  [ok]
+    08271ACB  specialvar           output=32781 SPECIAL_\function=422
+    08271AD0  compare_var_to_value var=0x800D value=1
+    08271AD5  goto_if              condition=1 destination=0x08271AFD
+    08271ADB  msgbox_multilang     type=0 text_0="I’ll always be cheering for you!\pGo, {PLAYER}, go!" text_1="I’ll always be cheering for you!\pGo, {PLAYER}, go!" text_2="I’ll always be cheering for you!\pGo, {PLAYER}, go!" text_3="I’ll always be cheering for you!\pGo, {PLAYER}, go!" text_4="I’ll always be cheering for you!\pGo, {PLAYER}, go!" text_5="I’ll always be cheering for you!\pGo, {PLAYER}, go!" text_6="I’ll always be cheering for you!\pGo, {PLAYER}, go!"
+    08271AF9  callstd              function=MSGBOX_DEFAULT(4)
+    08271AFB  release              
+
+  script 0x08271B1F  [ok]
+    08271B1F  msgbox_multilang     type=0 text_0="Oh!\n{PLAYER}!\pEveryone’s been all excited about\nyou recently.\pI can understand why.\nI know that you’re strong.\pBut, do you know what?\pOnce I became {STR_VAR_1}’s fan,\nI can’t just stop being a fan." text_1="Oh!\n{PLAYER}!\pEveryone’s been all excited about\nyou recently.\pI can understand why.\nI know that you’re strong.\pBut, do you know what?\pOnce I became {STR_VAR_1}’s fan,\nI can’t just stop being a fan." text_2="Oh!\n{PLAYER}!\pEveryone’s been all excited about\nyou recently.\pI can understand why.\nI know that you’re strong.\pBut, do you know what?\pOnce I became {STR_VAR_1}’s fan,\nI can’t just stop being a fan." text_3="Oh!\n{PLAYER}!\pEveryone’s been all excited about\nyou recently.\pI can understand why.\nI know that you’re strong.\pBut, do you know what?\pOnce I became {STR_VAR_1}’s fan,\nI can’t just stop being a fan." text_4="Oh!\n{PLAYER}!\pEveryone’s been all excited about\nyou recently.\pI can understand why.\nI know that you’re strong.\pBut, do you know what?\pOnce I became {STR_VAR_1}’s fan,\nI can’t just stop being a fan." text_5="Oh!\n{PLAYER}!\pEveryone’s been all excited about\nyou recently.\pI can understand why.\nI know that you’re strong.\pBut, do you know what?\pOnce I became {STR_VAR_1}’s fan,\nI can’t just stop being a fan." text_6="Oh!\n{PLAYER}!\pEveryone’s been all excited about\nyou recently.\pI can understand why.\nI know that you’re strong.\pBut, do you know what?\pOnce I became {STR_VAR_1}’s fan,\nI can’t just stop being a fan."
+    08271B3D  callstd              function=MSGBOX_DEFAULT(4)
+    08271B3F  release              
+
+  script 0x08271AFD  [ok]
+    08271AFD  msgbox_multilang     type=0 text_0="I’ll always believe in you,\n{PLAYER}.\pPlease show the others what you’re\nlike when you battle seriously." text_1="I’ll always believe in you,\n{PLAYER}.\pPlease show the others what you’re\nlike when you battle seriously." text_2="I’ll always believe in you,\n{PLAYER}.\pPlease show the others what you’re\nlike when you battle seriously." text_3="I’ll always believe in you,\n{PLAYER}.\pPlease show the others what you’re\nlike when you battle seriously." text_4="I’ll always believe in you,\n{PLAYER}.\pPlease show the others what you’re\nlike when you battle seriously." text_5="I’ll always believe in you,\n{PLAYER}.\pPlease show the others what you’re\nlike when you battle seriously." text_6="I’ll always believe in you,\n{PLAYER}.\pPlease show the others what you’re\nlike when you battle seriously."
+    08271B1B  callstd              function=MSGBOX_DEFAULT(4)
+    08271B1D  release              
+
+  object 2 (gfx 0x0C, flag 0x0000) -> 0x08271B63
+  script 0x08271B63  [ok]
+    08271B63  lock                 
+    08271B64  faceplayer           
+    08271B65  setvar               destination=VAR_0x8004 value=11
+    08271B6A  special              SPECIAL_\function=420
+    08271B6D  compare_var_to_value var=0x4073 value=0
+    08271B72  goto_if              condition=1 destination=0x08271C30
+    08271B78  specialvar           output=32781 SPECIAL_\function=418
+    08271B7D  compare_var_to_value var=0x800D value=1
+    08271B82  goto_if              condition=1 destination=0x08271BBA
+    08271B88  specialvar           output=32781 SPECIAL_\function=422
+    08271B8D  compare_var_to_value var=0x800D value=7
+    08271B92  goto_if              condition=1 destination=0x08271C0E
+    08271B98  msgbox_multilang     type=0 text_0="Do you know what?\nI want to be like Sabrina!\pI want to be a psychic girl just\nlike her!" text_1="Do you know what?\nI want to be like Sabrina!\pI want to be a psychic girl just\nlike her!" text_2="Do you know what?\nI want to be like Sabrina!\pI want to be a psychic girl just\nlike her!" text_3="Do you know what?\nI want to be like Sabrina!\pI want to be a psychic girl just\nlike her!" text_4="Do you know what?\nI want to be like Sabrina!\pI want to be a psychic girl just\nlike her!" text_5="Do you know what?\nI want to be like Sabrina!\pI want to be a psychic girl just\nlike her!" text_6="Do you know what?\nI want to be like Sabrina!\pI want to be a psychic girl just\nlike her!"
+    08271BB6  callstd              function=MSGBOX_DEFAULT(4)
+    08271BB8  release              
+
+  script 0x08271C30  [ok]
+    08271C30  msgbox_multilang     type=0 text_0="I wonder if I can become a cool\nTrainer one day?" text_1="I wonder if I can become a cool\nTrainer one day?" text_2="I wonder if I can become a cool\nTrainer one day?" text_3="I wonder if I can become a cool\nTrainer one day?" text_4="I wonder if I can become a cool\nTrainer one day?" text_5="I wonder if I can become a cool\nTrainer one day?" text_6="I wonder if I can become a cool\nTrainer one day?"
+    08271C4E  callstd              function=MSGBOX_DEFAULT(4)
+    08271C50  release              
+
+  script 0x08271BBA  [ok]
+    08271BBA  specialvar           output=32781 SPECIAL_\function=422
+    08271BBF  compare_var_to_value var=0x800D value=1
+    08271BC4  goto_if              condition=1 destination=0x08271BEC
+    08271BCA  msgbox_multilang     type=0 text_0="It’s {PLAYER}!\nIt’s {PLAYER}!\pI want to be like {PLAYER} one day!" text_1="It’s {PLAYER}!\nIt’s {PLAYER}!\pI want to be like {PLAYER} one day!" text_2="It’s {PLAYER}!\nIt’s {PLAYER}!\pI want to be like {PLAYER} one day!" text_3="It’s {PLAYER}!\nIt’s {PLAYER}!\pI want to be like {PLAYER} one day!" text_4="It’s {PLAYER}!\nIt’s {PLAYER}!\pI want to be like {PLAYER} one day!" text_5="It’s {PLAYER}!\nIt’s {PLAYER}!\pI want to be like {PLAYER} one day!" text_6="It’s {PLAYER}!\nIt’s {PLAYER}!\pI want to be like {PLAYER} one day!"
+    08271BE8  callstd              function=MSGBOX_DEFAULT(4)
+    08271BEA  release              
+
+  script 0x08271C0E  [ok]
+    08271C0E  msgbox_multilang     type=0 text_0="Even if I’m the only one, I won’t\nstop being Sabrina’s fan.\pMy dream is to be like Sabrina,\ncute, but cool.\pI want to be a psychic girl just\nlike her!" text_1="Even if I’m the only one, I won’t\nstop being Sabrina’s fan.\pMy dream is to be like Sabrina,\ncute, but cool.\pI want to be a psychic girl just\nlike her!" text_2="Even if I’m the only one, I won’t\nstop being Sabrina’s fan.\pMy dream is to be like Sabrina,\ncute, but cool.\pI want to be a psychic girl just\nlike her!" text_3="Even if I’m the only one, I won’t\nstop being Sabrina’s fan.\pMy dream is to be like Sabrina,\ncute, but cool.\pI want to be a psychic girl just\nlike her!" text_4="Even if I’m the only one, I won’t\nstop being Sabrina’s fan.\pMy dream is to be like Sabrina,\ncute, but cool.\pI want to be a psychic girl just\nlike her!" text_5="Even if I’m the only one, I won’t\nstop being Sabrina’s fan.\pMy dream is to be like Sabrina,\ncute, but cool.\pI want to be a psychic girl just\nlike her!" text_6="Even if I’m the only one, I won’t\nstop being Sabrina’s fan.\pMy dream is to be like Sabrina,\ncute, but cool.\pI want to be a psychic girl just\nlike her!"
+    08271C2C  callstd              function=MSGBOX_DEFAULT(4)
+    08271C2E  release              
+
+  script 0x08271BEC  [ok]
+    08271BEC  msgbox_multilang     type=0 text_0="Everyone stopped being {PLAYER}’s\nfan…\pBut that means I can have {PLAYER}\nall to myself!\pYay! Go for it!\nMy one and only {PLAYER}!" text_1="Everyone stopped being {PLAYER}’s\nfan…\pBut that means I can have {PLAYER}\nall to myself!\pYay! Go for it!\nMy one and only {PLAYER}!" text_2="Everyone stopped being {PLAYER}’s\nfan…\pBut that means I can have {PLAYER}\nall to myself!\pYay! Go for it!\nMy one and only {PLAYER}!" text_3="Everyone stopped being {PLAYER}’s\nfan…\pBut that means I can have {PLAYER}\nall to myself!\pYay! Go for it!\nMy one and only {PLAYER}!" text_4="Everyone stopped being {PLAYER}’s\nfan…\pBut that means I can have {PLAYER}\nall to myself!\pYay! Go for it!\nMy one and only {PLAYER}!" text_5="Everyone stopped being {PLAYER}’s\nfan…\pBut that means I can have {PLAYER}\nall to myself!\pYay! Go for it!\nMy one and only {PLAYER}!" text_6="Everyone stopped being {PLAYER}’s\nfan…\pBut that means I can have {PLAYER}\nall to myself!\pYay! Go for it!\nMy one and only {PLAYER}!"
+    08271C0A  callstd              function=MSGBOX_DEFAULT(4)
+    08271C0C  release              
+
+  object 3 (gfx 0x23, flag 0x0000) -> 0x08271C52
+  script 0x08271C52  [ok]
+    08271C52  lock                 
+    08271C53  faceplayer           
+    08271C54  setvar               destination=VAR_0x8004 value=9
+    08271C59  special              SPECIAL_\function=420
+    08271C5C  compare_var_to_value var=0x4073 value=0
+    08271C61  goto_if              condition=1 destination=0x08271D1F
+    08271C67  specialvar           output=32781 SPECIAL_\function=418
+    08271C6C  compare_var_to_value var=0x800D value=1
+    08271C71  goto_if              condition=1 destination=0x08271CA9
+    08271C77  specialvar           output=32781 SPECIAL_\function=422
+    08271C7C  compare_var_to_value var=0x800D value=7
+    08271C81  goto_if              condition=1 destination=0x08271CFD
+    08271C87  msgbox_multilang     type=0 text_0="Brock’s my hero!\nHe’s a man among men!\pHeheh, I got my mom to do\nsomething for me.\pI got her to embroider “Brock”\non my shorts!" text_1="Brock’s my hero!\nHe’s a man among men!\pHeheh, I got my mom to do\nsomething for me.\pI got her to embroider “Brock”\non my shorts!" text_2="Brock’s my hero!\nHe’s a man among men!\pHeheh, I got my mom to do\nsomething for me.\pI got her to embroider “Brock”\non my shorts!" text_3="Brock’s my hero!\nHe’s a man among men!\pHeheh, I got my mom to do\nsomething for me.\pI got her to embroider “Brock”\non my shorts!" text_4="Brock’s my hero!\nHe’s a man among men!\pHeheh, I got my mom to do\nsomething for me.\pI got her to embroider “Brock”\non my shorts!" text_5="Brock’s my hero!\nHe’s a man among men!\pHeheh, I got my mom to do\nsomething for me.\pI got her to embroider “Brock”\non my shorts!" text_6="Brock’s my hero!\nHe’s a man among men!\pHeheh, I got my mom to do\nsomething for me.\pI got her to embroider “Brock”\non my shorts!"
+    08271CA5  callstd              function=MSGBOX_DEFAULT(4)
+    08271CA7  release              
+
+  script 0x08271D1F  [ok]
+    08271D1F  msgbox_multilang     type=0 text_0="Brock’s the last word on cool,\nend of story!\pNow there’s a guy who I want to\nbe like!" text_1="Brock’s the last word on cool,\nend of story!\pNow there’s a guy who I want to\nbe like!" text_2="Brock’s the last word on cool,\nend of story!\pNow there’s a guy who I want to\nbe like!" text_3="Brock’s the last word on cool,\nend of story!\pNow there’s a guy who I want to\nbe like!" text_4="Brock’s the last word on cool,\nend of story!\pNow there’s a guy who I want to\nbe like!" text_5="Brock’s the last word on cool,\nend of story!\pNow there’s a guy who I want to\nbe like!" text_6="Brock’s the last word on cool,\nend of story!\pNow there’s a guy who I want to\nbe like!"
+    08271D3D  callstd              function=MSGBOX_DEFAULT(4)
+    08271D3F  release              
+
+  script 0x08271CA9  [ok]
+    08271CA9  specialvar           output=32781 SPECIAL_\function=422
+    08271CAE  compare_var_to_value var=0x800D value=1
+    08271CB3  goto_if              condition=1 destination=0x08271CDB
+    08271CB9  msgbox_multilang     type=0 text_0="Oh! It’s {PLAYER}!\nToo cool!\pOh!\nOh, yeah!\pCan you autograph something?\nHow about my shorts?" text_1="Oh! It’s {PLAYER}!\nToo cool!\pOh!\nOh, yeah!\pCan you autograph something?\nHow about my shorts?" text_2="Oh! It’s {PLAYER}!\nToo cool!\pOh!\nOh, yeah!\pCan you autograph something?\nHow about my shorts?" text_3="Oh! It’s {PLAYER}!\nToo cool!\pOh!\nOh, yeah!\pCan you autograph something?\nHow about my shorts?" text_4="Oh! It’s {PLAYER}!\nToo cool!\pOh!\nOh, yeah!\pCan you autograph something?\nHow about my shorts?" text_5="Oh! It’s {PLAYER}!\nToo cool!\pOh!\nOh, yeah!\pCan you autograph something?\nHow about my shorts?" text_6="Oh! It’s {PLAYER}!\nToo cool!\pOh!\nOh, yeah!\pCan you autograph something?\nHow about my shorts?"
+    08271CD7  callstd              function=MSGBOX_DEFAULT(4)
+    08271CD9  release              
+
+  script 0x08271CFD  [ok]
+    08271CFD  msgbox_multilang     type=0 text_0="…  …\p…  …\nI’m Brock’s fan!\pEven if I were his only fan,\nI swear it on my rock-hard will,\pand on my shorts!\pI’ll be his fan to the bitter end!" text_1="…  …\p…  …\nI’m Brock’s fan!\pEven if I were his only fan,\nI swear it on my rock-hard will,\pand on my shorts!\pI’ll be his fan to the bitter end!" text_2="…  …\p…  …\nI’m Brock’s fan!\pEven if I were his only fan,\nI swear it on my rock-hard will,\pand on my shorts!\pI’ll be his fan to the bitter end!" text_3="…  …\p…  …\nI’m Brock’s fan!\pEven if I were his only fan,\nI swear it on my rock-hard will,\pand on my shorts!\pI’ll be his fan to the bitter end!" text_4="…  …\p…  …\nI’m Brock’s fan!\pEven if I were his only fan,\nI swear it on my rock-hard will,\pand on my shorts!\pI’ll be his fan to the bitter end!" text_5="…  …\p…  …\nI’m Brock’s fan!\pEven if I were his only fan,\nI swear it on my rock-hard will,\pand on my shorts!\pI’ll be his fan to the bitter end!" text_6="…  …\p…  …\nI’m Brock’s fan!\pEven if I were his only fan,\nI swear it on my rock-hard will,\pand on my shorts!\pI’ll be his fan to the bitter end!"
+    08271D1B  callstd              function=MSGBOX_DEFAULT(4)
+    08271D1D  release              
+
+  script 0x08271CDB  [ok]
+    08271CDB  msgbox_multilang     type=0 text_0="However hot it’s been…\pAnd however cold it may get…\pI’ve always believed in, and worn,\nshorts!\pI’m counting on you to keep\nwinning!\pI believe in you just as much as\nI believe in shorts!" text_1="However hot it’s been…\pAnd however cold it may get…\pI’ve always believed in, and worn,\nshorts!\pI’m counting on you to keep\nwinning!\pI believe in you just as much as\nI believe in shorts!" text_2="However hot it’s been…\pAnd however cold it may get…\pI’ve always believed in, and worn,\nshorts!\pI’m counting on you to keep\nwinning!\pI believe in you just as much as\nI believe in shorts!" text_3="However hot it’s been…\pAnd however cold it may get…\pI’ve always believed in, and worn,\nshorts!\pI’m counting on you to keep\nwinning!\pI believe in you just as much as\nI believe in shorts!" text_4="However hot it’s been…\pAnd however cold it may get…\pI’ve always believed in, and worn,\nshorts!\pI’m counting on you to keep\nwinning!\pI believe in you just as much as\nI believe in shorts!" text_5="However hot it’s been…\pAnd however cold it may get…\pI’ve always believed in, and worn,\nshorts!\pI’m counting on you to keep\nwinning!\pI believe in you just as much as\nI believe in shorts!" text_6="However hot it’s been…\pAnd however cold it may get…\pI’ve always believed in, and worn,\nshorts!\pI’m counting on you to keep\nwinning!\pI believe in you just as much as\nI believe in shorts!"
+    08271CF9  callstd              function=MSGBOX_DEFAULT(4)
+    08271CFB  release              
+
+  object 4 (gfx 0x30, flag 0x0000) -> 0x08271D41
+  script 0x08271D41  [ok]
+    08271D41  lock                 
+    08271D42  faceplayer           
+    08271D43  setvar               destination=VAR_0x8004 value=10
+    08271D48  special              SPECIAL_\function=420
+    08271D4B  compare_var_to_value var=0x4073 value=0
+    08271D50  goto_if              condition=1 destination=0x08271E0E
+    08271D56  specialvar           output=32781 SPECIAL_\function=418
+    08271D5B  compare_var_to_value var=0x800D value=1
+    08271D60  goto_if              condition=1 destination=0x08271D98
+    08271D66  specialvar           output=32781 SPECIAL_\function=422
+    08271D6B  compare_var_to_value var=0x800D value=7
+    08271D70  goto_if              condition=1 destination=0x08271DEC
+    08271D76  msgbox_multilang     type=0 text_0="Hmm…\nAnd you are?\pWere you hoping to sign up for\na membership in our Fan Club?" text_1="Hmm…\nAnd you are?\pWere you hoping to sign up for\na membership in our Fan Club?" text_2="Hmm…\nAnd you are?\pWere you hoping to sign up for\na membership in our Fan Club?" text_3="Hmm…\nAnd you are?\pWere you hoping to sign up for\na membership in our Fan Club?" text_4="Hmm…\nAnd you are?\pWere you hoping to sign up for\na membership in our Fan Club?" text_5="Hmm…\nAnd you are?\pWere you hoping to sign up for\na membership in our Fan Club?" text_6="Hmm…\nAnd you are?\pWere you hoping to sign up for\na membership in our Fan Club?"
+    08271D94  callstd              function=MSGBOX_DEFAULT(4)
+    08271D96  release              
+
+  script 0x08271E0E  [ok]
+    08271E0E  msgbox_multilang     type=0 text_0="All of us gathered here are fans\nof Pokémon Trainers.\pThe way they look in battle…\nThey are the picture of coolness.\pPerhaps you will be talked about\nhere, too, if you keep winning." text_1="All of us gathered here are fans\nof Pokémon Trainers.\pThe way they look in battle…\nThey are the picture of coolness.\pPerhaps you will be talked about\nhere, too, if you keep winning." text_2="All of us gathered here are fans\nof Pokémon Trainers.\pThe way they look in battle…\nThey are the picture of coolness.\pPerhaps you will be talked about\nhere, too, if you keep winning." text_3="All of us gathered here are fans\nof Pokémon Trainers.\pThe way they look in battle…\nThey are the picture of coolness.\pPerhaps you will be talked about\nhere, too, if you keep winning." text_4="All of us gathered here are fans\nof Pokémon Trainers.\pThe way they look in battle…\nThey are the picture of coolness.\pPerhaps you will be talked about\nhere, too, if you keep winning." text_5="All of us gathered here are fans\nof Pokémon Trainers.\pThe way they look in battle…\nThey are the picture of coolness.\pPerhaps you will be talked about\nhere, too, if you keep winning." text_6="All of us gathered here are fans\nof Pokémon Trainers.\pThe way they look in battle…\nThey are the picture of coolness.\pPerhaps you will be talked about\nhere, too, if you keep winning."
+    08271E2C  callstd              function=MSGBOX_DEFAULT(4)
+    08271E2E  release              
+
+  script 0x08271D98  [ok]
+    08271D98  specialvar           output=32781 SPECIAL_\function=422
+    08271D9D  compare_var_to_value var=0x800D value=1
+    08271DA2  goto_if              condition=1 destination=0x08271DCA
+    08271DA8  msgbox_multilang     type=0 text_0="{PLAYER}, I’ve had the pleasure of\nwatching you battle.\pIt brings back sweet memories of\nmy own long-lost youth.\pMay you continue to find success.\nYou have a fan in me!" text_1="{PLAYER}, I’ve had the pleasure of\nwatching you battle.\pIt brings back sweet memories of\nmy own long-lost youth.\pMay you continue to find success.\nYou have a fan in me!" text_2="{PLAYER}, I’ve had the pleasure of\nwatching you battle.\pIt brings back sweet memories of\nmy own long-lost youth.\pMay you continue to find success.\nYou have a fan in me!" text_3="{PLAYER}, I’ve had the pleasure of\nwatching you battle.\pIt brings back sweet memories of\nmy own long-lost youth.\pMay you continue to find success.\nYou have a fan in me!" text_4="{PLAYER}, I’ve had the pleasure of\nwatching you battle.\pIt brings back sweet memories of\nmy own long-lost youth.\pMay you continue to find success.\nYou have a fan in me!" text_5="{PLAYER}, I’ve had the pleasure of\nwatching you battle.\pIt brings back sweet memories of\nmy own long-lost youth.\pMay you continue to find success.\nYou have a fan in me!" text_6="{PLAYER}, I’ve had the pleasure of\nwatching you battle.\pIt brings back sweet memories of\nmy own long-lost youth.\pMay you continue to find success.\nYou have a fan in me!"
+    08271DC6  callstd              function=MSGBOX_DEFAULT(4)
+    08271DC8  release              
+
+  script 0x08271DEC  [ok]
+    08271DEC  msgbox_multilang     type=0 text_0="Ah, so you are the much-\ntalked-about {PLAYER}.\pYou certainly do have the look of\na winner.\pBut for me to accept you as\na true Pokémon great…\p… …\pYou’ve still a ways to go!" text_1="Ah, so you are the much-\ntalked-about {PLAYER}.\pYou certainly do have the look of\na winner.\pBut for me to accept you as\na true Pokémon great…\p… …\pYou’ve still a ways to go!" text_2="Ah, so you are the much-\ntalked-about {PLAYER}.\pYou certainly do have the look of\na winner.\pBut for me to accept you as\na true Pokémon great…\p… …\pYou’ve still a ways to go!" text_3="Ah, so you are the much-\ntalked-about {PLAYER}.\pYou certainly do have the look of\na winner.\pBut for me to accept you as\na true Pokémon great…\p… …\pYou’ve still a ways to go!" text_4="Ah, so you are the much-\ntalked-about {PLAYER}.\pYou certainly do have the look of\na winner.\pBut for me to accept you as\na true Pokémon great…\p… …\pYou’ve still a ways to go!" text_5="Ah, so you are the much-\ntalked-about {PLAYER}.\pYou certainly do have the look of\na winner.\pBut for me to accept you as\na true Pokémon great…\p… …\pYou’ve still a ways to go!" text_6="Ah, so you are the much-\ntalked-about {PLAYER}.\pYou certainly do have the look of\na winner.\pBut for me to accept you as\na true Pokémon great…\p… …\pYou’ve still a ways to go!"
+    08271E0A  callstd              function=MSGBOX_DEFAULT(4)
+    08271E0C  release              
+
+  script 0x08271DCA  [ok]
+    08271DCA  msgbox_multilang     type=0 text_0="I have journeyed far and wide\nacross the lands.\pBut never have I seen a Trainer\nof your magnificence.\pTake courage in your abilities\nand keep battling on!\pMake that a promise to me,\nmy young idol!" text_1="I have journeyed far and wide\nacross the lands.\pBut never have I seen a Trainer\nof your magnificence.\pTake courage in your abilities\nand keep battling on!\pMake that a promise to me,\nmy young idol!" text_2="I have journeyed far and wide\nacross the lands.\pBut never have I seen a Trainer\nof your magnificence.\pTake courage in your abilities\nand keep battling on!\pMake that a promise to me,\nmy young idol!" text_3="I have journeyed far and wide\nacross the lands.\pBut never have I seen a Trainer\nof your magnificence.\pTake courage in your abilities\nand keep battling on!\pMake that a promise to me,\nmy young idol!" text_4="I have journeyed far and wide\nacross the lands.\pBut never have I seen a Trainer\nof your magnificence.\pTake courage in your abilities\nand keep battling on!\pMake that a promise to me,\nmy young idol!" text_5="I have journeyed far and wide\nacross the lands.\pBut never have I seen a Trainer\nof your magnificence.\pTake courage in your abilities\nand keep battling on!\pMake that a promise to me,\nmy young idol!" text_6="I have journeyed far and wide\nacross the lands.\pBut never have I seen a Trainer\nof your magnificence.\pTake courage in your abilities\nand keep battling on!\pMake that a promise to me,\nmy young idol!"
+    08271DE8  callstd              function=MSGBOX_DEFAULT(4)
+    08271DEA  release              
+
+  object 5 (gfx 0x18, flag 0x006E) -> 0x08271E30
+  script 0x08271E30  [ok]
+    08271E30  lock                 
+    08271E31  faceplayer           
+    08271E32  setvar               destination=VAR_0x8004 value=13
+    08271E37  special              SPECIAL_\function=420
+    08271E3A  specialvar           output=32781 SPECIAL_\function=418
+    08271E3F  compare_var_to_value var=0x800D value=1
+    08271E44  goto_if              condition=1 destination=0x08271E7C
+    08271E4A  specialvar           output=32781 SPECIAL_\function=422
+    08271E4F  compare_var_to_value var=0x800D value=7
+    08271E54  goto_if              condition=1 destination=0x08271ED0
+    08271E5A  msgbox_multilang     type=0 text_0="Recently, {STR_VAR_1} has been on\nfire.\pThe way he battles… It’s just \nthe way that I like it!" text_1="Recently, {STR_VAR_1} has been on\nfire.\pThe way he battles… It’s just \nthe way that I like it!" text_2="Recently, {STR_VAR_1} has been on\nfire.\pThe way he battles… It’s just \nthe way that I like it!" text_3="Recently, {STR_VAR_1} has been on\nfire.\pThe way he battles… It’s just \nthe way that I like it!" text_4="Recently, {STR_VAR_1} has been on\nfire.\pThe way he battles… It’s just \nthe way that I like it!" text_5="Recently, {STR_VAR_1} has been on\nfire.\pThe way he battles… It’s just \nthe way that I like it!" text_6="Recently, {STR_VAR_1} has been on\nfire.\pThe way he battles… It’s just \nthe way that I like it!"
+    08271E78  callstd              function=MSGBOX_DEFAULT(4)
+    08271E7A  release              
+
+  script 0x08271E7C  [ok]
+    08271E7C  specialvar           output=32781 SPECIAL_\function=422
+    08271E81  compare_var_to_value var=0x800D value=1
+    08271E86  goto_if              condition=1 destination=0x08271EAE
+    08271E8C  msgbox_multilang     type=0 text_0="Oh, my goodness!\nIs it really you, {PLAYER}?\pI have to tell you, I adore the\nway you battle.\pI hope you’ll keep at it.\nI’ll be your number one fan!" text_1="Oh, my goodness!\nIs it really you, {PLAYER}?\pI have to tell you, I adore the\nway you battle.\pI hope you’ll keep at it.\nI’ll be your number one fan!" text_2="Oh, my goodness!\nIs it really you, {PLAYER}?\pI have to tell you, I adore the\nway you battle.\pI hope you’ll keep at it.\nI’ll be your number one fan!" text_3="Oh, my goodness!\nIs it really you, {PLAYER}?\pI have to tell you, I adore the\nway you battle.\pI hope you’ll keep at it.\nI’ll be your number one fan!" text_4="Oh, my goodness!\nIs it really you, {PLAYER}?\pI have to tell you, I adore the\nway you battle.\pI hope you’ll keep at it.\nI’ll be your number one fan!" text_5="Oh, my goodness!\nIs it really you, {PLAYER}?\pI have to tell you, I adore the\nway you battle.\pI hope you’ll keep at it.\nI’ll be your number one fan!" text_6="Oh, my goodness!\nIs it really you, {PLAYER}?\pI have to tell you, I adore the\nway you battle.\pI hope you’ll keep at it.\nI’ll be your number one fan!"
+    08271EAA  callstd              function=MSGBOX_DEFAULT(4)
+    08271EAC  release              
+
+  script 0x08271ED0  [ok]
+    08271ED0  msgbox_multilang     type=0 text_0="Oh, hello!\nIf it isn’t {PLAYER}!\pLately, all everyone talks about\nis you.\pI’m feeling lonesome because I\nprefer {STR_VAR_1}." text_1="Oh, hello!\nIf it isn’t {PLAYER}!\pLately, all everyone talks about\nis you.\pI’m feeling lonesome because I\nprefer {STR_VAR_1}." text_2="Oh, hello!\nIf it isn’t {PLAYER}!\pLately, all everyone talks about\nis you.\pI’m feeling lonesome because I\nprefer {STR_VAR_1}." text_3="Oh, hello!\nIf it isn’t {PLAYER}!\pLately, all everyone talks about\nis you.\pI’m feeling lonesome because I\nprefer {STR_VAR_1}." text_4="Oh, hello!\nIf it isn’t {PLAYER}!\pLately, all everyone talks about\nis you.\pI’m feeling lonesome because I\nprefer {STR_VAR_1}." text_5="Oh, hello!\nIf it isn’t {PLAYER}!\pLately, all everyone talks about\nis you.\pI’m feeling lonesome because I\nprefer {STR_VAR_1}." text_6="Oh, hello!\nIf it isn’t {PLAYER}!\pLately, all everyone talks about\nis you.\pI’m feeling lonesome because I\nprefer {STR_VAR_1}."
+    08271EEE  callstd              function=MSGBOX_DEFAULT(4)
+    08271EF0  release              
+
+  script 0x08271EAE  [ok]
+    08271EAE  msgbox_multilang     type=0 text_0="Oh, my goodness!\nIf it isn’t {PLAYER}!\pIt’s so disappointing… I realized\nI’m your number-one-and-only fan!\pWell, it can’t be helped!\nLet me cheer you on, at least!\pHurray, hurray, {PLAYER}!" text_1="Oh, my goodness!\nIf it isn’t {PLAYER}!\pIt’s so disappointing… I realized\nI’m your number-one-and-only fan!\pWell, it can’t be helped!\nLet me cheer you on, at least!\pHurray, hurray, {PLAYER}!" text_2="Oh, my goodness!\nIf it isn’t {PLAYER}!\pIt’s so disappointing… I realized\nI’m your number-one-and-only fan!\pWell, it can’t be helped!\nLet me cheer you on, at least!\pHurray, hurray, {PLAYER}!" text_3="Oh, my goodness!\nIf it isn’t {PLAYER}!\pIt’s so disappointing… I realized\nI’m your number-one-and-only fan!\pWell, it can’t be helped!\nLet me cheer you on, at least!\pHurray, hurray, {PLAYER}!" text_4="Oh, my goodness!\nIf it isn’t {PLAYER}!\pIt’s so disappointing… I realized\nI’m your number-one-and-only fan!\pWell, it can’t be helped!\nLet me cheer you on, at least!\pHurray, hurray, {PLAYER}!" text_5="Oh, my goodness!\nIf it isn’t {PLAYER}!\pIt’s so disappointing… I realized\nI’m your number-one-and-only fan!\pWell, it can’t be helped!\nLet me cheer you on, at least!\pHurray, hurray, {PLAYER}!" text_6="Oh, my goodness!\nIf it isn’t {PLAYER}!\pIt’s so disappointing… I realized\nI’m your number-one-and-only fan!\pWell, it can’t be helped!\nLet me cheer you on, at least!\pHurray, hurray, {PLAYER}!"
+    08271ECC  callstd              function=MSGBOX_DEFAULT(4)
+    08271ECE  release              
+
+  object 6 (gfx 0xF3, flag 0x006D) -> 0x08271EF2
+  script 0x08271EF2  [ok]
+    08271EF2  lock                 
+    08271EF3  faceplayer           
+    08271EF4  setvar               destination=VAR_0x8004 value=12
+    08271EF9  special              SPECIAL_\function=420
+    08271EFC  specialvar           output=32781 SPECIAL_\function=418
+    08271F01  compare_var_to_value var=0x800D value=1
+    08271F06  goto_if              condition=1 destination=0x08271F3E
+    08271F0C  specialvar           output=32781 SPECIAL_\function=422
+    08271F11  compare_var_to_value var=0x800D value=7
+    08271F16  goto_if              condition=1 destination=0x08271F92
+    08271F1C  msgbox_multilang     type=0 text_0="{STR_VAR_1}’s cool, huh?\nI love the way he talks.\pI’d really relish a chance to meet\nhim in person once." text_1="{STR_VAR_1}’s cool, huh?\nI love the way he talks.\pI’d really relish a chance to meet\nhim in person once." text_2="{STR_VAR_1}’s cool, huh?\nI love the way he talks.\pI’d really relish a chance to meet\nhim in person once." text_3="{STR_VAR_1}’s cool, huh?\nI love the way he talks.\pI’d really relish a chance to meet\nhim in person once." text_4="{STR_VAR_1}’s cool, huh?\nI love the way he talks.\pI’d really relish a chance to meet\nhim in person once." text_5="{STR_VAR_1}’s cool, huh?\nI love the way he talks.\pI’d really relish a chance to meet\nhim in person once." text_6="{STR_VAR_1}’s cool, huh?\nI love the way he talks.\pI’d really relish a chance to meet\nhim in person once."
+    08271F3A  callstd              function=MSGBOX_DEFAULT(4)
+    08271F3C  release              
+
+  script 0x08271F3E  [ok]
+    08271F3E  specialvar           output=32781 SPECIAL_\function=422
+    08271F43  compare_var_to_value var=0x800D value=1
+    08271F48  goto_if              condition=1 destination=0x08271F70
+    08271F4E  msgbox_multilang     type=0 text_0="Oh, man, oh, man!\nCool! Too cool!\p…Huh?\nNo, not you.\pJust the way you battle.\nThat’s cool." text_1="Oh, man, oh, man!\nCool! Too cool!\p…Huh?\nNo, not you.\pJust the way you battle.\nThat’s cool." text_2="Oh, man, oh, man!\nCool! Too cool!\p…Huh?\nNo, not you.\pJust the way you battle.\nThat’s cool." text_3="Oh, man, oh, man!\nCool! Too cool!\p…Huh?\nNo, not you.\pJust the way you battle.\nThat’s cool." text_4="Oh, man, oh, man!\nCool! Too cool!\p…Huh?\nNo, not you.\pJust the way you battle.\nThat’s cool." text_5="Oh, man, oh, man!\nCool! Too cool!\p…Huh?\nNo, not you.\pJust the way you battle.\nThat’s cool." text_6="Oh, man, oh, man!\nCool! Too cool!\p…Huh?\nNo, not you.\pJust the way you battle.\nThat’s cool."
+    08271F6C  callstd              function=MSGBOX_DEFAULT(4)
+    08271F6E  release              
+
+  script 0x08271F92  [ok]
+    08271F92  msgbox_multilang     type=0 text_0="Huh, can you believe it?\nEveryone turned into your fans.\pSo after all we’ve been through,\nI’m the lone {STR_VAR_1} fan?\pEh, being the one and only\n{STR_VAR_1} fan’s my style, anyway." text_1="Huh, can you believe it?\nEveryone turned into your fans.\pSo after all we’ve been through,\nI’m the lone {STR_VAR_1} fan?\pEh, being the one and only\n{STR_VAR_1} fan’s my style, anyway." text_2="Huh, can you believe it?\nEveryone turned into your fans.\pSo after all we’ve been through,\nI’m the lone {STR_VAR_1} fan?\pEh, being the one and only\n{STR_VAR_1} fan’s my style, anyway." text_3="Huh, can you believe it?\nEveryone turned into your fans.\pSo after all we’ve been through,\nI’m the lone {STR_VAR_1} fan?\pEh, being the one and only\n{STR_VAR_1} fan’s my style, anyway." text_4="Huh, can you believe it?\nEveryone turned into your fans.\pSo after all we’ve been through,\nI’m the lone {STR_VAR_1} fan?\pEh, being the one and only\n{STR_VAR_1} fan’s my style, anyway." text_5="Huh, can you believe it?\nEveryone turned into your fans.\pSo after all we’ve been through,\nI’m the lone {STR_VAR_1} fan?\pEh, being the one and only\n{STR_VAR_1} fan’s my style, anyway." text_6="Huh, can you believe it?\nEveryone turned into your fans.\pSo after all we’ve been through,\nI’m the lone {STR_VAR_1} fan?\pEh, being the one and only\n{STR_VAR_1} fan’s my style, anyway."
+    08271FB0  callstd              function=MSGBOX_DEFAULT(4)
+    08271FB2  release              
+
+  script 0x08271F70  [ok]
+    08271F70  msgbox_multilang     type=0 text_0="Yo, {PLAYER}!\pLooks like I’m the only one left\nout of your fans.\pBut, you know, I like being an only\nfan… It’s less stressful.\pKeep up and at it!" text_1="Yo, {PLAYER}!\pLooks like I’m the only one left\nout of your fans.\pBut, you know, I like being an only\nfan… It’s less stressful.\pKeep up and at it!" text_2="Yo, {PLAYER}!\pLooks like I’m the only one left\nout of your fans.\pBut, you know, I like being an only\nfan… It’s less stressful.\pKeep up and at it!" text_3="Yo, {PLAYER}!\pLooks like I’m the only one left\nout of your fans.\pBut, you know, I like being an only\nfan… It’s less stressful.\pKeep up and at it!" text_4="Yo, {PLAYER}!\pLooks like I’m the only one left\nout of your fans.\pBut, you know, I like being an only\nfan… It’s less stressful.\pKeep up and at it!" text_5="Yo, {PLAYER}!\pLooks like I’m the only one left\nout of your fans.\pBut, you know, I like being an only\nfan… It’s less stressful.\pKeep up and at it!" text_6="Yo, {PLAYER}!\pLooks like I’m the only one left\nout of your fans.\pBut, you know, I like being an only\nfan… It’s less stressful.\pKeep up and at it!"
+    08271F8E  callstd              function=MSGBOX_DEFAULT(4)
+    08271F90  release              
+
+  object 7 (gfx 0x2D, flag 0x006F) -> 0x08271FB4
+  script 0x08271FB4  [ok]
+    08271FB4  lock                 
+    08271FB5  faceplayer           
+    08271FB6  setvar               destination=VAR_0x8004 value=14
+    08271FBB  special              SPECIAL_\function=420
+    08271FBE  specialvar           output=32781 SPECIAL_\function=418
+    08271FC3  compare_var_to_value var=0x800D value=1
+    08271FC8  goto_if              condition=1 destination=0x08272000
+    08271FCE  specialvar           output=32781 SPECIAL_\function=422
+    08271FD3  compare_var_to_value var=0x800D value=7
+    08271FD8  goto_if              condition=1 destination=0x08272054
+    08271FDE  msgbox_multilang     type=0 text_0="Master {STR_VAR_1} is so dignified…\nHe is so my type.\pWhy can’t the others see the\ndignity he simply oozes?" text_1="Master {STR_VAR_1} is so dignified…\nHe is so my type.\pWhy can’t the others see the\ndignity he simply oozes?" text_2="Master {STR_VAR_1} is so dignified…\nHe is so my type.\pWhy can’t the others see the\ndignity he simply oozes?" text_3="Master {STR_VAR_1} is so dignified…\nHe is so my type.\pWhy can’t the others see the\ndignity he simply oozes?" text_4="Master {STR_VAR_1} is so dignified…\nHe is so my type.\pWhy can’t the others see the\ndignity he simply oozes?" text_5="Master {STR_VAR_1} is so dignified…\nHe is so my type.\pWhy can’t the others see the\ndignity he simply oozes?" text_6="Master {STR_VAR_1} is so dignified…\nHe is so my type.\pWhy can’t the others see the\ndignity he simply oozes?"
+    08271FFC  callstd              function=MSGBOX_DEFAULT(4)
+    08271FFE  release              
+
+  script 0x08272000  [ok]
+    08272000  specialvar           output=32781 SPECIAL_\function=422
+    08272005  compare_var_to_value var=0x800D value=1
+    0827200A  goto_if              condition=1 destination=0x08272032
+    08272010  msgbox_multilang     type=0 text_0="Amazing!\n{PLAYER}, you really are amazing!\pInstead of just watching, maybe\nI should become a Trainer, too." text_1="Amazing!\n{PLAYER}, you really are amazing!\pInstead of just watching, maybe\nI should become a Trainer, too." text_2="Amazing!\n{PLAYER}, you really are amazing!\pInstead of just watching, maybe\nI should become a Trainer, too." text_3="Amazing!\n{PLAYER}, you really are amazing!\pInstead of just watching, maybe\nI should become a Trainer, too." text_4="Amazing!\n{PLAYER}, you really are amazing!\pInstead of just watching, maybe\nI should become a Trainer, too." text_5="Amazing!\n{PLAYER}, you really are amazing!\pInstead of just watching, maybe\nI should become a Trainer, too." text_6="Amazing!\n{PLAYER}, you really are amazing!\pInstead of just watching, maybe\nI should become a Trainer, too."
+    0827202E  callstd              function=MSGBOX_DEFAULT(4)
+    08272030  release              
+
+  script 0x08272054  [ok]
+    08272054  msgbox_multilang     type=0 text_0="I believe in Master {STR_VAR_1}\nwith all my heart.\pEven if I am the only one to\nbelieve in him.\pI won’t ever feel lonesome, though.\pNot if I keep thinking about Master\n{STR_VAR_1}." text_1="I believe in Master {STR_VAR_1}\nwith all my heart.\pEven if I am the only one to\nbelieve in him.\pI won’t ever feel lonesome, though.\pNot if I keep thinking about Master\n{STR_VAR_1}." text_2="I believe in Master {STR_VAR_1}\nwith all my heart.\pEven if I am the only one to\nbelieve in him.\pI won’t ever feel lonesome, though.\pNot if I keep thinking about Master\n{STR_VAR_1}." text_3="I believe in Master {STR_VAR_1}\nwith all my heart.\pEven if I am the only one to\nbelieve in him.\pI won’t ever feel lonesome, though.\pNot if I keep thinking about Master\n{STR_VAR_1}." text_4="I believe in Master {STR_VAR_1}\nwith all my heart.\pEven if I am the only one to\nbelieve in him.\pI won’t ever feel lonesome, though.\pNot if I keep thinking about Master\n{STR_VAR_1}." text_5="I believe in Master {STR_VAR_1}\nwith all my heart.\pEven if I am the only one to\nbelieve in him.\pI won’t ever feel lonesome, though.\pNot if I keep thinking about Master\n{STR_VAR_1}." text_6="I believe in Master {STR_VAR_1}\nwith all my heart.\pEven if I am the only one to\nbelieve in him.\pI won’t ever feel lonesome, though.\pNot if I keep thinking about Master\n{STR_VAR_1}."
+    08272072  callstd              function=MSGBOX_DEFAULT(4)
+    08272074  release              
+
+  script 0x08272032  [ok]
+    08272032  msgbox_multilang     type=0 text_0="I’m your only fan…\nSigh… This is lonely…\pCan’t you try harder and make the\nothers take notice of you?" text_1="I’m your only fan…\nSigh… This is lonely…\pCan’t you try harder and make the\nothers take notice of you?" text_2="I’m your only fan…\nSigh… This is lonely…\pCan’t you try harder and make the\nothers take notice of you?" text_3="I’m your only fan…\nSigh… This is lonely…\pCan’t you try harder and make the\nothers take notice of you?" text_4="I’m your only fan…\nSigh… This is lonely…\pCan’t you try harder and make the\nothers take notice of you?" text_5="I’m your only fan…\nSigh… This is lonely…\pCan’t you try harder and make the\nothers take notice of you?" text_6="I’m your only fan…\nSigh… This is lonely…\pCan’t you try harder and make the\nothers take notice of you?"
+    08272050  callstd              function=MSGBOX_DEFAULT(4)
+    08272052  release              
+
+  object 8 (gfx 0x07, flag 0x006C) -> 0x08272076
+  script 0x08272076  [ok]
+    08272076  lock                 
+    08272077  faceplayer           
+    08272078  setvar               destination=VAR_0x8004 value=15
+    0827207D  special              SPECIAL_\function=420
+    08272080  specialvar           output=32781 SPECIAL_\function=418
+    08272085  compare_var_to_value var=0x800D value=1
+    0827208A  goto_if              condition=1 destination=0x082720C2
+    08272090  specialvar           output=32781 SPECIAL_\function=422
+    08272095  compare_var_to_value var=0x800D value=7
+    0827209A  goto_if              condition=1 destination=0x08272116
+    082720A0  msgbox_multilang     type=0 text_0="Hiyah! There is but one Trainer\nwho has my respect.\pAnd that is none other than my\nMaster at the Fighting Dojo.\pYou should become a fan of my\nMaster like me! Hiyah!" text_1="Hiyah! There is but one Trainer\nwho has my respect.\pAnd that is none other than my\nMaster at the Fighting Dojo.\pYou should become a fan of my\nMaster like me! Hiyah!" text_2="Hiyah! There is but one Trainer\nwho has my respect.\pAnd that is none other than my\nMaster at the Fighting Dojo.\pYou should become a fan of my\nMaster like me! Hiyah!" text_3="Hiyah! There is but one Trainer\nwho has my respect.\pAnd that is none other than my\nMaster at the Fighting Dojo.\pYou should become a fan of my\nMaster like me! Hiyah!" text_4="Hiyah! There is but one Trainer\nwho has my respect.\pAnd that is none other than my\nMaster at the Fighting Dojo.\pYou should become a fan of my\nMaster like me! Hiyah!" text_5="Hiyah! There is but one Trainer\nwho has my respect.\pAnd that is none other than my\nMaster at the Fighting Dojo.\pYou should become a fan of my\nMaster like me! Hiyah!" text_6="Hiyah! There is but one Trainer\nwho has my respect.\pAnd that is none other than my\nMaster at the Fighting Dojo.\pYou should become a fan of my\nMaster like me! Hiyah!"
+    082720BE  callstd              function=MSGBOX_DEFAULT(4)
+    082720C0  release              
+
+  script 0x082720C2  [ok]
+    082720C2  specialvar           output=32781 SPECIAL_\function=422
+    082720C7  compare_var_to_value var=0x800D value=1
+    082720CC  goto_if              condition=1 destination=0x082720F4
+    082720D2  msgbox_multilang     type=0 text_0="Hiyah!\pYour battling style is most\neducational.\pI hope that you will keep plugging\naway at success, hiyah!" text_1="Hiyah!\pYour battling style is most\neducational.\pI hope that you will keep plugging\naway at success, hiyah!" text_2="Hiyah!\pYour battling style is most\neducational.\pI hope that you will keep plugging\naway at success, hiyah!" text_3="Hiyah!\pYour battling style is most\neducational.\pI hope that you will keep plugging\naway at success, hiyah!" text_4="Hiyah!\pYour battling style is most\neducational.\pI hope that you will keep plugging\naway at success, hiyah!" text_5="Hiyah!\pYour battling style is most\neducational.\pI hope that you will keep plugging\naway at success, hiyah!" text_6="Hiyah!\pYour battling style is most\neducational.\pI hope that you will keep plugging\naway at success, hiyah!"
+    082720F0  callstd              function=MSGBOX_DEFAULT(4)
+    082720F2  release              
+
+  script 0x08272116  [ok]
+    08272116  msgbox_multilang     type=0 text_0="Hiyah! I respect my Master at the\nFighting Dojo.\pI will never become a fan of\nanyone other than my Master!\pI will even sneak out of the Dojo\nto spread word of his greatness.\pHiyah!" text_1="Hiyah! I respect my Master at the\nFighting Dojo.\pI will never become a fan of\nanyone other than my Master!\pI will even sneak out of the Dojo\nto spread word of his greatness.\pHiyah!" text_2="Hiyah! I respect my Master at the\nFighting Dojo.\pI will never become a fan of\nanyone other than my Master!\pI will even sneak out of the Dojo\nto spread word of his greatness.\pHiyah!" text_3="Hiyah! I respect my Master at the\nFighting Dojo.\pI will never become a fan of\nanyone other than my Master!\pI will even sneak out of the Dojo\nto spread word of his greatness.\pHiyah!" text_4="Hiyah! I respect my Master at the\nFighting Dojo.\pI will never become a fan of\nanyone other than my Master!\pI will even sneak out of the Dojo\nto spread word of his greatness.\pHiyah!" text_5="Hiyah! I respect my Master at the\nFighting Dojo.\pI will never become a fan of\nanyone other than my Master!\pI will even sneak out of the Dojo\nto spread word of his greatness.\pHiyah!" text_6="Hiyah! I respect my Master at the\nFighting Dojo.\pI will never become a fan of\nanyone other than my Master!\pI will even sneak out of the Dojo\nto spread word of his greatness.\pHiyah!"
+    08272134  callstd              function=MSGBOX_DEFAULT(4)
+    08272136  release              
+
+  script 0x082720F4  [ok]
+    082720F4  msgbox_multilang     type=0 text_0="Instead of just watching others\nbattle, battle yourself!\p…My Dojo’s Master chewed me out\nlike that…\pBut I won’t let that stop me from\nbeing your fan!\pI can’t stop being your fan!" text_1="Instead of just watching others\nbattle, battle yourself!\p…My Dojo’s Master chewed me out\nlike that…\pBut I won’t let that stop me from\nbeing your fan!\pI can’t stop being your fan!" text_2="Instead of just watching others\nbattle, battle yourself!\p…My Dojo’s Master chewed me out\nlike that…\pBut I won’t let that stop me from\nbeing your fan!\pI can’t stop being your fan!" text_3="Instead of just watching others\nbattle, battle yourself!\p…My Dojo’s Master chewed me out\nlike that…\pBut I won’t let that stop me from\nbeing your fan!\pI can’t stop being your fan!" text_4="Instead of just watching others\nbattle, battle yourself!\p…My Dojo’s Master chewed me out\nlike that…\pBut I won’t let that stop me from\nbeing your fan!\pI can’t stop being your fan!" text_5="Instead of just watching others\nbattle, battle yourself!\p…My Dojo’s Master chewed me out\nlike that…\pBut I won’t let that stop me from\nbeing your fan!\pI can’t stop being your fan!" text_6="Instead of just watching others\nbattle, battle yourself!\p…My Dojo’s Master chewed me out\nlike that…\pBut I won’t let that stop me from\nbeing your fan!\pI can’t stop being your fan!"
+    08272112  callstd              function=MSGBOX_DEFAULT(4)
+    08272114  release              
+
+  object 9 (gfx 0x00, flag 0x009D) -> 0x081F283E
+  script 0x081F283E  [ok]
+    081F283E  lock                 
+    081F283F  faceplayer           
+    081F2840  setvar               destination=VAR_0x8004 value=10
+    081F2845  setvar               destination=VAR_0x8005 value=2
+    081F284A  special              SPECIAL_\function=347
+    081F284D  textcolor            color=3
+    081F284F  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature:\nElite Four’s Bruno!\pBruno apparently joined the Elite\nFour out of his burning ambition to\pbattle the best Trainers." text_1="Pokémon Journal\pSpecial Feature:\nElite Four’s Bruno!\pBruno apparently joined the Elite\nFour out of his burning ambition to\pbattle the best Trainers." text_2="Pokémon Journal\pSpecial Feature:\nElite Four’s Bruno!\pBruno apparently joined the Elite\nFour out of his burning ambition to\pbattle the best Trainers." text_3="Pokémon Journal\pSpecial Feature:\nElite Four’s Bruno!\pBruno apparently joined the Elite\nFour out of his burning ambition to\pbattle the best Trainers." text_4="Pokémon Journal\pSpecial Feature:\nElite Four’s Bruno!\pBruno apparently joined the Elite\nFour out of his burning ambition to\pbattle the best Trainers." text_5="Pokémon Journal\pSpecial Feature:\nElite Four’s Bruno!\pBruno apparently joined the Elite\nFour out of his burning ambition to\pbattle the best Trainers." text_6="Pokémon Journal\pSpecial Feature:\nElite Four’s Bruno!\pBruno apparently joined the Elite\nFour out of his burning ambition to\pbattle the best Trainers."
+    081F286D  callstd              function=MSGBOX_DEFAULT(4)
+    081F286F  release              
+
+  object 10 (gfx 0x00, flag 0x009D) -> 0x081F283E
+  map script type 2 (var 0x4073 == 1) -> 0x082718AF
+  script 0x082718AF  [ok]
+    082718AF  lockall              
+    082718B0  textcolor            color=1
+    082718B2  applymovement        localId=1 movements=[walk_in_place_faster_down]
+    082718B9  waitmovement         localId=0
+    082718BC  playse               song=21
+    082718BF  applymovement        localId=1 movements=[emote_exclamation_mark]
+    082718C6  waitmovement         localId=0
+    082718C9  applymovement        localId=1 movements=[delay_16 delay_16 delay_16]
+    082718D0  waitmovement         localId=0
+    082718D3  msgbox_multilang     type=0 text_0="Huh?\nYou…" text_1="Huh?\nYou…" text_2="Huh?\nYou…" text_3="Huh?\nYou…" text_4="Huh?\nYou…" text_5="Huh?\nYou…" text_6="Huh?\nYou…"
+    082718F1  callstd              function=MSGBOX_DEFAULT(4)
+    082718F3  closemessage         
+    082718F4  applymovement        localId=1 movements=[delay_16 delay_8 walk_down delay_16 walk_down delay_8 walk_left]
+    082718FB  waitmovement         localId=0
+    082718FE  applymovement        localId=255 movements=[walk_in_place_faster_right]
+    08271905  waitmovement         localId=0
+    08271908  msgbox_multilang     type=0 text_0="Are you maybe…\n… …\pYou are!\nYou are {PLAYER}!\pWe were just talking about you!\pWe were talking about how an\nincredibly good Trainer appeared.\pAnd that someone is you!\nYou’re so cool!\pSo, we decided that we’ll become\nyour Fan Club!\pWe all hope you’ll keep battling\nand show us how cool you are.\pThat way, maybe other people will\nbecome fans just like me." text_1="Are you maybe…\n… …\pYou are!\nYou are {PLAYER}!\pWe were just talking about you!\pWe were talking about how an\nincredibly good Trainer appeared.\pAnd that someone is you!\nYou’re so cool!\pSo, we decided that we’ll become\nyour Fan Club!\pWe all hope you’ll keep battling\nand show us how cool you are.\pThat way, maybe other people will\nbecome fans just like me." text_2="Are you maybe…\n… …\pYou are!\nYou are {PLAYER}!\pWe were just talking about you!\pWe were talking about how an\nincredibly good Trainer appeared.\pAnd that someone is you!\nYou’re so cool!\pSo, we decided that we’ll become\nyour Fan Club!\pWe all hope you’ll keep battling\nand show us how cool you are.\pThat way, maybe other people will\nbecome fans just like me." text_3="Are you maybe…\n… …\pYou are!\nYou are {PLAYER}!\pWe were just talking about you!\pWe were talking about how an\nincredibly good Trainer appeared.\pAnd that someone is you!\nYou’re so cool!\pSo, we decided that we’ll become\nyour Fan Club!\pWe all hope you’ll keep battling\nand show us how cool you are.\pThat way, maybe other people will\nbecome fans just like me." text_4="Are you maybe…\n… …\pYou are!\nYou are {PLAYER}!\pWe were just talking about you!\pWe were talking about how an\nincredibly good Trainer appeared.\pAnd that someone is you!\nYou’re so cool!\pSo, we decided that we’ll become\nyour Fan Club!\pWe all hope you’ll keep battling\nand show us how cool you are.\pThat way, maybe other people will\nbecome fans just like me." text_5="Are you maybe…\n… …\pYou are!\nYou are {PLAYER}!\pWe were just talking about you!\pWe were talking about how an\nincredibly good Trainer appeared.\pAnd that someone is you!\nYou’re so cool!\pSo, we decided that we’ll become\nyour Fan Club!\pWe all hope you’ll keep battling\nand show us how cool you are.\pThat way, maybe other people will\nbecome fans just like me." text_6="Are you maybe…\n… …\pYou are!\nYou are {PLAYER}!\pWe were just talking about you!\pWe were talking about how an\nincredibly good Trainer appeared.\pAnd that someone is you!\nYou’re so cool!\pSo, we decided that we’ll become\nyour Fan Club!\pWe all hope you’ll keep battling\nand show us how cool you are.\pThat way, maybe other people will\nbecome fans just like me."
+    08271926  callstd              function=MSGBOX_DEFAULT(4)
+    08271928  setvar               destination=VAR_0x4073 value=2
+    0827192D  releaseall           
+
+  map script type 3 -> 0x08271937
+  script 0x08271937  [ok]
+    08271937  compare_var_to_value var=0x4073 value=1
+    0827193C  goto_if              condition=1 destination=0x08271A5A
+    08271942  compare_var_to_value var=0x4073 value=2
+    08271947  goto_if              condition=1 destination=0x0827194E
+    0827194D  end                  
+
+  script 0x08271A5A  [ok]
+    08271A5A  call                 destination=0x08271A1E
+    08271A5F  call                 destination=0x08271A2A
+    08271A64  call                 destination=0x08271A36
+    08271A69  call                 destination=0x08271A42
+    08271A6E  call                 destination=0x08271A4E
+    08271A73  end                  
+
+  script 0x0827194E  [ok]
+    0827194E  special              SPECIAL_\function=419
+    08271951  setvar               destination=VAR_0x8004 value=8
+    08271956  specialvar           output=32781 SPECIAL_\function=418
+    0827195B  compare_var_to_value var=0x800D value=0
+    08271960  call_if              condition=1 destination=0x082719FA
+    08271966  setvar               destination=VAR_0x8004 value=9
+    0827196B  specialvar           output=32781 SPECIAL_\function=418
+    08271970  compare_var_to_value var=0x800D value=0
+    08271975  call_if              condition=1 destination=0x08271A06
+    0827197B  setvar               destination=VAR_0x8004 value=10
+    08271980  specialvar           output=32781 SPECIAL_\function=418
+    08271985  compare_var_to_value var=0x800D value=0
+    0827198A  call_if              condition=1 destination=0x08271A12
+    08271990  setvar               destination=VAR_0x8004 value=11
+    08271995  specialvar           output=32781 SPECIAL_\function=418
+    0827199A  compare_var_to_value var=0x800D value=0
+    0827199F  call_if              condition=1 destination=0x08271A1E
+    082719A5  setvar               destination=VAR_0x8004 value=12
+    082719AA  specialvar           output=32781 SPECIAL_\function=418
+    082719AF  compare_var_to_value var=0x800D value=0
+    082719B4  call_if              condition=1 destination=0x08271A2A
+    082719BA  setvar               destination=VAR_0x8004 value=13
+    082719BF  specialvar           output=32781 SPECIAL_\function=418
+    082719C4  compare_var_to_value var=0x800D value=0
+    082719C9  call_if              condition=1 destination=0x08271A36
+    082719CF  setvar               destination=VAR_0x8004 value=14
+    082719D4  specialvar           output=32781 SPECIAL_\function=418
+    082719D9  compare_var_to_value var=0x800D value=0
+    082719DE  call_if              condition=1 destination=0x08271A42
+    082719E4  setvar               destination=VAR_0x8004 value=15
+    082719E9  specialvar           output=32781 SPECIAL_\function=418
+    082719EE  compare_var_to_value var=0x800D value=0
+    082719F3  call_if              condition=1 destination=0x08271A4E
+    082719F9  end                  
+
+  script 0x08271A1E  [ok]
+    08271A1E  setobjectxyperm      localId=2 x=3 y=4
+    08271A25  setobjectmovementtype localId=2 movementType=10
+    08271A29  return               
+
+  script 0x08271A2A  [ok]
+    08271A2A  setobjectxyperm      localId=6 x=4 y=6
+    08271A31  setobjectmovementtype localId=6 movementType=7
+    08271A35  return               
+
+  script 0x08271A36  [ok]
+    08271A36  setobjectxyperm      localId=5 x=10 y=3
+    08271A3D  setobjectmovementtype localId=5 movementType=7
+    08271A41  return               
+
+  script 0x08271A42  [ok]
+    08271A42  setobjectxyperm      localId=7 x=7 y=5
+    08271A49  setobjectmovementtype localId=7 movementType=9
+    08271A4D  return               
+
+  script 0x08271A4E  [ok]
+    08271A4E  setobjectxyperm      localId=8 x=9 y=6
+    08271A55  setobjectmovementtype localId=8 movementType=9
+    08271A59  return               
+
+  script 0x082719FA  [ok]
+    082719FA  setobjectxyperm      localId=1 x=5 y=2
+    08271A01  setobjectmovementtype localId=1 movementType=7
+    08271A05  return               
+
+  script 0x08271A06  [ok]
+    08271A06  setobjectxyperm      localId=3 x=7 y=4
+    08271A0D  setobjectmovementtype localId=3 movementType=9
+    08271A11  return               
+
+  script 0x08271A12  [ok]
+    08271A12  setobjectxyperm      localId=4 x=2 y=2
+    08271A19  setobjectmovementtype localId=4 movementType=7
+    08271A1D  return               
+

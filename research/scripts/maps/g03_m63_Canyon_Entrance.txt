@@ -1,0 +1,135 @@
+Canyon Entrance  (group 3, map 63)  header 0x08B3CDA8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x4F, flag 0x0000) -> 0x081FE3BF
+  script 0x081FE3BF  [ok]
+    081FE3BF  trainerbattle        type=0 trainer=0x24C localId=0 ptr1=0x0823F39B ptr2=0x0823F3C6
+    081FE3CD  specialvar           output=32781 SPECIAL_\function=37
+    081FE3D2  compare_var_to_value var=0x800D value=1
+    081FE3D7  goto_if              condition=1 destination=0x081FE3FE
+    081FE3DD  msgbox_multilang     type=0 text_0="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_1="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_2="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_3="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_4="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_5="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_6="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!"
+    081FE3FB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE3FD  end                  
+
+  script 0x081FE3FE  [ok]
+    081FE3FE  goto                 destination=0x081FE408
+
+  script 0x081FE408  [ok]
+    081FE408  trainerbattle        type=5 trainer=0x24C localId=0 ptr1=0x082BAE21 ptr2=0x0823F3C6
+    081FE416  msgbox_multilang     type=0 text_0="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_1="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_2="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_3="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_4="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_5="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!" text_6="What’s that?\nI don’t act the way I look?\pHeh, that’s a part of my strategy!"
+    081FE434  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE436  end                  
+
+  object 2 (gfx 0x52, flag 0x0000) -> 0x081FE437
+  script 0x081FE437  [ok]
+    081FE437  trainerbattle        type=4 trainer=0x24D localId=0 ptr1=0x0823F611 ptr2=0x0823F641 ptr3=0x0823F68A
+    081FE449  specialvar           output=32781 SPECIAL_\function=37
+    081FE44E  compare_var_to_value var=0x800D value=1
+    081FE453  goto_if              condition=1 destination=0x081FE47A
+    081FE459  msgbox_multilang     type=0 text_0="Eve: I’m going to work harder with\nJon." text_1="Eve: I’m going to work harder with\nJon." text_2="Eve: I’m going to work harder with\nJon." text_3="Eve: I’m going to work harder with\nJon." text_4="Eve: I’m going to work harder with\nJon." text_5="Eve: I’m going to work harder with\nJon." text_6="Eve: I’m going to work harder with\nJon."
+    081FE477  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE479  end                  
+
+  script 0x081FE47A  [ok]
+    081FE47A  goto                 destination=0x081FE484
+
+  script 0x081FE484  [ok]
+    081FE484  trainerbattle        type=7 trainer=0x24D localId=0 ptr1=0x082BAF10 ptr2=0x0823F641 ptr3=0x0823F68A
+    081FE496  msgbox_multilang     type=0 text_0="Eve: I’m going to work harder with\nJon." text_1="Eve: I’m going to work harder with\nJon." text_2="Eve: I’m going to work harder with\nJon." text_3="Eve: I’m going to work harder with\nJon." text_4="Eve: I’m going to work harder with\nJon." text_5="Eve: I’m going to work harder with\nJon." text_6="Eve: I’m going to work harder with\nJon."
+    081FE4B4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE4B6  end                  
+
+  object 3 (gfx 0x51, flag 0x0000) -> 0x081FE4B7
+  script 0x081FE4B7  [ok]
+    081FE4B7  trainerbattle        type=4 trainer=0x24D localId=0 ptr1=0x0823F6DF ptr2=0x0823F71A ptr3=0x0823F79C
+    081FE4C9  specialvar           output=32781 SPECIAL_\function=37
+    081FE4CE  compare_var_to_value var=0x800D value=1
+    081FE4D3  goto_if              condition=1 destination=0x081FE4FA
+    081FE4D9  msgbox_multilang     type=0 text_0="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_1="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_2="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_3="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_4="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_5="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_6="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!"
+    081FE4F7  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE4F9  end                  
+
+  script 0x081FE4FA  [ok]
+    081FE4FA  goto                 destination=0x081FE504
+
+  script 0x081FE504  [ok]
+    081FE504  trainerbattle        type=7 trainer=0x24D localId=0 ptr1=0x082BAF46 ptr2=0x0823F71A ptr3=0x0823F79C
+    081FE516  msgbox_multilang     type=0 text_0="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_1="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_2="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_3="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_4="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_5="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!" text_6="Jon: When I’m with Eve, I feel\ngiddy whether I win or lose.\pIt’s magical!"
+    081FE534  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE536  end                  
+
+  object 4 (gfx 0x4A, flag 0x0000) -> 0x081FE5AF
+  script 0x081FE5AF  [ok]
+    081FE5AF  trainerbattle        type=0 trainer=0x209 localId=0 ptr1=0x0823F4DF ptr2=0x0823F522
+    081FE5BD  specialvar           output=32781 SPECIAL_\function=37
+    081FE5C2  compare_var_to_value var=0x800D value=1
+    081FE5C7  goto_if              condition=1 destination=0x081FE5EE
+    081FE5CD  msgbox_multilang     type=0 text_0="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_1="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_2="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_3="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_4="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_5="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_6="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?"
+    081FE5EB  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE5ED  end                  
+
+  script 0x081FE5EE  [ok]
+    081FE5EE  goto                 destination=0x081FE5F8
+
+  script 0x081FE5F8  [ok]
+    081FE5F8  trainerbattle        type=5 trainer=0x209 localId=0 ptr1=0x082BAEA7 ptr2=0x0823F522
+    081FE606  msgbox_multilang     type=0 text_0="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_1="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_2="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_3="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_4="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_5="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?" text_6="Trainers like you from cities,\nthey sure are tough.\pYou’ll be headed for the Tower,\nwon’t you?"
+    081FE624  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE626  end                  
+
+  object 5 (gfx 0x49, flag 0x0000) -> 0x081FE627
+  script 0x081FE627  [ok]
+    081FE627  trainerbattle        type=0 trainer=0x20A localId=0 ptr1=0x0823F589 ptr2=0x0823F5AC
+    081FE635  specialvar           output=32781 SPECIAL_\function=37
+    081FE63A  compare_var_to_value var=0x800D value=1
+    081FE63F  goto_if              condition=1 destination=0x081FE666
+    081FE645  msgbox_multilang     type=0 text_0="If you treat your Pokémon with\nkindness, they’ll understand." text_1="If you treat your Pokémon with\nkindness, they’ll understand." text_2="If you treat your Pokémon with\nkindness, they’ll understand." text_3="If you treat your Pokémon with\nkindness, they’ll understand." text_4="If you treat your Pokémon with\nkindness, they’ll understand." text_5="If you treat your Pokémon with\nkindness, they’ll understand." text_6="If you treat your Pokémon with\nkindness, they’ll understand."
+    081FE663  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE665  end                  
+
+  script 0x081FE666  [ok]
+    081FE666  goto                 destination=0x081FE670
+
+  script 0x081FE670  [ok]
+    081FE670  trainerbattle        type=5 trainer=0x20A localId=0 ptr1=0x082BAEE6 ptr2=0x0823F5AC
+    081FE67E  msgbox_multilang     type=0 text_0="If you treat your Pokémon with\nkindness, they’ll understand." text_1="If you treat your Pokémon with\nkindness, they’ll understand." text_2="If you treat your Pokémon with\nkindness, they’ll understand." text_3="If you treat your Pokémon with\nkindness, they’ll understand." text_4="If you treat your Pokémon with\nkindness, they’ll understand." text_5="If you treat your Pokémon with\nkindness, they’ll understand." text_6="If you treat your Pokémon with\nkindness, they’ll understand."
+    081FE69C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE69E  end                  
+
+  object 6 (gfx 0x46, flag 0x0000) -> 0x081FE537
+  script 0x081FE537  [ok]
+    081FE537  trainerbattle        type=0 trainer=0x24E localId=0 ptr1=0x0823F42A ptr2=0x0823F452
+    081FE545  specialvar           output=32781 SPECIAL_\function=37
+    081FE54A  compare_var_to_value var=0x800D value=1
+    081FE54F  goto_if              condition=1 destination=0x081FE576
+    081FE555  msgbox_multilang     type=0 text_0="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_1="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_2="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_3="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_4="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_5="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_6="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!"
+    081FE573  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE575  end                  
+
+  script 0x081FE576  [ok]
+    081FE576  goto                 destination=0x081FE580
+
+  script 0x081FE580  [ok]
+    081FE580  trainerbattle        type=5 trainer=0x24E localId=0 ptr1=0x082BAE6E ptr2=0x0823F452
+    081FE58E  msgbox_multilang     type=0 text_0="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_1="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_2="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_3="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_4="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_5="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!" text_6="Lalalah…\nMy Pokémon, I send them out,\pall the girls scream and shout!"
+    081FE5AC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE5AE  end                  
+
+  object 7 (gfx 0x1E, flag 0x0000) -> 0x00000000
+  hidden item at (8,29): Rawst Berry
+
+  sign 1 at (14,26) -> 0x0823F37A
+  script 0x0823F37A  [ok]
+    0823F37A  msgbox_multilang     type=0 text_0="Sevault Canyon Entrance\pTrainers are asked to refrain from\ndamaging plants in the Canyon." text_1="Sevault Canyon Entrance\pTrainers are asked to refrain from\ndamaging plants in the Canyon." text_2="Sevault Canyon Entrance\pTrainers are asked to refrain from\ndamaging plants in the Canyon." text_3="Sevault Canyon Entrance\pTrainers are asked to refrain from\ndamaging plants in the Canyon." text_4="Sevault Canyon Entrance\pTrainers are asked to refrain from\ndamaging plants in the Canyon." text_5="Sevault Canyon Entrance\pTrainers are asked to refrain from\ndamaging plants in the Canyon." text_6="Sevault Canyon Entrance\pTrainers are asked to refrain from\ndamaging plants in the Canyon."
+    0823F398  callstd              function=MSGBOX_SIGN(3)
+    0823F39A  end                  
+

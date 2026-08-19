@@ -1,0 +1,60 @@
+Route 12  (group 23, map 1)  header 0x08B3DA04
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x2F, flag 0x0000) -> 0x08278A9E
+  script 0x08278A9E  [unknown-opcode:0xE9]
+    08278A9E  lock                 
+    08278A9F  faceplayer           
+    08278AA0  checkflag            flag=0x25B
+    08278AA3  goto_if              condition=1 destination=0x08278B76
+    08278AA9  checkplayergender    
+    08278AAA  compare_var_to_value var=0x800D value=0
+    08278AAF  call_if              condition=1 destination=0x08278B12
+    08278AB5  compare_var_to_value var=0x800D value=1
+    08278ABA  call_if              condition=1 destination=0x08278B33
+    08278AC0  checkitemspace       itemId=TM27(315) quantity=1
+    08278AC5  compare_var_to_value var=0x800D value=0
+    08278ACA  goto_if              condition=1 destination=0x08278B54
+    08278AD0  additem              itemId=TM27(315) quantity=1
+
+  script 0x08278B76  [ok]
+    08278B76  msgbox_multilang     type=0 text_0="TM27 is a move called Return…\pIf you treat your Pokémon good,\nit will return your love by working\pits hardest in battle." text_1="TM27 is a move called Return…\pIf you treat your Pokémon good,\nit will return your love by working\pits hardest in battle." text_2="TM27 is a move called Return…\pIf you treat your Pokémon good,\nit will return your love by working\pits hardest in battle." text_3="TM27 is a move called Return…\pIf you treat your Pokémon good,\nit will return your love by working\pits hardest in battle." text_4="TM27 is a move called Return…\pIf you treat your Pokémon good,\nit will return your love by working\pits hardest in battle." text_5="TM27 is a move called Return…\pIf you treat your Pokémon good,\nit will return your love by working\pits hardest in battle." text_6="TM27 is a move called Return…\pIf you treat your Pokémon good,\nit will return your love by working\pits hardest in battle."
+    08278B94  callstd              function=MSGBOX_DEFAULT(4)
+    08278B96  release              
+
+  script 0x08278B12  [ok]
+    08278B12  msgbox_multilang     type=0 text_0="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_1="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_2="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_3="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_4="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_5="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_6="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…"
+    08278B30  callstd              function=MSGBOX_DEFAULT(4)
+    08278B32  return               
+
+  script 0x08278B33  [ok]
+    08278B33  msgbox_multilang     type=0 text_0="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_1="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_2="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_3="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_4="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_5="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…" text_6="My Pokémon’s ashes are stored in\nPokémon Tower.\pYou can have this TM.\nI don’t need it anymore…"
+    08278B51  callstd              function=MSGBOX_DEFAULT(4)
+    08278B53  return               
+
+  script 0x08278B54  [ok]
+    08278B54  msgbox_multilang     type=0 text_0="You don’t have room for this." text_1="You don’t have room for this." text_2="You don’t have room for this." text_3="You don’t have room for this." text_4="You don’t have room for this." text_5="You don’t have room for this." text_6="You don’t have room for this."
+    08278B72  callstd              function=MSGBOX_DEFAULT(4)
+    08278B74  release              
+
+  sign 0 at (4,1) -> 0x08278A5C
+  script 0x08278A5C  [ok]
+    08278A5C  msgbox_multilang     type=0 text_0="Let’s see what the binoculars have\nto show…\pThere’s a man fishing!" text_1="Let’s see what the binoculars have\nto show…\pThere’s a man fishing!" text_2="Let’s see what the binoculars have\nto show…\pThere’s a man fishing!" text_3="Let’s see what the binoculars have\nto show…\pThere’s a man fishing!" text_4="Let’s see what the binoculars have\nto show…\pThere’s a man fishing!" text_5="Let’s see what the binoculars have\nto show…\pThere’s a man fishing!" text_6="Let’s see what the binoculars have\nto show…\pThere’s a man fishing!"
+    08278A7A  callstd              function=MSGBOX_SIGN(3)
+    08278A7C  end                  
+
+  sign 1 at (8,1) -> 0x08278A7D
+  script 0x08278A7D  [ok]
+    08278A7D  msgbox_multilang     type=0 text_0="Let’s see what the binoculars have\nto show…\pIt’s Pokémon Tower!" text_1="Let’s see what the binoculars have\nto show…\pIt’s Pokémon Tower!" text_2="Let’s see what the binoculars have\nto show…\pIt’s Pokémon Tower!" text_3="Let’s see what the binoculars have\nto show…\pIt’s Pokémon Tower!" text_4="Let’s see what the binoculars have\nto show…\pIt’s Pokémon Tower!" text_5="Let’s see what the binoculars have\nto show…\pIt’s Pokémon Tower!" text_6="Let’s see what the binoculars have\nto show…\pIt’s Pokémon Tower!"
+    08278A9B  callstd              function=MSGBOX_SIGN(3)
+    08278A9D  end                  
+

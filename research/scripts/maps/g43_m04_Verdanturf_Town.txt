@@ -1,0 +1,31 @@
+Verdanturf Town  (group 43, map 4)  header 0x08B3E804
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x15, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x08285F0C
+  script 0x08285F0C  [ok]
+    08285F0C  lockall              
+    08285F0D  setvar               destination=VAR_0x4000 value=1
+    08285F12  applymovement        localId=1 movements=[walk_up walk_up walk_up walk_up]
+    08285F19  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up]
+    08285F20  waitmovement         localId=0
+    08285F23  opendoor             x=2 y=1
+    08285F28  waitdooranim         
+    08285F29  applymovement        localId=1 movements=[walk_up set_invisible]
+    08285F30  applymovement        localId=255 movements=[walk_up walk_up set_invisible]
+    08285F37  waitmovement         localId=0
+    08285F3A  closedoor            x=2 y=1
+    08285F3F  waitdooranim         
+    08285F40  setvar               destination=VAR_0x8006 value=0
+    08285F45  warp                 mapGroup=43 mapNum=5 WARP_ID_NONE=255 -1=6 -1=5
+    08285F4D  waitstate            
+

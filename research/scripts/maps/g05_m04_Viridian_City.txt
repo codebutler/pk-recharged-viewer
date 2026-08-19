@@ -1,0 +1,63 @@
+Viridian City  (group 5, map 4)  header 0x08B3CEDC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0825142F
+  script 0x0825142F  [ok]
+    0825142F  lock                 
+    08251430  faceplayer           
+    08251431  call                 destination=0x082BB336
+    08251436  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x30, flag 0x0000) -> 0x08251459
+  script 0x08251459  [ok]
+    08251459  msgbox_multilang     type=0 text_0="Please feel free to use that PC in\nthe corner.\pThe receptionist told me so.\nIt’s so kind of her!" text_1="Please feel free to use that PC in\nthe corner.\pThe receptionist told me so.\nIt’s so kind of her!" text_2="Please feel free to use that PC in\nthe corner.\pThe receptionist told me so.\nIt’s so kind of her!" text_3="Please feel free to use that PC in\nthe corner.\pThe receptionist told me so.\nIt’s so kind of her!" text_4="Please feel free to use that PC in\nthe corner.\pThe receptionist told me so.\nIt’s so kind of her!" text_5="Please feel free to use that PC in\nthe corner.\pThe receptionist told me so.\nIt’s so kind of her!" text_6="Please feel free to use that PC in\nthe corner.\pThe receptionist told me so.\nIt’s so kind of her!"
+    08251477  callstd              function=MSGBOX_NPC(2)
+    08251479  end                  
+
+  object 3 (gfx 0xEF, flag 0x0000) -> 0x08251438
+  script 0x08251438  [ok]
+    08251438  msgbox_multilang     type=0 text_0="There’s a Pokémon Center in every\ntown ahead.\pThey charge no money, so don’t\nbe shy about healing Pokémon." text_1="There’s a Pokémon Center in every\ntown ahead.\pThey charge no money, so don’t\nbe shy about healing Pokémon." text_2="There’s a Pokémon Center in every\ntown ahead.\pThey charge no money, so don’t\nbe shy about healing Pokémon." text_3="There’s a Pokémon Center in every\ntown ahead.\pThey charge no money, so don’t\nbe shy about healing Pokémon." text_4="There’s a Pokémon Center in every\ntown ahead.\pThey charge no money, so don’t\nbe shy about healing Pokémon." text_5="There’s a Pokémon Center in every\ntown ahead.\pThey charge no money, so don’t\nbe shy about healing Pokémon." text_6="There’s a Pokémon Center in every\ntown ahead.\pThey charge no money, so don’t\nbe shy about healing Pokémon."
+    08251456  callstd              function=MSGBOX_NPC(2)
+    08251458  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0825147A
+  script 0x0825147A  [ok]
+    0825147A  msgbox_multilang     type=0 text_0="Pokémon Centers heal your tired,\nhurt, or fainted Pokémon.\pThey make all Pokémon completely\nhealthy." text_1="Pokémon Centers heal your tired,\nhurt, or fainted Pokémon.\pThey make all Pokémon completely\nhealthy." text_2="Pokémon Centers heal your tired,\nhurt, or fainted Pokémon.\pThey make all Pokémon completely\nhealthy." text_3="Pokémon Centers heal your tired,\nhurt, or fainted Pokémon.\pThey make all Pokémon completely\nhealthy." text_4="Pokémon Centers heal your tired,\nhurt, or fainted Pokémon.\pThey make all Pokémon completely\nhealthy." text_5="Pokémon Centers heal your tired,\nhurt, or fainted Pokémon.\pThey make all Pokémon completely\nhealthy." text_6="Pokémon Centers heal your tired,\nhurt, or fainted Pokémon.\pThey make all Pokémon completely\nhealthy."
+    08251498  callstd              function=MSGBOX_NPC(2)
+    0825149A  end                  
+
+  object 5 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0825142B
+  script 0x0825142B  [ok]
+    0825142B  setrespawn           heallocation=2
+    0825142E  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

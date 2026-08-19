@@ -1,0 +1,854 @@
+Battle Frontier  (group 41, map 5)  header 0x08B3E13C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x5A, flag 0x00D3) -> 0x00000000
+  object 2 (gfx 0x55, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x55, flag 0x0000) -> 0x00000000
+  map script type 2 (var 0x4000 == 0) -> 0x0828C873
+  script 0x0828C873  [ok]
+    0828C873  setvar               destination=VAR_0x4000 value=1
+    0828C878  applymovement        localId=255 movements=[walk_up walk_up walk_up face_right]
+    0828C87F  waitmovement         localId=0
+    0828C882  setvar               destination=VAR_0x8004 value=1
+    0828C887  setvar               destination=VAR_0x8005 value=2
+    0828C88C  special              SPECIAL_\function=148
+    0828C88F  compare_var_to_value var=0x800D value=0
+    0828C894  goto_if              condition=1 destination=0x0828C8CA
+    0828C89A  applymovement        localId=2 movements=[walk_right walk_right walk_right walk_up]
+    0828C8A1  waitmovement         localId=0
+    0828C8A4  applymovement        localId=255 movements=[face_down]
+    0828C8AB  waitmovement         localId=0
+    0828C8AE  setvar               destination=VAR_0x4002 value=1
+    0828C8B3  setvar               destination=VAR_0x8004 value=2
+    0828C8B8  setvar               destination=VAR_0x8005 value=6
+    0828C8BD  setvar               destination=VAR_0x8006 value=1
+    0828C8C2  special              SPECIAL_\function=148
+    0828C8C5  goto                 destination=0x0828C9C6
+
+  script 0x0828C8CA  [ok]
+    0828C8CA  setvar               destination=VAR_0x8004 value=3
+    0828C8CF  special              SPECIAL_\function=149
+    0828C8D2  addobject            localId=1
+    0828C8D5  applymovement        localId=1 movements=[walk_down walk_down walk_down walk_down face_left]
+    0828C8DC  waitmovement         localId=0
+    0828C8DF  setvar               destination=VAR_0x8004 value=7
+    0828C8E4  setvar               destination=VAR_0x8005 value=0
+    0828C8E9  special              SPECIAL_\function=149
+    0828C8EC  msgbox_multilang     type=0 text_0=33805880 text_1=33805880 text_2=33805880 text_3=33805880 text_4=33805880 text_5=33805880 text_6=33805880
+    0828C90A  callstd              function=MSGBOX_DEFAULT(4)
+    0828C90C  waitmessage          
+    0828C90D  call                 destination=0x0828D055
+    0828C912  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828C917  compare_var_to_value var=0x8000 value=1
+    0828C91C  goto_if              condition=1 destination=0x0828C94E
+    0828C922  setvar               destination=VAR_0x8004 value=2
+    0828C927  setvar               destination=VAR_0x8005 value=0
+    0828C92C  setvar               destination=VAR_0x8006 value=4
+    0828C931  special              SPECIAL_\function=148
+    0828C934  setvar               destination=VAR_0x8004 value=2
+    0828C939  setvar               destination=VAR_0x8005 value=3
+    0828C93E  special              SPECIAL_\function=149
+    0828C941  setvar               destination=VAR_0x8004 value=3
+    0828C946  special              SPECIAL_\function=100
+    0828C949  goto                 destination=0x0828D0FF
+
+  script 0x0828C9C6  [ok]
+    0828C9C6  setvar               destination=VAR_0x8004 value=9
+    0828C9CB  special              SPECIAL_\function=148
+    0828C9CE  copyvar              destination=VAR_0x400F source=VAR_0x800D
+    0828C9D3  compare_var_to_value var=0x800D value=0
+    0828C9D8  goto_if              condition=5 destination=0x0828CD31
+    0828C9DE  setvar               destination=VAR_0x8004 value=1
+    0828C9E3  setvar               destination=VAR_0x8005 value=2
+    0828C9E8  special              SPECIAL_\function=148
+    0828C9EB  call                 destination=0x0828CBDB
+    0828C9F0  call                 destination=0x0828900D
+    0828C9F5  compare_var_to_value var=0x800D value=1
+    0828C9FA  goto_if              condition=1 destination=0x0828CA41
+    0828CA00  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    0828CA05  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CA0A  compare_var_to_value var=0x8000 value=0
+    0828CA0F  goto_if              condition=1 destination=0x0828CB5B
+    0828CA15  compare_var_to_value var=0x8000 value=1
+    0828CA1A  goto_if              condition=1 destination=0x0828CA77
+    0828CA20  compare_var_to_value var=0x8000 value=2
+    0828CA25  goto_if              condition=1 destination=0x0828CACB
+    0828CA2B  compare_var_to_value var=0x8000 value=3
+    0828CA30  goto_if              condition=1 destination=0x0828CB11
+    0828CA36  compare_var_to_value var=0x8000 value=127
+    0828CA3B  goto_if              condition=1 destination=0x0828C9C6
+    0828CA41  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0828CA46  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CA4B  compare_var_to_value var=0x8000 value=0
+    0828CA50  goto_if              condition=1 destination=0x0828CB5B
+    0828CA56  compare_var_to_value var=0x8000 value=1
+    0828CA5B  goto_if              condition=1 destination=0x0828CACB
+    0828CA61  compare_var_to_value var=0x8000 value=2
+    0828CA66  goto_if              condition=1 destination=0x0828CB11
+    0828CA6C  compare_var_to_value var=0x8000 value=127
+    0828CA71  goto_if              condition=1 destination=0x0828C9C6
+    0828CA77  message              text="Record your battle on your\nFRONTIER PASS?"
+    0828CA7C  nop_EA               
+    0828CA7D  setmonmetlocation    slot=2088 location=234
+    0828CA81  setmonmetlocation    slot=2088 location=234
+    0828CA85  setmonmetlocation    slot=2088 location=234
+    0828CA89  setmonmetlocation    slot=2088 location=234
+    0828CA8D  setmonmetlocation    slot=2088 location=234
+    0828CA91  setmonmetlocation    slot=2088 location=102
+    0828CA95  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0828CA9B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CAA0  compare_var_to_value var=0x8000 value=1
+    0828CAA5  goto_if              condition=1 destination=0x0828C9C6
+    0828CAAB  compare_var_to_value var=0x8000 value=0
+    0828CAB0  goto_if              condition=1 destination=0x0828CAC1
+    0828CAB6  compare_var_to_value var=0x8000 value=127
+    0828CABB  goto_if              condition=1 destination=0x0828C9C6
+    0828CAC1  call                 destination=0x08288FB1
+    0828CAC6  goto                 destination=0x0828C9C6
+
+  script 0x0828D055  [ok]
+    0828D055  closemessage         
+    0828D056  setvar               destination=VAR_0x4002 value=0
+    0828D05B  setvar               destination=VAR_0x8004 value=2
+    0828D060  setvar               destination=VAR_0x8005 value=6
+    0828D065  setvar               destination=VAR_0x8006 value=0
+    0828D06A  special              SPECIAL_\function=148
+    0828D06D  special              SPECIAL_\function=0
+    0828D070  setvar               destination=VAR_0x8004 value=0
+    0828D075  setvar               destination=VAR_0x8005 value=0
+    0828D07A  special              SPECIAL_\function=152
+    0828D07D  waitstate            
+
+  script 0x0828C94E  [ok]
+    0828C94E  call                 destination=0x0828CCE1
+    0828C953  setvar               destination=VAR_0x8004 value=4
+    0828C958  special              SPECIAL_\function=149
+    0828C95B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828C960  compare_var_to_value var=0x8000 value=7
+    0828C965  goto_if              condition=1 destination=0x0828CB75
+    0828C96B  applymovement        localId=1 movements=[walk_up walk_up walk_up walk_up]
+    0828C972  waitmovement         localId=0
+    0828C975  removeobject         localId=1
+    0828C978  setvar               destination=VAR_0x8004 value=9
+    0828C97D  special              SPECIAL_\function=148
+    0828C980  compare_var_to_value var=0x800D value=0
+    0828C985  call_if              condition=5 destination=0x0828CCEA
+    0828C98B  applymovement        localId=2 movements=[walk_right walk_right walk_right walk_up]
+    0828C992  waitmovement         localId=0
+    0828C995  applymovement        localId=255 movements=[face_down]
+    0828C99C  waitmovement         localId=0
+    0828C99F  msgbox_multilang     type=0 text_0="We will restore your POKéMON to\nfull health." text_1="We will restore your POKéMON to\nfull health." text_2="We will restore your POKéMON to\nfull health." text_3="We will restore your POKéMON to\nfull health." text_4="We will restore your POKéMON to\nfull health." text_5="We will restore your POKéMON to\nfull health." text_6="We will restore your POKéMON to\nfull health."
+    0828C9BD  callstd              function=MSGBOX_DEFAULT(4)
+    0828C9BF  playfanfare          song=368
+    0828C9C2  waitfanfare          
+    0828C9C3  special              SPECIAL_\function=0
+    0828C9C6  setvar               destination=VAR_0x8004 value=9
+    0828C9CB  special              SPECIAL_\function=148
+    0828C9CE  copyvar              destination=VAR_0x400F source=VAR_0x800D
+    0828C9D3  compare_var_to_value var=0x800D value=0
+    0828C9D8  goto_if              condition=5 destination=0x0828CD31
+    0828C9DE  setvar               destination=VAR_0x8004 value=1
+    0828C9E3  setvar               destination=VAR_0x8005 value=2
+    0828C9E8  special              SPECIAL_\function=148
+    0828C9EB  call                 destination=0x0828CBDB
+    0828C9F0  call                 destination=0x0828900D
+    0828C9F5  compare_var_to_value var=0x800D value=1
+    0828C9FA  goto_if              condition=1 destination=0x0828CA41
+    0828CA00  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    0828CA05  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CA0A  compare_var_to_value var=0x8000 value=0
+    0828CA0F  goto_if              condition=1 destination=0x0828CB5B
+    0828CA15  compare_var_to_value var=0x8000 value=1
+    0828CA1A  goto_if              condition=1 destination=0x0828CA77
+    0828CA20  compare_var_to_value var=0x8000 value=2
+    0828CA25  goto_if              condition=1 destination=0x0828CACB
+    0828CA2B  compare_var_to_value var=0x8000 value=3
+    0828CA30  goto_if              condition=1 destination=0x0828CB11
+    0828CA36  compare_var_to_value var=0x8000 value=127
+    0828CA3B  goto_if              condition=1 destination=0x0828C9C6
+    0828CA41  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0828CA46  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CA4B  compare_var_to_value var=0x8000 value=0
+    0828CA50  goto_if              condition=1 destination=0x0828CB5B
+    0828CA56  compare_var_to_value var=0x8000 value=1
+    0828CA5B  goto_if              condition=1 destination=0x0828CACB
+    0828CA61  compare_var_to_value var=0x8000 value=2
+    0828CA66  goto_if              condition=1 destination=0x0828CB11
+    0828CA6C  compare_var_to_value var=0x8000 value=127
+    0828CA71  goto_if              condition=1 destination=0x0828C9C6
+    0828CA77  message              text="Record your battle on your\nFRONTIER PASS?"
+    0828CA7C  nop_EA               
+    0828CA7D  setmonmetlocation    slot=2088 location=234
+    0828CA81  setmonmetlocation    slot=2088 location=234
+    0828CA85  setmonmetlocation    slot=2088 location=234
+    0828CA89  setmonmetlocation    slot=2088 location=234
+    0828CA8D  setmonmetlocation    slot=2088 location=234
+    0828CA91  setmonmetlocation    slot=2088 location=102
+    0828CA95  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0828CA9B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CAA0  compare_var_to_value var=0x8000 value=1
+    0828CAA5  goto_if              condition=1 destination=0x0828C9C6
+    0828CAAB  compare_var_to_value var=0x8000 value=0
+    0828CAB0  goto_if              condition=1 destination=0x0828CAC1
+    0828CAB6  compare_var_to_value var=0x8000 value=127
+    0828CABB  goto_if              condition=1 destination=0x0828C9C6
+    0828CAC1  call                 destination=0x08288FB1
+    0828CAC6  goto                 destination=0x0828C9C6
+
+  script 0x0828D0FF  [ok]
+    0828D0FF  copyvar              destination=VAR_0x800D source=VAR_0x408C
+    0828D104  compare_var_to_value var=0x800D value=1
+    0828D109  goto_if              condition=1 destination=0x0828D12F
+    0828D10F  compare_var_to_value var=0x800D value=2
+    0828D114  goto_if              condition=1 destination=0x0828D139
+    0828D11A  compare_var_to_value var=0x800D value=3
+    0828D11F  goto_if              condition=1 destination=0x0828D143
+    0828D125  warp                 mapGroup=41 mapNum=2 WARP_ID_NONE=255 -1=6 -1=6
+    0828D12D  waitstate            
+
+  script 0x0828CD31  [ok]
+    0828CD31  compare_var_to_value var=0x4002 value=1
+    0828CD36  goto_if              condition=1 destination=0x0828CD61
+    0828CD3C  msgbox_multilang     type=0 text_0="Excuse me, but…\pOur leader, the SALON MAIDEN, is on\nher way here in hopes of battling you.\pShe should be arriving very shortly." text_1="Excuse me, but…\pOur leader, the SALON MAIDEN, is on\nher way here in hopes of battling you.\pShe should be arriving very shortly." text_2="Excuse me, but…\pOur leader, the SALON MAIDEN, is on\nher way here in hopes of battling you.\pShe should be arriving very shortly." text_3="Excuse me, but…\pOur leader, the SALON MAIDEN, is on\nher way here in hopes of battling you.\pShe should be arriving very shortly." text_4="Excuse me, but…\pOur leader, the SALON MAIDEN, is on\nher way here in hopes of battling you.\pShe should be arriving very shortly." text_5="Excuse me, but…\pOur leader, the SALON MAIDEN, is on\nher way here in hopes of battling you.\pShe should be arriving very shortly." text_6="Excuse me, but…\pOur leader, the SALON MAIDEN, is on\nher way here in hopes of battling you.\pShe should be arriving very shortly."
+    0828CD5A  callstd              function=MSGBOX_DEFAULT(4)
+    0828CD5C  setvar               destination=VAR_0x4002 value=1
+    0828CD61  message              text="You will be facing the SALON MAIDEN.\nAre you prepared?"
+    0828CD66  playslotmachine      id=10452
+    0828CD69  gotostd              function=137
+    0828CD6B  turnrotatingtileobjects 
+    0828CD6C  delay                frames=35080
+    0828CD6F  turnrotatingtileobjects 
+    0828CD70  delay                frames=35080
+    0828CD73  turnrotatingtileobjects 
+    0828CD74  delay                frames=35080
+    0828CD77  turnrotatingtileobjects 
+    0828CD78  delay                frames=35080
+    0828CD7B  turnrotatingtileobjects 
+    0828CD7C  delay                frames=26120
+    0828CD7F  call                 destination=0x0828900D
+    0828CD84  compare_var_to_value var=0x800D value=1
+    0828CD89  goto_if              condition=1 destination=0x0828CDD0
+    0828CD8F  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    0828CD94  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CD99  compare_var_to_value var=0x8000 value=0
+    0828CD9E  goto_if              condition=1 destination=0x0828CE06
+    0828CDA4  compare_var_to_value var=0x8000 value=1
+    0828CDA9  goto_if              condition=1 destination=0x0828CA77
+    0828CDAF  compare_var_to_value var=0x8000 value=2
+    0828CDB4  goto_if              condition=1 destination=0x0828CACB
+    0828CDBA  compare_var_to_value var=0x8000 value=3
+    0828CDBF  goto_if              condition=1 destination=0x0828CB11
+    0828CDC5  compare_var_to_value var=0x8000 value=127
+    0828CDCA  goto_if              condition=1 destination=0x0828CD61
+    0828CDD0  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0828CDD5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CDDA  compare_var_to_value var=0x8000 value=0
+    0828CDDF  goto_if              condition=1 destination=0x0828CE06
+    0828CDE5  compare_var_to_value var=0x8000 value=1
+    0828CDEA  goto_if              condition=1 destination=0x0828CACB
+    0828CDF0  compare_var_to_value var=0x8000 value=2
+    0828CDF5  goto_if              condition=1 destination=0x0828CB11
+    0828CDFB  compare_var_to_value var=0x8000 value=127
+    0828CE00  goto_if              condition=1 destination=0x0828CD61
+    0828CE06  call                 destination=0x0828D0B7
+    0828CE0B  closemessage         
+    0828CE0C  applymovement        localId=255 movements=[face_right]
+    0828CE13  waitmovement         localId=0
+    0828CE16  applymovement        localId=2 movements=[walk_down walk_left walk_left walk_left face_right]
+    0828CE1D  waitmovement         localId=0
+    0828CE20  addobject            localId=1
+    0828CE23  applymovement        localId=1 movements=[walk_slow_down walk_slow_down walk_slow_down walk_slow_down face_left]
+    0828CE2A  waitmovement         localId=0
+    0828CE2D  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    0828CE32  compare_var_to_value var=0x8000 value=2
+    0828CE37  goto_if              condition=1 destination=0x0828CF54
+    0828CE3D  compare_var_to_value var=0x8000 value=3
+    0828CE42  goto_if              condition=1 destination=0x0828CE98
+    0828CE48  compare_var_to_value var=0x8000 value=4
+    0828CE4D  goto_if              condition=1 destination=0x0828CF99
+    0828CE53  setvar               destination=VAR_0x8004 value=1
+    0828CE58  setvar               destination=VAR_0x8005 value=7
+    0828CE5D  special              SPECIAL_\function=148
+    0828CE60  compare_var_to_value var=0x800D value=0
+    0828CE65  goto_if              condition=5 destination=0x0828CE98
+    0828CE6B  msgbox_multilang     type=0 text_0="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_1="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_2="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_3="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_4="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_5="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_6="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…"
+    0828CE89  callstd              function=MSGBOX_DEFAULT(4)
+    0828CE8B  setvar               destination=VAR_0x8004 value=2
+    0828CE90  setvar               destination=VAR_0x8005 value=7
+    0828CE95  special              SPECIAL_\function=148
+    0828CE98  msgbox_multilang     type=0 text_0="Let me see your talent in\nits entirety…" text_1="Let me see your talent in\nits entirety…" text_2="Let me see your talent in\nits entirety…" text_3="Let me see your talent in\nits entirety…" text_4="Let me see your talent in\nits entirety…" text_5="Let me see your talent in\nits entirety…" text_6="Let me see your talent in\nits entirety…"
+    0828CEB6  callstd              function=MSGBOX_DEFAULT(4)
+    0828CEB8  call                 destination=0x0828D055
+    0828CEBD  compare_var_to_value var=0x800D value=1
+    0828CEC2  goto_if              condition=1 destination=0x0828CECD
+    0828CEC8  goto                 destination=0x0828C922
+
+  script 0x0828CBDB  [ok]
+    0828CBDB  copyvar              destination=VAR_0x400F source=VAR_0x800D
+    0828CBE0  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    0828CBE5  compare_var_to_value var=0x8000 value=1
+    0828CBEA  goto_if              condition=1 destination=0x0828CC27
+    0828CBF0  compare_var_to_value var=0x8000 value=2
+    0828CBF5  goto_if              condition=1 destination=0x0828CC46
+    0828CBFB  compare_var_to_value var=0x8000 value=3
+    0828CC00  goto_if              condition=1 destination=0x0828CC65
+    0828CC06  compare_var_to_value var=0x8000 value=4
+    0828CC0B  goto_if              condition=1 destination=0x0828CC84
+    0828CC11  compare_var_to_value var=0x8000 value=5
+    0828CC16  goto_if              condition=1 destination=0x0828CCA3
+    0828CC1C  compare_var_to_value var=0x8000 value=6
+    0828CC21  goto_if              condition=1 destination=0x0828CCC2
+    0828CC27  message              text="You will be facing opponent no. 2.\nAre you ready?"
+    0828CC2C  vbuffermessage       text=3188205777
+    0828CC31  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=190 -1=10449 -1=48648
+    0828CC39  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=190 -1=10449 -1=48648
+    0828CC41  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=102 -1=26371 -1=53744
+    0828CC49  delay                frames=61448
+    0828CC4C  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=240 -1=10449 -1=61448
+    0828CC54  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=240 -1=10449 -1=61448
+    0828CC5C  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=240 -1=10449 -1=26120
+    0828CC64  return               
+
+  script 0x0828900D  [ok]
+    0828900D  setvar               destination=VAR_0x8004 value=1
+    08289012  setvar               destination=VAR_0x8005 value=6
+    08289017  special              SPECIAL_\function=148
+    0828901A  return               
+
+  script 0x0828CA41  [ok]
+    0828CA41  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0828CA46  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CA4B  compare_var_to_value var=0x8000 value=0
+    0828CA50  goto_if              condition=1 destination=0x0828CB5B
+    0828CA56  compare_var_to_value var=0x8000 value=1
+    0828CA5B  goto_if              condition=1 destination=0x0828CACB
+    0828CA61  compare_var_to_value var=0x8000 value=2
+    0828CA66  goto_if              condition=1 destination=0x0828CB11
+    0828CA6C  compare_var_to_value var=0x8000 value=127
+    0828CA71  goto_if              condition=1 destination=0x0828C9C6
+    0828CA77  message              text="Record your battle on your\nFRONTIER PASS?"
+    0828CA7C  nop_EA               
+    0828CA7D  setmonmetlocation    slot=2088 location=234
+    0828CA81  setmonmetlocation    slot=2088 location=234
+    0828CA85  setmonmetlocation    slot=2088 location=234
+    0828CA89  setmonmetlocation    slot=2088 location=234
+    0828CA8D  setmonmetlocation    slot=2088 location=234
+    0828CA91  setmonmetlocation    slot=2088 location=102
+    0828CA95  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0828CA9B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CAA0  compare_var_to_value var=0x8000 value=1
+    0828CAA5  goto_if              condition=1 destination=0x0828C9C6
+    0828CAAB  compare_var_to_value var=0x8000 value=0
+    0828CAB0  goto_if              condition=1 destination=0x0828CAC1
+    0828CAB6  compare_var_to_value var=0x8000 value=127
+    0828CABB  goto_if              condition=1 destination=0x0828C9C6
+    0828CAC1  call                 destination=0x08288FB1
+    0828CAC6  goto                 destination=0x0828C9C6
+
+  script 0x0828CB5B  [ok]
+    0828CB5B  closemessage         
+    0828CB5C  applymovement        localId=255 movements=[face_right]
+    0828CB63  waitmovement         localId=0
+    0828CB66  applymovement        localId=2 movements=[walk_down walk_left walk_left walk_left face_right]
+    0828CB6D  waitmovement         localId=0
+    0828CB70  goto                 destination=0x0828C8CA
+
+  script 0x0828CA77  [ok]
+    0828CA77  message              text="Record your battle on your\nFRONTIER PASS?"
+    0828CA7C  nop_EA               
+    0828CA7D  setmonmetlocation    slot=2088 location=234
+    0828CA81  setmonmetlocation    slot=2088 location=234
+    0828CA85  setmonmetlocation    slot=2088 location=234
+    0828CA89  setmonmetlocation    slot=2088 location=234
+    0828CA8D  setmonmetlocation    slot=2088 location=234
+    0828CA91  setmonmetlocation    slot=2088 location=102
+    0828CA95  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0828CA9B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CAA0  compare_var_to_value var=0x8000 value=1
+    0828CAA5  goto_if              condition=1 destination=0x0828C9C6
+    0828CAAB  compare_var_to_value var=0x8000 value=0
+    0828CAB0  goto_if              condition=1 destination=0x0828CAC1
+    0828CAB6  compare_var_to_value var=0x8000 value=127
+    0828CABB  goto_if              condition=1 destination=0x0828C9C6
+    0828CAC1  call                 destination=0x08288FB1
+    0828CAC6  goto                 destination=0x0828C9C6
+
+  script 0x0828CACB  [ok]
+    0828CACB  msgbox_multilang     type=0 text_0="Would you like to save and\nquit the game?" text_1="Would you like to save and\nquit the game?" text_2="Would you like to save and\nquit the game?" text_3="Would you like to save and\nquit the game?" text_4="Would you like to save and\nquit the game?" text_5="Would you like to save and\nquit the game?" text_6="Would you like to save and\nquit the game?"
+    0828CAE9  callstd              function=MSGBOX_YESNO(5)
+    0828CAEB  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CAF0  compare_var_to_value var=0x8000 value=0
+    0828CAF5  goto_if              condition=1 destination=0x0828C9C6
+    0828CAFB  compare_var_to_value var=0x8000 value=1
+    0828CB00  goto_if              condition=1 destination=0x0828CBA1
+    0828CB06  compare_var_to_value var=0x8000 value=127
+    0828CB0B  goto_if              condition=1 destination=0x0828C9C6
+    0828CB11  message              text="Would you like to cancel your BATTLE\nROOM challenge?"
+    0828CB16  showmoneybox         x=211 y=40 disable=8
+    0828CB1A  showmoneybox         x=211 y=40 disable=8
+    0828CB1E  showmoneybox         x=211 y=40 disable=8
+    0828CB22  showmoneybox         x=211 y=40 disable=8
+    0828CB26  showmoneybox         x=211 y=40 disable=8
+    0828CB2A  showmoneybox         x=211 y=40 disable=8
+    0828CB2E  waitmessage          
+    0828CB2F  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0828CB35  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CB3A  compare_var_to_value var=0x8000 value=1
+    0828CB3F  goto_if              condition=1 destination=0x0828C9C6
+    0828CB45  compare_var_to_value var=0x8000 value=0
+    0828CB4A  goto_if              condition=1 destination=0x0828D155
+    0828CB50  compare_var_to_value var=0x8000 value=127
+    0828CB55  goto_if              condition=1 destination=0x0828C9C6
+    0828CB5B  closemessage         
+    0828CB5C  applymovement        localId=255 movements=[face_right]
+    0828CB63  waitmovement         localId=0
+    0828CB66  applymovement        localId=2 movements=[walk_down walk_left walk_left walk_left face_right]
+    0828CB6D  waitmovement         localId=0
+    0828CB70  goto                 destination=0x0828C8CA
+
+  script 0x0828CB11  [ok]
+    0828CB11  message              text="Would you like to cancel your BATTLE\nROOM challenge?"
+    0828CB16  showmoneybox         x=211 y=40 disable=8
+    0828CB1A  showmoneybox         x=211 y=40 disable=8
+    0828CB1E  showmoneybox         x=211 y=40 disable=8
+    0828CB22  showmoneybox         x=211 y=40 disable=8
+    0828CB26  showmoneybox         x=211 y=40 disable=8
+    0828CB2A  showmoneybox         x=211 y=40 disable=8
+    0828CB2E  waitmessage          
+    0828CB2F  multichoicedefault   x=20 y=8 multichoiceId=94 default=1 ignoreBPress=0
+    0828CB35  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CB3A  compare_var_to_value var=0x8000 value=1
+    0828CB3F  goto_if              condition=1 destination=0x0828C9C6
+    0828CB45  compare_var_to_value var=0x8000 value=0
+    0828CB4A  goto_if              condition=1 destination=0x0828D155
+    0828CB50  compare_var_to_value var=0x8000 value=127
+    0828CB55  goto_if              condition=1 destination=0x0828C9C6
+    0828CB5B  closemessage         
+    0828CB5C  applymovement        localId=255 movements=[face_right]
+    0828CB63  waitmovement         localId=0
+    0828CB66  applymovement        localId=2 movements=[walk_down walk_left walk_left walk_left face_right]
+    0828CB6D  waitmovement         localId=0
+    0828CB70  goto                 destination=0x0828C8CA
+
+  script 0x0828CAC1  [ok]
+    0828CAC1  call                 destination=0x08288FB1
+    0828CAC6  goto                 destination=0x0828C9C6
+
+  script 0x08288FB1  [ok]
+    08288FB1  setvar               destination=VAR_0x8004 value=19
+    08288FB6  special              SPECIAL_\function=148
+    08288FB9  compare_var_to_value var=0x800D value=0
+    08288FBE  goto_if              condition=1 destination=0x08288FEC
+    08288FC4  playse               song=55
+    08288FC7  msgbox_multilang     type=0 text_0="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_1="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_2="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_3="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_4="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_5="{PLAYER}’s battle was recorded\non the FRONTIER PASS." text_6="{PLAYER}’s battle was recorded\non the FRONTIER PASS."
+    08288FE5  callstd              function=MSGBOX_DEFAULT(4)
+    08288FE7  goto                 destination=0x0828900C
+
+  script 0x0828CCE1  [ok]
+    0828CCE1  setvar               destination=VAR_0x8004 value=17
+    0828CCE6  special              SPECIAL_\function=148
+    0828CCE9  return               
+
+  script 0x0828CB75  [ok]
+    0828CB75  setvar               destination=VAR_0x8004 value=2
+    0828CB7A  setvar               destination=VAR_0x8005 value=0
+    0828CB7F  setvar               destination=VAR_0x8006 value=3
+    0828CB84  special              SPECIAL_\function=148
+    0828CB87  setvar               destination=VAR_0x8004 value=2
+    0828CB8C  setvar               destination=VAR_0x8005 value=3
+    0828CB91  special              SPECIAL_\function=149
+    0828CB94  setvar               destination=VAR_0x8004 value=3
+    0828CB99  special              SPECIAL_\function=100
+    0828CB9C  goto                 destination=0x0828D0FF
+
+  script 0x0828CCEA  [ok]
+    0828CCEA  applymovement        localId=3 movements=[set_visible delay_16 walk_up walk_left walk_left delay_8]
+    0828CCF1  waitmovement         localId=0
+    0828CCF4  applymovement        localId=3 movements=[walk_in_place_left]
+    0828CCFB  waitmovement         localId=0
+    0828CCFE  playse               song=21
+    0828CD01  applymovement        localId=2 movements=[emote_exclamation_mark]
+    0828CD08  waitmovement         localId=0
+    0828CD0B  applymovement        localId=2 movements=[delay_16 delay_16 delay_16]
+    0828CD12  waitmovement         localId=0
+    0828CD15  applymovement        localId=3 movements=[delay_16 delay_16 delay_16 delay_16]
+    0828CD1C  applymovement        localId=2 movements=[face_right delay_16 delay_16 delay_16 delay_16 walk_in_place_right]
+    0828CD23  waitmovement         localId=0
+    0828CD26  applymovement        localId=3 movements=[walk_right walk_right walk_down set_invisible]
+    0828CD2D  waitmovement         localId=0
+    0828CD30  return               
+
+  script 0x0828D12F  [ok]
+    0828D12F  warp                 mapGroup=41 mapNum=2 WARP_ID_NONE=255 -1=10 -1=6
+    0828D137  waitstate            
+
+  script 0x0828D139  [ok]
+    0828D139  warp                 mapGroup=41 mapNum=2 WARP_ID_NONE=255 -1=14 -1=6
+    0828D141  waitstate            
+
+  script 0x0828D143  [ok]
+    0828D143  setvar               destination=VAR_0x8004 value=13
+    0828D148  special              SPECIAL_\function=149
+    0828D14B  warp                 mapGroup=41 mapNum=2 WARP_ID_NONE=255 -1=18 -1=6
+    0828D153  waitstate            
+
+  script 0x0828CD61  [ok]
+    0828CD61  message              text="You will be facing the SALON MAIDEN.\nAre you prepared?"
+    0828CD66  playslotmachine      id=10452
+    0828CD69  gotostd              function=137
+    0828CD6B  turnrotatingtileobjects 
+    0828CD6C  delay                frames=35080
+    0828CD6F  turnrotatingtileobjects 
+    0828CD70  delay                frames=35080
+    0828CD73  turnrotatingtileobjects 
+    0828CD74  delay                frames=35080
+    0828CD77  turnrotatingtileobjects 
+    0828CD78  delay                frames=35080
+    0828CD7B  turnrotatingtileobjects 
+    0828CD7C  delay                frames=26120
+    0828CD7F  call                 destination=0x0828900D
+    0828CD84  compare_var_to_value var=0x800D value=1
+    0828CD89  goto_if              condition=1 destination=0x0828CDD0
+    0828CD8F  multichoice          x=19 y=4 multichoiceId=103 ignoreBPress=1
+    0828CD94  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CD99  compare_var_to_value var=0x8000 value=0
+    0828CD9E  goto_if              condition=1 destination=0x0828CE06
+    0828CDA4  compare_var_to_value var=0x8000 value=1
+    0828CDA9  goto_if              condition=1 destination=0x0828CA77
+    0828CDAF  compare_var_to_value var=0x8000 value=2
+    0828CDB4  goto_if              condition=1 destination=0x0828CACB
+    0828CDBA  compare_var_to_value var=0x8000 value=3
+    0828CDBF  goto_if              condition=1 destination=0x0828CB11
+    0828CDC5  compare_var_to_value var=0x8000 value=127
+    0828CDCA  goto_if              condition=1 destination=0x0828CD61
+    0828CDD0  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0828CDD5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CDDA  compare_var_to_value var=0x8000 value=0
+    0828CDDF  goto_if              condition=1 destination=0x0828CE06
+    0828CDE5  compare_var_to_value var=0x8000 value=1
+    0828CDEA  goto_if              condition=1 destination=0x0828CACB
+    0828CDF0  compare_var_to_value var=0x8000 value=2
+    0828CDF5  goto_if              condition=1 destination=0x0828CB11
+    0828CDFB  compare_var_to_value var=0x8000 value=127
+    0828CE00  goto_if              condition=1 destination=0x0828CD61
+    0828CE06  call                 destination=0x0828D0B7
+    0828CE0B  closemessage         
+    0828CE0C  applymovement        localId=255 movements=[face_right]
+    0828CE13  waitmovement         localId=0
+    0828CE16  applymovement        localId=2 movements=[walk_down walk_left walk_left walk_left face_right]
+    0828CE1D  waitmovement         localId=0
+    0828CE20  addobject            localId=1
+    0828CE23  applymovement        localId=1 movements=[walk_slow_down walk_slow_down walk_slow_down walk_slow_down face_left]
+    0828CE2A  waitmovement         localId=0
+    0828CE2D  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    0828CE32  compare_var_to_value var=0x8000 value=2
+    0828CE37  goto_if              condition=1 destination=0x0828CF54
+    0828CE3D  compare_var_to_value var=0x8000 value=3
+    0828CE42  goto_if              condition=1 destination=0x0828CE98
+    0828CE48  compare_var_to_value var=0x8000 value=4
+    0828CE4D  goto_if              condition=1 destination=0x0828CF99
+    0828CE53  setvar               destination=VAR_0x8004 value=1
+    0828CE58  setvar               destination=VAR_0x8005 value=7
+    0828CE5D  special              SPECIAL_\function=148
+    0828CE60  compare_var_to_value var=0x800D value=0
+    0828CE65  goto_if              condition=5 destination=0x0828CE98
+    0828CE6B  msgbox_multilang     type=0 text_0="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_1="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_2="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_3="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_4="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_5="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_6="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…"
+    0828CE89  callstd              function=MSGBOX_DEFAULT(4)
+    0828CE8B  setvar               destination=VAR_0x8004 value=2
+    0828CE90  setvar               destination=VAR_0x8005 value=7
+    0828CE95  special              SPECIAL_\function=148
+    0828CE98  msgbox_multilang     type=0 text_0="Let me see your talent in\nits entirety…" text_1="Let me see your talent in\nits entirety…" text_2="Let me see your talent in\nits entirety…" text_3="Let me see your talent in\nits entirety…" text_4="Let me see your talent in\nits entirety…" text_5="Let me see your talent in\nits entirety…" text_6="Let me see your talent in\nits entirety…"
+    0828CEB6  callstd              function=MSGBOX_DEFAULT(4)
+    0828CEB8  call                 destination=0x0828D055
+    0828CEBD  compare_var_to_value var=0x800D value=1
+    0828CEC2  goto_if              condition=1 destination=0x0828CECD
+    0828CEC8  goto                 destination=0x0828C922
+
+  script 0x0828CDD0  [ok]
+    0828CDD0  multichoice          x=20 y=6 multichoiceId=104 ignoreBPress=1
+    0828CDD5  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0828CDDA  compare_var_to_value var=0x8000 value=0
+    0828CDDF  goto_if              condition=1 destination=0x0828CE06
+    0828CDE5  compare_var_to_value var=0x8000 value=1
+    0828CDEA  goto_if              condition=1 destination=0x0828CACB
+    0828CDF0  compare_var_to_value var=0x8000 value=2
+    0828CDF5  goto_if              condition=1 destination=0x0828CB11
+    0828CDFB  compare_var_to_value var=0x8000 value=127
+    0828CE00  goto_if              condition=1 destination=0x0828CD61
+    0828CE06  call                 destination=0x0828D0B7
+    0828CE0B  closemessage         
+    0828CE0C  applymovement        localId=255 movements=[face_right]
+    0828CE13  waitmovement         localId=0
+    0828CE16  applymovement        localId=2 movements=[walk_down walk_left walk_left walk_left face_right]
+    0828CE1D  waitmovement         localId=0
+    0828CE20  addobject            localId=1
+    0828CE23  applymovement        localId=1 movements=[walk_slow_down walk_slow_down walk_slow_down walk_slow_down face_left]
+    0828CE2A  waitmovement         localId=0
+    0828CE2D  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    0828CE32  compare_var_to_value var=0x8000 value=2
+    0828CE37  goto_if              condition=1 destination=0x0828CF54
+    0828CE3D  compare_var_to_value var=0x8000 value=3
+    0828CE42  goto_if              condition=1 destination=0x0828CE98
+    0828CE48  compare_var_to_value var=0x8000 value=4
+    0828CE4D  goto_if              condition=1 destination=0x0828CF99
+    0828CE53  setvar               destination=VAR_0x8004 value=1
+    0828CE58  setvar               destination=VAR_0x8005 value=7
+    0828CE5D  special              SPECIAL_\function=148
+    0828CE60  compare_var_to_value var=0x800D value=0
+    0828CE65  goto_if              condition=5 destination=0x0828CE98
+    0828CE6B  msgbox_multilang     type=0 text_0="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_1="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_2="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_3="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_4="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_5="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_6="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…"
+    0828CE89  callstd              function=MSGBOX_DEFAULT(4)
+    0828CE8B  setvar               destination=VAR_0x8004 value=2
+    0828CE90  setvar               destination=VAR_0x8005 value=7
+    0828CE95  special              SPECIAL_\function=148
+    0828CE98  msgbox_multilang     type=0 text_0="Let me see your talent in\nits entirety…" text_1="Let me see your talent in\nits entirety…" text_2="Let me see your talent in\nits entirety…" text_3="Let me see your talent in\nits entirety…" text_4="Let me see your talent in\nits entirety…" text_5="Let me see your talent in\nits entirety…" text_6="Let me see your talent in\nits entirety…"
+    0828CEB6  callstd              function=MSGBOX_DEFAULT(4)
+    0828CEB8  call                 destination=0x0828D055
+    0828CEBD  compare_var_to_value var=0x800D value=1
+    0828CEC2  goto_if              condition=1 destination=0x0828CECD
+    0828CEC8  goto                 destination=0x0828C922
+
+  script 0x0828CE06  [ok]
+    0828CE06  call                 destination=0x0828D0B7
+    0828CE0B  closemessage         
+    0828CE0C  applymovement        localId=255 movements=[face_right]
+    0828CE13  waitmovement         localId=0
+    0828CE16  applymovement        localId=2 movements=[walk_down walk_left walk_left walk_left face_right]
+    0828CE1D  waitmovement         localId=0
+    0828CE20  addobject            localId=1
+    0828CE23  applymovement        localId=1 movements=[walk_slow_down walk_slow_down walk_slow_down walk_slow_down face_left]
+    0828CE2A  waitmovement         localId=0
+    0828CE2D  copyvar              destination=VAR_0x8000 source=VAR_0x400F
+    0828CE32  compare_var_to_value var=0x8000 value=2
+    0828CE37  goto_if              condition=1 destination=0x0828CF54
+    0828CE3D  compare_var_to_value var=0x8000 value=3
+    0828CE42  goto_if              condition=1 destination=0x0828CE98
+    0828CE48  compare_var_to_value var=0x8000 value=4
+    0828CE4D  goto_if              condition=1 destination=0x0828CF99
+    0828CE53  setvar               destination=VAR_0x8004 value=1
+    0828CE58  setvar               destination=VAR_0x8005 value=7
+    0828CE5D  special              SPECIAL_\function=148
+    0828CE60  compare_var_to_value var=0x800D value=0
+    0828CE65  goto_if              condition=5 destination=0x0828CE98
+    0828CE6B  msgbox_multilang     type=0 text_0="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_1="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_2="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_3="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_4="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_5="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…" text_6="Greetings…\nMy name is ANABEL.\pI am the SALON MAIDEN, and I am in\ncharge of running the BATTLE TOWER…\pI have heard several rumors\nabout you…\pIn all honesty, what I have heard does\nnot seem attractive in any way…\pThe reason I’ve come to see you…\nWell, there is but one reason…"
+    0828CE89  callstd              function=MSGBOX_DEFAULT(4)
+    0828CE8B  setvar               destination=VAR_0x8004 value=2
+    0828CE90  setvar               destination=VAR_0x8005 value=7
+    0828CE95  special              SPECIAL_\function=148
+    0828CE98  msgbox_multilang     type=0 text_0="Let me see your talent in\nits entirety…" text_1="Let me see your talent in\nits entirety…" text_2="Let me see your talent in\nits entirety…" text_3="Let me see your talent in\nits entirety…" text_4="Let me see your talent in\nits entirety…" text_5="Let me see your talent in\nits entirety…" text_6="Let me see your talent in\nits entirety…"
+    0828CEB6  callstd              function=MSGBOX_DEFAULT(4)
+    0828CEB8  call                 destination=0x0828D055
+    0828CEBD  compare_var_to_value var=0x800D value=1
+    0828CEC2  goto_if              condition=1 destination=0x0828CECD
+    0828CEC8  goto                 destination=0x0828C922
+
+  script 0x0828D0B7  [ok]
+    0828D0B7  setvar               destination=VAR_0x8004 value=22
+    0828D0BC  special              SPECIAL_\function=148
+    0828D0BF  return               
+
+  script 0x0828CF54  [ok]
+    0828CF54  setvar               destination=VAR_0x8004 value=1
+    0828CF59  setvar               destination=VAR_0x8005 value=7
+    0828CF5E  special              SPECIAL_\function=148
+    0828CF61  compare_var_to_value var=0x800D value=0
+    0828CF66  goto_if              condition=5 destination=0x0828CF99
+    0828CF6C  msgbox_multilang     type=0 text_0="ANABEL: You really did come back to\nsee me…\p… … … … … …\pYou’ve won straight matches to see me…\nI won’t have to hold back against you…\pIt’s been too long now…\pToo long since I’ve been able to battle\nwithout thinking about anything…" text_1="ANABEL: You really did come back to\nsee me…\p… … … … … …\pYou’ve won straight matches to see me…\nI won’t have to hold back against you…\pIt’s been too long now…\pToo long since I’ve been able to battle\nwithout thinking about anything…" text_2="ANABEL: You really did come back to\nsee me…\p… … … … … …\pYou’ve won straight matches to see me…\nI won’t have to hold back against you…\pIt’s been too long now…\pToo long since I’ve been able to battle\nwithout thinking about anything…" text_3="ANABEL: You really did come back to\nsee me…\p… … … … … …\pYou’ve won straight matches to see me…\nI won’t have to hold back against you…\pIt’s been too long now…\pToo long since I’ve been able to battle\nwithout thinking about anything…" text_4="ANABEL: You really did come back to\nsee me…\p… … … … … …\pYou’ve won straight matches to see me…\nI won’t have to hold back against you…\pIt’s been too long now…\pToo long since I’ve been able to battle\nwithout thinking about anything…" text_5="ANABEL: You really did come back to\nsee me…\p… … … … … …\pYou’ve won straight matches to see me…\nI won’t have to hold back against you…\pIt’s been too long now…\pToo long since I’ve been able to battle\nwithout thinking about anything…" text_6="ANABEL: You really did come back to\nsee me…\p… … … … … …\pYou’ve won straight matches to see me…\nI won’t have to hold back against you…\pIt’s been too long now…\pToo long since I’ve been able to battle\nwithout thinking about anything…"
+    0828CF8A  callstd              function=MSGBOX_DEFAULT(4)
+    0828CF8C  setvar               destination=VAR_0x8004 value=2
+    0828CF91  setvar               destination=VAR_0x8005 value=7
+    0828CF96  special              SPECIAL_\function=148
+    0828CF99  msgbox_multilang     type=0 text_0="Let’s begin, shall we?" text_1="Let’s begin, shall we?" text_2="Let’s begin, shall we?" text_3="Let’s begin, shall we?" text_4="Let’s begin, shall we?" text_5="Let’s begin, shall we?" text_6="Let’s begin, shall we?"
+    0828CFB7  callstd              function=MSGBOX_DEFAULT(4)
+    0828CFB9  call                 destination=0x0828D055
+    0828CFBE  compare_var_to_value var=0x800D value=1
+    0828CFC3  goto_if              condition=1 destination=0x0828CFCE
+    0828CFC9  goto                 destination=0x0828C922
+
+  script 0x0828CE98  [ok]
+    0828CE98  msgbox_multilang     type=0 text_0="Let me see your talent in\nits entirety…" text_1="Let me see your talent in\nits entirety…" text_2="Let me see your talent in\nits entirety…" text_3="Let me see your talent in\nits entirety…" text_4="Let me see your talent in\nits entirety…" text_5="Let me see your talent in\nits entirety…" text_6="Let me see your talent in\nits entirety…"
+    0828CEB6  callstd              function=MSGBOX_DEFAULT(4)
+    0828CEB8  call                 destination=0x0828D055
+    0828CEBD  compare_var_to_value var=0x800D value=1
+    0828CEC2  goto_if              condition=1 destination=0x0828CECD
+    0828CEC8  goto                 destination=0x0828C922
+
+  script 0x0828CF99  [ok]
+    0828CF99  msgbox_multilang     type=0 text_0="Let’s begin, shall we?" text_1="Let’s begin, shall we?" text_2="Let’s begin, shall we?" text_3="Let’s begin, shall we?" text_4="Let’s begin, shall we?" text_5="Let’s begin, shall we?" text_6="Let’s begin, shall we?"
+    0828CFB7  callstd              function=MSGBOX_DEFAULT(4)
+    0828CFB9  call                 destination=0x0828D055
+    0828CFBE  compare_var_to_value var=0x800D value=1
+    0828CFC3  goto_if              condition=1 destination=0x0828CFCE
+    0828CFC9  goto                 destination=0x0828C922
+
+  script 0x0828CECD  [ok]
+    0828CECD  call                 destination=0x0828CCE1
+    0828CED2  setvar               destination=VAR_0x8004 value=12
+    0828CED7  special              SPECIAL_\function=148
+    0828CEDA  compare_var_to_value var=0x800D value=0
+    0828CEDF  goto_if              condition=5 destination=0x0828CB75
+    0828CEE5  msgbox_multilang     type=0 text_0="ANABEL: Fufufu, nicely done…\pYour FRONTIER PASS, please…\nYour talent shall be recognized." text_1="ANABEL: Fufufu, nicely done…\pYour FRONTIER PASS, please…\nYour talent shall be recognized." text_2="ANABEL: Fufufu, nicely done…\pYour FRONTIER PASS, please…\nYour talent shall be recognized." text_3="ANABEL: Fufufu, nicely done…\pYour FRONTIER PASS, please…\nYour talent shall be recognized." text_4="ANABEL: Fufufu, nicely done…\pYour FRONTIER PASS, please…\nYour talent shall be recognized." text_5="ANABEL: Fufufu, nicely done…\pYour FRONTIER PASS, please…\nYour talent shall be recognized." text_6="ANABEL: Fufufu, nicely done…\pYour FRONTIER PASS, please…\nYour talent shall be recognized."
+    0828CF03  callstd              function=MSGBOX_DEFAULT(4)
+    0828CF05  playfanfare          song=466
+    0828CF08  message              text="The Ability Symbol was embossed on\nthe FRONTIER PASS!"
+    0828CF0D  addobject            localId=10454
+    0828CF10  gotostd              function=85
+    0828CF12  freerotatingtilepuzzle 
+    0828CF13  delay                frames=21768
+    0828CF16  freerotatingtilepuzzle 
+    0828CF17  delay                frames=21768
+    0828CF1A  freerotatingtilepuzzle 
+    0828CF1B  delay                frames=21768
+    0828CF1E  freerotatingtilepuzzle 
+    0828CF1F  delay                frames=21768
+    0828CF22  freerotatingtilepuzzle 
+    0828CF23  delay                frames=26120
+    0828CF26  waitfanfare          
+    0828CF27  setvar               destination=VAR_0x8004 value=13
+    0828CF2C  special              SPECIAL_\function=148
+    0828CF2F  msgbox_multilang     type=0 text_0="… … … … … …\pYou have confidence in your POKéMON\nbattling talent, don’t you?\pI urge you to keep battling and\nkeep on winning.\pI will be waiting for you.\nUntil the next time we meet…" text_1="… … … … … …\pYou have confidence in your POKéMON\nbattling talent, don’t you?\pI urge you to keep battling and\nkeep on winning.\pI will be waiting for you.\nUntil the next time we meet…" text_2="… … … … … …\pYou have confidence in your POKéMON\nbattling talent, don’t you?\pI urge you to keep battling and\nkeep on winning.\pI will be waiting for you.\nUntil the next time we meet…" text_3="… … … … … …\pYou have confidence in your POKéMON\nbattling talent, don’t you?\pI urge you to keep battling and\nkeep on winning.\pI will be waiting for you.\nUntil the next time we meet…" text_4="… … … … … …\pYou have confidence in your POKéMON\nbattling talent, don’t you?\pI urge you to keep battling and\nkeep on winning.\pI will be waiting for you.\nUntil the next time we meet…" text_5="… … … … … …\pYou have confidence in your POKéMON\nbattling talent, don’t you?\pI urge you to keep battling and\nkeep on winning.\pI will be waiting for you.\nUntil the next time we meet…" text_6="… … … … … …\pYou have confidence in your POKéMON\nbattling talent, don’t you?\pI urge you to keep battling and\nkeep on winning.\pI will be waiting for you.\nUntil the next time we meet…"
+    0828CF4D  callstd              function=MSGBOX_DEFAULT(4)
+    0828CF4F  goto                 destination=0x0828CB75
+
+  script 0x0828C922  [ok]
+    0828C922  setvar               destination=VAR_0x8004 value=2
+    0828C927  setvar               destination=VAR_0x8005 value=0
+    0828C92C  setvar               destination=VAR_0x8006 value=4
+    0828C931  special              SPECIAL_\function=148
+    0828C934  setvar               destination=VAR_0x8004 value=2
+    0828C939  setvar               destination=VAR_0x8005 value=3
+    0828C93E  special              SPECIAL_\function=149
+    0828C941  setvar               destination=VAR_0x8004 value=3
+    0828C946  special              SPECIAL_\function=100
+    0828C949  goto                 destination=0x0828D0FF
+
+  script 0x0828CC27  [ok]
+    0828CC27  message              text="You will be facing opponent no. 2.\nAre you ready?"
+    0828CC2C  vbuffermessage       text=3188205777
+    0828CC31  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=190 -1=10449 -1=48648
+    0828CC39  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=190 -1=10449 -1=48648
+    0828CC41  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=102 -1=26371 -1=53744
+    0828CC49  delay                frames=61448
+    0828CC4C  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=240 -1=10449 -1=61448
+    0828CC54  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=240 -1=10449 -1=61448
+    0828CC5C  warpspinenter        mapGroup=40 mapNum=8 WARP_ID_NONE=240 -1=10449 -1=26120
+    0828CC64  return               
+
+  script 0x0828CC46  [opcode-out-of-range:0xF0]
+    0828CC46  message              text="You will be facing opponent no. 3.\nAre you ready?"
+
+  script 0x0828CC65  [ok]
+    0828CC65  message              text="You will be facing opponent no. 4.\nAre you ready?"
+    0828CC6A  compare_var_to_var   var1=10450 var2=8712
+    0828CC6F  setmonmetlocation    slot=2088 location=34
+    0828CC73  setmonmetlocation    slot=2088 location=34
+    0828CC77  setmonmetlocation    slot=2088 location=34
+    0828CC7B  setmonmetlocation    slot=2088 location=34
+    0828CC7F  setmonmetlocation    slot=2088 location=102
+    0828CC83  return               
+
+  script 0x0828CC84  [ok]
+    0828CC84  message              text="You will be facing opponent no. 5.\nAre you ready?"
+    0828CC89  removeobject         localId=10450 mapGroup=8 mapNum=84
+    0828CC8E  setmonmetlocation    slot=2088 location=84
+    0828CC92  setmonmetlocation    slot=2088 location=84
+    0828CC96  setmonmetlocation    slot=2088 location=84
+    0828CC9A  setmonmetlocation    slot=2088 location=84
+    0828CC9E  setmonmetlocation    slot=2088 location=102
+    0828CCA2  return               
+
+  script 0x0828CCA3  [ok]
+    0828CCA3  message              text="You will be facing opponent no. 6.\nAre you ready?"
+    0828CCA8  pokemart             products=2248681682
+    0828CCAD  setmonmetlocation    slot=2088 location=134
+    0828CCB1  setmonmetlocation    slot=2088 location=134
+    0828CCB5  setmonmetlocation    slot=2088 location=134
+    0828CCB9  setmonmetlocation    slot=2088 location=134
+    0828CCBD  setmonmetlocation    slot=2088 location=102
+    0828CCC1  return               
+
+  script 0x0828CCC2  [ok]
+    0828CCC2  message              text="You will be facing opponent no. 7.\nAre you ready?"
+    0828CCC7  setvaddress          pointer=3087542482
+    0828CCCC  setmonmetlocation    slot=2088 location=184
+    0828CCD0  setmonmetlocation    slot=2088 location=184
+    0828CCD4  setmonmetlocation    slot=2088 location=184
+    0828CCD8  setmonmetlocation    slot=2088 location=184
+    0828CCDC  setmonmetlocation    slot=2088 location=102
+    0828CCE0  return               
+
+  script 0x0828CBA1  [ok]
+    0828CBA1  message              text="Saving your battle data.\nPlease wait."
+    0828CBA6  waitbuttonpress      
+    0828CBA7  moverotatingtileobjects puzzleNumber=2088
+    0828CBAA  waitbuttonpress      
+    0828CBAB  moverotatingtileobjects puzzleNumber=2088
+    0828CBAE  waitbuttonpress      
+    0828CBAF  moverotatingtileobjects puzzleNumber=2088
+    0828CBB2  waitbuttonpress      
+    0828CBB3  moverotatingtileobjects puzzleNumber=2088
+    0828CBB6  waitbuttonpress      
+    0828CBB7  moverotatingtileobjects puzzleNumber=2088
+    0828CBBA  waitbuttonpress      
+    0828CBBB  moverotatingtileobjects puzzleNumber=2088
+    0828CBBE  waitmessage          
+    0828CBBF  setvar               destination=VAR_0x8004 value=6
+    0828CBC4  setvar               destination=VAR_0x8005 value=2
+    0828CBC9  special              SPECIAL_\function=149
+    0828CBCC  playse               song=55
+    0828CBCF  waitse               
+    0828CBD0  fadescreen           mode=1
+    0828CBD2  setvar               destination=VAR_0x8004 value=4
+    0828CBD7  special              SPECIAL_\function=148
+    0828CBDA  end                  
+
+  script 0x0828D155  [ok]
+    0828D155  setflag              flag=0x0AF
+    0828D158  goto                 destination=0x0828C922
+
+  script 0x08288FEC  [ok]
+    08288FEC  msgbox_multilang     type=0 text_0="There was an error of some sort.\nYour record could not be saved." text_1="There was an error of some sort.\nYour record could not be saved." text_2="There was an error of some sort.\nYour record could not be saved." text_3="There was an error of some sort.\nYour record could not be saved." text_4="There was an error of some sort.\nYour record could not be saved." text_5="There was an error of some sort.\nYour record could not be saved." text_6="There was an error of some sort.\nYour record could not be saved."
+    0828900A  callstd              function=MSGBOX_DEFAULT(4)
+    0828900C  return               
+
+  script 0x0828900C  [ok]
+    0828900C  return               
+
+  script 0x0828CFCE  [ok]
+    0828CFCE  call                 destination=0x0828CCE1
+    0828CFD3  setvar               destination=VAR_0x8004 value=12
+    0828CFD8  special              SPECIAL_\function=148
+    0828CFDB  compare_var_to_value var=0x800D value=2
+    0828CFE0  goto_if              condition=1 destination=0x0828CB75
+    0828CFE6  msgbox_multilang     type=0 text_0="ANABEL: Fufu, congratulations…\nYour FRONTIER PASS, please…" text_1="ANABEL: Fufu, congratulations…\nYour FRONTIER PASS, please…" text_2="ANABEL: Fufu, congratulations…\nYour FRONTIER PASS, please…" text_3="ANABEL: Fufu, congratulations…\nYour FRONTIER PASS, please…" text_4="ANABEL: Fufu, congratulations…\nYour FRONTIER PASS, please…" text_5="ANABEL: Fufu, congratulations…\nYour FRONTIER PASS, please…" text_6="ANABEL: Fufu, congratulations…\nYour FRONTIER PASS, please…"
+    0828D004  callstd              function=MSGBOX_DEFAULT(4)
+    0828D006  playfanfare          song=466
+    0828D009  message              text="The Ability Symbol took on\na golden shine!"
+    0828D00E  givemon              species=?(10456) level=8 item=55417 0=3631810600 0=3631810600 0=40
+    0828D01D  gotostd              function=121
+    0828D01F  selectapproachingtrainer 
+    0828D020  delay                frames=30984
+    0828D023  selectapproachingtrainer 
+    0828D024  delay                frames=26120
+    0828D027  waitfanfare          
+    0828D028  setvar               destination=VAR_0x8004 value=13
+    0828D02D  special              SPECIAL_\function=148
+    0828D030  msgbox_multilang     type=0 text_0="That was fun…\pI have never had a POKéMON battle\nso enjoyable before…\pI wish I could battle with you again…" text_1="That was fun…\pI have never had a POKéMON battle\nso enjoyable before…\pI wish I could battle with you again…" text_2="That was fun…\pI have never had a POKéMON battle\nso enjoyable before…\pI wish I could battle with you again…" text_3="That was fun…\pI have never had a POKéMON battle\nso enjoyable before…\pI wish I could battle with you again…" text_4="That was fun…\pI have never had a POKéMON battle\nso enjoyable before…\pI wish I could battle with you again…" text_5="That was fun…\pI have never had a POKéMON battle\nso enjoyable before…\pI wish I could battle with you again…" text_6="That was fun…\pI have never had a POKéMON battle\nso enjoyable before…\pI wish I could battle with you again…"
+    0828D04E  callstd              function=MSGBOX_DEFAULT(4)
+    0828D050  goto                 destination=0x0828CB75
+
+  map script type 4 (var 0x4001 == 0) -> 0x0828C85C
+  script 0x0828C85C  [ok]
+    0828C85C  setvar               destination=VAR_0x4001 value=1
+    0828C861  applymovement        localId=3 movements=[set_invisible]
+    0828C868  end                  
+

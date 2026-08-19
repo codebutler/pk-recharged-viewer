@@ -1,0 +1,49 @@
+Battle Frontier  (group 41, map 4)  header 0x08B3E120
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x55, flag 0x0000) -> 0x00000000
+  map script type 1 -> 0x0828C7BC
+  script 0x0828C7BC  [ok]
+    0828C7BC  compare_var_to_value var=0x8006 value=1
+    0828C7C1  goto_if              condition=1 destination=0x0828C7DA
+    0828C7C7  setmetatile          x=12 y=0 metatileId=519 impassable=0
+    0828C7D0  setmetatile          x=12 y=1 metatileId=527 impassable=0
+    0828C7D9  end                  
+
+  script 0x0828C7DA  [ok]
+    0828C7DA  setmetatile          x=15 y=0 metatileId=519 impassable=0
+    0828C7E3  setmetatile          x=15 y=1 metatileId=527 impassable=0
+    0828C7EC  end                  
+
+  map script type 2 (var 0x4000 == 0) -> 0x0828C7F7
+  script 0x0828C7F7  [ok]
+    0828C7F7  setvar               destination=VAR_0x4000 value=1
+    0828C7FC  compare_var_to_value var=0x8006 value=1
+    0828C801  goto_if              condition=1 destination=0x0828C81D
+    0828C807  applymovement        localId=1 movements=[walk_right walk_right walk_right walk_up set_invisible]
+    0828C80E  applymovement        localId=255 movements=[walk_right walk_right walk_right walk_right walk_up set_invisible]
+    0828C815  waitmovement         localId=0
+    0828C818  goto                 destination=0x0828C82E
+
+  script 0x0828C81D  [ok]
+    0828C81D  applymovement        localId=1 movements=[walk_right walk_right walk_right walk_right walk_right walk_right walk_up set_invisible]
+    0828C824  applymovement        localId=255 movements=[walk_right walk_right walk_right walk_right walk_right walk_right walk_right walk_up set_invisible]
+    0828C82B  waitmovement         localId=0
+    0828C82E  setvar               destination=VAR_0x4000 value=0
+    0828C833  warp                 mapGroup=41 mapNum=5 WARP_ID_NONE=255 -1=4 -1=8
+    0828C83B  waitstate            
+
+  script 0x0828C82E  [ok]
+    0828C82E  setvar               destination=VAR_0x4000 value=0
+    0828C833  warp                 mapGroup=41 mapNum=5 WARP_ID_NONE=255 -1=4 -1=8
+    0828C83B  waitstate            
+

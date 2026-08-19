@@ -1,0 +1,18 @@
+Diglett’s Cave  (group 1, map 38)  header 0x08B3B640
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF5, flag 0x0000) -> 0x0820CE04
+  script 0x0820CE04  [ok]
+    0820CE04  msgbox_multilang     type=0 text_0="Well, isn’t this a surprise!\nDiglett dug this long tunnel!\pIt goes right to Viridian City,\nthey tell me." text_1="Well, isn’t this a surprise!\nDiglett dug this long tunnel!\pIt goes right to Viridian City,\nthey tell me." text_2="Well, isn’t this a surprise!\nDiglett dug this long tunnel!\pIt goes right to Viridian City,\nthey tell me." text_3="Well, isn’t this a surprise!\nDiglett dug this long tunnel!\pIt goes right to Viridian City,\nthey tell me." text_4="Well, isn’t this a surprise!\nDiglett dug this long tunnel!\pIt goes right to Viridian City,\nthey tell me." text_5="Well, isn’t this a surprise!\nDiglett dug this long tunnel!\pIt goes right to Viridian City,\nthey tell me." text_6="Well, isn’t this a surprise!\nDiglett dug this long tunnel!\pIt goes right to Viridian City,\nthey tell me."
+    0820CE22  callstd              function=MSGBOX_NPC(2)
+    0820CE24  end                  
+

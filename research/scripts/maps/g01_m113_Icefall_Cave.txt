@@ -1,0 +1,85 @@
+Icefall Cave  (group 1, map 113)  header 0x08B3BE74
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x008D) -> 0x00000000
+  object 2 (gfx 0x02, flag 0x008D) -> 0x00000000
+  object 3 (gfx 0x1A, flag 0x008B) -> 0x08219416
+  script 0x08219416  [ok]
+    08219416  msgbox_multilang     type=0 text_0="{PLAYER}, thank you.\nBut this is awful…\pI was born and raised here on\nthese islands.\pI had no idea that those horrible\ncriminals were loose here…" text_1="{PLAYER}, thank you.\nBut this is awful…\pI was born and raised here on\nthese islands.\pI had no idea that those horrible\ncriminals were loose here…" text_2="{PLAYER}, thank you.\nBut this is awful…\pI was born and raised here on\nthese islands.\pI had no idea that those horrible\ncriminals were loose here…" text_3="{PLAYER}, thank you.\nBut this is awful…\pI was born and raised here on\nthese islands.\pI had no idea that those horrible\ncriminals were loose here…" text_4="{PLAYER}, thank you.\nBut this is awful…\pI was born and raised here on\nthese islands.\pI had no idea that those horrible\ncriminals were loose here…" text_5="{PLAYER}, thank you.\nBut this is awful…\pI was born and raised here on\nthese islands.\pI had no idea that those horrible\ncriminals were loose here…" text_6="{PLAYER}, thank you.\nBut this is awful…\pI was born and raised here on\nthese islands.\pI had no idea that those horrible\ncriminals were loose here…"
+    08219434  callstd              function=MSGBOX_NPC(2)
+    08219436  end                  
+
+  object 4 (gfx 0x02, flag 0x008D) -> 0x00000000
+  coord trigger 0 (var 0x4080 == 0) -> 0x082191B1
+  script 0x082191B1  [opcode-out-of-range:0xFB]
+    082191B1  lockall              
+    082191B2  textcolor            color=1
+    082191B4  msgbox_multilang     type=0 text_0="Lorelei: Keep your filthy hands\noff the Pokémon in the cave!\pDo as I say, or you’ll have me to\nanswer to!" text_1="Lorelei: Keep your filthy hands\noff the Pokémon in the cave!\pDo as I say, or you’ll have me to\nanswer to!" text_2="Lorelei: Keep your filthy hands\noff the Pokémon in the cave!\pDo as I say, or you’ll have me to\nanswer to!" text_3="Lorelei: Keep your filthy hands\noff the Pokémon in the cave!\pDo as I say, or you’ll have me to\nanswer to!" text_4="Lorelei: Keep your filthy hands\noff the Pokémon in the cave!\pDo as I say, or you’ll have me to\nanswer to!" text_5="Lorelei: Keep your filthy hands\noff the Pokémon in the cave!\pDo as I say, or you’ll have me to\nanswer to!" text_6="Lorelei: Keep your filthy hands\noff the Pokémon in the cave!\pDo as I say, or you’ll have me to\nanswer to!"
+    082191D2  callstd              function=MSGBOX_DEFAULT(4)
+    082191D4  applymovement        localId=1 movements=[walk_in_place_down]
+    082191DB  waitmovement         localId=0
+    082191DE  textcolor            color=0
+    082191E0  msgbox_multilang     type=0 text_0="Aww, shut it, lady, and leave\nus be.\pDon’t let your glasses get all\nsteamed up!" text_1="Aww, shut it, lady, and leave\nus be.\pDon’t let your glasses get all\nsteamed up!" text_2="Aww, shut it, lady, and leave\nus be.\pDon’t let your glasses get all\nsteamed up!" text_3="Aww, shut it, lady, and leave\nus be.\pDon’t let your glasses get all\nsteamed up!" text_4="Aww, shut it, lady, and leave\nus be.\pDon’t let your glasses get all\nsteamed up!" text_5="Aww, shut it, lady, and leave\nus be.\pDon’t let your glasses get all\nsteamed up!" text_6="Aww, shut it, lady, and leave\nus be.\pDon’t let your glasses get all\nsteamed up!"
+    082191FE  callstd              function=MSGBOX_DEFAULT(4)
+    08219200  closemessage         
+    08219201  playse               song=21
+    08219204  applymovement        localId=3 movements=[emote_exclamation_mark]
+    0821920B  waitmovement         localId=0
+    0821920E  applymovement        localId=3 movements=[walk_in_place_faster_down]
+    08219215  waitmovement         localId=0
+    08219218  applymovement        localId=3 movements=[delay_16 delay_16 delay_16]
+    0821921F  waitmovement         localId=0
+    08219222  textcolor            color=1
+    08219224  msgbox_multilang     type=0 text_0="Lorelei: {PLAYER}?!\nWhat are you doing here?\pNo, we can catch up later.\nRight now, I need your help.\pHelp me kick these poachers out\nbefore they do anything else.\pThey’ve been catching Pokémon\nhere, then selling them off!\pAre you ready?\nYou take that one, please!" text_1="Lorelei: {PLAYER}?!\nWhat are you doing here?\pNo, we can catch up later.\nRight now, I need your help.\pHelp me kick these poachers out\nbefore they do anything else.\pThey’ve been catching Pokémon\nhere, then selling them off!\pAre you ready?\nYou take that one, please!" text_2="Lorelei: {PLAYER}?!\nWhat are you doing here?\pNo, we can catch up later.\nRight now, I need your help.\pHelp me kick these poachers out\nbefore they do anything else.\pThey’ve been catching Pokémon\nhere, then selling them off!\pAre you ready?\nYou take that one, please!" text_3="Lorelei: {PLAYER}?!\nWhat are you doing here?\pNo, we can catch up later.\nRight now, I need your help.\pHelp me kick these poachers out\nbefore they do anything else.\pThey’ve been catching Pokémon\nhere, then selling them off!\pAre you ready?\nYou take that one, please!" text_4="Lorelei: {PLAYER}?!\nWhat are you doing here?\pNo, we can catch up later.\nRight now, I need your help.\pHelp me kick these poachers out\nbefore they do anything else.\pThey’ve been catching Pokémon\nhere, then selling them off!\pAre you ready?\nYou take that one, please!" text_5="Lorelei: {PLAYER}?!\nWhat are you doing here?\pNo, we can catch up later.\nRight now, I need your help.\pHelp me kick these poachers out\nbefore they do anything else.\pThey’ve been catching Pokémon\nhere, then selling them off!\pAre you ready?\nYou take that one, please!" text_6="Lorelei: {PLAYER}?!\nWhat are you doing here?\pNo, we can catch up later.\nRight now, I need your help.\pHelp me kick these poachers out\nbefore they do anything else.\pThey’ve been catching Pokémon\nhere, then selling them off!\pAre you ready?\nYou take that one, please!"
+    08219242  callstd              function=MSGBOX_DEFAULT(4)
+    08219244  closemessage         
+    08219245  applymovement        localId=3 movements=[walk_in_place_faster_right]
+    0821924C  waitmovement         localId=0
+    0821924F  delay                frames=18
+    08219252  applymovement        localId=3 movements=[walk_in_place_faster_down]
+    08219259  waitmovement         localId=0
+    0821925C  delay                frames=35
+    0821925F  applymovement        localId=4 movements=[delay_16 delay_8 walk_in_place_faster_right]
+    08219266  applymovement        localId=3 movements=[walk_left walk_up]
+    0821926D  applymovement        localId=255 movements=[walk_up walk_up walk_right walk_up]
+    08219274  waitmovement         localId=0
+    08219277  applymovement        localId=2 movements=[walk_in_place_down]
+    0821927E  waitmovement         localId=0
+    08219281  playbgm              song=495 save_song=0
+    08219285  textcolor            color=0
+    08219287  msgbox_multilang     type=0 text_0="W-what?!\pWho says we can’t do what we want\nwith the Pokémon we catch?" text_1="W-what?!\pWho says we can’t do what we want\nwith the Pokémon we catch?" text_2="W-what?!\pWho says we can’t do what we want\nwith the Pokémon we catch?" text_3="W-what?!\pWho says we can’t do what we want\nwith the Pokémon we catch?" text_4="W-what?!\pWho says we can’t do what we want\nwith the Pokémon we catch?" text_5="W-what?!\pWho says we can’t do what we want\nwith the Pokémon we catch?" text_6="W-what?!\pWho says we can’t do what we want\nwith the Pokémon we catch?"
+    082192A5  callstd              function=MSGBOX_DEFAULT(4)
+    082192A7  setvar               destination=VAR_0x800F value=4
+    082192AC  trainerbattle        type=3 trainer=0x21B localId=0 ptr1=0x08219639
+    082192B6  applymovement        localId=3 movements=[walk_in_place_up]
+    082192BD  waitmovement         localId=0
+    082192C0  textcolor            color=1
+    082192C2  msgbox_multilang     type=0 text_0="Lorelei: Humph.\nSo despicably weak.\pYou!\nTell me!\pWhere have you taken the captured\nPokémon?\pI’m smashing your ring once and\nfor all!" text_1="Lorelei: Humph.\nSo despicably weak.\pYou!\nTell me!\pWhere have you taken the captured\nPokémon?\pI’m smashing your ring once and\nfor all!" text_2="Lorelei: Humph.\nSo despicably weak.\pYou!\nTell me!\pWhere have you taken the captured\nPokémon?\pI’m smashing your ring once and\nfor all!" text_3="Lorelei: Humph.\nSo despicably weak.\pYou!\nTell me!\pWhere have you taken the captured\nPokémon?\pI’m smashing your ring once and\nfor all!" text_4="Lorelei: Humph.\nSo despicably weak.\pYou!\nTell me!\pWhere have you taken the captured\nPokémon?\pI’m smashing your ring once and\nfor all!" text_5="Lorelei: Humph.\nSo despicably weak.\pYou!\nTell me!\pWhere have you taken the captured\nPokémon?\pI’m smashing your ring once and\nfor all!" text_6="Lorelei: Humph.\nSo despicably weak.\pYou!\nTell me!\pWhere have you taken the captured\nPokémon?\pI’m smashing your ring once and\nfor all!"
+    082192E0  callstd              function=MSGBOX_DEFAULT(4)
+    082192E2  textcolor            color=0
+    082192E4  msgbox_multilang     type=0 text_0="N-no way!\nI’m not telling you that!" text_1="N-no way!\nI’m not telling you that!" text_2="N-no way!\nI’m not telling you that!" text_3="N-no way!\nI’m not telling you that!" text_4="N-no way!\nI’m not telling you that!" text_5="N-no way!\nI’m not telling you that!" text_6="N-no way!\nI’m not telling you that!"
+    08219302  callstd              function=MSGBOX_DEFAULT(4)
+    08219304  textcolor            color=1
+    08219306  message              text="Lorelei: If you won’t confess,\nwe’ll deep-freeze you.\pMy Lapras is furious for what\nyou’ve done to its friends.\pGo, Lapras!\nIce Beam…"
+
+  coord trigger 1 (var 0x4080 == 0) -> 0x082191B1
+  coord trigger 2 (var 0x4080 == 0) -> 0x082191B1
+  map script type 3 -> 0x082191A1
+  script 0x082191A1  [ok]
+    082191A1  compare_var_to_value var=0x4080 value=1
+    082191A6  call_if              condition=1 destination=0x082191AD
+    082191AC  end                  
+
+  script 0x082191AD  [ok]
+    082191AD  setflag              flag=0x08B
+    082191B0  return               
+

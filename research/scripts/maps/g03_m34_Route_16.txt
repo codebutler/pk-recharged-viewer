@@ -1,0 +1,326 @@
+Route 16  (group 3, map 34)  header 0x08B3CA7C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x06, flag 0x0000) -> 0x081FB5E7
+  script 0x081FB5E7  [ok]
+    081FB5E7  trainerbattle        type=0 trainer=0xC7 localId=0 ptr1=0x08236D20 ptr2=0x08236D32
+    081FB5F5  specialvar           output=32781 SPECIAL_\function=37
+    081FB5FA  compare_var_to_value var=0x800D value=1
+    081FB5FF  goto_if              condition=1 destination=0x081FB626
+    081FB605  msgbox_multilang     type=0 text_0="We like just hanging here.\nWhat’s it to you?" text_1="We like just hanging here.\nWhat’s it to you?" text_2="We like just hanging here.\nWhat’s it to you?" text_3="We like just hanging here.\nWhat’s it to you?" text_4="We like just hanging here.\nWhat’s it to you?" text_5="We like just hanging here.\nWhat’s it to you?" text_6="We like just hanging here.\nWhat’s it to you?"
+    081FB623  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB625  end                  
+
+  script 0x081FB626  [ok]
+    081FB626  goto                 destination=0x081FB630
+
+  script 0x081FB630  [ok]
+    081FB630  trainerbattle        type=5 trainer=0xC7 localId=0 ptr1=0x082B940D ptr2=0x08236D32
+    081FB63E  msgbox_multilang     type=0 text_0="We like just hanging here.\nWhat’s it to you?" text_1="We like just hanging here.\nWhat’s it to you?" text_2="We like just hanging here.\nWhat’s it to you?" text_3="We like just hanging here.\nWhat’s it to you?" text_4="We like just hanging here.\nWhat’s it to you?" text_5="We like just hanging here.\nWhat’s it to you?" text_6="We like just hanging here.\nWhat’s it to you?"
+    081FB65C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB65E  end                  
+
+  object 2 (gfx 0x45, flag 0x0000) -> 0x081FB74F
+  script 0x081FB74F  [ok]
+    081FB74F  trainerbattle        type=0 trainer=0xF9 localId=0 ptr1=0x08236D75 ptr2=0x08236D8E
+    081FB75D  specialvar           output=32781 SPECIAL_\function=37
+    081FB762  compare_var_to_value var=0x800D value=1
+    081FB767  goto_if              condition=1 destination=0x081FB78E
+    081FB76D  msgbox_multilang     type=0 text_0="Forget it, who needs your Bike!" text_1="Forget it, who needs your Bike!" text_2="Forget it, who needs your Bike!" text_3="Forget it, who needs your Bike!" text_4="Forget it, who needs your Bike!" text_5="Forget it, who needs your Bike!" text_6="Forget it, who needs your Bike!"
+    081FB78B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB78D  end                  
+
+  script 0x081FB78E  [ok]
+    081FB78E  goto                 destination=0x081FB798
+
+  script 0x081FB798  [ok]
+    081FB798  trainerbattle        type=5 trainer=0xF9 localId=0 ptr1=0x082B941F ptr2=0x08236D8E
+    081FB7A6  msgbox_multilang     type=0 text_0="Forget it, who needs your Bike!" text_1="Forget it, who needs your Bike!" text_2="Forget it, who needs your Bike!" text_3="Forget it, who needs your Bike!" text_4="Forget it, who needs your Bike!" text_5="Forget it, who needs your Bike!" text_6="Forget it, who needs your Bike!"
+    081FB7C4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB7C6  end                  
+
+  object 3 (gfx 0x45, flag 0x0000) -> 0x081FB7C7
+  script 0x081FB7C7  [ok]
+    081FB7C7  trainerbattle        type=0 trainer=0xFA localId=0 ptr1=0x08236DB8 ptr2=0x08236DD9
+    081FB7D5  specialvar           output=32781 SPECIAL_\function=37
+    081FB7DA  compare_var_to_value var=0x800D value=1
+    081FB7DF  goto_if              condition=1 destination=0x081FB806
+    081FB7E5  msgbox_multilang     type=0 text_0="I hate losing!\nGet out of my face!" text_1="I hate losing!\nGet out of my face!" text_2="I hate losing!\nGet out of my face!" text_3="I hate losing!\nGet out of my face!" text_4="I hate losing!\nGet out of my face!" text_5="I hate losing!\nGet out of my face!" text_6="I hate losing!\nGet out of my face!"
+    081FB803  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB805  end                  
+
+  script 0x081FB806  [ok]
+    081FB806  goto                 destination=0x081FB810
+
+  script 0x081FB810  [ok]
+    081FB810  trainerbattle        type=5 trainer=0xFA localId=0 ptr1=0x082B943E ptr2=0x08236DD9
+    081FB81E  msgbox_multilang     type=0 text_0="I hate losing!\nGet out of my face!" text_1="I hate losing!\nGet out of my face!" text_2="I hate losing!\nGet out of my face!" text_3="I hate losing!\nGet out of my face!" text_4="I hate losing!\nGet out of my face!" text_5="I hate losing!\nGet out of my face!" text_6="I hate losing!\nGet out of my face!"
+    081FB83C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB83E  end                  
+
+  object 4 (gfx 0x06, flag 0x0000) -> 0x081FB6D7
+  script 0x081FB6D7  [ok]
+    081FB6D7  trainerbattle        type=0 trainer=0xCA localId=0 ptr1=0x08236F59 ptr2=0x08236F87
+    081FB6E5  specialvar           output=32781 SPECIAL_\function=37
+    081FB6EA  compare_var_to_value var=0x800D value=1
+    081FB6EF  goto_if              condition=1 destination=0x081FB716
+    081FB6F5  msgbox_multilang     type=0 text_0="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_1="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_2="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_3="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_4="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_5="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_6="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too."
+    081FB713  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB715  end                  
+
+  script 0x081FB716  [ok]
+    081FB716  goto                 destination=0x081FB720
+
+  script 0x081FB720  [ok]
+    081FB720  trainerbattle        type=5 trainer=0xCA localId=0 ptr1=0x082B94E5 ptr2=0x08236F87
+    081FB72E  msgbox_multilang     type=0 text_0="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_1="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_2="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_3="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_4="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_5="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too." text_6="I get my kicks by harassing people\nwith my stinking Pokémon.\pThey’re great for startling people.\nAnd, they bite, too."
+    081FB74C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB74E  end                  
+
+  object 5 (gfx 0x06, flag 0x0000) -> 0x081FB65F
+  script 0x081FB65F  [ok]
+    081FB65F  trainerbattle        type=0 trainer=0xC9 localId=0 ptr1=0x08236E0C ptr2=0x08236E25
+    081FB66D  specialvar           output=32781 SPECIAL_\function=37
+    081FB672  compare_var_to_value var=0x800D value=1
+    081FB677  goto_if              condition=1 destination=0x081FB69E
+    081FB67D  msgbox_multilang     type=0 text_0="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_1="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_2="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_3="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_4="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_5="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_6="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast."
+    081FB69B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB69D  end                  
+
+  script 0x081FB69E  [ok]
+    081FB69E  goto                 destination=0x081FB6A8
+
+  script 0x081FB6A8  [ok]
+    081FB6A8  trainerbattle        type=5 trainer=0xC9 localId=0 ptr1=0x082B9475 ptr2=0x08236E25
+    081FB6B6  msgbox_multilang     type=0 text_0="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_1="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_2="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_3="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_4="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_5="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast." text_6="We’ll always be hanging around here\neven if you don’t like it.\pYou can detour to Vermilion from\nFuchsia going along the coast."
+    081FB6D4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB6D6  end                  
+
+  object 6 (gfx 0x45, flag 0x0000) -> 0x081FB83F
+  script 0x081FB83F  [ok]
+    081FB83F  trainerbattle        type=0 trainer=0xFB localId=0 ptr1=0x08236EAC ptr2=0x08236EE0
+    081FB84D  specialvar           output=32781 SPECIAL_\function=37
+    081FB852  compare_var_to_value var=0x800D value=1
+    081FB857  goto_if              condition=1 destination=0x081FB87E
+    081FB85D  msgbox_multilang     type=0 text_0="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_1="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_2="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_3="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_4="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_5="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_6="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters."
+    081FB87B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB87D  end                  
+
+  script 0x081FB87E  [ok]
+    081FB87E  goto                 destination=0x081FB888
+
+  script 0x081FB888  [ok]
+    081FB888  trainerbattle        type=5 trainer=0xFB localId=0 ptr1=0x082B94AA ptr2=0x08236EE0
+    081FB896  msgbox_multilang     type=0 text_0="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_1="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_2="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_3="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_4="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_5="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters." text_6="If I’m going to have Pokémon, they\nmay as well be ferocious.\pI’d use them to leave my enemies\nin tatters."
+    081FB8B4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB8B6  end                  
+
+  object 7 (gfx 0x52, flag 0x0312) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 8 (gfx 0x52, flag 0x0000) -> 0x081FB937
+  script 0x081FB937  [ok]
+    081FB937  trainerbattle        type=4 trainer=0x1E9 localId=0 ptr1=0x082370EA ptr2=0x0823711F ptr3=0x08237173
+    081FB949  specialvar           output=32781 SPECIAL_\function=37
+    081FB94E  compare_var_to_value var=0x800D value=1
+    081FB953  goto_if              condition=1 destination=0x081FB97A
+    081FB959  msgbox_multilang     type=0 text_0="Lea: Ehehe, I’m sorry.\nJed is so cool." text_1="Lea: Ehehe, I’m sorry.\nJed is so cool." text_2="Lea: Ehehe, I’m sorry.\nJed is so cool." text_3="Lea: Ehehe, I’m sorry.\nJed is so cool." text_4="Lea: Ehehe, I’m sorry.\nJed is so cool." text_5="Lea: Ehehe, I’m sorry.\nJed is so cool." text_6="Lea: Ehehe, I’m sorry.\nJed is so cool."
+    081FB977  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB979  end                  
+
+  script 0x081FB97A  [ok]
+    081FB97A  goto                 destination=0x081FB984
+
+  script 0x081FB984  [ok]
+    081FB984  trainerbattle        type=7 trainer=0x1E9 localId=0 ptr1=0x082B954D ptr2=0x0823711F ptr3=0x08237173
+    081FB996  msgbox_multilang     type=0 text_0="Lea: Ehehe, I’m sorry.\nJed is so cool." text_1="Lea: Ehehe, I’m sorry.\nJed is so cool." text_2="Lea: Ehehe, I’m sorry.\nJed is so cool." text_3="Lea: Ehehe, I’m sorry.\nJed is so cool." text_4="Lea: Ehehe, I’m sorry.\nJed is so cool." text_5="Lea: Ehehe, I’m sorry.\nJed is so cool." text_6="Lea: Ehehe, I’m sorry.\nJed is so cool."
+    081FB9B4  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB9B6  end                  
+
+  object 9 (gfx 0x51, flag 0x0000) -> 0x081FB8B7
+  script 0x081FB8B7  [ok]
+    081FB8B7  trainerbattle        type=4 trainer=0x1E9 localId=0 ptr1=0x08237010 ptr2=0x0823704D ptr3=0x082370AA
+    081FB8C9  specialvar           output=32781 SPECIAL_\function=37
+    081FB8CE  compare_var_to_value var=0x800D value=1
+    081FB8D3  goto_if              condition=1 destination=0x081FB8FA
+    081FB8D9  msgbox_multilang     type=0 text_0="Jed: Listen, Lea.\nYou need to focus less on me." text_1="Jed: Listen, Lea.\nYou need to focus less on me." text_2="Jed: Listen, Lea.\nYou need to focus less on me." text_3="Jed: Listen, Lea.\nYou need to focus less on me." text_4="Jed: Listen, Lea.\nYou need to focus less on me." text_5="Jed: Listen, Lea.\nYou need to focus less on me." text_6="Jed: Listen, Lea.\nYou need to focus less on me."
+    081FB8F7  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB8F9  end                  
+
+  script 0x081FB8FA  [ok]
+    081FB8FA  goto                 destination=0x081FB904
+
+  script 0x081FB904  [ok]
+    081FB904  trainerbattle        type=7 trainer=0x1E9 localId=0 ptr1=0x082B9513 ptr2=0x0823704D ptr3=0x082370AA
+    081FB916  msgbox_multilang     type=0 text_0="Jed: Listen, Lea.\nYou need to focus less on me." text_1="Jed: Listen, Lea.\nYou need to focus less on me." text_2="Jed: Listen, Lea.\nYou need to focus less on me." text_3="Jed: Listen, Lea.\nYou need to focus less on me." text_4="Jed: Listen, Lea.\nYou need to focus less on me." text_5="Jed: Listen, Lea.\nYou need to focus less on me." text_6="Jed: Listen, Lea.\nYou need to focus less on me."
+    081FB934  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FB936  end                  
+
+  object 10 (gfx 0x34, flag 0x0080) -> 0x08236C14
+  script 0x08236C14  [ok]
+    08236C14  bufferspeciesname    stringVarId=0 species=SNORLAX(143)
+    08236C18  lock                 
+    08236C19  faceplayer           
+    08236C1A  checkflag            flag=0x23D
+    08236C1D  goto_if              condition=0 destination=0x08236C95
+    08236C23  msgbox_multilang     type=0 text_0="Want to use the Poké Flute?" text_1="Want to use the Poké Flute?" text_2="Want to use the Poké Flute?" text_3="Want to use the Poké Flute?" text_4="Want to use the Poké Flute?" text_5="Want to use the Poké Flute?" text_6="Want to use the Poké Flute?"
+    08236C41  callstd              function=MSGBOX_YESNO(5)
+    08236C43  compare_var_to_value var=0x800D value=0
+    08236C48  goto_if              condition=1 destination=0x08236CB7
+    08236C4E  call                 destination=0x082010C7
+    08236C53  setwildbattle        species=SNORLAX(143) level=30 item=0
+    08236C59  waitse               
+    08236C5A  playmoncry           species=SNORLAX(143) mode=2
+    08236C5F  delay                frames=40
+    08236C62  waitmoncry           
+    08236C63  setflag              flag=0x080
+    08236C66  setflag              flag=0x867
+    08236C69  dowildbattle         
+    08236C6A  clearflag            flag=0x867
+    08236C6D  specialvar           output=32781 SPECIAL_\function=102
+    08236C72  compare_var_to_value var=0x800D value=1
+    08236C77  goto_if              condition=1 destination=0x08236CB9
+    08236C7D  compare_var_to_value var=0x800D value=4
+    08236C82  goto_if              condition=1 destination=0x08236CB9
+    08236C88  compare_var_to_value var=0x800D value=5
+    08236C8D  goto_if              condition=1 destination=0x08236CB9
+    08236C93  release              
+
+  script 0x08236C95  [ok]
+    08236C95  msgbox_multilang     type=0 text_0="A Pokémon is sprawled out in\na deep and comfortable slumber." text_1="A Pokémon is sprawled out in\na deep and comfortable slumber." text_2="A Pokémon is sprawled out in\na deep and comfortable slumber." text_3="A Pokémon is sprawled out in\na deep and comfortable slumber." text_4="A Pokémon is sprawled out in\na deep and comfortable slumber." text_5="A Pokémon is sprawled out in\na deep and comfortable slumber." text_6="A Pokémon is sprawled out in\na deep and comfortable slumber."
+    08236CB3  callstd              function=MSGBOX_DEFAULT(4)
+    08236CB5  release              
+
+  script 0x08236CB7  [ok]
+    08236CB7  release              
+
+  script 0x082010C7  [opcode-out-of-range:0xEE]
+    082010C7  message              text="{PLAYER} played the Poké Flute."
+    082010CC  incrementgamestat    stat=82
+    082010CE  callnative           func=592626440
+    082010D3  gotostd              function=195
+    082010D5  waitmovement         localId=2083 mapGroup=195 mapNum=82
+    082010DA  callnative           func=592626440
+    082010DF  gotostd              function=195
+    082010E1  waitmovement         localId=2083 mapGroup=102 mapNum=49
+    082010E6  specialvar           output=12802 SPECIAL_\function=230
+    082010EB  playse               song=9042
+    082010EE  gotostd              function=47
+    082010F0  waitmovement         localId=2083 mapGroup=47 mapNum=82
+    082010F5  callnative           func=592588552
+    082010FA  gotostd              function=47
+    082010FC  waitmovement         localId=2083 mapGroup=47 mapNum=82
+    08201101  callnative           func=592588552
+    08201106  gotostd              function=MSGBOX_GETPOINTS(9)
+    08201108  call                 destination=16731907
+
+  script 0x08236CB9  [ok]
+    08236CB9  msgbox_multilang     type=0 text_0="Snorlax calmed down.\nIt gave a huge yawn…\pAnd returned to the mountains." text_1="Snorlax calmed down.\nIt gave a huge yawn…\pAnd returned to the mountains." text_2="Snorlax calmed down.\nIt gave a huge yawn…\pAnd returned to the mountains." text_3="Snorlax calmed down.\nIt gave a huge yawn…\pAnd returned to the mountains." text_4="Snorlax calmed down.\nIt gave a huge yawn…\pAnd returned to the mountains." text_5="Snorlax calmed down.\nIt gave a huge yawn…\pAnd returned to the mountains." text_6="Snorlax calmed down.\nIt gave a huge yawn…\pAnd returned to the mountains."
+    08236CD7  callstd              function=MSGBOX_DEFAULT(4)
+    08236CD9  goto                 destination=0x08236C93
+
+  script 0x08236C93  [ok]
+    08236C93  release              
+
+  sign 0 at (6,17) -> 0x08236CFF
+  script 0x08236CFF  [ok]
+    08236CFF  msgbox_multilang     type=0 text_0="Route 16\nCeladon City - Fuchsia City" text_1="Route 16\nCeladon City - Fuchsia City" text_2="Route 16\nCeladon City - Fuchsia City" text_3="Route 16\nCeladon City - Fuchsia City" text_4="Route 16\nCeladon City - Fuchsia City" text_5="Route 16\nCeladon City - Fuchsia City" text_6="Route 16\nCeladon City - Fuchsia City"
+    08236D1D  callstd              function=MSGBOX_SIGN(3)
+    08236D1F  end                  
+
+  sign 1 at (33,11) -> 0x08236CDE
+  script 0x08236CDE  [ok]
+    08236CDE  msgbox_multilang     type=0 text_0="Enjoy the slope!\nCycling Road" text_1="Enjoy the slope!\nCycling Road" text_2="Enjoy the slope!\nCycling Road" text_3="Enjoy the slope!\nCycling Road" text_4="Enjoy the slope!\nCycling Road" text_5="Enjoy the slope!\nCycling Road" text_6="Enjoy the slope!\nCycling Road"
+    08236CFC  callstd              function=MSGBOX_SIGN(3)
+    08236CFE  end                  
+
+  hidden item at (31,13): Leftovers
+
+  map script type 5 -> 0x08236BE0
+  script 0x08236BE0  [ok]
+    08236BE0  checkflag            flag=0x867
+    08236BE3  goto_if              condition=1 destination=0x08236BEA
+    08236BE9  end                  
+
+  script 0x08236BEA  [ok]
+    08236BEA  removeobject         localId=32783
+    08236BED  goto                 destination=0x08236BE9
+
+  script 0x08236BE9  [ok]
+    08236BE9  end                  
+
+  map script type 3 -> 0x08236BF2
+  script 0x08236BF2  [ok]
+    08236BF2  compare_var_to_value var=0x405E value=1
+    08236BF7  goto_if              condition=1 destination=0x08236BFE
+    08236BFD  end                  
+
+  script 0x08236BFE  [ok]
+    08236BFE  setflag              flag=0x890
+    08236C01  goto                 destination=0x08236BFD
+
+  script 0x08236BFD  [ok]
+    08236BFD  end                  
+
+  map script type 4 (var 0x405E == 1) -> 0x08236C10
+  script 0x08236C10  [ok]
+    08236C10  special              SPECIAL_\function=370
+    08236C13  end                  
+

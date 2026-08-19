@@ -1,0 +1,63 @@
+Battle Frontier  (group 41, map 44)  header 0x08B3E580
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x082B6CF0
+  script 0x082B6CF0  [ok]
+    082B6CF0  setvar               destination=VAR_0x800B value=1
+    082B6CF5  call                 destination=0x082BB336
+    082B6CFA  waitmessage          
+    082B6CFB  waitbuttonpress      
+    082B6CFC  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0x26, flag 0x0000) -> 0x082B6CFE
+  script 0x082B6CFE  [ok]
+    082B6CFE  msgbox_multilang     type=0 text_0="There was someone here using a \nPOKéMON I’ve never seen before.\pI never learned about it at\nTRAINER’S SCHOOL at least.\pI wonder where you can catch POKéMON\nlike that." text_1="There was someone here using a \nPOKéMON I’ve never seen before.\pI never learned about it at\nTRAINER’S SCHOOL at least.\pI wonder where you can catch POKéMON\nlike that." text_2="There was someone here using a \nPOKéMON I’ve never seen before.\pI never learned about it at\nTRAINER’S SCHOOL at least.\pI wonder where you can catch POKéMON\nlike that." text_3="There was someone here using a \nPOKéMON I’ve never seen before.\pI never learned about it at\nTRAINER’S SCHOOL at least.\pI wonder where you can catch POKéMON\nlike that." text_4="There was someone here using a \nPOKéMON I’ve never seen before.\pI never learned about it at\nTRAINER’S SCHOOL at least.\pI wonder where you can catch POKéMON\nlike that." text_5="There was someone here using a \nPOKéMON I’ve never seen before.\pI never learned about it at\nTRAINER’S SCHOOL at least.\pI wonder where you can catch POKéMON\nlike that." text_6="There was someone here using a \nPOKéMON I’ve never seen before.\pI never learned about it at\nTRAINER’S SCHOOL at least.\pI wonder where you can catch POKéMON\nlike that."
+    082B6D1C  callstd              function=MSGBOX_NPC(2)
+    082B6D1E  end                  
+
+  object 3 (gfx 0xFA, flag 0x0000) -> 0x082B6D1F
+  script 0x082B6D1F  [ok]
+    082B6D1F  msgbox_multilang     type=0 text_0="Okay! Next stop, the BATTLE ARENA!\nI’d better get the right POKéMON from\pthe PC Storage System." text_1="Okay! Next stop, the BATTLE ARENA!\nI’d better get the right POKéMON from\pthe PC Storage System." text_2="Okay! Next stop, the BATTLE ARENA!\nI’d better get the right POKéMON from\pthe PC Storage System." text_3="Okay! Next stop, the BATTLE ARENA!\nI’d better get the right POKéMON from\pthe PC Storage System." text_4="Okay! Next stop, the BATTLE ARENA!\nI’d better get the right POKéMON from\pthe PC Storage System." text_5="Okay! Next stop, the BATTLE ARENA!\nI’d better get the right POKéMON from\pthe PC Storage System." text_6="Okay! Next stop, the BATTLE ARENA!\nI’d better get the right POKéMON from\pthe PC Storage System."
+    082B6D3D  callstd              function=MSGBOX_NPC(2)
+    082B6D3F  end                  
+
+  object 4 (gfx 0x20, flag 0x0000) -> 0x082B6D40
+  script 0x082B6D40  [ok]
+    082B6D40  msgbox_multilang     type=0 text_0="Giggle… I’m going to go through every\nchallenge with just this baby!" text_1="Giggle… I’m going to go through every\nchallenge with just this baby!" text_2="Giggle… I’m going to go through every\nchallenge with just this baby!" text_3="Giggle… I’m going to go through every\nchallenge with just this baby!" text_4="Giggle… I’m going to go through every\nchallenge with just this baby!" text_5="Giggle… I’m going to go through every\nchallenge with just this baby!" text_6="Giggle… I’m going to go through every\nchallenge with just this baby!"
+    082B6D5E  callstd              function=MSGBOX_NPC(2)
+    082B6D60  end                  
+
+  object 5 (gfx 0xCB, flag 0x0000) -> 0x082B6D61
+  script 0x082B6D61  [ok]
+    082B6D61  lock                 
+    082B6D62  faceplayer           
+    082B6D63  waitse               
+    082B6D64  playmoncry           species=SKITTY(315) mode=0
+    082B6D69  msgbox_multilang     type=0 text_0="SKITTY: Mya myaaah!" text_1="SKITTY: Mya myaaah!" text_2="SKITTY: Mya myaaah!" text_3="SKITTY: Mya myaaah!" text_4="SKITTY: Mya myaaah!" text_5="SKITTY: Mya myaaah!" text_6="SKITTY: Mya myaaah!"
+    082B6D87  callstd              function=MSGBOX_DEFAULT(4)
+    082B6D89  waitmoncry           
+    082B6D8A  release              
+
+  map script type 3 -> 0x082B6CEC
+  script 0x082B6CEC  [ok]
+    082B6CEC  setrespawn           heallocation=21
+    082B6CEF  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

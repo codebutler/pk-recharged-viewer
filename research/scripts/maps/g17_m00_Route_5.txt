@@ -1,0 +1,170 @@
+Route 5  (group 17, map 0)  header 0x08B3D8D0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x1E, flag 0x0000) -> 0x0827444E
+  script 0x0827444E  [ok]
+    0827444E  lock                 
+    0827444F  faceplayer           
+    08274450  specialvar           output=32781 SPECIAL_\function=104
+    08274455  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0827445A  compare_var_to_value var=0x8000 value=1
+    0827445F  goto_if              condition=1 destination=0x082744D2
+    08274465  compare_var_to_value var=0x8000 value=2
+    0827446A  goto_if              condition=1 destination=0x082744F9
+    08274470  compare_var_to_value var=0x8000 value=3
+    08274475  goto_if              condition=1 destination=0x08274584
+    0827447B  speakername          name="Day-Care Lady"
+    08274480  msgbox_multilang     type=0 text_0="I’m the Day-Care Lady.\pWe can raise Pokémon for you.\pWould you like us to raise one?" text_1="I’m the Day-Care Lady.\pWe can raise Pokémon for you.\pWould you like us to raise one?" text_2="I’m the Day-Care Lady.\pWe can raise Pokémon for you.\pWould you like us to raise one?" text_3="I’m the Day-Care Lady.\pWe can raise Pokémon for you.\pWould you like us to raise one?" text_4="I’m the Day-Care Lady.\pWe can raise Pokémon for you.\pWould you like us to raise one?" text_5="I’m the Day-Care Lady.\pWe can raise Pokémon for you.\pWould you like us to raise one?" text_6="I’m the Day-Care Lady.\pWe can raise Pokémon for you.\pWould you like us to raise one?"
+    0827449E  callstd              function=MSGBOX_YESNO(5)
+    082744A0  compare_var_to_value var=0x800D value=1
+    082744A5  goto_if              condition=1 destination=0x0827460A
+    082744AB  speakername          name="Day-Care Lady"
+    082744B0  msgbox_multilang     type=0 text_0="Oh, fine, then.\nCome again." text_1="Oh, fine, then.\nCome again." text_2="Oh, fine, then.\nCome again." text_3="Oh, fine, then.\nCome again." text_4="Oh, fine, then.\nCome again." text_5="Oh, fine, then.\nCome again." text_6="Oh, fine, then.\nCome again."
+    082744CE  callstd              function=MSGBOX_DEFAULT(4)
+    082744D0  release              
+
+  script 0x082744D2  [ok]
+    082744D2  speakername          name="Day-Care Lady"
+    082744D7  msgbox_multilang     type=0 text_0="My husband was looking for you." text_1="My husband was looking for you." text_2="My husband was looking for you." text_3="My husband was looking for you." text_4="My husband was looking for you." text_5="My husband was looking for you." text_6="My husband was looking for you."
+    082744F5  callstd              function=MSGBOX_DEFAULT(4)
+    082744F7  release              
+
+  script 0x082744F9  [ok]
+    082744F9  speakername          name="Day-Care Lady"
+    082744FE  msgbox_multilang     type=0 text_0="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_1="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_2="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_3="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_4="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_5="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_6="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!"
+    0827451C  callstd              function=MSGBOX_DEFAULT(4)
+    0827451E  setvar               destination=VAR_0x8004 value=0
+    08274523  call                 destination=0x08274801
+    08274528  msgbox_multilang     type=0 text_0="We can raise two of your Pokémon.\nWould you like us to raise one more?" text_1="We can raise two of your Pokémon.\nWould you like us to raise one more?" text_2="We can raise two of your Pokémon.\nWould you like us to raise one more?" text_3="We can raise two of your Pokémon.\nWould you like us to raise one more?" text_4="We can raise two of your Pokémon.\nWould you like us to raise one more?" text_5="We can raise two of your Pokémon.\nWould you like us to raise one more?" text_6="We can raise two of your Pokémon.\nWould you like us to raise one more?"
+    08274546  callstd              function=MSGBOX_YESNO(5)
+    08274548  compare_var_to_value var=0x800D value=1
+    0827454D  goto_if              condition=1 destination=0x08274614
+    08274553  msgbox_multilang     type=0 text_0="Will you take your Pokémon back?" text_1="Will you take your Pokémon back?" text_2="Will you take your Pokémon back?" text_3="Will you take your Pokémon back?" text_4="Will you take your Pokémon back?" text_5="Will you take your Pokémon back?" text_6="Will you take your Pokémon back?"
+    08274571  callstd              function=MSGBOX_YESNO(5)
+    08274573  compare_var_to_value var=0x800D value=1
+    08274578  goto_if              condition=1 destination=0x08274628
+    0827457E  goto                 destination=0x08274632
+
+  script 0x08274584  [ok]
+    08274584  speakername          name="Day-Care Lady"
+    08274589  msgbox_multilang     type=0 text_0="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_1="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_2="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_3="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_4="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_5="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!" text_6="Ah, it’s you! Good to see you.\nYour Pokémon can only be doing good!"
+    082745A7  callstd              function=MSGBOX_DEFAULT(4)
+    082745A9  setvar               destination=VAR_0x8004 value=0
+    082745AE  call                 destination=0x08274801
+    082745B3  setvar               destination=VAR_0x8004 value=1
+    082745B8  call                 destination=0x08274801
+    082745BD  msgbox_multilang     type=0 text_0="Will you take your Pokémon back?" text_1="Will you take your Pokémon back?" text_2="Will you take your Pokémon back?" text_3="Will you take your Pokémon back?" text_4="Will you take your Pokémon back?" text_5="Will you take your Pokémon back?" text_6="Will you take your Pokémon back?"
+    082745DB  callstd              function=MSGBOX_YESNO(5)
+    082745DD  compare_var_to_value var=0x800D value=1
+    082745E2  goto_if              condition=1 destination=0x0827461E
+    082745E8  msgbox_multilang     type=0 text_0="Fine.\nCome again." text_1="Fine.\nCome again." text_2="Fine.\nCome again." text_3="Fine.\nCome again." text_4="Fine.\nCome again." text_5="Fine.\nCome again." text_6="Fine.\nCome again."
+    08274606  callstd              function=MSGBOX_DEFAULT(4)
+    08274608  release              
+
+  script 0x0827460A  [ok]
+    0827460A  goto                 destination=0x08274663
+
+  script 0x08274801  [ok]
+    08274801  specialvar           output=32781 SPECIAL_\function=112
+    08274806  compare_var_to_value var=0x800D value=0
+    0827480B  goto_if              condition=5 destination=0x08274812
+    08274811  return               
+
+  script 0x08274614  [ok]
+    08274614  goto                 destination=0x08274663
+
+  script 0x08274628  [ok]
+    08274628  goto                 destination=0x08274838
+
+  script 0x08274632  [ok]
+    08274632  speakername          name="Day-Care Lady"
+    08274637  msgbox_multilang     type=0 text_0="Fine.\nCome again." text_1="Fine.\nCome again." text_2="Fine.\nCome again." text_3="Fine.\nCome again." text_4="Fine.\nCome again." text_5="Fine.\nCome again." text_6="Fine.\nCome again."
+    08274655  callstd              function=MSGBOX_DEFAULT(4)
+    08274657  release              
+
+  script 0x0827461E  [ok]
+    0827461E  goto                 destination=0x08274838
+
+  script 0x08274663  [ok]
+    08274663  specialvar           output=32781 SPECIAL_\function=69
+    08274668  compare_var_to_value var=0x800D value=1
+    0827466D  goto_if              condition=1 destination=0x0827470B
+    08274673  specialvar           output=32781 SPECIAL_\function=340
+    08274678  speakername          name="Day-Care Lady"
+    0827467D  msgbox_multilang     type=0 text_0="Which Pokémon should we raise for\nyou?" text_1="Which Pokémon should we raise for\nyou?" text_2="Which Pokémon should we raise for\nyou?" text_3="Which Pokémon should we raise for\nyou?" text_4="Which Pokémon should we raise for\nyou?" text_5="Which Pokémon should we raise for\nyou?" text_6="Which Pokémon should we raise for\nyou?"
+    0827469B  callstd              function=MSGBOX_DEFAULT(4)
+    0827469D  fadescreen           mode=1
+    0827469F  special              SPECIAL_\function=110
+    082746A2  waitstate            
+
+  script 0x08274812  [ok]
+    08274812  speakername          name="Day-Care Lady"
+    08274817  msgbox_multilang     type=0 text_0="By level, your {STR_VAR_1} has\ngrown by {STR_VAR_2}." text_1="By level, your {STR_VAR_1} has\ngrown by {STR_VAR_2}." text_2="By level, your {STR_VAR_1} has\ngrown by {STR_VAR_2}." text_3="By level, your {STR_VAR_1} has\ngrown by {STR_VAR_2}." text_4="By level, your {STR_VAR_1} has\ngrown by {STR_VAR_2}." text_5="By level, your {STR_VAR_1} has\ngrown by {STR_VAR_2}." text_6="By level, your {STR_VAR_1} has\ngrown by {STR_VAR_2}."
+    08274835  callstd              function=MSGBOX_DEFAULT(4)
+    08274837  return               
+
+  script 0x08274838  [ok]
+    08274838  specialvar           output=32781 SPECIAL_\function=68
+    0827483D  compare_var_to_value var=0x800D value=6
+    08274842  goto_if              condition=1 destination=0x08274877
+    08274848  specialvar           output=32781 SPECIAL_\function=104
+    0827484D  setvar               destination=VAR_0x8004 value=0
+    08274852  compare_var_to_value var=0x800D value=2
+    08274857  goto_if              condition=1 destination=0x0827489E
+    0827485D  special              SPECIAL_\function=111
+    08274860  waitstate            
+
+  script 0x0827470B  [ok]
+    0827470B  speakername          name="Day-Care Lady"
+    08274710  msgbox_multilang     type=0 text_0="Oh? But you have just one Pokémon.\pCome back another time." text_1="Oh? But you have just one Pokémon.\pCome back another time." text_2="Oh? But you have just one Pokémon.\pCome back another time." text_3="Oh? But you have just one Pokémon.\pCome back another time." text_4="Oh? But you have just one Pokémon.\pCome back another time." text_5="Oh? But you have just one Pokémon.\pCome back another time." text_6="Oh? But you have just one Pokémon.\pCome back another time."
+    0827472E  callstd              function=MSGBOX_DEFAULT(4)
+    08274730  release              
+
+  script 0x08274877  [ok]
+    08274877  speakername          name="Day-Care Lady"
+    0827487C  msgbox_multilang     type=0 text_0="Your Pokémon team is full.\nMake room, then come see me." text_1="Your Pokémon team is full.\nMake room, then come see me." text_2="Your Pokémon team is full.\nMake room, then come see me." text_3="Your Pokémon team is full.\nMake room, then come see me." text_4="Your Pokémon team is full.\nMake room, then come see me." text_5="Your Pokémon team is full.\nMake room, then come see me." text_6="Your Pokémon team is full.\nMake room, then come see me."
+    0827489A  callstd              function=MSGBOX_DEFAULT(4)
+    0827489C  release              
+
+  script 0x0827489E  [ok]
+    0827489E  goto                 destination=0x082748B2
+
+  script 0x082748B2  [ok]
+    082748B2  special              SPECIAL_\function=113
+    082748B5  speakername          name="Day-Care Lady"
+    082748BA  msgbox_multilang     type=0 text_0="If you want your {STR_VAR_1}\nback, it will cost ¥{STR_VAR_2}." text_1="If you want your {STR_VAR_1}\nback, it will cost ¥{STR_VAR_2}." text_2="If you want your {STR_VAR_1}\nback, it will cost ¥{STR_VAR_2}." text_3="If you want your {STR_VAR_1}\nback, it will cost ¥{STR_VAR_2}." text_4="If you want your {STR_VAR_1}\nback, it will cost ¥{STR_VAR_2}." text_5="If you want your {STR_VAR_1}\nback, it will cost ¥{STR_VAR_2}." text_6="If you want your {STR_VAR_1}\nback, it will cost ¥{STR_VAR_2}."
+    082748D8  callstd              function=MSGBOX_YESNO(5)
+    082748DA  compare_var_to_value var=0x800D value=1
+    082748DF  goto_if              condition=1 destination=0x082748EB
+    082748E5  goto                 destination=0x08274632
+
+  script 0x082748EB  [ok]
+    082748EB  specialvar           output=32781 SPECIAL_\function=119
+    082748F0  compare_var_to_value var=0x800D value=1
+    082748F5  goto_if              condition=1 destination=0x08274922
+    082748FB  speakername          name="Day-Care Lady"
+    08274900  msgbox_multilang     type=0 text_0="You don’t have enough money…" text_1="You don’t have enough money…" text_2="You don’t have enough money…" text_3="You don’t have enough money…" text_4="You don’t have enough money…" text_5="You don’t have enough money…" text_6="You don’t have enough money…"
+    0827491E  callstd              function=MSGBOX_DEFAULT(4)
+    08274920  release              
+
+  script 0x08274922  [unknown-opcode:0xE9]
+    08274922  applymovement        localId=1 movements=[delay_16 delay_16 face_left delay_16 delay_16 face_right delay_16 delay_16 face_up walk_slow_up set_invisible delay_16 delay_16 delay_16 delay_16 delay_16 face_down set_visible walk_slow_down]
+    08274929  waitmovement         localId=0
+    0827492C  specialvar           output=32781 SPECIAL_\function=114
+    08274931  special              SPECIAL_\function=120
+    08274934  playse               song=95
+    08274937  speakername          name="Day-Care Lady"
+    0827493C  msgbox_multilang     type=0 text_0="Perfect!\nHere’s your Pokémon." text_1="Perfect!\nHere’s your Pokémon." text_2="Perfect!\nHere’s your Pokémon." text_3="Perfect!\nHere’s your Pokémon." text_4="Perfect!\nHere’s your Pokémon." text_5="Perfect!\nHere’s your Pokémon." text_6="Perfect!\nHere’s your Pokémon."
+    0827495A  callstd              function=MSGBOX_DEFAULT(4)
+    0827495C  waitse               
+    0827495D  playmoncry           species=?(32781) mode=0
+

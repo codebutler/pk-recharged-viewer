@@ -1,0 +1,184 @@
+Seafoam Islands  (group 1, map 87)  header 0x08B3BB9C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x57, flag 0x004C) -> 0x00000000
+  object 2 (gfx 0x57, flag 0x004D) -> 0x00000000
+  object 3 (gfx 0x90, flag 0x0082) -> 0x0821689A
+  script 0x0821689A  [ok]
+    0821689A  bufferspeciesname    stringVarId=0 species=ARTICUNO(144)
+    0821689E  lock                 
+    0821689F  faceplayer           
+    082168A0  setwildbattle        species=ARTICUNO(144) level=50 item=0
+    082168A6  waitse               
+    082168A7  playmoncry           species=ARTICUNO(144) mode=2
+    082168AC  message              text="Gyaoo!"
+    082168B1  bufferitemname       stringVarId=129 item=2095
+    082168B5  bufferitemname       stringVarId=129 item=2095
+    082168B9  bufferitemname       stringVarId=129 item=2095
+    082168BD  bufferitemname       stringVarId=129 item=2095
+    082168C1  bufferitemname       stringVarId=129 item=2095
+    082168C5  bufferitemname       stringVarId=129 item=2095
+    082168C9  waitmessage          
+    082168CA  waitmoncry           
+    082168CB  delay                frames=10
+    082168CE  playbgm              song=554 save_song=0
+    082168D2  waitbuttonpress      
+    082168D3  setflag              flag=0x867
+    082168D6  special              SPECIAL_\function=223
+    082168D9  waitstate            
+
+  object 4 (gfx 0x35, flag 0x01D8) -> 0x082D5C3F
+  script 0x082D5C3F  [ok]
+    082D5C3F  setorcopyvar         destination=VAR_0x8000 source=2
+    082D5C44  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5C49  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Ultra Ball
+    082D5C4B  end                  
+
+  coord trigger 0 (var 0x4063 == 0) -> 0x0821688B
+  script 0x0821688B  [ok]
+    0821688B  lockall              
+    0821688C  applymovement        localId=255 movements=[walk_up]
+    08216893  waitmovement         localId=0
+    08216896  releaseall           
+
+  coord trigger 1 (var 0x4063 == 0) -> 0x0821688B
+  coord trigger 2 (var 0x4063 == 0) -> 0x0821688B
+  hidden item at (13,8): Water Stone
+
+  sign 1 at (30,2) -> 0x0821693D
+  script 0x0821693D  [ok]
+    0821693D  msgbox_multilang     type=0 text_0="Danger\nFast current!" text_1="Danger\nFast current!" text_2="Danger\nFast current!" text_3="Danger\nFast current!" text_4="Danger\nFast current!" text_5="Danger\nFast current!" text_6="Danger\nFast current!"
+    0821695B  callstd              function=MSGBOX_SIGN(3)
+    0821695D  end                  
+
+  sign 2 at (14,18) -> 0x0821691C
+  script 0x0821691C  [ok]
+    0821691C  msgbox_multilang     type=0 text_0="Hint: Boulders might change the\nflow of water." text_1="Hint: Boulders might change the\nflow of water." text_2="Hint: Boulders might change the\nflow of water." text_3="Hint: Boulders might change the\nflow of water." text_4="Hint: Boulders might change the\nflow of water." text_5="Hint: Boulders might change the\nflow of water." text_6="Hint: Boulders might change the\nflow of water."
+    0821693A  callstd              function=MSGBOX_SIGN(3)
+    0821693C  end                  
+
+  map script type 3 -> 0x08216754
+  script 0x08216754  [ok]
+    08216754  checkflag            flag=0x2BE
+    08216757  call_if              condition=0 destination=0x0821679B
+    0821675D  checkflag            flag=0x2D3
+    08216760  call_if              condition=0 destination=0x08216770
+    08216766  checkflag            flag=0x2D3
+    08216769  call_if              condition=1 destination=0x08216797
+    0821676F  end                  
+
+  script 0x0821679B  [ok]
+    0821679B  clearflag            flag=0x082
+    0821679E  return               
+
+  script 0x08216770  [ok]
+    08216770  setvar               destination=VAR_0x4002 value=0
+    08216775  checkflag            flag=0x04C
+    08216778  call_if              condition=0 destination=0x08216857
+    0821677E  checkflag            flag=0x04D
+    08216781  call_if              condition=0 destination=0x08216857
+    08216787  compare_var_to_value var=0x4002 value=2
+    0821678C  call_if              condition=1 destination=0x08216793
+    08216792  return               
+
+  script 0x08216797  [ok]
+    08216797  setmaplayoutindex    index=332
+    0821679A  return               
+
+  script 0x08216857  [ok]
+    08216857  addvar               destination=VAR_0x4002 value=1
+    0821685C  return               
+
+  script 0x08216793  [ok]
+    08216793  setflag              flag=0x2D3
+    08216796  return               
+
+  map script type 5 -> 0x08216736
+  script 0x08216736  [ok]
+    08216736  checkflag            flag=0x867
+    08216739  call_if              condition=1 destination=0x08216740
+    0821673F  end                  
+
+  script 0x08216740  [ok]
+    08216740  specialvar           output=32781 SPECIAL_\function=102
+    08216745  compare_var_to_value var=0x800D value=7
+    0821674A  goto_if              condition=5 destination=0x082BCF3E
+    08216750  removeobject         localId=32783
+    08216753  return               
+
+  script 0x082BCF3E  [ok]
+    082BCF3E  return               
+
+  map script type 1 -> 0x0821679F
+  script 0x0821679F  [ok]
+    0821679F  setvar               destination=VAR_0x4002 value=0
+    082167A4  checkflag            flag=0x04C
+    082167A7  call_if              condition=0 destination=0x08216857
+    082167AD  checkflag            flag=0x04D
+    082167B0  call_if              condition=0 destination=0x08216857
+    082167B6  compare_var_to_value var=0x4002 value=2
+    082167BB  goto_if              condition=1 destination=0x082167C2
+    082167C1  end                  
+
+  script 0x082167C2  [ok]
+    082167C2  setmetatile          x=12 y=14 metatileId=299 impassable=0
+    082167CB  setmetatile          x=13 y=14 metatileId=299 impassable=0
+    082167D4  end                  
+
+  map script type 4 (var 0x4063 == 1) -> 0x082167DF
+  script 0x082167DF  [ok]
+    082167DF  turnobject           localId=255 direction=2
+    082167E3  special              SPECIAL_\function=378
+    082167E6  end                  
+
+  map script type 2 (var 0x4063 == 1) -> 0x082167F9
+  script 0x082167F9  [ok]
+    082167F9  lockall              
+    082167FA  applymovement        localId=255 movements=[walk_fast_up walk_fast_up walk_fast_up]
+    08216801  waitmovement         localId=0
+    08216804  setvar               destination=VAR_0x4063 value=0
+    08216809  releaseall           
+
+  map script type 2 (var 0x4001 == 1) -> 0x0821680F
+  script 0x0821680F  [ok]
+    0821680F  lockall              
+    08216810  setvar               destination=VAR_0x4002 value=0
+    08216815  checkflag            flag=0x04C
+    08216818  call_if              condition=0 destination=0x08216857
+    0821681E  checkflag            flag=0x04D
+    08216821  call_if              condition=0 destination=0x08216857
+    08216827  compare_var_to_value var=0x4002 value=2
+    0821682C  goto_if              condition=1 destination=0x08216873
+    08216832  getplayerxy          x=32776 y=32777
+    08216837  compare_var_to_value var=0x8008 value=9
+    0821683C  call_if              condition=0 destination=0x0821685D
+    08216842  compare_var_to_value var=0x8008 value=9
+    08216847  call_if              condition=4 destination=0x08216868
+    0821684D  special              SPECIAL_\function=412
+    08216850  setvar               destination=VAR_0x4001 value=0
+    08216855  releaseall           
+
+  script 0x08216873  [ok]
+    08216873  setvar               destination=VAR_0x4001 value=0
+    08216878  releaseall           
+
+  script 0x0821685D  [ok]
+    0821685D  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_right walk_right walk_right walk_right walk_up]
+    08216864  waitmovement         localId=0
+    08216867  return               
+
+  script 0x08216868  [ok]
+    08216868  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_right walk_right walk_right walk_up]
+    0821686F  waitmovement         localId=0
+    08216872  return               
+

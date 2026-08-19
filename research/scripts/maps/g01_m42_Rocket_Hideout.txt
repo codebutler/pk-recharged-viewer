@@ -1,0 +1,101 @@
+Rocket Hideout  (group 1, map 42)  header 0x08B3B6B0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x02, flag 0x00AD) -> 0x0820DB39
+  script 0x0820DB39  [ok]
+    0820DB39  trainerbattle        type=0 trainer=0x167 localId=0 ptr1=0x0820DCD7 ptr2=0x0820DD0B
+    0820DB47  msgbox_multilang     type=0 text_0="You’re not going to get away with\nthis, brat!" text_1="You’re not going to get away with\nthis, brat!" text_2="You’re not going to get away with\nthis, brat!" text_3="You’re not going to get away with\nthis, brat!" text_4="You’re not going to get away with\nthis, brat!" text_5="You’re not going to get away with\nthis, brat!" text_6="You’re not going to get away with\nthis, brat!"
+    0820DB65  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820DB67  end                  
+
+  object 2 (gfx 0x02, flag 0x00AD) -> 0x0820DB0A
+  script 0x0820DB0A  [ok]
+    0820DB0A  trainerbattle        type=0 trainer=0x166 localId=0 ptr1=0x0820DC75 ptr2=0x0820DC98
+    0820DB18  msgbox_multilang     type=0 text_0="Blast it… You’re dissing Team\nRocket, aren’t you?" text_1="Blast it… You’re dissing Team\nRocket, aren’t you?" text_2="Blast it… You’re dissing Team\nRocket, aren’t you?" text_3="Blast it… You’re dissing Team\nRocket, aren’t you?" text_4="Blast it… You’re dissing Team\nRocket, aren’t you?" text_5="Blast it… You’re dissing Team\nRocket, aren’t you?" text_6="Blast it… You’re dissing Team\nRocket, aren’t you?"
+    0820DB36  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820DB38  end                  
+
+  object 3 (gfx 0x02, flag 0x00AD) -> 0x0820DB97
+  script 0x0820DB97  [ok]
+    0820DB97  trainerbattle        type=0 trainer=0x169 localId=0 ptr1=0x0820DD8C ptr2=0x0820DDA3
+    0820DBA5  msgbox_multilang     type=0 text_0="Okay, I’ll talk…\nTake the elevator to see my Boss." text_1="Okay, I’ll talk…\nTake the elevator to see my Boss." text_2="Okay, I’ll talk…\nTake the elevator to see my Boss." text_3="Okay, I’ll talk…\nTake the elevator to see my Boss." text_4="Okay, I’ll talk…\nTake the elevator to see my Boss." text_5="Okay, I’ll talk…\nTake the elevator to see my Boss." text_6="Okay, I’ll talk…\nTake the elevator to see my Boss."
+    0820DBC3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820DBC5  end                  
+
+  object 4 (gfx 0x02, flag 0x00AD) -> 0x0820DB68
+  script 0x0820DB68  [ok]
+    0820DB68  trainerbattle        type=0 trainer=0x168 localId=0 ptr1=0x0820DD3F ptr2=0x0820DD4F
+    0820DB76  msgbox_multilang     type=0 text_0="Silph Scope? Humph!\nI don’t know where it is." text_1="Silph Scope? Humph!\nI don’t know where it is." text_2="Silph Scope? Humph!\nI don’t know where it is." text_3="Silph Scope? Humph!\nI don’t know where it is." text_4="Silph Scope? Humph!\nI don’t know where it is." text_5="Silph Scope? Humph!\nI don’t know where it is." text_6="Silph Scope? Humph!\nI don’t know where it is."
+    0820DB94  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820DB96  end                  
+
+  object 5 (gfx 0x02, flag 0x00AD) -> 0x0820DBC6
+  script 0x0820DBC6  [ok]
+    0820DBC6  trainerbattle        type=2 trainer=0x16A localId=0 ptr1=0x0820DDE5 ptr2=0x0820DE05 ptr3=0x0820DBF9
+    0820DBD8  msgbox_multilang     type=0 text_0="Uh-oh, that ruckus somehow opened\nthe door!" text_1="Uh-oh, that ruckus somehow opened\nthe door!" text_2="Uh-oh, that ruckus somehow opened\nthe door!" text_3="Uh-oh, that ruckus somehow opened\nthe door!" text_4="Uh-oh, that ruckus somehow opened\nthe door!" text_5="Uh-oh, that ruckus somehow opened\nthe door!" text_6="Uh-oh, that ruckus somehow opened\nthe door!"
+    0820DBF6  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0820DBF8  end                  
+
+  script 0x0820DBF9  [ok]
+    0820DBF9  call                 destination=0x0820DC3E
+    0820DBFE  playse               song=44
+    0820DC01  special              SPECIAL_\function=79
+    0820DC04  waitse               
+    0820DC05  release              
+
+  script 0x0820DC3E  [ok]
+    0820DC3E  setmetatile          x=20 y=19 metatileId=642 impassable=0
+    0820DC47  setmetatile          x=21 y=19 metatileId=641 impassable=0
+    0820DC50  setmetatile          x=20 y=20 metatileId=642 impassable=0
+    0820DC59  setmetatile          x=21 y=20 metatileId=641 impassable=0
+    0820DC62  setmetatile          x=20 y=21 metatileId=642 impassable=0
+    0820DC6B  setmetatile          x=21 y=21 metatileId=641 impassable=0
+    0820DC74  return               
+
+  object 6 (gfx 0x35, flag 0x016C) -> 0x082D56EA
+  script 0x082D56EA  [ok]
+    082D56EA  setorcopyvar         destination=VAR_0x8000 source=85
+    082D56EF  setorcopyvar         destination=VAR_0x8001 source=1
+    082D56F4  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Escape Rope
+    082D56F6  end                  
+
+  object 7 (gfx 0x35, flag 0x016D) -> 0x082D56F7
+  script 0x082D56F7  [ok]
+    082D56F7  setorcopyvar         destination=VAR_0x8000 source=21
+    082D56FC  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5701  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Hyper Potion
+    082D5703  end                  
+
+  hidden item at (16,17): PP Up
+
+  map script type 1 -> 0x0820DAFC
+  script 0x0820DAFC  [ok]
+    0820DAFC  checktrainerflag     trainer=0x16A
+    0820DAFF  call_if              condition=0 destination=0x0820DC07
+    0820DB05  end                  
+
+  script 0x0820DC07  [ok]
+    0820DC07  setmetatile          x=20 y=19 metatileId=718 impassable=1
+    0820DC10  setmetatile          x=21 y=19 metatileId=719 impassable=1
+    0820DC19  setmetatile          x=20 y=20 metatileId=726 impassable=1
+    0820DC22  setmetatile          x=21 y=20 metatileId=727 impassable=1
+    0820DC2B  setmetatile          x=20 y=21 metatileId=642 impassable=0
+    0820DC34  setmetatile          x=21 y=21 metatileId=642 impassable=0
+    0820DC3D  return               
+
+  map script type 3 -> 0x0820DB06
+  script 0x0820DB06  [ok]
+    0820DB06  setworldmapflag      flag=0x90B
+    0820DB09  end                  
+

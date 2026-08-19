@@ -1,0 +1,36 @@
+Celadon Dept.  (group 0, map 0)  header 0x08B3B154
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0F, flag 0x0000) -> 0x082BE3E7
+  script 0x082BE3E7  [ok]
+    082BE3E7  textcolor            color=3
+    082BE3E9  special              SPECIAL_\function=207
+    082BE3EC  msgbox_multilang     type=0 text_0="Please take your seat and start\nyour battle." text_1="Please take your seat and start\nyour battle." text_2="Please take your seat and start\nyour battle." text_3="Please take your seat and start\nyour battle." text_4="Please take your seat and start\nyour battle." text_5="Please take your seat and start\nyour battle." text_6="Please take your seat and start\nyour battle."
+    082BE40A  callstd              function=MSGBOX_DEFAULT(4)
+    082BE40C  special              SPECIAL_\function=208
+    082BE40F  closemessage         
+    082BE410  end                  
+
+  coord trigger 0 (var 0x4000 == 0) -> 0x082BE2CB
+  script 0x082BE2CB  [ok]
+    082BE2CB  setvar               destination=VAR_0x8005 value=0
+    082BE2D0  textcolor            color=3
+    082BE2D2  special              SPECIAL_\function=11
+    082BE2D5  waitstate            
+
+  coord trigger 1 (var 0x4000 == 0) -> 0x082BE2D7
+  script 0x082BE2D7  [ok]
+    082BE2D7  setvar               destination=VAR_0x8005 value=1
+    082BE2DC  textcolor            color=3
+    082BE2DE  special              SPECIAL_\function=11
+    082BE2E1  waitstate            
+

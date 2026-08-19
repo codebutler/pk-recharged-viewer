@@ -1,0 +1,36 @@
+Fuchsia City  (group 11, map 1)  header 0x08B3D4FC
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x11, flag 0x0000) -> 0x082690AC
+  script 0x082690AC  [opcode-out-of-range:0xFE]
+    082690AC  lock                 
+    082690AD  faceplayer           
+    082690AE  call                 destination=0x082BB330
+    082690B3  message              text="Hi, there!\nMay I help you?"
+    082690B8  showmonpic           species=?(8190) x=8 y=117
+
+  script 0x082BB330  [ok]
+    082BB330  speakername          name="Clerk"
+    082BB335  return               
+
+  object 2 (gfx 0x30, flag 0x0000) -> 0x0826908B
+  script 0x0826908B  [ok]
+    0826908B  msgbox_multilang     type=0 text_0="Don’t they have any pennants\npromoting the Safari Zone?\pHow about some paper lanterns?\nAren’t there even any calendars?" text_1="Don’t they have any pennants\npromoting the Safari Zone?\pHow about some paper lanterns?\nAren’t there even any calendars?" text_2="Don’t they have any pennants\npromoting the Safari Zone?\pHow about some paper lanterns?\nAren’t there even any calendars?" text_3="Don’t they have any pennants\npromoting the Safari Zone?\pHow about some paper lanterns?\nAren’t there even any calendars?" text_4="Don’t they have any pennants\npromoting the Safari Zone?\pHow about some paper lanterns?\nAren’t there even any calendars?" text_5="Don’t they have any pennants\npromoting the Safari Zone?\pHow about some paper lanterns?\nAren’t there even any calendars?" text_6="Don’t they have any pennants\npromoting the Safari Zone?\pHow about some paper lanterns?\nAren’t there even any calendars?"
+    082690A9  callstd              function=MSGBOX_NPC(2)
+    082690AB  end                  
+
+  object 3 (gfx 0xFB, flag 0x0000) -> 0x0826906A
+  script 0x0826906A  [ok]
+    0826906A  msgbox_multilang     type=0 text_0="Did you try X Speed?\nIt speeds up a Pokémon in battle." text_1="Did you try X Speed?\nIt speeds up a Pokémon in battle." text_2="Did you try X Speed?\nIt speeds up a Pokémon in battle." text_3="Did you try X Speed?\nIt speeds up a Pokémon in battle." text_4="Did you try X Speed?\nIt speeds up a Pokémon in battle." text_5="Did you try X Speed?\nIt speeds up a Pokémon in battle." text_6="Did you try X Speed?\nIt speeds up a Pokémon in battle."
+    08269088  callstd              function=MSGBOX_NPC(2)
+    0826908A  end                  
+

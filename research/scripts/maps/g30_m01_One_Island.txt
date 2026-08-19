@@ -1,0 +1,329 @@
+One Island  (group 30, map 1)  header 0x08B3DC18
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0E, flag 0x0000) -> 0x082BCF3F
+  script 0x082BCF3F  [ok]
+    082BCF3F  call                 destination=0x082BD758
+    082BCF44  end                  
+
+  script 0x082BD758  [opcode-out-of-range:0xFE]
+    082BD758  lock                 
+    082BD759  faceplayer           
+    082BD75A  specialvar           output=32781 SPECIAL_\function=403
+    082BD75F  compare_var_to_value var=0x800D value=1
+    082BD764  goto_if              condition=1 destination=0x082BD7C1
+    082BD76A  setvar               destination=VAR_0x40CF value=8
+    082BD76F  checkflag            flag=0x861:STARTER_PROGRESSION_B
+    082BD772  goto_if              condition=0 destination=0x082BD7E4
+    082BD778  specialvar           output=32781 SPECIAL_\function=265
+    082BD77D  compare_var_to_value var=0x800D value=1
+    082BD782  goto_if              condition=1 destination=0x082BD7EE
+    082BD788  copyvar              destination=VAR_0x8007 source=VAR_0x800F
+    082BD78D  specialvar           output=32781 SPECIAL_\function=256
+    082BD792  compare_var_to_value var=0x800D value=0
+    082BD797  goto_if              condition=1 destination=0x082BD7F8
+    082BD79D  message              text="Welcome to the Pokémon Wireless\nClub Union Room.\pYou may interact directly with\nother Trainers here, some of\pwhom you may not even know.\pWould you like to enter the Room?"
+    082BD7A2  playfanfare          song=11262
+    082BD7A5  gotostd              function=49
+
+  script 0x082BD7C1  [ok]
+    082BD7C1  msgbox_multilang     type=0 text_0="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_1="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_2="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_3="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_4="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_5="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_6="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode."
+    082BD7DF  callstd              function=MSGBOX_DEFAULT(4)
+    082BD7E1  closemessage         
+    082BD7E2  release              
+
+  script 0x082BD7E4  [ok]
+    082BD7E4  goto                 destination=0x082BE25F
+
+  script 0x082BD7EE  [ok]
+    082BD7EE  goto                 destination=0x082BE23A
+
+  script 0x082BD7F8  [ok]
+    082BD7F8  goto                 destination=0x082BE5F0
+
+  script 0x082BE25F  [ok]
+    082BE25F  msgbox_multilang     type=0 text_0="I’m terribly sorry.\nThe Pokémon Wireless Club is\pundergoing adjustments now." text_1="I’m terribly sorry.\nThe Pokémon Wireless Club is\pundergoing adjustments now." text_2="I’m terribly sorry.\nThe Pokémon Wireless Club is\pundergoing adjustments now." text_3="I’m terribly sorry.\nThe Pokémon Wireless Club is\pundergoing adjustments now." text_4="I’m terribly sorry.\nThe Pokémon Wireless Club is\pundergoing adjustments now." text_5="I’m terribly sorry.\nThe Pokémon Wireless Club is\pundergoing adjustments now." text_6="I’m terribly sorry.\nThe Pokémon Wireless Club is\pundergoing adjustments now."
+    082BE27D  callstd              function=MSGBOX_DEFAULT(4)
+    082BE27F  release              
+
+  script 0x082BE23A  [ok]
+    082BE23A  special              SPECIAL_\function=10
+    082BE23D  msgbox_multilang     type=0 text_0="You have at least one Pokémon\nthat can’t be taken." text_1="You have at least one Pokémon\nthat can’t be taken." text_2="You have at least one Pokémon\nthat can’t be taken." text_3="You have at least one Pokémon\nthat can’t be taken." text_4="You have at least one Pokémon\nthat can’t be taken." text_5="You have at least one Pokémon\nthat can’t be taken." text_6="You have at least one Pokémon\nthat can’t be taken."
+    082BE25B  callstd              function=MSGBOX_DEFAULT(4)
+    082BE25D  release              
+
+  script 0x082BE5F0  [ok]
+    082BE5F0  msgbox_multilang     type=0 text_0="This is the Pokémon Wireless Club\nUnion Room.\pUnfortunately, your Wireless\nAdapter is not connected properly.\pPlease do come again." text_1="This is the Pokémon Wireless Club\nUnion Room.\pUnfortunately, your Wireless\nAdapter is not connected properly.\pPlease do come again." text_2="This is the Pokémon Wireless Club\nUnion Room.\pUnfortunately, your Wireless\nAdapter is not connected properly.\pPlease do come again." text_3="This is the Pokémon Wireless Club\nUnion Room.\pUnfortunately, your Wireless\nAdapter is not connected properly.\pPlease do come again." text_4="This is the Pokémon Wireless Club\nUnion Room.\pUnfortunately, your Wireless\nAdapter is not connected properly.\pPlease do come again." text_5="This is the Pokémon Wireless Club\nUnion Room.\pUnfortunately, your Wireless\nAdapter is not connected properly.\pPlease do come again." text_6="This is the Pokémon Wireless Club\nUnion Room.\pUnfortunately, your Wireless\nAdapter is not connected properly.\pPlease do come again."
+    082BE60E  callstd              function=MSGBOX_DEFAULT(4)
+    082BE610  release              
+
+  object 2 (gfx 0x0E, flag 0x0000) -> 0x082BCF45
+  script 0x082BCF45  [ok]
+    082BCF45  call                 destination=0x082BE612
+    082BCF4A  end                  
+
+  script 0x082BE612  [ok]
+    082BE612  lock                 
+    082BE613  faceplayer           
+    082BE614  checkflag            flag=0x861:STARTER_PROGRESSION_B
+    082BE617  goto_if              condition=0 destination=0x082BE25F
+    082BE61D  msgbox_multilang     type=0 text_0="Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?" text_1="Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?" text_2="Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?" text_3="Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?" text_4="Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?" text_5="Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?" text_6="Hello, {PLAYER}!\pIt’s me, Teala, the Pokémon\nCenter 2F attendant.\pIs there something you needed to\nask me about linking?"
+    082BE63B  callstd              function=MSGBOX_YESNO(5)
+    082BE63D  compare_var_to_value var=0x800D value=0
+    082BE642  goto_if              condition=1 destination=0x082BE66A
+    082BE648  msgbox_multilang     type=0 text_0="Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\por the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_1="Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\por the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_2="Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\por the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_3="Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\por the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_4="Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\por the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_5="Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\por the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_6="Let me explain how the Pokémon\nWireless Club works.\pOn this, the top floor, there are\ntwo rooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pSometimes, you may not be able to\nfind your friends in the Union Room\por the Direct Corner.\pIn that case, please move closer\nto your friends.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System."
+    082BE666  callstd              function=MSGBOX_DEFAULT(4)
+    082BE668  release              
+
+  script 0x082BE66A  [ok]
+    082BE66A  msgbox_multilang     type=0 text_0="I hope you enjoy the Wireless\nCommunication System." text_1="I hope you enjoy the Wireless\nCommunication System." text_2="I hope you enjoy the Wireless\nCommunication System." text_3="I hope you enjoy the Wireless\nCommunication System." text_4="I hope you enjoy the Wireless\nCommunication System." text_5="I hope you enjoy the Wireless\nCommunication System." text_6="I hope you enjoy the Wireless\nCommunication System."
+    082BE688  callstd              function=MSGBOX_DEFAULT(4)
+    082BE68A  release              
+
+  object 3 (gfx 0x0E, flag 0x0000) -> 0x082BCF4B
+  script 0x082BCF4B  [ok]
+    082BCF4B  call                 destination=0x082BD802
+    082BCF50  end                  
+
+  script 0x082BD802  [opcode-out-of-range:0xFA]
+    082BD802  lock                 
+    082BD803  faceplayer           
+    082BD804  specialvar           output=32781 SPECIAL_\function=403
+    082BD809  compare_var_to_value var=0x800D value=1
+    082BD80E  goto_if              condition=1 destination=0x082BD869
+    082BD814  setvar               destination=VAR_0x40CF value=9
+    082BD819  checkflag            flag=0x861:STARTER_PROGRESSION_B
+    082BD81C  goto_if              condition=0 destination=0x082BD88C
+    082BD822  specialvar           output=32781 SPECIAL_\function=265
+    082BD827  compare_var_to_value var=0x800D value=1
+    082BD82C  goto_if              condition=1 destination=0x082BD896
+    082BD832  specialvar           output=32781 SPECIAL_\function=256
+    082BD837  compare_var_to_value var=0x800D value=0
+    082BD83C  goto_if              condition=1 destination=0x082BD8A0
+    082BD842  message              text="Welcome to the Pokémon Wireless\nClub Direct Corner.\pYou may interact directly with\nyour friends here.\pWhich room would you like to\nenter?"
+    082BD847  setobjectxyperm      localId=11258 x=25352 y=11258
+    082BD84E  gotostd              function=99
+
+  script 0x082BD869  [ok]
+    082BD869  msgbox_multilang     type=0 text_0="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_1="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_2="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_3="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_4="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_5="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode." text_6="I’m sorry but our services are not\navailable while playing Nuzlocke\pmode."
+    082BD887  callstd              function=MSGBOX_DEFAULT(4)
+    082BD889  closemessage         
+    082BD88A  release              
+
+  script 0x082BD88C  [ok]
+    082BD88C  goto                 destination=0x082BE25F
+
+  script 0x082BD896  [ok]
+    082BD896  goto                 destination=0x082BE23A
+
+  script 0x082BD8A0  [ok]
+    082BD8A0  goto                 destination=0x082BDC77
+
+  script 0x082BDC77  [opcode-out-of-range:0xEE]
+    082BDC77  message              text="Welcome to the Pokémon Cable\nClub.\pWhich of our services do you wish\nto use?"
+    082BDC7C  addobject            localId=11246 mapGroup=8 mapNum=86
+
+  object 4 (gfx 0x12, flag 0x0070) -> 0x082BD9CB
+  script 0x082BD9CB  [ok]
+    082BD9CB  end                  
+
+  map script type 2 (var 0x407C == 1) -> 0x082BDC12
+  script 0x082BDC12  [ok]
+    082BDC12  lockall              
+    082BDC13  textcolor            color=1
+    082BDC15  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    082BDC1C  waitmovement         localId=0
+    082BDC1F  msgbox_multilang     type=0 text_0="Hello!\nMy name is Teala.\pThis must be your first time\nup here.\pI’ll show you how the Wireless\nCommunication System works.\pFirst, I need to show you this\nfloor of our Pokémon Center.\pRight this way, please." text_1="Hello!\nMy name is Teala.\pThis must be your first time\nup here.\pI’ll show you how the Wireless\nCommunication System works.\pFirst, I need to show you this\nfloor of our Pokémon Center.\pRight this way, please." text_2="Hello!\nMy name is Teala.\pThis must be your first time\nup here.\pI’ll show you how the Wireless\nCommunication System works.\pFirst, I need to show you this\nfloor of our Pokémon Center.\pRight this way, please." text_3="Hello!\nMy name is Teala.\pThis must be your first time\nup here.\pI’ll show you how the Wireless\nCommunication System works.\pFirst, I need to show you this\nfloor of our Pokémon Center.\pRight this way, please." text_4="Hello!\nMy name is Teala.\pThis must be your first time\nup here.\pI’ll show you how the Wireless\nCommunication System works.\pFirst, I need to show you this\nfloor of our Pokémon Center.\pRight this way, please." text_5="Hello!\nMy name is Teala.\pThis must be your first time\nup here.\pI’ll show you how the Wireless\nCommunication System works.\pFirst, I need to show you this\nfloor of our Pokémon Center.\pRight this way, please." text_6="Hello!\nMy name is Teala.\pThis must be your first time\nup here.\pI’ll show you how the Wireless\nCommunication System works.\pFirst, I need to show you this\nfloor of our Pokémon Center.\pRight this way, please."
+    082BDC3D  callstd              function=MSGBOX_DEFAULT(4)
+    082BDC3F  closemessage         
+    082BDC40  applymovement        localId=255 movements=[walk_up walk_up]
+    082BDC47  waitmovement         localId=0
+    082BDC4A  delay                frames=30
+    082BDC4D  msgbox_multilang     type=0 text_0="On the top floor, there are two\nrooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_1="On the top floor, there are two\nrooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_2="On the top floor, there are two\nrooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_3="On the top floor, there are two\nrooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_4="On the top floor, there are two\nrooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_5="On the top floor, there are two\nrooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System." text_6="On the top floor, there are two\nrooms.\pFirst, the room on the left.\nIt’s the Union Room.\pYou may link up with Trainers\naround you who have also entered\pthe Union Room.\pWith them, you may do things like\nchat, battle, and trade.\pSecond, the room on the right is\nthe Direct Corner.\pYou may trade or battle Pokémon\nwith your friends in this room.\pIf the Wireless Adapter isn’t\nconnected, you may still link up\pusing a GBA Game Link cable.\pIf that is the case, you must go\nto the Direct Corner.\pI hope you enjoy the Wireless \nCommunication System."
+    082BDC6B  callstd              function=MSGBOX_DEFAULT(4)
+    082BDC6D  setvar               destination=VAR_0x407C value=2
+    082BDC72  releaseall           
+
+  map script type 2 (var 0x406F == 1) -> 0x082BDAC4
+  script 0x082BDAC4  [ok]
+    082BDAC4  lockall              
+    082BDAC5  call                 destination=0x082BDAF4
+    082BDACA  call                 destination=0x082BEBD1
+    082BDACF  special              SPECIAL_\function=79
+    082BDAD2  playse               song=36
+    082BDAD5  erasebox             left=0 top=0 right=29 bottom=19
+    082BDADA  releaseall           
+
+  script 0x082BDAF4  [ok]
+    082BDAF4  special              SPECIAL_\function=10
+    082BDAF7  setvar               destination=VAR_0x406F value=0
+    082BDAFC  textcolor            color=1
+    082BDAFE  compare_var_to_value var=0x8007 value=0
+    082BDB03  goto_if              condition=1 destination=0x082BDC07
+    082BDB09  applymovement        localId=32775 movements=[face_left]
+    082BDB10  waitmovement         localId=0
+    082BDB13  applymovement        localId=255 movements=[walk_down walk_down]
+    082BDB1A  waitmovement         localId=0
+    082BDB1D  applymovement        localId=32775 movements=[face_down]
+    082BDB24  waitmovement         localId=0
+    082BDB27  return               
+
+  script 0x082BEBD1  [ok]
+    082BEBD1  setmetatile          x=9 y=3 metatileId=761 impassable=1
+    082BEBDA  return               
+
+  script 0x082BDC07  [ok]
+    082BDC07  applymovement        localId=255 movements=[walk_down walk_down]
+    082BDC0E  waitmovement         localId=0
+    082BDC11  return               
+
+  map script type 2 (var 0x406F == 2) -> 0x082BDAC4
+  map script type 2 (var 0x406F == 5) -> 0x082BDAC4
+  map script type 2 (var 0x406F == 3) -> 0x082BDB28
+  script 0x082BDB28  [ok]
+    082BDB28  lockall              
+    082BDB29  call                 destination=0x082BDB40
+    082BDB2E  call                 destination=0x082BEBD1
+    082BDB33  special              SPECIAL_\function=79
+    082BDB36  playse               song=36
+    082BDB39  erasebox             left=0 top=0 right=29 bottom=19
+    082BDB3E  releaseall           
+
+  script 0x082BDB40  [ok]
+    082BDB40  special              SPECIAL_\function=10
+    082BDB43  setvar               destination=VAR_0x406F value=0
+    082BDB48  textcolor            color=1
+    082BDB4A  compare_var_to_value var=0x8007 value=0
+    082BDB4F  goto_if              condition=1 destination=0x082BDC07
+    082BDB55  applymovement        localId=255 movements=[face_right]
+    082BDB5C  waitmovement         localId=0
+    082BDB5F  applymovement        localId=32775 movements=[face_left]
+    082BDB66  waitmovement         localId=0
+    082BDB69  call                 destination=0x082BDBB3
+    082BDB6E  return               
+
+  script 0x082BDBB3  [ok]
+    082BDBB3  message              text="The Trainer Card data will\nbe overwritten."
+    082BDBB8  waitstate            
+
+  map script type 2 (var 0x406F == 6) -> 0x082BDB6F
+  script 0x082BDB6F  [ok]
+    082BDB6F  lockall              
+    082BDB70  call                 destination=0x082BDB87
+    082BDB75  call                 destination=0x082BEBBD
+    082BDB7A  special              SPECIAL_\function=79
+    082BDB7D  playse               song=36
+    082BDB80  erasebox             left=0 top=0 right=29 bottom=19
+    082BDB85  releaseall           
+
+  script 0x082BDB87  [ok]
+    082BDB87  setvar               destination=VAR_0x406F value=0
+    082BDB8C  textcolor            color=1
+    082BDB8E  compare_var_to_value var=0x8007 value=0
+    082BDB93  goto_if              condition=1 destination=0x082BDC07
+    082BDB99  applymovement        localId=255 movements=[face_right]
+    082BDBA0  waitmovement         localId=0
+    082BDBA3  applymovement        localId=32775 movements=[face_left]
+    082BDBAA  waitmovement         localId=0
+    082BDBAD  call                 destination=0x082BDBB3
+    082BDBB2  return               
+
+  script 0x082BEBBD  [ok]
+    082BEBBD  setmetatile          x=5 y=3 metatileId=761 impassable=1
+    082BEBC6  return               
+
+  map script type 2 (var 0x406F == 7) -> 0x082BDAC4
+  map script type 2 (var 0x406F == 8) -> 0x082BDADC
+  script 0x082BDADC  [ok]
+    082BDADC  lockall              
+    082BDADD  call                 destination=0x082BDAF4
+    082BDAE2  call                 destination=0x082BEBE5
+    082BDAE7  special              SPECIAL_\function=79
+    082BDAEA  playse               song=36
+    082BDAED  erasebox             left=0 top=0 right=29 bottom=19
+    082BDAF2  releaseall           
+
+  script 0x082BEBE5  [ok]
+    082BEBE5  setmetatile          x=5 y=3 metatileId=759 impassable=1
+    082BEBEE  return               
+
+  map script type 4 (var 0x406F == 1) -> 0x082BDA06
+  script 0x082BDA06  [ok]
+    082BDA06  compare_var_to_value var=0x8007 value=0
+    082BDA0B  goto_if              condition=1 destination=0x082BDA15
+    082BDA11  turnobject           localId=32775 direction=3
+    082BDA15  end                  
+
+  script 0x082BDA15  [ok]
+    082BDA15  end                  
+
+  map script type 4 (var 0x406F == 2) -> 0x082BDA06
+  map script type 4 (var 0x406F == 5) -> 0x082BDA06
+  map script type 4 (var 0x406F == 3) -> 0x082BDA06
+  map script type 4 (var 0x406F == 6) -> 0x082BDA06
+  map script type 4 (var 0x406F == 7) -> 0x082BDA06
+  map script type 4 (var 0x406F == 8) -> 0x082BDA06
+  map script type 1 -> 0x082BDA16
+  script 0x082BDA16  [ok]
+    082BDA16  compare_var_to_value var=0x406F value=1
+    082BDA1B  goto_if              condition=1 destination=0x082BDA64
+    082BDA21  compare_var_to_value var=0x406F value=2
+    082BDA26  goto_if              condition=1 destination=0x082BDA64
+    082BDA2C  compare_var_to_value var=0x406F value=5
+    082BDA31  goto_if              condition=1 destination=0x082BDA64
+    082BDA37  compare_var_to_value var=0x406F value=3
+    082BDA3C  goto_if              condition=1 destination=0x082BDA6A
+    082BDA42  compare_var_to_value var=0x406F value=6
+    082BDA47  goto_if              condition=1 destination=0x082BDA70
+    082BDA4D  compare_var_to_value var=0x406F value=7
+    082BDA52  goto_if              condition=1 destination=0x082BDA76
+    082BDA58  compare_var_to_value var=0x406F value=8
+    082BDA5D  goto_if              condition=1 destination=0x082BDA7C
+    082BDA63  end                  
+
+  script 0x082BDA64  [ok]
+    082BDA64  call                 destination=0x082BEBC7
+    082BDA69  end                  
+
+  script 0x082BDA6A  [ok]
+    082BDA6A  call                 destination=0x082BEBC7
+    082BDA6F  end                  
+
+  script 0x082BDA70  [ok]
+    082BDA70  call                 destination=0x082BEBB3
+    082BDA75  end                  
+
+  script 0x082BDA76  [ok]
+    082BDA76  call                 destination=0x082BEBC7
+    082BDA7B  end                  
+
+  script 0x082BDA7C  [ok]
+    082BDA7C  call                 destination=0x082BEBDB
+    082BDA81  end                  
+
+  script 0x082BEBC7  [ok]
+    082BEBC7  setmetatile          x=9 y=3 metatileId=709 impassable=0
+    082BEBD0  return               
+
+  script 0x082BEBB3  [ok]
+    082BEBB3  setmetatile          x=5 y=3 metatileId=709 impassable=0
+    082BEBBC  return               
+
+  script 0x082BEBDB  [ok]
+    082BEBDB  setmetatile          x=5 y=3 metatileId=737 impassable=0
+    082BEBE4  return               
+
+  map script type 3 -> 0x082BD9C7
+  script 0x082BD9C7  [ok]
+    082BD9C7  setflag              flag=0x070
+    082BD9CA  end                  
+

@@ -1,0 +1,71 @@
+Cerulean City  (group 7, map 6)  header 0x08B3D09C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xF2, flag 0x0000) -> 0x0825A3DE
+  script 0x0825A3DE  [ok]
+    0825A3DE  lock                 
+    0825A3DF  faceplayer           
+    0825A3E0  speakername          name="Clerk"
+    0825A3E5  checkflag            flag=0x271
+    0825A3E8  goto_if              condition=1 destination=0x0825A419
+    0825A3EE  checkflag            flag=0x241
+    0825A3F1  goto_if              condition=1 destination=0x0825A43B
+    0825A3F7  msgbox_multilang     type=0 text_0="I’m sorry, our Bikes are sold out\nnow.\pPlease come back with a Bike\nVoucher." text_1="I’m sorry, our Bikes are sold out\nnow.\pPlease come back with a Bike\nVoucher." text_2="I’m sorry, our Bikes are sold out\nnow.\pPlease come back with a Bike\nVoucher." text_3="I’m sorry, our Bikes are sold out\nnow.\pPlease come back with a Bike\nVoucher." text_4="I’m sorry, our Bikes are sold out\nnow.\pPlease come back with a Bike\nVoucher." text_5="I’m sorry, our Bikes are sold out\nnow.\pPlease come back with a Bike\nVoucher." text_6="I’m sorry, our Bikes are sold out\nnow.\pPlease come back with a Bike\nVoucher."
+    0825A415  callstd              function=MSGBOX_DEFAULT(4)
+    0825A417  release              
+
+  script 0x0825A419  [ok]
+    0825A419  msgbox_multilang     type=0 text_0="How do you like your new Bicycle?\nDo you like how it rides?\pYou can take it out on Cycling\nRoad and even into caves!" text_1="How do you like your new Bicycle?\nDo you like how it rides?\pYou can take it out on Cycling\nRoad and even into caves!" text_2="How do you like your new Bicycle?\nDo you like how it rides?\pYou can take it out on Cycling\nRoad and even into caves!" text_3="How do you like your new Bicycle?\nDo you like how it rides?\pYou can take it out on Cycling\nRoad and even into caves!" text_4="How do you like your new Bicycle?\nDo you like how it rides?\pYou can take it out on Cycling\nRoad and even into caves!" text_5="How do you like your new Bicycle?\nDo you like how it rides?\pYou can take it out on Cycling\nRoad and even into caves!" text_6="How do you like your new Bicycle?\nDo you like how it rides?\pYou can take it out on Cycling\nRoad and even into caves!"
+    0825A437  callstd              function=MSGBOX_DEFAULT(4)
+    0825A439  release              
+
+  script 0x0825A43B  [unknown-opcode:0xE9]
+    0825A43B  msgbox_multilang     type=0 text_0="Oh, that’s…\pA Bike Voucher!\pOkay!\nHere you go!" text_1="Oh, that’s…\pA Bike Voucher!\pOkay!\nHere you go!" text_2="Oh, that’s…\pA Bike Voucher!\pOkay!\nHere you go!" text_3="Oh, that’s…\pA Bike Voucher!\pOkay!\nHere you go!" text_4="Oh, that’s…\pA Bike Voucher!\pOkay!\nHere you go!" text_5="Oh, that’s…\pA Bike Voucher!\pOkay!\nHere you go!" text_6="Oh, that’s…\pA Bike Voucher!\pOkay!\nHere you go!"
+    0825A459  callstd              function=MSGBOX_DEFAULT(4)
+
+  object 2 (gfx 0x23, flag 0x0000) -> 0x0825A4EC
+  script 0x0825A4EC  [ok]
+    0825A4EC  lock                 
+    0825A4ED  faceplayer           
+    0825A4EE  checkflag            flag=0x271
+    0825A4F1  goto_if              condition=1 destination=0x0825A519
+    0825A4F7  msgbox_multilang     type=0 text_0="These bikes are cool, but I don’t\nhave a Bike Voucher!" text_1="These bikes are cool, but I don’t\nhave a Bike Voucher!" text_2="These bikes are cool, but I don’t\nhave a Bike Voucher!" text_3="These bikes are cool, but I don’t\nhave a Bike Voucher!" text_4="These bikes are cool, but I don’t\nhave a Bike Voucher!" text_5="These bikes are cool, but I don’t\nhave a Bike Voucher!" text_6="These bikes are cool, but I don’t\nhave a Bike Voucher!"
+    0825A515  callstd              function=MSGBOX_DEFAULT(4)
+    0825A517  release              
+
+  script 0x0825A519  [ok]
+    0825A519  msgbox_multilang     type=0 text_0="Wow.\nYour Bike is really cool!" text_1="Wow.\nYour Bike is really cool!" text_2="Wow.\nYour Bike is really cool!" text_3="Wow.\nYour Bike is really cool!" text_4="Wow.\nYour Bike is really cool!" text_5="Wow.\nYour Bike is really cool!" text_6="Wow.\nYour Bike is really cool!"
+    0825A537  callstd              function=MSGBOX_DEFAULT(4)
+    0825A539  goto                 destination=0x0825A517
+
+  script 0x0825A517  [ok]
+    0825A517  release              
+
+  object 3 (gfx 0x14, flag 0x0000) -> 0x0825A4AA
+  script 0x0825A4AA  [ok]
+    0825A4AA  msgbox_multilang     type=0 text_0="A plain city bike is good enough for\nme.\pAfter all, you can’t put a shopping\nbasket on a mountain bike." text_1="A plain city bike is good enough for\nme.\pAfter all, you can’t put a shopping\nbasket on a mountain bike." text_2="A plain city bike is good enough for\nme.\pAfter all, you can’t put a shopping\nbasket on a mountain bike." text_3="A plain city bike is good enough for\nme.\pAfter all, you can’t put a shopping\nbasket on a mountain bike." text_4="A plain city bike is good enough for\nme.\pAfter all, you can’t put a shopping\nbasket on a mountain bike." text_5="A plain city bike is good enough for\nme.\pAfter all, you can’t put a shopping\nbasket on a mountain bike." text_6="A plain city bike is good enough for\nme.\pAfter all, you can’t put a shopping\nbasket on a mountain bike."
+    0825A4C8  callstd              function=MSGBOX_NPC(2)
+    0825A4CA  return               
+
+  sign 0 at (4,3) -> 0x0825A4CB
+  script 0x0825A4CB  [ok]
+    0825A4CB  msgbox_multilang     type=0 text_0="A shiny new Bicycle!" text_1="A shiny new Bicycle!" text_2="A shiny new Bicycle!" text_3="A shiny new Bicycle!" text_4="A shiny new Bicycle!" text_5="A shiny new Bicycle!" text_6="A shiny new Bicycle!"
+    0825A4E9  callstd              function=MSGBOX_SIGN(3)
+    0825A4EB  end                  
+
+  sign 1 at (4,4) -> 0x0825A4CB
+  sign 2 at (4,5) -> 0x0825A4CB
+  sign 3 at (2,3) -> 0x0825A4CB
+  sign 4 at (1,4) -> 0x0825A4CB
+  sign 5 at (2,5) -> 0x0825A4CB
+  sign 6 at (2,7) -> 0x0825A4CB
+  sign 7 at (2,8) -> 0x0825A4CB

@@ -1,0 +1,440 @@
+map  (group 42, map 14)  header 0x08B3E91C
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x18, flag 0x0000) -> 0x00000000
+  object 2 (gfx 0xBE, flag 0x0000) -> 0x00000000
+  object 3 (gfx 0x5A, flag 0x0000) -> 0x00000000
+  object 4 (gfx 0x5B, flag 0x0000) -> 0x00000000
+  object 5 (gfx 0x5C, flag 0x0000) -> 0x00000000
+  object 6 (gfx 0x5E, flag 0x0000) -> 0x00000000
+  object 7 (gfx 0x60, flag 0x0000) -> 0x00000000
+  object 8 (gfx 0x61, flag 0x0000) -> 0x00000000
+  object 9 (gfx 0x62, flag 0x0000) -> 0x00000000
+  object 10 (gfx 0x63, flag 0x0000) -> 0x00000000
+  object 11 (gfx 0x64, flag 0x0000) -> 0x00000000
+  object 12 (gfx 0x5F, flag 0x0000) -> 0x00000000
+  object 13 (gfx 0x35, flag 0x04C4) -> 0x00000000
+  object 14 (gfx 0x5D, flag 0x0000) -> 0x00000000
+  object 15 (gfx 0x63, flag 0x0000) -> 0x00000000
+  map script type 4 (var 0x40C9 == 1) -> 0x08287001
+  script 0x08287001  [ok]
+    08287001  special              SPECIAL_\function=337
+    08287004  hideobjectat         localId=255 mapGroup=0 mapNum=0
+    08287009  call                 destination=0x082872E7
+    0828700E  end                  
+
+  script 0x082872E7  [ok]
+    082872E7  specialvar           output=32781 SPECIAL_\function=277
+    082872EC  compare_var_to_value var=0x800D value=1
+    082872F1  goto_if              condition=1 destination=0x0828757C
+    082872F7  copyvar              destination=VAR_0x8000 source=VAR_0x40D2
+    082872FC  compare_var_to_value var=0x8000 value=1
+    08287301  goto_if              condition=1 destination=0x08287334
+    08287307  compare_var_to_value var=0x8000 value=2
+    0828730C  goto_if              condition=1 destination=0x08287349
+    08287312  compare_var_to_value var=0x8000 value=3
+    08287317  goto_if              condition=1 destination=0x082873AE
+    0828731D  compare_var_to_value var=0x8000 value=4
+    08287322  goto_if              condition=1 destination=0x0828746D
+    08287328  compare_var_to_value var=0x8000 value=5
+    0828732D  goto_if              condition=1 destination=0x0828746D
+    08287333  return               
+
+  script 0x0828757C  [ok]
+    0828757C  createvobject        graphicsId=45 id=0 x=512 y=768 elevation=0 direction=3
+    08287585  call                 destination=16839594
+    0828758A  end                  
+
+  script 0x08287334  [ok]
+    08287334  createvobject        graphicsId=5 id=0 x=788 y=512 elevation=0 direction=3
+    0828733D  nop1                 
+    0828733E  createvobject        graphicsId=8 id=1 x=2840 y=512 elevation=0 direction=3
+    08287347  nop1                 
+    08287348  return               
+
+  script 0x08287349  [ok]
+    08287349  createvobject        graphicsId=45 id=0 x=512 y=768 elevation=0 direction=3
+    08287352  call                 destination=16839594
+    08287357  end                  
+
+  script 0x082873AE  [ok]
+    082873AE  createvobject        graphicsId=45 id=0 x=512 y=768 elevation=0 direction=3
+    082873B7  call                 destination=16839594
+    082873BC  end                  
+
+  script 0x0828746D  [ok]
+    0828746D  createvobject        graphicsId=45 id=0 x=512 y=768 elevation=0 direction=3
+    08287476  call                 destination=16839594
+    0828747B  end                  
+
+  map script type 2 (var 0x40C9 == 1) -> 0x08286FF6
+  script 0x08286FF6  [ok]
+    08286FF6  call                 destination=0x082C0E56
+    08286FFB  call                 destination=0x08286EF3
+    08287000  end                  
+
+  script 0x082C0E56  [ok]
+    082C0E56  special              SPECIAL_\function=275
+    082C0E59  setvar               destination=VAR_0x8006 value=0
+    082C0E5E  lockall              
+    082C0E5F  applymovement        localId=14 movements=[face_up]
+    082C0E66  waitmovement         localId=0
+    082C0E69  applymovement        localId=1 movements=[walk_down]
+    082C0E70  waitmovement         localId=0
+    082C0E73  releaseall           
+
+  script 0x08286EF3  [ok]
+    08286EF3  special              SPECIAL_\function=282
+    08286EF6  copyvar              destination=VAR_0x8000 source=VAR_0x40D2
+    08286EFB  compare_var_to_value var=0x8000 value=1
+    08286F00  goto_if              condition=1 destination=0x08286F34
+    08286F06  compare_var_to_value var=0x8000 value=2
+    08286F0B  goto_if              condition=1 destination=0x08286F34
+    08286F11  compare_var_to_value var=0x8000 value=3
+    08286F16  goto_if              condition=1 destination=0x08286F34
+    08286F1C  compare_var_to_value var=0x8000 value=4
+    08286F21  goto_if              condition=1 destination=0x08286F34
+    08286F27  compare_var_to_value var=0x8000 value=5
+    08286F2C  goto_if              condition=1 destination=0x08286F41
+    08286F32  waitstate            
+
+  script 0x08286F34  [ok]
+    08286F34  warp                 mapGroup=9 mapNum=8 WARP_ID_NONE=255 -1=13 -1=4
+    08286F3C  goto                 destination=0x08286F32
+
+  script 0x08286F41  [ok]
+    08286F41  warp                 mapGroup=9 mapNum=8 WARP_ID_NONE=255 -1=13 -1=4
+    08286F49  goto                 destination=0x08286F32
+
+  script 0x08286F32  [ok]
+    08286F32  waitstate            
+
+  map script type 3 -> 0x08286F6C
+  script 0x08286F6C  [ok]
+    08286F6C  call                 destination=0x08286F7C
+    08286F71  setvar               destination=VAR_0x4000 value=1
+    08286F76  call                 destination=0x0828700F
+    08286F7B  end                  
+
+  script 0x08286F7C  [ok]
+    08286F7C  call                 destination=0x082C100C
+    08286F81  special              SPECIAL_\function=236
+    08286F84  compare_var_to_value var=0x800D value=0
+    08286F89  call_if              condition=1 destination=0x08286FBC
+    08286F8F  compare_var_to_value var=0x800D value=1
+    08286F94  call_if              condition=1 destination=0x08286FC0
+    08286F9A  compare_var_to_value var=0x800D value=2
+    08286F9F  call_if              condition=1 destination=0x08286FC4
+    08286FA5  compare_var_to_value var=0x800D value=3
+    08286FAA  call_if              condition=1 destination=0x08286FC8
+    08286FB0  compare_var_to_value var=0x800D value=4
+    08286FB5  call_if              condition=1 destination=0x08286FCC
+    08286FBB  return               
+
+  script 0x0828700F  [ok]
+    0828700F  call                 destination=0x082870C5
+    08287014  call                 destination=0x08287025
+    08287019  compare_var_to_value var=0x4000 value=8
+    0828701E  goto_if              condition=0 destination=0x0828700F
+    08287024  return               
+
+  script 0x082C100C  [ok]
+    082C100C  specialvar           output=32781 SPECIAL_\function=277
+    082C1011  compare_var_to_value var=0x800D value=1
+    082C1016  goto_if              condition=1 destination=0x082C101D
+    082C101C  return               
+
+  script 0x08286FBC  [ok]
+    08286FBC  savebgm              song=393
+    08286FBF  return               
+
+  script 0x08286FC0  [ok]
+    08286FC0  savebgm              song=394
+    08286FC3  return               
+
+  script 0x08286FC4  [ok]
+    08286FC4  savebgm              song=395
+    08286FC7  return               
+
+  script 0x08286FC8  [ok]
+    08286FC8  savebgm              song=396
+    08286FCB  return               
+
+  script 0x08286FCC  [ok]
+    08286FCC  savebgm              song=440
+    08286FCF  return               
+
+  script 0x082870C5  [ok]
+    082870C5  setvar               destination=VAR_0x800D value=31
+    082870CA  special              SPECIAL_\function=248
+    082870CD  addvar               destination=VAR_0x800D value=1
+    082870D2  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    082870D7  compare_var_to_value var=0x8000 value=1
+    082870DC  goto_if              condition=1 destination=0x0828722D
+    082870E2  compare_var_to_value var=0x8000 value=2
+    082870E7  goto_if              condition=1 destination=0x08287233
+    082870ED  compare_var_to_value var=0x8000 value=3
+    082870F2  goto_if              condition=1 destination=0x0828725D
+    082870F8  compare_var_to_value var=0x8000 value=4
+    082870FD  goto_if              condition=1 destination=0x08287239
+    08287103  compare_var_to_value var=0x8000 value=5
+    08287108  goto_if              condition=1 destination=0x0828723F
+    0828710E  compare_var_to_value var=0x8000 value=6
+    08287113  goto_if              condition=1 destination=0x08287245
+    08287119  compare_var_to_value var=0x8000 value=7
+    0828711E  goto_if              condition=1 destination=0x0828724B
+    08287124  compare_var_to_value var=0x8000 value=8
+    08287129  goto_if              condition=1 destination=0x08287251
+    0828712F  compare_var_to_value var=0x8000 value=9
+    08287134  goto_if              condition=1 destination=0x08287257
+    0828713A  compare_var_to_value var=0x8000 value=10
+    0828713F  goto_if              condition=1 destination=0x082872E1
+    08287145  compare_var_to_value var=0x8000 value=11
+    0828714A  goto_if              condition=1 destination=0x08287263
+    08287150  compare_var_to_value var=0x8000 value=12
+    08287155  goto_if              condition=1 destination=0x08287269
+    0828715B  compare_var_to_value var=0x8000 value=13
+    08287160  goto_if              condition=1 destination=0x0828726F
+    08287166  compare_var_to_value var=0x8000 value=14
+    0828716B  goto_if              condition=1 destination=0x08287275
+    08287171  compare_var_to_value var=0x8000 value=15
+    08287176  goto_if              condition=1 destination=0x0828727B
+    0828717C  compare_var_to_value var=0x8000 value=16
+    08287181  goto_if              condition=1 destination=0x08287281
+    08287187  compare_var_to_value var=0x8000 value=17
+    0828718C  goto_if              condition=1 destination=0x08287287
+    08287192  compare_var_to_value var=0x8000 value=18
+    08287197  goto_if              condition=1 destination=0x0828728D
+    0828719D  compare_var_to_value var=0x8000 value=19
+    082871A2  goto_if              condition=1 destination=0x08287293
+    082871A8  compare_var_to_value var=0x8000 value=20
+    082871AD  goto_if              condition=1 destination=0x08287299
+    082871B3  compare_var_to_value var=0x8000 value=21
+    082871B8  goto_if              condition=1 destination=0x0828729F
+    082871BE  compare_var_to_value var=0x8000 value=22
+    082871C3  goto_if              condition=1 destination=0x082872A5
+    082871C9  compare_var_to_value var=0x8000 value=23
+    082871CE  goto_if              condition=1 destination=0x082872AB
+    082871D4  compare_var_to_value var=0x8000 value=24
+    082871D9  goto_if              condition=1 destination=0x082872B1
+    082871DF  compare_var_to_value var=0x8000 value=25
+    082871E4  goto_if              condition=1 destination=0x082872B7
+    082871EA  compare_var_to_value var=0x8000 value=26
+    082871EF  goto_if              condition=1 destination=0x082872BD
+    082871F5  compare_var_to_value var=0x8000 value=27
+    082871FA  goto_if              condition=1 destination=0x082872C3
+    08287200  compare_var_to_value var=0x8000 value=28
+    08287205  goto_if              condition=1 destination=0x082872C9
+    0828720B  compare_var_to_value var=0x8000 value=29
+    08287210  goto_if              condition=1 destination=0x082872CF
+    08287216  compare_var_to_value var=0x8000 value=30
+    0828721B  goto_if              condition=1 destination=0x082872D5
+    08287221  compare_var_to_value var=0x8000 value=31
+    08287226  goto_if              condition=1 destination=0x082872DB
+    0828722C  end                  
+
+  script 0x08287025  [ok]
+    08287025  copyvar              destination=VAR_0x8000 source=VAR_0x4000
+    0828702A  compare_var_to_value var=0x8000 value=1
+    0828702F  goto_if              condition=1 destination=0x08287078
+    08287035  compare_var_to_value var=0x8000 value=2
+    0828703A  goto_if              condition=1 destination=0x08287083
+    08287040  compare_var_to_value var=0x8000 value=3
+    08287045  goto_if              condition=1 destination=0x0828708E
+    0828704B  compare_var_to_value var=0x8000 value=4
+    08287050  goto_if              condition=1 destination=0x08287099
+    08287056  compare_var_to_value var=0x8000 value=5
+    0828705B  goto_if              condition=1 destination=0x082870A4
+    08287061  compare_var_to_value var=0x8000 value=6
+    08287066  goto_if              condition=1 destination=0x082870AF
+    0828706C  compare_var_to_value var=0x8000 value=7
+    08287071  goto_if              condition=1 destination=0x082870BA
+    08287077  end                  
+
+  script 0x082C101D  [ok]
+    082C101D  special              SPECIAL_\function=273
+    082C1020  waitstate            
+
+  script 0x0828722D  [ok]
+    0828722D  setvar               destination=VAR_0x4001 value=5
+    08287232  return               
+
+  script 0x08287233  [ok]
+    08287233  setvar               destination=VAR_0x4001 value=6
+    08287238  return               
+
+  script 0x0828725D  [ok]
+    0828725D  setvar               destination=VAR_0x4001 value=239
+    08287262  return               
+
+  script 0x08287239  [ok]
+    08287239  setvar               destination=VAR_0x4001 value=8
+    0828723E  return               
+
+  script 0x0828723F  [ok]
+    0828723F  setvar               destination=VAR_0x4001 value=47
+    08287244  return               
+
+  script 0x08287245  [ok]
+    08287245  setvar               destination=VAR_0x4001 value=11
+    0828724A  return               
+
+  script 0x0828724B  [ok]
+    0828724B  setvar               destination=VAR_0x4001 value=12
+    08287250  return               
+
+  script 0x08287251  [ok]
+    08287251  setvar               destination=VAR_0x4001 value=13
+    08287256  return               
+
+  script 0x08287257  [ok]
+    08287257  setvar               destination=VAR_0x4001 value=241
+    0828725C  return               
+
+  script 0x082872E1  [ok]
+    082872E1  setvar               destination=VAR_0x4001 value=264
+    082872E6  return               
+
+  script 0x08287263  [ok]
+    08287263  setvar               destination=VAR_0x4001 value=17
+    08287268  return               
+
+  script 0x08287269  [ok]
+    08287269  setvar               destination=VAR_0x4001 value=266
+    0828726E  return               
+
+  script 0x0828726F  [ok]
+    0828726F  setvar               destination=VAR_0x4001 value=244
+    08287274  return               
+
+  script 0x08287275  [ok]
+    08287275  setvar               destination=VAR_0x4001 value=20
+    0828727A  return               
+
+  script 0x0828727B  [ok]
+    0828727B  setvar               destination=VAR_0x4001 value=21
+    08287280  return               
+
+  script 0x08287281  [ok]
+    08287281  setvar               destination=VAR_0x4001 value=22
+    08287286  return               
+
+  script 0x08287287  [ok]
+    08287287  setvar               destination=VAR_0x4001 value=25
+    0828728C  return               
+
+  script 0x0828728D  [ok]
+    0828728D  setvar               destination=VAR_0x4001 value=257
+    08287292  return               
+
+  script 0x08287293  [ok]
+    08287293  setvar               destination=VAR_0x4001 value=267
+    08287298  return               
+
+  script 0x08287299  [ok]
+    08287299  setvar               destination=VAR_0x4001 value=47
+    0828729E  return               
+
+  script 0x0828729F  [ok]
+    0828729F  setvar               destination=VAR_0x4001 value=30
+    082872A4  return               
+
+  script 0x082872A5  [ok]
+    082872A5  setvar               destination=VAR_0x4001 value=31
+    082872AA  return               
+
+  script 0x082872AB  [ok]
+    082872AB  setvar               destination=VAR_0x4001 value=32
+    082872B0  return               
+
+  script 0x082872B1  [ok]
+    082872B1  setvar               destination=VAR_0x4001 value=250
+    082872B6  return               
+
+  script 0x082872B7  [ok]
+    082872B7  setvar               destination=VAR_0x4001 value=251
+    082872BC  return               
+
+  script 0x082872BD  [ok]
+    082872BD  setvar               destination=VAR_0x4001 value=35
+    082872C2  return               
+
+  script 0x082872C3  [ok]
+    082872C3  setvar               destination=VAR_0x4001 value=36
+    082872C8  return               
+
+  script 0x082872C9  [ok]
+    082872C9  setvar               destination=VAR_0x4001 value=37
+    082872CE  return               
+
+  script 0x082872CF  [ok]
+    082872CF  setvar               destination=VAR_0x4001 value=38
+    082872D4  return               
+
+  script 0x082872D5  [ok]
+    082872D5  setvar               destination=VAR_0x4001 value=263
+    082872DA  return               
+
+  script 0x082872DB  [ok]
+    082872DB  setvar               destination=VAR_0x4001 value=45
+    082872E0  return               
+
+  script 0x08287078  [ok]
+    08287078  copyvar              destination=VAR_0x4014 source=VAR_0x4001
+    0828707D  addvar               destination=VAR_0x4000 value=1
+    08287082  return               
+
+  script 0x08287083  [ok]
+    08287083  copyvar              destination=VAR_0x4015 source=VAR_0x4001
+    08287088  addvar               destination=VAR_0x4000 value=1
+    0828708D  return               
+
+  script 0x0828708E  [ok]
+    0828708E  copyvar              destination=VAR_0x4016 source=VAR_0x4001
+    08287093  addvar               destination=VAR_0x4000 value=1
+    08287098  return               
+
+  script 0x08287099  [ok]
+    08287099  copyvar              destination=VAR_0x4017 source=VAR_0x4001
+    0828709E  addvar               destination=VAR_0x4000 value=1
+    082870A3  return               
+
+  script 0x082870A4  [ok]
+    082870A4  copyvar              destination=VAR_0x4018 source=VAR_0x4001
+    082870A9  addvar               destination=VAR_0x4000 value=1
+    082870AE  return               
+
+  script 0x082870AF  [ok]
+    082870AF  copyvar              destination=VAR_0x4019 source=VAR_0x4001
+    082870B4  addvar               destination=VAR_0x4000 value=1
+    082870B9  return               
+
+  script 0x082870BA  [ok]
+    082870BA  copyvar              destination=VAR_0x401A source=VAR_0x4001
+    082870BF  addvar               destination=VAR_0x4000 value=1
+    082870C4  return               
+
+  map script type 5 -> 0x08286FD0
+  script 0x08286FD0  [ok]
+    08286FD0  compare_var_to_value var=0x4009 value=1
+    08286FD5  call_if              condition=1 destination=0x08286FDC
+    08286FDB  end                  
+
+  script 0x08286FDC  [ok]
+    08286FDC  call                 destination=0x082872E7
+    08286FE1  return               
+
+  map script type 7 -> 0x08286F68
+  script 0x08286F68  [ok]
+    08286F68  special              SPECIAL_\function=337
+    08286F6B  end                  
+

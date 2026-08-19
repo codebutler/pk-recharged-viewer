@@ -1,0 +1,179 @@
+Water Path  (group 3, map 60)  header 0x08B3CD54
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x4F, flag 0x0000) -> 0x081FDD1F
+  script 0x081FDD1F  [ok]
+    081FDD1F  trainerbattle        type=0 trainer=0x241 localId=0 ptr1=0x0823E734 ptr2=0x0823E766
+    081FDD2D  specialvar           output=32781 SPECIAL_\function=37
+    081FDD32  compare_var_to_value var=0x800D value=1
+    081FDD37  goto_if              condition=1 destination=0x081FDD5E
+    081FDD3D  msgbox_multilang     type=0 text_0="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_1="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_2="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_3="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_4="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_5="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_6="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little."
+    081FDD5B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDD5D  end                  
+
+  script 0x081FDD5E  [ok]
+    081FDD5E  goto                 destination=0x081FDD68
+
+  script 0x081FDD68  [ok]
+    081FDD68  trainerbattle        type=5 trainer=0x241 localId=0 ptr1=0x082BAB22 ptr2=0x0823E766
+    081FDD76  msgbox_multilang     type=0 text_0="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_1="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_2="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_3="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_4="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_5="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little." text_6="I want to go to the woods over\nthere, but…\pThere are lots of Bug Pokémon.\nThey scare me a little."
+    081FDD94  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDD96  end                  
+
+  object 2 (gfx 0x46, flag 0x0000) -> 0x081FDD97
+  script 0x081FDD97  [ok]
+    081FDD97  trainerbattle        type=0 trainer=0x123 localId=0 ptr1=0x0823E7F7 ptr2=0x0823E826
+    081FDDA5  specialvar           output=32781 SPECIAL_\function=37
+    081FDDAA  compare_var_to_value var=0x800D value=1
+    081FDDAF  goto_if              condition=1 destination=0x081FDDD6
+    081FDDB5  msgbox_multilang     type=0 text_0="As a performer, I don’t want people\nto know about the effort I put in." text_1="As a performer, I don’t want people\nto know about the effort I put in." text_2="As a performer, I don’t want people\nto know about the effort I put in." text_3="As a performer, I don’t want people\nto know about the effort I put in." text_4="As a performer, I don’t want people\nto know about the effort I put in." text_5="As a performer, I don’t want people\nto know about the effort I put in." text_6="As a performer, I don’t want people\nto know about the effort I put in."
+    081FDDD3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDDD5  end                  
+
+  script 0x081FDDD6  [ok]
+    081FDDD6  goto                 destination=0x081FDDE0
+
+  script 0x081FDDE0  [ok]
+    081FDDE0  trainerbattle        type=5 trainer=0x123 localId=0 ptr1=0x082BAB51 ptr2=0x0823E826
+    081FDDEE  msgbox_multilang     type=0 text_0="As a performer, I don’t want people\nto know about the effort I put in." text_1="As a performer, I don’t want people\nto know about the effort I put in." text_2="As a performer, I don’t want people\nto know about the effort I put in." text_3="As a performer, I don’t want people\nto know about the effort I put in." text_4="As a performer, I don’t want people\nto know about the effort I put in." text_5="As a performer, I don’t want people\nto know about the effort I put in." text_6="As a performer, I don’t want people\nto know about the effort I put in."
+    081FDE0C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDE0E  end                  
+
+  object 3 (gfx 0xFC, flag 0x0000) -> 0x081FDE0F
+  script 0x081FDE0F  [ok]
+    081FDE0F  trainerbattle        type=0 trainer=0x242 localId=0 ptr1=0x0823E88A ptr2=0x0823E8E5
+    081FDE1D  specialvar           output=32781 SPECIAL_\function=37
+    081FDE22  compare_var_to_value var=0x800D value=1
+    081FDE27  goto_if              condition=1 destination=0x081FDE4E
+    081FDE2D  msgbox_multilang     type=0 text_0="I couldn’t lift the stigma of being\na Swimmer…" text_1="I couldn’t lift the stigma of being\na Swimmer…" text_2="I couldn’t lift the stigma of being\na Swimmer…" text_3="I couldn’t lift the stigma of being\na Swimmer…" text_4="I couldn’t lift the stigma of being\na Swimmer…" text_5="I couldn’t lift the stigma of being\na Swimmer…" text_6="I couldn’t lift the stigma of being\na Swimmer…"
+    081FDE4B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDE4D  end                  
+
+  script 0x081FDE4E  [ok]
+    081FDE4E  goto                 destination=0x081FDE58
+
+  script 0x081FDE58  [ok]
+    081FDE58  trainerbattle        type=5 trainer=0x242 localId=0 ptr1=0x082BAB79 ptr2=0x0823E8E5
+    081FDE66  msgbox_multilang     type=0 text_0="I couldn’t lift the stigma of being\na Swimmer…" text_1="I couldn’t lift the stigma of being\na Swimmer…" text_2="I couldn’t lift the stigma of being\na Swimmer…" text_3="I couldn’t lift the stigma of being\na Swimmer…" text_4="I couldn’t lift the stigma of being\na Swimmer…" text_5="I couldn’t lift the stigma of being\na Swimmer…" text_6="I couldn’t lift the stigma of being\na Swimmer…"
+    081FDE84  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDE86  end                  
+
+  object 4 (gfx 0xFD, flag 0x0000) -> 0x081FDE87
+  script 0x081FDE87  [ok]
+    081FDE87  trainerbattle        type=0 trainer=0x243 localId=0 ptr1=0x0823E924 ptr2=0x0823E95E
+    081FDE95  specialvar           output=32781 SPECIAL_\function=37
+    081FDE9A  compare_var_to_value var=0x800D value=1
+    081FDE9F  goto_if              condition=1 destination=0x081FDEC6
+    081FDEA5  msgbox_multilang     type=0 text_0="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_1="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_2="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_3="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_4="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_5="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_6="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me."
+    081FDEC3  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDEC5  end                  
+
+  script 0x081FDEC6  [ok]
+    081FDEC6  goto                 destination=0x081FDED0
+
+  script 0x081FDED0  [ok]
+    081FDED0  trainerbattle        type=5 trainer=0x243 localId=0 ptr1=0x082BABD3 ptr2=0x0823E95E
+    081FDEDE  msgbox_multilang     type=0 text_0="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_1="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_2="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_3="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_4="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_5="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me." text_6="When I can’t be with my boyfriend,\nI spend time with the Pokémon he\pgave me."
+    081FDEFC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDEFE  end                  
+
+  object 5 (gfx 0x06, flag 0x0000) -> 0x081FDEFF
+  script 0x081FDEFF  [ok]
+    081FDEFF  trainerbattle        type=4 trainer=0x244 localId=0 ptr1=0x0823EA58 ptr2=0x0823EA80 ptr3=0x0823EAC2
+    081FDF11  specialvar           output=32781 SPECIAL_\function=37
+    081FDF16  compare_var_to_value var=0x800D value=1
+    081FDF1B  goto_if              condition=1 destination=0x081FDF42
+    081FDF21  msgbox_multilang     type=0 text_0="Miu: It makes me all sad inside\nwhen we lose…" text_1="Miu: It makes me all sad inside\nwhen we lose…" text_2="Miu: It makes me all sad inside\nwhen we lose…" text_3="Miu: It makes me all sad inside\nwhen we lose…" text_4="Miu: It makes me all sad inside\nwhen we lose…" text_5="Miu: It makes me all sad inside\nwhen we lose…" text_6="Miu: It makes me all sad inside\nwhen we lose…"
+    081FDF3F  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDF41  end                  
+
+  script 0x081FDF42  [ok]
+    081FDF42  goto                 destination=0x081FDF4C
+
+  script 0x081FDF4C  [ok]
+    081FDF4C  trainerbattle        type=7 trainer=0x244 localId=0 ptr1=0x082BAC32 ptr2=0x0823EA80 ptr3=0x0823EAC2
+    081FDF5E  msgbox_multilang     type=0 text_0="Miu: It makes me all sad inside\nwhen we lose…" text_1="Miu: It makes me all sad inside\nwhen we lose…" text_2="Miu: It makes me all sad inside\nwhen we lose…" text_3="Miu: It makes me all sad inside\nwhen we lose…" text_4="Miu: It makes me all sad inside\nwhen we lose…" text_5="Miu: It makes me all sad inside\nwhen we lose…" text_6="Miu: It makes me all sad inside\nwhen we lose…"
+    081FDF7C  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDF7E  end                  
+
+  object 6 (gfx 0x06, flag 0x0000) -> 0x081FDF7F
+  script 0x081FDF7F  [ok]
+    081FDF7F  trainerbattle        type=4 trainer=0x244 localId=0 ptr1=0x0823EAF8 ptr2=0x0823EB22 ptr3=0x0823EB6D
+    081FDF91  specialvar           output=32781 SPECIAL_\function=37
+    081FDF96  compare_var_to_value var=0x800D value=1
+    081FDF9B  goto_if              condition=1 destination=0x081FDFC2
+    081FDFA1  msgbox_multilang     type=0 text_0="Mia: Ohh…\nI’m sorry, my Pokémon…" text_1="Mia: Ohh…\nI’m sorry, my Pokémon…" text_2="Mia: Ohh…\nI’m sorry, my Pokémon…" text_3="Mia: Ohh…\nI’m sorry, my Pokémon…" text_4="Mia: Ohh…\nI’m sorry, my Pokémon…" text_5="Mia: Ohh…\nI’m sorry, my Pokémon…" text_6="Mia: Ohh…\nI’m sorry, my Pokémon…"
+    081FDFBF  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDFC1  end                  
+
+  script 0x081FDFC2  [ok]
+    081FDFC2  goto                 destination=0x081FDFCC
+
+  script 0x081FDFCC  [ok]
+    081FDFCC  trainerbattle        type=7 trainer=0x244 localId=0 ptr1=0x082BAC60 ptr2=0x0823EB22 ptr3=0x0823EB6D
+    081FDFDE  msgbox_multilang     type=0 text_0="Mia: Ohh…\nI’m sorry, my Pokémon…" text_1="Mia: Ohh…\nI’m sorry, my Pokémon…" text_2="Mia: Ohh…\nI’m sorry, my Pokémon…" text_3="Mia: Ohh…\nI’m sorry, my Pokémon…" text_4="Mia: Ohh…\nI’m sorry, my Pokémon…" text_5="Mia: Ohh…\nI’m sorry, my Pokémon…" text_6="Mia: Ohh…\nI’m sorry, my Pokémon…"
+    081FDFFC  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FDFFE  end                  
+
+  object 7 (gfx 0x37, flag 0x0000) -> 0x081FDFFF
+  script 0x081FDFFF  [ok]
+    081FDFFF  trainerbattle        type=0 trainer=0x245 localId=0 ptr1=0x0823E9CB ptr2=0x0823EA00
+    081FE00D  specialvar           output=32781 SPECIAL_\function=37
+    081FE012  compare_var_to_value var=0x800D value=1
+    081FE017  goto_if              condition=1 destination=0x081FE03E
+    081FE01D  msgbox_multilang     type=0 text_0="Aren’t there any mountains around\nthese parts?" text_1="Aren’t there any mountains around\nthese parts?" text_2="Aren’t there any mountains around\nthese parts?" text_3="Aren’t there any mountains around\nthese parts?" text_4="Aren’t there any mountains around\nthese parts?" text_5="Aren’t there any mountains around\nthese parts?" text_6="Aren’t there any mountains around\nthese parts?"
+    081FE03B  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE03D  end                  
+
+  script 0x081FE03E  [ok]
+    081FE03E  goto                 destination=0x081FE048
+
+  script 0x081FE048  [ok]
+    081FE048  trainerbattle        type=5 trainer=0x245 localId=0 ptr1=0x082BABF4 ptr2=0x0823EA00
+    081FE056  msgbox_multilang     type=0 text_0="Aren’t there any mountains around\nthese parts?" text_1="Aren’t there any mountains around\nthese parts?" text_2="Aren’t there any mountains around\nthese parts?" text_3="Aren’t there any mountains around\nthese parts?" text_4="Aren’t there any mountains around\nthese parts?" text_5="Aren’t there any mountains around\nthese parts?" text_6="Aren’t there any mountains around\nthese parts?"
+    081FE074  callstd              function=MSGBOX_AUTOCLOSE(6)
+    081FE076  end                  
+
+  object 8 (gfx 0x35, flag 0x01E2) -> 0x082D5CC1
+  script 0x082D5CC1  [ok]
+    082D5CC1  setorcopyvar         destination=VAR_0x8000 source=36
+    082D5CC6  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5CCB  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Elixir
+    082D5CCD  end                  
+
+  object 9 (gfx 0x35, flag 0x01E3) -> 0x082D5CCE
+  script 0x082D5CCE  [ok]
+    082D5CCE  setorcopyvar         destination=VAR_0x8000 source=201
+    082D5CD3  setorcopyvar         destination=VAR_0x8001 source=1
+    082D5CD8  callstd              function=STD_FIND_ITEM(1)
+        ^ ground-item: Dragon Scale
+    082D5CDA  end                  
+
+  sign 0 at (8,14) -> 0x0823E6F2
+  script 0x0823E6F2  [ok]
+    0823E6F2  msgbox_multilang     type=0 text_0="Wanted!\nThe Ultimate Horn!" text_1="Wanted!\nThe Ultimate Horn!" text_2="Wanted!\nThe Ultimate Horn!" text_3="Wanted!\nThe Ultimate Horn!" text_4="Wanted!\nThe Ultimate Horn!" text_5="Wanted!\nThe Ultimate Horn!" text_6="Wanted!\nThe Ultimate Horn!"
+    0823E710  callstd              function=MSGBOX_SIGN(3)
+    0823E712  end                  
+
+  hidden item at (15,76): Aspear Berry
+
+  hidden item at (3,8): Oran Berry
+
+  hidden item at (13,63): Pinap Berry
+
+  sign 4 at (12,54) -> 0x0823E713
+  script 0x0823E713  [ok]
+    0823E713  msgbox_multilang     type=0 text_0="Water Path\nLeads to Ruin Valley" text_1="Water Path\nLeads to Ruin Valley" text_2="Water Path\nLeads to Ruin Valley" text_3="Water Path\nLeads to Ruin Valley" text_4="Water Path\nLeads to Ruin Valley" text_5="Water Path\nLeads to Ruin Valley" text_6="Water Path\nLeads to Ruin Valley"
+    0823E731  callstd              function=MSGBOX_SIGN(3)
+    0823E733  end                  
+

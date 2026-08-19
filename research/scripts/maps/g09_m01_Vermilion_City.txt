@@ -1,0 +1,90 @@
+Vermilion City  (group 9, map 1)  header 0x08B3D1D0
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x3A, flag 0x0000) -> 0x0825D8FA
+  script 0x0825D8FA  [ok]
+    0825D8FA  lock                 
+    0825D8FB  faceplayer           
+    0825D8FC  call                 destination=0x082BB336
+    0825D901  release              
+
+  script 0x082BB336  [opcode-out-of-range:0xFF]
+    082BB336  speakername          name="Nurse"
+    082BB33B  message              text="Welcome to our Pokémon Center!\pWould you like me to heal your\nPokémon back to perfect health?"
+
+  object 2 (gfx 0xF2, flag 0x0000) -> 0x0825D903
+  script 0x0825D903  [ok]
+    0825D903  msgbox_multilang     type=0 text_0="My Pokémon was poisoned!\nIt fainted while we were walking!" text_1="My Pokémon was poisoned!\nIt fainted while we were walking!" text_2="My Pokémon was poisoned!\nIt fainted while we were walking!" text_3="My Pokémon was poisoned!\nIt fainted while we were walking!" text_4="My Pokémon was poisoned!\nIt fainted while we were walking!" text_5="My Pokémon was poisoned!\nIt fainted while we were walking!" text_6="My Pokémon was poisoned!\nIt fainted while we were walking!"
+    0825D921  callstd              function=MSGBOX_NPC(2)
+    0825D923  end                  
+
+  object 3 (gfx 0x37, flag 0x0000) -> 0x0825D924
+  script 0x0825D924  [ok]
+    0825D924  msgbox_multilang     type=0 text_0="Even if they are the same level,\nPokémon can have very different\pstats and abilities.\pA Pokémon raised by a Trainer is\nstronger than one in the wild." text_1="Even if they are the same level,\nPokémon can have very different\pstats and abilities.\pA Pokémon raised by a Trainer is\nstronger than one in the wild." text_2="Even if they are the same level,\nPokémon can have very different\pstats and abilities.\pA Pokémon raised by a Trainer is\nstronger than one in the wild." text_3="Even if they are the same level,\nPokémon can have very different\pstats and abilities.\pA Pokémon raised by a Trainer is\nstronger than one in the wild." text_4="Even if they are the same level,\nPokémon can have very different\pstats and abilities.\pA Pokémon raised by a Trainer is\nstronger than one in the wild." text_5="Even if they are the same level,\nPokémon can have very different\pstats and abilities.\pA Pokémon raised by a Trainer is\nstronger than one in the wild." text_6="Even if they are the same level,\nPokémon can have very different\pstats and abilities.\pA Pokémon raised by a Trainer is\nstronger than one in the wild."
+    0825D942  callstd              function=MSGBOX_NPC(2)
+    0825D944  end                  
+
+  object 4 (gfx 0x23, flag 0x0000) -> 0x0825D945
+  script 0x0825D945  [ok]
+    0825D945  msgbox_multilang     type=0 text_0="It is true that a higher-level\nPokémon will be more powerful…\pBut, all Pokémon will have weak\npoints against specific types.\pSo, there appears to be no\nuniversally strong Pokémon." text_1="It is true that a higher-level\nPokémon will be more powerful…\pBut, all Pokémon will have weak\npoints against specific types.\pSo, there appears to be no\nuniversally strong Pokémon." text_2="It is true that a higher-level\nPokémon will be more powerful…\pBut, all Pokémon will have weak\npoints against specific types.\pSo, there appears to be no\nuniversally strong Pokémon." text_3="It is true that a higher-level\nPokémon will be more powerful…\pBut, all Pokémon will have weak\npoints against specific types.\pSo, there appears to be no\nuniversally strong Pokémon." text_4="It is true that a higher-level\nPokémon will be more powerful…\pBut, all Pokémon will have weak\npoints against specific types.\pSo, there appears to be no\nuniversally strong Pokémon." text_5="It is true that a higher-level\nPokémon will be more powerful…\pBut, all Pokémon will have weak\npoints against specific types.\pSo, there appears to be no\nuniversally strong Pokémon." text_6="It is true that a higher-level\nPokémon will be more powerful…\pBut, all Pokémon will have weak\npoints against specific types.\pSo, there appears to be no\nuniversally strong Pokémon."
+    0825D963  callstd              function=MSGBOX_NPC(2)
+    0825D965  end                  
+
+  object 5 (gfx 0xFB, flag 0x0000) -> 0x0825D966
+  script 0x0825D966  [ok]
+    0825D966  lock                 
+    0825D967  faceplayer           
+    0825D968  checkflag            flag=0x29B
+    0825D96B  goto_if              condition=0 destination=0x0825D993
+    0825D971  msgbox_multilang     type=0 text_0="How do you use the Fame Checker?\nThere’s nothing to it.\pJust talk to people to gather\ninformation about others and you\pwill be ready to go." text_1="How do you use the Fame Checker?\nThere’s nothing to it.\pJust talk to people to gather\ninformation about others and you\pwill be ready to go." text_2="How do you use the Fame Checker?\nThere’s nothing to it.\pJust talk to people to gather\ninformation about others and you\pwill be ready to go." text_3="How do you use the Fame Checker?\nThere’s nothing to it.\pJust talk to people to gather\ninformation about others and you\pwill be ready to go." text_4="How do you use the Fame Checker?\nThere’s nothing to it.\pJust talk to people to gather\ninformation about others and you\pwill be ready to go." text_5="How do you use the Fame Checker?\nThere’s nothing to it.\pJust talk to people to gather\ninformation about others and you\pwill be ready to go." text_6="How do you use the Fame Checker?\nThere’s nothing to it.\pJust talk to people to gather\ninformation about others and you\pwill be ready to go."
+    0825D98F  callstd              function=MSGBOX_DEFAULT(4)
+    0825D991  release              
+
+  script 0x0825D993  [unknown-opcode:0xE9]
+    0825D993  msgbox_multilang     type=0 text_0="The urge to know more about\nothers…\pHave you ever had that urge?\nI’m sure you have.\pI wanted to know about certain\npeople over and over, too.\pSo, I’ve been giving these away.\nPlease, take one!" text_1="The urge to know more about\nothers…\pHave you ever had that urge?\nI’m sure you have.\pI wanted to know about certain\npeople over and over, too.\pSo, I’ve been giving these away.\nPlease, take one!" text_2="The urge to know more about\nothers…\pHave you ever had that urge?\nI’m sure you have.\pI wanted to know about certain\npeople over and over, too.\pSo, I’ve been giving these away.\nPlease, take one!" text_3="The urge to know more about\nothers…\pHave you ever had that urge?\nI’m sure you have.\pI wanted to know about certain\npeople over and over, too.\pSo, I’ve been giving these away.\nPlease, take one!" text_4="The urge to know more about\nothers…\pHave you ever had that urge?\nI’m sure you have.\pI wanted to know about certain\npeople over and over, too.\pSo, I’ve been giving these away.\nPlease, take one!" text_5="The urge to know more about\nothers…\pHave you ever had that urge?\nI’m sure you have.\pI wanted to know about certain\npeople over and over, too.\pSo, I’ve been giving these away.\nPlease, take one!" text_6="The urge to know more about\nothers…\pHave you ever had that urge?\nI’m sure you have.\pI wanted to know about certain\npeople over and over, too.\pSo, I’ve been giving these away.\nPlease, take one!"
+    0825D9B1  callstd              function=MSGBOX_DEFAULT(4)
+    0825D9B3  setflag              flag=0x29B
+
+  object 6 (gfx 0x00, flag 0x00A0) -> 0x081F266F
+  script 0x081F266F  [ok]
+    081F266F  lockall              
+    081F2670  setvar               destination=VAR_0x8004 value=4
+    081F2675  setvar               destination=VAR_0x8005 value=5
+    081F267A  special              SPECIAL_\function=347
+    081F267D  textcolor            color=3
+    081F267F  msgbox_multilang     type=0 text_0="Pokémon Journal\pSpecial Feature: Vermilion Gym\nLeader Lt. Surge!\pLt. Surge is rumored to have been\na pilot while home in America.\pHe used the electricity generated\nby Pokémon to power his plane." text_1="Pokémon Journal\pSpecial Feature: Vermilion Gym\nLeader Lt. Surge!\pLt. Surge is rumored to have been\na pilot while home in America.\pHe used the electricity generated\nby Pokémon to power his plane." text_2="Pokémon Journal\pSpecial Feature: Vermilion Gym\nLeader Lt. Surge!\pLt. Surge is rumored to have been\na pilot while home in America.\pHe used the electricity generated\nby Pokémon to power his plane." text_3="Pokémon Journal\pSpecial Feature: Vermilion Gym\nLeader Lt. Surge!\pLt. Surge is rumored to have been\na pilot while home in America.\pHe used the electricity generated\nby Pokémon to power his plane." text_4="Pokémon Journal\pSpecial Feature: Vermilion Gym\nLeader Lt. Surge!\pLt. Surge is rumored to have been\na pilot while home in America.\pHe used the electricity generated\nby Pokémon to power his plane." text_5="Pokémon Journal\pSpecial Feature: Vermilion Gym\nLeader Lt. Surge!\pLt. Surge is rumored to have been\na pilot while home in America.\pHe used the electricity generated\nby Pokémon to power his plane." text_6="Pokémon Journal\pSpecial Feature: Vermilion Gym\nLeader Lt. Surge!\pLt. Surge is rumored to have been\na pilot while home in America.\pHe used the electricity generated\nby Pokémon to power his plane."
+    081F269D  callstd              function=MSGBOX_DEFAULT(4)
+    081F269F  releaseall           
+
+  object 7 (gfx 0x00, flag 0x00A0) -> 0x081F266F
+  object 8 (gfx 0x71, flag 0x0000) -> 0x082BB3A3
+  script 0x082BB3A3  [ok]
+    082BB3A3  lock                 
+    082BB3A4  faceplayer           
+    082BB3A5  waitse               
+    082BB3A6  playmoncry           species=CHANSEY(113) mode=0
+    082BB3AB  speakername          name="Chansey"
+    082BB3B0  msgbox_multilang     type=0 text_0="Chaaaaansey!" text_1="Chaaaaansey!" text_2="Chaaaaansey!" text_3="Chaaaaansey!" text_4="Chaaaaansey!" text_5="Chaaaaansey!" text_6="Chaaaaansey!"
+    082BB3CE  callstd              function=MSGBOX_DEFAULT(4)
+    082BB3D0  waitmoncry           
+    082BB3D1  release              
+
+  map script type 3 -> 0x0825D8F6
+  script 0x0825D8F6  [ok]
+    0825D8F6  setrespawn           heallocation=6
+    0825D8F9  end                  
+
+  map script type 5 -> 0x082BEBEF
+  script 0x082BEBEF  [ok]
+    082BEBEF  special              SPECIAL_\function=261
+    082BEBF2  end                  
+

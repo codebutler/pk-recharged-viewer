@@ -1,0 +1,216 @@
+Pallet Town  (group 3, map 0)  header 0x08B3C6C4
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x10, flag 0x0000) -> 0x0821DD89
+  script 0x0821DD89  [ok]
+    0821DD89  compare_var_to_value var=0x40E0 value=3
+    0821DD8E  goto_if              condition=1 destination=0x0821DDB5
+    0821DD94  msgbox_multilang     type=0 text_0="I’m raising Pokémon, too.\pWhen they get strong, they can\nprotect me." text_1="¡Yo también entreno a mis Pokémon!\p¡Cuando se hagan fuertes me\nprotegerán!" text_2="J’élève des Pokémon, moi aussi.\pQuand ils seront forts, ils pourront\nme protéger." text_3="Anche io alleno i Pokémon!\pCosì, quando saranno forti, mi\nproteggeranno!" text_4="I’m raising Pokémon, too.\pWhen they get strong, they can\nprotect me." text_5="Eu também estou criando Pokémon.\pQuando eles ficarem fortes, vぇo\npoder me proteger." text_6="ÒブÓÂÔrÔÁ\nÔrこじÔ!Ê%ËBÂÎこÛ!\pÏポÌソÀ0こdËペÂÎÈじ\nÊヲÊcÔôÀタÈぅÒブÀbÏïこバÇôËペÌTが"
+    0821DDB2  callstd              function=MSGBOX_NPC(2)
+    0821DDB4  end                  
+
+  script 0x0821DDB5  [ok]
+    0821DDB5  msgbox_multilang     type=0 text_0="Are you starting an adventure\n{PLAYER}?\pYou totally should tell your mom\nabout it!" text_1="¿Estás empezando una aventura\n{PLAYER}?\p¡Sin duda alguna deberías decírselo\na tu mamá!" text_2="{PLAYER}, est-ce que tu commences\nune aventure ?\pIl faut absolument que tu le dises à\nta mère !" text_3="Stai partendo per un’avventura\n{PLAYER}?\pDovresti dirlo a tua madre!" text_4="Are you starting an adventure\n{PLAYER}?\pYou totally should tell your mom\nabout it!" text_5="Você está começando sua jornada\n{PLAYER}?\pVocê deveria deixar a sua mぇe saber\ndisso!" text_6="ÌeŒオÏÏÓÄÁリÂ4ÎœÌぶÓÁËペ?\n{PLAYER}?\pÔrÌeË?ÙáこOごÔエÇ&\nÇトÌeËでÌòÁXÇタŒづÈóÓ5!"
+    0821DDD3  callstd              function=MSGBOX_NPC(2)
+    0821DDD5  goto                 destination=0x0821DDB4
+
+  script 0x0821DDB4  [ok]
+    0821DDB4  end                  
+
+  object 2 (gfx 0x11, flag 0x0000) -> 0x0821DCA4
+  script 0x0821DCA4  [ok]
+    0821DCA4  msgbox_multilang     type=0 text_0="Technology is incredible!\pYou can now play games on multiple\nplatforms." text_1="¡La tecnología es increíble!\pAhora puedes jugar a juegos en\nvarias plataformas." text_2="La technologie est incroyable !\pDe nos jours, il est possible de\njouer à des jeux sur des\pplateformes différentes." text_3="La tecnologia è incredibile!\pPuoi giocare su diverse piattaforme!" text_4="Technology is incredible!\pYou can now play games on multiple\nplatforms." text_5="A tecnologia é incrível!\pAgora você pode jogar jogos em\nvárias plataformas." text_6="ÊZÈ6ÂÎËルËヂÏ?こdËペ!\pÓÂÔrÌeÂチÊcÔôÔr\nÀbÒÑÂÎこリÏ8Î.ÒぺÎ.ÔワÒgËペ!"
+    0821DCC2  callstd              function=MSGBOX_NPC(2)
+    0821DCC4  end                  
+
+  object 3 (gfx 0x14, flag 0x002C) -> 0x00000000
+  object 4 (gfx 0x35, flag 0x0000) -> 0x00000000
+  object 5 (gfx 0x35, flag 0x0000) -> 0x00000000
+  coord trigger 0 (var 0x4050 == 0) -> 0x0821D9C2
+  script 0x0821D9C2  [ok]
+    0821D9C2  lockall              
+    0821D9C3  setvar               destination=VAR_0x4001 value=0
+    0821D9C8  goto                 destination=0x0821D9DA
+
+  script 0x0821D9DA  [unknown-opcode:0xE5]
+    0821D9DA  setflag              flag=0x00E
+    0821D9DD  setflag              flag=0x24C
+    0821D9E0  setvar               destination=VAR_0x8004 value=0
+    0821D9E5  setvar               destination=VAR_0x8005 value=2
+    0821D9EA  special              SPECIAL_\function=348
+    0821D9ED  textcolor            color=0
+    0821D9EF  delay                frames=30
+    0821D9F2  playbgm              song=514 save_song=0
+    0821D9F6  savebgm              song=514
+    0821D9F9  speakername          name="???"
+    0821D9FE  message              text="Hey! Wait!\nDon’t go out!"
+    0821DA03  loadbyte             destIndex=226 value=33
+    0821DA06  gotostd              function=21
+
+  coord trigger 1 (var 0x4050 == 0) -> 0x0821D9CE
+  script 0x0821D9CE  [ok]
+    0821D9CE  lockall              
+    0821D9CF  setvar               destination=VAR_0x4001 value=1
+    0821D9D4  goto                 destination=0x0821D9DA
+
+  coord trigger 2 (var 0x40E0 == 3) -> 0x0821D910
+  script 0x0821D910  [ok]
+    0821D910  lockall              
+    0821D911  turnobject           localId=1 direction=2
+    0821D915  playse               song=21
+    0821D918  applymovement        localId=1 movements=[emote_exclamation_mark]
+    0821D91F  waitmovement         localId=0
+    0821D922  delay                frames=30
+    0821D925  getplayerxy          x=16384 y=16385
+    0821D92A  compare_var_to_value var=0x4000 value=12
+    0821D92F  goto_if              condition=1 destination=0x0821D984
+    0821D935  applymovement        localId=1 movements=[walk_right walk_right walk_up]
+    0821D93C  waitmovement         localId=0
+    0821D93F  turnobject           localId=255 direction=1
+    0821D943  textcolor            color=1
+    0821D945  msgbox_multilang     type=0 text_0="Hey {PLAYER}! Are you starting\nyour adventure without telling your\pmom? How rude!" text_1="¡Oye {PLAYER}! ¿Estás empezando tu\naventura sin decírselo a tu mamá?\p¡Qué maleducado!" text_2="Hey {PLAYER}! Are you starting\nyour adventure without telling your\pmom? How rude!" text_3="Hey {PLAYER}! Are you starting\nyour adventure without telling your\pmom? How rude!" text_4="Hey {PLAYER}! Are you starting\nyour adventure without telling your\pmom? How rude!" text_5="Eu {PLAYER}! Você está começando\na sua jornada se contar para sua\pmぇe? Que rude!" text_6="Òァ!{PLAYER}!\pÌeÂチÓÄÁリÎœÌぶÓÁËú\nÀbÇトÌeËでÌòÁXÎcŒづÈóÓ5?\pŒケÏÏÂÎ!"
+    0821D963  callstd              function=MSGBOX_DEFAULT(4)
+    0821D965  closemessage         
+    0821D966  compare_var_to_value var=0x4000 value=12
+    0821D96B  goto_if              condition=1 destination=0x0821D993
+    0821D971  applymovement        localId=1 movements=[walk_down walk_left walk_left]
+    0821D978  applymovement        localId=255 movements=[walk_down]
+    0821D97F  waitmovement         localId=1
+    0821D982  releaseall           
+
+  script 0x0821D984  [ok]
+    0821D984  applymovement        localId=1 movements=[walk_right walk_up]
+    0821D98B  waitmovement         localId=0
+    0821D98E  goto                 destination=0x0821D93F
+
+  script 0x0821D993  [ok]
+    0821D993  applymovement        localId=1 movements=[walk_down walk_left]
+    0821D99A  goto                 destination=0x0821D978
+
+  script 0x0821D93F  [ok]
+    0821D93F  turnobject           localId=255 direction=1
+    0821D943  textcolor            color=1
+    0821D945  msgbox_multilang     type=0 text_0="Hey {PLAYER}! Are you starting\nyour adventure without telling your\pmom? How rude!" text_1="¡Oye {PLAYER}! ¿Estás empezando tu\naventura sin decírselo a tu mamá?\p¡Qué maleducado!" text_2="Hey {PLAYER}! Are you starting\nyour adventure without telling your\pmom? How rude!" text_3="Hey {PLAYER}! Are you starting\nyour adventure without telling your\pmom? How rude!" text_4="Hey {PLAYER}! Are you starting\nyour adventure without telling your\pmom? How rude!" text_5="Eu {PLAYER}! Você está começando\na sua jornada se contar para sua\pmぇe? Que rude!" text_6="Òァ!{PLAYER}!\pÌeÂチÓÄÁリÎœÌぶÓÁËú\nÀbÇトÌeËでÌòÁXÎcŒづÈóÓ5?\pŒケÏÏÂÎ!"
+    0821D963  callstd              function=MSGBOX_DEFAULT(4)
+    0821D965  closemessage         
+    0821D966  compare_var_to_value var=0x4000 value=12
+    0821D96B  goto_if              condition=1 destination=0x0821D993
+    0821D971  applymovement        localId=1 movements=[walk_down walk_left walk_left]
+    0821D978  applymovement        localId=255 movements=[walk_down]
+    0821D97F  waitmovement         localId=1
+    0821D982  releaseall           
+
+  script 0x0821D978  [ok]
+    0821D978  applymovement        localId=255 movements=[walk_down]
+    0821D97F  waitmovement         localId=1
+    0821D982  releaseall           
+
+  coord trigger 3 (var 0x40E0 == 3) -> 0x0821D910
+  sign 0 at (16,16) -> 0x0821DCC5
+  script 0x0821DCC5  [ok]
+    0821DCC5  lockall              
+    0821DCC6  setvar               destination=VAR_0x8004 value=0
+    0821DCCB  setvar               destination=VAR_0x8005 value=0
+    0821DCD0  special              SPECIAL_\function=347
+    0821DCD3  msgbox_multilang     type=0 text_0="Oak Pokémon Research Lab" text_1="Laboratorio de Investigación\nde Pokémon del Profesor Oak" text_2="Labo Pokémon du Prof. Chen" text_3="Laboratorio del Professor Oak" text_4="Oak Pokémon Research Lab" text_5="Laboratório de Pesquisas Pokémon\nCarvalho" text_6="ÁYÌ’ÀJÏÇÂÎÊ%ËBÓ×ÊíÏピ"
+    0821DCF1  callstd              function=MSGBOX_DEFAULT(4)
+    0821DCF3  releaseall           
+
+  sign 1 at (4,7) -> 0x0821DCF5
+  script 0x0821DCF5  [ok]
+    0821DCF5  checkplayergender    
+    0821DCF6  compare_var_to_value var=0x800D value=0
+    0821DCFB  goto_if              condition=1 destination=0x0821DD22
+    0821DD01  msgbox_multilang     type=0 text_0="{PLAYER}’s house" text_1="Casa de {PLAYER}" text_2="Maison de {PLAYER}" text_3="Casa di {PLAYER}" text_4="{PLAYER}’s house" text_5="Casa da {PLAYER}" text_6="{PLAYER}ÂÎÈC"
+    0821DD1F  callstd              function=MSGBOX_SIGN(3)
+    0821DD21  end                  
+
+  script 0x0821DD22  [ok]
+    0821DD22  msgbox_multilang     type=0 text_0="{PLAYER}’s house" text_1="Casa de {PLAYER}" text_2="Maison de {PLAYER}" text_3="Casa di {PLAYER}" text_4="{PLAYER}’s house" text_5="Casa do {PLAYER}" text_6="{PLAYER}ÂÎÈC"
+    0821DD40  callstd              function=MSGBOX_SIGN(3)
+    0821DD42  goto                 destination=0x0821DD21
+
+  script 0x0821DD21  [ok]
+    0821DD21  end                  
+
+  sign 2 at (13,7) -> 0x0821DD47
+  script 0x0821DD47  [ok]
+    0821DD47  msgbox_multilang     type=0 text_0="{RIVAL}’s house" text_1="Casa de {RIVAL}" text_2="Maison de {RIVAL}" text_3="Casa di {RIVAL}" text_4="{RIVAL}’s house" text_5="Casa do {RIVAL}" text_6="{RIVAL}ÂÎÈC"
+    0821DD65  callstd              function=MSGBOX_SIGN(3)
+    0821DD67  end                  
+
+  sign 3 at (9,11) -> 0x0821DD68
+  script 0x0821DD68  [ok]
+    0821DD68  msgbox_multilang     type=0 text_0="Pallet Town\nShades of your journey await!" text_1="Pueblo Paleta\n¡Un lienzo en blanco de tu viaje!" text_2="Bourg Palette\nUn monde de couleurs s’ouvre à vous !" text_3="Pallet Town\nShades of your journey await!" text_4="Pallet Town\nShades of your journey await!" text_5="Vila Palheta\nTons de aventura te aguardam" text_6="ŒオËトÏÏŒケÓぷŒナ\nŒケÓぷÏÏÁポÀ;ÂÎこ!ÏÀŒァÎグが"
+    0821DD86  callstd              function=MSGBOX_SIGN(3)
+    0821DD88  end                  
+
+  sign 4 at (5,14) -> 0x082FA03C
+  script 0x082FA03C  [ok]
+    082FA03C  lockall              
+    082FA03D  msgbox_multilang     type=0 text_0="Trainer Tips\pThe game will help you remember if\nyour Attack is Physical or Special.\pHowever! Categories are tied to their\ntype, there is no Physical and\pSpecial split!" text_1="Trainer Tips\pThe game will help you remember if\nyour Attack is Physical or Special.\pHowever! Categories are tied to their\ntype, there is no Physical and\pSpecial split!" text_2="Trainer Tips\pThe game will help you remember if\nyour Attack is Physical or Special.\pHowever! Categories are tied to their\ntype, there is no Physical and\pSpecial split!" text_3="Trainer Tips\pThe game will help you remember if\nyour Attack is Physical or Special.\pHowever! Categories are tied to their\ntype, there is no Physical and\pSpecial split!" text_4="Trainer Tips\pThe game will help you remember if\nyour Attack is Physical or Special.\pHowever! Categories are tied to their\ntype, there is no Physical and\pSpecial split!" text_5="Trainer Tips\pThe game will help you remember if\nyour Attack is Physical or Special.\pHowever! Categories are tied to their\ntype, there is no Physical and\pSpecial split!" text_6="Trainer Tips\pThe game will help you remember if\nyour Attack is Physical or Special.\pHowever! Categories are tied to their\ntype, there is no Physical and\pSpecial split!"
+    082FA05B  callstd              function=MSGBOX_DEFAULT(4)
+    082FA05D  setvar               destination=VAR_0x4070 value=1
+    082FA062  releaseall           
+
+  map script type 3 -> 0x0821D845
+  script 0x0821D845  [ok]
+    0821D845  setworldmapflag      flag=0x8F0
+    0821D848  checkflag            flag=0x88F
+    0821D84B  goto_if              condition=1 destination=0x0821D85B
+    0821D851  checkflag            flag=0x860:STARTER_PROGRESSION_A
+    0821D854  goto_if              condition=1 destination=0x0821D86B
+    0821D85A  end                  
+
+  script 0x0821D85B  [ok]
+    0821D85B  setobjectxyperm      localId=1 x=3 y=10
+    0821D862  setobjectmovementtype localId=1 movementType=2
+    0821D866  goto                 destination=0x0821D85A
+
+  script 0x0821D86B  [ok]
+    0821D86B  setobjectxyperm      localId=1 x=11 y=2
+    0821D872  setobjectmovementtype localId=1 movementType=22
+    0821D876  goto                 destination=0x0821D85A
+
+  script 0x0821D85A  [ok]
+    0821D85A  end                  
+
+  map script type 2 (var 0x4050 == 2) -> 0x0821D885
+  script 0x0821D885  [ok]
+    0821D885  lockall              
+    0821D886  textcolor            color=0
+    0821D888  setobjectxyperm      localId=3 x=14 y=14
+    0821D88F  setobjectmovementtype localId=3 movementType=9
+    0821D893  addobject            localId=3
+    0821D896  applymovement        localId=3 movements=[walk_left walk_left walk_left walk_up walk_up walk_up walk_up walk_up walk_left walk_left walk_left walk_left walk_left walk_in_place_faster_up]
+    0821D89D  waitmovement         localId=0
+    0821D8A0  speakername          name="Prof. Oak"
+    0821D8A5  msgbox_multilang     type=0 text_0="Ah, {PLAYER}!\nYou’re back, are you?\pThere’s something I wanted to ask\nof you, {PLAYER}.\pCome.\nFollow me." text_1="¡Eh, {PLAYER}!\nYa estás de vuelta, ¿verdad?\pHay algo que te quería pedir,\n{PLAYER}.\pVen.\nSígueme." text_2="Ah, {PLAYER}!\nTu es de retour !\pJ’ai quelque chose à te demander,\n{PLAYER}.\pSuis-moi." text_3="Ah, {PLAYER}!\nYou’re back, are you?\pThere’s something I wanted to ask\nof you, {PLAYER}.\pCome.\nFollow me." text_4="Ah, {PLAYER}!\nYou’re back, are you?\pThere’s something I wanted to ask\nof you, {PLAYER}.\pCome.\nFollow me." text_5="Ah, {PLAYER}!\nVocê voltou, né? Tem algo que eu\pgostaria de te pedir, {PLAYER}.\pVem aqui.\nMe siga." text_6="À !{PLAYER}!\nÈナËñËペÀ !\pËFÒぼÒブÔンÂºÏÊ\nÓÄÒゾÌeご{PLAYER}!\pŒオÀピご\nÇトÒブËñが"
+    0821D8C3  callstd              function=MSGBOX_DEFAULT(4)
+    0821D8C5  closemessage         
+    0821D8C6  playbgm              song=420 save_song=0
+    0821D8CA  applymovement        localId=255 movements=[walk_down walk_right walk_right walk_right walk_right walk_right walk_down walk_down walk_down walk_down walk_down walk_right walk_right walk_right walk_right]
+    0821D8D1  applymovement        localId=3 movements=[walk_right walk_right walk_right walk_right walk_right walk_down walk_down walk_down walk_down walk_down walk_right walk_right walk_right walk_right walk_right walk_in_place_faster_up]
+    0821D8D8  waitmovement         localId=0
+    0821D8DB  opendoor             x=16 y=13
+    0821D8E0  waitdooranim         
+    0821D8E1  applymovement        localId=3 movements=[walk_up set_invisible]
+    0821D8E8  applymovement        localId=255 movements=[walk_right walk_up set_invisible]
+    0821D8EF  waitmovement         localId=0
+    0821D8F2  closedoor            x=16 y=13
+    0821D8F7  waitdooranim         
+    0821D8F8  setvar               destination=VAR_0x4055 value=7
+    0821D8FD  setvar               destination=VAR_0x4050 value=3
+    0821D902  setflag              flag=0x02C
+    0821D905  warp                 mapGroup=4 mapNum=3 WARP_ID_NONE=255 -1=6 -1=12
+    0821D90D  waitstate            
+

@@ -1,0 +1,428 @@
+Cerulean City  (group 3, map 3)  header 0x08B3C718
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0881) -> 0x0822529B
+  script 0x0822529B  [ok]
+    0822529B  lock                 
+    0822529C  setflag              flag=0x4005 (temp)
+    0822529F  faceplayer           
+    082252A0  speakername          name="Policeman"
+    082252A5  msgbox_multilang     type=0 text_0="The people here were robbed.\pIt’s obvious that Team Rocket is\nbehind this most heinous crime!\pEven our Police Force has trouble\nwith the Rockets!" text_1="The people here were robbed.\pIt’s obvious that Team Rocket is\nbehind this most heinous crime!\pEven our Police Force has trouble\nwith the Rockets!" text_2="The people here were robbed.\pIt’s obvious that Team Rocket is\nbehind this most heinous crime!\pEven our Police Force has trouble\nwith the Rockets!" text_3="The people here were robbed.\pIt’s obvious that Team Rocket is\nbehind this most heinous crime!\pEven our Police Force has trouble\nwith the Rockets!" text_4="The people here were robbed.\pIt’s obvious that Team Rocket is\nbehind this most heinous crime!\pEven our Police Force has trouble\nwith the Rockets!" text_5="The people here were robbed.\pIt’s obvious that Team Rocket is\nbehind this most heinous crime!\pEven our Police Force has trouble\nwith the Rockets!" text_6="The people here were robbed.\pIt’s obvious that Team Rocket is\nbehind this most heinous crime!\pEven our Police Force has trouble\nwith the Rockets!"
+    082252C3  callstd              function=MSGBOX_DEFAULT(4)
+    082252C5  closemessage         
+    082252C6  applymovement        localId=1 movements=[face_original_direction]
+    082252CD  waitmovement         localId=0
+    082252D0  release              
+
+  object 2 (gfx 0x02, flag 0x003B) -> 0x082254B5
+  script 0x082254B5  [ok]
+    082254B5  lock                 
+    082254B6  faceplayer           
+    082254B7  checktrainerflag     trainer=0x163
+    082254BA  goto_if              condition=1 destination=0x082254FD
+    082254C0  speakername          name="Grunt"
+    082254C5  message              text="Hey! Stay out!\nIt’s not your yard!\p…Huh?\nMe?\pI’m an innocent bystander!\nDon’t you believe me?{CTRL_0B}"
+    082254CA  turnvobject          id=103 direction=34
+    082254CD  gotostd              function=205
+    082254CF  multichoicegrid      x=34 y=8 multichoiceId=239 per_row=123 ignoreBPress=34
+    082254D5  gotostd              function=17
+    082254D7  pokemart             products=2419263522
+    082254DC  compare_var_to_var   var1=21512 var2=8858
+    082254E1  gotostd              function=102
+    082254E3  playbgm              song=495 save_song=0
+    082254E7  waitbuttonpress      
+    082254E8  trainerbattle        type=3 trainer=0x163 localId=0 ptr1=0x08225DEB
+    082254F2  setvar               destination=VAR_0x407D value=1
+    082254F7  goto                 destination=0x08225507
+
+  script 0x082254FD  [ok]
+    082254FD  goto                 destination=0x08225507
+
+  script 0x08225507  [unknown-opcode:0xE9]
+    08225507  speakername          name="Grunt"
+    0822550C  msgbox_multilang     type=0 text_0="…Okay.\nI’ll return the TM I stole." text_1="…Okay.\nI’ll return the TM I stole." text_2="…Okay.\nI’ll return the TM I stole." text_3="…Okay.\nI’ll return the TM I stole." text_4="…Okay.\nI’ll return the TM I stole." text_5="…Okay.\nI’ll return the TM I stole." text_6="…Okay.\nI’ll return the TM I stole."
+    0822552A  callstd              function=MSGBOX_DEFAULT(4)
+    0822552C  additem              itemId=TM28(316) quantity=1
+
+  object 3 (gfx 0x0B, flag 0x0000) -> 0x082255FE
+  script 0x082255FE  [ok]
+    082255FE  lock                 
+    082255FF  faceplayer           
+    08225600  checkflag            flag=0x234
+    08225603  goto_if              condition=1 destination=0x0822562B
+    08225609  msgbox_multilang     type=0 text_0="If that Slowbro wasn’t there, you\ncould Cut down the small tree.\pThat way, you could get to the other\nside.\pI think there’s a way around it,\nthough." text_1="If that Slowbro wasn’t there, you\ncould Cut down the small tree.\pThat way, you could get to the other\nside.\pI think there’s a way around it,\nthough." text_2="If that Slowbro wasn’t there, you\ncould Cut down the small tree.\pThat way, you could get to the other\nside.\pI think there’s a way around it,\nthough." text_3="If that Slowbro wasn’t there, you\ncould Cut down the small tree.\pThat way, you could get to the other\nside.\pI think there’s a way around it,\nthough." text_4="If that Slowbro wasn’t there, you\ncould Cut down the small tree.\pThat way, you could get to the other\nside.\pI think there’s a way around it,\nthough." text_5="If that Slowbro wasnt there, you\ncould Cut down the small tree.\pThat way, you could get to the other\nside.\pI think there’s a way around it,\nthough." text_6="If that Slowbro wasn’t there, you\ncould Cut down the small tree.\pThat way, you could get to the other\nside.\pI think there’s a way around it,\nthough."
+    08225627  callstd              function=MSGBOX_DEFAULT(4)
+    08225629  release              
+
+  script 0x0822562B  [ok]
+    0822562B  msgbox_multilang     type=0 text_0="Did you know that you can Cut down\nsmall trees?\pEven that small tree in front of the\nshop can be Cut down.\pI think there’s a way around it,\nthough." text_1="Did you know that you can Cut down\nsmall trees?\pEven that small tree in front of the\nshop can be Cut down.\pI think there’s a way around it,\nthough." text_2="Did you know that you can Cut down\nsmall trees?\pEven that small tree in front of the\nshop can be Cut down.\pI think there’s a way around it,\nthough." text_3="Did you know that you can Cut down\nsmall trees?\pEven that small tree in front of the\nshop can be Cut down.\pI think there’s a way around it,\nthough." text_4="Did you know that you can Cut down\nsmall trees?\pEven that small tree in front of the\nshop can be Cut down.\pI think there’s a way around it,\nthough." text_5="Did you know that you can Cut down\nsmall trees?\pEven that small tree in front of the\nshop can be Cut down.\pI think there’s a way around it,\nthough." text_6="Did you know that you can Cut down\nsmall trees?\pEven that small tree in front of the\nshop can be Cut down.\pI think there’s a way around it,\nthough."
+    08225649  callstd              function=MSGBOX_DEFAULT(4)
+    0822564B  goto                 destination=0x08225629
+
+  script 0x08225629  [ok]
+    08225629  release              
+
+  object 4 (gfx 0xF4, flag 0x0000) -> 0x08225650
+  script 0x08225650  [ok]
+    08225650  msgbox_multilang     type=0 text_0="You’re making an encyclopedia on\nPokémon? That sounds amusing." text_1="You’re making an encyclopedia on\nPokémon? That sounds amusing." text_2="You’re making an encyclopedia on\nPokémon? That sounds amusing." text_3="You’re making an encyclopedia on\nPokémon? That sounds amusing." text_4="You’re making an encyclopedia on\nPokémon? That sounds amusing." text_5="You’re making an encyclopedia on\nPokémon? That sounds amusing." text_6="You’re making an encyclopedia on\nPokémon? That sounds amusing."
+    0822566E  callstd              function=MSGBOX_NPC(2)
+    08225670  end                  
+
+  object 5 (gfx 0x50, flag 0x0000) -> 0x08225833
+  script 0x08225833  [ok]
+    08225833  bufferspeciesname    stringVarId=0 species=SLOWBRO(80)
+    08225837  lock                 
+    08225838  random               limit=4
+    0822583B  copyvar              destination=VAR_0x8008 source=VAR_0x800D
+    08225840  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    08225845  compare_var_to_value var=0x8000 value=0
+    0822584A  goto_if              condition=1 destination=0x08225873
+    08225850  compare_var_to_value var=0x8000 value=1
+    08225855  goto_if              condition=1 destination=0x08225898
+    0822585B  compare_var_to_value var=0x8000 value=2
+    08225860  goto_if              condition=1 destination=0x082258BD
+    08225866  compare_var_to_value var=0x8000 value=3
+    0822586B  goto_if              condition=1 destination=0x082258E2
+    08225871  release              
+
+  script 0x08225873  [ok]
+    08225873  msgbox_multilang     type=0 text_0="Slowbro took a snooze…" text_1="Slowbro took a snooze…" text_2="Slowbro took a snooze…" text_3="Slowbro took a snooze…" text_4="Slowbro took a snooze…" text_5="Slowbro took a snooze…" text_6="Slowbro took a snooze…"
+    08225891  callstd              function=MSGBOX_DEFAULT(4)
+    08225893  goto                 destination=0x08225871
+
+  script 0x08225898  [ok]
+    08225898  msgbox_multilang     type=0 text_0="Slowbro is loafing around…" text_1="Slowbro is loafing around…" text_2="Slowbro is loafing around…" text_3="Slowbro is loafing around…" text_4="Slowbro is loafing around…" text_5="Slowbro is loafing around…" text_6="Slowbro is loafing around…"
+    082258B6  callstd              function=MSGBOX_DEFAULT(4)
+    082258B8  goto                 destination=0x08225871
+
+  script 0x082258BD  [ok]
+    082258BD  msgbox_multilang     type=0 text_0="Slowbro turned away…" text_1="Slowbro turned away…" text_2="Slowbro turned away…" text_3="Slowbro turned away…" text_4="Slowbro turned away…" text_5="Slowbro turned away…" text_6="Slowbro turned away…"
+    082258DB  callstd              function=MSGBOX_DEFAULT(4)
+    082258DD  goto                 destination=0x08225871
+
+  script 0x082258E2  [ok]
+    082258E2  msgbox_multilang     type=0 text_0="Slowbro ignored orders…" text_1="Slowbro ignored orders…" text_2="Slowbro ignored orders…" text_3="Slowbro ignored orders…" text_4="Slowbro ignored orders…" text_5="Slowbro ignored orders…" text_6="Slowbro ignored orders…"
+    08225900  callstd              function=MSGBOX_DEFAULT(4)
+    08225902  goto                 destination=0x08225871
+
+  script 0x08225871  [ok]
+    08225871  release              
+
+  object 6 (gfx 0x2F, flag 0x0000) -> 0x082256ED
+  script 0x082256ED  [ok]
+    082256ED  setflag              flag=0x4005 (temp)
+    082256F0  lock                 
+    082256F1  random               limit=3
+    082256F4  copyvar              destination=VAR_0x8008 source=VAR_0x800D
+    082256F9  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    082256FE  compare_var_to_value var=0x8000 value=0
+    08225703  goto_if              condition=1 destination=0x0822575E
+    08225709  compare_var_to_value var=0x8000 value=1
+    0822570E  goto_if              condition=1 destination=0x08225780
+    08225714  compare_var_to_value var=0x8000 value=2
+    08225719  goto_if              condition=1 destination=0x082257A2
+    0822571F  waitmessage          
+    08225720  delay                frames=40
+    08225723  playse               song=21
+    08225726  applymovement        localId=5 movements=[emote_question_mark]
+    0822572D  waitmovement         localId=0
+    08225730  delay                frames=30
+    08225733  copyvar              destination=VAR_0x8000 source=VAR_0x8008
+    08225738  compare_var_to_value var=0x8000 value=0
+    0822573D  goto_if              condition=1 destination=0x082257C4
+    08225743  compare_var_to_value var=0x8000 value=1
+    08225748  goto_if              condition=1 destination=0x082257E9
+    0822574E  compare_var_to_value var=0x8000 value=2
+    08225753  goto_if              condition=1 destination=0x0822580E
+    08225759  clearflag            flag=0x4005 (temp)
+    0822575C  release              
+
+  script 0x0822575E  [ok]
+    0822575E  message              text="Okay! Slowbro!\nUse Sonicboom!"
+    08225763  setmaplayoutindex    index=8811
+    08225766  gotostd              function=201
+    08225768  showmonpic           species=?(2082) x=235 y=127
+    0822576D  compare_var_to_var   var1=3336 var2=8842
+    08225772  gotostd              function=46
+    08225774  hidemoneybox         0=34 0=8
+    08225777  applymovement        localId=8862 movements=1461650696 mapGroup=34 mapNum=8
+    08225780  message              text="Slowbro, Mega Punch!"
+    08225785  waitmoncry           
+    08225786  releaseall           
+
+  script 0x08225780  [ok]
+    08225780  message              text="Slowbro, Mega Punch!"
+    08225785  waitmoncry           
+    08225786  releaseall           
+
+  script 0x082257A2  [ok]
+    082257A2  message              text="Slowbro, Withdraw!"
+    082257A7  closebraillemessage  
+    082257A8  releaseall           
+
+  script 0x082257C4  [ok]
+    082257C4  msgbox_multilang     type=0 text_0="Come on, Slowbro, pay attention!" text_1="Come on, Slowbro, pay attention!" text_2="Come on, Slowbro, pay attention!" text_3="Come on, Slowbro, pay attention!" text_4="Come on, Slowbro, pay attention!" text_5="Come on, Slowbro, pay attention!" text_6="Come on, Slowbro, pay attention!"
+    082257E2  callstd              function=MSGBOX_DEFAULT(4)
+    082257E4  goto                 destination=0x08225759
+
+  script 0x082257E9  [ok]
+    082257E9  msgbox_multilang     type=0 text_0="No!\nYou blew it again!" text_1="No!\nYou blew it again!" text_2="No!\nYou blew it again!" text_3="No!\nYou blew it again!" text_4="No!\nYou blew it again!" text_5="No!\nYou blew it again!" text_6="No!\nYou blew it again!"
+    08225807  callstd              function=MSGBOX_DEFAULT(4)
+    08225809  goto                 destination=0x08225759
+
+  script 0x0822580E  [ok]
+    0822580E  msgbox_multilang     type=0 text_0="No! That’s wrong!\nIt’s so hard to control Pokémon!\pYour Pokémon’s obedience depends on\nyour abilities as a Trainer." text_1="No! That’s wrong!\nIt’s so hard to control Pokémon!\pYour Pokémon’s obedience depends on\nyour abilities as a Trainer." text_2="No! That’s wrong!\nIt’s so hard to control Pokémon!\pYour Pokémon’s obedience depends on\nyour abilities as a Trainer." text_3="No! That’s wrong!\nIt’s so hard to control Pokémon!\pYour Pokémon’s obedience depends on\nyour abilities as a Trainer." text_4="No! That’s wrong!\nIt’s so hard to control Pokémon!\pYour Pokémon’s obedience depends on\nyour abilities as a Trainer." text_5="No! That’s wrong!\nIt’s so hard to control Pokémon!\pYour Pokémon’s obedience depends on\nyour abilities as a Trainer." text_6="No! That’s wrong!\nIt’s so hard to control Pokémon!\pYour Pokémon’s obedience depends on\nyour abilities as a Trainer."
+    0822582C  callstd              function=MSGBOX_DEFAULT(4)
+    0822582E  goto                 destination=0x08225759
+
+  script 0x08225759  [ok]
+    08225759  clearflag            flag=0x4005 (temp)
+    0822575C  release              
+
+  object 7 (gfx 0x23, flag 0x0000) -> 0x08225671
+  script 0x08225671  [ok]
+    08225671  msgbox_multilang     type=0 text_0="You’re a Trainer, too?\pCollecting, battling…\nIt’s a tough life, isn’t it?" text_1="You’re a Trainer, too?\pCollecting, battling…\nIt’s a tough life, isn’t it?" text_2="You’re a Trainer, too?\pCollecting, battling…\nIt’s a tough life, isn’t it?" text_3="You’re a Trainer, too?\pCollecting, battling…\nIt’s a tough life, isn’t it?" text_4="You’re a Trainer, too?\pCollecting, battling…\nIt’s a tough life, isn’t it?" text_5="You’re a Trainer, too?\pCollecting, battling…\nIt’s a tough life, isn’t it?" text_6="You’re a Trainer, too?\pCollecting, battling…\nIt’s a tough life, isn’t it?"
+    0822568F  callstd              function=MSGBOX_NPC(2)
+    08225691  end                  
+
+  object 8 (gfx 0x15, flag 0x003C) -> 0x00000000
+  object 9 (gfx 0x52, flag 0x0307) -> 0x082050CF
+  script 0x082050CF  [ok]
+    082050CF  lockall              
+    082050D0  checkflag            flag=0x881:BADGE2_CASCADE
+    082050D3  goto_if              condition=0 destination=0x082050F6
+    082050D9  checkflag            flag=0x237
+    082050DC  goto_if              condition=0 destination=0x082050F6
+    082050E2  checkpartymove       move=Cut(15)
+    082050E5  compare_var_to_value var=0x800D value=6
+    082050EA  goto_if              condition=1 destination=0x08205100
+    082050F0  call                 destination=0x0820510A
+    082050F5  return               
+
+  script 0x082050F6  [ok]
+    082050F6  goto                 destination=0x082051DD
+
+  script 0x08205100  [ok]
+    08205100  goto                 destination=0x082051BF
+
+  script 0x0820510A  [ok]
+    0820510A  compare_var_to_value var=0x800D value=6
+    0820510F  goto_if              condition=1 destination=0x08205173
+    08205115  setfieldeffectargument argNum=0 value=VAR_0x800D
+    08205119  bufferpartymonnick   stringVarId=0 slot=32781
+    0820511D  buffermovename       stringVarId=1 move=Cut(15)
+    08205121  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_1="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_2="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_3="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_4="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_5="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?" text_6="This tree looks like it can be Cut\ndown!\pWould you like to Cut it?"
+    0820513F  callstd              function=MSGBOX_YESNO(5)
+    08205141  compare_var_to_value var=0x800D value=0
+    08205146  goto_if              condition=1 destination=0x0820517D
+    0820514C  msgbox_multilang     type=0 text_0="{STR_VAR_1} used {STR_VAR_2}!" text_1="{STR_VAR_1} used {STR_VAR_2}!" text_2="{STR_VAR_1} used {STR_VAR_2}!" text_3="{STR_VAR_1} used {STR_VAR_2}!" text_4="{STR_VAR_1} used {STR_VAR_2}!" text_5="{STR_VAR_1} used {STR_VAR_2}!" text_6="{STR_VAR_1} used {STR_VAR_2}!"
+    0820516A  callstd              function=MSGBOX_DEFAULT(4)
+    0820516C  closemessage         
+    0820516D  call                 destination=0x08205180
+    08205172  return               
+
+  script 0x082051DD  [ok]
+    082051DD  msgbox_multilang     type=0 text_0="This tree looks like it can be Cut\ndown!" text_1="This tree looks like it can be Cut\ndown!" text_2="This tree looks like it can be Cut\ndown!" text_3="This tree looks like it can be Cut\ndown!" text_4="This tree looks like it can be Cut\ndown!" text_5="This tree looks like it can be Cut\ndown!" text_6="This tree looks like it can be Cut\ndown!"
+    082051FB  callstd              function=MSGBOX_SIGN(3)
+    082051FD  releaseall           
+
+  script 0x082051BF  [unknown-opcode:0xE5]
+
+  script 0x08205173  [ok]
+    08205173  goto                 destination=0x082051DD
+
+  script 0x0820517D  [ok]
+    0820517D  closemessage         
+    0820517E  releaseall           
+
+  script 0x08205180  [unknown-opcode:0xE7]
+
+  object 10 (gfx 0x10, flag 0x0000) -> 0x082256B8
+  script 0x082256B8  [ok]
+    082256B8  setflag              flag=0x4005 (temp)
+    082256BB  lock                 
+    082256BC  faceplayer           
+    082256BD  msgbox_multilang     type=0 text_0="I want a bright red bicycle.\pI’ll keep it at home, so it won’t get\ndirty." text_1="I want a bright red bicycle.\pI’ll keep it at home, so it won’t get\ndirty." text_2="I want a bright red bicycle.\pI’ll keep it at home, so it won’t get\ndirty." text_3="I want a bright red bicycle.\pI’ll keep it at home, so it won’t get\ndirty." text_4="I want a bright red bicycle.\pI’ll keep it at home, so it won’t get\ndirty." text_5="I want a bright red bicycle.\pI’ll keep it at home, so it won’t get\ndirty." text_6="I want a bright red bicycle.\pI’ll keep it at home, so it won’t get\ndirty."
+    082256DB  callstd              function=MSGBOX_DEFAULT(4)
+    082256DD  closemessage         
+    082256DE  applymovement        localId=10 movements=[face_original_direction]
+    082256E5  waitmovement         localId=0
+    082256E8  clearflag            flag=0x4005 (temp)
+    082256EB  release              
+
+  object 11 (gfx 0xFA, flag 0x0864) -> 0x08225692
+  script 0x08225692  [ok]
+    08225692  speakername          name="Guard"
+    08225697  msgbox_multilang     type=0 text_0="This is Cerulean Cave.\pHorribly strong Pokémon live inside\nthere.\pIt takes a very special Trainer to be\nallowed inside there.\pYou’d have to be strong enough to\nbecome the Pokémon League Champion\pfor starters.\pAnd, you would have to have made a\ngreat achievement." text_1="This is Cerulean Cave.\pHorribly strong Pokémon live inside\nthere.\pIt takes a very special Trainer to be\nallowed inside there.\pYou’d have to be strong enough to\nbecome the Pokémon League Champion\pfor starters.\pAnd, you would have to have made a\ngreat achievement." text_2="This is Cerulean Cave.\pHorribly strong Pokémon live inside\nthere.\pIt takes a very special Trainer to be\nallowed inside there.\pYou’d have to be strong enough to\nbecome the Pokémon League Champion\pfor starters.\pAnd, you would have to have made a\ngreat achievement." text_3="This is Cerulean Cave.\pHorribly strong Pokémon live inside\nthere.\pIt takes a very special Trainer to be\nallowed inside there.\pYou’d have to be strong enough to\nbecome the Pokémon League Champion\pfor starters.\pAnd, you would have to have made a\ngreat achievement." text_4="This is Cerulean Cave.\pHorribly strong Pokémon live inside\nthere.\pIt takes a very special Trainer to be\nallowed inside there.\pYou’d have to be strong enough to\nbecome the Pokémon League Champion\pfor starters.\pAnd, you would have to have made a\ngreat achievement." text_5="This is Cerulean Cave.\pHorribly strong Pokémon live inside\nthere.\pIt takes a very special Trainer to be\nallowed inside there.\pYou’d have to be strong enough to\nbecome the Pokémon League Champion\pfor starters.\pAnd, you would have to have made a\ngreat achievement." text_6="This is Cerulean Cave.\pHorribly strong Pokémon live inside\nthere.\pIt takes a very special Trainer to be\nallowed inside there.\pYou’d have to be strong enough to\nbecome the Pokémon League Champion\pfor starters.\pAnd, you would have to have made a\ngreat achievement."
+    082256B5  callstd              function=MSGBOX_NPC(2)
+    082256B7  end                  
+
+  object 12 (gfx 0x52, flag 0x0000) -> 0x00000000
+  coord trigger 0 (var 0x4052 == 0) -> 0x082252D2
+  script 0x082252D2  [ok]
+    082252D2  lockall              
+    082252D3  setvar               destination=VAR_0x4001 value=0
+    082252D8  goto                 destination=0x08225304
+
+  script 0x08225304  [unknown-opcode:0xE9]
+    08225304  textcolor            color=0
+    08225306  setvar               destination=VAR_0x4054 value=2
+    0822530B  playbgm              song=527 save_song=0
+    0822530F  addobject            localId=8
+    08225312  applymovement        localId=8 movements=[walk_down walk_down walk_down walk_down walk_down]
+    08225319  waitmovement         localId=0
+    0822531C  speakername          name="{RIVAL}"
+    08225321  msgbox_multilang     type=0 text_0="Yo! {PLAYER}!\pYou’re still struggling along back\nhere?\pI’m doing great! I caught a bunch of\nstrong and smart Pokémon!\pHere, let me see what you caught,\n{PLAYER}!" text_1="Yo! {PLAYER}!\pYou’re still struggling along back\nhere?\pI’m doing great! I caught a bunch of\nstrong and smart Pokémon!\pHere, let me see what you caught,\n{PLAYER}!" text_2="Yo! {PLAYER}!\pYou’re still struggling along back\nhere?\pI’m doing great! I caught a bunch of\nstrong and smart Pokémon!\pHere, let me see what you caught,\n{PLAYER}!" text_3="Yo! {PLAYER}!\pYou’re still struggling along back\nhere?\pI’m doing great! I caught a bunch of\nstrong and smart Pokémon!\pHere, let me see what you caught,\n{PLAYER}!" text_4="Yo! {PLAYER}!\pYou’re still struggling along back\nhere?\pI’m doing great! I caught a bunch of\nstrong and smart Pokémon!\pHere, let me see what you caught,\n{PLAYER}!" text_5="Yo! {PLAYER}!\pYou’re still struggling along back\nhere?\pI’m doing great! I caught a bunch of\nstrong and smart Pokémon!\pHere, let me see what you caught,\n{PLAYER}!" text_6="Yo! {PLAYER}!\pYou’re still struggling along back\nhere?\pI’m doing great! I caught a bunch of\nstrong and smart Pokémon!\pHere, let me see what you caught,\n{PLAYER}!"
+    0822533F  callstd              function=MSGBOX_DEFAULT(4)
+    08225341  setvar               destination=VAR_0x800F value=8
+    08225346  trainerbattle        type=3 trainer=0x14C localId=0 ptr1=0x08225AC1
+    08225350  setvar               destination=VAR_0x8004 value=13
+    08225355  setvar               destination=VAR_0x8005 value=0
+    0822535A  special              SPECIAL_\function=347
+    0822535D  speakername          name="{RIVAL}"
+    08225362  msgbox_multilang     type=0 text_0="Hey, guess what?\pI went to Bill’s and got him to show\nme his rare Pokémon.\pThat added a lot of pages to my\nPokédex!\pAfter all, Bill’s world famous as a\nPokémaniac.\pHe invented the Pokémon Storage\nSystem on PC, too.\pSince you’re using his system, you\nshould go thank him.\pWell, I better get rolling!\nSmell ya later!" text_1="Hey, guess what?\pI went to Bill’s and got him to show\nme his rare Pokémon.\pThat added a lot of pages to my\nPokédex!\pAfter all, Bill’s world famous as a\nPokémaniac.\pHe invented the Pokémon Storage\nSystem on PC, too.\pSince you’re using his system, you\nshould go thank him.\pWell, I better get rolling!\nSmell ya later!" text_2="Hey, guess what?\pI went to Bill’s and got him to show\nme his rare Pokémon.\pThat added a lot of pages to my\nPokédex!\pAfter all, Bill’s world famous as a\nPokémaniac.\pHe invented the Pokémon Storage\nSystem on PC, too.\pSince you’re using his system, you\nshould go thank him.\pWell, I better get rolling!\nSmell ya later!" text_3="Hey, guess what?\pI went to Bill’s and got him to show\nme his rare Pokémon.\pThat added a lot of pages to my\nPokédex!\pAfter all, Bill’s world famous as a\nPokémaniac.\pHe invented the Pokémon Storage\nSystem on PC, too.\pSince you’re using his system, you\nshould go thank him.\pWell, I better get rolling!\nSmell ya later!" text_4="Hey, guess what?\pI went to Bill’s and got him to show\nme his rare Pokémon.\pThat added a lot of pages to my\nPokédex!\pAfter all, Bill’s world famous as a\nPokémaniac.\pHe invented the Pokémon Storage\nSystem on PC, too.\pSince you’re using his system, you\nshould go thank him.\pWell, I better get rolling!\nSmell ya later!" text_5="Hey, guess what?\pI went to Bill’s and got him to show\nme his rare Pokémon.\pThat added a lot of pages to my\nPokédex!\pAfter all, Bill’s world famous as a\nPokémaniac.\pHe invented the Pokémon Storage\nSystem on PC, too.\pSince you’re using his system, you\nshould go thank him.\pWell, I better get rolling!\nSmell ya later!" text_6="Hey, guess what?\pI went to Bill’s and got him to show\nme his rare Pokémon.\pThat added a lot of pages to my\nPokédex!\pAfter all, Bill’s world famous as a\nPokémaniac.\pHe invented the Pokémon Storage\nSystem on PC, too.\pSince you’re using his system, you\nshould go thank him.\pWell, I better get rolling!\nSmell ya later!"
+    08225380  callstd              function=MSGBOX_DEFAULT(4)
+    08225382  closemessage         
+    08225383  playbgm              song=528 save_song=0
+    08225387  copyvar              destination=VAR_0x8000 source=VAR_0x4001
+    0822538C  compare_var_to_value var=0x8000 value=0
+    08225391  goto_if              condition=1 destination=0x0822541D
+    08225397  compare_var_to_value var=0x8000 value=1
+    0822539C  goto_if              condition=1 destination=0x0822541D
+    082253A2  compare_var_to_value var=0x8000 value=2
+    082253A7  goto_if              condition=1 destination=0x08225433
+    082253AD  speakername          name="{RIVAL}"
+    082253B2  msgbox_multilang     type=0 text_0="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_1="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_2="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_3="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_4="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_5="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_6="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor."
+    082253D0  callstd              function=MSGBOX_DEFAULT(4)
+    082253D2  setvar               destination=VAR_0x4052 value=1
+    082253D7  setflag              flag=0x292
+
+  script 0x0822541D  [ok]
+    0822541D  applymovement        localId=8 movements=[walk_right walk_down walk_down walk_down walk_down walk_down walk_down walk_down delay_16 delay_16 walk_left walk_up walk_up walk_up walk_up walk_up]
+    08225424  applymovement        localId=255 movements=[delay_16 delay_8 walk_in_place_faster_right delay_16 walk_in_place_faster_down]
+    0822542B  waitmovement         localId=8
+    0822542E  goto                 destination=0x082253AD
+
+  script 0x08225433  [ok]
+    08225433  applymovement        localId=8 movements=[walk_left walk_down walk_down walk_down walk_down walk_down walk_down walk_down delay_16 delay_16 walk_right walk_up walk_up walk_up walk_up walk_up]
+    0822543A  applymovement        localId=255 movements=[delay_16 delay_8 walk_in_place_faster_left delay_16 walk_in_place_faster_down]
+    08225441  waitmovement         localId=8
+    08225444  goto                 destination=0x082253AD
+
+  script 0x082253AD  [unknown-opcode:0xE9]
+    082253AD  speakername          name="{RIVAL}"
+    082253B2  msgbox_multilang     type=0 text_0="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_1="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_2="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_3="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_4="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_5="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor." text_6="Oh, yeah, right.\pI feel sorry for you. No, really.\nYou’re always plodding behind me.\pSo here, I’ll give you a little\npresent as a favor."
+    082253D0  callstd              function=MSGBOX_DEFAULT(4)
+    082253D2  setvar               destination=VAR_0x4052 value=1
+    082253D7  setflag              flag=0x292
+
+  coord trigger 1 (var 0x4052 == 0) -> 0x082252DE
+  script 0x082252DE  [ok]
+    082252DE  lockall              
+    082252DF  setvar               destination=VAR_0x4001 value=1
+    082252E4  setobjectxyperm      localId=8 x=23 y=0
+    082252EB  goto                 destination=0x08225304
+
+  coord trigger 2 (var 0x4052 == 0) -> 0x082252F1
+  script 0x082252F1  [ok]
+    082252F1  lockall              
+    082252F2  setvar               destination=VAR_0x4001 value=2
+    082252F7  setobjectxyperm      localId=8 x=24 y=0
+    082252FE  goto                 destination=0x08225304
+
+  coord trigger 3 (var 0x407D == 0) -> 0x0822557D
+  script 0x0822557D  [ok]
+    0822557D  lockall              
+    0822557E  setvar               destination=VAR_0x4001 value=0
+    08225583  applymovement        localId=2 movements=[walk_in_place_faster_up]
+    0822558A  waitmovement         localId=0
+    0822558D  applymovement        localId=255 movements=[walk_in_place_faster_down]
+    08225594  waitmovement         localId=0
+    08225597  goto                 destination=0x082255BD
+
+  script 0x082255BD  [ok]
+    082255BD  textcolor            color=0
+    082255BF  speakername          name="Grunt"
+    082255C4  msgbox_multilang     type=0 text_0="Hey! Stay out!\nIt’s not your yard!\p…Huh?\nMe?\pI’m an innocent bystander!\nDon’t you believe me?{CTRL_0B}" text_1="Hey! Stay out!\nIt’s not your yard!\p…Huh?\nMe?\pI’m an innocent bystander!\nDon’t you believe me?{CTRL_0B}" text_2="Hey! Stay out!\nIt’s not your yard!\p…Huh?\nMe?\pI’m an innocent bystander!\nDon’t you believe me?{CTRL_0B}" text_3="Hey! Stay out!\nIt’s not your yard!\p…Huh?\nMe?\pI’m an innocent bystander!\nDon’t you believe me?{CTRL_0B}" text_4="Hey! Stay out!\nIt’s not your yard!\p…Huh?\nMe?\pI’m an innocent bystander!\nDon’t you believe me?{CTRL_0B}" text_5="Hey! Stay out!\nIt’s not your yard!\p…Huh?\nMe?\pI’m an innocent bystander!\nDon’t you believe me?{CTRL_0B}" text_6="Hey! Stay out!\nIt’s not your yard!\p…Huh?\nMe?\pI’m an innocent bystander!\nDon’t you believe me?{CTRL_0B}"
+    082255E2  callstd              function=MSGBOX_DEFAULT(4)
+    082255E4  setvar               destination=VAR_0x800F value=2
+    082255E9  trainerbattle        type=3 trainer=0x163 localId=0 ptr1=0x08225DEB
+    082255F3  setvar               destination=VAR_0x407D value=1
+    082255F8  goto                 destination=0x08225507
+
+  coord trigger 4 (var 0x407D == 0) -> 0x0822559D
+  script 0x0822559D  [ok]
+    0822559D  lockall              
+    0822559E  setvar               destination=VAR_0x4001 value=1
+    082255A3  applymovement        localId=2 movements=[walk_in_place_faster_down]
+    082255AA  waitmovement         localId=0
+    082255AD  applymovement        localId=255 movements=[walk_in_place_faster_up]
+    082255B4  waitmovement         localId=0
+    082255B7  goto                 destination=0x082255BD
+
+  sign 0 at (20,25) -> 0x08225907
+  script 0x08225907  [ok]
+    08225907  msgbox_multilang     type=0 text_0="Cerulean City\nA Mysterious, Blue Aura Surrounds It" text_1="Cerulean City\nA Mysterious, Blue Aura Surrounds It" text_2="Cerulean City\nA Mysterious, Blue Aura Surrounds It" text_3="Cerulean City\nA Mysterious, Blue Aura Surrounds It" text_4="Cerulean City\nA Mysterious, Blue Aura Surrounds It" text_5="Cerulean City\nA Mysterious, Blue Aura Surrounds It" text_6="Cerulean City\nA Mysterious, Blue Aura Surrounds It"
+    08225925  callstd              function=MSGBOX_SIGN(3)
+    08225927  end                  
+
+  sign 1 at (27,21) -> 0x08225449
+  script 0x08225449  [ok]
+    08225449  lockall              
+    0822544A  setvar               destination=VAR_0x8004 value=3
+    0822544F  setvar               destination=VAR_0x8005 value=0
+    08225454  special              SPECIAL_\function=347
+    08225457  msgbox_multilang     type=0 text_0="Cerulean City Pokémon Gym\nLeader: Misty\pThe Tomboyish Mermaid!" text_1="Cerulean City Pokémon Gym\nLeader: Misty\pThe Tomboyish Mermaid!" text_2="Cerulean City Pokémon Gym\nLeader: Misty\pThe Tomboyish Mermaid!" text_3="Cerulean City Pokémon Gym\nLeader: Misty\pThe Tomboyish Mermaid!" text_4="Cerulean City Pokémon Gym\nLeader: Misty\pThe Tomboyish Mermaid!" text_5="Cerulean City Pokémon Gym\nLeader: Misty\pThe Tomboyish Mermaid!" text_6="Cerulean City Pokémon Gym\nLeader: Misty\pThe Tomboyish Mermaid!"
+    08225475  callstd              function=MSGBOX_DEFAULT(4)
+    08225477  releaseall           
+
+  sign 2 at (11,28) -> 0x08225949
+  script 0x08225949  [ok]
+    08225949  msgbox_multilang     type=0 text_0="Grass and caves handled easily!\nBike Shop" text_1="Grass and caves handled easily!\nBike Shop" text_2="Grass and caves handled easily!\nBike Shop" text_3="Grass and caves handled easily!\nBike Shop" text_4="Grass and caves handled easily!\nBike Shop" text_5="Grass and caves handled easily!\nBike Shop" text_6="Grass and caves handled easily!\nBike Shop"
+    08225967  callstd              function=MSGBOX_SIGN(3)
+    08225969  end                  
+
+  sign 3 at (19,32) -> 0x08225928
+  script 0x08225928  [ok]
+    08225928  msgbox_multilang     type=0 text_0="Trainer Tips\pA Pokémon can be made to hold an\nitem.\pSome items can even be used by the\nholding Pokémon in battle." text_1="Trainer Tips\pA Pokémon can be made to hold an\nitem.\pSome items can even be used by the\nholding Pokémon in battle." text_2="Trainer Tips\pA Pokémon can be made to hold an\nitem.\pSome items can even be used by the\nholding Pokémon in battle." text_3="Trainer Tips\pA Pokémon can be made to hold an\nitem.\pSome items can even be used by the\nholding Pokémon in battle." text_4="Trainer Tips\pA Pokémon can be made to hold an\nitem.\pSome items can even be used by the\nholding Pokémon in battle." text_5="Trainer Tips\pA Pokémon can be made to hold an\nitem.\pSome items can even be used by the\nholding Pokémon in battle." text_6="Trainer Tips\pA Pokémon can be made to hold an\nitem.\pSome items can even be used by the\nholding Pokémon in battle."
+    08225946  callstd              function=MSGBOX_SIGN(3)
+    08225948  end                  
+
+  hidden item at (18,7): Rare Candy
+
+  sign 5 at (11,25) -> 0x0825A4CB
+  script 0x0825A4CB  [ok]
+    0825A4CB  msgbox_multilang     type=0 text_0="A shiny new Bicycle!" text_1="A shiny new Bicycle!" text_2="A shiny new Bicycle!" text_3="A shiny new Bicycle!" text_4="A shiny new Bicycle!" text_5="A shiny new Bicycle!" text_6="A shiny new Bicycle!"
+    0825A4E9  callstd              function=MSGBOX_SIGN(3)
+    0825A4EB  end                  
+
+  sign 6 at (11,27) -> 0x0825A4CB
+  sign 7 at (11,26) -> 0x0825A4CB
+  sign 8 at (20,28) -> 0x0822527A
+  script 0x0822527A  [ok]
+    0822527A  msgbox_multilang     type=0 text_0="Move Reminder’s House" text_1="Move Reminder’s House" text_2="Move Reminder’s House" text_3="Move Reminder’s House" text_4="Move Reminder’s House" text_5="Move Reminder’s House" text_6="Move Reminder’s House"
+    08225298  callstd              function=MSGBOX_SIGN(3)
+    0822529A  return               
+
+  map script type 3 -> 0x08225257
+  script 0x08225257  [ok]
+    08225257  setworldmapflag      flag=0x8F3
+    0822525A  checkflag            flag=0x234
+    0822525D  goto_if              condition=0 destination=0x08225264
+    08225263  return               
+
+  script 0x08225264  [ok]
+    08225264  setobjectxyperm      localId=1 x=30 y=12
+    0822526B  setobjectxyperm      localId=5 x=26 y=31
+    08225272  setobjectxyperm      localId=6 x=27 y=31
+    08225279  return               
+

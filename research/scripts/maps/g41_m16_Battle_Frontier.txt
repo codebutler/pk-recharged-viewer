@@ -1,0 +1,610 @@
+Battle Frontier  (group 41, map 16)  header 0x08B3E270
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x37, flag 0x0000) -> 0x0829CEA5
+  script 0x0829CEA5  [ok]
+    0829CEA5  lock                 
+    0829CEA6  faceplayer           
+    0829CEA7  setvar               destination=VAR_0x40CF value=6
+    0829CEAC  setvar               destination=VAR_0x408C value=0
+    0829CEB1  special              SPECIAL_\function=18
+    0829CEB4  msgbox_multilang     type=0 text_0="Where the courage of TRAINERS\nis put to the test!\pWelcome to the BATTLE PYRAMID!\pI am your guide to\nthe Battle Quest." text_1="Where the courage of TRAINERS\nis put to the test!\pWelcome to the BATTLE PYRAMID!\pI am your guide to\nthe Battle Quest." text_2="Where the courage of TRAINERS\nis put to the test!\pWelcome to the BATTLE PYRAMID!\pI am your guide to\nthe Battle Quest." text_3="Where the courage of TRAINERS\nis put to the test!\pWelcome to the BATTLE PYRAMID!\pI am your guide to\nthe Battle Quest." text_4="Where the courage of TRAINERS\nis put to the test!\pWelcome to the BATTLE PYRAMID!\pI am your guide to\nthe Battle Quest." text_5="Where the courage of TRAINERS\nis put to the test!\pWelcome to the BATTLE PYRAMID!\pI am your guide to\nthe Battle Quest." text_6="Where the courage of TRAINERS\nis put to the test!\pWelcome to the BATTLE PYRAMID!\pI am your guide to\nthe Battle Quest."
+    0829CED2  callstd              function=MSGBOX_DEFAULT(4)
+    0829CED4  message              text="Have you the courage to embark on\nthe Battle Quest challenge?"
+    0829CED9  removecoins          count=10714
+    0829CEDC  gotostd              function=181
+    0829CEDE  closebraillemessage  
+    0829CEDF  setflag              flag=0xB508 (temp)
+    0829CEE2  closebraillemessage  
+    0829CEE3  setflag              flag=0xB508 (temp)
+    0829CEE6  closebraillemessage  
+    0829CEE7  setflag              flag=0xB508 (temp)
+    0829CEEA  closebraillemessage  
+    0829CEEB  setflag              flag=0xB508 (temp)
+    0829CEEE  closebraillemessage  
+    0829CEEF  setflag              flag=0x6608 (temp)
+    0829CEF2  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    0829CEF7  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829CEFC  compare_var_to_value var=0x8000 value=0
+    0829CF01  goto_if              condition=1 destination=0x0829CF28
+    0829CF07  compare_var_to_value var=0x8000 value=1
+    0829CF0C  goto_if              condition=1 destination=0x0829D0F1
+    0829CF12  compare_var_to_value var=0x8000 value=2
+    0829CF17  goto_if              condition=1 destination=0x0829D19A
+    0829CF1D  compare_var_to_value var=0x8000 value=127
+    0829CF22  goto_if              condition=1 destination=0x0829D19A
+    0829CF28  message              text="The PYRAMID offers two courses,\nLevel 50 and Open Level.\pWhich will you enter?"
+    0829CF2D  addobject            localId=10717 mapGroup=8 mapNum=86
+    0829CF32  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF36  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF3A  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF3E  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF42  buffertrainerclassname stringVarId=41 trainerId=26120
+    0829CF46  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    0829CF4B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829CF50  compare_var_to_value var=0x8000 value=2
+    0829CF55  goto_if              condition=1 destination=0x0829D19A
+    0829CF5B  compare_var_to_value var=0x8000 value=127
+    0829CF60  goto_if              condition=1 destination=0x0829D19A
+    0829CF66  setvar               destination=VAR_0x8004 value=15
+    0829CF6B  special              SPECIAL_\function=148
+    0829CF6E  compare_var_to_value var=0x8004 value=1
+    0829CF73  goto_if              condition=1 destination=0x0829D116
+    0829CF79  setvar               destination=VAR_0x8004 value=2
+    0829CF7E  setvar               destination=VAR_0x8005 value=1
+    0829CF83  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    0829CF88  special              SPECIAL_\function=148
+    0829CF8B  msgbox_multilang     type=0 text_0="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_1="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_2="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_3="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_4="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_5="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_6="Very good. Now, please select the three\nPOKéMON you wish to accompany you."
+    0829CFA9  callstd              function=MSGBOX_DEFAULT(4)
+    0829CFAB  fadescreen           mode=1
+    0829CFAD  callnative           func=0x080D5995
+    0829CFB2  call                 destination=0x08289DDE
+    0829CFB7  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    0829CFBC  setvar               destination=VAR_0x8005 value=3
+    0829CFC1  special              SPECIAL_\function=161
+    0829CFC4  waitstate            
+
+  script 0x0829CF28  [ok]
+    0829CF28  message              text="The PYRAMID offers two courses,\nLevel 50 and Open Level.\pWhich will you enter?"
+    0829CF2D  addobject            localId=10717 mapGroup=8 mapNum=86
+    0829CF32  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF36  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF3A  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF3E  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF42  buffertrainerclassname stringVarId=41 trainerId=26120
+    0829CF46  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    0829CF4B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829CF50  compare_var_to_value var=0x8000 value=2
+    0829CF55  goto_if              condition=1 destination=0x0829D19A
+    0829CF5B  compare_var_to_value var=0x8000 value=127
+    0829CF60  goto_if              condition=1 destination=0x0829D19A
+    0829CF66  setvar               destination=VAR_0x8004 value=15
+    0829CF6B  special              SPECIAL_\function=148
+    0829CF6E  compare_var_to_value var=0x8004 value=1
+    0829CF73  goto_if              condition=1 destination=0x0829D116
+    0829CF79  setvar               destination=VAR_0x8004 value=2
+    0829CF7E  setvar               destination=VAR_0x8005 value=1
+    0829CF83  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    0829CF88  special              SPECIAL_\function=148
+    0829CF8B  msgbox_multilang     type=0 text_0="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_1="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_2="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_3="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_4="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_5="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_6="Very good. Now, please select the three\nPOKéMON you wish to accompany you."
+    0829CFA9  callstd              function=MSGBOX_DEFAULT(4)
+    0829CFAB  fadescreen           mode=1
+    0829CFAD  callnative           func=0x080D5995
+    0829CFB2  call                 destination=0x08289DDE
+    0829CFB7  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    0829CFBC  setvar               destination=VAR_0x8005 value=3
+    0829CFC1  special              SPECIAL_\function=161
+    0829CFC4  waitstate            
+
+  script 0x0829D0F1  [ok]
+    0829D0F1  msgbox_multilang     type=0 text_0="The Battle Quest is a battling\nevent in which you must explore\pthe PYRAMID and try to reach the top.\pIn the PYRAMID are seven floors of\nmazes, all of them filled with not only\pskilled TRAINERS but also wild POKéMON.\pYou must enter with three POKéMON,\nnone of them holding an item.\pOn your ascent, you will be provided\nwith a BATTLE BAG for items.\pIf you fail in your challenge, any item\nplaced in the BATTLE BAG disappears.\pIf you want to interrupt your\nchallenge, you must select “REST”\pand save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_1="The Battle Quest is a battling\nevent in which you must explore\pthe PYRAMID and try to reach the top.\pIn the PYRAMID are seven floors of\nmazes, all of them filled with not only\pskilled TRAINERS but also wild POKéMON.\pYou must enter with three POKéMON,\nnone of them holding an item.\pOn your ascent, you will be provided\nwith a BATTLE BAG for items.\pIf you fail in your challenge, any item\nplaced in the BATTLE BAG disappears.\pIf you want to interrupt your\nchallenge, you must select “REST”\pand save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_2="The Battle Quest is a battling\nevent in which you must explore\pthe PYRAMID and try to reach the top.\pIn the PYRAMID are seven floors of\nmazes, all of them filled with not only\pskilled TRAINERS but also wild POKéMON.\pYou must enter with three POKéMON,\nnone of them holding an item.\pOn your ascent, you will be provided\nwith a BATTLE BAG for items.\pIf you fail in your challenge, any item\nplaced in the BATTLE BAG disappears.\pIf you want to interrupt your\nchallenge, you must select “REST”\pand save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_3="The Battle Quest is a battling\nevent in which you must explore\pthe PYRAMID and try to reach the top.\pIn the PYRAMID are seven floors of\nmazes, all of them filled with not only\pskilled TRAINERS but also wild POKéMON.\pYou must enter with three POKéMON,\nnone of them holding an item.\pOn your ascent, you will be provided\nwith a BATTLE BAG for items.\pIf you fail in your challenge, any item\nplaced in the BATTLE BAG disappears.\pIf you want to interrupt your\nchallenge, you must select “REST”\pand save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_4="The Battle Quest is a battling\nevent in which you must explore\pthe PYRAMID and try to reach the top.\pIn the PYRAMID are seven floors of\nmazes, all of them filled with not only\pskilled TRAINERS but also wild POKéMON.\pYou must enter with three POKéMON,\nnone of them holding an item.\pOn your ascent, you will be provided\nwith a BATTLE BAG for items.\pIf you fail in your challenge, any item\nplaced in the BATTLE BAG disappears.\pIf you want to interrupt your\nchallenge, you must select “REST”\pand save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_5="The Battle Quest is a battling\nevent in which you must explore\pthe PYRAMID and try to reach the top.\pIn the PYRAMID are seven floors of\nmazes, all of them filled with not only\pskilled TRAINERS but also wild POKéMON.\pYou must enter with three POKéMON,\nnone of them holding an item.\pOn your ascent, you will be provided\nwith a BATTLE BAG for items.\pIf you fail in your challenge, any item\nplaced in the BATTLE BAG disappears.\pIf you want to interrupt your\nchallenge, you must select “REST”\pand save the game.\pIf you don’t save before interrupting,\nyou will be disqualified." text_6="The Battle Quest is a battling\nevent in which you must explore\pthe PYRAMID and try to reach the top.\pIn the PYRAMID are seven floors of\nmazes, all of them filled with not only\pskilled TRAINERS but also wild POKéMON.\pYou must enter with three POKéMON,\nnone of them holding an item.\pOn your ascent, you will be provided\nwith a BATTLE BAG for items.\pIf you fail in your challenge, any item\nplaced in the BATTLE BAG disappears.\pIf you want to interrupt your\nchallenge, you must select “REST”\pand save the game.\pIf you don’t save before interrupting,\nyou will be disqualified."
+    0829D10F  callstd              function=MSGBOX_DEFAULT(4)
+    0829D111  goto                 destination=0x0829CED4
+
+  script 0x0829D19A  [ok]
+    0829D19A  msgbox_multilang     type=0 text_0="We await your challenge in the future!" text_1="We await your challenge in the future!" text_2="We await your challenge in the future!" text_3="We await your challenge in the future!" text_4="We await your challenge in the future!" text_5="We await your challenge in the future!" text_6="We await your challenge in the future!"
+    0829D1B8  callstd              function=MSGBOX_DEFAULT(4)
+    0829D1BA  release              
+
+  script 0x0829D116  [ok]
+    0829D116  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829D11B  compare_var_to_value var=0x8000 value=0
+    0829D120  goto_if              condition=1 destination=0x0829D131
+    0829D126  compare_var_to_value var=0x8000 value=1
+    0829D12B  goto_if              condition=1 destination=0x0829D156
+    0829D131  msgbox_multilang     type=0 text_0="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_1="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_2="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_3="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_4="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_5="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_6="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me."
+    0829D14F  callstd              function=MSGBOX_DEFAULT(4)
+    0829D151  goto                 destination=0x0829D1BA
+
+  script 0x08289DDE  [ok]
+    08289DDE  setvar               destination=VAR_0x8004 value=1
+    08289DE3  setvar               destination=VAR_0x8005 value=1
+    08289DE8  special              SPECIAL_\function=148
+    08289DEB  return               
+
+  script 0x0829CED4  [ok]
+    0829CED4  message              text="Have you the courage to embark on\nthe Battle Quest challenge?"
+    0829CED9  removecoins          count=10714
+    0829CEDC  gotostd              function=181
+    0829CEDE  closebraillemessage  
+    0829CEDF  setflag              flag=0xB508 (temp)
+    0829CEE2  closebraillemessage  
+    0829CEE3  setflag              flag=0xB508 (temp)
+    0829CEE6  closebraillemessage  
+    0829CEE7  setflag              flag=0xB508 (temp)
+    0829CEEA  closebraillemessage  
+    0829CEEB  setflag              flag=0xB508 (temp)
+    0829CEEE  closebraillemessage  
+    0829CEEF  setflag              flag=0x6608 (temp)
+    0829CEF2  multichoice          x=17 y=6 multichoiceId=65 ignoreBPress=0
+    0829CEF7  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829CEFC  compare_var_to_value var=0x8000 value=0
+    0829CF01  goto_if              condition=1 destination=0x0829CF28
+    0829CF07  compare_var_to_value var=0x8000 value=1
+    0829CF0C  goto_if              condition=1 destination=0x0829D0F1
+    0829CF12  compare_var_to_value var=0x8000 value=2
+    0829CF17  goto_if              condition=1 destination=0x0829D19A
+    0829CF1D  compare_var_to_value var=0x8000 value=127
+    0829CF22  goto_if              condition=1 destination=0x0829D19A
+    0829CF28  message              text="The PYRAMID offers two courses,\nLevel 50 and Open Level.\pWhich will you enter?"
+    0829CF2D  addobject            localId=10717 mapGroup=8 mapNum=86
+    0829CF32  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF36  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF3A  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF3E  buffertrainerclassname stringVarId=41 trainerId=22024
+    0829CF42  buffertrainerclassname stringVarId=41 trainerId=26120
+    0829CF46  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    0829CF4B  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829CF50  compare_var_to_value var=0x8000 value=2
+    0829CF55  goto_if              condition=1 destination=0x0829D19A
+    0829CF5B  compare_var_to_value var=0x8000 value=127
+    0829CF60  goto_if              condition=1 destination=0x0829D19A
+    0829CF66  setvar               destination=VAR_0x8004 value=15
+    0829CF6B  special              SPECIAL_\function=148
+    0829CF6E  compare_var_to_value var=0x8004 value=1
+    0829CF73  goto_if              condition=1 destination=0x0829D116
+    0829CF79  setvar               destination=VAR_0x8004 value=2
+    0829CF7E  setvar               destination=VAR_0x8005 value=1
+    0829CF83  copyvar              destination=VAR_0x8006 source=VAR_0x800D
+    0829CF88  special              SPECIAL_\function=148
+    0829CF8B  msgbox_multilang     type=0 text_0="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_1="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_2="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_3="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_4="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_5="Very good. Now, please select the three\nPOKéMON you wish to accompany you." text_6="Very good. Now, please select the three\nPOKéMON you wish to accompany you."
+    0829CFA9  callstd              function=MSGBOX_DEFAULT(4)
+    0829CFAB  fadescreen           mode=1
+    0829CFAD  callnative           func=0x080D5995
+    0829CFB2  call                 destination=0x08289DDE
+    0829CFB7  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    0829CFBC  setvar               destination=VAR_0x8005 value=3
+    0829CFC1  special              SPECIAL_\function=161
+    0829CFC4  waitstate            
+
+  script 0x0829D131  [ok]
+    0829D131  msgbox_multilang     type=0 text_0="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_1="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_2="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_3="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_4="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_5="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_6="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pThe three POKéMON must be different\nand each no higher than Level 50.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me."
+    0829D14F  callstd              function=MSGBOX_DEFAULT(4)
+    0829D151  goto                 destination=0x0829D1BA
+
+  script 0x0829D156  [ok]
+    0829D156  msgbox_multilang     type=0 text_0="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_1="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_2="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_3="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_4="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_5="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me." text_6="A slight problem, adventurer!\pYou seem to not have the three\nPOKéMON qualified for the challenge.\pPlease also remember to take all\nitems from your POKéMON.\pEGGS{STR_VAR_1} ineligible.\pWhen you are ready, please have\na word with me."
+    0829D174  callstd              function=MSGBOX_DEFAULT(4)
+    0829D176  goto                 destination=0x0829D1BA
+
+  script 0x0829D1BA  [ok]
+    0829D1BA  release              
+
+  object 2 (gfx 0x0A, flag 0x0000) -> 0x0829D1BC
+  script 0x0829D1BC  [ok]
+    0829D1BC  lockall              
+    0829D1BD  applymovement        localId=2 movements=[face_player]
+    0829D1C4  waitmovement         localId=0
+    0829D1C7  msgbox_multilang     type=0 text_0="Welcome…\pI shall be pleased to tell you what\nmisfortunes await in the PYRAMID…" text_1="Welcome…\pI shall be pleased to tell you what\nmisfortunes await in the PYRAMID…" text_2="Welcome…\pI shall be pleased to tell you what\nmisfortunes await in the PYRAMID…" text_3="Welcome…\pI shall be pleased to tell you what\nmisfortunes await in the PYRAMID…" text_4="Welcome…\pI shall be pleased to tell you what\nmisfortunes await in the PYRAMID…" text_5="Welcome…\pI shall be pleased to tell you what\nmisfortunes await in the PYRAMID…" text_6="Welcome…\pI shall be pleased to tell you what\nmisfortunes await in the PYRAMID…"
+    0829D1E5  callstd              function=MSGBOX_DEFAULT(4)
+    0829D1E7  call                 destination=0x0829D20E
+    0829D1EC  msgbox_multilang     type=0 text_0="Whether you believe my fortunes\nor not, the choice is yours…\pThe future can be changed anytime…\nI wish you safe passage…" text_1="Whether you believe my fortunes\nor not, the choice is yours…\pThe future can be changed anytime…\nI wish you safe passage…" text_2="Whether you believe my fortunes\nor not, the choice is yours…\pThe future can be changed anytime…\nI wish you safe passage…" text_3="Whether you believe my fortunes\nor not, the choice is yours…\pThe future can be changed anytime…\nI wish you safe passage…" text_4="Whether you believe my fortunes\nor not, the choice is yours…\pThe future can be changed anytime…\nI wish you safe passage…" text_5="Whether you believe my fortunes\nor not, the choice is yours…\pThe future can be changed anytime…\nI wish you safe passage…" text_6="Whether you believe my fortunes\nor not, the choice is yours…\pThe future can be changed anytime…\nI wish you safe passage…"
+    0829D20A  callstd              function=MSGBOX_DEFAULT(4)
+    0829D20C  releaseall           
+
+  script 0x0829D20E  [ok]
+    0829D20E  multichoice          x=17 y=6 multichoiceId=71 ignoreBPress=0
+    0829D213  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829D218  compare_var_to_value var=0x8000 value=0
+    0829D21D  goto_if              condition=1 destination=0x0829D246
+    0829D223  compare_var_to_value var=0x8000 value=1
+    0829D228  goto_if              condition=1 destination=0x0829D29C
+    0829D22E  compare_var_to_value var=0x8000 value=2
+    0829D233  goto_if              condition=1 destination=0x0829D245
+    0829D239  compare_var_to_value var=0x8000 value=127
+    0829D23E  goto_if              condition=1 destination=0x0829D245
+    0829D244  return               
+
+  script 0x0829D246  [ok]
+    0829D246  msgbox_multilang     type=0 text_0="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_1="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_2="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_3="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_4="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_5="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_6="… … … … … …\n… … … … … …\p… … … … … …\nAah!"
+    0829D264  callstd              function=MSGBOX_DEFAULT(4)
+    0829D266  setvar               destination=VAR_0x8004 value=1
+    0829D26B  setvar               destination=VAR_0x8005 value=5
+    0829D270  special              SPECIAL_\function=156
+    0829D273  compare_var_to_value var=0x800D value=0
+    0829D278  goto_if              condition=5 destination=0x0829D289
+    0829D27E  setvar               destination=VAR_0x800D value=0
+    0829D283  goto                 destination=0x0829D2F2
+
+  script 0x0829D29C  [ok]
+    0829D29C  msgbox_multilang     type=0 text_0="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_1="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_2="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_3="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_4="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_5="… … … … … …\n… … … … … …\p… … … … … …\nAah!" text_6="… … … … … …\n… … … … … …\p… … … … … …\nAah!"
+    0829D2BA  callstd              function=MSGBOX_DEFAULT(4)
+    0829D2BC  setvar               destination=VAR_0x8004 value=1
+    0829D2C1  setvar               destination=VAR_0x8005 value=6
+    0829D2C6  special              SPECIAL_\function=156
+    0829D2C9  compare_var_to_value var=0x800D value=0
+    0829D2CE  goto_if              condition=5 destination=0x0829D2DF
+    0829D2D4  setvar               destination=VAR_0x800D value=0
+    0829D2D9  goto                 destination=0x0829D2F2
+
+  script 0x0829D245  [ok]
+    0829D245  return               
+
+  script 0x0829D289  [ok]
+    0829D289  setvar               destination=VAR_0x8004 value=1
+    0829D28E  setvar               destination=VAR_0x8005 value=3
+    0829D293  special              SPECIAL_\function=156
+    0829D296  goto                 destination=0x0829D2F2
+
+  script 0x0829D2F2  [ok]
+    0829D2F2  copyvar              destination=VAR_0x8004 source=VAR_0x800D
+    0829D2F7  special              SPECIAL_\function=336
+    0829D2FA  copyvar              destination=VAR_0x8000 source=VAR_0x800D
+    0829D2FF  compare_var_to_value var=0x8000 value=0
+    0829D304  goto_if              condition=1 destination=0x0829D3DC
+    0829D30A  compare_var_to_value var=0x8000 value=1
+    0829D30F  goto_if              condition=1 destination=0x0829D3FD
+    0829D315  compare_var_to_value var=0x8000 value=2
+    0829D31A  goto_if              condition=1 destination=0x0829D41E
+    0829D320  compare_var_to_value var=0x8000 value=3
+    0829D325  goto_if              condition=1 destination=0x0829D43F
+    0829D32B  compare_var_to_value var=0x8000 value=4
+    0829D330  goto_if              condition=1 destination=0x0829D460
+    0829D336  compare_var_to_value var=0x8000 value=5
+    0829D33B  goto_if              condition=1 destination=0x0829D481
+    0829D341  compare_var_to_value var=0x8000 value=6
+    0829D346  goto_if              condition=1 destination=0x0829D4A2
+    0829D34C  compare_var_to_value var=0x8000 value=7
+    0829D351  goto_if              condition=1 destination=0x0829D4C3
+    0829D357  compare_var_to_value var=0x8000 value=8
+    0829D35C  goto_if              condition=1 destination=0x0829D4E4
+    0829D362  compare_var_to_value var=0x8000 value=9
+    0829D367  goto_if              condition=1 destination=0x0829D505
+    0829D36D  compare_var_to_value var=0x8000 value=10
+    0829D372  goto_if              condition=1 destination=0x0829D526
+    0829D378  compare_var_to_value var=0x8000 value=11
+    0829D37D  goto_if              condition=1 destination=0x0829D547
+    0829D383  compare_var_to_value var=0x8000 value=12
+    0829D388  goto_if              condition=1 destination=0x0829D568
+    0829D38E  compare_var_to_value var=0x8000 value=13
+    0829D393  goto_if              condition=1 destination=0x0829D589
+    0829D399  compare_var_to_value var=0x8000 value=14
+    0829D39E  goto_if              condition=1 destination=0x0829D5AA
+    0829D3A4  compare_var_to_value var=0x8000 value=15
+    0829D3A9  goto_if              condition=1 destination=0x0829D5CB
+    0829D3AF  compare_var_to_value var=0x8000 value=16
+    0829D3B4  goto_if              condition=1 destination=0x0829D5EC
+    0829D3BA  compare_var_to_value var=0x8000 value=17
+    0829D3BF  goto_if              condition=1 destination=0x0829D60D
+    0829D3C5  compare_var_to_value var=0x8000 value=18
+    0829D3CA  goto_if              condition=1 destination=0x0829D62E
+    0829D3D0  compare_var_to_value var=0x8000 value=19
+    0829D3D5  goto_if              condition=1 destination=0x0829D64F
+    0829D3DB  return               
+
+  script 0x0829D2DF  [ok]
+    0829D2DF  setvar               destination=VAR_0x8004 value=1
+    0829D2E4  setvar               destination=VAR_0x8005 value=4
+    0829D2E9  special              SPECIAL_\function=156
+    0829D2EC  goto                 destination=0x0829D2F2
+
+  script 0x0829D3DC  [ok]
+    0829D3DC  msgbox_multilang     type=0 text_0="I see a shower of sparks…\p…And in it, I see your POKéMON\nstruggling with paralysis…" text_1="I see a shower of sparks…\p…And in it, I see your POKéMON\nstruggling with paralysis…" text_2="I see a shower of sparks…\p…And in it, I see your POKéMON\nstruggling with paralysis…" text_3="I see a shower of sparks…\p…And in it, I see your POKéMON\nstruggling with paralysis…" text_4="I see a shower of sparks…\p…And in it, I see your POKéMON\nstruggling with paralysis…" text_5="I see a shower of sparks…\p…And in it, I see your POKéMON\nstruggling with paralysis…" text_6="I see a shower of sparks…\p…And in it, I see your POKéMON\nstruggling with paralysis…"
+    0829D3FA  callstd              function=MSGBOX_DEFAULT(4)
+    0829D3FC  return               
+
+  script 0x0829D3FD  [ok]
+    0829D3FD  msgbox_multilang     type=0 text_0="I see poison…\p…And, I see your POKéMON suffering\nfrom the effects of poison…" text_1="I see poison…\p…And, I see your POKéMON suffering\nfrom the effects of poison…" text_2="I see poison…\p…And, I see your POKéMON suffering\nfrom the effects of poison…" text_3="I see poison…\p…And, I see your POKéMON suffering\nfrom the effects of poison…" text_4="I see poison…\p…And, I see your POKéMON suffering\nfrom the effects of poison…" text_5="I see poison…\p…And, I see your POKéMON suffering\nfrom the effects of poison…" text_6="I see poison…\p…And, I see your POKéMON suffering\nfrom the effects of poison…"
+    0829D41B  callstd              function=MSGBOX_DEFAULT(4)
+    0829D41D  return               
+
+  script 0x0829D41E  [ok]
+    0829D41E  msgbox_multilang     type=0 text_0="I see bright red flames…\p…And, I see your POKéMON suffering\nfrom burns…" text_1="I see bright red flames…\p…And, I see your POKéMON suffering\nfrom burns…" text_2="I see bright red flames…\p…And, I see your POKéMON suffering\nfrom burns…" text_3="I see bright red flames…\p…And, I see your POKéMON suffering\nfrom burns…" text_4="I see bright red flames…\p…And, I see your POKéMON suffering\nfrom burns…" text_5="I see bright red flames…\p…And, I see your POKéMON suffering\nfrom burns…" text_6="I see bright red flames…\p…And, I see your POKéMON suffering\nfrom burns…"
+    0829D43C  callstd              function=MSGBOX_DEFAULT(4)
+    0829D43E  return               
+
+  script 0x0829D43F  [ok]
+    0829D43F  msgbox_multilang     type=0 text_0="I sense the tremendous pressure of\nunrequited anger…\pIt is a curse…\p…And, I see your POKéMON drained of\nPower Points and having no recourse\pbut to use STRUGGLE…" text_1="I sense the tremendous pressure of\nunrequited anger…\pIt is a curse…\p…And, I see your POKéMON drained of\nPower Points and having no recourse\pbut to use STRUGGLE…" text_2="I sense the tremendous pressure of\nunrequited anger…\pIt is a curse…\p…And, I see your POKéMON drained of\nPower Points and having no recourse\pbut to use STRUGGLE…" text_3="I sense the tremendous pressure of\nunrequited anger…\pIt is a curse…\p…And, I see your POKéMON drained of\nPower Points and having no recourse\pbut to use STRUGGLE…" text_4="I sense the tremendous pressure of\nunrequited anger…\pIt is a curse…\p…And, I see your POKéMON drained of\nPower Points and having no recourse\pbut to use STRUGGLE…" text_5="I sense the tremendous pressure of\nunrequited anger…\pIt is a curse…\p…And, I see your POKéMON drained of\nPower Points and having no recourse\pbut to use STRUGGLE…" text_6="I sense the tremendous pressure of\nunrequited anger…\pIt is a curse…\p…And, I see your POKéMON drained of\nPower Points and having no recourse\pbut to use STRUGGLE…"
+    0829D45D  callstd              function=MSGBOX_DEFAULT(4)
+    0829D45F  return               
+
+  script 0x0829D460  [ok]
+    0829D460  msgbox_multilang     type=0 text_0="I see POKéMON loftily airborne…\p…And, I see your POKéMON frustrated\nby powerless GROUND-type moves…" text_1="I see POKéMON loftily airborne…\p…And, I see your POKéMON frustrated\nby powerless GROUND-type moves…" text_2="I see POKéMON loftily airborne…\p…And, I see your POKéMON frustrated\nby powerless GROUND-type moves…" text_3="I see POKéMON loftily airborne…\p…And, I see your POKéMON frustrated\nby powerless GROUND-type moves…" text_4="I see POKéMON loftily airborne…\p…And, I see your POKéMON frustrated\nby powerless GROUND-type moves…" text_5="I see POKéMON loftily airborne…\p…And, I see your POKéMON frustrated\nby powerless GROUND-type moves…" text_6="I see POKéMON loftily airborne…\p…And, I see your POKéMON frustrated\nby powerless GROUND-type moves…"
+    0829D47E  callstd              function=MSGBOX_DEFAULT(4)
+    0829D480  return               
+
+  script 0x0829D481  [ok]
+    0829D481  msgbox_multilang     type=0 text_0="I sense terrific energy rising from\nthe ground below…\p…And, I see your POKéMON unable to\nescape the power’s clutches…" text_1="I sense terrific energy rising from\nthe ground below…\p…And, I see your POKéMON unable to\nescape the power’s clutches…" text_2="I sense terrific energy rising from\nthe ground below…\p…And, I see your POKéMON unable to\nescape the power’s clutches…" text_3="I sense terrific energy rising from\nthe ground below…\p…And, I see your POKéMON unable to\nescape the power’s clutches…" text_4="I sense terrific energy rising from\nthe ground below…\p…And, I see your POKéMON unable to\nescape the power’s clutches…" text_5="I sense terrific energy rising from\nthe ground below…\p…And, I see your POKéMON unable to\nescape the power’s clutches…" text_6="I sense terrific energy rising from\nthe ground below…\p…And, I see your POKéMON unable to\nescape the power’s clutches…"
+    0829D49F  callstd              function=MSGBOX_DEFAULT(4)
+    0829D4A1  return               
+
+  script 0x0829D4A2  [ok]
+    0829D4A2  msgbox_multilang     type=0 text_0="I see ICE-type POKéMON…\p…And, I see your POKéMON fighting\nthe freezing effects of ice…" text_1="I see ICE-type POKéMON…\p…And, I see your POKéMON fighting\nthe freezing effects of ice…" text_2="I see ICE-type POKéMON…\p…And, I see your POKéMON fighting\nthe freezing effects of ice…" text_3="I see ICE-type POKéMON…\p…And, I see your POKéMON fighting\nthe freezing effects of ice…" text_4="I see ICE-type POKéMON…\p…And, I see your POKéMON fighting\nthe freezing effects of ice…" text_5="I see ICE-type POKéMON…\p…And, I see your POKéMON fighting\nthe freezing effects of ice…" text_6="I see ICE-type POKéMON…\p…And, I see your POKéMON fighting\nthe freezing effects of ice…"
+    0829D4C0  callstd              function=MSGBOX_DEFAULT(4)
+    0829D4C2  return               
+
+  script 0x0829D4C3  [ok]
+    0829D4C3  msgbox_multilang     type=0 text_0="I see a flurry of moves that imperil\nthe user…\p…And, I see your POKéMON falling\nto them…" text_1="I see a flurry of moves that imperil\nthe user…\p…And, I see your POKéMON falling\nto them…" text_2="I see a flurry of moves that imperil\nthe user…\p…And, I see your POKéMON falling\nto them…" text_3="I see a flurry of moves that imperil\nthe user…\p…And, I see your POKéMON falling\nto them…" text_4="I see a flurry of moves that imperil\nthe user…\p…And, I see your POKéMON falling\nto them…" text_5="I see a flurry of moves that imperil\nthe user…\p…And, I see your POKéMON falling\nto them…" text_6="I see a flurry of moves that imperil\nthe user…\p…And, I see your POKéMON falling\nto them…"
+    0829D4E1  callstd              function=MSGBOX_DEFAULT(4)
+    0829D4E3  return               
+
+  script 0x0829D4E4  [ok]
+    0829D4E4  msgbox_multilang     type=0 text_0="I see PSYCHIC-type POKéMON…\p…And, I see your POKéMON in torment\nfrom PSYCHIC moves…" text_1="I see PSYCHIC-type POKéMON…\p…And, I see your POKéMON in torment\nfrom PSYCHIC moves…" text_2="I see PSYCHIC-type POKéMON…\p…And, I see your POKéMON in torment\nfrom PSYCHIC moves…" text_3="I see PSYCHIC-type POKéMON…\p…And, I see your POKéMON in torment\nfrom PSYCHIC moves…" text_4="I see PSYCHIC-type POKéMON…\p…And, I see your POKéMON in torment\nfrom PSYCHIC moves…" text_5="I see PSYCHIC-type POKéMON…\p…And, I see your POKéMON in torment\nfrom PSYCHIC moves…" text_6="I see PSYCHIC-type POKéMON…\p…And, I see your POKéMON in torment\nfrom PSYCHIC moves…"
+    0829D502  callstd              function=MSGBOX_DEFAULT(4)
+    0829D504  return               
+
+  script 0x0829D505  [ok]
+    0829D505  msgbox_multilang     type=0 text_0="I see ROCK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom ROCK moves…" text_1="I see ROCK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom ROCK moves…" text_2="I see ROCK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom ROCK moves…" text_3="I see ROCK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom ROCK moves…" text_4="I see ROCK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom ROCK moves…" text_5="I see ROCK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom ROCK moves…" text_6="I see ROCK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom ROCK moves…"
+    0829D523  callstd              function=MSGBOX_DEFAULT(4)
+    0829D525  return               
+
+  script 0x0829D526  [ok]
+    0829D526  msgbox_multilang     type=0 text_0="I see FIGHTING-type POKéMON…\p…And, I see your POKéMON pummeled\nby FIGHTING moves…" text_1="I see FIGHTING-type POKéMON…\p…And, I see your POKéMON pummeled\nby FIGHTING moves…" text_2="I see FIGHTING-type POKéMON…\p…And, I see your POKéMON pummeled\nby FIGHTING moves…" text_3="I see FIGHTING-type POKéMON…\p…And, I see your POKéMON pummeled\nby FIGHTING moves…" text_4="I see FIGHTING-type POKéMON…\p…And, I see your POKéMON pummeled\nby FIGHTING moves…" text_5="I see FIGHTING-type POKéMON…\p…And, I see your POKéMON pummeled\nby FIGHTING moves…" text_6="I see FIGHTING-type POKéMON…\p…And, I see your POKéMON pummeled\nby FIGHTING moves…"
+    0829D544  callstd              function=MSGBOX_DEFAULT(4)
+    0829D546  return               
+
+  script 0x0829D547  [ok]
+    0829D547  msgbox_multilang     type=0 text_0="RAIN DANCE… SUNNY DAY…\nSANDSTORM… HAIL…\pI see POKéMON that become stronger\nwith the weather…\p…And, I see your POKéMON confounded\nby different types of moves…" text_1="RAIN DANCE… SUNNY DAY…\nSANDSTORM… HAIL…\pI see POKéMON that become stronger\nwith the weather…\p…And, I see your POKéMON confounded\nby different types of moves…" text_2="RAIN DANCE… SUNNY DAY…\nSANDSTORM… HAIL…\pI see POKéMON that become stronger\nwith the weather…\p…And, I see your POKéMON confounded\nby different types of moves…" text_3="RAIN DANCE… SUNNY DAY…\nSANDSTORM… HAIL…\pI see POKéMON that become stronger\nwith the weather…\p…And, I see your POKéMON confounded\nby different types of moves…" text_4="RAIN DANCE… SUNNY DAY…\nSANDSTORM… HAIL…\pI see POKéMON that become stronger\nwith the weather…\p…And, I see your POKéMON confounded\nby different types of moves…" text_5="RAIN DANCE… SUNNY DAY…\nSANDSTORM… HAIL…\pI see POKéMON that become stronger\nwith the weather…\p…And, I see your POKéMON confounded\nby different types of moves…" text_6="RAIN DANCE… SUNNY DAY…\nSANDSTORM… HAIL…\pI see POKéMON that become stronger\nwith the weather…\p…And, I see your POKéMON confounded\nby different types of moves…"
+    0829D565  callstd              function=MSGBOX_DEFAULT(4)
+    0829D567  return               
+
+  script 0x0829D568  [ok]
+    0829D568  msgbox_multilang     type=0 text_0="I see BUG-type POKéMON…\p…And, I see your POKéMON suffering\nfrom different kinds of attacks…" text_1="I see BUG-type POKéMON…\p…And, I see your POKéMON suffering\nfrom different kinds of attacks…" text_2="I see BUG-type POKéMON…\p…And, I see your POKéMON suffering\nfrom different kinds of attacks…" text_3="I see BUG-type POKéMON…\p…And, I see your POKéMON suffering\nfrom different kinds of attacks…" text_4="I see BUG-type POKéMON…\p…And, I see your POKéMON suffering\nfrom different kinds of attacks…" text_5="I see BUG-type POKéMON…\p…And, I see your POKéMON suffering\nfrom different kinds of attacks…" text_6="I see BUG-type POKéMON…\p…And, I see your POKéMON suffering\nfrom different kinds of attacks…"
+    0829D586  callstd              function=MSGBOX_DEFAULT(4)
+    0829D588  return               
+
+  script 0x0829D589  [ok]
+    0829D589  msgbox_multilang     type=0 text_0="I see DARK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom DARK-type moves…" text_1="I see DARK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom DARK-type moves…" text_2="I see DARK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom DARK-type moves…" text_3="I see DARK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom DARK-type moves…" text_4="I see DARK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom DARK-type moves…" text_5="I see DARK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom DARK-type moves…" text_6="I see DARK-type POKéMON…\p…And, I see your POKéMON suffering\nfrom DARK-type moves…"
+    0829D5A7  callstd              function=MSGBOX_DEFAULT(4)
+    0829D5A9  return               
+
+  script 0x0829D5AA  [ok]
+    0829D5AA  msgbox_multilang     type=0 text_0="I see WATER-type POKéMON…\p…And, I see your POKéMON suffering\nfrom WATER-type moves…" text_1="I see WATER-type POKéMON…\p…And, I see your POKéMON suffering\nfrom WATER-type moves…" text_2="I see WATER-type POKéMON…\p…And, I see your POKéMON suffering\nfrom WATER-type moves…" text_3="I see WATER-type POKéMON…\p…And, I see your POKéMON suffering\nfrom WATER-type moves…" text_4="I see WATER-type POKéMON…\p…And, I see your POKéMON suffering\nfrom WATER-type moves…" text_5="I see WATER-type POKéMON…\p…And, I see your POKéMON suffering\nfrom WATER-type moves…" text_6="I see WATER-type POKéMON…\p…And, I see your POKéMON suffering\nfrom WATER-type moves…"
+    0829D5C8  callstd              function=MSGBOX_DEFAULT(4)
+    0829D5CA  return               
+
+  script 0x0829D5CB  [ok]
+    0829D5CB  msgbox_multilang     type=0 text_0="I see GHOST-type POKéMON…\p…And, I see your POKéMON suffering\nfrom GHOST-type moves…" text_1="I see GHOST-type POKéMON…\p…And, I see your POKéMON suffering\nfrom GHOST-type moves…" text_2="I see GHOST-type POKéMON…\p…And, I see your POKéMON suffering\nfrom GHOST-type moves…" text_3="I see GHOST-type POKéMON…\p…And, I see your POKéMON suffering\nfrom GHOST-type moves…" text_4="I see GHOST-type POKéMON…\p…And, I see your POKéMON suffering\nfrom GHOST-type moves…" text_5="I see GHOST-type POKéMON…\p…And, I see your POKéMON suffering\nfrom GHOST-type moves…" text_6="I see GHOST-type POKéMON…\p…And, I see your POKéMON suffering\nfrom GHOST-type moves…"
+    0829D5E9  callstd              function=MSGBOX_DEFAULT(4)
+    0829D5EB  return               
+
+  script 0x0829D5EC  [ok]
+    0829D5EC  msgbox_multilang     type=0 text_0="I see STEEL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_1="I see STEEL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_2="I see STEEL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_3="I see STEEL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_4="I see STEEL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_5="I see STEEL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_6="I see STEEL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…"
+    0829D60A  callstd              function=MSGBOX_DEFAULT(4)
+    0829D60C  return               
+
+  script 0x0829D60D  [ok]
+    0829D60D  msgbox_multilang     type=0 text_0="I see flying POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_1="I see flying POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_2="I see flying POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_3="I see flying POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_4="I see flying POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_5="I see flying POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_6="I see flying POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…"
+    0829D62B  callstd              function=MSGBOX_DEFAULT(4)
+    0829D62D  return               
+
+  script 0x0829D62E  [ok]
+    0829D62E  msgbox_multilang     type=0 text_0="I see those that have evolved from\nthe power of stones…\pI also sense fire, water,\nand electricity…\p…And, I see your POKéMON suffering\nfrom those three powers…" text_1="I see those that have evolved from\nthe power of stones…\pI also sense fire, water,\nand electricity…\p…And, I see your POKéMON suffering\nfrom those three powers…" text_2="I see those that have evolved from\nthe power of stones…\pI also sense fire, water,\nand electricity…\p…And, I see your POKéMON suffering\nfrom those three powers…" text_3="I see those that have evolved from\nthe power of stones…\pI also sense fire, water,\nand electricity…\p…And, I see your POKéMON suffering\nfrom those three powers…" text_4="I see those that have evolved from\nthe power of stones…\pI also sense fire, water,\nand electricity…\p…And, I see your POKéMON suffering\nfrom those three powers…" text_5="I see those that have evolved from\nthe power of stones…\pI also sense fire, water,\nand electricity…\p…And, I see your POKéMON suffering\nfrom those three powers…" text_6="I see those that have evolved from\nthe power of stones…\pI also sense fire, water,\nand electricity…\p…And, I see your POKéMON suffering\nfrom those three powers…"
+    0829D64C  callstd              function=MSGBOX_DEFAULT(4)
+    0829D64E  return               
+
+  script 0x0829D64F  [ok]
+    0829D64F  msgbox_multilang     type=0 text_0="I see NORMAL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_1="I see NORMAL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_2="I see NORMAL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_3="I see NORMAL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_4="I see NORMAL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_5="I see NORMAL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…" text_6="I see NORMAL-type POKéMON…\p…And, I see your POKéMON suffering\nfrom enormously powerful moves…"
+    0829D66D  callstd              function=MSGBOX_DEFAULT(4)
+    0829D66F  return               
+
+  object 3 (gfx 0x18, flag 0x0000) -> 0x0829D8D1
+  script 0x0829D8D1  [ok]
+    0829D8D1  msgbox_multilang     type=0 text_0="Did you know?\pIf you run fast, TRAINERS may notice\nand come after you for a battle.\pSo, if you want to avoid TRAINERS,\ndon’t catch their eyes, but sneak\pcautiously and quietly past them." text_1="Did you know?\pIf you run fast, TRAINERS may notice\nand come after you for a battle.\pSo, if you want to avoid TRAINERS,\ndon’t catch their eyes, but sneak\pcautiously and quietly past them." text_2="Did you know?\pIf you run fast, TRAINERS may notice\nand come after you for a battle.\pSo, if you want to avoid TRAINERS,\ndon’t catch their eyes, but sneak\pcautiously and quietly past them." text_3="Did you know?\pIf you run fast, TRAINERS may notice\nand come after you for a battle.\pSo, if you want to avoid TRAINERS,\ndon’t catch their eyes, but sneak\pcautiously and quietly past them." text_4="Did you know?\pIf you run fast, TRAINERS may notice\nand come after you for a battle.\pSo, if you want to avoid TRAINERS,\ndon’t catch their eyes, but sneak\pcautiously and quietly past them." text_5="Did you know?\pIf you run fast, TRAINERS may notice\nand come after you for a battle.\pSo, if you want to avoid TRAINERS,\ndon’t catch their eyes, but sneak\pcautiously and quietly past them." text_6="Did you know?\pIf you run fast, TRAINERS may notice\nand come after you for a battle.\pSo, if you want to avoid TRAINERS,\ndon’t catch their eyes, but sneak\pcautiously and quietly past them."
+    0829D8EF  callstd              function=MSGBOX_NPC(2)
+    0829D8F1  end                  
+
+  object 4 (gfx 0x11, flag 0x0000) -> 0x0829D8F2
+  script 0x0829D8F2  [ok]
+    0829D8F2  msgbox_multilang     type=0 text_0="Awaaaaaaarrrrgh!\pI had a whole lot of items, but I lost\nthem all when I lost!\pAwaaaaaaarrrrgh!" text_1="Awaaaaaaarrrrgh!\pI had a whole lot of items, but I lost\nthem all when I lost!\pAwaaaaaaarrrrgh!" text_2="Awaaaaaaarrrrgh!\pI had a whole lot of items, but I lost\nthem all when I lost!\pAwaaaaaaarrrrgh!" text_3="Awaaaaaaarrrrgh!\pI had a whole lot of items, but I lost\nthem all when I lost!\pAwaaaaaaarrrrgh!" text_4="Awaaaaaaarrrrgh!\pI had a whole lot of items, but I lost\nthem all when I lost!\pAwaaaaaaarrrrgh!" text_5="Awaaaaaaarrrrgh!\pI had a whole lot of items, but I lost\nthem all when I lost!\pAwaaaaaaarrrrgh!" text_6="Awaaaaaaarrrrgh!\pI had a whole lot of items, but I lost\nthem all when I lost!\pAwaaaaaaarrrrgh!"
+    0829D910  callstd              function=MSGBOX_NPC(2)
+    0829D912  end                  
+
+  sign 0 at (5,12) -> 0x0829D670
+  script 0x0829D670  [ok]
+    0829D670  lockall              
+    0829D671  setvar               destination=VAR_0x8004 value=7
+    0829D676  setvar               destination=VAR_0x8005 value=6
+    0829D67B  special              SPECIAL_\function=148
+    0829D67E  waitbuttonpress      
+    0829D67F  special              SPECIAL_\function=342
+    0829D682  releaseall           
+
+  sign 1 at (1,12) -> 0x0829D913
+  script 0x0829D913  [ok]
+    0829D913  lockall              
+    0829D914  msgbox_multilang     type=0 text_0="The Battle Quest rules are listed." text_1="The Battle Quest rules are listed." text_2="The Battle Quest rules are listed." text_3="The Battle Quest rules are listed." text_4="The Battle Quest rules are listed." text_5="The Battle Quest rules are listed." text_6="The Battle Quest rules are listed."
+    0829D932  callstd              function=MSGBOX_DEFAULT(4)
+    0829D934  goto                 destination=0x0829D93A
+
+  script 0x0829D93A  [unknown-opcode:0xE7]
+    0829D93A  message              text="Which heading do you want to read?"
+
+  map script type 2 (var 0x4000 == 0) -> 0x0829CC41
+  script 0x0829CC41  [ok]
+    0829CC41  setvar               destination=VAR_0x8004 value=0
+    0829CC46  special              SPECIAL_\function=148
+    0829CC49  end                  
+
+  map script type 2 (var 0x4000 == 1) -> 0x0829CC4A
+  script 0x0829CC4A  [unknown-opcode:0xE4]
+    0829CC4A  lockall              
+    0829CC4B  message              text="A major problem, explorer!\pYou did not save before ending\nyour challenge the last time.\pConsequently, your challenge has\nbeen disqualified, I’m sorry to say.\pHere is the BAG we’ve been holding\nfor you.\p{PLAYER} got the BAG back."
+
+  map script type 2 (var 0x4000 == 2) -> 0x0829CEA0
+  script 0x0829CEA0  [ok]
+    0829CEA0  goto                 destination=0x0829D092
+
+  script 0x0829D092  [ok]
+    0829D092  special              SPECIAL_\function=18
+    0829D095  setvar               destination=VAR_0x8004 value=3
+    0829D09A  setvar               destination=VAR_0x8005 value=3
+    0829D09F  special              SPECIAL_\function=148
+    0829D0A2  msgbox_multilang     type=0 text_0="Very good. I will now show you into\nthe BATTLE PYRAMID." text_1="Very good. I will now show you into\nthe BATTLE PYRAMID." text_2="Very good. I will now show you into\nthe BATTLE PYRAMID." text_3="Very good. I will now show you into\nthe BATTLE PYRAMID." text_4="Very good. I will now show you into\nthe BATTLE PYRAMID." text_5="Very good. I will now show you into\nthe BATTLE PYRAMID." text_6="Very good. I will now show you into\nthe BATTLE PYRAMID."
+    0829D0C0  callstd              function=MSGBOX_DEFAULT(4)
+    0829D0C2  closemessage         
+    0829D0C3  call                 destination=0x0829D684
+    0829D0C8  setvar               destination=VAR_0x8004 value=2
+    0829D0CD  setvar               destination=VAR_0x8005 value=0
+    0829D0D2  setvar               destination=VAR_0x8006 value=0
+    0829D0D7  special              SPECIAL_\function=148
+    0829D0DA  setvar               destination=VAR_0x800D value=0
+    0829D0DF  special              SPECIAL_\function=0
+    0829D0E2  warp                 mapGroup=41 mapNum=17 WARP_ID_NONE=255 -1=1 -1=1
+    0829D0EA  setvar               destination=VAR_0x4000 value=0
+    0829D0EF  waitstate            
+
+  script 0x0829D684  [ok]
+    0829D684  applymovement        localId=1 movements=[walk_up walk_up walk_up walk_up walk_up walk_up walk_up face_down]
+    0829D68B  applymovement        localId=255 movements=[walk_up walk_up walk_up walk_up walk_up walk_up walk_up]
+    0829D692  waitmovement         localId=0
+    0829D695  msgbox_multilang     type=0 text_0="We will hold your BAG for safekeeping,\n{PLAYER}, while you are exploring." text_1="We will hold your BAG for safekeeping,\n{PLAYER}, while you are exploring." text_2="We will hold your BAG for safekeeping,\n{PLAYER}, while you are exploring." text_3="We will hold your BAG for safekeeping,\n{PLAYER}, while you are exploring." text_4="We will hold your BAG for safekeeping,\n{PLAYER}, while you are exploring." text_5="We will hold your BAG for safekeeping,\n{PLAYER}, while you are exploring." text_6="We will hold your BAG for safekeeping,\n{PLAYER}, while you are exploring."
+    0829D6B3  callstd              function=MSGBOX_DEFAULT(4)
+    0829D6B5  setvar               destination=VAR_0x8004 value=1
+    0829D6BA  setvar               destination=VAR_0x8005 value=1
+    0829D6BF  special              SPECIAL_\function=156
+    0829D6C2  compare_var_to_value var=0x800D value=0
+    0829D6C7  goto_if              condition=1 destination=0x0829D6F2
+    0829D6CD  msgbox_multilang     type=0 text_0="In exchange, please take this BATTLE\nBAG, the one you used previously." text_1="In exchange, please take this BATTLE\nBAG, the one you used previously." text_2="In exchange, please take this BATTLE\nBAG, the one you used previously." text_3="In exchange, please take this BATTLE\nBAG, the one you used previously." text_4="In exchange, please take this BATTLE\nBAG, the one you used previously." text_5="In exchange, please take this BATTLE\nBAG, the one you used previously." text_6="In exchange, please take this BATTLE\nBAG, the one you used previously."
+    0829D6EB  callstd              function=MSGBOX_DEFAULT(4)
+    0829D6ED  goto                 destination=0x0829D712
+
+  script 0x0829D6F2  [ok]
+    0829D6F2  msgbox_multilang     type=0 text_0="In exchange, please take this\nBATTLE BAG." text_1="In exchange, please take this\nBATTLE BAG." text_2="In exchange, please take this\nBATTLE BAG." text_3="In exchange, please take this\nBATTLE BAG." text_4="In exchange, please take this\nBATTLE BAG." text_5="In exchange, please take this\nBATTLE BAG." text_6="In exchange, please take this\nBATTLE BAG."
+    0829D710  callstd              function=MSGBOX_DEFAULT(4)
+    0829D712  message              text="{PLAYER} exchanged the BAG for\nthe BATTLE BAG."
+    0829D717  initclock            hour=10721 minute=11272
+    0829D71C  buffercontestname    stringVarId=41 category=11272
+    0829D720  buffercontestname    stringVarId=41 category=11272
+    0829D724  buffercontestname    stringVarId=41 category=11272
+    0829D728  buffercontestname    stringVarId=41 category=11272
+    0829D72C  buffercontestname    stringVarId=41 category=26120
+    0829D730  playse               song=91
+    0829D733  waitse               
+    0829D734  msgbox_multilang     type=0 text_0="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_1="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_2="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_3="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_4="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_5="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_6="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!"
+    0829D752  callstd              function=MSGBOX_DEFAULT(4)
+    0829D754  closemessage         
+    0829D755  applymovement        localId=1 movements=[walk_right face_left]
+    0829D75C  waitmovement         localId=0
+    0829D75F  applymovement        localId=255 movements=[walk_up walk_up]
+    0829D766  waitmovement         localId=0
+    0829D769  return               
+
+  script 0x0829D712  [ok]
+    0829D712  message              text="{PLAYER} exchanged the BAG for\nthe BATTLE BAG."
+    0829D717  initclock            hour=10721 minute=11272
+    0829D71C  buffercontestname    stringVarId=41 category=11272
+    0829D720  buffercontestname    stringVarId=41 category=11272
+    0829D724  buffercontestname    stringVarId=41 category=11272
+    0829D728  buffercontestname    stringVarId=41 category=11272
+    0829D72C  buffercontestname    stringVarId=41 category=26120
+    0829D730  playse               song=91
+    0829D733  waitse               
+    0829D734  msgbox_multilang     type=0 text_0="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_1="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_2="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_3="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_4="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_5="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!" text_6="When you step on this floor panel,\nyou will be transported to a higher\pfloor in the PYRAMID.\pI hope for your sake that your\nquest goes safely!"
+    0829D752  callstd              function=MSGBOX_DEFAULT(4)
+    0829D754  closemessage         
+    0829D755  applymovement        localId=1 movements=[walk_right face_left]
+    0829D75C  waitmovement         localId=0
+    0829D75F  applymovement        localId=255 movements=[walk_up walk_up]
+    0829D766  waitmovement         localId=0
+    0829D769  return               
+
+  map script type 2 (var 0x4000 == 3) -> 0x0829CCAB
+  script 0x0829CCAB  [ok]
+    0829CCAB  lockall              
+    0829CCAC  setvar               destination=VAR_0x8004 value=10
+    0829CCB1  special              SPECIAL_\function=148
+    0829CCB4  compare_var_to_value var=0x800D value=1
+    0829CCB9  goto_if              condition=1 destination=0x0829CCE4
+    0829CCBF  msgbox_multilang     type=0 text_0="Excellent to see you back!\pYou’ve conquered the PYRAMID!\nHow splendid!" text_1="Excellent to see you back!\pYou’ve conquered the PYRAMID!\nHow splendid!" text_2="Excellent to see you back!\pYou’ve conquered the PYRAMID!\nHow splendid!" text_3="Excellent to see you back!\pYou’ve conquered the PYRAMID!\nHow splendid!" text_4="Excellent to see you back!\pYou’ve conquered the PYRAMID!\nHow splendid!" text_5="Excellent to see you back!\pYou’ve conquered the PYRAMID!\nHow splendid!" text_6="Excellent to see you back!\pYou’ve conquered the PYRAMID!\nHow splendid!"
+    0829CCDD  callstd              function=MSGBOX_DEFAULT(4)
+    0829CCDF  goto                 destination=0x0829CD04
+
+  script 0x0829CCE4  [unknown-opcode:0xE5]
+    0829CCE4  msgbox_multilang     type=0 text_0="Welcome back!\nYou’ve done the unthinkable!\pYou’ve defeated the PYRAMID KING\nand conquered the BATTLE PYRAMID!" text_1="Welcome back!\nYou’ve done the unthinkable!\pYou’ve defeated the PYRAMID KING\nand conquered the BATTLE PYRAMID!" text_2="Welcome back!\nYou’ve done the unthinkable!\pYou’ve defeated the PYRAMID KING\nand conquered the BATTLE PYRAMID!" text_3="Welcome back!\nYou’ve done the unthinkable!\pYou’ve defeated the PYRAMID KING\nand conquered the BATTLE PYRAMID!" text_4="Welcome back!\nYou’ve done the unthinkable!\pYou’ve defeated the PYRAMID KING\nand conquered the BATTLE PYRAMID!" text_5="Welcome back!\nYou’ve done the unthinkable!\pYou’ve defeated the PYRAMID KING\nand conquered the BATTLE PYRAMID!" text_6="Welcome back!\nYou’ve done the unthinkable!\pYou’ve defeated the PYRAMID KING\nand conquered the BATTLE PYRAMID!"
+    0829CD02  callstd              function=MSGBOX_DEFAULT(4)
+    0829CD04  special              SPECIAL_\function=289
+    0829CD07  compare_var_to_value var=0x800D value=1
+    0829CD0C  call_if              condition=1 destination=0x0829D781
+    0829CD12  clearflag            flag=0x4004 (temp)
+    0829CD15  setvar               destination=VAR_0x8004 value=8
+    0829CD1A  special              SPECIAL_\function=148
+    0829CD1D  special              SPECIAL_\function=19
+    0829CD20  setvar               destination=VAR_0x8004 value=14
+    0829CD25  special              SPECIAL_\function=156
+    0829CD28  special              SPECIAL_\function=0
+    0829CD2B  callnative           func=0x080D5785
+    0829CD30  message              text="The BATTLE BAG you used will be kept\nin readiness for your next challenge.\p{PLAYER} turned the BATTLE BAG over\nfor the BAG’s return."
+    0829CD35  goto_if              condition=229 destination=3842377769
+    0829CD3B  setflag              flag=0x608
+
+  script 0x0829CD04  [unknown-opcode:0xE5]
+    0829CD04  special              SPECIAL_\function=289
+    0829CD07  compare_var_to_value var=0x800D value=1
+    0829CD0C  call_if              condition=1 destination=0x0829D781
+    0829CD12  clearflag            flag=0x4004 (temp)
+    0829CD15  setvar               destination=VAR_0x8004 value=8
+    0829CD1A  special              SPECIAL_\function=148
+    0829CD1D  special              SPECIAL_\function=19
+    0829CD20  setvar               destination=VAR_0x8004 value=14
+    0829CD25  special              SPECIAL_\function=156
+    0829CD28  special              SPECIAL_\function=0
+    0829CD2B  callnative           func=0x080D5785
+    0829CD30  message              text="The BATTLE BAG you used will be kept\nin readiness for your next challenge.\p{PLAYER} turned the BATTLE BAG over\nfor the BAG’s return."
+    0829CD35  goto_if              condition=229 destination=3842377769
+    0829CD3B  setflag              flag=0x608
+
+  script 0x0829D781  [unknown-opcode:0xE3]
+    0829D781  msgbox_multilang     type=0 text_0="Ah, a slight problem.\pAt least one POKéMON is holding\nan item.\pI’m sorry to say, items obtained in\nthe PYRAMID cannot be taken away." text_1="Ah, a slight problem.\pAt least one POKéMON is holding\nan item.\pI’m sorry to say, items obtained in\nthe PYRAMID cannot be taken away." text_2="Ah, a slight problem.\pAt least one POKéMON is holding\nan item.\pI’m sorry to say, items obtained in\nthe PYRAMID cannot be taken away." text_3="Ah, a slight problem.\pAt least one POKéMON is holding\nan item.\pI’m sorry to say, items obtained in\nthe PYRAMID cannot be taken away." text_4="Ah, a slight problem.\pAt least one POKéMON is holding\nan item.\pI’m sorry to say, items obtained in\nthe PYRAMID cannot be taken away." text_5="Ah, a slight problem.\pAt least one POKéMON is holding\nan item.\pI’m sorry to say, items obtained in\nthe PYRAMID cannot be taken away." text_6="Ah, a slight problem.\pAt least one POKéMON is holding\nan item.\pI’m sorry to say, items obtained in\nthe PYRAMID cannot be taken away."
+    0829D79F  callstd              function=MSGBOX_DEFAULT(4)
+    0829D7A1  setflag              flag=0x4004 (temp)
+    0829D7A4  special              SPECIAL_\function=287
+    0829D7A7  compare_var_to_value var=0x800D value=0
+    0829D7AC  goto_if              condition=1 destination=0x0829D7D6
+    0829D7B2  message              text="The BATTLE BAG cannot hold all your\nitems, I’m sorry to say.\pPlease pick the items you’ll keep in the\nBATTLE BAG, and with your POKéMON."
+    0829D7B7  turnrotatingtileobjects 
+
+  script 0x0829D7D6  [ok]
+    0829D7D6  msgbox_multilang     type=0 text_0="All items held by your POKéMON will be\nmoved to your BATTLE BAG, {PLAYER}." text_1="All items held by your POKéMON will be\nmoved to your BATTLE BAG, {PLAYER}." text_2="All items held by your POKéMON will be\nmoved to your BATTLE BAG, {PLAYER}." text_3="All items held by your POKéMON will be\nmoved to your BATTLE BAG, {PLAYER}." text_4="All items held by your POKéMON will be\nmoved to your BATTLE BAG, {PLAYER}." text_5="All items held by your POKéMON will be\nmoved to your BATTLE BAG, {PLAYER}." text_6="All items held by your POKéMON will be\nmoved to your BATTLE BAG, {PLAYER}."
+    0829D7F4  callstd              function=MSGBOX_DEFAULT(4)
+    0829D7F6  return               
+
+  map script type 2 (var 0x4000 == 4) -> 0x0829CDF9
+  script 0x0829CDF9  [unknown-opcode:0xE5]
+    0829CDF9  setvar               destination=VAR_0x8004 value=8
+    0829CDFE  special              SPECIAL_\function=148
+    0829CE01  special              SPECIAL_\function=19
+    0829CE04  setvar               destination=VAR_0x8004 value=14
+    0829CE09  special              SPECIAL_\function=156
+    0829CE0C  special              SPECIAL_\function=0
+    0829CE0F  callnative           func=0x080D5785
+    0829CE14  lockall              
+    0829CE15  message              text="How disappointing for you…\pHere is the BAG we’ve been holding\nfor you.\p{PLAYER} got the BAG back."
+    0829CE1A  closemessage         
+    0829CE1B  msgbox_multilang     type=41 text_0=702965768 text_1=702965768 text_2=702965768 text_3=702965768 text_4=702965768 text_5=1529832968 text_6=2238132224
+
+  map script type 4 (var 0x4001 == 0) -> 0x08294C26
+  script 0x08294C26  [ok]
+    08294C26  setvar               destination=VAR_0x4001 value=1
+    08294C2B  turnobject           localId=255 direction=2
+    08294C2F  end                  
+

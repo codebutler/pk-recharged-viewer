@@ -1,0 +1,116 @@
+Cerulean City  (group 7, map 5)  header 0x08B3D080
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0xFC, flag 0x0000) -> 0x08257524
+  script 0x08257524  [ok]
+    08257524  trainerbattle        type=0 trainer=0xEA localId=0 ptr1=0x08257A64 ptr2=0x08257A87
+    08257532  setvar               destination=VAR_0x8004 value=3
+    08257537  setvar               destination=VAR_0x8005 value=2
+    0825753C  special              SPECIAL_\function=347
+    0825753F  msgbox_multilang     type=0 text_0="Misty is a Trainer who’s going to\nkeep improving.\pShe won’t lose to someone like you!" text_1="Misty is a Trainer who’s going to\nkeep improving.\pShe won’t lose to someone like you!" text_2="Misty is a Trainer who’s going to\nkeep improving.\pShe won’t lose to someone like you!" text_3="Misty is a Trainer who’s going to\nkeep improving.\pShe won’t lose to someone like you!" text_4="Misty is a Trainer who’s going to\nkeep improving.\pShe won’t lose to someone like you!" text_5="Misty is a Trainer who’s going to\nkeep improving.\pShe won’t lose to someone like you!" text_6="Misty is a Trainer who’s going to\nkeep improving.\pShe won’t lose to someone like you!"
+    0825755D  callstd              function=MSGBOX_AUTOCLOSE(6)
+    0825755F  end                  
+
+  object 2 (gfx 0x20, flag 0x0000) -> 0x082574F5
+  script 0x082574F5  [ok]
+    082574F5  trainerbattle        type=0 trainer=0x96 localId=0 ptr1=0x082579C1 ptr2=0x08257A10
+    08257503  msgbox_multilang     type=0 text_0="You have to face other Trainers\nto see how good you really are." text_1="You have to face other Trainers\nto see how good you really are." text_2="You have to face other Trainers\nto see how good you really are." text_3="You have to face other Trainers\nto see how good you really are." text_4="You have to face other Trainers\nto see how good you really are." text_5="You have to face other Trainers\nto see how good you really are." text_6="You have to face other Trainers\nto see how good you really are."
+    08257521  callstd              function=MSGBOX_AUTOCLOSE(6)
+    08257523  end                  
+
+  object 3 (gfx 0x1E, flag 0x0000) -> 0x0825737B
+  script 0x0825737B  [ok]
+    0825737B  checkflag            flag=0x864:GAME_CLEAR_CHAMPION
+    0825737E  goto_if              condition=1 destination=0x082573D3
+    08257384  setvar               destination=VAR_0x8004 value=3
+    08257389  setvar               destination=VAR_0x8005 value=2
+    0825738E  special              SPECIAL_\function=348
+    08257391  trainerbattle        type=1 trainer=0x19F localId=0 ptr1=0x0825770F ptr2=0x08257967 ptr3=0x08257433
+    082573A3  checkflag            flag=0x297
+    082573A6  goto_if              condition=0 destination=0x08257407
+    082573AC  speakername          name="Misty"
+    082573B1  msgbox_multilang     type=0 text_0="TM03 teaches Water Pulse.\pUse it on an aquatic Pokémon!" text_1="TM03 teaches Water Pulse.\pUse it on an aquatic Pokémon!" text_2="TM03 teaches Water Pulse.\pUse it on an aquatic Pokémon!" text_3="TM03 teaches Water Pulse.\pUse it on an aquatic Pokémon!" text_4="TM03 teaches Water Pulse.\pUse it on an aquatic Pokémon!" text_5="TM03 teaches Water Pulse.\pUse it on an aquatic Pokémon!" text_6="TM03 teaches Water Pulse.\pUse it on an aquatic Pokémon!"
+    082573CF  callstd              function=MSGBOX_DEFAULT(4)
+    082573D1  release              
+
+  script 0x082573D3  [ok]
+    082573D3  trainerbattle        type=1 trainer=0x2F0 localId=0 ptr1=0x08257609 ptr2=0x08257678 ptr3=0x08257411
+    082573E5  msgbox_multilang     type=0 text_0="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_1="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_2="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_3="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_4="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_5="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_6="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!"
+    08257403  callstd              function=MSGBOX_DEFAULT(4)
+    08257405  release              
+
+  script 0x08257433  [ok]
+    08257433  setvar               destination=VAR_0x8004 value=3
+    08257438  setvar               destination=VAR_0x8005 value=1
+    0825743D  special              SPECIAL_\function=347
+    08257440  addelevmenuitem      a=2 b=10496 c=1201 d=33065
+    08257448  gotostd              function=159
+    0825744A  call                 destination=2148013568
+    0825744F  end                  
+
+  script 0x08257407  [ok]
+    08257407  goto                 destination=0x0825745C
+
+  script 0x08257411  [ok]
+    08257411  msgbox_multilang     type=0 text_0="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_1="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_2="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_3="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_4="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_5="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!" text_6="I lost…\nI need to try swimming around for a\pbit so that I can clear my head of\pthese feelings.\p…I definitely won’t lose next time!"
+    0825742F  callstd              function=MSGBOX_DEFAULT(4)
+    08257431  release              
+
+  script 0x0825745C  [unknown-opcode:0xE9]
+    0825745C  msgbox_multilang     type=0 text_0="The CascadeBadge makes all\nPokémon up to Lv. 30 obey.\pThat includes even outsiders you\ngot in trades.\pThere’s more. You can now use Cut\nanytime, even out of battle.\pYou can Cut down small trees to\nopen new pathways.\pYou can also have my favorite TM." text_1="The CascadeBadge makes all\nPokémon up to Lv. 30 obey.\pThat includes even outsiders you\ngot in trades.\pThere’s more. You can now use Cut\nanytime, even out of battle.\pYou can Cut down small trees to\nopen new pathways.\pYou can also have my favorite TM." text_2="The CascadeBadge makes all\nPokémon up to Lv. 30 obey.\pThat includes even outsiders you\ngot in trades.\pThere’s more. You can now use Cut\nanytime, even out of battle.\pYou can Cut down small trees to\nopen new pathways.\pYou can also have my favorite TM." text_3="The CascadeBadge makes all\nPokémon up to Lv. 30 obey.\pThat includes even outsiders you\ngot in trades.\pThere’s more. You can now use Cut\nanytime, even out of battle.\pYou can Cut down small trees to\nopen new pathways.\pYou can also have my favorite TM." text_4="The CascadeBadge makes all\nPokémon up to Lv. 30 obey.\pThat includes even outsiders you\ngot in trades.\pThere’s more. You can now use Cut\nanytime, even out of battle.\pYou can Cut down small trees to\nopen new pathways.\pYou can also have my favorite TM." text_5="The CascadeBadge makes all\nPokémon up to Lv. 30 obey.\pThat includes even outsiders you\ngot in trades.\pThere’s more. You can now use Cut\nanytime, even out of battle.\pYou can Cut down small trees to\nopen new pathways.\pYou can also have my favorite TM." text_6="The CascadeBadge makes all\nPokémon up to Lv. 30 obey.\pThat includes even outsiders you\ngot in trades.\pThere’s more. You can now use Cut\nanytime, even out of battle.\pYou can Cut down small trees to\nopen new pathways.\pYou can also have my favorite TM."
+    0825747A  callstd              function=MSGBOX_DEFAULT(4)
+    0825747C  checkitemspace       itemId=TM03(291) quantity=1
+    08257481  compare_var_to_value var=0x800D value=0
+    08257486  goto_if              condition=1 destination=0x082574D3
+    0825748C  additem              itemId=TM03(291) quantity=1
+
+  script 0x082574D3  [ok]
+    082574D3  msgbox_multilang     type=0 text_0="You better make room for this!" text_1="You better make room for this!" text_2="You better make room for this!" text_3="You better make room for this!" text_4="You better make room for this!" text_5="You better make room for this!" text_6="You better make room for this!"
+    082574F1  callstd              function=MSGBOX_DEFAULT(4)
+    082574F3  release              
+
+  object 4 (gfx 0x27, flag 0x0000) -> 0x08257560
+  script 0x08257560  [ok]
+    08257560  lock                 
+    08257561  faceplayer           
+    08257562  checkflag            flag=0x4B1
+    08257565  goto_if              condition=1 destination=0x0825758D
+    0825756B  msgbox_multilang     type=0 text_0="Yo!\nChamp in the making!\pLet me give you some advice!\pThe Leader, Misty, is a pro who\nuses Water-type Pokémon.\pYou can drain all their water with\nGrass-type Pokémon.\pOr, you might use Electric-type\nPokémon and zap them!" text_1="Yo!\nChamp in the making!\pLet me give you some advice!\pThe Leader, Misty, is a pro who\nuses Water-type Pokémon.\pYou can drain all their water with\nGrass-type Pokémon.\pOr, you might use Electric-type\nPokémon and zap them!" text_2="Yo!\nChamp in the making!\pLet me give you some advice!\pThe Leader, Misty, is a pro who\nuses Water-type Pokémon.\pYou can drain all their water with\nGrass-type Pokémon.\pOr, you might use Electric-type\nPokémon and zap them!" text_3="Yo!\nChamp in the making!\pLet me give you some advice!\pThe Leader, Misty, is a pro who\nuses Water-type Pokémon.\pYou can drain all their water with\nGrass-type Pokémon.\pOr, you might use Electric-type\nPokémon and zap them!" text_4="Yo!\nChamp in the making!\pLet me give you some advice!\pThe Leader, Misty, is a pro who\nuses Water-type Pokémon.\pYou can drain all their water with\nGrass-type Pokémon.\pOr, you might use Electric-type\nPokémon and zap them!" text_5="Yo!\nChamp in the making!\pLet me give you some advice!\pThe Leader, Misty, is a pro who\nuses Water-type Pokémon.\pYou can drain all their water with\nGrass-type Pokémon.\pOr, you might use Electric-type\nPokémon and zap them!" text_6="Yo!\nChamp in the making!\pLet me give you some advice!\pThe Leader, Misty, is a pro who\nuses Water-type Pokémon.\pYou can drain all their water with\nGrass-type Pokémon.\pOr, you might use Electric-type\nPokémon and zap them!"
+    08257589  callstd              function=MSGBOX_DEFAULT(4)
+    0825758B  release              
+
+  script 0x0825758D  [ok]
+    0825758D  msgbox_multilang     type=0 text_0="You beat Misty!\nSee, what’d I tell ya?\pYou and me, kid, we make a pretty\ndarn-good team!" text_1="You beat Misty!\nSee, what’d I tell ya?\pYou and me, kid, we make a pretty\ndarn-good team!" text_2="You beat Misty!\nSee, what’d I tell ya?\pYou and me, kid, we make a pretty\ndarn-good team!" text_3="You beat Misty!\nSee, what’d I tell ya?\pYou and me, kid, we make a pretty\ndarn-good team!" text_4="You beat Misty!\nSee, what’d I tell ya?\pYou and me, kid, we make a pretty\ndarn-good team!" text_5="You beat Misty!\nSee, what’d I tell ya?\pYou and me, kid, we make a pretty\ndarn-good team!" text_6="You beat Misty!\nSee, what’d I tell ya?\pYou and me, kid, we make a pretty\ndarn-good team!"
+    082575AB  callstd              function=MSGBOX_DEFAULT(4)
+    082575AD  goto                 destination=0x0825758B
+
+  script 0x0825758B  [ok]
+    0825758B  release              
+
+  sign 0 at (6,17) -> 0x082575B2
+  script 0x082575B2  [ok]
+    082575B2  lockall              
+    082575B3  checkflag            flag=0x881:BADGE2_CASCADE
+    082575B6  goto_if              condition=1 destination=0x082575DE
+    082575BC  msgbox_multilang     type=0 text_0="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}" text_1="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}" text_2="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}" text_3="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}" text_4="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}" text_5="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}" text_6="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}"
+    082575DA  callstd              function=MSGBOX_DEFAULT(4)
+    082575DC  releaseall           
+
+  script 0x082575DE  [ok]
+    082575DE  msgbox_multilang     type=0 text_0="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_1="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_2="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_3="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_4="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_5="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}, {PLAYER}" text_6="Cerulean Pokémon Gym\nLeader: Misty\pWinning Trainers:\n{RIVAL}, {PLAYER}"
+    082575FC  callstd              function=MSGBOX_DEFAULT(4)
+    082575FE  goto                 destination=0x082575DC
+
+  script 0x082575DC  [ok]
+    082575DC  releaseall           
+
+  sign 1 at (10,17) -> 0x082575B2

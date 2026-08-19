@@ -1,0 +1,60 @@
+Pewter City  (group 6, map 1)  header 0x08B3CF30
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x08, flag 0x0000) -> 0x08251EDD
+  script 0x08251EDD  [ok]
+    08251EDD  msgbox_multilang     type=0 text_0="This month, we’re running a space\nexhibit." text_1="This month, we’re running a space\nexhibit." text_2="This month, we’re running a space\nexhibit." text_3="This month, we’re running a space\nexhibit." text_4="This month, we’re running a space\nexhibit." text_5="This month, we’re running a space\nexhibit." text_6="This month, we’re running a space\nexhibit."
+    08251EFB  callstd              function=MSGBOX_NPC(2)
+    08251EFD  end                  
+
+  object 2 (gfx 0xF2, flag 0x0000) -> 0x08251E9B
+  script 0x08251E9B  [ok]
+    08251E9B  msgbox_multilang     type=0 text_0="Moon Stone, huh?\pWhat’s so special about it?\nLooks like an ordinary rock to me." text_1="Moon Stone, huh?\pWhat’s so special about it?\nLooks like an ordinary rock to me." text_2="Moon Stone, huh?\pWhat’s so special about it?\nLooks like an ordinary rock to me." text_3="Moon Stone, huh?\pWhat’s so special about it?\nLooks like an ordinary rock to me." text_4="Moon Stone, huh?\pWhat’s so special about it?\nLooks like an ordinary rock to me." text_5="Moon Stone, huh?\pWhat’s so special about it?\nLooks like an ordinary rock to me." text_6="Moon Stone, huh?\pWhat’s so special about it?\nLooks like an ordinary rock to me."
+    08251EB9  callstd              function=MSGBOX_NPC(2)
+    08251EBB  end                  
+
+  object 3 (gfx 0xF6, flag 0x0000) -> 0x08251EBC
+  script 0x08251EBC  [ok]
+    08251EBC  msgbox_multilang     type=0 text_0="July 20, 1969!\pHumankind first set foot on the\nmoon that day.\pI bought a color TV just so I\ncould watch that news." text_1="July 20, 1969!\pHumankind first set foot on the\nmoon that day.\pI bought a color TV just so I\ncould watch that news." text_2="July 20, 1969!\pHumankind first set foot on the\nmoon that day.\pI bought a color TV just so I\ncould watch that news." text_3="July 20, 1969!\pHumankind first set foot on the\nmoon that day.\pI bought a color TV just so I\ncould watch that news." text_4="July 20, 1969!\pHumankind first set foot on the\nmoon that day.\pI bought a color TV just so I\ncould watch that news." text_5="July 20, 1969!\pHumankind first set foot on the\nmoon that day.\pI bought a color TV just so I\ncould watch that news." text_6="July 20, 1969!\pHumankind first set foot on the\nmoon that day.\pI bought a color TV just so I\ncould watch that news."
+    08251EDA  callstd              function=MSGBOX_NPC(2)
+    08251EDC  end                  
+
+  object 4 (gfx 0x0C, flag 0x0000) -> 0x08251EFE
+  script 0x08251EFE  [ok]
+    08251EFE  msgbox_multilang     type=0 text_0="I want a Pikachu!\nIt’s so cute!\pI asked my daddy to catch me one!" text_1="I want a Pikachu!\nIt’s so cute!\pI asked my daddy to catch me one!" text_2="I want a Pikachu!\nIt’s so cute!\pI asked my daddy to catch me one!" text_3="I want a Pikachu!\nIt’s so cute!\pI asked my daddy to catch me one!" text_4="I want a Pikachu!\nIt’s so cute!\pI asked my daddy to catch me one!" text_5="I want a Pikachu!\nIt’s so cute!\pI asked my daddy to catch me one!" text_6="I want a Pikachu!\nIt’s so cute!\pI asked my daddy to catch me one!"
+    08251F1C  callstd              function=MSGBOX_NPC(2)
+    08251F1E  end                  
+
+  object 5 (gfx 0xF4, flag 0x0000) -> 0x08251F1F
+  script 0x08251F1F  [ok]
+    08251F1F  msgbox_multilang     type=0 text_0="Yeah, a Pikachu soon, I promise!" text_1="Yeah, a Pikachu soon, I promise!" text_2="Yeah, a Pikachu soon, I promise!" text_3="Yeah, a Pikachu soon, I promise!" text_4="Yeah, a Pikachu soon, I promise!" text_5="Yeah, a Pikachu soon, I promise!" text_6="Yeah, a Pikachu soon, I promise!"
+    08251F3D  callstd              function=MSGBOX_NPC(2)
+    08251F3F  end                  
+
+  sign 0 at (3,6) -> 0x08251F61
+  script 0x08251F61  [ok]
+    08251F61  msgbox_multilang     type=0 text_0="A meteorite that fell on Mt. Moon.\nIt is thought to be a Moon Stone." text_1="A meteorite that fell on Mt. Moon.\nIt is thought to be a Moon Stone." text_2="A meteorite that fell on Mt. Moon.\nIt is thought to be a Moon Stone." text_3="A meteorite that fell on Mt. Moon.\nIt is thought to be a Moon Stone." text_4="A meteorite that fell on Mt. Moon.\nIt is thought to be a Moon Stone." text_5="A meteorite that fell on Mt. Moon.\nIt is thought to be a Moon Stone." text_6="A meteorite that fell on Mt. Moon.\nIt is thought to be a Moon Stone."
+    08251F7F  callstd              function=MSGBOX_SIGN(3)
+    08251F81  end                  
+
+  sign 1 at (15,5) -> 0x08251F40
+  script 0x08251F40  [ok]
+    08251F40  msgbox_multilang     type=0 text_0="Space Shuttle" text_1="Space Shuttle" text_2="Space Shuttle" text_3="Space Shuttle" text_4="Space Shuttle" text_5="Space Shuttle" text_6="Space Shuttle"
+    08251F5E  callstd              function=MSGBOX_SIGN(3)
+    08251F60  end                  
+
+  sign 2 at (14,5) -> 0x08251F40
+  sign 3 at (16,5) -> 0x08251F40
+  sign 4 at (14,4) -> 0x08251F40
+  sign 5 at (15,4) -> 0x08251F40
+  sign 6 at (16,4) -> 0x08251F40
+  sign 7 at (3,5) -> 0x08251F61

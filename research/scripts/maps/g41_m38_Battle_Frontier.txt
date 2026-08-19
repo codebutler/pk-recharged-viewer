@@ -1,0 +1,46 @@
+Battle Frontier  (group 41, map 38)  header 0x08B3E4D8
+========================================================================
+Legend: the leading 8-digit column is the instruction's
+ROM address. Remaining raw hex is deliberate:
+  gfx 0xNN     object sprite id (no name table extracted)
+  trainer=0xN  trainer id (trainer table not dumped yet)
+  flag=0xNNN   unnamed flag; '(temp)' = volatile, not saved
+  var=0x4NNN   unnamed var; var 0x4000+i lives at
+               SB1+0x1028+2i, so it is cross-referable
+               with a parsed save's storyVars
+  0x08......   a ROM pointer (script, text or data)
+
+  object 1 (gfx 0x0C, flag 0x0000) -> 0x082B3644
+  script 0x082B3644  [ok]
+    082B3644  lock                 
+    082B3645  faceplayer           
+    082B3646  msgbox_multilang     type=0 text_0="Ehehe!\nI can tell what POKéMON are thinking!\pPlease!\nCan I see your POKéMON?" text_1="Ehehe!\nI can tell what POKéMON are thinking!\pPlease!\nCan I see your POKéMON?" text_2="Ehehe!\nI can tell what POKéMON are thinking!\pPlease!\nCan I see your POKéMON?" text_3="Ehehe!\nI can tell what POKéMON are thinking!\pPlease!\nCan I see your POKéMON?" text_4="Ehehe!\nI can tell what POKéMON are thinking!\pPlease!\nCan I see your POKéMON?" text_5="Ehehe!\nI can tell what POKéMON are thinking!\pPlease!\nCan I see your POKéMON?" text_6="Ehehe!\nI can tell what POKéMON are thinking!\pPlease!\nCan I see your POKéMON?"
+    082B3664  callstd              function=MSGBOX_YESNO(5)
+    082B3666  compare_var_to_value var=0x800D value=0
+    082B366B  goto_if              condition=1 destination=0x082B36BB
+    082B3671  special              SPECIAL_\function=96
+    082B3674  waitstate            
+
+  script 0x082B36BB  [ok]
+    082B36BB  msgbox_multilang     type=0 text_0="Boo!\nCheapie!" text_1="Boo!\nCheapie!" text_2="Boo!\nCheapie!" text_3="Boo!\nCheapie!" text_4="Boo!\nCheapie!" text_5="Boo!\nCheapie!" text_6="Boo!\nCheapie!"
+    082B36D9  callstd              function=MSGBOX_DEFAULT(4)
+    082B36DB  release              
+
+  object 2 (gfx 0x30, flag 0x0000) -> 0x082B36DD
+  script 0x082B36DD  [ok]
+    082B36DD  msgbox_multilang     type=0 text_0="How charming!\nThat little lady claims she can\punderstand POKéMON!" text_1="How charming!\nThat little lady claims she can\punderstand POKéMON!" text_2="How charming!\nThat little lady claims she can\punderstand POKéMON!" text_3="How charming!\nThat little lady claims she can\punderstand POKéMON!" text_4="How charming!\nThat little lady claims she can\punderstand POKéMON!" text_5="How charming!\nThat little lady claims she can\punderstand POKéMON!" text_6="How charming!\nThat little lady claims she can\punderstand POKéMON!"
+    082B36FB  callstd              function=MSGBOX_NPC(2)
+    082B36FD  end                  
+
+  object 3 (gfx 0x07, flag 0x0000) -> 0x082B36FE
+  script 0x082B36FE  [ok]
+    082B36FE  msgbox_multilang     type=0 text_0="I have this feeling that the little girl\nis saying something profound." text_1="I have this feeling that the little girl\nis saying something profound." text_2="I have this feeling that the little girl\nis saying something profound." text_3="I have this feeling that the little girl\nis saying something profound." text_4="I have this feeling that the little girl\nis saying something profound." text_5="I have this feeling that the little girl\nis saying something profound." text_6="I have this feeling that the little girl\nis saying something profound."
+    082B371C  callstd              function=MSGBOX_NPC(2)
+    082B371E  end                  
+
+  object 4 (gfx 0x0B, flag 0x0000) -> 0x082B371F
+  script 0x082B371F  [ok]
+    082B371F  msgbox_multilang     type=0 text_0="I know something!\pThat little girl plays at the red house\na lot!" text_1="I know something!\pThat little girl plays at the red house\na lot!" text_2="I know something!\pThat little girl plays at the red house\na lot!" text_3="I know something!\pThat little girl plays at the red house\na lot!" text_4="I know something!\pThat little girl plays at the red house\na lot!" text_5="I know something!\pThat little girl plays at the red house\na lot!" text_6="I know something!\pThat little girl plays at the red house\na lot!"
+    082B373D  callstd              function=MSGBOX_NPC(2)
+    082B373F  end                  
+
