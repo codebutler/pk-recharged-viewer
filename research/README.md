@@ -1,8 +1,14 @@
-# Pokemon Recharged Yellow — RAM state extraction
+# Pokemon Recharged Yellow — RAM and ROM extraction
 
 Tooling and reverse-engineering notes for reading the full game state (player,
 party, boxes, bag, dex, flags) out of a RAM dump of a running **Pokemon Recharged
-Yellow** (v1.9.7). The ROM is a **pokeemerald decomp rebuild** — the BPRE/FireRed
+Yellow** (v1.9.7), and for reading the game's **event scripts** out of the ROM.
+
+> **Answering a gameplay question?** Every event script is dumped to
+> `scripts/` — grep that instead of recalling vanilla Pokémon behaviour, which
+> has been wrong here before. `scripts/index/item-sources.json` maps an item to
+> everywhere it can be obtained. Read `scripts/README.md` for the coverage gaps
+> before trusting a negative result. The ROM is a **pokeemerald decomp rebuild** — the BPRE/FireRed
 header is cosmetic; the distribution .bps patch applies to retail Emerald
 (verified by CRC). See `rom-fingerprint.md` for the identification chain.
 
@@ -110,7 +116,7 @@ Depth: `hack-offsets.md` (disassembly evidence chain, per-field),
 |---|---|---|
 | `rom-fingerprint.md` | engine identification: pokeemerald rebuild, relocated pointers, item/species tables | rom-fingerprint agent |
 | `structs.json` / `structs-notes.md` | vanilla pokeemerald layouts (compile-verified), charmap, substruct permutation, encryption spec | structs agent |
-| `firered-structs.json` / `firered-structs-notes.md` | FireRed equivalents (superseded once the ROM proved Emerald-based) | structs agent |
+| `firered-structs.json` / `firered-structs-notes.md` | FireRed equivalents (superseded for **save layout** once the ROM proved Emerald-based — but note FRLG is still the right reference for *script commands* Emerald stubs out; see `scripts/README.md`) | structs agent |
 | `hack-offsets.json` / `hack-offsets.md` | the hack's actual SaveBlock layouts from ROM disassembly — primary offset source | hack-offsets agent |
 | `gamedata.json` | name tables from the ROM: species 412, items 409 (+pocket map), moves 355, abilities 78, natures, (group,num)→map name | gamedata agent |
 | `empirical-anchors.md` / `.json` | live-RAM verification verdict for every hack-offsets claim | struct-extract agent |
@@ -118,6 +124,11 @@ Depth: `hack-offsets.md` (disassembly evidence chain, per-field),
 | `tools/parse_ram.py` | dump → game-state JSON; the **reference oracle** the JS parser in `../lib/parser/` is diffed against (stdlib-only, no packaging) | ram-parser agent |
 | `tools/gba_gfx.py` / `gba_map.py` / `rom_gfx.py` | ROM graphics + map rasterizing; the reference `../lib/gfx/verify_python.py` checks the JS rasterizer against | page/gfx agents |
 | `tools/offsets-discovered.json` | dump-verified offset facts (parser config layer) | ram-parser agent |
+| `scripts/` | **every event script in the ROM**, disassembled one file per map, plus `index/item-sources.json`, `index/marts.json`, `index/stats.json` (coverage + gaps). See `scripts/README.md` | script-dump |
+| `script-opcodes.json` | the event-script opcode table: argument widths derived twice independently from pokeemerald (`event.inc` macros and `scrcmd.c` handlers, agreeing on 223/227), plus `callstd` and movement-action constants. Research-only — **not** synced to `public/data/` | script-dump |
+| `tools/dump_scripts.py` | ROM → `scripts/` (walks `gMapGroups`, decodes, resolves names, builds the indexes). stdlib-only; needs the ROM in `../local/` | script-dump |
+| `tools/gba_script.py` | the Gen-3 text codec and script decoder `dump_scripts.py` is built on | script-dump |
+| `tools/extract_opcodes.py` | regenerates `script-opcodes.json` from the pokeemerald submodule | script-dump |
 | `tools/run_harness.sh` + `mgba_dump_harness.lua` | timed dump harness (A/Start spam) | harness agent |
 | `tools/mgba_inject_harness.lua` / `_walk_` / `_explore_` | RAM-injection and exploration harness variants | harness agent |
 | `tools/README.md` | mGBA setup, harness usage, dump format, live-vs-saved party notes | harness + ram-parser agents |
