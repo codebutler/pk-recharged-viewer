@@ -283,6 +283,48 @@ Three method notes worth keeping:
   productive question is *what task owns slot 0 in each dump* — and every dump
   directory ships a `screen.png` that names the screen for you.
 
+## A second cheat code: `820015E4 0001` (2026-08-19) — guaranteed catch
+
+Type 8 again, so a 16-bit write of 1 to EWRAM **0x020015E4**, every frame.
+
+Unlike the bag case this address is a real named global — ~29 loader sites, not
+task scratch. It is **`gLastUsedItem`**, and item id 1 is the Master Ball
+(`gamedata.json`), so the code makes every ball you throw behave — and look —
+like a Master Ball.
+
+Identification, in order:
+
+- Seven inlined copies of `ItemIdToBallId` (e.g. 0x08034C98) take
+  `gLastUsedItem - 1`, bounds-check it against 11, and index the 12-byte
+  permutation `sItemIdToBallId` at **0x08609B4C** (`04 03 01 00 02 05 06 07 08
+  09 0A 0B`). The result selects a sprite sheet and palette from two 12-entry
+  tables at **0x08950C98** / **0x08950CF8** (tags 0xD6D8-0xD6E3, 0x180 bytes
+  each, LZ77). Decompressed and rendered, those twelve sprites are the Poke
+  Balls — which is what names the variable.
+- The catch routine loads it at 0x0808A7F2, compares against 5 (Safari Ball),
+  then reads the target's species from **`gBattleMons` 0x02001460** (stride
+  0x58) and its catch rate from **`gBaseStats` 0x08969020** (+8, stride 28).
+  Items <= 5 take the plain path; items 6-12 index the special-ball jump table
+  at 0x0863598C for their multipliers.
+- Two Master Ball tests. 0x0808A900 sets the used-master-ball bit in the battle
+  results. The decisive one is **0x0808AB58**: it reloads `gLastUsedItem`,
+  compares against 1, and on match branches to 0x0808A952 — shakes = 4 and
+  battle script **0x081F0BC8** (caught) — instead of falling through to
+  **0x081F0C18** (broke free).
+
+Caveats for anyone using it: the thrown ball is *drawn* as a Master Ball, since
+the animation reads the same global; Safari throws take their own branch; and
+`gLastUsedItem` is the general "last item used" global, so pinning it every
+frame can misreport other item uses. It reads 0 in all 81 committed dumps,
+which is consistent — nothing used, and no battle in the corpus.
+
+New symbols from this round are in `hack-offsets.json`: `gLastUsedItem`,
+`gBattleMons`, `gBattlescriptCurrInstr` (0x020015F0), `gMain` (0x03003B64,
+confirmed via `newAndRepeatedKeys` at +0x30), the two ball tables and
+`sItemIdToBallId`, plus `AdjustQuantityAccordingToDPadInput` (0x08136BF4) and
+the three bag quantity tasks it serves (toss 0x0811C31C, sell 0x0811D5FC,
+PC-deposit 0x0811D9F0).
+
 ## Explicitly unresolved (for the live-RAM verification pass)
 
 - SB1 0x34–0x3A and 0x3C–0x43 (gaps around partyCount/party), 0x764–0x8A8, 0xB50–0xEFA, 0x1228–0x1397 (0x1C-byte struct @0x1228, 0xC-stride records @0x1244), 0x1D98/0x20D8 structs, 0x2510–0x2743, tail 0x3B92+.

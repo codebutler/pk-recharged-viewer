@@ -695,6 +695,12 @@
       "addr": "0x03005BB8",
       "type": "struct Task[16], stride 40: func u32 @+0, isActive u8 @+4, prev @+5, next @+6, priority @+7, s16 data[16] @+8",
       "note": "CONFIRMED twice over: daycare-hunt disasm @0x08152F30 stores a task func at 0x03005BB8 + taskId*40, and ResetTasks/CreateTask (rom_functions) walk the array at that base and stride. A live IWRAM dump decodes as a well-formed task list there. NOTE for anyone chasing an IWRAM address in this range: data[] is scratch whose meaning belongs to whichever task holds the slot, and screens that call ResetTasks put their own main task in slot 0 - the same address means different things in different screens"
+    },
+    "gMain": {
+      "addr": "0x03003B64",
+      "type": "struct Main (IWRAM); newAndRepeatedKeys u16 @+0x30",
+      "evidence": "AdjustQuantityAccordingToDPadInput reads [gMain+0x30] and tests the D-pad bits, matching include/main.h",
+      "confidence": "high"
     }
   },
   "player_sprite_rendering": {
@@ -816,6 +822,23 @@
     "substruct_order_jump_table": {
       "addr": "0x08972DE4",
       "count": 24
+    },
+    "sItemIdToBallId": {
+      "addr": "0x08609B4C",
+      "count": 12,
+      "note": "item id (1-12) minus 1 -> ball graphics id; contents 04 03 01 00 02 05 06 07 08 09 0A 0B"
+    },
+    "ball_sprite_sheets": {
+      "addr": "0x08950C98",
+      "stride": 8,
+      "count": 12,
+      "note": "{const void *data, u16 size, u16 tag}; 0x180 bytes each, LZ77-compressed, tags 0xD6D8-0xD6E3. Rendered: the twelve Poke Balls"
+    },
+    "ball_sprite_palettes": {
+      "addr": "0x08950CF8",
+      "stride": 8,
+      "count": 12,
+      "note": "{const u16 *data, u16 tag}; same tag range as the sheets"
     }
   },
   "rom_functions": {
@@ -878,6 +901,17 @@
     },
     "Task_BagMenu_HandleInput": {
       "addr": "0x0811B0BC",
+      "note": "LIVE-CONFIRMED as task 0: four committed dumps (research/dumps/newgame-spam/f006000, f010800, f015600, final) hold this in gTasks[0].func with data[0]=1 (list menu is task 1) and data[8]=0, and their screen.png is the Bag",
+      "confidence": "high"
+    },
+    "bag_toss_RemoveBagItem_site": {
+      "addr": "0x0811C5F6",
+      "note": "toss path: loads gTasks+8, indexes taskId*40, passes data[8] (tItemCount) to RemoveBagItem at 0x0811C60A. Of the ROM's 35 RemoveBagItem call sites only this one and the sell at 0x0811D800 pass tItemCount; the bag-adjacent caller at 0x0811DED0 passes a constant 1 and is NOT a quantity path",
+      "confidence": "high"
+    },
+    "bag_setup_task_data_init": {
+      "addr": "0x0811A21E",
+      "note": "SetupBagMenu case 14 tail: stores the list-menu task id into data[0] and zeroes data[3] and data[8] (strh 0,[r3,#0x18]) - the tItemCount initialisation, disassembled in the hack rather than assumed from the decomp",
       "confidence": "high"
     },
     "Task_WallyTutorialBagMenu": {
@@ -903,6 +937,21 @@
       "addr": "0x0815F1C0",
       "note": "unrelated subsystem that also uses task data[8] ('Searching...' / 'No matching Pokemon were found.'); recorded because it owns the only absolute literal to gTasks+0x18 in the ROM and is easy to mistake for the bag code",
       "confidence": "medium"
+    },
+    "AdjustQuantityAccordingToDPadInput": {
+      "addr": "0x08136BF4",
+      "note": "AdjustQuantity(&tItemCount, tQuantity); reads gMain.newAndRepeatedKeys (gMain+0x30) and branches on 0x40/0x80/0x10. Called by all three bag quantity tasks: toss 0x0811C31C, sell 0x0811D5FC, PC-deposit 0x0811D9F0 - each builds &data[8] as gTasks+8 + 40*taskId + 0x10",
+      "confidence": "high"
+    },
+    "Cmd_handleballthrow": {
+      "addr": "0x0808A780",
+      "note": "the ball-catch routine (entry approximate; the gLastUsedItem load is at 0x0808A7F2). Reads gBattleMons species -> gBaseStats catchRate (+8); item<=5 takes the plain path, items 6-12 index the special-ball jump table at 0x0863598C. Two Master Ball tests: 0x0808A900 sets the used-master-ball result bit, and 0x0808AB58 reloads gLastUsedItem, compares against 1 and branches to the guaranteed-catch path at 0x0808A952 (shakes=4, battle script 0x081F0BC8) instead of the escape script 0x081F0C18",
+      "confidence": "high"
+    },
+    "ItemIdToBallId": {
+      "addr": "0x08034C98",
+      "note": "one of several inlined copies (also 0x08034C6C, 0x08034D30, 0x08034E46, 0x08034EE0, 0x08035078, 0x08035960): (gLastUsedItem - 1), bounds-checked against 11, indexes the 12-byte permutation sItemIdToBallId at 0x08609B4C, then frees/loads that ball's sprite sheet and palette via 0x081564A0",
+      "confidence": "high"
     }
   },
   "ewram_symbols_bag": {
@@ -921,6 +970,27 @@
     },
     "gStringVar4": {
       "addr": "0x0203D638",
+      "confidence": "high"
+    }
+  },
+  "ewram_symbols_battle": {
+    "_note": "Battle-side globals, found while resolving the cheat code 820015E4 0001 (a 16-bit write of 1 = ITEM_MASTER_BALL to gLastUsedItem, i.e. a guaranteed-catch cheat). See hack-offsets.md.",
+    "gLastUsedItem": {
+      "addr": "0x020015E4",
+      "type": "u16",
+      "note": "the item most recently used; the catch routine reads it as the thrown ball (compares 5 = Safari, 1 = Master) and the throw animation picks its sprite from it via ItemIdToBallId. ~29 loader sites across battle and field code. Reads 0 in all 81 committed dumps (nothing used / not in battle)",
+      "confidence": "high"
+    },
+    "gBattleMons": {
+      "addr": "0x02001460",
+      "type": "struct BattlePokemon[], stride 0x58, species u16 @+0",
+      "evidence": "catch routine indexes it by battler*0x58 and feeds the species to gBaseStats",
+      "confidence": "high"
+    },
+    "gBattlescriptCurrInstr": {
+      "addr": "0x020015F0",
+      "type": "u32 (ROM ptr)",
+      "evidence": "written with battle-script pointers on both catch outcomes (0x081F0BC8 success, 0x081F0C18 escape); 292 literal refs",
       "confidence": "high"
     }
   }
