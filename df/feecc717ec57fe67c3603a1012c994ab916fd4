@@ -1,0 +1,30 @@
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_0318998f6db77c 154,192
+analysis/tools/templates/report.css
+  s_30c66b9ed26a01::t_0318998f6db77c 151
+analysis/tools/templates/report.html.j2
+  s_30c66b9ed26a01::t_0318998f6db77c 56
+analysis/report/index.html
+  s_30c66b9ed26a01::t_0318998f6db77c 154,192
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_0318998f6db77c 982
+  s_30c66b9ed26a01::t_52476e0e2ed84c 937-967
+analysis/tools/assets/cursors/LICENSE.md
+  s_30c66b9ed26a01::t_e6564f709781fe 1-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "dffeecc717ec57fe67c3603a1012c994ab916fd4",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
