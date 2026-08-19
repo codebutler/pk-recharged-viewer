@@ -175,8 +175,8 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
   padding:0 15px;
   display:flex;align-items:center;line-height:1}
 #tabbar button:hover{filter:brightness(1.08)}
-#tabbar button[aria-selected="true"]{background:#e0d898;color:#f8f8f8;
-  text-shadow:1px 1px 0 #606878}
+#tabbar button[aria-selected="true"]{background:#e0d898;color:#3a3320;
+  text-shadow:1px 1px 0 #f4eebc}
 
 #tabbar button:focus-visible{outline:3px solid var(--pika);outline-offset:-4px}
 #tabbar button.tab-empty{opacity:.62}
@@ -307,7 +307,8 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .slotbar .gbabtn{margin:0;font-size:16px;padding:6px 12px 5px}
 /* Primary action wears the tab strip's selected-page plate; the secondary one
    stays in the teal of a page you could switch to. */
-.gbabtn-primary{background:#e0d898;color:#f8f8f8;text-shadow:1px 1px 0 #606878}
+.gbabtn-primary{background:#e0d898;color:#3a3320;
+  text-shadow:1px 1px 0 #f4eebc}
 /* "this came from a flash save": the same window, second plate, tucked up
    against the first so the pair reads as one unit rather than two bars. */
 .slotbar-note{margin-top:-14px;align-items:flex-start}
