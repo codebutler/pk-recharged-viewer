@@ -1,0 +1,19 @@
+CLAUDE.md
+  s_30c66b9ed26a01::t_8c30c031d22f29 1-11,18-20,25,32-36,38-40,42-43,45-51,58,60-101,103-105,122-128,137-138,144-145,151-152
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "5782773052803a460f5f257f5f6e982ff97af6f7",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
