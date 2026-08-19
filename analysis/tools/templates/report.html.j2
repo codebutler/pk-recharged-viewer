@@ -83,17 +83,18 @@
   </div>
 {%- endif %}
 </section>
-<section class="panel mappanel"><h2>Map</h2>
-{{- simple_states(map) }}
-{%- if map.crop %}
-  <p class="note">{{ map.name }} &middot; at {{ map.coords }}{% if map.tint_label %} &middot; {{ map.tint_label }}{% endif %}</p>
-  <img class="mapimg" src="{{ map.crop|safe }}" alt="terrain around the player at {{ map.name }} {{ map.coords }}">
-  {%- if not map.small %}
-  <details class="mapfull"><summary>full map</summary>
-    <img class="mapimg" src="{{ map.full|safe }}" alt="full map of {{ map.name }}" style="width:min(100%,{{ map.full_w }}px)"></details>
-  {%- endif %}
+<div class="mapslot">
+{%- if map.error %}<p class="empty">{{ map.error }}</p>
+{%- elif map.crop %}
+  <div class="maparea{{ ' toggleable' if not map.small }}" id="maptoggle"
+       title="{{ map.name }} at {{ map.coords }}{% if map.phase %}, {{ map.phase }}{% endif %}{{ ' -- click to toggle full map' if not map.small }}">
+    <img class="mapimg crop" src="{{ map.crop|safe }}" alt="terrain around the player at {{ map.name }} {{ map.coords }}">
+    {%- if not map.small %}<img class="mapimg full" src="{{ map.full|safe }}" alt="full map of {{ map.name }}">{% endif %}
+    <span class="map-popup town">{{ map.name }}</span>
+    {%- if map.clock12 %}<span class="map-popup clock">{{ map.clock12 }}</span>{% endif %}
+  </div>
 {%- endif %}
-</section>
+</div>
 </div>
 
 {#- Tab bar (progressive enhancement: hidden until the inline script enables
@@ -223,6 +224,11 @@
   });
   var initial = location.hash.slice(1);
   select(valid(initial) ? initial : tabs[0].dataset.tab, false);
+  var mt = document.getElementById("maptoggle");
+  if (mt && mt.classList.contains("toggleable"))
+    mt.addEventListener("click", function () {
+      mt.classList.toggle("showfull");
+    });
 })();
 </script>
 

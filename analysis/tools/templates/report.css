@@ -163,14 +163,23 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 /* header: trainer card (2/3) + map panel (1/3) side by side */
 .tc-top{display:flex;gap:18px;align-items:stretch}
 .tc-top .tcard{flex:2;min-width:0}
-.tc-top .mappanel{flex:1;min-width:0}
+.tc-top .mapslot{flex:1;min-width:0;align-self:flex-start}
 @media(max-width:760px){.tc-top{flex-direction:column}}
 /* map */
 .mapimg{image-rendering:pixelated;width:100%;max-width:480px;border:3px solid var(--line);
   box-shadow:inset 0 0 0 2px #fff,3px 3px 0 rgba(0,0,0,.35);display:block}
-.mapfull{margin-top:10px}
-.mapfull summary{font-family:'Press Start 2P',monospace;font-size:8px;
-  cursor:pointer;color:#5a564e;margin-bottom:8px}
+/* in-game-style popup boxes over the map */
+.maparea{position:relative;display:block;max-width:480px}
+.maparea.toggleable{cursor:pointer}
+.maparea .mapimg.full{display:none}
+.maparea.showfull .mapimg.crop{display:none}
+.maparea.showfull .mapimg.full{display:block}
+.map-popup{position:absolute;top:7px;display:flex;align-items:center;gap:6px;
+  background:#fff;color:#3a4448;border:2px solid #30383c;border-radius:6px;
+  padding:2px 10px;font-size:17px;line-height:1.1;
+  box-shadow:1px 1px 0 rgba(0,0,0,.4);white-space:nowrap}
+.map-popup.town{left:7px}
+.map-popup.clock{right:7px}
 /* misc */
 .stats{border-collapse:collapse;width:100%}
 .stats td{border-bottom:1px dotted #c8c4b0;padding:4px 2px}

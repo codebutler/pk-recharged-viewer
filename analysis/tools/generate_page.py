@@ -706,8 +706,9 @@ def map_context(state, cache):
             gba_gfx.composite(px, W, H, sp, sw_, sh_,
                               tx * 16 + (16 - sw_) // 2, (ty + 1) * 16 - sh_)
         except Exception as e:
+            # No visual fallback by design (red boxes are banned); the title
+            # attribute still carries the coordinates.
             sys.stderr.write("map player sprite: %s\n" % e)
-            gba_map.mark_tile(px, W, H, tx, ty)
         follower = avatar.get("follower")
         if (follower and follower.get("present") and follower.get("species")
                 and not follower.get("hidden")):
@@ -736,13 +737,18 @@ def map_context(state, cache):
             full_png = gba_gfx.rgba_to_png(px, W, H)
             with open(cache_path, "wb") as f:
                 f.write(full_png)
-        clock_label = ("%s, in-game %d:%02d" % (chip, clock.get("hour", 0),
-                                                clock.get("minute", 0))
-                       if chip else None)
+        # 12-hour clock text for the in-game-style popup box.
+        clock12 = None
+        if clock:
+            h24 = clock.get("hour", 0)
+            h12 = h24 % 12 or 12
+            clock12 = "%d:%02d %s" % (h12, clock.get("minute", 0),
+                                      "AM" if h24 < 12 else "PM")
         return {
             "name": loc.get("mapName") or "map (%d,%d)" % (loc["mapGroup"], loc["mapNum"]),
             "coords": "(%d, %d)" % (tx, ty),
-            "tint_label": clock_label,
+            "clock12": clock12,
+            "phase": chip,
             "crop": data_uri(crop_png),
             "full": data_uri(full_png),
             "full_w": W,

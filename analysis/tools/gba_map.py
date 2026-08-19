@@ -15,17 +15,19 @@ screen.png byte-for-byte in layout):
   = LZ77), isSecondary u8, pad, tiles* @+4, palettes* @+8, metatiles* @+0xC,
   callback @+0x10, metatileAttributes @+0x14. (Only the first three pointers
   are read here.)
-- Metatiles: THIS HACK USES 3-LAYER METATILES -- 12 u16 each (three layers x
-  4 quads TL/TR/BL/BR), 24-byte stride. NOTE: the map_rendering spec claims
-  vanilla 8-u16/16-byte metatiles, but that stride demonstrably drops all
-  ground/floor art and its own validation render is scrambled; the 24-byte
-  stride reproduces the live capture pixel-exactly. Trust the pixels.
-- Splits: 640 primary tiles (tileId >= 640 -> secondary, spec-confirmed).
-  Metatile primary/secondary boundary: 0x280 here, with secondary ids
-  indexed as (id - 0x280) -- PIXEL-PROVEN by the bedroom (ids up to 0x297
-  render exactly right). The spec claims an 0x200 boundary; the contested id
-  range 0x200-0x27F is unused in every sampled map, so only the secondary
-  index base discriminates -- and that base is proven 0x280.
+- Metatiles: 3-LAYER, 12 u16 each (three layers x 4 quads TL/TR/BL/BR),
+  24-byte stride. Code-proven (rom-fingerprint reconciliation): the metatile
+  copy routine at 0x0816364A computes [tileset+0xC] + id*24 and copies 24
+  bytes; Celadon's attrs-minus-metatiles spans are exactly 0x280*24 (primary)
+  and 240*24 (secondary). Also pixel-proven against the live bedroom capture.
+- Splits: 640 primary tiles (tileId >= 640 -> secondary). Metatile
+  primary/secondary boundary AND secondary index base = 0x280: the attribute
+  readers (0x081088E2 etc.) compose 0x280 inline (movs #0xA0; lsls #2),
+  branch ids >= 0x280 to the secondary tileset with index id-0x280, and
+  return 0xFF for ids >= 0x400. Pixel-proven too (bedroom ids up to 0x297).
+- Metatile attributes: u32 each at [tileset+0x14] (behavior/terrain bits;
+  not needed for terrain rendering -- collision lives in blockdata bits
+  10-11). Available if walkability overlays are ever wanted.
 - Palettes: FRLG split (spec-confirmed): slots 0-6 from the primary tileset's
   palette block, 7-12 from the secondary's (its 0-6 are dummies; absolute
   indexing handles this).
