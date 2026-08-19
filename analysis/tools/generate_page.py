@@ -934,6 +934,37 @@ def mail_context(state):
                          "sender": e.get("playerName", "?")} for e in entries]}
 
 
+# Pixel-art cursors (pixelarticons, MIT -- assets/cursors/LICENSE.md).
+# name -> (hotspot x, hotspot y, css fallback keyword); hotspots computed from
+# the art's opaque-pixel geometry.
+CURSORS = {
+    "default": (6, 4, "auto"),
+    "pointer": (12, 4, "pointer"),
+    "zoom-in": (14, 14, "zoom-in"),
+    "zoom-out": (14, 14, "zoom-out"),
+}
+
+
+def cursor_css():
+    """CSS wiring the vendored pixel cursors site-wide, cursors embedded as
+    PNG data URIs with per-cursor hotspots. Empty string if assets missing."""
+    uris = {}
+    for name in CURSORS:
+        p = os.path.join(TOOLS_DIR, "assets", "cursors", name + ".png")
+        if not os.path.exists(p):
+            return ""
+        with open(p, "rb") as f:
+            uris[name] = data_uri(f.read())
+    def c(name):
+        x, y, fb = CURSORS[name]
+        return "cursor:url(%s) %d %d,%s" % (uris[name], x, y, fb)
+    return ("html{%s}"
+            "#tabbar button,summary,a,details summary{%s}"
+            ".maparea.toggleable{%s}"
+            ".maparea.toggleable.showfull{%s}"
+            % (c("default"), c("pointer"), c("zoom-in"), c("zoom-out")))
+
+
 def build_context(state, api, font_css):
     from markupsafe import Markup
     in_game = state.get("inGame", False)
@@ -948,6 +979,7 @@ def build_context(state, api, font_css):
         "title": "%s -- Recharged Yellow" % player_name,
         "player_name": player_name,
         "font_css": Markup(font_css),
+        "cursor_css": Markup(cursor_css()),
         "caveats": caveats,
     }
     if in_game:

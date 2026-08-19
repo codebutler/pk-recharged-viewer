@@ -151,7 +151,7 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 #tabbar button{font-family:'Press Start 2P',ui-monospace,monospace;font-size:9px;
   color:var(--pika);background:var(--line);border:3px solid var(--line);
   box-shadow:inset 0 0 0 2px #3a3a30,3px 3px 0 rgba(0,0,0,.45);
-  padding:9px 12px 7px;cursor:pointer;border-radius:2px}
+  padding:9px 12px 7px;border-radius:2px}
 #tabbar button:hover{color:#fff}
 #tabbar button[aria-selected="true"]{background:var(--panel);color:var(--ink);
   box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 4px #b0b0a0;
@@ -173,7 +173,6 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
   box-shadow:inset 0 0 0 2px #fff,3px 3px 0 rgba(0,0,0,.35);display:block}
 /* in-game-style popup boxes over the map */
 .maparea{position:relative;display:block;max-width:480px}
-.maparea.toggleable{cursor:pointer}
 .maparea .mapimg.full{display:none}
 .maparea.showfull .mapimg.crop{display:none}
 .maparea.showfull .mapimg.full{display:block}
@@ -190,7 +189,7 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .big{font-size:12px}
 footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:16px;
   line-height:1.5}
-@media(max-width:520px){.sb .bar{flex-basis:60px}}</style></head><body>
+@media(max-width:520px){.sb .bar{flex-basis:60px}}html{cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAKBJREFUeAHtlmEKgCAMRj+jg9nJ82b2o1oRpukmMvNBBOXm9pggMPg7JvLPZ6wtZkJjkga830UYY77EZKPHAAUIm9BngAKFTOg1QAmYJvQboESFJvoxQAkzTTQ3MIPJreMn9ng7RNBn4Ow4MBsLCpA0sB5PFiX3geW2Ifu+UGMGLK4BTJKcgUDnotQ8huwCzsz28d1BEI6BtwLFC3AY9MwGznQpxCNrLEkAAAAASUVORK5CYII=) 6 4,auto}#tabbar button,summary,a,details summary{cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAALhJREFUeAHtlg0OgCAIhaF1MLu5N7NZshnRj2mhzW+zRjnHewMKoNNJx4VVhAGUwYS9i2rnVvGI+OSMHeoOlEjAhKWWQBYlaiDrbHUHRsiEOxLFfFaIjvyiC07xjgRXxAladQ0Um/cME+7WX6p0YNPvBO97/v4qPqJKBxap1Mek5EiR0P+n+zlVzwEvBb2iG3P/lQQ+4c63QKwJ4iqO3JuEs9v6HyBSJyRXbuOgSQcIA2lY6aG6A50ZqlFC55/w0gAAAAAASUVORK5CYII=) 12 4,pointer}.maparea.toggleable{cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAK9JREFUeAHtleEOQCAUhW/mwXhy3iw0F0vq3GYq9W38oFX361REjdpRgrb6xb4OOkoMMmtTudZ+AUopSZ8HWRuAKr91KDSRpYFg5Vwl0oYCJpIb+GICw/446QnkotT5TRpWJvkSwAauFSIhRKkihF5cS2D8rpofzwNw/48E8MvbUDRGEQaY0J7jNZ9IMFY5BxGdFQxgO9uYtv4bispALLYJzsq8vYrKQCze7CQ30FgAl1sre0Gd1kMAAAAASUVORK5CYII=) 14 14,zoom-in}.maparea.toggleable.showfull{cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAKdJREFUeAHtlWEKgCAMRmd0MDt53cxK0kLNNo106YP6k0z39mEAndYRhLXqxVqWAQqDObXuXKm4ACEEpaalagOozr2CRBNVGkjq3CuMNFHcwBcHkMcTZAQkF6VBUkdWfARoA7mhvKOJEEYJjUCnbQtd7k04Ydb/8m9I2oOFAcNTGMzMZyDsxecigrMDiVznGlPOdw2rDKTimjBZWfYXqwykEs1OcQOdFYIiInvHsts2AAAAAElFTkSuQmCC) 14 14,zoom-out}</style></head><body>
 <h1>POKEMON RECHARGED YELLOW<small>save state report &middot; Eric</small></h1>
 <main>
 <div class="tc-top">
