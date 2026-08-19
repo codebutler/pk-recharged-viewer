@@ -42,11 +42,6 @@
   <ul class="moves">{% for mv in m.moves %}
     <li><span>{{ mv.name }}{% if mv.type %}{{ type_chip(mv.type, "type mtype") }}{% endif %}</span> <span class="pp">PP {{ mv.pp }}</span></li>
   {%- endfor %}</ul>
-  <div class="mon-meta">{{ m.ability }} &middot; {{ m.nature }} nature{% if m.friendship is not none %} &middot; FRIEND {{ m.friendship }}{% endif %}</div>
-  <div class="statbars"><span class="legend"><i style="background:#68a0e8"></i><b>IV</b><i style="background:#e8a068"></i><b>EV</b></span>
-  {%- for row in m.stat_rows %}
-    <div class="sb"><i>{{ row.label }}</i>{{ bar(row.iv_pct, "#68a0e8") }}{{ bar(row.ev_pct, "#e8a068") }}</div>
-  {%- endfor %}</div>
   {%- if m.held %}<div class="held">holds {{ m.held }}</div>{% endif %}
 </div>
 {%- endmacro -%}
@@ -54,7 +49,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{ title }}</title>
 <style>{{ font_css|safe }}{% include "report.css" %}{{ cursor_css|safe }}</style></head><body>
-<h1>POKEMON RECHARGED YELLOW<small>save state report &middot; {{ player_name }}</small></h1>
+<h1>POKEMON RECHARGED YELLOW</h1>
 <main>
 {%- if not in_game %}
 <section class="panel"><h2>No save loaded</h2><p class="empty">{{ error }}</p></section>
@@ -234,8 +229,4 @@
 
 {%- endif %}
 </main>
-<footer>Generated locally by generate_page.py. Sprites and metadata from
-PokeAPI (cached at generate time; page is fully offline). Types and abilities
-are current-generation PokeAPI data and may postdate Gen 3.
-{% if caveats %}Non-high-confidence sections: {{ caveats }}.{% endif %}</footer>
 </body></html>

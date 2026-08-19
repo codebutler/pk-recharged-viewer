@@ -6,27 +6,26 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--backdrop);color:var(--ink);
   background-image:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.12) 2px 4px);
-  font-family:'VT323',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
-  font-size:18px;line-height:1.3;padding:24px 12px 64px}
+  font-family:'Pokemon Emerald','VT323',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  font-size:19px;line-height:1.35;padding:24px 12px 64px}
 main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-h1,h2,h3,.dexcount b,.big,.xr i,.sb i,.legend,.dexcount i,.ail,
-.qty,.pp{font-family:'Press Start 2P',ui-monospace,monospace}
-h1{color:var(--pika);font-size:16px;text-align:center;line-height:1.6;
-  text-shadow:2px 2px 0 #000;margin-bottom:4px}
-h1 small{display:block;font-size:8px;color:#cfe8d8}
+h1,h2,h3,.dexcount b,.big,.dexcount i,.ail,
+.qty,.pp{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace}
+h1{color:var(--pika);font-size:52px;text-align:center;line-height:1.2;
+  text-shadow:3px 3px 0 #000;margin-bottom:10px}
 .panel{background:var(--panel);border:3px solid var(--line);border-radius:2px;
   box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 4px #b0b0a0,4px 4px 0 rgba(0,0,0,.45);
   padding:16px 14px 14px}
-.panel h2{font-size:10px;background:var(--line);color:var(--pika);
+.panel h2{font-size:14px;background:var(--line);color:var(--pika);
   display:inline-block;padding:6px 10px 4px;margin:-16px 0 12px -14px;
   border-bottom-right-radius:2px}
-.panel h3{font-size:8px;margin-bottom:6px;color:#5a564e}
+.panel h3{font-size:12px;margin-bottom:6px;color:#5a564e}
 img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:middle}
 .spr.big{width:64px;height:64px}
 .spr.sm{width:32px;height:32px}
 .spr.seen{filter:brightness(0);opacity:.55}
 .spr.ph{background:var(--panel2);border:2px dashed #a8a494;color:#a8a494;
-  text-align:center;font-family:'Press Start 2P',monospace;font-size:10px;
+  text-align:center;font-family:'Pokemon Emerald',monospace;font-size:10px;
   line-height:28px;width:32px;height:32px}
 .spr.big.ph{width:64px;height:64px;line-height:60px;font-size:16px}
 .empty{color:#7a766a;font-style:normal;padding:6px 2px;font-size:19px}
@@ -41,10 +40,10 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tc-band{background:linear-gradient(#4c84cc,#4074bc);display:flex;
   justify-content:space-between;align-items:center;padding:8px 12px;
   border-bottom:2px solid #2c3c5c}
-.tcard h2{margin:0;padding:5px 9px 4px;font-size:10px;background:#d4e2f6;
+.tcard h2{margin:0;padding:5px 9px 4px;font-size:14px;background:#d4e2f6;
   color:#3a62ac;border-radius:4px;border:2px solid #f4f8fe;
   box-shadow:1px 1px 0 rgba(0,0,0,.3);display:inline-block}
-.tc-idno{font-family:'Press Start 2P',ui-monospace,monospace;font-size:9px;
+.tc-idno{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;font-size:13px;
   background:#f0f5fc;color:#2c3c5c;padding:6px 12px 5px;border-radius:9px}
 .tc-white{background:
   radial-gradient(circle at 108% 118%, #cfe0f4 0 96px, transparent 97px),
@@ -65,7 +64,7 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tc-badgeband{background:#6a96d0;margin:0 10px 10px;border-radius:7px;
   padding:7px 10px;display:flex;align-items:center;gap:12px;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -2px 0 rgba(44,60,92,.3)}
-.tc-badgelabel{font-family:'Press Start 2P',monospace;font-size:7px;color:#eaf2fc;
+.tc-badgelabel{font-family:'Pokemon Emerald','VT323',monospace;font-size:11px;color:#eaf2fc;
   background:#48699c;padding:4px 6px 3px;border-radius:3px;flex:none}
 .tc-badges{display:flex;gap:9px;align-items:center}
 .badge-slot{width:32px;height:32px;border-radius:6px;background:#5a86c4;
@@ -84,11 +83,11 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .mon{background:var(--panel2);border:2px solid var(--line);padding:10px;
   box-shadow:inset 0 0 0 2px #fff}
 .mon-head{display:flex;gap:10px;align-items:center;margin-bottom:6px}
-.mon-name{font-family:'Press Start 2P',monospace;font-size:10px}
+.mon-name{font-family:'Pokemon Emerald','VT323',monospace;font-size:14px}
 .mon-sub{font-size:16px;color:#5a564e;margin:4px 0}
 .shiny{color:#e8a800;margin-left:4px}
-.ail{background:var(--accent);color:#fff;font-size:7px;padding:3px 4px 2px}
-.type{font-family:'Press Start 2P',monospace;font-size:7px;color:#fff;
+.ail{background:var(--accent);color:#fff;font-size:10px;padding:3px 4px 2px}
+.type{font-family:'Pokemon Emerald','VT323',monospace;font-size:10px;color:#fff;
   padding:3px 5px 2px;margin-right:4px;text-shadow:1px 1px 0 rgba(0,0,0,.5);
   border-radius:2px;display:inline-block}
 .hp{display:flex;align-items:center;gap:8px;margin:6px 0}
@@ -99,24 +98,13 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .hp.exp{margin-top:-2px}
 .hp .bar{flex:0 0 140px}
 .hp.exp .bar{height:5px}
-.explabel{font-style:normal;font-family:'Press Start 2P',monospace;font-size:7px;
+.explabel{font-style:normal;font-family:'Pokemon Emerald','VT323',monospace;font-size:10px;
   color:#7a766a;width:26px;flex:none}
 .expnum{font-size:15px;color:#5a564e}
 .moves{list-style:none;margin:6px 0;border-top:2px dotted #b8b4a4;padding-top:6px}
 .moves li{display:flex;justify-content:space-between;padding:1px 0}
-.pp{color:#7a766a;font-size:8px;align-self:center}
-.mtype{font-size:6px;padding:2px 3px 1px;margin:0 0 0 5px;vertical-align:1px}
-.mon-meta{font-size:16px;color:#5a564e;margin:4px 0}
-.statbars{margin-top:6px}
-.sb{display:flex;align-items:center;gap:6px;margin:2px 0}
-.sb i{font-style:normal;font-size:7px;width:20px;color:#7a766a}
-.sb .bar{flex:0 1 90px;height:5px}
-.legend{font-size:7px;color:#7a766a;display:flex;align-items:center;gap:4px;
-  margin-bottom:4px}
-.legend b{font-weight:normal}
-.legend i{width:8px;height:8px;flex:none}
-.legend i + b{margin-right:8px}
-.legend b:last-child{margin-right:0}
+.pp{color:#7a766a;font-size:11px;align-self:center}
+.mtype{font-size:9px;padding:2px 3px 1px;margin:0 0 0 5px;vertical-align:1px}
 .held{font-size:16px;color:#5a564e;margin-top:4px}
 /* storage + dex grids */
 .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
@@ -128,8 +116,8 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
   display:flex;align-items:center;justify-content:center}
 .dexgrid .cell{background:var(--panel2)}
 .dexcount{display:flex;gap:28px;margin-bottom:8px}
-.dexcount b{font-size:18px;display:block}
-.dexcount i{font-style:normal;font-size:8px;color:#7a766a}
+.dexcount b{font-size:24px;display:block}
+.dexcount i{font-style:normal;font-size:11px;color:#7a766a}
 /* bag */
 .pockets{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
 .pocket{background:var(--panel2);border:2px solid var(--line);padding:8px;
@@ -141,11 +129,11 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .ispr{width:24px;height:24px;image-rendering:pixelated}
 .ispr.ph{display:inline-flex;align-items:center;justify-content:center;
   background:#d8d8c4;border:1px dashed #a8a494;color:#a8a494;font-size:11px}
-.iname{flex:1;overflow-wrap:anywhere;font-size:17px}
-.qty{color:#5a564e;font-size:8px;align-self:center}
+.iname{flex:1;overflow-wrap:anywhere;font-size:18px;font-family:'Pokemon Emerald','VT323',monospace}
+.qty{color:#5a564e;font-size:11px;align-self:center}
 /* tab bar (GBA menu style) */
 #tabbar{display:flex;flex-wrap:wrap;gap:6px}
-#tabbar button{font-family:'Press Start 2P',ui-monospace,monospace;font-size:9px;
+#tabbar button{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;font-size:13px;
   color:var(--pika);background:var(--line);border:3px solid var(--line);
   box-shadow:inset 0 0 0 2px #3a3a30,3px 3px 0 rgba(0,0,0,.45);
   padding:9px 12px 7px;border-radius:2px}
@@ -161,10 +149,24 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
    different sections under one tab. */
 .tabs-on .pane:not(#pane-more) .panel h2{display:none}
 /* header: trainer card (2/3) + map panel (1/3) side by side */
-.tc-top{display:flex;gap:18px;align-items:stretch}
-.tc-top .tcard{flex:2;min-width:0}
-.tc-top .mapslot{flex:1;min-width:0;align-self:flex-start}
-@media(max-width:760px){.tc-top{flex-direction:column}}
+/* The map box is a fixed GBA-screen rectangle (3:2, 240x160 scaled up); the
+   card stretches to the same height. Sizing the box explicitly -- rather than
+   letting aspect-ratio negotiate inside flex, where the image gives it a
+   definite width and stretch a definite height -- is what keeps it landscape,
+   and keeps it identical in both crop and full-map states. */
+.tc-top{display:flex;gap:18px;align-items:stretch;--map-h:320px}
+.tc-top .tcard{flex:1;min-width:0;min-height:var(--map-h)}
+.tc-top .mapslot{flex:0 0 auto;display:flex}
+.tc-top .mapslot .maparea{height:var(--map-h);width:calc(var(--map-h) * 1.5);
+  max-width:none;overflow:hidden;flex:none}
+.tc-top .mapslot .mapimg{height:100%;width:100%;object-fit:cover;object-position:center}
+.tc-top .mapslot .maparea.showfull .mapimg.full{object-fit:contain;background:#0b1a12}
+@media(max-width:980px){.tc-top{--map-h:280px}}
+@media(max-width:760px){
+  .tc-top{flex-direction:column}
+  .tc-top .mapslot .maparea{width:100%;height:auto;aspect-ratio:3/2}
+  .tc-top .mapslot .mapimg{height:100%}
+}
 /* map */
 .mapimg{image-rendering:pixelated;width:100%;max-width:480px;border:3px solid var(--line);
   box-shadow:inset 0 0 0 2px #fff,3px 3px 0 rgba(0,0,0,.35);display:block}
@@ -179,11 +181,12 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
   box-shadow:1px 1px 0 rgba(0,0,0,.4);white-space:nowrap}
 .map-popup.town{left:7px}
 .map-popup.clock{right:7px}
+/* in-game-style text shadow on white-box / menu-like text */
+.map-popup,.tc-frow,.tc-namev,.items li,.stats td,.moves li,.mon-sub,
+.held,.tc-idno{text-shadow:1px 1px 0 #d8d8d0}
+#tabbar button{text-shadow:1px 1px 0 rgba(0,0,0,.45)}
 /* misc */
 .stats{border-collapse:collapse;width:100%}
 .stats td{border-bottom:1px dotted #c8c4b0;padding:4px 2px}
 .stats td:last-child{text-align:right;font-weight:bold}
-.big{font-size:12px}
-footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:16px;
-  line-height:1.5}
-@media(max-width:520px){.sb .bar{flex-basis:60px}}
+.big{font-size:16px}

@@ -280,17 +280,25 @@ def fetch_font(cache):
     the vendored TTFs next to this script, else fetches Press Start 2P via
     Google Fonts (generate time only). Returns @font-face CSS or ''."""
     css = []
-    for fam, fname in (("Press Start 2P", "PressStart2P.ttf"),
-                       ("VT323", "VT323.ttf")):
+    embedded = []
+    # The user's GBA font recreations (FontStruct, CC BY-SA -- see
+    # assets/fonts/PROVENANCE.md) first, then the OFL pixel pair as fallback.
+    faces = [("Pokemon Emerald", os.path.join("assets", "fonts", "pokemon-emerald.otf"), "opentype"),
+             ("Pokemon Emerald Narrow", os.path.join("assets", "fonts", "pokemon-emerald-narrow.otf"), "opentype"),
+             ("F77 Pokemon Battle", os.path.join("assets", "fonts", "f77-pokemon-battle.otf"), "opentype"),
+             ("Press Start 2P", "PressStart2P.ttf", "truetype"),
+             ("VT323", "VT323.ttf", "truetype")]
+    for fam, fname, fmt in faces:
         local = os.path.join(TOOLS_DIR, fname)
         if os.path.exists(local):
             with open(local, "rb") as f:
                 blob = f.read()
             css.append("@font-face{font-family:'%s';"
-                       "src:url(data:font/ttf;base64,%s) format('truetype');}"
-                       % (fam, base64.b64encode(blob).decode()))
+                       "src:url(data:font/otf;base64,%s) format('%s');}"
+                       % (fam, base64.b64encode(blob).decode(), fmt))
+            embedded.append(fam)
     if css:
-        stats["font"] = "embedded (Press Start 2P + VT323, OFL, vendored)"
+        stats["font"] = "embedded (%s)" % ", ".join(embedded)
         return "".join(css)
     css = cache.get("pressstart2p.css", FONT_CSS_URL, binary=True)
     if css:
@@ -393,7 +401,6 @@ def mon_context(mon, api):
             or next(iter(info["abilities"].values()))
     hp, max_hp = mon.get("hp", 0), mon.get("stats", {}).get("maxHP", 0)
     hp_pct = pct(hp, max_hp)
-    ivs, evs = mon.get("ivs", {}), mon.get("evs", {})
     level = mon.get("level", 0)
     exp_pct, exp_to_next = exp_progress(api, nat, level, mon.get("experience"))
     return {
@@ -415,15 +422,6 @@ def mon_context(mon, api):
                     if api.move_type(m["move"]) else None,
             "pp": m.get("pp", 0),
         } for m in mon.get("moves", [])],
-        "ability": ability or "ability ?",
-        "nature": mon.get("nature", "?"),
-        "friendship": mon.get("friendship"),
-        "stat_rows": [{
-            "label": lbl,
-            "iv_pct": pct(ivs.get(k, 0), 31),
-            "ev_pct": pct(evs.get(k, 0), 255),
-        } for lbl, k in (("HP", "hp"), ("AT", "attack"), ("DF", "defense"),
-                         ("SP", "speed"), ("SA", "spAttack"), ("SD", "spDefense"))],
         "held": (mon.get("heldItemName", "item #%d" % mon["heldItem"])
                  if mon.get("heldItem") else None),
     }
@@ -722,8 +720,10 @@ def map_context(state, cache):
             except Exception as e:
                 sys.stderr.write("map follower sprite: %s\n" % e)
 
-        cpx, cw, ch, _, _ = gba_map.crop(px, W, H, (tx - 7) * 16, (ty - 5) * 16,
-                                         15 * 16, 11 * 16)
+        # 15x10 metatiles = 240x160 px: the GBA screen exactly, player centred
+        # as the game frames it (column 7, row 4).
+        cpx, cw, ch, _, _ = gba_map.crop(px, W, H, (tx - 7) * 16, (ty - 4) * 16,
+                                         15 * 16, 10 * 16)
         crop_png = gba_gfx.rgba_to_png(cpx, cw, ch)
         # full map: cache the encoded PNG (sprites + tint vary per save state,
         # so key on layout + tile + facing + chip)
@@ -936,46 +936,57 @@ def mail_context(state):
 
 # Pixel-art cursors (pixelarticons, MIT -- assets/cursors/LICENSE.md).
 # name -> (LOGICAL hotspot x, y, css fallback keyword). The 32x32 art is served
-# via image-set(... 2x) so it displays at 16px logical (crisp on retina);
-# per spec the hotspot is in logical units, so these are the halved values of
-# the opaque-pixel-geometry hotspots. assets/cursors/small/ holds 16x16
-# nearest-neighbor fallbacks for browsers without image-set-in-cursor
-# (Firefox), same logical hotspots.
+# via image-set(... 1.3333x) so it displays at 24px logical and stays crisp on
+# retina; hotspots are in logical units, i.e. 3/4 of the opaque-pixel-geometry
+# hotspots measured on the 32px art.
+CURSOR_SCALE = 1.3333  # 32px art / 1.3333 = 24px logical
 CURSORS = {
-    "default": (3, 2, "auto"),
-    "pointer": (6, 2, "pointer"),
-    "zoom-in": (7, 7, "zoom-in"),
-    "zoom-out": (7, 7, "zoom-out"),
-    "text": (8, 8, "text"),
+    "default": (4, 3, "auto"),
+    "pointer": (9, 3, "pointer"),
+    "zoom-in": (10, 10, "zoom-in"),
+    "zoom-out": (10, 10, "zoom-out"),
+    "text": (12, 12, "text"),
 }
 
 
 def cursor_css():
-    """CSS wiring the vendored pixel cursors site-wide (data URIs, 16px
+    """CSS wiring the vendored pixel cursors site-wide (data URIs, 24px
     logical, per-cursor hotspots). Empty string if assets missing."""
-    big, small = {}, {}
-    for name in CURSORS:
+    def load(name):
         p = os.path.join(TOOLS_DIR, "assets", "cursors", name + ".png")
-        ps = os.path.join(TOOLS_DIR, "assets", "cursors", "small", name + ".png")
-        if not (os.path.exists(p) and os.path.exists(ps)):
-            return ""
+        if not os.path.exists(p):
+            return None
         with open(p, "rb") as f:
-            big[name] = data_uri(f.read())
-        with open(ps, "rb") as f:
-            small[name] = data_uri(f.read())
-    def c(name):
+            return data_uri(f.read())
+
+    art = {}
+    for name in CURSORS:
+        art[name] = load(name)
+        if art[name] is None:
+            return ""
+
+    def c(name, variant=None):
         x, y, fb = CURSORS[name]
-        return ("cursor:image-set(url(%s) 2x) %d %d,url(%s) %d %d,%s"
-                % (big[name], x, y, small[name], x, y, fb))
+        uri = (load(variant) if variant else None) or art[name]
+        return ("cursor:image-set(url(%s) %sx) %d %d,%s"
+                % (uri, CURSOR_SCALE, x, y, fb))
+
+    def block(dark):
+        # Dark variants share the light art's geometry (verified); text has no
+        # dark variant, so it stays light in both schemes.
+        v = (lambda n: n + "-dark") if dark else (lambda n: None)
+        return ("html{%s}"
+                "p,li,td,th,h1,h2,h3,.note,.empty,.iname,.hpnum,.expnum,"
+                ".mon-sub,.held,.tc-frow,.pocket-empty{%s}"
+                "#tabbar button,summary,a{%s}"
+                ".maparea.toggleable,.maparea.toggleable *{%s}"
+                ".maparea.toggleable.showfull,.maparea.toggleable.showfull *{%s}"
+                % (c("default", v("default")), c("text"),
+                   c("pointer", v("pointer")),
+                   c("zoom-in", v("zoom-in")), c("zoom-out", v("zoom-out"))))
     # Order matters: text before pointer/zoom so interactive elements win.
-    return ("html{%s}"
-            "p,li,td,th,h1,h2,h3,footer,.note,.empty,.iname,.hpnum,.expnum,"
-            ".mon-meta,.mon-sub,.held,.tc-frow,.pocket-empty{%s}"
-            "#tabbar button,summary,a{%s}"
-            ".maparea.toggleable,.maparea.toggleable *{%s}"
-            ".maparea.toggleable.showfull,.maparea.toggleable.showfull *{%s}"
-            % (c("default"), c("text"), c("pointer"),
-               c("zoom-in"), c("zoom-out")))
+    return (block(False)
+            + "@media (prefers-color-scheme: dark){" + block(True) + "}")
 
 
 def build_context(state, api, font_css):
