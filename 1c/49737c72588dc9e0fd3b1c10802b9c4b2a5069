@@ -1,0 +1,35 @@
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_4dd214094c68b6 740-746,750-751
+  s_30c66b9ed26a01::t_7a14804b67f8da 709-710
+analysis/tools/gba_map.py
+  s_30c66b9ed26a01::t_44e2f80c778f97 18-30
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_9366ead7d56993 174-175,180-181,183-185
+  s_30c66b9ed26a01::t_f8bb902818b7af 169,176-179,182,204-206,273-277
+analysis/tools/templates/report.css
+  s_30c66b9ed26a01::t_342f6d19f725c1 171-172,177-178,180-182
+  s_30c66b9ed26a01::t_7a14804b67f8da 166,173-176,179
+analysis/report/index.html
+  s_30c66b9ed26a01::t_f8bb902818b7af 169,176-179,182,204-206,317-321
+  s_30c66b9ed26a01::t_9366ead7d56993 174-175,180-181,183-185
+analysis/tools/templates/report.html.j2
+  s_30c66b9ed26a01::t_7a14804b67f8da 86-92,227-231
+  s_30c66b9ed26a01::t_2c2935d9899073 93-95
+  s_30c66b9ed26a01::t_645318f8a5f59f 97
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1c49737c72588dc9e0fd3b1c10802b9c4b2a5069",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
