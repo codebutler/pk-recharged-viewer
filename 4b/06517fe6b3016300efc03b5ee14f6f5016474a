@@ -1,0 +1,22 @@
+app/styles.css
+  s_30c66b9ed26a01::t_3cc8c315d8d434 150-160
+tools/extract-card-trainer.py
+  s_30c66b9ed26a01::t_88f3400264a7d7 1-117,147-148,156-177
+  s_30c66b9ed26a01::t_1a93048fd46ffd 118-146,149-155
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4b06517fe6b3016300efc03b5ee14f6f5016474a",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
