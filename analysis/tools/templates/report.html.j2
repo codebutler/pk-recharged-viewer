@@ -33,7 +33,7 @@
     <div class="mon-name">{{ m.name }}{% if m.shiny %}<span class="shiny" title="shiny">&#9733;</span>{% endif %}</div>
     <div class="mon-sub">{{ m.species }} &middot; Lv{{ m.level }} {% if m.ailment %}<span class="ail">{{ m.ailment }}</span>{% endif %}</div>
     <div class="types">{% for t in m.types %}{{ type_chip(t) }}{% endfor %}</div></div></div>
-  <div class="hp">{{ bar(m.hp_pct, m.hp_color) }}<span class="hpnum">{{ m.hp }}/{{ m.max_hp }}</span></div>
+  <div class="hp"><i class="explabel">HP</i>{{ bar(m.hp_pct, m.hp_color) }}<span class="hpnum">{{ m.hp }}/{{ m.max_hp }}</span></div>
   {%- if m.exp_pct is not none %}
   <div class="hp exp"><i class="explabel">EXP</i>{{ bar(m.exp_pct, "#40a8f8") }}<span class="expnum">{{ "{:,}".format(m.exp_to_next) }} to Lv{{ m.level + 1 }}</span></div>
   {%- elif m.maxed %}

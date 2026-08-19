@@ -171,6 +171,14 @@
     "verified": "Pikachu (species 25): sheet LZ @0x087E948C -> renders recognizable Pikachu standing-south; palette LZ @0x083DA534 -> yellow + red-cheek colors",
     "confidence": "high"
   },
+  "badge_pixel_art": {
+    "recipe": "LZ77-decompress the sheet at 0x08A60760 (GBA BIOS LZ77, header 10 00 04 00) -> 0x400 bytes = 32 tiles of 4bpp = a 128x16px image, 8 badges of 16x16 left-to-right (Boulder..Earth). Badge i (0-based) = tiles {2i, 2i+1, 16+2i, 16+2i+1} (top-left, top-right, bottom-left, bottom-right; standard GBA 4bpp 8x8 tiles, low nibble = left pixel). Palette: uncompressed u16[16] BGR555 at 0x085E6024 (identical copy at 0x089BD750); color 0 transparent.",
+    "sheet_lz77": "0x08A60760 (byte-identical duplicate blob at 0x08A60A00)",
+    "palette": "0x085E6024 (u16[16], copy 0x089BD750); on the live card it loads to BG palette 15",
+    "verified": "extracted the palette from the live trainer-card dump (analysis/dumps/trainer-card/card-front/palram.bin, BG pal 15) and matched it byte-exact to these ROM addresses; the decompressed sheet is byte-identical to the tiles the card loads to VRAM 0x1800; badge 1 renders as the octagonal Boulder Badge, badge 2 the Cascade droplet, badge 8 the Earth Badge",
+    "unearned_display": "same tiles - the card simply draws nothing (or a placeholder) for unearned badges; for the webpage render earned ones only",
+    "confidence": "high (live + ROM cross-verified)"
+  },
   "rom_tables": {
     "gItems_english": {"addr": "0x0890F960", "stride": "0x30", "count": "409 (ids 0-408; id validity check compares against 0x198)", "name_at": "+0x0 (16 bytes)", "description_ptr_at": "+0x18 (u32 ROM ptr)", "fieldUseFunc_at": "+0x2C"},
     "item_names_spanish": {"addr": "0x0877A508", "stride": "0x10"},

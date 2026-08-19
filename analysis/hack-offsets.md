@@ -151,6 +151,14 @@ Two retractions from the first pass, then the verified mechanism:
 - **st0 answer**: the follower is the **starter Pikachu** (via GetFollowerMon mode 0 — see v2 section; Pikachu sits in party slot 6, so the follower is Yellow-style starter-bound, not lead-based), its object standing on the player's tile at Celadon (43,22), **facing East, currently invisible** (in-ball/hidden state — common right after menus/warps). For the card: render Pikachu beside/behind Eric facing East; optionally grey it out or omit when the invisible bit is set.
 - (Retracted: an earlier probe suggested IWRAM 0x3000E8C caches follower species — its live values don't match; not published.)
 
+## Badge pixel art (for the trainer-card page)
+
+Found via a live capture: a new harness (`analysis/tools/mgba_card_harness.lua`, runner pattern as run_harness.sh) boots the user's real save in mGBA, opens Start → Eric (trainer card), and dumps VRAM/palette-RAM/screenshots to `analysis/dumps/trainer-card/`. The card's badge tiles sit in VRAM 0x1800 with BG palette 15 — then matched back to ROM:
+
+- **Badge sheet**: LZ77 blob at **0x08A60760** (byte-identical duplicate at 0x08A60A00; header `10 00 04 00`) → 0x400 bytes = 32 4bpp tiles = a **128×16 px image, 8 badges of 16×16** (Boulder→Earth). Badge *i* = tiles {2i, 2i+1, 16+2i, 16+2i+1}. Verified: badge 1 renders the octagonal Boulder Badge, 2 the Cascade droplet, 8 the Earth leaf; decompressed bytes are identical to what the live card loads.
+- **Palette**: uncompressed u16[16] BGR555 at **0x085E6024** (copy at 0x089BD750), byte-exact match to the live card's BG palette 15; color 0 transparent.
+- Unearned badges are simply not drawn — one sheet serves all states.
+
 ## Explicitly unresolved (for the live-RAM verification pass)
 
 - SB1 0x34–0x3A and 0x3C–0x43 (gaps around partyCount/party), 0x764–0x8A8, 0xB50–0xEFA, 0x1228–0x1397 (0x1C-byte struct @0x1228, 0xC-stride records @0x1244), 0x1D98/0x20D8 structs, 0x2510–0x2743, tail 0x3B92+.

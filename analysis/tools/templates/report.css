@@ -80,9 +80,10 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .fill{display:block;height:100%}
 .hpnum{font-size:16px}
 .hp.exp{margin-top:-2px}
+.hp .bar{flex:0 0 140px}
 .hp.exp .bar{height:5px}
 .explabel{font-style:normal;font-family:'Press Start 2P',monospace;font-size:7px;
-  color:#7a766a}
+  color:#7a766a;width:26px;flex:none}
 .expnum{font-size:15px;color:#5a564e}
 .moves{list-style:none;margin:6px 0;border-top:2px dotted #b8b4a4;padding-top:6px}
 .moves li{display:flex;justify-content:space-between;padding:1px 0}
