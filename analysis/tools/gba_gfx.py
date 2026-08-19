@@ -94,13 +94,13 @@ def rgba_to_png(pixels, width, height):
             + _png_chunk(b"IEND", b""))
 
 
-def tiles_to_png(tile_data, palette, width_tiles, height_tiles, hflip=False):
-    """Assemble 4bpp tiles into a PNG frame.
+def tiles_to_pixels(tile_data, palette, width_tiles, height_tiles, hflip=False):
+    """Assemble 4bpp tiles into a row-major RGBA pixel list.
 
     tile_data: width_tiles*height_tiles consecutive 32-byte tiles, laid out
     row-major (the standard sprite-sheet frame order). palette: from
     decode_palette(). hflip mirrors the finished frame horizontally.
-    """
+    Returns (pixels, width_px, height_px)."""
     w, h = width_tiles * 8, height_tiles * 8
     need = width_tiles * height_tiles * 32
     if len(tile_data) < need:
@@ -115,4 +115,25 @@ def tiles_to_png(tile_data, palette, width_tiles, height_tiles, hflip=False):
     if hflip:
         pixels = [pixels[y * w + (w - 1 - x)]
                   for y in range(h) for x in range(w)]
+    return pixels, w, h
+
+
+def tiles_to_png(tile_data, palette, width_tiles, height_tiles, hflip=False):
+    """tiles_to_pixels, PNG-encoded."""
+    pixels, w, h = tiles_to_pixels(tile_data, palette, width_tiles,
+                                   height_tiles, hflip)
     return rgba_to_png(pixels, w, h)
+
+
+def composite(dest, dw, dh, src, sw, sh, x0, y0):
+    """Paste src pixels onto dest in place, skipping transparent src pixels
+    and anything outside the destination bounds."""
+    for y in range(sh):
+        dy = y0 + y
+        if not (0 <= dy < dh):
+            continue
+        for x in range(sw):
+            dx = x0 + x
+            p = src[y * sw + x]
+            if p[3] and 0 <= dx < dw:
+                dest[dy * dw + dx] = p

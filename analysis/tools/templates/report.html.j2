@@ -95,18 +95,6 @@
 {%- endif %}
 </section>
 </div>
-{%- if not trainer.error %}
-<div class="tc-extras">
-  {%- for row in trainer.extra_rows %}<span class="xr"><i>{{ row[0] }}</i>{{ row[1] }}</span>{% endfor %}
-  {%- if trainer.daynight %}<span class="dn">{{ trainer.daynight }}</span>{% endif %}
-  {%- if trainer.sprite %}
-  <span class="tc-sprites side-{{ trainer.follower_side or 'none' }}">
-    <img class="tc-player" src="{{ trainer.sprite|safe }}" alt="{{ trainer.sprite_alt }}">
-    {%- if trainer.follower_sprite %}<img class="tc-follower" src="{{ trainer.follower_sprite|safe }}" alt="{{ trainer.follower_alt }}" title="{{ trainer.follower_title }}">{% endif -%}
-  </span>
-  {%- endif %}
-</div>
-{%- endif %}
 
 {#- Tab bar (progressive enhancement: hidden until the inline script enables
     it; without JS every pane below stays visible). -#}
@@ -179,6 +167,9 @@
 </div>
 
 <div class="pane" id="pane-more" role="tabpanel" aria-labelledby="tab-more">
+{%- if rival %}
+{%- call panel("Rival") %}<p class="big">{{ rival }}</p>{% endcall %}
+{%- endif %}
 {%- if challenge %}
 {%- call panel("Challenge") %}{{ simple_states(challenge) }}
 {%- if challenge.cap %}<p class="big">LEVEL CAP <b>{{ challenge.cap }}</b> (mode {{ challenge.mode }})</p>{% endif %}

@@ -457,9 +457,9 @@ def _rom_off(rom, ptr):
     return off
 
 
-def object_sprite_png(rom, gfx_id, facing):
+def object_sprite_pixels(rom, gfx_id, facing):
     """Render any object event's standing frame by graphicsId, straight from
-    the ROM's graphics-info structs. Returns PNG bytes; raises on bad data."""
+    the ROM's graphics-info structs. Returns (pixels, w, h); raises on bad data."""
     import gba_gfx
     import struct as _s
     u32 = lambda off: _s.unpack_from("<I", rom, off)[0]
@@ -488,8 +488,13 @@ def object_sprite_png(rom, gfx_id, facing):
     if pal_bytes is None:
         raise ValueError("palette tag 0x%04X not found" % pal_tag)
     palette = gba_gfx.decode_palette(pal_bytes)
-    return gba_gfx.tiles_to_png(tiles, palette, wt, ht,
-                                hflip=(facing == "right"))
+    return gba_gfx.tiles_to_pixels(tiles, palette, wt, ht,
+                                   hflip=(facing == "right"))
+
+
+def object_sprite_png(rom, gfx_id, facing):
+    import gba_gfx
+    return gba_gfx.rgba_to_png(*object_sprite_pixels(rom, gfx_id, facing))
 
 
 def _json_spec_sprite(avatar):
@@ -533,8 +538,9 @@ MON_GFX_INFO_ARRAY = 0x0888C430
 MON_PAL_TABLE = 0x08751738       # {u32 lzPalPtr, u32 tag} stride 8
 
 
-def mon_sprite_png(rom, species, facing):
-    """Render a mon overworld standing frame by INTERNAL species id."""
+def mon_sprite_pixels(rom, species, facing):
+    """Render a mon overworld standing frame by INTERNAL species id.
+    Returns (pixels, w, h)."""
     import gba_gfx
     import struct as _s
     u32 = lambda off: _s.unpack_from("<I", rom, off)[0]
@@ -548,8 +554,13 @@ def mon_sprite_png(rom, species, facing):
     pal_lz = _rom_off(rom, u32(_rom_off(rom, MON_PAL_TABLE) + species * 8))
     pal_bytes = gba_gfx.lz77_decompress(rom, pal_lz)[:32]
     palette = gba_gfx.decode_palette(pal_bytes)
-    return gba_gfx.tiles_to_png(tiles, palette, 4, 4,
-                                hflip=(facing == "right"))
+    return gba_gfx.tiles_to_pixels(tiles, palette, 4, 4,
+                                   hflip=(facing == "right"))
+
+
+def mon_sprite_png(rom, species, facing):
+    import gba_gfx
+    return gba_gfx.rgba_to_png(*mon_sprite_pixels(rom, species, facing))
 
 
 def avatar_sprite_uri(avatar):
@@ -624,27 +635,43 @@ def badge_sprite_uri(n):
     return None
 
 
-# In-game clock tint bands: hour range -> per-channel RGB scale applied to the
-# rendered map pixels, or None for untinted day colors. The night entry is an
-# approximation (~45% darkening, slight blue lean) eyeballed against the live
-# 21:16 capture; drop the hack's exact blend coefficients in here when
-# rom-fingerprint derives them.
-MAP_TINT_BANDS = [
-    (0, 6, ("night", (0.53, 0.56, 0.76))),
-    (6, 18, None),
-    (18, 24, ("night", (0.53, 0.56, 0.76))),
-]
+# Day/night schedule (hack-offsets.json day_night_tint, disassembled handler
+# table + live-measured magnitudes): full night 22:00-3:59; dawn ramp
+# night->twilight 4:00-6:59; morning ramp twilight->clear 7:00-9:59; full day
+# 10:00-17:59; dusk ramp clear->twilight 18:00-19:59; evening ramp
+# twilight->night 20:00-21:59 -- all minute-interpolated. Coefficients: night
+# measured ~(0.55, 0.48, 0.55); twilight solved from the live 21:16 sample
+# ((0.61, 0.53, 0.61) at 63% through the evening ramp) = ~(0.71, 0.62, 0.71).
+DNS_NIGHT = (0.55, 0.48, 0.55)
+DNS_TWILIGHT = (0.71, 0.62, 0.71)
+DNS_CLEAR = (1.0, 1.0, 1.0)
 
 
-def map_tint(clock):
+def dns_phase(clock):
+    """(chip_label, coeffs-or-None) for the in-game clock. Chip is the 4-state
+    DAY/DUSK/NIGHT/DAWN; coeffs None means no tint (day colors)."""
     if not clock:
-        return None
-    hour = clock.get("hour", 12)
-    for lo, hi, band in MAP_TINT_BANDS:
-        if lo <= hour < hi and band:
-            label = "%s, in-game %d:%02d" % (band[0], hour, clock.get("minute", 0))
-            return label, band[1]
-    return None
+        return None, None
+    m = clock.get("hour", 12) * 60 + clock.get("minute", 0)
+
+    def lerp(a, b, t):
+        return tuple(a[i] + (b[i] - a[i]) * t for i in range(3))
+
+    if m >= 22 * 60 or m < 4 * 60:
+        chip, coeffs = "NIGHT", DNS_NIGHT
+    elif m < 7 * 60:
+        chip, coeffs = "DAWN", lerp(DNS_NIGHT, DNS_TWILIGHT, (m - 4 * 60) / 180)
+    elif m < 10 * 60:
+        chip, coeffs = "DAWN", lerp(DNS_TWILIGHT, DNS_CLEAR, (m - 7 * 60) / 180)
+    elif m < 18 * 60:
+        chip, coeffs = "DAY", None
+    elif m < 20 * 60:
+        chip, coeffs = "DUSK", lerp(DNS_CLEAR, DNS_TWILIGHT, (m - 18 * 60) / 120)
+    else:
+        chip, coeffs = "DUSK", lerp(DNS_TWILIGHT, DNS_NIGHT, (m - 20 * 60) / 120)
+    if coeffs and min(coeffs) > 0.985:  # end of the morning ramp = clear
+        coeffs = None
+    return chip, coeffs
 
 
 def map_context(state, cache):
@@ -660,22 +687,47 @@ def map_context(state, cache):
         rom = load_rom()
         px, W, H, wm, hm = gba_map.map_render(rom, loc["mapGroup"], loc["mapNum"])
         clock, _ = section_data(state, "gameClock")
-        # The hack tints OUTDOOR maps only (the live 21:18 bedroom capture is
-        # untinted); indoor/underground map types keep day colors.
+        chip, coeffs = dns_phase(clock)
+        # Interiors are exempt from the day/night system (mapType gate at
+        # 0x08140E60; the live 21:18 bedroom capture is untinted).
         outdoor = gba_map.map_type(rom, loc["mapGroup"], loc["mapNum"]) in (1, 2, 3, 5, 6)
-        tint = map_tint(clock) if outdoor else None
-        if tint:
-            rs, gs, bs = tint[1]
+        if outdoor and coeffs:
+            rs, gs, bs = coeffs
             px = [(int(r * rs), int(g * gs), int(b * bs), a) for r, g, b, a in px]
         tx, ty = loc.get("x", 0), loc.get("y", 0)
-        gba_map.mark_tile(px, W, H, tx, ty)  # marker drawn after tint: stays red
+
+        # The marker is the ACTUAL player sprite (feet anchored on the tile),
+        # drawn after the tint so it reads like the game's own sprite layer,
+        # plus the follower at its own tile when visible.
+        avatar = state.get("playerAvatar") or {}
+        try:
+            sp, sw_, sh_ = object_sprite_pixels(rom, avatar.get("graphicsId", 0),
+                                                avatar.get("facing", "down"))
+            gba_gfx.composite(px, W, H, sp, sw_, sh_,
+                              tx * 16 + (16 - sw_) // 2, (ty + 1) * 16 - sh_)
+        except Exception as e:
+            sys.stderr.write("map player sprite: %s\n" % e)
+            gba_map.mark_tile(px, W, H, tx, ty)
+        follower = avatar.get("follower")
+        if (follower and follower.get("present") and follower.get("species")
+                and not follower.get("hidden")):
+            try:
+                fx = follower["coords"][0] - 7  # objectEvent coords are map+7
+                fy = follower["coords"][1] - 7
+                fp, fw, fh = mon_sprite_pixels(rom, follower["species"],
+                                               follower.get("facing", "down"))
+                gba_gfx.composite(px, W, H, fp, fw, fh,
+                                  fx * 16 + (16 - fw) // 2, (fy + 1) * 16 - fh)
+            except Exception as e:
+                sys.stderr.write("map follower sprite: %s\n" % e)
+
         cpx, cw, ch, _, _ = gba_map.crop(px, W, H, (tx - 7) * 16, (ty - 5) * 16,
                                          15 * 16, 11 * 16)
         crop_png = gba_gfx.rgba_to_png(cpx, cw, ch)
-        # full map: cache the encoded PNG (marker + tint vary per save state,
-        # so key on layout + tile + tint band)
-        key = "map_%d_%d_%d_%s.png" % (loc.get("mapLayoutId", 0), tx, ty,
-                                       tint[0].split(",")[0] if tint else "day")
+        # full map: cache the encoded PNG (sprites + tint vary per save state,
+        # so key on layout + tile + facing + chip)
+        key = "map_%d_%d_%d_%s_%s.png" % (loc.get("mapLayoutId", 0), tx, ty,
+                                          avatar.get("facing", "x"), chip or "day")
         cache_path = cache._path(key)
         if os.path.exists(cache_path):
             with open(cache_path, "rb") as f:
@@ -684,10 +736,13 @@ def map_context(state, cache):
             full_png = gba_gfx.rgba_to_png(px, W, H)
             with open(cache_path, "wb") as f:
                 f.write(full_png)
+        clock_label = ("%s, in-game %d:%02d" % (chip, clock.get("hour", 0),
+                                                clock.get("minute", 0))
+                       if chip else None)
         return {
             "name": loc.get("mapName") or "map (%d,%d)" % (loc["mapGroup"], loc["mapNum"]),
             "coords": "(%d, %d)" % (tx, ty),
-            "tint_label": tint[0] if tint else None,
+            "tint_label": clock_label,
             "crop": data_uri(crop_png),
             "full": data_uri(full_png),
             "full_w": W,
@@ -704,13 +759,6 @@ def trainer_context(state):
         return {"error": err}
     badges_sec, _ = section_data(state, "badges")
     badge_map = (badges_sec or {}).get("badges") or {}
-    loc, _ = section_data(state, "location")
-    clock, _ = section_data(state, "gameClock")
-    daynight = None
-    if clock:
-        hour = clock.get("hour", 0)
-        daynight = "%s %02d:%02d" % ("DAY" if 6 <= hour < 18 else "NIGHT",
-                                     hour, clock.get("minute", 0))
     pt = p.get("playTime", {})
     # Fields exactly as the in-game card shows them (no thousands separators,
     # Pokedollar sign, dex = owned count).
@@ -719,36 +767,9 @@ def trainer_context(state):
     fields = [("Money", "\u20bd%d" % (p.get("money") or 0)),
               ("Pok\u00e9dex", str(dex_owned if dex_owned is not None else "?")),
               ("Time", "%d:%02d" % (pt.get("hours", 0), pt.get("minutes", 0)))]
-    # Extras the real card does not show move to a slim strip below it.
-    extra_rows = []
-    if state.get("rivalName"):
-        extra_rows.append(("RIVAL", state["rivalName"]))
-    if loc:
-        extra_rows.append(("PLACE", loc.get("mapName") or "map (%d,%d)"
-                           % (loc.get("mapGroup", -1), loc.get("mapNum", -1))))
-    avatar = state.get("playerAvatar", {})
-    # Follower rendering: lights up once parse_ram emits playerAvatar.follower
-    # ({graphicsId, facing, ...} -- identification rule pending rom-fingerprint).
-    follower = avatar.get("follower")
-    # Render only a VISIBLE, resolved follower: hidden (in its Poke Ball) means
-    # the card shows nothing, though the JSON still reports present+hidden.
-    if follower and not (follower.get("present") and follower.get("species")
-                         and not follower.get("hidden")):
-        follower = None
-    follower_side = None
-    if follower:
-        # Place the follower on the side it actually stands on: compare object
-        # coords (both map coords + 7, so the offset cancels). Same-tile or
-        # non-adjacent -> trailing side = opposite of the player's facing.
-        px, py = (avatar.get("raw") or {}).get("currentCoords", [None, None])
-        fx, fy = follower.get("coords", [None, None])
-        delta = (fx - px, fy - py) if None not in (px, py, fx, fy) else None
-        follower_side = {(-1, 0): "left", (1, 0): "right",
-                         (0, -1): "above", (0, 1): "below"}.get(delta)
-        if follower_side is None:
-            follower_side = {"right": "left", "left": "right",
-                             "up": "below", "down": "above"}.get(
-                                 avatar.get("facing", "right"), "left")
+    # (Player and follower overworld sprites are composited onto the map
+    # panel now -- see map_context -- so the card carries only the full-body
+    # art, with the overworld sprite as its fallback.)
     # Full-body trainer art: extracted from the live card capture (vendored
     # asset, see assets/); fall back to the overworld sprite at 2x if absent.
     pic_path = os.path.join(TOOLS_DIR, "assets",
@@ -763,18 +784,7 @@ def trainer_context(state):
         "fields": fields,
         "pic": pic,
         "sprite": player_sprite_uri(state),
-        "sprite_alt": "player facing %s%s" % (avatar.get("facing", "?"),
-                                              " on bike" if avatar.get("onBike") else ""),
-        "follower_sprite": avatar_sprite_uri(follower) if follower else None,
-        "follower_side": follower_side,
-        "follower_title": (follower.get("speciesName") or "follower")
-                          if follower else "",
-        "follower_alt": ("%s follower facing %s" % (
-                             follower.get("speciesName") or "?",
-                             follower.get("facing", "?"))
-                         if follower else ""),
-        "extra_rows": extra_rows,
-        "daynight": daynight,
+        "sprite_alt": "player overworld sprite",
         "badges": [{"name": n, "color": BADGE_COLORS[i],
                     "lit": bool(badge_map.get(n)),
                     "sprite": badge_sprite_uri(i + 1)}
@@ -945,6 +955,7 @@ def build_context(state, api, font_css):
             game_stats=game_stats_context(state),
             challenge=challenge_context(state),
             mail=mail_context(state),
+            rival=state.get("rivalName"),
         )
 
         # Tab bar: sections other than the always-visible trainer card. A tab
@@ -960,7 +971,8 @@ def build_context(state, api, font_css):
             {"id": "storage", "label": "STORAGE", "empty": is_empty(ctx["boxes"])},
             {"id": "stats", "label": "STATS", "empty": is_empty(ctx["game_stats"])},
             {"id": "more", "label": "MORE",
-             "empty": is_empty(ctx["challenge"]) and is_empty(ctx["mail"])},
+             "empty": (is_empty(ctx["challenge"]) and is_empty(ctx["mail"])
+                       and not ctx["rival"])},
         ]
     return ctx
 
