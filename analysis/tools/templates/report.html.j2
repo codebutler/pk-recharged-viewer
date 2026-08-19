@@ -34,12 +34,16 @@
     <div class="mon-sub">{{ m.species }} &middot; Lv{{ m.level }} {% if m.ailment %}<span class="ail">{{ m.ailment }}</span>{% endif %}</div>
     <div class="types">{% for t in m.types %}{{ type_chip(t) }}{% endfor %}</div></div></div>
   <div class="hp">{{ bar(m.hp_pct, m.hp_color) }}<span class="hpnum">{{ m.hp }}/{{ m.max_hp }}</span></div>
+  {%- if m.exp_pct is not none %}
+  <div class="hp exp"><i class="explabel">EXP</i>{{ bar(m.exp_pct, "#40a8f8") }}<span class="expnum">{{ "{:,}".format(m.exp_to_next) }} to Lv{{ m.level + 1 }}</span></div>
+  {%- elif m.maxed %}
+  <div class="hp exp"><i class="explabel">EXP</i>{{ bar(100, "#40a8f8") }}<span class="expnum">MAX Lv</span></div>
+  {%- endif %}
   <ul class="moves">{% for mv in m.moves %}
     <li><span>{{ mv.name }}{% if mv.type %}{{ type_chip(mv.type, "type mtype") }}{% endif %}</span> <span class="pp">PP {{ mv.pp }}</span></li>
   {%- endfor %}</ul>
   <div class="mon-meta">{{ m.ability }} &middot; {{ m.nature }} nature{% if m.friendship is not none %} &middot; FRIEND {{ m.friendship }}{% endif %}</div>
-  <div class="statbars"><span class="legend"><i style="background:#68a0e8"></i>IV
-    <i style="background:#e8a068"></i>EV</span>
+  <div class="statbars"><span class="legend"><i style="background:#68a0e8"></i><b>IV</b><i style="background:#e8a068"></i><b>EV</b></span>
   {%- for row in m.stat_rows %}
     <div class="sb"><i>{{ row.label }}</i>{{ bar(row.iv_pct, "#68a0e8") }}{{ bar(row.ev_pct, "#e8a068") }}</div>
   {%- endfor %}</div>
@@ -171,6 +175,7 @@
   var tabs = [].slice.call(bar.querySelectorAll("button"));
   if (!tabs.length) return;
   bar.hidden = false;
+  document.body.classList.add("tabs-on");
   function select(id, pushHash) {
     tabs.forEach(function (b) {
       var on = b.dataset.tab === id;

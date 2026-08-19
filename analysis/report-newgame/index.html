@@ -82,6 +82,11 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
   display:inline-block;vertical-align:middle}
 .fill{display:block;height:100%}
 .hpnum{font-size:16px}
+.hp.exp{margin-top:-2px}
+.hp.exp .bar{height:5px}
+.explabel{font-style:normal;font-family:'Press Start 2P',monospace;font-size:7px;
+  color:#7a766a}
+.expnum{font-size:15px;color:#5a564e}
 .moves{list-style:none;margin:6px 0;border-top:2px dotted #b8b4a4;padding-top:6px}
 .moves li{display:flex;justify-content:space-between;padding:1px 0}
 .pp{color:#7a766a;font-size:8px;align-self:center}
@@ -91,8 +96,12 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .sb{display:flex;align-items:center;gap:6px;margin:2px 0}
 .sb i{font-style:normal;font-size:7px;width:20px;color:#7a766a}
 .sb .bar{flex:0 1 90px;height:5px}
-.legend{font-size:7px;color:#7a766a;display:block;margin-bottom:4px}
-.legend i{display:inline-block;width:8px;height:8px;margin:0 3px 0 8px}
+.legend{font-size:7px;color:#7a766a;display:flex;align-items:center;gap:4px;
+  margin-bottom:4px}
+.legend b{font-weight:normal}
+.legend i{width:8px;height:8px;flex:none}
+.legend i + b{margin-right:8px}
+.legend b:last-child{margin-right:0}
 .held{font-size:16px;color:#5a564e;margin-top:4px}
 /* storage + dex grids */
 .boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
@@ -132,6 +141,10 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 #tabbar button:focus-visible{outline:3px solid var(--pika);outline-offset:2px}
 #tabbar button.tab-empty{opacity:.55}
 .pane[hidden]{display:none}
+/* With tabs active the tab label already names the section -- drop the
+   redundant in-pane title. The MORE pane keeps titles: it holds two
+   different sections under one tab. */
+.tabs-on .pane:not(#pane-more) .panel h2{display:none}
 /* misc */
 .stats{border-collapse:collapse;width:100%}
 .stats td{border-bottom:1px dotted #c8c4b0;padding:4px 2px}
@@ -182,6 +195,7 @@ footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:16px;
   var tabs = [].slice.call(bar.querySelectorAll("button"));
   if (!tabs.length) return;
   bar.hidden = false;
+  document.body.classList.add("tabs-on");
   function select(id, pushHash) {
     tabs.forEach(function (b) {
       var on = b.dataset.tab === id;

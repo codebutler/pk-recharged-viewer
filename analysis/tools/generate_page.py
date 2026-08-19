@@ -225,6 +225,15 @@ class PokeApi:
         self._mon[national] = info
         return info
 
+    def growth_rate(self, national):
+        """Growth-rate name for a species (from pokemon-species data), or None."""
+        data = self._local_json("api/v2/pokemon-species/%d/index.json" % national) \
+            or self.cache.get("species_%d.json" % national,
+                              "%s/pokemon-species/%d" % (API, national))
+        if data:
+            return (data.get("growth_rate") or {}).get("name")
+        return None
+
     def move_type(self, move_id):
         """Type name for a move id, or None. Gen 3 internal move IDs equal
         national/PokeAPI move IDs (unlike species), so no mapping table."""
@@ -325,6 +334,49 @@ def type_info(name):
     return {"name": name, "color": TYPE_COLORS.get(name, "#888")}
 
 
+# Gen 3 experience curves (integer math). PokeAPI growth-rate names map:
+# medium = medium-fast, slow-then-very-fast = erratic,
+# fast-then-very-slow = fluctuating.
+def exp_for_level(rate, n):
+    if n <= 1:
+        return 0
+    if rate == "fast":
+        return 4 * n ** 3 // 5
+    if rate in ("medium", "medium-fast"):
+        return n ** 3
+    if rate == "medium-slow":
+        return 6 * n ** 3 // 5 - 15 * n ** 2 + 100 * n - 140
+    if rate == "slow":
+        return 5 * n ** 3 // 4
+    if rate == "slow-then-very-fast":  # erratic
+        if n < 50:
+            return n ** 3 * (100 - n) // 50
+        if n < 68:
+            return n ** 3 * (150 - n) // 100
+        if n < 98:
+            return n ** 3 * ((1911 - 10 * n) // 3) // 500
+        return n ** 3 * (160 - n) // 100
+    if rate == "fast-then-very-slow":  # fluctuating
+        if n < 15:
+            return n ** 3 * ((n + 1) // 3 + 24) // 50
+        if n < 36:
+            return n ** 3 * (n + 14) // 50
+        return n ** 3 * (n // 2 + 32) // 50
+    return None
+
+
+def exp_progress(api, national, level, experience):
+    """(pct, to_next) toward the next level, or (None, None) when unknown."""
+    if not national or not (1 <= level < 100) or experience is None:
+        return None, None
+    rate = api.growth_rate(national)
+    cur = exp_for_level(rate, level) if rate else None
+    nxt = exp_for_level(rate, level + 1) if rate else None
+    if cur is None or nxt is None or nxt <= cur:
+        return None, None
+    return pct(experience - cur, nxt - cur), max(0, nxt - experience)
+
+
 def mon_context(mon, api):
     nat = internal_to_national(mon.get("species", 0))
     info = api.pokemon(nat) if nat else None
@@ -342,6 +394,8 @@ def mon_context(mon, api):
     hp, max_hp = mon.get("hp", 0), mon.get("stats", {}).get("maxHP", 0)
     hp_pct = pct(hp, max_hp)
     ivs, evs = mon.get("ivs", {}), mon.get("evs", {})
+    level = mon.get("level", 0)
+    exp_pct, exp_to_next = exp_progress(api, nat, level, mon.get("experience"))
     return {
         "sprite": info["sprite"] if info else None,
         "name": mon.get("nickname") or (info["name"] if info else "?"),
@@ -353,6 +407,8 @@ def mon_context(mon, api):
         "hp": hp, "max_hp": max_hp, "hp_pct": hp_pct,
         "hp_color": ("#58c858" if hp_pct > 50 else
                      "#f8d030" if hp_pct > 20 else "#f05038"),
+        "exp_pct": exp_pct, "exp_to_next": exp_to_next,
+        "maxed": level >= 100,
         "moves": [{
             "name": m.get("name", "move %d" % m["move"]),
             "type": type_info(api.move_type(m["move"]))
