@@ -67,19 +67,6 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -2px 0 rgba(44,60,92,.3)}
 .tc-badgelabel{font-family:'Press Start 2P',monospace;font-size:7px;color:#eaf2fc;
   background:#48699c;padding:4px 6px 3px;border-radius:3px;flex:none}
-.tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3));
-  grid-area:p}
-.tc-follower{image-rendering:pixelated;width:28px;align-self:center;justify-self:center;
-  filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3));grid-area:f}
-/* 2D placement: the follower sits on the side it actually stands on */
-.tc-sprites{display:grid;gap:0;align-items:end}
-.tc-sprites.side-left{grid-template-areas:"f p"}
-.tc-sprites.side-right{grid-template-areas:"p f"}
-.tc-sprites.side-above{grid-template-areas:"f" "p"}
-.tc-sprites.side-below{grid-template-areas:"p" "f"}
-.tc-sprites.side-none{grid-template-areas:"p"}
-.dn{font-family:'Press Start 2P',monospace;font-size:8px;background:var(--line);
-  color:#cfe8d8;padding:4px 6px;border-radius:2px;align-self:center}
 .tc-badges{display:flex;gap:9px;align-items:center}
 .badge-slot{width:32px;height:32px;border-radius:6px;background:#5a86c4;
   box-shadow:inset 0 0 0 2px #7fa4dc,inset 0 2px 0 rgba(255,255,255,.25);
@@ -191,10 +178,4 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .big{font-size:12px}
 footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:16px;
   line-height:1.5}
-.tc-extras{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;
-  background:#0d2016;border:2px solid var(--line);border-radius:2px;
-  box-shadow:inset 0 0 0 1px #24402e;color:#cfe8d8;padding:9px 14px;
-  margin-top:-8px;font-size:17px}
-.tc-extras .xr i{font-style:normal;font-size:8px;color:#7fa88f;margin-right:7px}
-.tc-extras .dn{margin-left:0}
 @media(max-width:520px){.sb .bar{flex-basis:60px}}
