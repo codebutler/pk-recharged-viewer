@@ -1,0 +1,39 @@
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_412d917ba4f4c2 337-379
+  s_30c66b9ed26a01::t_660cbc3c96c0c5 397-398
+  s_30c66b9ed26a01::t_634cb79713c402 228-236
+  s_30c66b9ed26a01::t_0f42b60de7de02 410-411
+analysis/dumps/trainer-card/harness.log
+  s_30c66b9ed26a01::t_bd20d8cf5f5203 3332-3851
+  s_30c66b9ed26a01::t_656c9830c8a737 3316-3331
+analysis/report/index.html
+  s_30c66b9ed26a01::t_6eef4695232e32 85-89,99-104,144-147,183,185,190,192,197,199,204,206,211,213,218,220,242
+analysis/tools/templates/report.html.j2
+  s_30c66b9ed26a01::t_6075f1cffdf46d 46
+  s_30c66b9ed26a01::t_e48f08c1c45989 37-41
+  s_30c66b9ed26a01::t_ad7e65b189d7ca 178
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_6eef4695232e32 85-89,99-104,144-147,198
+analysis/tools/templates/report.css
+  s_30c66b9ed26a01::t_85c70db69fbe62 96-101
+  s_30c66b9ed26a01::t_870ac535fd71cb 82-86
+  s_30c66b9ed26a01::t_a2063cafebbeef 141-144
+analysis/dumps/trainer-card/DONE
+  s_30c66b9ed26a01::t_bd20d8cf5f5203 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4b066e470a53d54b094c801b1842b6b64eedd528",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
