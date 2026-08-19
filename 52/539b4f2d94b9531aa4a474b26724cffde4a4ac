@@ -1,0 +1,29 @@
+app/viewmodel.js
+  s_30c66b9ed26a01::t_a36d51d84a484f 162
+lib/parser/parse-ram.js
+  s_30c66b9ed26a01::t_e707b317d9d688 220-226,232,237
+research/real-saves/st0.json
+  s_30c66b9ed26a01::t_3591a35984af3b 29
+research/real-saves/st9.json
+  s_30c66b9ed26a01::t_953cbbb8dff28b 29
+research/tools/parse_ram.py
+  s_30c66b9ed26a01::t_b6713cb88e839b 807-813,819,824
+tests/compare-python.js
+  s_30c66b9ed26a01::t_c3f3c7f013dfe5 18,24-44,119-121
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "52539b4f2d94b9531aa4a474b26724cffde4a4ac",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
