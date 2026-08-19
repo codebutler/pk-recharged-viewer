@@ -1,0 +1,24 @@
+app/components/DropZone.js
+  s_30c66b9ed26a01::t_3f6568703473aa 24-45,53-58
+app/styles.css
+  s_30c66b9ed26a01::t_b7679e01d5e5da 253
+  s_30c66b9ed26a01::t_a908d3ad62cb27 285-301,303-314
+  s_30c66b9ed26a01::t_251578a2fc3b15 302
+  s_30c66b9ed26a01::t_15879120fcabd9 315-322
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "23e2726ec261ab38e6afc19ef33224f636f83cb6",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
