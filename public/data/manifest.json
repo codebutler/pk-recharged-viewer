@@ -1,6 +1,6 @@
 {
  "rom": "Pokemon Recharged Yellow.gba",
- "generated": "2026-08-19T13:34:47.918Z",
+ "generated": "2026-08-19T15:27:15.040Z",
  "note": "Maps are DAY colours with no sprites; apply tint and composite client-side.",
  "mapLayouts": {
   "1": {
