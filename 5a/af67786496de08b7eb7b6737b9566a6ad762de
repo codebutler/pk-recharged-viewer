@@ -1,0 +1,25 @@
+research/hack-offsets.md
+  s_30c66b9ed26a01::t_9370bc6011b686 172
+lib/gfx/rom-assets.js
+  s_30c66b9ed26a01::t_766f0f82d0da69 11,69-70,83
+lib/gfx/rom-offsets.js
+  s_30c66b9ed26a01::t_d861140af07a04 49-58
+public/data/manifest.json
+  s_30c66b9ed26a01::t_848a9cceab0746 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "5aaf67786496de08b7eb7b6737b9566a6ad762de",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
