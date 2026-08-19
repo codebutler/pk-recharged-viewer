@@ -140,21 +140,26 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .iname{flex:1;overflow-wrap:anywhere;font-size:18px;font-family:'Pokemon Emerald','VT323',monospace}
 .qty{color:#5a564e;font-size:15px;align-self:center}
 /* tab bar (GBA menu style) */
-#tabbar{display:flex;flex-wrap:wrap;gap:6px}
-#tabbar button{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;font-size:15px;
-  color:var(--pika);background:var(--line);border:0;
-  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),
-    -3px 0 0 0 var(--line),3px 0 0 0 var(--line),
-    inset 0 0 0 2px #3a3a30,5px 5px 0 rgba(0,0,0,.45);
-  padding:9px 12px 7px;}
-#tabbar button:hover{color:#fff}
-#tabbar button[aria-selected="true"]{background:var(--panel);color:var(--ink);
-  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),
-    -3px 0 0 0 var(--line),3px 0 0 0 var(--line),
-    inset 0 0 0 2px #fff,inset 0 0 0 4px #b0b0a0;
-  transform:translate(2px,2px)}
-#tabbar button:focus-visible{outline:3px solid var(--pika);outline-offset:2px}
-#tabbar button.tab-empty{opacity:.55}
+/* Tab strip styled after the in-game summary-screen tabs: one continuous
+   pale bar with a blue frame; the active tab is a cream plate with dark text,
+   the others are blue plates. (The game shows inactive tabs as bare dots --
+   there is room here for their labels.) */
+#tabbar{display:flex;flex-wrap:wrap;gap:4px;background:#dfeaf6;padding:4px;
+  align-items:center;
+  box-shadow:0 -3px 0 0 #2c3c5c,0 3px 0 0 #2c3c5c,-3px 0 0 0 #2c3c5c,
+    3px 0 0 0 #2c3c5c,5px 5px 0 rgba(0,0,0,.4)}
+#tabbar button{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;
+  font-size:15px;color:#eef4fc;background:#5f8ecb;border:0;padding:7px 13px 5px;
+  text-shadow:1px 1px 0 rgba(20,32,56,.65);
+  box-shadow:0 -2px 0 0 #46689c,0 2px 0 0 #46689c,-2px 0 0 0 #46689c,
+    2px 0 0 0 #46689c,inset 0 2px 0 rgba(255,255,255,.28)}
+#tabbar button:hover{background:#6f9edb;color:#fff}
+#tabbar button[aria-selected="true"]{background:#f8f4d8;color:#2c3c5c;
+  text-shadow:1px 1px 0 #fff;
+  box-shadow:0 -2px 0 0 #2c3c5c,0 2px 0 0 #2c3c5c,-2px 0 0 0 #2c3c5c,
+    2px 0 0 0 #2c3c5c,inset 0 2px 0 rgba(255,255,255,.9)}
+#tabbar button:focus-visible{outline:3px solid var(--pika);outline-offset:3px}
+#tabbar button.tab-empty{opacity:.6}
 .pane[hidden]{display:none}
 /* With tabs active the tab label already names the section -- drop the
    redundant in-pane title. The MORE pane keeps titles: it holds two
@@ -225,7 +230,7 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 /* Filled pills have no border to omit, so their corners are clipped instead --
    a 2px staircase, all cuts axis-aligned so nothing gets anti-aliased. */
 .type,.ail,.tc-idno,.tc-badgelabel,.badge-slot,.panel h2,.tcard h2,.map-popup,
-.dn{--q:2px;clip-path:polygon(
+#tabbar,#tabbar button,.dn{--q:2px;clip-path:polygon(
   var(--q) 0, calc(100% - var(--q)) 0,
   calc(100% - var(--q)) var(--q), 100% var(--q),
   100% calc(100% - var(--q)), calc(100% - var(--q)) calc(100% - var(--q)),
