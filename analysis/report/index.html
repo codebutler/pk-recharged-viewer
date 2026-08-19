@@ -12,7 +12,7 @@ body{background:var(--backdrop);color:var(--ink);
   font-family:'VT323',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
   font-size:18px;line-height:1.3;padding:24px 12px 64px}
 main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-h1,h2,h3,.tc-name,.dexcount b,.big,.tc-row i,.sb i,.legend,.dexcount i,.ail,
+h1,h2,h3,.dexcount b,.big,.xr i,.sb i,.legend,.dexcount i,.ail,
 .qty,.pp{font-family:'Press Start 2P',ui-monospace,monospace}
 h1{color:var(--pika);font-size:16px;text-align:center;line-height:1.6;
   text-shadow:2px 2px 0 #000;margin-bottom:4px}
@@ -36,9 +36,40 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .note{color:#7a766a;font-size:16px;margin:4px 0 8px}
 .warn{color:var(--accent);font-size:16px;margin-top:8px}
 /* trainer card */
-.tcard{background:linear-gradient(#f8e070,#f0c830);border-color:var(--line)}
-.tcard h2{color:#fff;background:#a06818}
-.tc-namerow{display:flex;align-items:center;gap:12px}
+/* trainer card: styled after the in-game card (sky-blue bands, white face,
+   rounded corners, badge strip along the bottom) */
+.tcard{background:linear-gradient(#88b0e0,#7aa4d8);border:3px solid #2c3c5c;
+  border-radius:14px;padding:0;overflow:hidden;
+  box-shadow:inset 0 0 0 2px #c8dcf4,4px 4px 0 rgba(0,0,0,.45)}
+.tc-band{background:linear-gradient(#4c84cc,#4074bc);display:flex;
+  justify-content:space-between;align-items:center;padding:8px 12px;
+  border-bottom:2px solid #2c3c5c}
+.tcard h2{margin:0;padding:5px 9px 4px;font-size:10px;background:#d4e2f6;
+  color:#3a62ac;border-radius:4px;border:2px solid #f4f8fe;
+  box-shadow:1px 1px 0 rgba(0,0,0,.3);display:inline-block}
+.tc-idno{font-family:'Press Start 2P',ui-monospace,monospace;font-size:9px;
+  background:#f0f5fc;color:#2c3c5c;padding:6px 12px 5px;border-radius:9px}
+.tc-white{background:
+  radial-gradient(circle at 108% 118%, #cfe0f4 0 96px, transparent 97px),
+  radial-gradient(circle at 108% 118%, #b8d0ec 0 130px, transparent 131px),
+  #fbfcfe;
+  margin:9px 10px;border-radius:8px;padding:12px 14px;display:flex;
+  gap:10px;align-items:flex-end;justify-content:space-between;
+  box-shadow:inset 1px 1px 0 rgba(44,60,92,.25)}
+.tc-fields{flex:1;display:flex;flex-direction:column;gap:8px;max-width:330px}
+.tc-frow{display:flex;align-items:center;gap:9px;font-size:19px;color:#2c3c5c;
+  border-bottom:2px solid #dfe8f4;padding-bottom:3px}
+.tc-frow i{width:9px;height:9px;border-radius:50%;flex:none;
+  background:#e8f2fc;border:2px solid #6c9cd4}
+.tc-frow b{margin-left:auto;font-weight:normal}
+.tc-namev{font-weight:normal;margin-left:4px}
+.tc-pic{width:128px;image-rendering:pixelated;flex:none;margin:0 8px -4px 0}
+.tc-pic-ow{width:64px}
+.tc-badgeband{background:#6a96d0;margin:0 10px 10px;border-radius:7px;
+  padding:7px 10px;display:flex;align-items:center;gap:12px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -2px 0 rgba(44,60,92,.3)}
+.tc-badgelabel{font-family:'Press Start 2P',monospace;font-size:7px;color:#eaf2fc;
+  background:#48699c;padding:4px 6px 3px;border-radius:3px;flex:none}
 .tc-player{image-rendering:pixelated;width:32px;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.3));
   grid-area:p}
 .tc-follower{image-rendering:pixelated;width:28px;align-self:center;justify-self:center;
@@ -50,15 +81,14 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tc-sprites.side-above{grid-template-areas:"f" "p"}
 .tc-sprites.side-below{grid-template-areas:"p" "f"}
 .tc-sprites.side-none{grid-template-areas:"p"}
-.tc-name{font-size:14px;margin:6px 0 10px;text-shadow:1px 1px 0 #fff}
-.tc-rows{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:12px}
-.tc-row i{font-style:normal;color:#7a5a10;font-size:8px;margin-right:6px}
-.tc-row b{font-size:20px}
 .dn{font-family:'Press Start 2P',monospace;font-size:8px;background:var(--line);
   color:#cfe8d8;padding:4px 6px;border-radius:2px;align-self:center}
-.tc-badgelabel{font-family:'Press Start 2P',monospace;font-size:8px;
-  color:#7a5a10;margin-bottom:6px}
-.tc-badges{display:flex;gap:10px;align-items:center}
+.tc-badges{display:flex;gap:9px;align-items:center}
+.badge-slot{width:32px;height:32px;border-radius:6px;background:#5a86c4;
+  box-shadow:inset 0 0 0 2px #7fa4dc,inset 0 2px 0 rgba(255,255,255,.25);
+  position:relative;flex:none}
+.badge-slot::after{content:"";position:absolute;left:9px;top:14px;width:14px;
+  height:4px;border-radius:2px;background:#48699c}
 img.badge{width:32px;height:32px;image-rendering:pixelated;
   filter:drop-shadow(1px 1px 0 rgba(0,0,0,.25))}
 img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
@@ -153,16 +183,23 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .big{font-size:12px}
 footer{max-width:980px;margin:24px auto 0;color:#9db8a8;font-size:16px;
   line-height:1.5}
-@media(max-width:520px){.tc-rows{gap:4px 14px}.sb .bar{flex-basis:60px}}</style></head><body>
+.tc-extras{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;
+  background:#0d2016;border:2px solid var(--line);border-radius:2px;
+  box-shadow:inset 0 0 0 1px #24402e;color:#cfe8d8;padding:9px 14px;
+  margin-top:-8px;font-size:17px}
+.tc-extras .xr i{font-style:normal;font-size:8px;color:#7fa88f;margin-right:7px}
+.tc-extras .dn{margin-left:0}
+@media(max-width:520px){.sb .bar{flex-basis:60px}}</style></head><body>
 <h1>POKEMON RECHARGED YELLOW<small>save state report &middot; Eric</small></h1>
 <main>
-<section class="panel tcard"><h2>Trainer Card</h2>  <div class="tc-body">
-    <div class="tc-namerow">      <div class="tc-sprites side-none">
-        <img class="tc-player" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAAA+0lEQVR42u2ULRKDMBCFc4ReI7JXiERWYisrK7kCkmsguQKysrJXQFZu+5h5maTLAv1RHcSbLMm+L5sf4qpL676R2wAb4I8BJ+/F0iyASb0v5F4elND/CsnMljHVMEgG+RhAiALMQWAmAK1zTiYBlrruOgqxAuBjDYSgDIDA78tR6UlYFUDwZHuAjhAqBVL3IAThhArAgVtzFumbGEMYYwyIeROZCAANiGFia95EmOvCC6shYGpmBYABO4tEQFLQaHxq9l9A4sHvIoBAHhd2fhEAIyAQTTTiGHl0b+9BXMqa94DJx7qNa0e8GpCCePus8hefNFZjmX/yJj4Ai+8PEcyrTv0AAAAASUVORK5CYII=" alt="player facing right"></div><div class="tc-name">Eric</div></div>
-    <div class="tc-rows"><div class="tc-row"><i>MONEY</i><b>¥99,360</b></div><div class="tc-row"><i>TIME</i><b>9:23</b></div><div class="tc-row"><i>ID No.</i><b>49328</b></div><div class="tc-row"><i>RIVAL</i><b>Kennedy</b></div><div class="tc-row"><i>PLACE</i><b>Celadon City</b></div> <span class="dn">NIGHT 21:18</span></div>
-    <div class="tc-badgelabel">BADGES</div>
-    <div class="tc-badges"><img class="badge lit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVR42mMoPreUgRKMU6J67/P/yJgkA0Aa0AEuQ4jSDALJyclYDSFKM8wAbIbg1AzTgA0jG4JTMzq4du0cCoYZMlwMgBmCHFDoGp4HBcExRiBiMwSXATijEd0QbAYQTEjIhuDyM30yEykYALI9qHMTK4cXAAAAAElFTkSuQmCC" alt="Boulder Badge" title="Boulder Badge"><img class="badge lit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdUlEQVR42mMoPreUgRKMV7J67/P/ZBsA0gwChAyhjQEwzdeunQNjfIZQ3wB0zYQMwdD8PCgIqwEgcWyG4LQdpAGG8bkCp+bk5GQwH0Tj8wpOA5ABPm+Q5AK8BiAHInoAEh2IMENgBsEwTIzkpIxPI1G5kRgMAFVNY9dpjcUZAAAAAElFTkSuQmCC" alt="Cascade Badge" title="Cascade Badge"><img class="badge lit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiklEQVR42mMoPreUAR+u3vv8Pz55gppBAJ8hBDXDAC5DMDQh42vXzsExsjheA5KTk8EY3TBkcawGICtEdz7MCzgNgGmAORUEYDbCMC5voAQWMQaAaORAJdkFMANg3sEaA4QMQA4LrLGAHoUwzcixQ/1oRPcGrkSE1wBsyRibrUTnBUKaicqNhLI7AJ9hhZPw3X27AAAAAElFTkSuQmCC" alt="Thunder Badge" title="Thunder Badge"><img class="badge lit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVR42mMoPreUAReu3vv8PwjjU4NX87Vr58AYnyFYbUTWjGwINhehaH4eFATGIADiwwCMDZNHNgTDABBAtxXGhxmC0wCYZhhAdhGyHIYBMNthtsE0IxsEMwBZLdgAbH5H9wqy09HDgnIDKPYCVQKRatFIUUKiOClTJTORk50B2uDHP/1Ly8AAAAAASUVORK5CYII=" alt="Rainbow Badge" title="Rainbow Badge"><img class="badge unlit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAf0lEQVR42mMoPreUgRKMIVC99/l/ECZWHEMRDCArBrGTk5PBGN0QDM0whTBDYJqfBwXBMbIhOA2AGYKuGasB2DTDMLpmdEMGiQHoIU3IAJyBeO3aOfINwGUIPs04UyKyIfg0YzUAZghIA7IB2DTjNADZEHya8RqALwMRbQAxGACLck840/+8IwAAAABJRU5ErkJggg==" alt="Soul Badge (not earned)" title="Soul Badge"><img class="badge unlit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAf0lEQVR42mMoPreUgRKMU6J67/P/yJhoA2AakEFycjJOgzA0wzRcu3YOK0Y3BEMzTOHzoCAUjMsQFANgNoM0gNjIGNkQDAOQbcemGd0QEA0zZBAZgM//BA2AGYIcAyQFIroB+KIR2XasCQk9ztENxZmQ0JMyuguISspUyUykYgBKD3oSWFxCOgAAAABJRU5ErkJggg==" alt="Marsh Badge (not earned)" title="Marsh Badge"><img class="badge unlit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAi0lEQVR42p2TwQ3AIAhFndEVHKHHztMxuoJHV3AMm3/4CVgEW5IfA8KTqKSjXmml8+7D24fcYlgEWZ4Gv5QyrPgLMJ9GH4DWqor3nBVUAQixAOzIBSCBqxRtCyCFZOmjGxOwgsyAudgFIJkKAV5xBFFv/hsQQbbuwIJEF2jOAj+N7ICxz8PkFYaAXT0qcVs2+PXNtgAAAABJRU5ErkJggg==" alt="Volcano Badge (not earned)" title="Volcano Badge"><img class="badge unlit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlElEQVR42p2T0QnAIAxEndEVHKGfnadjdAU/XcExWiKcnCGmWuFQ0TxzUcORryA67/poYc1TD04pNcm4lNy0AunBNcZBWwDZrAGiFTvd+wzA4y0LFsy1YNlAYVFc9xZYHIw2q8UwYTsIRi9r6F0ArPDpOpMpYPYidSYuQMO4WcX8fOtWNgwJKx/GygqQbYCG/AKwtRcQUGv2XNcGKwAAAABJRU5ErkJggg==" alt="Earth Badge (not earned)" title="Earth Badge"></div>
-  </div></section><div id="tabbar" role="tablist" aria-label="Sections" hidden>  <button role="tab" data-tab="party" id="tab-party"
+<section class="panel tcard">  <div class="tc-band"><h2>TRAINER CARD</h2><span class="tc-idno">IDNo.49328</span></div>
+  <div class="tc-white">
+    <div class="tc-fields">
+      <div class="tc-frow"><i></i><span>Name: <b class="tc-namev">Eric</b></span></div>      <div class="tc-frow"><i></i><span>Money</span><b>₽99360</b></div>      <div class="tc-frow"><i></i><span>Pokédex</span><b>28</b></div>      <div class="tc-frow"><i></i><span>Time</span><b>9:23</b></div>    </div><img class="tc-pic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABQCAYAAACpv3NFAAADNUlEQVR42u2aPW7bUBCEdYy0LnWEtDmCSrUpU6ZM69JH8BVcunTrMqXLtC5zhBcMo48YPj5SchXsZgdYUCIowDP783aXPhwKhUKhUCgUCoVC4R/g/njXenv5/GWy/4L476/nlYk817RC4GkRfX95bD1cED2bjf/sXdkeJI6eySbCTH7k/RHSCrCH4/mhfTqe8gkgUrcIoOckQioB8KqsPwW8Lrg4b2+/2un+qaXwfG8SQQQd+i6j+OlzePLyIKRV+HR9ffgmYu3H+TR52A0RZOkKoAQQeV3Jcb5LGAmCMDKJoPspogABRKy9P2+ahBFxoiSFAAAPi9yIPNGAUJlHgr+NkBEXYchfvJ8eq2hAiNTe92qvfDfC033dS0ue9haIuLyO5zn+JEJGIWYve8+PAL0IlyaopSEuct4FAq/8+uzkL0dgaBHmHPc22Hv+vkWmA+S7EFmEiTxdnxPtByEXR/ddANIlbPiD708/V0RZg3kEII6PxfptxEhYTXyjKPCQ9zGZOtD/PtQOYLTscLKjUZnUQBjg80QI7++tu0gD935fJKkNCn/9jvY5jACjFOgF8ALox6S9G1hNkGFaZVpcGWPuiOQoDXoBpgYqEnmigEbH5/tRmO+lAesxiRBKgFHo+nEnUa4JQFcYckG6JYD3+1sCIALbJO6FE8Art4/BjL4ugKo9U6KMCPDaEW78Zf7ns3ufCJgixVbjLoDXCQkZSgQPd/vDVy9CJAxnPYIRHV4HogmwymnvDSiAMpF3AbhujMeHkALQySGAmwvAs54uUcfhhQAsP70xwnoBPA0uY3DcfQDbXq6QhzTmhbK3sAJQzTkO6eJGArAr8EIYXoBeCB+TRwKQNukE6HcEW+RJm1RpcIsAHcG5+KUUgBB38hRAL55+SnA6ZMmChWfx9J4AFMcUIvTtroX44ZoAGdJg6P2Nnf8qDcI3RaMzfofUUICwaUAYu9eveDWXAFuEdkjlOwk8CjrvbxFbbJRTvDJnSfKBoy32WmxvS3SjRxeb5OhRsHhTxIuPa4L5asxTJ9or81X+3/jPD21UCxAjnPcHBD5ConUW9yiMTKJQKBQKhUKhUCgUwuIPHRf5dKAhIF4AAAAASUVORK5CYII=" alt="trainer">  </div>
+  <div class="tc-badgeband"><span class="tc-badgelabel">BADGES</span>
+    <span class="tc-badges"><img class="badge" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVR42mMoPreUgRKMU6J67/P/yJgkA0Aa0AEuQ4jSDALJyclYDSFKM8wAbIbg1AzTgA0jG4JTMzq4du0cCoYZMlwMgBmCHFDoGp4HBcExRiBiMwSXATijEd0QbAYQTEjIhuDyM30yEykYALI9qHMTK4cXAAAAAElFTkSuQmCC" alt="Boulder Badge" title="Boulder Badge"><img class="badge" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdUlEQVR42mMoPreUgRKMV7J67/P/ZBsA0gwChAyhjQEwzdeunQNjfIZQ3wB0zYQMwdD8PCgIqwEgcWyG4LQdpAGG8bkCp+bk5GQwH0Tj8wpOA5ABPm+Q5AK8BiAHInoAEh2IMENgBsEwTIzkpIxPI1G5kRgMAFVNY9dpjcUZAAAAAElFTkSuQmCC" alt="Cascade Badge" title="Cascade Badge"><img class="badge" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiklEQVR42mMoPreUAR+u3vv8Pz55gppBAJ8hBDXDAC5DMDQh42vXzsExsjheA5KTk8EY3TBkcawGICtEdz7MCzgNgGmAORUEYDbCMC5voAQWMQaAaORAJdkFMANg3sEaA4QMQA4LrLGAHoUwzcixQ/1oRPcGrkSE1wBsyRibrUTnBUKaicqNhLI7AJ9hhZPw3X27AAAAAElFTkSuQmCC" alt="Thunder Badge" title="Thunder Badge"><img class="badge" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVR42mMoPreUAReu3vv8PwjjU4NX87Vr58AYnyFYbUTWjGwINhehaH4eFATGIADiwwCMDZNHNgTDABBAtxXGhxmC0wCYZhhAdhGyHIYBMNthtsE0IxsEMwBZLdgAbH5H9wqy09HDgnIDKPYCVQKRatFIUUKiOClTJTORk50B2uDHP/1Ly8AAAAAASUVORK5CYII=" alt="Rainbow Badge" title="Rainbow Badge"><span class="badge-slot" title="Soul Badge (not earned)"></span><span class="badge-slot" title="Marsh Badge (not earned)"></span><span class="badge-slot" title="Volcano Badge (not earned)"></span><span class="badge-slot" title="Earth Badge (not earned)"></span></span>
+  </div></section><div class="tc-extras"><span class="xr"><i>RIVAL</i>Kennedy</span><span class="xr"><i>PLACE</i>Celadon City</span><span class="dn">NIGHT 21:18</span>  <span class="tc-sprites side-none">
+    <img class="tc-player" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAAA+0lEQVR42u2ULRKDMBCFc4ReI7JXiERWYisrK7kCkmsguQKysrJXQFZu+5h5maTLAv1RHcSbLMm+L5sf4qpL676R2wAb4I8BJ+/F0iyASb0v5F4elND/CsnMljHVMEgG+RhAiALMQWAmAK1zTiYBlrruOgqxAuBjDYSgDIDA78tR6UlYFUDwZHuAjhAqBVL3IAThhArAgVtzFumbGEMYYwyIeROZCAANiGFia95EmOvCC6shYGpmBYABO4tEQFLQaHxq9l9A4sHvIoBAHhd2fhEAIyAQTTTiGHl0b+9BXMqa94DJx7qNa0e8GpCCePus8hefNFZjmX/yJj4Ai+8PEcyrTv0AAAAASUVORK5CYII=" alt="player facing right"></span></div><div id="tabbar" role="tablist" aria-label="Sections" hidden>  <button role="tab" data-tab="party" id="tab-party"
           aria-controls="pane-party" aria-selected="false"
           class="">PARTY</button>  <button role="tab" data-tab="bag" id="tab-bag"
           aria-controls="pane-bag" aria-selected="false"

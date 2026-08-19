@@ -638,16 +638,20 @@ def trainer_context(state):
         daynight = "%s %02d:%02d" % ("DAY" if 6 <= hour < 18 else "NIGHT",
                                      hour, clock.get("minute", 0))
     pt = p.get("playTime", {})
-    rows = [
-        ("MONEY", "\u00a5%s" % format(p.get("money") or 0, ",")),
-        ("TIME", "%d:%02d" % (pt.get("hours", 0), pt.get("minutes", 0))),
-        ("ID No.", "%05d" % p.get("trainerId", 0)),
-    ]
+    # Fields exactly as the in-game card shows them (no thousands separators,
+    # Pokedollar sign, dex = owned count).
+    dex_owned = ((state.get("pokedex") or {}).get("ownedCount")
+                 if isinstance(state.get("pokedex"), dict) else None)
+    fields = [("Money", "\u20bd%d" % (p.get("money") or 0)),
+              ("Pok\u00e9dex", str(dex_owned if dex_owned is not None else "?")),
+              ("Time", "%d:%02d" % (pt.get("hours", 0), pt.get("minutes", 0)))]
+    # Extras the real card does not show move to a slim strip below it.
+    extra_rows = []
     if state.get("rivalName"):
-        rows.append(("RIVAL", state["rivalName"]))
+        extra_rows.append(("RIVAL", state["rivalName"]))
     if loc:
-        rows.append(("PLACE", loc.get("mapName") or "map (%d,%d)"
-                     % (loc.get("mapGroup", -1), loc.get("mapNum", -1))))
+        extra_rows.append(("PLACE", loc.get("mapName") or "map (%d,%d)"
+                           % (loc.get("mapGroup", -1), loc.get("mapNum", -1))))
     avatar = state.get("playerAvatar", {})
     # Follower rendering: lights up once parse_ram emits playerAvatar.follower
     # ({graphicsId, facing, ...} -- identification rule pending rom-fingerprint).
@@ -671,8 +675,19 @@ def trainer_context(state):
             follower_side = {"right": "left", "left": "right",
                              "up": "below", "down": "above"}.get(
                                  avatar.get("facing", "right"), "left")
+    # Full-body trainer art: extracted from the live card capture (vendored
+    # asset, see assets/); fall back to the overworld sprite at 2x if absent.
+    pic_path = os.path.join(TOOLS_DIR, "assets",
+                            "trainer-pic-%s.png" % p.get("gender", "male"))
+    pic = None
+    if os.path.exists(pic_path):
+        with open(pic_path, "rb") as f:
+            pic = data_uri(f.read())
     return {
         "name": p.get("name", "?"),
+        "idno": "IDNo.%05d" % p.get("trainerId", 0),
+        "fields": fields,
+        "pic": pic,
         "sprite": player_sprite_uri(state),
         "sprite_alt": "player facing %s%s" % (avatar.get("facing", "?"),
                                               " on bike" if avatar.get("onBike") else ""),
@@ -684,8 +699,7 @@ def trainer_context(state):
                              follower.get("speciesName") or "?",
                              follower.get("facing", "?"))
                          if follower else ""),
-        "badge_header": "BADGES",
-        "rows": rows,
+        "extra_rows": extra_rows,
         "daynight": daynight,
         "badges": [{"name": n, "color": BADGE_COLORS[i],
                     "lit": bool(badge_map.get(n)),

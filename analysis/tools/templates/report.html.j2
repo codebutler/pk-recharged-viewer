@@ -60,28 +60,40 @@
 <section class="panel"><h2>No save loaded</h2><p class="empty">{{ error }}</p></section>
 {%- else %}
 
-<section class="panel tcard"><h2>Trainer Card</h2>
-{%- if trainer.error %}<p class="empty">{{ trainer.error }}</p>
+<section class="panel tcard">
+{%- if trainer.error %}<h2>Trainer Card</h2><p class="empty">{{ trainer.error }}</p>
 {%- else %}
-  <div class="tc-body">
-    <div class="tc-namerow">
-      {%- if trainer.sprite %}
-      <div class="tc-sprites side-{{ trainer.follower_side or 'none' }}">
-        <img class="tc-player" src="{{ trainer.sprite|safe }}" alt="{{ trainer.sprite_alt }}">
-        {%- if trainer.follower_sprite %}<img class="tc-follower" src="{{ trainer.follower_sprite|safe }}" alt="{{ trainer.follower_alt }}" title="{{ trainer.follower_title }}">{% endif -%}
-      </div>
-      {%- endif -%}
-      <div class="tc-name">{{ trainer.name }}</div></div>
-    <div class="tc-rows">{% for row in trainer.rows %}<div class="tc-row"><i>{{ row[0] }}</i><b>{{ row[1] }}</b></div>{% endfor %}
-      {%- if trainer.daynight %} <span class="dn">{{ trainer.daynight }}</span>{% endif %}</div>
-    <div class="tc-badgelabel">{{ trainer.badge_header }}</div>
-    <div class="tc-badges">{% for b in trainer.badges %}
-      {%- if b.sprite %}<img class="badge {{ 'lit' if b.lit else 'unlit' }}" src="{{ b.sprite|safe }}" alt="{{ b.name }} Badge{{ '' if b.lit else ' (not earned)' }}" title="{{ b.name }} Badge">
-      {%- else %}<span class="badge-glyph {{ 'lit' if b.lit else 'unlit' }}" style="--bc:{{ b.color }}" title="{{ b.name }} Badge">&#9670;</span>{% endif -%}
-    {% endfor %}</div>
+  <div class="tc-band"><h2>TRAINER CARD</h2><span class="tc-idno">{{ trainer.idno }}</span></div>
+  <div class="tc-white">
+    <div class="tc-fields">
+      <div class="tc-frow"><i></i><span>Name: <b class="tc-namev">{{ trainer.name }}</b></span></div>
+      {%- for f in trainer.fields %}
+      <div class="tc-frow"><i></i><span>{{ f[0] }}</span><b>{{ f[1] }}</b></div>
+      {%- endfor %}
+    </div>
+    {%- if trainer.pic %}<img class="tc-pic" src="{{ trainer.pic|safe }}" alt="trainer">
+    {%- elif trainer.sprite %}<img class="tc-pic tc-pic-ow" src="{{ trainer.sprite|safe }}" alt="{{ trainer.sprite_alt }}" title="overworld sprite (full-body art unavailable)">{% endif %}
+  </div>
+  <div class="tc-badgeband"><span class="tc-badgelabel">BADGES</span>
+    <span class="tc-badges">{% for b in trainer.badges %}
+      {%- if b.lit and b.sprite %}<img class="badge" src="{{ b.sprite|safe }}" alt="{{ b.name }} Badge" title="{{ b.name }} Badge">
+      {%- else %}<span class="badge-slot" title="{{ b.name }} Badge (not earned)"></span>{% endif -%}
+    {% endfor %}</span>
   </div>
 {%- endif %}
 </section>
+{%- if not trainer.error %}
+<div class="tc-extras">
+  {%- for row in trainer.extra_rows %}<span class="xr"><i>{{ row[0] }}</i>{{ row[1] }}</span>{% endfor %}
+  {%- if trainer.daynight %}<span class="dn">{{ trainer.daynight }}</span>{% endif %}
+  {%- if trainer.sprite %}
+  <span class="tc-sprites side-{{ trainer.follower_side or 'none' }}">
+    <img class="tc-player" src="{{ trainer.sprite|safe }}" alt="{{ trainer.sprite_alt }}">
+    {%- if trainer.follower_sprite %}<img class="tc-follower" src="{{ trainer.follower_sprite|safe }}" alt="{{ trainer.follower_alt }}" title="{{ trainer.follower_title }}">{% endif -%}
+  </span>
+  {%- endif %}
+</div>
+{%- endif %}
 
 {#- Tab bar (progressive enhancement: hidden until the inline script enables
     it; without JS every pane below stays visible). -#}
