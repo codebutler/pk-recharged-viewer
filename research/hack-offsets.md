@@ -200,10 +200,95 @@ Disassembled the DNS driver (0x08141B00): hour (SB2+0xF5E) indexes a 26-entry ha
 
 Tint constants: night word 0x159D7474, twilight word 0x09A8B0E0 (@0x0894EFA4/A8; packed coeff/color format partially decoded). **Measured** at in-game 21:16: overworld palettes ≈ ×(0.61 R, 0.53 G, 0.61 B) — use ~(0.55, 0.48, 0.55) for a full-night page filter. Interiors: mapType-gated at map load (code 0x08140E60) — indoor maps appear exempt (medium confidence).
 
+## Task data, and the bag sell path (2026-08-19) — resolving an IWRAM cheat code
+
+Prompted by the cheat code `83005BD0 1388` (CodeBreaker type 8 = write the
+halfword 0x1388 = 5000 to IWRAM 0x03005BD0). Working it out end to end pinned
+down a block of ROM functions, now in `hack-offsets.json` → `rom_functions`.
+
+**The address.** `ResetTasks` @0x081B9530 loops 16 entries at stride 0x28 from
+0x03005BB8 (func = `TaskDummy` 0x081B9740, isActive 0, prev i, next i+1,
+priority 0xFF, `memset(data, 0, 0x20)`), and `CreateTask` @0x081B9590 scans
+`isActive` at 0x03005BBC upward and takes the first free slot. So gTasks and its
+40-byte stride are confirmed a third way, and
+
+    0x03005BD0 = gTasks + 8 + 40*0 + 0x10 = gTasks[0].data[8]
+
+**Task 0 is the bag menu's input handler.** `SetupBagMenu` calls `ResetTasks`
+(site @0x0811A144, state 6), and the next task created is
+`CreateBagInputHandlerTask` @0x0811A418 → `CreateTask(Task_BagMenu_HandleInput
+= 0x0811B0BC, 0)`. First create after a full reset ⇒ id 0. In pokeemerald's
+`item_menu.c`, `data[8]` is `tItemCount` — the quantity in the sell/toss "how
+many?" prompt, initialised to 0 when the bag opens.
+
+**What consumes it.** All three sell-path sites read
+`ldrsh [gTasks+8 + 40*taskId, #0x10]` and multiply by `GetItemPrice(item) / 2`
+(emitted as `lsls #15` / `lsrs #16`):
+
+- `DisplaySellItemPriceAndConfirm` @0x0811D474 — the quoted price.
+- `ConfirmSell` @0x0811D74C — the "Turned over … received ¥…" message. It
+  converts with **7** digits where vanilla passes 6, an independent sighting of
+  the hack's uncapped money.
+- `SellItem` @0x0811D7C4 — `RemoveBagItem(item, tItemCount)`, then
+  `AddMoney(*gSaveBlock1Ptr + 0x29C, (price/2) * tItemCount)`. The money offset
+  is emitted as `movs #0xA7 / lsls #2` = 0x29C, re-confirming SB1+0x29C.
+
+So the cheat forces the sell quantity to 5000 and pays `(price/2) * 5000` per
+sale. It is repeatable because `RemoveBagItem` bails with
+`if (totalQuantity < count) return FALSE` and removes nothing, while `SellItem`
+credits the money regardless.
+
+**The same field drives Toss.** `0x0811C5F6` loads `gTasks+8`, indexes by
+`taskId*40`, and passes `data[8]` to `RemoveBagItem` at `0x0811C60A`. Of the 35
+`RemoveBagItem` call sites in the ROM, exactly **two** pass `tItemCount` — that
+one and the sell at `0x0811D800`. (A third bag-adjacent caller at `0x0811DED0`
+passes a constant `1`, so it is *not* a quantity path; an earlier pass guessed it
+was the PC deposit using `tItemCount` and that guess was wrong.)
+
+Bag setup writes the field too: at `0x0811A21E`–`0x0811A22C` the hack stores the
+list-menu task id into `data[0]` and zeroes `data[3]` and `data[8]`
+(`strh 0,[r3,#0x18]`) — pokeemerald `item_menu.c` case 14, disassembled here in
+the hack rather than assumed from the decomp.
+
+**Hazard if this field is force-written:** `shop.c` uses `data[8]`/`data[9]` as
+the two halves of a *function pointer* (`tCallbackHi`/`tCallbackLo`) in the
+mart's Buy/Sell menu task. That task is not created straight after a
+`ResetTasks`, so it should not land in slot 0 — but anything that pins a constant
+there is one slot-allocation change away from corrupting a callback.
+
+**The repo already contained the empirical proof.** Censusing `gTasks[0].func`
+across all 76 committed IWRAM dumps: 58 are the field/weather task
+(`0x08103FA1`), and **four are `0x0811B0BD` = `Task_BagMenu_HandleInput`** —
+`research/dumps/newgame-spam/f006000/`, `f010800/`, `f015600/` and `final/`, each
+with `data[0] = 1` (the list menu is task 1) and `data[8] = 0`, and each with a
+`screen.png` showing the Bag. That is "the bag's task is task 0, and this address
+is its `tItemCount`" confirmed from committed data, no emulator needed.
+
+Three method notes worth keeping:
+
+- **A task-data address only means anything inside one screen.** An A/B pair of
+  emulator runs (dumps `cheatoff`/`cheaton`) with identical
+  input came back byte-identical across all of IWRAM+EWRAM — because the run
+  never entered the bag. A null result there is not evidence the address is
+  inert. Note also that 0x03005BD0 is the *only* absolute literal to
+  gTasks+0x18 in the ROM, and it belongs to the **Pokédex search** task
+  (@0x0815F1C0), an unrelated screen whose own task-0 `data[8]` is a different
+  variable. Same address, different meaning per screen.
+- Strings are the fastest way into an unknown subsystem: encoding a phrase with
+  the pokeemerald charmap, finding it in the ROM and then finding the word
+  pointer to it lands directly in the code that prints it.
+- **Census `gTasks[0].func` across the dumps, don't test the field for zero.**
+  Three separate investigations checked "is `data[8]` ever non-zero in the dump
+  corpus?", got no everywhere, and concluded the address was inert. The
+  productive question is *what task owns slot 0 in each dump* — and every dump
+  directory ships a `screen.png` that names the screen for you.
+
 ## Explicitly unresolved (for the live-RAM verification pass)
 
 - SB1 0x34–0x3A and 0x3C–0x43 (gaps around partyCount/party), 0x764–0x8A8, 0xB50–0xEFA, 0x1228–0x1397 (0x1C-byte struct @0x1228, 0xC-stride records @0x1244), 0x1D98/0x20D8 structs, 0x2510–0x2743, tail 0x3B92+.
 - SB2 0x90 (hot u8), most of the inserted 0x92–0x153 region, 0x6E0 (hot u16); the purposes of the mechanically-mapped structs at SB2+0x154, SB2+0xF5C/0xE0, and SB1+0x8AA/0x8AC.
 - Whether bag quantities are truly unencrypted (money now live-proven plaintext; no encryptionKey exists, so quantities are almost certainly plain too, but all pockets were empty in the available dumps).
 - Dex bit-index convention (dexNum vs dexNum-1) — one live dump with a seen mon settles it.
-- gTasks = 0x03005BB8 hypothesis (not needed for save parsing).
+- ~~gTasks = 0x03005BB8 hypothesis~~ — resolved: confirmed from the task-func
+  store in the daycare disasm, then again from `ResetTasks`/`CreateTask`; see
+  "Task data, and the bag sell path" above. Not needed for save parsing.

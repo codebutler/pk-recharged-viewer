@@ -26,7 +26,8 @@ The parser exists **twice, on purpose**:
 
 ```sh
 bun test                      # unit tests
-bun tests/compare-python.js   # must stay 82/82 inputs matching
+bun tests/compare-python.js   # every input must match (84/84 as of 2026-08-19;
+                              # the count grows when a run adds dumps)
 ```
 
 The harness runs both parsers over every dump and save in the repo, then
@@ -35,9 +36,13 @@ config-layer file paths). **A parsing fix belongs in both implementations** —
 changing only one breaks the comparison, and that is the intended signal, not a
 nuisance.
 
-Everything under `research/tools/` is **stdlib-only with no packaging** — plain
-`python3` runs it, no virtualenv, nothing to install. Keep it that way: a
-third-party import there would break the one check that validates the JS parser.
+The **verification** tools under `research/tools/` are **stdlib-only with no
+packaging** — plain `python3` runs them, no virtualenv, nothing to install. That
+is `parse_ram.py` (and `state_extract.py`, which it uses) plus the graphics
+reference below; a third-party import in those would break the one check that
+validates the JS parser. Other tools in that directory may take dependencies,
+declared as PEP 723 inline script metadata and run with `uv run` — see
+`research/tools/disasm.py`, which uses capstone.
 
 Data tables live in `research/` (canonical) and are copied to `public/data/`;
 after editing an offsets or gamedata file, run `bun run sync-data`.
@@ -197,6 +202,27 @@ questions, ask for a **fresh** backup first — the dated snapshot goes stale as
 they play. On the device the state file is
 `shared/MGBA-mgba/Pokemon Recharged Yellow.gba.st0`.
 
+## Chasing an IWRAM address (or a cheat code)
+
+Start with `research/engine-architecture.md` — how a screen (a CB2 plus a
+`gMain.state` setup machine) relates to the 16-slot `gTasks` array, with
+citations into `vendor/pokeemerald`. `research/cheat-code-formats.md` decodes
+the cheat-device formats out of `vendor/mgba`'s own source, so the code type is
+a citation rather than a recollection. The tool is `research/tools/disasm.py`
+(`uv run`, capstone): it names literals from `hack-offsets.json` and decodes
+addresses inside the task array to `gTasks[id].data[k]`.
+
+The fact that changes every conclusion, if you read nothing else: **task data is
+screen-scoped scratch**. `ResetTasks` + lowest-free-slot `CreateTask` means
+`gTasks[0]` is *the current screen's main task*, so one address is a different
+variable per screen and is never saved. Work out which screen owns the slot
+before deciding what the address means — and note that the dump corpus under
+`research/dumps/` is overwhelmingly overworld, so "quiet in every dump" mostly
+says the corpus never opened that screen.
+
+A worked example, including the wrong turns, is in `hack-offsets.md` under
+"Task data, and the bag sell path".
+
 ## Tooling & environment gotchas
 
 - Emulation/scripting requires the **mGBA 0.11 nightly**
@@ -212,11 +238,20 @@ they play. On the device the state file is
   confirmed both. Check it before calling an opcode unknowable. Its command
   table has 214 entries vs Emerald's 227, so neither decomp explains the hack's
   own customs at 0xE3-0xEA.
+- Two more references are vendored: `vendor/mgba` (the emulator's source —
+  authoritative for cheat-code formats, MPL-2.0, a submodule) and
+  `vendor/gbatek` (GBATEK, Martin Korth's GBA hardware reference — a fetched
+  copy, third-party and non-commercial; attribution stays, keep it out of any
+  deploy).
 - RAM-injection round-trips are a proven verification technique here (see
   `research/dumps/inject/`); if injecting mons, use a personality with
   `pid % 24 != 0`.
 - The command sandbox can block things that look like tool bugs: writing
-  `.gitmodules`, binding a socket for a local server. Retry outside it.
+  `.gitmodules`, binding a socket for a local server. Retry outside it. mGBA is
+  one of these: it aborts with **"no screens available"** (window-server access)
+  until the sandbox is off. `uv` is *not* — it only needs its cache redirected:
+  `UV_CACHE_DIR=$TMPDIR/uvcache uv run …` works sandboxed, where a bare `uv run`
+  fails on `~/Library/Caches/uv`.
 - A shell glob with no matches aborts the whole command in fish. After any bulk
   rewrite, sweep the repo to confirm it actually applied.
 

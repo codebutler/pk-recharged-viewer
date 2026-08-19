@@ -10,3 +10,6 @@
 [submodule "vendor/pokeapi-data"]
 	path = vendor/pokeapi-data
 	url = https://github.com/PokeAPI/api-data.git
+[submodule "vendor/mgba"]
+	path = vendor/mgba
+	url = https://github.com/mgba-emu/mgba.git

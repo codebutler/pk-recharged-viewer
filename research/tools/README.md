@@ -87,10 +87,41 @@ budget is right; the scripts below ignore `HARNESS_MAX_FRAMES` itself):
   Start menu / party screens. The exact injected bytes are saved as
   `injected_mon.bin` in the output dir. Pass `max_frames` 8000.
 
+- `mgba_wp_hunt.lua` — sets a **watchpoint** (`emu:setWatchpoint`, on the 0.11
+  nightly) on `WP_ADDR` and logs every distinct PC that reads or writes it while
+  driving the game (intro spam, then walking to provoke wild battles). Set
+  `WP_POKE=1` to also write `WP_VALUE` each frame. This is the tool for "who
+  actually touches this address" — but note a watchpoint only fires in the
+  screens the run reaches, so drive it to the screen you care about.
+
 ```sh
 HARNESS_SCRIPT=research/tools/mgba_inject_harness.lua \
   research/tools/run_harness.sh "local/Pokemon Recharged Yellow.gba" inject 8000
 ```
+
+To start from a real game rather than a fresh boot, drop a flash save at
+`research/dumps/<label>/work/rom.sav` before launching (the driver only copies
+the ROM, it will not overwrite a save you put there).
+
+## disasm.py — ROM disassembler with the offsets DB wired in
+
+```sh
+uv run research/tools/disasm.py 0x080D3598 0x080D3600   # thumb by default
+uv run research/tools/disasm.py 0x081B9530 --count 0x60
+uv run research/tools/disasm.py 0x08000000 --arm --count 0x40
+```
+
+It resolves `ldr rX, [pc, #N]` literals to their word value and names them from
+`research/hack-offsets.json` (so `gSaveBlock1Ptr`, `gTasks`, `gPlayerParty`
+appear by name), decodes any address inside `gTasks` to `gTasks[id].data[k]`,
+and labels `bl` targets from the `rom_functions` table. Add newly identified
+functions to that table and every later disassembly reads better.
+
+This is the one tool here with a third-party dependency (capstone), declared in
+inline script metadata so `uv run` installs it on demand. The parser oracle
+(`parse_ram.py`) and the graphics reference (`gba_gfx.py`, `gba_map.py`,
+`rom_gfx.py`) stay stdlib-only — they are the checks that validate the shipping
+JS, and must run under a plain `python3`.
 
 ## Dump layout
 

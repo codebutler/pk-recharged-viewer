@@ -10,9 +10,24 @@
       "gPokemonStoragePtr": "0x03005AD8"
     },
     "sizes": {
-      "SaveBlock1": {"vanilla": "0x3D88", "hack": "0x3D94", "evidence": "memcpy in MoveSaveBlocks_ResetHeap @0x0812B8D8", "confidence": "high"},
-      "SaveBlock2": {"vanilla": "0xF2C", "hack": "0xF64", "evidence": "same", "confidence": "high"},
-      "PokemonStorage": {"vanilla": "0x83D0", "hack": "0x83D0", "evidence": "same; identical to vanilla", "confidence": "high"}
+      "SaveBlock1": {
+        "vanilla": "0x3D88",
+        "hack": "0x3D94",
+        "evidence": "memcpy in MoveSaveBlocks_ResetHeap @0x0812B8D8",
+        "confidence": "high"
+      },
+      "SaveBlock2": {
+        "vanilla": "0xF2C",
+        "hack": "0xF64",
+        "evidence": "same",
+        "confidence": "high"
+      },
+      "PokemonStorage": {
+        "vanilla": "0x83D0",
+        "hack": "0x83D0",
+        "evidence": "same; identical to vanilla",
+        "confidence": "high"
+      }
     },
     "encryption": {
       "saveblock_xor": "REMOVED for money at minimum: GetMoney/SetMoney/AddMoney (0x0813A3E4/0x0813A3E8/0x0813A3F8) read/write the u32 plainly, no encryptionKey XOR; no encryptionKey references found anywhere in SB2. Assume coins/bag quantities/gameStats also plain, but verify in the live-RAM pass.",
@@ -20,70 +35,382 @@
     }
   },
   "SaveBlock1": {
-    "pos": {"vanilla_offset": "0x0", "hack_offset": "0x0", "type": "struct Coords16 (s16 x, s16 y)", "evidence": "histogram peaks 0x0/0x2 in both ROMs", "confidence": "high"},
-    "location": {"vanilla_offset": "0x4", "hack_offset": "0x4", "type": "struct WarpData (s8 mapGroup @+0, s8 mapNum @+1, s8 warpId, s16 x, s16 y)", "evidence": "top histogram peaks 0x4/0x5 in both ROMs", "confidence": "high"},
-    "continueGameWarp": {"vanilla_offset": "0xC", "hack_offset": "0xC", "evidence": "header region 0x0-0x33 access profile matches vanilla", "confidence": "medium"},
-    "dynamicWarp": {"vanilla_offset": "0x14", "hack_offset": "0x14", "confidence": "medium"},
-    "lastHealLocation": {"vanilla_offset": "0x1C", "hack_offset": "0x1C", "confidence": "medium"},
-    "escapeWarp": {"vanilla_offset": "0x24", "hack_offset": "0x24", "confidence": "medium"},
-    "savedMusic": {"vanilla_offset": "0x2C", "hack_offset": "0x2C", "confidence": "medium"},
-    "weather": {"vanilla_offset": "0x2E", "hack_offset": "0x2E", "evidence": "8 refs at 0x2E in hack matching vanilla profile", "confidence": "medium"},
-    "flashLevel": {"vanilla_offset": "0x30", "hack_offset": "0x30", "confidence": "medium"},
-    "mapLayoutId": {"vanilla_offset": "0x32", "hack_offset": "0x32", "confidence": "medium"},
-    "mapView": {"vanilla_offset": "0x34", "hack_offset": "0x2510", "type": "u16[0x100] (0x2510-0x2710)", "note": "MOVED, not removed (corrects earlier note): fill fn @0x08108B00 copies visible tile grid indexed by SB1 pos into 0x2510+ in 0x1E-byte rows; presence check ORs 0x2510..0x2710; cleared via CpuSet @0x08108B84", "confidence": "high"},
-    "playerPartyCount": {"vanilla_offset": "0x234", "hack_offset": "0x3B", "type": "u8", "evidence": "Save/LoadPlayerParty @0x0812BA40/0x0812BA7C copy it to/from gPlayerPartyCount EWRAM 0x2038559", "confidence": "high"},
-    "playerParty": {"vanilla_offset": "0x238", "hack_offset": "0x44", "type": "struct Pokemon [6], stride 0x64 (vanilla layout)", "evidence": "same functions: 6 x 0x64 memcpy loop to/from gPlayerParty EWRAM 0x203855C", "confidence": "high"},
-    "money": {"vanilla_offset": "0x490", "hack_offset": "0x29C", "type": "u32, UNENCRYPTED, cap 9999999", "evidence": "AddMoney @0x0813A3F8 (cap literal 0x98967F), IsEnoughMoney @0x0813A420 loads SB1+0x29C; EMPIRICALLY VERIFIED: reads plaintext 3000 (new-game default) in every in-game RAM dump under research/dumps/newgame-spam/", "confidence": "high (live-verified)"},
-    "coins": {"vanilla_offset": "0x494", "hack_offset": "0x2A0", "type": "u16, presumed unencrypted", "evidence": "adjacency + ref-count profile matches vanilla coins", "confidence": "medium"},
-    "registeredItem": {"vanilla_offset": "0x496", "hack_offset": "0x2A2", "type": "u16", "evidence": "7 refs vs vanilla 9 at same relative position after coins", "confidence": "medium", "note": "0x2A4-0x2AB (8 bytes) unknown - possibly additional registered-item slots"},
-    "pcItems": {"vanilla_offset": "0x498", "hack_offset": "0x2AC", "type": "struct ItemSlot[50] (u16 id, u16 qty)", "evidence": "SetBagItemsPointers @0x081186BC stores SB1+0x2AC with capacity 50 into gBagPockets[6] (extra entry beyond the six FRLG bag pockets)", "confidence": "high"},
-    "bagPocket_Items": {"vanilla_offset": "0x560", "hack_offset": "0x374", "type": "ItemSlot[60]", "evidence": "SetBagItemsPointers, gBagPockets[0], capacity 0x3C", "confidence": "high"},
-    "bagPocket_KeyItems": {"vanilla_offset": "0x5D8", "hack_offset": "0x464", "type": "ItemSlot[50]", "evidence": "SetBagItemsPointers, gBagPockets[5]; item structs use FRLG-style pocket enum (1=Items 2=Medicine 3=Balls 4=TMHM 5=Berries 6=KeyItems) per gamedata extraction, gBagPockets index = pocket-1", "confidence": "high"},
-    "bagPocket_PokeBalls": {"vanilla_offset": "0x650", "hack_offset": "0x52C", "type": "ItemSlot[32]", "evidence": "SetBagItemsPointers, gBagPockets[2], capacity 0x20", "confidence": "high"},
-    "bagPocket_TMHM": {"vanilla_offset": "0x690", "hack_offset": "0x5AC", "type": "ItemSlot[64]", "evidence": "SetBagItemsPointers, gBagPockets[3], capacity 0x40", "confidence": "high"},
-    "bagPocket_Berries": {"vanilla_offset": "0x790", "hack_offset": "0x6AC", "type": "ItemSlot[46]", "evidence": "SetBagItemsPointers, gBagPockets[4], capacity 0x2E; chain ends at 0x764", "confidence": "high"},
-    "bagPocket_Medicine": {"vanilla_offset": "-1", "hack_offset": "0x2380", "type": "ItemSlot[100] (0x190 bytes, ends 0x2510)", "evidence": "SetBagItemsPointers, gBagPockets[1], capacity 0x64; FRLG-style Medicine pocket (pocket byte 2 in item structs per gamedata extraction)", "confidence": "high"},
-    "objectEvents_saved": {"vanilla_offset": "0xA30", "hack_offset": "0x910", "type": "struct ObjectEvent[16], stride 0x24 (vanilla layout)", "evidence": "RESOLVED (was 'mail_array_A'): the 0x0812BAB8/0x0812BB50 loops copy SB1+0x910 <-> EWRAM 0x2005CD4, and 0x2005CD4 is live-proven to be gObjectEvents (player object with isPlayer=1, localId 0xFF, coords matching the real save). So SB1+0x910 = the saved object-events copy, and the 0x1D98-region array is the actual Mail", "confidence": "high (live-verified)"},
-    "mail_array_B_0x1DB8": {"vanilla_offset": "0x2BE0", "hack_offset": "~0x1DB8 (base 0x1DB8 or 1-indexed from 0x1D98)", "type": "16 x 0x24 vanilla struct Mail (words[9] @0, playerName @0x12, trainerId @0x1A, species @0x1E, itemId @0x20); entries 0-5 party mail, 6-15 PC (count loop over 0x1E90..0x1FF8)", "evidence": "GiveMailToMon-style fn @0x0812CDDC indexes by Pokemon data field 0x49 (mail id) with base 0x1D98 + id*0x24; word-field memsets at 0x1D98/0x1DBC size 0x12; occupied test = u16 @+0 (species) nonzero", "confidence": "medium-high; exact base (0x1DB8 vs 1-indexed 0x1D98) needs one live check"},
-    "recent_mon_log_0x1FD8": {"vanilla_offset": "-1", "hack_offset": "0x1FD8", "type": "shift-insert log, ~6 x 0x20 records (0x1FD8-0x2098): u16 id @0, nickname string @+0xB, name string @+0x16, u8 @+0x1E", "evidence": "insert fn @0x080B90E0 shifts entries up by 0x20 then writes new record at 0x1FD8 with StringCopy calls", "confidence": "medium (mechanics), low (purpose)"},
-    "flags": {"vanilla_offset": "0x1270", "hack_offset": "0xEFB", "type": "u8[0x12C] (0x960 flags, id < 0x4000); ids >= 0x4000 are special flags in EWRAM 0x2005C64 + (id-0x4000)/8", "evidence": "FlagSet/FlagClear/FlagGet @0x080D3598/0x080D3650/0x080D36AC (via script cmd table 0x081F1630 entries 0x29-0x2B); memset(SB1+0xEFB, 0, 0x12C)", "confidence": "high"},
-    "vars": {"vanilla_offset": "0x139C", "hack_offset": "0x1028", "type": "u16[0x100]; var id 0x4000+i -> SB1+0x1028+2*i; ids >= 0x8000 via ROM ptr table 0x081F19DC", "evidence": "GetVarPointer @0x080D33E4: SB1 + (id - 0x37EC)*2; memset(SB1+0x1028, 0, 0x200)", "confidence": "high"},
-    "gameStats": {"vanilla_offset": "0x159C", "hack_offset": "0xB50", "type": "u32[64] (0xB50-0xC50), UNENCRYPTED, vanilla GAME_STAT enum order", "evidence": "CORRECTS the earlier 'removed' verdict (static increment-pattern scans missed it). Real-save diff proof: st0 (9h/4 badges) has idx0=41 (GAME_STAT_SAVED_GAME, save count), idx5=28582 (STEPS), idx7=328 (TOTAL_BATTLES), idx8=192 (WILD_BATTLES), idx9=136 (TRAINER_BATTLES), idx11=24 (POKEMON_CAPTURES) - exact vanilla enum alignment; array end 0xC50 matches the hot formed-0xC50 sites", "confidence": "high (live-verified)"},
-    "badges": {"vanilla_offset": "flags 0x867-0x86E (Emerald)", "hack_offset": "flags 0x880-0x887", "type": "badge N (1=Boulder .. 8=Earth) = flag 0x880+N-1; all 8 live in flags byte SB1+0x100B (0xEFB+0x110), bit N-1", "evidence": "trainer-card/tier function 0x08130A68+ checks all eight 0x880-0x887 sequentially; obedience-style check 0x0809EA38 tests 0x887/0x881/0x883/0x885; HM gating matches Kanto: Flash sites check 0x880, Fly 0x882, Surf 0x884, Waterfall 0x886", "confidence": "high"},
-    "hidden_item_flags": {"vanilla_offset": "-1", "hack_offset": "flag id = hiddenItemId + 0x32C", "evidence": "hidden-item handler 0x080D37A0 adds 0xCB*4 to the id then sets the bit in flags @SB1+0xEFB", "confidence": "high"},
-    "trainerRematchStepCounter": {"vanilla_offset": "0x9C8", "hack_offset": "0x8AA", "type": "u16 (used as two byte counters; high byte counts to 100)", "evidence": "TryUpdateRandomTrainerRematches @0x081D6A60 gated by flag 0x889; CORRECTS the earlier 'flag-gated mon slot' guess", "confidence": "high"},
-    "trainerRematches": {"vanilla_offset": "0x9CA (u8[78])", "hack_offset": "0x8AC", "type": "u8[100] (memset size 0x64 = expanded from vanilla 78)", "evidence": "Match Call condition readers @0x0818D290/0x0818D2B8 read SB1+0x8AC+idx with idx <= 0x48; Match Call caller table @ROM 0x0898EEA8 (21 entries: MR. STONE, Prof. Birch, MOM, BRENDAN/MAY, STEVEN, SCOTT, gym leaders, ELITE FOUR, CHAMPION - Emerald Match Call system retained)", "confidence": "high"},
-    "unknown_0x1228": {"vanilla_offset": "-1", "hack_offset": "0x1228", "type": "0x1C-byte struct, u16 @+8 initialized to 0x197", "evidence": "memset(SB1+0x1228,0,0x1C) x2", "confidence": "low"},
-    "objectEventTemplates": {"vanilla_offset": "0xC70", "hack_offset": "0x1398", "type": "struct ObjectEventTemplate[64], stride 0x18 (localId @+0, x/y s16 @+4/+6, script ptr @+0x10)", "evidence": "SetObjEventTemplateCoords/SetObjEventTemplateMovementType @0x08140630 region; script-patch loop @0x08079474 (0x1398..0x1998)", "confidence": "high"},
-    "berryTrees": {"vanilla_offset": "0x169C", "hack_offset": "0x1998", "type": "struct BerryTree[128], 8 bytes each (0x400 total)", "evidence": "memset(SB1+0x1998, 0, 0x400) in berry code @0x0809F1BA; directly follows templates", "confidence": "high"},
-    "daycare": {"vanilla_offset": "0x3030 (struct DayCare, 0x120)", "hack_offset": null, "note": "NO dedicated daycare storage found in SB1/SB2: exhaustive scans show no BoxPokemon-sized (0x50/0x8C) saveblock copies and the only SB1-resident mon structs are the party slots. 'Day-Care' exists as map-name + script text, so the feature is likely script-driven (possibly storing via the PC system). Verify with a live A/B dump (deposit a mon, diff saveblocks)", "confidence": "medium (absence)"},
-    "achievements_chievos": {"vanilla_offset": "-1", "hack_offset": "candidate 0xD2C", "note": "UI: start-menu item 11 ('Chievos', callback 0x081B80B8) -> scenes 0x52/0x54/0x56 of the custom 'Smsh' script VM (magic 0x68736D53, scene table ROM 0x08B7EC90). Storage: real-save-vs-newgame diff of all unmapped regions leaves ONE strong candidate - SB1+0xD2C..0xD45 (>=24 bytes): all 0xFF on the 9h real save vs all 0x00 on a never-opened new game (0xFF-initialized on first use; 0xFF likely = 'locked/not earned', so the user may simply have zero achievements). Secondary candidates: SB1+0x2178 (u16[16] with 2-bit state in low bits, reset fn @0x080EA264) and the small struct at SB1+0x1280. Definitive answer needs a dump after EARNING one achievement", "confidence": "low-medium (candidate)"},
-    "unknown_0x20D8": {"vanilla_offset": "-1", "hack_offset": "0x20D8", "type": "0xA0-byte struct (sub-clears at +0xD size 9, +0x18 size 6)", "confidence": "low"},
-    "frontier_towerPlayer": {"vanilla_offset": "SB2+0x64C", "hack_offset": "0x2744", "type": "struct EmeraldBattleTowerRecord (0xEC)", "evidence": "memset(SB1+0x2744, 0, 0xEC) x2; whole BattleFrontier block moved SB2->SB1 with shift +0x20F8", "confidence": "high"},
-    "frontier_towerRecords": {"vanilla_offset": "SB2+0x738", "hack_offset": "0x2830", "type": "EmeraldBattleTowerRecord[5]", "evidence": "memset 0xEC @0x08090B14; +0x20F8 shift", "confidence": "high"},
-    "frontier_challengeStatus": {"vanilla_offset": "SB2+0xCA8", "hack_offset": "0x2DA0", "confidence": "high"},
-    "frontier_lvlMode": {"vanilla_offset": "SB2+0xCA9", "hack_offset": "0x2DA1", "type": "u8 bitfield", "evidence": "177 vs 178 ref counts, +0x20F8 shift consistent across >6 fields", "confidence": "high"},
-    "frontier_curChallengeBattleNum": {"vanilla_offset": "SB2+0xCB2", "hack_offset": "0x2DAA", "confidence": "high"},
-    "frontier_trainerIds": {"vanilla_offset": "SB2+0xCB4", "hack_offset": "0x2DAC", "type": "u16[20]", "confidence": "high"},
-    "pokedex_seen_mirrors": {"vanilla_offset": "0x988 (seen1) / 0x3B24 (seen2)", "hack_offset": null, "note": "REMOVED, now confirmed: GetSetPokedexFlag @0x0815E100 reads/writes ONLY SB2+0x28 (caught: cases 1/3) and SB2+0x5C (seen: cases 0/2); the clear function likewise touches only the SB2 arrays", "confidence": "high"}
+    "pos": {
+      "vanilla_offset": "0x0",
+      "hack_offset": "0x0",
+      "type": "struct Coords16 (s16 x, s16 y)",
+      "evidence": "histogram peaks 0x0/0x2 in both ROMs",
+      "confidence": "high"
+    },
+    "location": {
+      "vanilla_offset": "0x4",
+      "hack_offset": "0x4",
+      "type": "struct WarpData (s8 mapGroup @+0, s8 mapNum @+1, s8 warpId, s16 x, s16 y)",
+      "evidence": "top histogram peaks 0x4/0x5 in both ROMs",
+      "confidence": "high"
+    },
+    "continueGameWarp": {
+      "vanilla_offset": "0xC",
+      "hack_offset": "0xC",
+      "evidence": "header region 0x0-0x33 access profile matches vanilla",
+      "confidence": "medium"
+    },
+    "dynamicWarp": {
+      "vanilla_offset": "0x14",
+      "hack_offset": "0x14",
+      "confidence": "medium"
+    },
+    "lastHealLocation": {
+      "vanilla_offset": "0x1C",
+      "hack_offset": "0x1C",
+      "confidence": "medium"
+    },
+    "escapeWarp": {
+      "vanilla_offset": "0x24",
+      "hack_offset": "0x24",
+      "confidence": "medium"
+    },
+    "savedMusic": {
+      "vanilla_offset": "0x2C",
+      "hack_offset": "0x2C",
+      "confidence": "medium"
+    },
+    "weather": {
+      "vanilla_offset": "0x2E",
+      "hack_offset": "0x2E",
+      "evidence": "8 refs at 0x2E in hack matching vanilla profile",
+      "confidence": "medium"
+    },
+    "flashLevel": {
+      "vanilla_offset": "0x30",
+      "hack_offset": "0x30",
+      "confidence": "medium"
+    },
+    "mapLayoutId": {
+      "vanilla_offset": "0x32",
+      "hack_offset": "0x32",
+      "confidence": "medium"
+    },
+    "mapView": {
+      "vanilla_offset": "0x34",
+      "hack_offset": "0x2510",
+      "type": "u16[0x100] (0x2510-0x2710)",
+      "note": "MOVED, not removed (corrects earlier note): fill fn @0x08108B00 copies visible tile grid indexed by SB1 pos into 0x2510+ in 0x1E-byte rows; presence check ORs 0x2510..0x2710; cleared via CpuSet @0x08108B84",
+      "confidence": "high"
+    },
+    "playerPartyCount": {
+      "vanilla_offset": "0x234",
+      "hack_offset": "0x3B",
+      "type": "u8",
+      "evidence": "Save/LoadPlayerParty @0x0812BA40/0x0812BA7C copy it to/from gPlayerPartyCount EWRAM 0x2038559",
+      "confidence": "high"
+    },
+    "playerParty": {
+      "vanilla_offset": "0x238",
+      "hack_offset": "0x44",
+      "type": "struct Pokemon [6], stride 0x64 (vanilla layout)",
+      "evidence": "same functions: 6 x 0x64 memcpy loop to/from gPlayerParty EWRAM 0x203855C",
+      "confidence": "high"
+    },
+    "money": {
+      "vanilla_offset": "0x490",
+      "hack_offset": "0x29C",
+      "type": "u32, UNENCRYPTED, cap 9999999",
+      "evidence": "AddMoney @0x0813A3F8 (cap literal 0x98967F), IsEnoughMoney @0x0813A420 loads SB1+0x29C; EMPIRICALLY VERIFIED: reads plaintext 3000 (new-game default) in every in-game RAM dump under research/dumps/newgame-spam/",
+      "confidence": "high (live-verified)"
+    },
+    "coins": {
+      "vanilla_offset": "0x494",
+      "hack_offset": "0x2A0",
+      "type": "u16, presumed unencrypted",
+      "evidence": "adjacency + ref-count profile matches vanilla coins",
+      "confidence": "medium"
+    },
+    "registeredItem": {
+      "vanilla_offset": "0x496",
+      "hack_offset": "0x2A2",
+      "type": "u16",
+      "evidence": "7 refs vs vanilla 9 at same relative position after coins",
+      "confidence": "medium",
+      "note": "0x2A4-0x2AB (8 bytes) unknown - possibly additional registered-item slots"
+    },
+    "pcItems": {
+      "vanilla_offset": "0x498",
+      "hack_offset": "0x2AC",
+      "type": "struct ItemSlot[50] (u16 id, u16 qty)",
+      "evidence": "SetBagItemsPointers @0x081186BC stores SB1+0x2AC with capacity 50 into gBagPockets[6] (extra entry beyond the six FRLG bag pockets)",
+      "confidence": "high"
+    },
+    "bagPocket_Items": {
+      "vanilla_offset": "0x560",
+      "hack_offset": "0x374",
+      "type": "ItemSlot[60]",
+      "evidence": "SetBagItemsPointers, gBagPockets[0], capacity 0x3C",
+      "confidence": "high"
+    },
+    "bagPocket_KeyItems": {
+      "vanilla_offset": "0x5D8",
+      "hack_offset": "0x464",
+      "type": "ItemSlot[50]",
+      "evidence": "SetBagItemsPointers, gBagPockets[5]; item structs use FRLG-style pocket enum (1=Items 2=Medicine 3=Balls 4=TMHM 5=Berries 6=KeyItems) per gamedata extraction, gBagPockets index = pocket-1",
+      "confidence": "high"
+    },
+    "bagPocket_PokeBalls": {
+      "vanilla_offset": "0x650",
+      "hack_offset": "0x52C",
+      "type": "ItemSlot[32]",
+      "evidence": "SetBagItemsPointers, gBagPockets[2], capacity 0x20",
+      "confidence": "high"
+    },
+    "bagPocket_TMHM": {
+      "vanilla_offset": "0x690",
+      "hack_offset": "0x5AC",
+      "type": "ItemSlot[64]",
+      "evidence": "SetBagItemsPointers, gBagPockets[3], capacity 0x40",
+      "confidence": "high"
+    },
+    "bagPocket_Berries": {
+      "vanilla_offset": "0x790",
+      "hack_offset": "0x6AC",
+      "type": "ItemSlot[46]",
+      "evidence": "SetBagItemsPointers, gBagPockets[4], capacity 0x2E; chain ends at 0x764",
+      "confidence": "high"
+    },
+    "bagPocket_Medicine": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x2380",
+      "type": "ItemSlot[100] (0x190 bytes, ends 0x2510)",
+      "evidence": "SetBagItemsPointers, gBagPockets[1], capacity 0x64; FRLG-style Medicine pocket (pocket byte 2 in item structs per gamedata extraction)",
+      "confidence": "high"
+    },
+    "objectEvents_saved": {
+      "vanilla_offset": "0xA30",
+      "hack_offset": "0x910",
+      "type": "struct ObjectEvent[16], stride 0x24 (vanilla layout)",
+      "evidence": "RESOLVED (was 'mail_array_A'): the 0x0812BAB8/0x0812BB50 loops copy SB1+0x910 <-> EWRAM 0x2005CD4, and 0x2005CD4 is live-proven to be gObjectEvents (player object with isPlayer=1, localId 0xFF, coords matching the real save). So SB1+0x910 = the saved object-events copy, and the 0x1D98-region array is the actual Mail",
+      "confidence": "high (live-verified)"
+    },
+    "mail_array_B_0x1DB8": {
+      "vanilla_offset": "0x2BE0",
+      "hack_offset": "~0x1DB8 (base 0x1DB8 or 1-indexed from 0x1D98)",
+      "type": "16 x 0x24 vanilla struct Mail (words[9] @0, playerName @0x12, trainerId @0x1A, species @0x1E, itemId @0x20); entries 0-5 party mail, 6-15 PC (count loop over 0x1E90..0x1FF8)",
+      "evidence": "GiveMailToMon-style fn @0x0812CDDC indexes by Pokemon data field 0x49 (mail id) with base 0x1D98 + id*0x24; word-field memsets at 0x1D98/0x1DBC size 0x12; occupied test = u16 @+0 (species) nonzero",
+      "confidence": "medium-high; exact base (0x1DB8 vs 1-indexed 0x1D98) needs one live check"
+    },
+    "recent_mon_log_0x1FD8": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x1FD8",
+      "type": "shift-insert log, ~6 x 0x20 records (0x1FD8-0x2098): u16 id @0, nickname string @+0xB, name string @+0x16, u8 @+0x1E",
+      "evidence": "insert fn @0x080B90E0 shifts entries up by 0x20 then writes new record at 0x1FD8 with StringCopy calls",
+      "confidence": "medium (mechanics), low (purpose)"
+    },
+    "flags": {
+      "vanilla_offset": "0x1270",
+      "hack_offset": "0xEFB",
+      "type": "u8[0x12C] (0x960 flags, id < 0x4000); ids >= 0x4000 are special flags in EWRAM 0x2005C64 + (id-0x4000)/8",
+      "evidence": "FlagSet/FlagClear/FlagGet @0x080D3598/0x080D3650/0x080D36AC (via script cmd table 0x081F1630 entries 0x29-0x2B); memset(SB1+0xEFB, 0, 0x12C)",
+      "confidence": "high"
+    },
+    "vars": {
+      "vanilla_offset": "0x139C",
+      "hack_offset": "0x1028",
+      "type": "u16[0x100]; var id 0x4000+i -> SB1+0x1028+2*i; ids >= 0x8000 via ROM ptr table 0x081F19DC",
+      "evidence": "GetVarPointer @0x080D33E4: SB1 + (id - 0x37EC)*2; memset(SB1+0x1028, 0, 0x200)",
+      "confidence": "high"
+    },
+    "gameStats": {
+      "vanilla_offset": "0x159C",
+      "hack_offset": "0xB50",
+      "type": "u32[64] (0xB50-0xC50), UNENCRYPTED, vanilla GAME_STAT enum order",
+      "evidence": "CORRECTS the earlier 'removed' verdict (static increment-pattern scans missed it). Real-save diff proof: st0 (9h/4 badges) has idx0=41 (GAME_STAT_SAVED_GAME, save count), idx5=28582 (STEPS), idx7=328 (TOTAL_BATTLES), idx8=192 (WILD_BATTLES), idx9=136 (TRAINER_BATTLES), idx11=24 (POKEMON_CAPTURES) - exact vanilla enum alignment; array end 0xC50 matches the hot formed-0xC50 sites",
+      "confidence": "high (live-verified)"
+    },
+    "badges": {
+      "vanilla_offset": "flags 0x867-0x86E (Emerald)",
+      "hack_offset": "flags 0x880-0x887",
+      "type": "badge N (1=Boulder .. 8=Earth) = flag 0x880+N-1; all 8 live in flags byte SB1+0x100B (0xEFB+0x110), bit N-1",
+      "evidence": "trainer-card/tier function 0x08130A68+ checks all eight 0x880-0x887 sequentially; obedience-style check 0x0809EA38 tests 0x887/0x881/0x883/0x885; HM gating matches Kanto: Flash sites check 0x880, Fly 0x882, Surf 0x884, Waterfall 0x886",
+      "confidence": "high"
+    },
+    "hidden_item_flags": {
+      "vanilla_offset": "-1",
+      "hack_offset": "flag id = hiddenItemId + 0x32C",
+      "evidence": "hidden-item handler 0x080D37A0 adds 0xCB*4 to the id then sets the bit in flags @SB1+0xEFB",
+      "confidence": "high"
+    },
+    "trainerRematchStepCounter": {
+      "vanilla_offset": "0x9C8",
+      "hack_offset": "0x8AA",
+      "type": "u16 (used as two byte counters; high byte counts to 100)",
+      "evidence": "TryUpdateRandomTrainerRematches @0x081D6A60 gated by flag 0x889; CORRECTS the earlier 'flag-gated mon slot' guess",
+      "confidence": "high"
+    },
+    "trainerRematches": {
+      "vanilla_offset": "0x9CA (u8[78])",
+      "hack_offset": "0x8AC",
+      "type": "u8[100] (memset size 0x64 = expanded from vanilla 78)",
+      "evidence": "Match Call condition readers @0x0818D290/0x0818D2B8 read SB1+0x8AC+idx with idx <= 0x48; Match Call caller table @ROM 0x0898EEA8 (21 entries: MR. STONE, Prof. Birch, MOM, BRENDAN/MAY, STEVEN, SCOTT, gym leaders, ELITE FOUR, CHAMPION - Emerald Match Call system retained)",
+      "confidence": "high"
+    },
+    "unknown_0x1228": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x1228",
+      "type": "0x1C-byte struct, u16 @+8 initialized to 0x197",
+      "evidence": "memset(SB1+0x1228,0,0x1C) x2",
+      "confidence": "low"
+    },
+    "objectEventTemplates": {
+      "vanilla_offset": "0xC70",
+      "hack_offset": "0x1398",
+      "type": "struct ObjectEventTemplate[64], stride 0x18 (localId @+0, x/y s16 @+4/+6, script ptr @+0x10)",
+      "evidence": "SetObjEventTemplateCoords/SetObjEventTemplateMovementType @0x08140630 region; script-patch loop @0x08079474 (0x1398..0x1998)",
+      "confidence": "high"
+    },
+    "berryTrees": {
+      "vanilla_offset": "0x169C",
+      "hack_offset": "0x1998",
+      "type": "struct BerryTree[128], 8 bytes each (0x400 total)",
+      "evidence": "memset(SB1+0x1998, 0, 0x400) in berry code @0x0809F1BA; directly follows templates",
+      "confidence": "high"
+    },
+    "daycare": {
+      "vanilla_offset": "0x3030 (struct DayCare, 0x120)",
+      "hack_offset": null,
+      "note": "NO dedicated daycare storage found in SB1/SB2: exhaustive scans show no BoxPokemon-sized (0x50/0x8C) saveblock copies and the only SB1-resident mon structs are the party slots. 'Day-Care' exists as map-name + script text, so the feature is likely script-driven (possibly storing via the PC system). Verify with a live A/B dump (deposit a mon, diff saveblocks)",
+      "confidence": "medium (absence)"
+    },
+    "achievements_chievos": {
+      "vanilla_offset": "-1",
+      "hack_offset": "candidate 0xD2C",
+      "note": "UI: start-menu item 11 ('Chievos', callback 0x081B80B8) -> scenes 0x52/0x54/0x56 of the custom 'Smsh' script VM (magic 0x68736D53, scene table ROM 0x08B7EC90). Storage: real-save-vs-newgame diff of all unmapped regions leaves ONE strong candidate - SB1+0xD2C..0xD45 (>=24 bytes): all 0xFF on the 9h real save vs all 0x00 on a never-opened new game (0xFF-initialized on first use; 0xFF likely = 'locked/not earned', so the user may simply have zero achievements). Secondary candidates: SB1+0x2178 (u16[16] with 2-bit state in low bits, reset fn @0x080EA264) and the small struct at SB1+0x1280. Definitive answer needs a dump after EARNING one achievement",
+      "confidence": "low-medium (candidate)"
+    },
+    "unknown_0x20D8": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x20D8",
+      "type": "0xA0-byte struct (sub-clears at +0xD size 9, +0x18 size 6)",
+      "confidence": "low"
+    },
+    "frontier_towerPlayer": {
+      "vanilla_offset": "SB2+0x64C",
+      "hack_offset": "0x2744",
+      "type": "struct EmeraldBattleTowerRecord (0xEC)",
+      "evidence": "memset(SB1+0x2744, 0, 0xEC) x2; whole BattleFrontier block moved SB2->SB1 with shift +0x20F8",
+      "confidence": "high"
+    },
+    "frontier_towerRecords": {
+      "vanilla_offset": "SB2+0x738",
+      "hack_offset": "0x2830",
+      "type": "EmeraldBattleTowerRecord[5]",
+      "evidence": "memset 0xEC @0x08090B14; +0x20F8 shift",
+      "confidence": "high"
+    },
+    "frontier_challengeStatus": {
+      "vanilla_offset": "SB2+0xCA8",
+      "hack_offset": "0x2DA0",
+      "confidence": "high"
+    },
+    "frontier_lvlMode": {
+      "vanilla_offset": "SB2+0xCA9",
+      "hack_offset": "0x2DA1",
+      "type": "u8 bitfield",
+      "evidence": "177 vs 178 ref counts, +0x20F8 shift consistent across >6 fields",
+      "confidence": "high"
+    },
+    "frontier_curChallengeBattleNum": {
+      "vanilla_offset": "SB2+0xCB2",
+      "hack_offset": "0x2DAA",
+      "confidence": "high"
+    },
+    "frontier_trainerIds": {
+      "vanilla_offset": "SB2+0xCB4",
+      "hack_offset": "0x2DAC",
+      "type": "u16[20]",
+      "confidence": "high"
+    },
+    "pokedex_seen_mirrors": {
+      "vanilla_offset": "0x988 (seen1) / 0x3B24 (seen2)",
+      "hack_offset": null,
+      "note": "REMOVED, now confirmed: GetSetPokedexFlag @0x0815E100 reads/writes ONLY SB2+0x28 (caught: cases 1/3) and SB2+0x5C (seen: cases 0/2); the clear function likewise touches only the SB2 arrays",
+      "confidence": "high"
+    }
   },
   "progress_flags": {
     "note": "flag N (< 0x4000) = bit N&7 of byte SB1+0xEFB+(N>>3). Derived from static FlagGet/FlagSet/FlagClear call-site harvesting (409/77/58 sites with constant args) + targeted disassembly. Script-driven setflag uses the same runtime functions but is invisible to static harvesting, so set-site absence is not evidence of unused.",
-    "badge01_boulder_to_badge08_earth": {"ids": "0x880-0x887", "evidence": "GetBadgeCount @0x081686D8 loops exactly 0x880..0x887; tier ladder 0x08130A68; obedience checks 0x887/0x881/0x883/0x885; Kanto HM gating (Flash 0x880, Fly 0x882, Surf 0x884, Waterfall 0x886). Parser: badges byte = SB1+0x100B, bits 0-7", "confidence": "high"},
-    "game_clear_champion": {"id": "0x864", "evidence": "FlagSet @0x08192E1E immediately after a Hall-of-Fame party loop (GetMonData over 6 x 0x64 mons, playtime snapshot follows); 27 FlagGet sites game-wide; releases the level cap (cap fn returns 100 when set)", "confidence": "high"},
-    "starter_progression": {"ids": "0x860, 0x861", "evidence": "set together (plus transient 0x87A) by the special @0x081B65C0; 0x861 gates the full start menu; both still TRUE on the 9h real save. 0x87A is DEMOTED: set at starter acquisition but cleared later (real save: false) - transient script flag, not a progress marker", "confidence": "high (live-verified)"},
-    "intro_complete": {"id": "0x89E", "evidence": "the ONLY sys-range flag set in the pre-starter live dumps (player just out of intro); set @0x080ED812", "confidence": "medium"},
-    "running_shoes_dash": {"id": null, "evidence": "0x866 REFUTED (false on a 9h/4-badge real save). Re-derivation against the real save's set sys-flags (0x88F/0x894/0x8BF/0x8E4/...) found none checked in movement code; running is likely ALWAYS enabled in this hack, possibly with an auto-run option bit (SB2+0x90 bit0 is read in step/encounter code @0x080F7B16). Parser should not report a running-shoes flag", "confidence": "medium (absence)"},
-    "step_charged_feature": {"id": "0x862", "evidence": "enable fn @0x080FD750 sets 0x862 and zeroes var 0x40C8; step fn adds to var 0x40C8 while set, full when > 204 (0xCC); disable fn clears. Vs.Seeker-like charge mechanic; paired var 0x40C8", "confidence": "high (mechanics), low (name)"},
-    "flag_0x895": {"id": "0x895", "evidence": "gates the SB2+0xF5C daily/record feature (see record_0xF5C_and_0xE0)", "confidence": "high (linkage)"},
-    "flag_0x889": {"id": "0x889", "evidence": "enables the trainer-rematch (Match Call) random-update counter at SB1+0x8AA", "confidence": "high (linkage)"},
-    "hidden_items": {"ids": "0x32C + hiddenItemId", "confidence": "high"},
-    "national_dex": {"id": null, "note": "no nationalMagic (0xDA) check and no mode flag found; dex count loop always runs to 386 - national dex appears always enabled", "confidence": "medium"}
+    "badge01_boulder_to_badge08_earth": {
+      "ids": "0x880-0x887",
+      "evidence": "GetBadgeCount @0x081686D8 loops exactly 0x880..0x887; tier ladder 0x08130A68; obedience checks 0x887/0x881/0x883/0x885; Kanto HM gating (Flash 0x880, Fly 0x882, Surf 0x884, Waterfall 0x886). Parser: badges byte = SB1+0x100B, bits 0-7",
+      "confidence": "high"
+    },
+    "game_clear_champion": {
+      "id": "0x864",
+      "evidence": "FlagSet @0x08192E1E immediately after a Hall-of-Fame party loop (GetMonData over 6 x 0x64 mons, playtime snapshot follows); 27 FlagGet sites game-wide; releases the level cap (cap fn returns 100 when set)",
+      "confidence": "high"
+    },
+    "starter_progression": {
+      "ids": "0x860, 0x861",
+      "evidence": "set together (plus transient 0x87A) by the special @0x081B65C0; 0x861 gates the full start menu; both still TRUE on the 9h real save. 0x87A is DEMOTED: set at starter acquisition but cleared later (real save: false) - transient script flag, not a progress marker",
+      "confidence": "high (live-verified)"
+    },
+    "intro_complete": {
+      "id": "0x89E",
+      "evidence": "the ONLY sys-range flag set in the pre-starter live dumps (player just out of intro); set @0x080ED812",
+      "confidence": "medium"
+    },
+    "running_shoes_dash": {
+      "id": null,
+      "evidence": "0x866 REFUTED (false on a 9h/4-badge real save). Re-derivation against the real save's set sys-flags (0x88F/0x894/0x8BF/0x8E4/...) found none checked in movement code; running is likely ALWAYS enabled in this hack, possibly with an auto-run option bit (SB2+0x90 bit0 is read in step/encounter code @0x080F7B16). Parser should not report a running-shoes flag",
+      "confidence": "medium (absence)"
+    },
+    "step_charged_feature": {
+      "id": "0x862",
+      "evidence": "enable fn @0x080FD750 sets 0x862 and zeroes var 0x40C8; step fn adds to var 0x40C8 while set, full when > 204 (0xCC); disable fn clears. Vs.Seeker-like charge mechanic; paired var 0x40C8",
+      "confidence": "high (mechanics), low (name)"
+    },
+    "flag_0x895": {
+      "id": "0x895",
+      "evidence": "gates the SB2+0xF5C daily/record feature (see record_0xF5C_and_0xE0)",
+      "confidence": "high (linkage)"
+    },
+    "flag_0x889": {
+      "id": "0x889",
+      "evidence": "enables the trainer-rematch (Match Call) random-update counter at SB1+0x8AA",
+      "confidence": "high (linkage)"
+    },
+    "hidden_items": {
+      "ids": "0x32C + hiddenItemId",
+      "confidence": "high"
+    },
+    "national_dex": {
+      "id": null,
+      "note": "no nationalMagic (0xDA) check and no mode flag found; dex count loop always runs to 386 - national dex appears always enabled",
+      "confidence": "medium"
+    }
   },
   "derived_level_caps": {
     "note": "level-cap fn @0x08168708: if FlagGet(0x864) -> 100 (no cap); else if SB2+0x6E0 bit2 clear -> 100; else cap = table[badgeCount] with badgeCount from flags 0x880-0x887; if (SB2+0x6E0 & 3) == 1 add modifier[badgeCount]",
-    "cap_by_badge_count_0_to_8": [14, 21, 24, 29, 43, 43, 47, 50, 63],
-    "modifier_when_mode1": [1, 1, 2, 2, 3, 3, 4, 4, 4],
+    "cap_by_badge_count_0_to_8": [
+      14,
+      21,
+      24,
+      29,
+      43,
+      43,
+      47,
+      50,
+      63
+    ],
+    "modifier_when_mode1": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      4
+    ],
     "tables_rom": "0x089732D4 / 0x089732E0",
     "challenge_options_byte": "SB2+0x6E0: bit2 = level cap enabled, bits0-1 = cap mode (mode 1 adds modifier), bit4 gates another pre-game-clear feature (fn 0x0816877C)",
     "confidence": "high"
@@ -92,46 +419,226 @@
     "note": "var id 0x4000+i -> SB1+0x1028+2i. Statically-visible VarSet/GetVarPointer constant users; script-driven setvar is invisible to this harvest. No single story-chapter var could be identified cheaply",
     "0x40C8": "step counter for the flag-0x862 charge feature (full > 204)",
     "0x408E": "receives the leading u16 of the SB2+0xF5C record (fn 0x080B1530)",
-    "high_traffic_set": {"0x4000": 14, "0x4010": 13, "0x40E7": 9, "0x406F": 6, "0x4039": 6},
-    "high_traffic_get": {"0x4000": 9, "0x4038": 7, "0x40C8": 2, "0x40AF": 2}
+    "high_traffic_set": {
+      "0x4000": 14,
+      "0x4010": 13,
+      "0x40E7": 9,
+      "0x406F": 6,
+      "0x4039": 6
+    },
+    "high_traffic_get": {
+      "0x4000": 9,
+      "0x4038": 7,
+      "0x40C8": 2,
+      "0x40AF": 2
+    }
   },
   "SaveBlock2": {
-    "playerName": {"vanilla_offset": "0x0", "hack_offset": "0x0", "type": "u8[8], GBA charset, 0xFF-terminated", "confidence": "high"},
-    "playerGender": {"vanilla_offset": "0x8", "hack_offset": "0x8", "type": "u8 (0 male, 1 female)", "evidence": "61 refs; gender-branch disasm @0x080F474E", "confidence": "high"},
-    "specialSaveWarpFlags": {"vanilla_offset": "0x9", "hack_offset": "0x9", "evidence": "bit0 set/clear functions @0x0812B9D8-0x0812BA3A", "confidence": "high"},
-    "playerTrainerId": {"vanilla_offset": "0xA", "hack_offset": "0xA", "type": "u8[4] (u16 visible id @+0xA, u16 secret id @+0xC)", "evidence": "trainer-id byte sum in MoveSaveBlocks ASLR seed; 25+ refs", "confidence": "high"},
-    "playTimeHours": {"vanilla_offset": "0xE", "hack_offset": "0xE", "type": "u16", "evidence": "21 refs matching vanilla profile", "confidence": "high"},
-    "playTimeMinutes": {"vanilla_offset": "0x10", "hack_offset": "0x10", "confidence": "high"},
-    "playTimeSeconds": {"vanilla_offset": "0x11", "hack_offset": "0x11", "confidence": "high"},
-    "playTimeVBlanks": {"vanilla_offset": "0x12", "hack_offset": "0x12", "confidence": "high"},
-    "optionsButtonMode": {"vanilla_offset": "0x13", "hack_offset": "0x13", "confidence": "high"},
-    "options": {"vanilla_offset": "0x14", "hack_offset": "0x14", "type": "u16 bitfield (textSpeed:3 ...)", "evidence": "34+16 refs; many option-reader disasms", "confidence": "high"},
-    "pokedex": {"vanilla_offset": "0x18", "hack_offset": "0x18", "type": "struct Pokedex (order 0x18, mode 0x19, nationalMagic 0x1A, unownPersonality 0x1C, spindaPersonality 0x20)", "evidence": "access profile 0x18/0x19/0x1B/0x1C/0x20 matches vanilla; owned/seen memsets below", "confidence": "high"},
-    "pokedex_owned": {"vanilla_offset": "0x28", "hack_offset": "0x28", "type": "u8[0x34] bitfield, species N -> bit N-1 (412 species, vanilla dex order)", "evidence": "memset(SB2+0x28, 0, 0x34) @0x0813E798/0x0813E988; memset(SB2+0x28,0,0x68) covers both arrays @0x0815907C", "confidence": "high"},
-    "pokedex_seen": {"vanilla_offset": "0x5C", "hack_offset": "0x5C", "type": "u8[0x34] bitfield", "evidence": "memset(SB2+0x5C, 0, 0x34) @0x0813E7A4/0x0813E994; GetSetPokedexFlag @0x0815E100 (case 0 get / case 2 set) confirms; count loop bound = 386 (Gen 3 national dex count). Bit index vs dexNum-1 convention: verify with one live seen-mon dump", "confidence": "high"},
-    "unknown_0x90": {"vanilla_offset": "-1", "hack_offset": "0x90", "type": "u8, 20 refs", "confidence": "unknown"},
-    "language_plus_options": {"vanilla_offset": "-1", "hack_offset": "0x91", "type": "u8: bits 0-4 = language index (0=English -> gItems 0x0890F960; 1 -> Spanish name table 0x0877A508), bits 5-6 more options", "evidence": "ItemId_GetName disasm @0x08118734; 57 refs (read by every localized-text fetch)", "confidence": "high"},
-    "inserted_region": {"vanilla_offset": "-1", "hack_offset": "0x92-0x173", "note": "+0xC4 bytes of new content inserted between vanilla 0x90 and playerApprentice; encryptionKey (vanilla 0xAC) NOT FOUND - encryption removed", "confidence": "low"},
-    "records_struct_0x154": {"vanilla_offset": "-1", "hack_offset": "0x154", "type": "0x10-byte records struct: u16 @0x154 (cap 9999), u16 @0x158 (cap 9999), u32 @0x15C, u32 @0x160 (cap 99990)", "evidence": "clear fn 0x08173C84 and record-update fn 0x08173CA4 (caps 0x270F/0x18696); NOT RTC as earlier guessed. Purpose unknown (minigame records?)", "confidence": "high (layout), low (purpose)"},
-    "gameClock_live": {"vanilla_offset": "-1 (custom accelerated in-game clock, ~9x realtime)", "hack_offset": "0xF5C", "type": "vanilla-Time-shaped record: u16 day @0xF5C, u8 hour @0xF5E, u8 minute @0xF5F, u8 second @0xF60", "evidence": "real-save diff: reads day=4 21:18:20 = exactly the parser's gameClock; explains the hot SB2 tail (25/19/15/16 refs)", "confidence": "high (live-verified)"},
-    "gameClock_archive": {"vanilla_offset": "-1", "hack_offset": "0xE0", "type": "archived copy of the 0xF5C clock (real save: day=4 21:12:40, slightly older)", "evidence": "fn 0x080B1530: gated by flag 0x895, copies u32 pair SB2+0xF5C -> SB2+0xE0 and stores day u16 into var 0x408E - a daily-event 'last update time' system. NOTE: this corrects the earlier guess that 0xE0/0xE4 were dex unown/spinda personalities", "confidence": "high (live-verified)"},
-    "rival_name": {"vanilla_offset": "-1", "hack_offset": "0x6E2", "type": "u8[8] GBA charset, 0xFF-terminated", "evidence": "real save decodes 'Kennedy' (player 'Eric'); sits right after the challenge-options byte 0x6E0", "confidence": "high (live-verified)"},
-    "playerApprentice": {"vanilla_offset": "0xB0", "hack_offset": "0x174", "type": "struct PlayersApprentice (0x2C)", "evidence": "ref profile 18/18/10 at 0x174-0x176 vs vanilla 25/30/19 at 0xB0-0xB2; +0xC4 shift; abuts apprentices at 0x1A0", "confidence": "high"},
-    "apprentices": {"vanilla_offset": "0xDC", "hack_offset": "0x1A0", "type": "struct Apprentice[4], 0x44 each", "evidence": "memset(SB2+0x1A0, ?, 0x44) @0x0809145A; +0xC4 shift", "confidence": "high"},
-    "unknown_0x6E0": {"vanilla_offset": "-1", "hack_offset": "0x6E0", "type": "u16, 17 refs", "confidence": "unknown"},
-    "unknown_tail_0xF5C": {"vanilla_offset": "-1", "hack_offset": "0xF5C", "type": "8-byte struct at block end (u16 @0xF5C 25 refs, u16 @0xF5E, u8 @0xF5F, u32? @0xF60); memset(SB2+0xF5C, ?, 8)", "confidence": "unknown"},
-    "frontier": {"vanilla_offset": "0x64C", "hack_offset": null, "note": "moved to SaveBlock1+0x2744 (shift +0x20F8)", "confidence": "high"},
-    "encryptionKey": {"vanilla_offset": "0xAC", "hack_offset": null, "note": "no references found; money confirmed unencrypted", "confidence": "high (absence for money), medium (global)"}
+    "playerName": {
+      "vanilla_offset": "0x0",
+      "hack_offset": "0x0",
+      "type": "u8[8], GBA charset, 0xFF-terminated",
+      "confidence": "high"
+    },
+    "playerGender": {
+      "vanilla_offset": "0x8",
+      "hack_offset": "0x8",
+      "type": "u8 (0 male, 1 female)",
+      "evidence": "61 refs; gender-branch disasm @0x080F474E",
+      "confidence": "high"
+    },
+    "specialSaveWarpFlags": {
+      "vanilla_offset": "0x9",
+      "hack_offset": "0x9",
+      "evidence": "bit0 set/clear functions @0x0812B9D8-0x0812BA3A",
+      "confidence": "high"
+    },
+    "playerTrainerId": {
+      "vanilla_offset": "0xA",
+      "hack_offset": "0xA",
+      "type": "u8[4] (u16 visible id @+0xA, u16 secret id @+0xC)",
+      "evidence": "trainer-id byte sum in MoveSaveBlocks ASLR seed; 25+ refs",
+      "confidence": "high"
+    },
+    "playTimeHours": {
+      "vanilla_offset": "0xE",
+      "hack_offset": "0xE",
+      "type": "u16",
+      "evidence": "21 refs matching vanilla profile",
+      "confidence": "high"
+    },
+    "playTimeMinutes": {
+      "vanilla_offset": "0x10",
+      "hack_offset": "0x10",
+      "confidence": "high"
+    },
+    "playTimeSeconds": {
+      "vanilla_offset": "0x11",
+      "hack_offset": "0x11",
+      "confidence": "high"
+    },
+    "playTimeVBlanks": {
+      "vanilla_offset": "0x12",
+      "hack_offset": "0x12",
+      "confidence": "high"
+    },
+    "optionsButtonMode": {
+      "vanilla_offset": "0x13",
+      "hack_offset": "0x13",
+      "confidence": "high"
+    },
+    "options": {
+      "vanilla_offset": "0x14",
+      "hack_offset": "0x14",
+      "type": "u16 bitfield (textSpeed:3 ...)",
+      "evidence": "34+16 refs; many option-reader disasms",
+      "confidence": "high"
+    },
+    "pokedex": {
+      "vanilla_offset": "0x18",
+      "hack_offset": "0x18",
+      "type": "struct Pokedex (order 0x18, mode 0x19, nationalMagic 0x1A, unownPersonality 0x1C, spindaPersonality 0x20)",
+      "evidence": "access profile 0x18/0x19/0x1B/0x1C/0x20 matches vanilla; owned/seen memsets below",
+      "confidence": "high"
+    },
+    "pokedex_owned": {
+      "vanilla_offset": "0x28",
+      "hack_offset": "0x28",
+      "type": "u8[0x34] bitfield, species N -> bit N-1 (412 species, vanilla dex order)",
+      "evidence": "memset(SB2+0x28, 0, 0x34) @0x0813E798/0x0813E988; memset(SB2+0x28,0,0x68) covers both arrays @0x0815907C",
+      "confidence": "high"
+    },
+    "pokedex_seen": {
+      "vanilla_offset": "0x5C",
+      "hack_offset": "0x5C",
+      "type": "u8[0x34] bitfield",
+      "evidence": "memset(SB2+0x5C, 0, 0x34) @0x0813E7A4/0x0813E994; GetSetPokedexFlag @0x0815E100 (case 0 get / case 2 set) confirms; count loop bound = 386 (Gen 3 national dex count). Bit index vs dexNum-1 convention: verify with one live seen-mon dump",
+      "confidence": "high"
+    },
+    "unknown_0x90": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x90",
+      "type": "u8, 20 refs",
+      "confidence": "unknown"
+    },
+    "language_plus_options": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x91",
+      "type": "u8: bits 0-4 = language index (0=English -> gItems 0x0890F960; 1 -> Spanish name table 0x0877A508), bits 5-6 more options",
+      "evidence": "ItemId_GetName disasm @0x08118734; 57 refs (read by every localized-text fetch)",
+      "confidence": "high"
+    },
+    "inserted_region": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x92-0x173",
+      "note": "+0xC4 bytes of new content inserted between vanilla 0x90 and playerApprentice; encryptionKey (vanilla 0xAC) NOT FOUND - encryption removed",
+      "confidence": "low"
+    },
+    "records_struct_0x154": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x154",
+      "type": "0x10-byte records struct: u16 @0x154 (cap 9999), u16 @0x158 (cap 9999), u32 @0x15C, u32 @0x160 (cap 99990)",
+      "evidence": "clear fn 0x08173C84 and record-update fn 0x08173CA4 (caps 0x270F/0x18696); NOT RTC as earlier guessed. Purpose unknown (minigame records?)",
+      "confidence": "high (layout), low (purpose)"
+    },
+    "gameClock_live": {
+      "vanilla_offset": "-1 (custom accelerated in-game clock, ~9x realtime)",
+      "hack_offset": "0xF5C",
+      "type": "vanilla-Time-shaped record: u16 day @0xF5C, u8 hour @0xF5E, u8 minute @0xF5F, u8 second @0xF60",
+      "evidence": "real-save diff: reads day=4 21:18:20 = exactly the parser's gameClock; explains the hot SB2 tail (25/19/15/16 refs)",
+      "confidence": "high (live-verified)"
+    },
+    "gameClock_archive": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0xE0",
+      "type": "archived copy of the 0xF5C clock (real save: day=4 21:12:40, slightly older)",
+      "evidence": "fn 0x080B1530: gated by flag 0x895, copies u32 pair SB2+0xF5C -> SB2+0xE0 and stores day u16 into var 0x408E - a daily-event 'last update time' system. NOTE: this corrects the earlier guess that 0xE0/0xE4 were dex unown/spinda personalities",
+      "confidence": "high (live-verified)"
+    },
+    "rival_name": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x6E2",
+      "type": "u8[8] GBA charset, 0xFF-terminated",
+      "evidence": "real save decodes 'Kennedy' (player 'Eric'); sits right after the challenge-options byte 0x6E0",
+      "confidence": "high (live-verified)"
+    },
+    "playerApprentice": {
+      "vanilla_offset": "0xB0",
+      "hack_offset": "0x174",
+      "type": "struct PlayersApprentice (0x2C)",
+      "evidence": "ref profile 18/18/10 at 0x174-0x176 vs vanilla 25/30/19 at 0xB0-0xB2; +0xC4 shift; abuts apprentices at 0x1A0",
+      "confidence": "high"
+    },
+    "apprentices": {
+      "vanilla_offset": "0xDC",
+      "hack_offset": "0x1A0",
+      "type": "struct Apprentice[4], 0x44 each",
+      "evidence": "memset(SB2+0x1A0, ?, 0x44) @0x0809145A; +0xC4 shift",
+      "confidence": "high"
+    },
+    "unknown_0x6E0": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0x6E0",
+      "type": "u16, 17 refs",
+      "confidence": "unknown"
+    },
+    "unknown_tail_0xF5C": {
+      "vanilla_offset": "-1",
+      "hack_offset": "0xF5C",
+      "type": "8-byte struct at block end (u16 @0xF5C 25 refs, u16 @0xF5E, u8 @0xF5F, u32? @0xF60); memset(SB2+0xF5C, ?, 8)",
+      "confidence": "unknown"
+    },
+    "frontier": {
+      "vanilla_offset": "0x64C",
+      "hack_offset": null,
+      "note": "moved to SaveBlock1+0x2744 (shift +0x20F8)",
+      "confidence": "high"
+    },
+    "encryptionKey": {
+      "vanilla_offset": "0xAC",
+      "hack_offset": null,
+      "note": "no references found; money confirmed unencrypted",
+      "confidence": "high (absence for money), medium (global)"
+    }
   },
   "PokemonStorage": {
-    "currentBox": {"vanilla_offset": "0x0", "hack_offset": "0x0", "type": "u8", "confidence": "high"},
-    "boxes": {"vanilla_offset": "0x4", "hack_offset": "0x4", "type": "BoxPokemon[14][30], stride 0x50", "evidence": "total size 0x83D0 identical to vanilla; vanilla BoxPokemon confirmed independently", "confidence": "high"},
-    "boxNames": {"vanilla_offset": "0x8344", "hack_offset": "0x8344", "type": "u8[14][9]", "confidence": "medium (implied by identical size)"},
-    "boxWallpapers": {"vanilla_offset": "0x83C2", "hack_offset": "0x83C2", "type": "u8[14]", "confidence": "medium"}
+    "currentBox": {
+      "vanilla_offset": "0x0",
+      "hack_offset": "0x0",
+      "type": "u8",
+      "confidence": "high"
+    },
+    "boxes": {
+      "vanilla_offset": "0x4",
+      "hack_offset": "0x4",
+      "type": "BoxPokemon[14][30], stride 0x50",
+      "evidence": "total size 0x83D0 identical to vanilla; vanilla BoxPokemon confirmed independently",
+      "confidence": "high"
+    },
+    "boxNames": {
+      "vanilla_offset": "0x8344",
+      "hack_offset": "0x8344",
+      "type": "u8[14][9]",
+      "confidence": "medium (implied by identical size)"
+    },
+    "boxWallpapers": {
+      "vanilla_offset": "0x83C2",
+      "hack_offset": "0x83C2",
+      "type": "u8[14]",
+      "confidence": "medium"
+    }
   },
   "BoxPokemon": {
     "note": "FULLY VANILLA - all offsets, encryption, substruct order identical to pokeemerald/FireRed Gen 3",
-    "personality": "0x0 u32", "otId": "0x4 u32", "nickname": "0x8 u8[10]", "language": "0x12", "sanity_flags": "0x13 (bit0 isBadEgg, bit1 hasSpecies, bit2 isEgg)", "otName": "0x14 u8[7]", "markings": "0x1B", "checksum": "0x1C u16", "substructs": "0x20, 4 x 12 bytes, XOR key = personality ^ otId, slot order = vanilla personality%24 permutation (verified all 24 cases, GetSubstruct @0x081637A8)",
+    "personality": "0x0 u32",
+    "otId": "0x4 u32",
+    "nickname": "0x8 u8[10]",
+    "language": "0x12",
+    "sanity_flags": "0x13 (bit0 isBadEgg, bit1 hasSpecies, bit2 isEgg)",
+    "otName": "0x14 u8[7]",
+    "markings": "0x1B",
+    "checksum": "0x1C u16",
+    "substructs": "0x20, 4 x 12 bytes, XOR key = personality ^ otId, slot order = vanilla personality%24 permutation (verified all 24 cases, GetSubstruct @0x081637A8)",
     "confidence": "high"
   },
   "Pokemon_party_extra": {
@@ -140,36 +647,91 @@
     "confidence": "high"
   },
   "ewram_symbols": {
-    "gBagPockets": {"addr": "0x0200B770", "type": "7 x {ItemSlot* @+0, u8 capacity @+4}, stride 8", "confidence": "high"},
-    "gPlayerPartyCount": {"addr": "0x02038559", "confidence": "high"},
-    "gPlayerParty": {"addr": "0x0203855C", "type": "Pokemon[6]", "confidence": "high"},
-    "gSaveblock2_buffer": {"addr": "0x0200DBEC", "note": "SB2 ASLR base; live ptr = base + offset in [0,0x7C]"},
-    "gSaveblock1_buffer": {"addr": "0x0200EBD0"},
-    "gPokemonStorage_buffer": {"addr": "0x020129E4"},
-    "gSpecialFlags": {"addr": "0x02005C64", "note": "flag ids >= 0x4000"},
-    "gObjectEvents": {"addr": "0x02005CD4", "type": "struct ObjectEvent[16], stride 0x24, VANILLA layout (spriteId u8 @+4, graphicsId u8 @+5, localId @+8 (player 0xFF, follower 0xFE), mapNum/mapGroup @+9/+0xA, currentCoords s16 x,y @+0x10 (map coords + 7), invisible = byte+1 bit5, facingDirection = low nibble of byte @+0x18: 1=South 2=North 3=West 4=East)", "evidence": "live-verified in 4 dumps (player entry isPlayer/localId 0xFF, coords match). RETRACTION: an earlier claim that graphicsId was widened to u16 @+4 was wrong - the apparent 0x219 was spriteId(25) | graphicsId(2)<<8. The follower object's graphicsId byte does NOT encode the mon; its sheet loads dynamically", "confidence": "high"},
-    "follower_recipe": {"note": "Follower object = gObjectEvents entry with localId 0xFE (NOT the vanilla camera - vanilla LOCALID_CAMERA is 127; the 0xFE interaction script 0x082F5D83 buffers a party mon nickname via GetFollowerMon, and the despawn fn 0x080D5994 scans for 0xFE). Facing = +0x18 low nibble; hidden/in-ball = invisible bit. WHICH MON follows - GetFollowerMon @0x080D516C: mode = (SB2+0x91 >> 5) & 3 (same byte as language bits 0-4!): mode 0 = the ORIGINAL STARTER PIKACHU (scans party for SPECIES_OR_EGG==25 AND metLevel==5 AND metLocation==0x58); mode 1 = first party mon with HP>0 and not egg (lead-based); mode 2/3 = follower DISABLED (fn returns NULL). Identity is recomputed from party data - nothing persists on despawn. st0: mode 0, follower = the slot-6 Pikachu, object active but invisible (in-ball)", "confidence": "high (disassembled end-to-end)"},
-    "gPlayerAvatar": {"addr": "0x02005F14", "type": "struct PlayerAvatar, vanilla layout: flags u8 @+0 (bit0 ON_FOOT, bit1 MACH_BIKE, bit2 ACRO_BIKE, bit3 SURFING, bit4 UNDERWATER, bit5 CONTROLLABLE, bit7 DASH), spriteId @+4, objectEventId @+5, gender @+7 (0=male)", "evidence": "sits at gObjectEvents+0x240 exactly as in vanilla; live values sane in all 4 dumps (on-foot flag on real save, controllable bit in overworld dumps, gender 0)", "confidence": "high"},
-    "gTasks": {"addr": "0x03005BB8", "note": "CONFIRMED (upgraded from hypothesis): daycare-hunt disasm @0x08152F30 stores a task func at 0x03005BB8 + taskId*40 (vanilla Task stride 40)"}
+    "gBagPockets": {
+      "addr": "0x0200B770",
+      "type": "7 x {ItemSlot* @+0, u8 capacity @+4}, stride 8",
+      "confidence": "high"
+    },
+    "gPlayerPartyCount": {
+      "addr": "0x02038559",
+      "confidence": "high"
+    },
+    "gPlayerParty": {
+      "addr": "0x0203855C",
+      "type": "Pokemon[6]",
+      "confidence": "high"
+    },
+    "gSaveblock2_buffer": {
+      "addr": "0x0200DBEC",
+      "note": "SB2 ASLR base; live ptr = base + offset in [0,0x7C]"
+    },
+    "gSaveblock1_buffer": {
+      "addr": "0x0200EBD0"
+    },
+    "gPokemonStorage_buffer": {
+      "addr": "0x020129E4"
+    },
+    "gSpecialFlags": {
+      "addr": "0x02005C64",
+      "note": "flag ids >= 0x4000"
+    },
+    "gObjectEvents": {
+      "addr": "0x02005CD4",
+      "type": "struct ObjectEvent[16], stride 0x24, VANILLA layout (spriteId u8 @+4, graphicsId u8 @+5, localId @+8 (player 0xFF, follower 0xFE), mapNum/mapGroup @+9/+0xA, currentCoords s16 x,y @+0x10 (map coords + 7), invisible = byte+1 bit5, facingDirection = low nibble of byte @+0x18: 1=South 2=North 3=West 4=East)",
+      "evidence": "live-verified in 4 dumps (player entry isPlayer/localId 0xFF, coords match). RETRACTION: an earlier claim that graphicsId was widened to u16 @+4 was wrong - the apparent 0x219 was spriteId(25) | graphicsId(2)<<8. The follower object's graphicsId byte does NOT encode the mon; its sheet loads dynamically",
+      "confidence": "high"
+    },
+    "follower_recipe": {
+      "note": "Follower object = gObjectEvents entry with localId 0xFE (NOT the vanilla camera - vanilla LOCALID_CAMERA is 127; the 0xFE interaction script 0x082F5D83 buffers a party mon nickname via GetFollowerMon, and the despawn fn 0x080D5994 scans for 0xFE). Facing = +0x18 low nibble; hidden/in-ball = invisible bit. WHICH MON follows - GetFollowerMon @0x080D516C: mode = (SB2+0x91 >> 5) & 3 (same byte as language bits 0-4!): mode 0 = the ORIGINAL STARTER PIKACHU (scans party for SPECIES_OR_EGG==25 AND metLevel==5 AND metLocation==0x58); mode 1 = first party mon with HP>0 and not egg (lead-based); mode 2/3 = follower DISABLED (fn returns NULL). Identity is recomputed from party data - nothing persists on despawn. st0: mode 0, follower = the slot-6 Pikachu, object active but invisible (in-ball)",
+      "confidence": "high (disassembled end-to-end)"
+    },
+    "gPlayerAvatar": {
+      "addr": "0x02005F14",
+      "type": "struct PlayerAvatar, vanilla layout: flags u8 @+0 (bit0 ON_FOOT, bit1 MACH_BIKE, bit2 ACRO_BIKE, bit3 SURFING, bit4 UNDERWATER, bit5 CONTROLLABLE, bit7 DASH), spriteId @+4, objectEventId @+5, gender @+7 (0=male)",
+      "evidence": "sits at gObjectEvents+0x240 exactly as in vanilla; live values sane in all 4 dumps (on-foot flag on real save, controllable bit in overworld dumps, gender 0)",
+      "confidence": "high"
+    },
+    "gTasks": {
+      "addr": "0x03005BB8",
+      "type": "struct Task[16], stride 40: func u32 @+0, isActive u8 @+4, prev @+5, next @+6, priority @+7, s16 data[16] @+8",
+      "note": "CONFIRMED twice over: daycare-hunt disasm @0x08152F30 stores a task func at 0x03005BB8 + taskId*40, and ResetTasks/CreateTask (rom_functions) walk the array at that base and stride. A live IWRAM dump decodes as a well-formed task list there. NOTE for anyone chasing an IWRAM address in this range: data[] is scratch whose meaning belongs to whichever task holds the slot, and screens that call ResetTasks put their own main task in slot 0 - the same address means different things in different screens"
+    }
   },
   "player_sprite_rendering": {
     "recipe": "gfxId = gObjectEvents[player].graphicsId (byte @+5; already reflects bike/surf state, 0 on foot); info = *(u32*)(0x0887EE9C + gfxId*4); standing frame for facing: 0=South 1=North 2=West (East = West h-flipped); frame pixel data = images[frame].ptr from the images table at info+0x1C; palette via palTag at info+2 looked up in sprite-palette table 0x08890458",
-    "gObjectEventGraphicsInfoPointers": {"addr": "0x0887EE9C", "count": "~295 entries (u32 ptrs)"},
+    "gObjectEventGraphicsInfoPointers": {
+      "addr": "0x0887EE9C",
+      "count": "~295 entries (u32 ptrs)"
+    },
     "graphics_info_struct": "vanilla ObjectEventGraphicsInfo: u16 tileTag @0 (0xFFFF), u16 paletteTag @2, u16 reflectionTag @4, u16 size @6, s16 width @8, s16 height @0xA, flags @0xC, oam* @0x10, subsprites* @0x14, anims* @0x18, images* @0x1C, affine* @0x20",
     "images_table": "SpriteFrameImage entries, stride 8: {u32 dataPtr, u16 byteSize}; data is UNCOMPRESSED GBA 4bpp, 8x8 tiles in row-major tile order (16x32 frame = 2x4 tiles = 0x100 bytes; 32x32 = 4x4 tiles = 0x200)",
     "anim_convention": "verified from player anim table 0x088891B4: anim0=stand South (frame 0), anim1=stand North (frame 1), anim2=stand West (frame 2, East mirrors); walk South frames 3/4, North 5/6, West 7/8",
-    "player_male_walking_gfx0": {"info": "0x08889D3C", "dims": "16x32", "frames": "18 x 0x100 starting 0x08791708 (images table 0x0887F4A0)", "paletteTag": "0x1100"},
-    "player_male_bike_gfx1": {"info": "0x08889D60", "dims": "32x32", "frames": "9 x 0x200 starting 0x087948A8 (images table 0x0887F530)", "paletteTag": "0x1100"},
+    "player_male_walking_gfx0": {
+      "info": "0x08889D3C",
+      "dims": "16x32",
+      "frames": "18 x 0x100 starting 0x08791708 (images table 0x0887F4A0)",
+      "paletteTag": "0x1100"
+    },
+    "player_male_bike_gfx1": {
+      "info": "0x08889D60",
+      "dims": "32x32",
+      "frames": "9 x 0x200 starting 0x087948A8 (images table 0x0887F530)",
+      "paletteTag": "0x1100"
+    },
     "gfx2_gfx3": "32x32 player variants (surf/field-move style), same palette tag",
-    "sprite_palette_table": {"addr": "0x08890458", "format": "stride 8: {u32 palettePtr, u16 tag}; list ends at tag 0x11FF", "player_palette": "tag 0x1100 -> 0x08792928, 16 x u16 BGR555 (color 0 = transparent)"},
+    "sprite_palette_table": {
+      "addr": "0x08890458",
+      "format": "stride 8: {u32 palettePtr, u16 tag}; list ends at tag 0x11FF",
+      "player_palette": "tag 0x1100 -> 0x08792928, 16 x u16 BGR555 (color 0 = transparent)"
+    },
     "confidence": "high (frame 0 ASCII-rendered: recognizable capped hero, Red-style palette)"
   },
   "follower_mon_sprite_rendering": {
-    "recipe": "species = from GetFollowerMon logic (see follower_recipe), NOT from the object struct. info = 0x0888C430 + species*36 (ARRAY of ObjectEventGraphicsInfo structs, NOT pointers; species = internal id, 412 entries). Frame sheet: images ptr @info+0x1C -> first SpriteFrameImage entry's dataPtr = LZ77-COMPRESSED blob (GBA BIOS LZ77, 0x10 header) decompressing to 0xC00 = 6 frames x 0x200 (32x32 4bpp); frames: 0=stand South, 1=stand North, 2=stand West (East = h-flip), 3/4/5 = walk S/N/W. Palette: LZ77 blob at [0x08751738 + species*8] (species-indexed {u32 lzPalPtr, u32 tag} table, decompresses to 32 bytes = 16 x BGR555, color 0 transparent)",
+    "recipe": "species = from GetFollowerMon logic (see follower_recipe), NOT from the object struct. info = 0x0888C430 + species*36 (ARRAY of ObjectEventGraphicsInfo structs, NOT pointers; species = internal id, 412 entries). Frame sheet: images ptr @info+0x1C -> first SpriteFrameImage entry's dataPtr = LZ77-COMPRESSED blob (GBA BIOS LZ77, 0x10 header) decompressing to 0xC00 = 6 frames x 0x200 (32x32 4bpp); frames are stand/walk PAIRS per direction: 0=stand South, 1=walk South, 2=stand North, 3=walk North, 4=stand West, 5=walk West (East = frame 4 h-flipped). CORRECTED 2026-08-19 -- this entry previously claimed 0/1/2 = stand S/N/W, which is the NPC/player order and is WRONG for mon sheets; it made a follower facing north render facing south and one facing west render facing north. Both the JS and Python renderers took the mapping from this line, so they agreed byte-for-byte while both were wrong -- cross-implementation agreement proves consistency, not correctness. Established by rendering all six frames of two species and looking at them. Palette: LZ77 blob at [0x08751738 + species*8] (species-indexed {u32 lzPalPtr, u32 tag} table, decompresses to 32 bytes = 16 x BGR555, color 0 transparent)",
     "resolver_code": "GetObjectEventGraphicsInfo @0x080D7080: id<0x159 -> main table 0x0887EE9C[id]; id>=0x200 -> mon resolver 0x080D5260(id-0x200); id>=0x3F4 -> shiny remap (-0x1F4); >0x158 && <0x200 -> fallback 0x08889DCC",
     "special_cases": "Unown (species 201) selects by form; one gender-variant species uses table 0x08890210; shiny palettes via the variant bits (mon palette loader 0x080D5300 adds 0x1F5 to the tag for shiny)",
     "verified": "Pikachu (species 25): sheet LZ @0x087E948C -> renders recognizable Pikachu standing-south; palette LZ @0x083DA534 -> yellow + red-cheek colors",
-    "confidence": "high"
+    "confidence": "high for the addresses and format; the frame ORDER was wrong until 2026-08-19 (see recipe)"
   },
   "badge_pixel_art": {
     "recipe": "LZ77-decompress the sheet at 0x08A60760 (GBA BIOS LZ77, header 10 00 04 00) -> 0x400 bytes = 32 tiles of 4bpp = a 128x16px image, 8 badges of 16x16 left-to-right (Boulder..Earth). Badge i (0-based) = tiles {2i, 2i+1, 16+2i, 16+2i+1} (top-left, top-right, bottom-left, bottom-right; standard GBA 4bpp 8x8 tiles, low nibble = left pixel). Palette: uncompressed u16[16] BGR555 at 0x085E6024 (identical copy at 0x089BD750); color 0 transparent.",
@@ -183,11 +745,25 @@
     "header_walk": "gMapGroups @0x08B3F134 -> group ptr array -> header ptr. MapHeader (vanilla): +0 mapLayout*, +4 events*, +8 mapScripts*, +0xC connections*, +0x10 music u16, +0x12 layoutId u16, +0x14 mapsec u8, then cave/weather/mapType/flags/battleType",
     "map_layout": "vanilla: s32 width @0, s32 height @4, border* @8, blockdata* @0xC, primaryTileset* @0x10, secondaryTileset* @0x14",
     "tileset_struct": "FRLG FIELD ORDER (not Emerald): u8 isCompressed @0 (nonzero = tiles are LZ77), u8 isSecondary @1, pad2, tiles* @4, palettes* @8 (raw 13 x 16 x u16 BGR555), metatiles* @0xC (12 x u16 per metatile, 24-byte stride), CALLBACK @0x10, metatileAttributes* @0x14 (u32 per metatile - confirmed by the attribute readers' *4 indexing)",
-    "constants": {"tiles_in_primary": 640, "metatiles_in_primary": "0x280 (640) - CODE-PROVEN: attribute readers @0x081088E2/0x08108A64/0x08108AA8 compose 0x280 inline (movs 0xA0; lsls 2) and index the secondary tileset with (id - 0x280); arithmetic lock: Celadon primary metatiles->attrs gap 0x3C00 = 0x280 x 24 exactly. (Earlier 0x200 claim RETRACTED - it came from a buggy self-validating render plus generic 0x200 pool constants that are unrelated; the real constant never appears in literal pools, which is why the pool scan missed it)", "palette_split": "FRLG convention: BG palettes 0-6 from primary tileset array indices 0-6; BG 7-12 from SECONDARY tileset array indices 7-12 (secondary array's 0-6 are dummies)"},
+    "constants": {
+      "tiles_in_primary": 640,
+      "metatiles_in_primary": "0x280 (640) - CODE-PROVEN: attribute readers @0x081088E2/0x08108A64/0x08108AA8 compose 0x280 inline (movs 0xA0; lsls 2) and index the secondary tileset with (id - 0x280); arithmetic lock: Celadon primary metatiles->attrs gap 0x3C00 = 0x280 x 24 exactly. (Earlier 0x200 claim RETRACTED - it came from a buggy self-validating render plus generic 0x200 pool constants that are unrelated; the real constant never appears in literal pools, which is why the pool scan missed it)",
+      "palette_split": "FRLG convention: BG palettes 0-6 from primary tileset array indices 0-6; BG 7-12 from SECONDARY tileset array indices 7-12 (secondary array's 0-6 are dummies)"
+    },
     "blockdata": "u16 per map cell (row-major, width*height): bits 0-9 metatileId, bits 10-11 collision (0 = passable), bits 12-15 elevation",
     "metatile": "THREE-LAYER (the known 3-layer-metatiles patch): 12 x u16 = 24-byte stride - bottom layer quads TL,TR,BL,BR, then middle, then top. Entry: bits 0-9 tileId (<640 primary tiles, >=640 secondary at tileId-640), 0x400 hflip, 0x800 vflip, bits 12-15 palette (0-12). Composite bottom->middle->top with color 0 transparent on the upper layers (porymap-style; matches live captures pixel-structurally per parser-builder's 83.5% transition test and my corrected render). (Earlier 8xu16/16-byte claim RETRACTED; a 24-byte ldmia/stmia metatile copy also exists @0x0816364A)",
     "palettes_note": "ROM palettes are the DAY colors; the game applies day/night tinting at runtime from the accelerated clock (the live capture at in-game 21:16 shows all palettes darkened ~45%). Render with raw ROM palettes for a daytime map, or scale for night flavor",
-    "worked_example_celadon_3_6": {"header": "0x08B3C76C", "layout": "0x08ACDBF0", "layoutId": 138, "dims": "60x40", "border": "0x08ACC928", "blockdata": "0x08ACC930", "primaryTileset": "0x08A509AC (tiles LZ 0x085DD0E4 -> 0x5000 = 640 tiles; palettes 0x085DCEE4; metatiles 0x089FACD8)", "secondaryTileset": "0x08A50A54 (tiles LZ 0x089C80CC -> 0x2000 = 256 tiles; palettes 0x089C8E18; metatiles 0x08A05660)", "player_tile": "(43,22) = block 0x30CF: metatile 0x0CF, collision 0 (walkable), elevation 3"},
+    "worked_example_celadon_3_6": {
+      "header": "0x08B3C76C",
+      "layout": "0x08ACDBF0",
+      "layoutId": 138,
+      "dims": "60x40",
+      "border": "0x08ACC928",
+      "blockdata": "0x08ACC930",
+      "primaryTileset": "0x08A509AC (tiles LZ 0x085DD0E4 -> 0x5000 = 640 tiles; palettes 0x085DCEE4; metatiles 0x089FACD8)",
+      "secondaryTileset": "0x08A50A54 (tiles LZ 0x089C80CC -> 0x2000 = 256 tiles; palettes 0x089C8E18; metatiles 0x08A05660)",
+      "player_tile": "(43,22) = block 0x30CF: metatile 0x0CF, collision 0 (walkable), elevation 3"
+    },
     "verified": "rasterized the 15x10 patch around the player's real position and matched it to the live overworld screenshot (research/dumps/trainer-card/menu-open/screen.png); validation render saved as research/dumps/trainer-card/celadon-render-validation.png",
     "confidence": "high (render-validated)"
   },
@@ -201,18 +777,162 @@
       "18:00-19:59": "dusk ramp: no tint -> word1",
       "20:00-21:59": "evening ramp: word1 -> word0 (night)"
     },
-    "tint_words": {"night_word0": "0x159D7474 @ROM 0x0894EFA4", "twilight_word1": "0x09A8B0E0 @ROM 0x0894EFA8", "note": "packed {coeff,color} format only partially decoded - use the measured approximation below for rendering"},
+    "tint_words": {
+      "night_word0": "0x159D7474 @ROM 0x0894EFA4",
+      "twilight_word1": "0x09A8B0E0 @ROM 0x0894EFA8",
+      "note": "packed {coeff,color} format only partially decoded - use the measured approximation below for rendering"
+    },
     "measured_approximation": "live capture at in-game 21:16 (63% through the evening ramp): all overworld palettes multiplied per-channel by approximately R x0.61, G x0.53, B x0.61 (slightly blue-purple night). Full night is modestly stronger; for the page a single 'night' filter of ~(0.55, 0.48, 0.55) with a slight blue push looks right",
     "chip_rule": "for a DAY/NIGHT chip: NIGHT = hours 20-23 and 0-6 (tinted), DAY = 7-19 (clear or nearly so); the old 6-18 guess was wrong - full day starts at 10:00 and dimming starts at 18:00",
     "interiors": "the override byte is cleared on every map load and a mapType check (header +0x17) at 0x08140E60 gates the system; indoor map types appear to skip tinting (the exemption also runs through per-palette masks in the commit path). Medium confidence on the exact indoor rule",
     "confidence": "high (schedule/table/constants disassembled; tint magnitude live-measured), medium (packed-word semantics, interior rule)"
   },
   "rom_tables": {
-    "gItems_english": {"addr": "0x0890F960", "stride": "0x30", "count": "409 (ids 0-408; id validity check compares against 0x198)", "name_at": "+0x0 (16 bytes)", "description_ptr_at": "+0x18 (u32 ROM ptr)", "fieldUseFunc_at": "+0x2C"},
-    "item_names_spanish": {"addr": "0x0877A508", "stride": "0x10"},
-    "species_names": {"addr": "0x087703BC", "stride": "0xB", "count": "412 English + 412 French + 412 German"},
-    "script_cmd_table": {"addr": "0x081F1630", "count": 235},
-    "special_var_ptr_table": {"addr": "0x081F19DC", "note": "var ids >= 0x8000"},
-    "substruct_order_jump_table": {"addr": "0x08972DE4", "count": 24}
+    "gItems_english": {
+      "addr": "0x0890F960",
+      "stride": "0x30",
+      "count": "409 (ids 0-408; id validity check compares against 0x198)",
+      "name_at": "+0x0 (16 bytes)",
+      "description_ptr_at": "+0x18 (u32 ROM ptr)",
+      "fieldUseFunc_at": "+0x2C"
+    },
+    "item_names_spanish": {
+      "addr": "0x0877A508",
+      "stride": "0x10"
+    },
+    "species_names": {
+      "addr": "0x087703BC",
+      "stride": "0xB",
+      "count": "412 English + 412 French + 412 German"
+    },
+    "script_cmd_table": {
+      "addr": "0x081F1630",
+      "count": 235
+    },
+    "special_var_ptr_table": {
+      "addr": "0x081F19DC",
+      "note": "var ids >= 0x8000"
+    },
+    "substruct_order_jump_table": {
+      "addr": "0x08972DE4",
+      "count": 24
+    }
+  },
+  "rom_functions": {
+    "note": "Named ROM code addresses, each identified by disassembling this ROM (research/tools/disasm.py) and matching the instruction sequence against the pokeemerald source that produced it. Thumb entry points; call them with |1. Established while proving out the bag/sell path - see the 'Task data, and the bag sell path' section of hack-offsets.md",
+    "ResetTasks": {
+      "addr": "0x081B9530",
+      "note": "loops 16 tasks at stride 0x28 from gTasks (0x03005BB8): func=TaskDummy, isActive=0, prev=i, next=i+1, priority=0xFF, memset(data,0,0x20). Independently re-confirms the gTasks base and the 40-byte Task stride",
+      "confidence": "high"
+    },
+    "CreateTask": {
+      "addr": "0x081B9590",
+      "note": "scans gTasks[i].isActive (0x03005BBC = gTasks+4) from i=0 upward and takes the FIRST free slot -> the first CreateTask after ResetTasks always returns task id 0",
+      "confidence": "high"
+    },
+    "TaskDummy": {
+      "addr": "0x081B9740",
+      "note": "the no-op task func ResetTasks installs; seen as 0x081B9741 in every free slot of a live gTasks dump",
+      "confidence": "high"
+    },
+    "AddMoney": {
+      "addr": "0x0813A3F8",
+      "note": "called as AddMoney(&SaveBlock1->money, amount); callers build the pointer as *(gSaveBlock1Ptr) + 0x29C (emitted as movs #0xA7 / lsls #2), which re-confirms the money offset",
+      "confidence": "high"
+    },
+    "GetItemPrice": {
+      "addr": "0x08119764",
+      "confidence": "high"
+    },
+    "RemoveBagItem": {
+      "addr": "0x08118CF4",
+      "note": "RemoveBagItem(itemId, count); returns FALSE and removes NOTHING when count exceeds the amount held",
+      "confidence": "high"
+    },
+    "CopyItemName": {
+      "addr": "0x08118734",
+      "confidence": "high"
+    },
+    "ConvertIntToDecimalStringN": {
+      "addr": "0x081B8B08",
+      "confidence": "high"
+    },
+    "StringExpandPlaceholders": {
+      "addr": "0x081B905C",
+      "confidence": "high"
+    },
+    "DisplayItemMessage": {
+      "addr": "0x0811AE14",
+      "note": "DisplayItemMessage(taskId, font, str, callback)",
+      "confidence": "high"
+    },
+    "SetupBagMenu_ResetTasks_site": {
+      "addr": "0x0811A144",
+      "note": "the `if (!MenuHelpers_IsLinkActive()) ResetTasks();` step of SetupBagMenu (state 6)",
+      "confidence": "high"
+    },
+    "CreateBagInputHandlerTask": {
+      "addr": "0x0811A418",
+      "note": "SetupBagMenu state 14; the first CreateTask after that ResetTasks, so the bag's input task is ALWAYS task id 0 -> its data[] lives at 0x03005BC0..0x03005BE5",
+      "confidence": "high"
+    },
+    "Task_BagMenu_HandleInput": {
+      "addr": "0x0811B0BC",
+      "note": "LIVE-CONFIRMED as task 0: four committed dumps (research/dumps/newgame-spam/f006000, f010800, f015600, final) hold this in gTasks[0].func with data[0]=1 (list menu is task 1) and data[8]=0, and their screen.png is the Bag",
+      "confidence": "high"
+    },
+    "bag_toss_RemoveBagItem_site": {
+      "addr": "0x0811C5F6",
+      "note": "toss path: loads gTasks+8, indexes taskId*40, passes data[8] (tItemCount) to RemoveBagItem at 0x0811C60A. Of the ROM's 35 RemoveBagItem call sites only this one and the sell at 0x0811D800 pass tItemCount; the bag-adjacent caller at 0x0811DED0 passes a constant 1 and is NOT a quantity path",
+      "confidence": "high"
+    },
+    "bag_setup_task_data_init": {
+      "addr": "0x0811A21E",
+      "note": "SetupBagMenu case 14 tail: stores the list-menu task id into data[0] and zeroes data[3] and data[8] (strh 0,[r3,#0x18]) - the tItemCount initialisation, disassembled in the hack rather than assumed from the decomp",
+      "confidence": "high"
+    },
+    "Task_WallyTutorialBagMenu": {
+      "addr": "0x0811DD74",
+      "confidence": "high"
+    },
+    "DisplaySellItemPriceAndConfirm": {
+      "addr": "0x0811D474",
+      "note": "quotes (GetItemPrice(item)/2) * tItemCount via 'I can pay Y{STR_VAR_1}.'; reads tItemCount as ldrsh [gTasks+8 + 40*taskId, #0x10]",
+      "confidence": "high"
+    },
+    "ConfirmSell": {
+      "addr": "0x0811D74C",
+      "note": "same price math behind 'Turned over the {STR_VAR_2} and received Y{STR_VAR_1}.'; note the hack converts with 7 digits where vanilla passes 6, matching its uncapped money",
+      "confidence": "high"
+    },
+    "SellItem": {
+      "addr": "0x0811D7C4",
+      "note": "RemoveBagItem(item, tItemCount) then AddMoney(&money, (GetItemPrice(item)/2) * tItemCount) - the AddMoney runs whatever RemoveBagItem returned",
+      "confidence": "high"
+    },
+    "PokedexSearch_task": {
+      "addr": "0x0815F1C0",
+      "note": "unrelated subsystem that also uses task data[8] ('Searching...' / 'No matching Pokemon were found.'); recorded because it owns the only absolute literal to gTasks+0x18 in the ROM and is easy to mistake for the bag code",
+      "confidence": "medium"
+    }
+  },
+  "ewram_symbols_bag": {
+    "gSpecialVar_ItemId": {
+      "addr": "0x0200B7E0",
+      "note": "the item the bag/shop flow is acting on; read by the sell path immediately before CopyItemName/GetItemPrice",
+      "confidence": "medium-high"
+    },
+    "gStringVar1": {
+      "addr": "0x0203D234",
+      "confidence": "high"
+    },
+    "gStringVar2": {
+      "addr": "0x0203D334",
+      "confidence": "high"
+    },
+    "gStringVar4": {
+      "addr": "0x0203D638",
+      "confidence": "high"
+    }
   }
 }

@@ -1,0 +1,3 @@
+[f000000] cheat=false addr=0x03005BD0 value=0x1388 frames=1800
+[f000000] write16 type: function read16 type: function
+[f000001] addr=0x0000 task0.func=0x00000000

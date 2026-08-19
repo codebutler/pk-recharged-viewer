@@ -117,6 +117,8 @@ Depth: `hack-offsets.md` (disassembly evidence chain, per-field),
 | `rom-fingerprint.md` | engine identification: pokeemerald rebuild, relocated pointers, item/species tables | rom-fingerprint agent |
 | `structs.json` / `structs-notes.md` | vanilla pokeemerald layouts (compile-verified), charmap, substruct permutation, encryption spec | structs agent |
 | `firered-structs.json` / `firered-structs-notes.md` | FireRed equivalents (superseded for **save layout** once the ROM proved Emerald-based — but note FRLG is still the right reference for *script commands* Emerald stubs out; see `scripts/README.md`) | structs agent |
+| `engine-architecture.md` | how pokeemerald's frame loop, CB2 screens, `gMain.state` setup machines and the 16-slot task array fit together, cited into `vendor/pokeemerald` — background for reading any RAM address | cheat-code round |
+| `cheat-code-formats.md` | CodeBreaker/GameShark/ARv3 code types decoded from `vendor/mgba`'s own source | cheat-code round |
 | `hack-offsets.json` / `hack-offsets.md` | the hack's actual SaveBlock layouts from ROM disassembly — primary offset source | hack-offsets agent |
 | `gamedata.json` | name tables from the ROM: species 412, items 409 (+pocket map), moves 355, abilities 78, natures, (group,num)→map name | gamedata agent |
 | `empirical-anchors.md` / `.json` | live-RAM verification verdict for every hack-offsets claim | struct-extract agent |
@@ -131,6 +133,8 @@ Depth: `hack-offsets.md` (disassembly evidence chain, per-field),
 | `tools/extract_opcodes.py` | regenerates `script-opcodes.json` from the pokeemerald submodule | script-dump |
 | `tools/run_harness.sh` + `mgba_dump_harness.lua` | timed dump harness (A/Start spam) | harness agent |
 | `tools/mgba_inject_harness.lua` / `_walk_` / `_explore_` | RAM-injection and exploration harness variants | harness agent |
+| `tools/mgba_wp_hunt.lua` | watchpoint hunt for whoever reads/writes a given address while the game runs | cheat-code round |
+| `tools/disasm.py` | ROM disassembler (Thumb/ARM) that names literals from `hack-offsets.json` and decodes `gTasks[id].data[k]`. The one tool here with a dependency (capstone, via `uv run`) | cheat-code round |
 | `tools/README.md` | mGBA setup, harness usage, dump format, live-vs-saved party notes | harness + ram-parser agents |
 | `dumps/newgame-spam/` | 34 dumps of a fresh game (33 timed, f000600–f019800, + final); f000600–f002400 are pre-game | harness agent |
 | `dumps/inject/` | dumps with an injected party Pikachu + bag Potion (party/bag ground truth) | harness agent |
