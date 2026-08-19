@@ -1,0 +1,48 @@
+analysis/tools/generate_page.py
+  s_30c66b9ed26a01::t_43dfa521749a48 627-649,652-653,659,662,667-669,671,675-678,690
+  s_30c66b9ed26a01::t_6af826ca0f6b48 663-666
+  s_30c66b9ed26a01::t_1497eaa55f4391 940
+  s_30c66b9ed26a01::t_8a9ad3cc11b6c9 650-651,654-658,660-661,670,672-674,679-689,691-700
+analysis/tools/templates/report.html.j2
+  s_30c66b9ed26a01::t_e3dbe87cd3567c 86-97
+  s_30c66b9ed26a01::t_15b0df8ea6352e 63
+analysis/tools/gba_map.py
+  s_30c66b9ed26a01::t_c751e49f49f576 1-2,6,9-11,35-44,53-79,88-130,133-145,150-156,158-182
+  s_30c66b9ed26a01::t_176105b536c127 3-5,7-8,12-34
+  s_30c66b9ed26a01::t_2b88688d1bdd78 51-52,131-132
+  s_30c66b9ed26a01::t_31f110c3d3aa4b 45-50
+  s_30c66b9ed26a01::t_b88a373de0df4b 146-149,157
+  s_30c66b9ed26a01::t_c6a0001b41fad5 80-87
+analysis/report/index.html
+  s_30c66b9ed26a01::t_01adc927f52902 179-183,185,206,213-217
+  s_30c66b9ed26a01::t_42b31425ba2a06 184,186-189
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_b42e670b4fc8e4 214-215
+  s_30c66b9ed26a01::t_01adc927f52902 179-183,185,206,213,216
+  s_30c66b9ed26a01::t_42b31425ba2a06 184,186-189
+analysis/tools/templates/report.css
+  s_30c66b9ed26a01::t_1a379f07d29478 181,183-186
+  s_30c66b9ed26a01::t_05864226964624 176-180,182
+analysis/hack-offsets.json
+  s_30c66b9ed26a01::t_974d8dee04c4f1 182-193
+  s_30c66b9ed26a01::t_404e5414d1d526 194-209
+analysis/hack-offsets.md
+  s_30c66b9ed26a01::t_fb28ab55cc3e1a 173-180
+  s_30c66b9ed26a01::t_327b4f7d57f8b0 162-172
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "b9d0a1ae4f5da8ed5a3eac1d9ac5e3cc717a4d8a",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
