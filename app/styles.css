@@ -52,56 +52,105 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .empty{color:#7a766a;font-style:normal;padding:6px 2px;font-size:19px}
 .note{color:#7a766a;font-size:16px;margin:4px 0 8px}
 .warn{color:var(--accent);font-size:16px;margin-top:8px}
-/* trainer card */
-/* trainer card: styled after the in-game card (sky-blue bands, white face,
-   rounded corners, badge strip along the bottom) */
-.tcard{background:linear-gradient(#88b0e0,#7aa4d8);border:0;padding:0;
-  box-shadow:0 -3px 0 0 #2c3c5c,0 3px 0 0 #2c3c5c,-3px 0 0 0 #2c3c5c,
-    3px 0 0 0 #2c3c5c,inset 0 0 0 2px #c8dcf4,7px 7px 0 rgba(0,0,0,.45)}
-.tc-band{background:linear-gradient(#74aae2,#6ba5de);display:flex;
-  justify-content:space-between;align-items:center;padding:8px 12px;
-  border-bottom:2px solid #2c3c5c}
+/* --- trainer card ---------------------------------------------------------
+   A scale model of the game's own card, measured pixel by pixel off
+   research/dumps/trainer-card/card-front/screen.png (a 240x160 capture of this
+   save). The card there is 228x148 GBA pixels, so ONE unit -- --u, a
+   container-query fraction of the card's width -- is one GBA pixel, and every
+   number below is the measured coordinate in that space. Change the card's
+   width and the whole thing scales like the sprite it is.
+
+   Layout down the card: 5u white, 20u title band, 86u body, 26u badge band,
+   5u white. Colours are sampled, not invented: band #6ba5de, badge band
+   #84bde7, gold #f7d68c with its #fff7bd highlight, plates and rules #d6e7f7,
+   arcs #d6e7f7 over #c6d6e7, ink #636363, frame #636373 over #a5a5a5.
+
+   Two deliberate departures from the capture, both requested: money keeps
+   thousands separators (the game prints none) and the Time row keeps a colon.
+   The rounded corners and the round bullets are the game's own -- the page's
+   no-radius rule is about OUR chrome, and this card is a picture of theirs. */
+/* The slot is the query container; the card measures itself against it,
+   because container units always resolve against an ANCESTOR container -- a
+   container-type on the card itself would size --u from the viewport. */
+.tcard-slot{container-type:inline-size}
+.tcard{--u:calc(100cqw / 228);width:100%;
+  /* the face: white with the card's 1px horizontal striping */
+  background:repeating-linear-gradient(180deg,#fff 0 var(--u),
+    #e7f7f7 var(--u) calc(2 * var(--u)));
+  /* 3u of frame + 5u of white above the title band, and the same below */
+  border:0;padding:calc(8 * var(--u)) 0;overflow:hidden;
+  border-radius:calc(5 * var(--u));
+  /* frame drawn INSIDE the 228x148 box: 2u dark outline over a 1u light edge,
+     so the element's box is the card's full outer size and every measured
+     coordinate below is card-local */
+  box-shadow:inset 0 0 0 calc(2 * var(--u)) #636373,
+    inset 0 0 0 calc(3 * var(--u)) #a5a5a5,7px 7px 0 rgba(0,0,0,.45)}
+/* title band */
+.tc-band{background:#6ba5de;height:calc(20 * var(--u));display:flex;
+  align-items:center;justify-content:space-between;padding:0;border:0}
 .tcard h2{font-family:'Pokemon DP Bold','Pokemon Emerald',monospace;
-  /* colours sampled from the game's own card: gold #f7d68c on band #6ba5de */
-  margin:0;padding:3px 2px 2px;font-size:26px;line-height:1;letter-spacing:2px;
+  margin:0 0 0 calc(10 * var(--u));padding:0 calc(2 * var(--u));
+  font-size:calc(14 * var(--u));line-height:calc(14 * var(--u));
+  letter-spacing:calc(.5 * var(--u));
   background:none;color:#f7d68c;box-shadow:none;display:inline-block;
-  border-top:2px solid #f7d68c;border-bottom:2px solid #f7d68c;
-  text-shadow:1px 1px 0 rgba(32,52,92,.55)}
-.tc-idno{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;font-size:15px;
-  background:#f0f5fc;color:#2c3c5c;padding:6px 12px 5px;}
-.tc-white{background:
-  radial-gradient(circle at 108% 118%, #cfe0f4 0 96px, transparent 97px),
-  radial-gradient(circle at 108% 118%, #b8d0ec 0 130px, transparent 131px),
-  #fbfcfe;
-  margin:9px 10px;padding:12px 14px;display:flex;
-  gap:10px;align-items:flex-end;justify-content:space-between;
-  box-shadow:inset 1px 1px 0 rgba(44,60,92,.25)}
-.tc-fields{flex:1;display:flex;flex-direction:column;gap:8px;max-width:330px}
-.tc-frow{display:flex;align-items:center;gap:9px;font-size:19px;color:#2c3c5c;
-  border-bottom:2px solid #dfe8f4;padding-bottom:3px}
-.tc-frow i{width:9px;height:9px;flex:none;
-  background:#e8f2fc;border:2px solid #6c9cd4}
+  /* the gold rules are the highlight tone and hug the title, not the band */
+  border-top:var(--u) solid #fff7bd;border-bottom:var(--u) solid #fff7bd;
+  text-shadow:none;clip-path:none}
+.tc-idno{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;
+  font-size:calc(11 * var(--u));line-height:1;
+  background:#d6e7f7;color:#636363;text-shadow:none;clip-path:none;
+  padding:calc(3 * var(--u)) calc(14 * var(--u)) calc(2 * var(--u));
+  margin-right:calc(11 * var(--u))}
+/* body: the two arcs are concentric circles centred on the body's
+   bottom-right corner -- radii 57u and 79u, measured off the capture */
+.tc-white{height:calc(86 * var(--u));position:relative;margin:0;padding:0;
+  background:
+    radial-gradient(circle calc(57 * var(--u)) at 100% 100%,#d6e7f7 0 100%,transparent 0),
+    radial-gradient(circle calc(79 * var(--u)) at 100% 100%,#c6d6e7 0 100%,transparent 0),
+    repeating-linear-gradient(180deg,#fff 0 var(--u),#e7f7f7 var(--u) calc(2 * var(--u)));
+  box-shadow:none;display:block}
+.tc-fields{position:absolute;left:0;top:calc(6 * var(--u));
+  width:calc(143 * var(--u));box-sizing:border-box;padding-left:calc(10 * var(--u));
+  display:block;max-width:none}
+.tc-frow{display:flex;align-items:center;gap:calc(5 * var(--u));
+  height:calc(8 * var(--u));margin-bottom:calc(8 * var(--u));
+  font-size:calc(9 * var(--u));line-height:1;color:#636363;border:0;padding:0;
+  text-shadow:none}
+/* Name stands alone: a rule two-thirds of the way across, then a clear gap
+   before the Money / Pokedex / Time group. */
+.tc-name{position:relative;margin-bottom:calc(20 * var(--u))}
+.tc-name::after{content:"";position:absolute;left:calc(8 * var(--u));
+  top:calc(11 * var(--u));width:calc(128 * var(--u));height:calc(2 * var(--u));
+  background:#d6e7f7}
+/* The game's bullets are round -- the one place a circle belongs on this page. */
+.tc-frow i{width:calc(8 * var(--u));height:calc(8 * var(--u));flex:none;
+  box-sizing:border-box;background:#d6e7f7;border:var(--u) solid #6ba5de;
+  border-radius:50%}
 .tc-frow b{margin-left:auto;font-weight:normal}
-.tc-namev{font-weight:normal;margin-left:4px}
-.tc-pic{width:128px;image-rendering:pixelated;flex:none;margin:0 8px -4px 0}
-.tc-pic-ow{width:64px}
-.tc-badgeband{background:#6a96d0;margin:0 10px 10px;
-  padding:7px 10px;display:flex;align-items:center;gap:12px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -2px 0 rgba(44,60,92,.3)}
-.tc-badgelabel{font-family:'Pokemon Emerald','VT323',monospace;font-size:15px;color:#eaf2fc;
-  background:#48699c;padding:4px 6px 3px;flex:none}
-.tc-badges{display:flex;gap:9px;align-items:center}
-.badge-slot{width:32px;height:32px;background:#5a86c4;
-  box-shadow:inset 0 0 0 2px #7fa4dc,inset 0 2px 0 rgba(255,255,255,.25);
-  position:relative;flex:none}
-.badge-slot::after{content:"";position:absolute;left:9px;top:14px;width:14px;
-  height:4px;background:#48699c}
-img.badge{width:32px;height:32px;image-rendering:pixelated;
-  filter:drop-shadow(1px 1px 0 rgba(0,0,0,.25))}
-img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
-.badge-glyph{font-size:20px;line-height:1;color:var(--bc);
-  text-shadow:1px 1px 0 rgba(0,0,0,.4)}
-.badge-glyph.unlit{color:transparent;text-shadow:none;-webkit-text-stroke:2px #b09838}
+.tc-namev{font-weight:normal;margin-left:calc(2 * var(--u))}
+/* trainer art: 64u tall, sitting 8u off the body's bottom edge */
+.tc-pic{position:absolute;right:calc(27 * var(--u));bottom:calc(8 * var(--u));
+  height:calc(64 * var(--u));width:auto;image-rendering:pixelated;margin:0}
+.tc-pic-ow{height:calc(48 * var(--u))}
+/* badge band */
+.tc-badgeband{background:#84bde7;height:calc(26 * var(--u));position:relative;
+  margin:0;padding:0;display:block;box-shadow:none}
+.tc-badgelabel{position:absolute;left:calc(13 * var(--u));top:calc(2 * var(--u));
+  font-family:'Pokemon DP Bold','Pokemon Emerald',monospace;
+  font-size:calc(7 * var(--u));line-height:calc(5 * var(--u));
+  color:#fff;background:none;padding:0;clip-path:none;text-shadow:none}
+.tc-badges{position:absolute;left:calc(26 * var(--u));top:calc(8 * var(--u));
+  display:flex;gap:calc(8 * var(--u));align-items:center}
+/* Earned or empty, every badge sits in the same 16u outlined square. */
+.badge-slot{width:calc(16 * var(--u));height:calc(16 * var(--u));background:none;
+  box-shadow:inset 0 0 0 var(--u) #d6e7f7;position:relative;flex:none;
+  clip-path:none;display:flex;align-items:center;justify-content:center}
+.badge-slot::after{content:none}
+.badge-num{position:absolute;right:calc(2 * var(--u));bottom:calc(1 * var(--u));
+  font-family:'Pokemon Emerald','VT323',monospace;font-style:normal;
+  font-size:calc(7 * var(--u));line-height:1;color:#d6e7f7}
+img.badge{width:calc(16 * var(--u));height:calc(16 * var(--u));
+  image-rendering:pixelated;filter:none}
 /* party */
 .party{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
 .mon{background:var(--panel2);border:2px solid var(--line);padding:10px;
@@ -198,7 +247,10 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
    definite width and stretch a definite height -- is what keeps it landscape,
    and keeps it identical in both crop and full-map states. */
 .tc-top{display:flex;gap:18px;align-items:stretch;--map-h:320px}
-.tc-top .tcard{flex:1;min-width:0;min-height:var(--map-h)}
+/* The card keeps the game's 228:148 proportions, so its height follows its
+   width rather than stretching to the map's. */
+.tc-top .tcard-slot{flex:1;min-width:0;align-self:flex-start}
+.tc-top .tcard{min-height:0;height:calc(148 * var(--u))}
 .tc-top .mapslot{flex:0 0 auto;display:flex}
 .tc-top .mapslot .maparea{height:var(--map-h);width:calc(var(--map-h) * 1.5);
   max-width:none;overflow:hidden;flex:none;
@@ -255,9 +307,10 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 
 /* Filled pills have no border to omit, so their corners are clipped instead --
    a 2px staircase, all cuts axis-aligned so nothing gets anti-aliased. */
-.type,.ail,.tc-idno,.tc-badgelabel,.badge-slot,.panel h2,
-.slot-tag,.slot-name,.slot-field,
-.dn{--q:2px;clip-path:polygon(
+/* Notched corners belong on plates, NOT on anything holding text: the clip
+   cuts into glyphs whose padding is tight (the type chips especially), so the
+   letters lose their corners. Only the empty badge slot is clipped now. */
+.badge-slot{--q:2px;clip-path:polygon(
   var(--q) 0, calc(100% - var(--q)) 0,
   calc(100% - var(--q)) var(--q), 100% var(--q),
   100% calc(100% - var(--q)), calc(100% - var(--q)) calc(100% - var(--q)),
