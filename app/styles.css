@@ -77,8 +77,10 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   /* the face: white with the card's 1px horizontal striping */
   background:repeating-linear-gradient(180deg,#fff 0 var(--u),
     #e7f7f7 var(--u) calc(2 * var(--u)));
-  /* 3u of frame + 5u of white above the title band, and the same below */
-  border:0;padding:calc(8 * var(--u)) 0;overflow:hidden;
+  /* 3u of frame + 5u of white above the title band, and the same below.
+     The horizontal 3u matters: an inset box-shadow paints UNDER child
+     content, so without it the blue bands run straight over the frame. */
+  border:0;padding:calc(8 * var(--u)) calc(3 * var(--u));overflow:hidden;
   border-radius:calc(5 * var(--u));
   /* frame drawn INSIDE the 228x148 box: 2u dark outline over a 1u light edge,
      so the element's box is the card's full outer size and every measured
@@ -101,12 +103,17 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   background:#d6e7f7;color:#636363;text-shadow:none;clip-path:none;
   padding:calc(3 * var(--u)) calc(17 * var(--u)) calc(2 * var(--u));
   margin-right:calc(11 * var(--u))}
-/* body: the two arcs are concentric circles centred on the body's
-   bottom-right corner -- radii 57u and 79u, measured off the capture */
+/* Body. The shape behind the trainer is a POKE BALL drawn huge, its centre
+   just off the body's bottom-right corner so only the top-left quarter shows:
+   the ball's outer ring, a white gap, then the button. All three are
+   concentric; the radii are least-squares fits to the capture's own pixels
+   (ring outer r=80u, max residual half a pixel; ring inner r=49u; button
+   r=32u) around a centre fitted at 100% 100% of this box. */
 .tc-white{height:calc(86 * var(--u));position:relative;margin:0;padding:0;
   background:
-    radial-gradient(circle calc(57 * var(--u)) at 100% 100%,#d6e7f7 0 100%,transparent 0),
-    radial-gradient(circle calc(79 * var(--u)) at 100% 100%,#c6d6e7 0 100%,transparent 0),
+    radial-gradient(circle calc(32 * var(--u)) at 100% 100%,#d6e7f7 0 100%,transparent 0),
+    radial-gradient(circle calc(80 * var(--u)) at 100% 100%,
+      transparent 0 calc(49 * var(--u)),#c6d6e7 calc(49 * var(--u)) 100%,transparent 0),
     repeating-linear-gradient(180deg,#fff 0 var(--u),#e7f7f7 var(--u) calc(2 * var(--u)));
   box-shadow:none;display:block}
 .tc-fields{position:absolute;left:0;top:calc(6 * var(--u));
@@ -146,9 +153,11 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tc-badges{position:absolute;left:calc(26 * var(--u));top:calc(8 * var(--u));
   display:flex;gap:calc(8 * var(--u));align-items:center}
 /* Earned or empty, every badge sits in the same 16u outlined square. */
+/* The slot's corner pixels are cut in the capture too, so the page's notch
+   applies here -- at 1u, the game's own one-pixel cut. */
 .badge-slot{width:calc(16 * var(--u));height:calc(16 * var(--u));background:none;
   box-shadow:inset 0 0 0 var(--u) #d6e7f7;position:relative;flex:none;
-  clip-path:none;display:flex;align-items:center;justify-content:center}
+  display:flex;align-items:center;justify-content:center}
 .badge-slot::after{content:none}
 .badge-num{position:absolute;right:calc(2 * var(--u));bottom:calc(1 * var(--u));
   font-family:'Pokemon Emerald','VT323',monospace;font-style:normal;
@@ -318,7 +327,7 @@ img.badge{width:calc(14 * var(--u));height:calc(14 * var(--u));
 /* Notched corners belong on plates, NOT on anything holding text: the clip
    cuts into glyphs whose padding is tight (the type chips especially), so the
    letters lose their corners. Only the empty badge slot is clipped now. */
-.badge-slot{--q:2px;clip-path:polygon(
+.badge-slot{--q:var(--u);clip-path:polygon(
   var(--q) 0, calc(100% - var(--q)) 0,
   calc(100% - var(--q)) var(--q), 100% var(--q),
   100% calc(100% - var(--q)), calc(100% - var(--q)) calc(100% - var(--q)),
