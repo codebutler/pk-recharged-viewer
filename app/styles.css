@@ -68,7 +68,17 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
    Two deliberate departures from the capture, both requested: money keeps
    thousands separators (the game prints none) and the Time row keeps a colon.
    The rounded corners and the round bullets are the game's own -- the page's
-   no-radius rule is about OUR chrome, and this card is a picture of theirs. */
+   no-radius rule is about OUR chrome, and this card is a picture of theirs.
+
+   The card is FLUID, so --u is a fraction: about 2.114px at the usual 482px
+   width, never a whole number of device pixels. Nothing here lands on exact
+   device pixels as a result -- image-rendering:pixelated duplicates rows and
+   columns unevenly rather than blurring, which is invisible at these sizes.
+   That is an accepted trade, not an oversight: pinning the card to a multiple
+   of 228 (456px = 2u per GBA pixel) would make every pixel uniform but would
+   cost the fluid header, where the card shares its row with the 480px map and
+   has to survive narrow widths. Worth taking only if the layout ever becomes
+   fixed width for other reasons. */
 /* The slot is the query container; the card measures itself against it,
    because container units always resolve against an ANCESTOR container -- a
    container-type on the card itself would size --u from the viewport. */
