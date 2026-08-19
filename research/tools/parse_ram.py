@@ -804,18 +804,24 @@ def parse_state(dump, cfg, gamedata, do_scan=True):
     # --- player -----------------------------------------------------------
     money = u32(ew, sb1 + cfg.off("sb1.money")) ^ key
     coins = u16(ew, sb1 + cfg.off("sb1.coins")) ^ key16
-    money_ok = anchor("sb1.money plausible", money <= MAX_MONEY, str(money))
+    # Money is NOT capped at the vanilla 999,999: a cheat code can legitimately
+    # push it past that, and nulling a real value is worse than reporting a big
+    # one. The offset is already guarded by the name/party/coords/layout anchors.
+    over_cap = money > MAX_MONEY
+    anchor("sb1.money readable", True,
+           "%d (above the vanilla %d cap -- cheat or edited save)" % (money, MAX_MONEY)
+           if over_cap else str(money))
     state["player"] = {
         "name": decode_text(name_bytes),
         "gender": "female" if ew[sb2 + cfg.off("sb2.playerGender")] else "male",
         "trainerId": tid_raw & 0xFFFF,
         "secretId": tid_raw >> 16,
-        "money": money if money_ok else None,
+        "money": money,
         "coins": coins if coins <= MAX_COINS else None,
         "playTime": {"hours": playtime[0], "minutes": playtime[1], "seconds": playtime[2]},
     }
     meta["confidence"]["player"] = (
-        "high" if name_ok and money_ok and cfg.trusted("sb1.money") else "medium")
+        "high" if name_ok and cfg.trusted("sb1.money") else "medium")
 
     # --- location ---------------------------------------------------------
     loc_off = sb1 + cfg.off("sb1.location")

@@ -159,7 +159,7 @@ export function trainerContext(state) {
   // Fields exactly as the in-game card shows them (no thousands separators,
   // Pokedollar sign, dex = owned count).
   const fields = [
-    ["Money", `₽${p.money || 0}`],
+    ["Money", `₽${comma(p.money ?? 0)}`],
     ["Pokédex", String(dexOwned ?? "?")],
     ["Time", `${pt.hours || 0}:${String(pt.minutes || 0).padStart(2, "0")}`],
   ];

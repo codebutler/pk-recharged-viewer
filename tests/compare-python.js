@@ -15,12 +15,33 @@
  */
 
 import { readdir, readFile, stat } from "node:fs/promises";
+import { existsSync, readdirSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const REPO = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PY = join(REPO, "research", "tools", "parse_ram.py");
-const REAL_SAVES = "/Users/eric/rgsp-saves-backup-2026-08-18/shared/MGBA-mgba";
+// The handheld backups are dated directories that come and go as the user takes
+// new ones, so resolve the newest rather than pinning one. Missing is fine --
+// the repo copies under research/real-saves/ cover the same states.
+const BACKUP_ROOTS = ["/Users/eric/Code/RGSP/backups", "/Users/eric"];
+function newestRealSaves() {
+  const hits = [];
+  for (const root of BACKUP_ROOTS) {
+    let names = [];
+    try { names = readdirSync(root); } catch { continue; }
+    for (const n of names) {
+      if (!n.startsWith("rgsp-saves-backup-")) continue;
+      for (const sub of ["userdata/shared/MGBA-mgba", "shared/MGBA-mgba"]) {
+        const p = join(root, n, sub);
+        if (existsSync(p)) hits.push([n, p]);
+      }
+    }
+  }
+  hits.sort((a, b) => a[0].localeCompare(b[0]));
+  return hits.length ? hits[hits.length - 1][1] : null;
+}
+const REAL_SAVES = newestRealSaves();
 
 /** Recursively collect directories holding both iwram.bin and ewram.bin. */
 async function findDumpDirs(root) {
@@ -95,7 +116,9 @@ const inputs = [];
 for (const dir of await findDumpDirs(join(REPO, "research", "dumps"))) {
   inputs.push({ label: relative(REPO, dir), pyArgs: [dir], jsArgs: [dir] });
 }
-for (const name of ["Pokemon Recharged Yellow.gba.st0", "Pokemon Recharged Yellow.gba.st9"]) {
+for (const name of REAL_SAVES
+       ? ["Pokemon Recharged Yellow.gba.st0", "Pokemon Recharged Yellow.gba.st9"]
+       : []) {
   const p = join(REAL_SAVES, name);
   try {
     await stat(p);
