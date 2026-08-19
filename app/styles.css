@@ -227,7 +227,7 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 /* in-game-style text shadow on white-box / menu-like text */
 .map-popup,.tc-frow,.tc-namev,.items li,.stats td,.moves li,.mon-sub,
 .held,.tc-idno{text-shadow:1px 1px 0 #d8d8d0}
-#tabbar button{text-shadow:1px 1px 0 rgba(0,0,0,.45)}
+#tabbar button{text-shadow:1px 1px 0 rgba(255,255,255,.35)}
 /* misc */
 .stats{border-collapse:collapse;width:100%}
 .stats td{border-bottom:1px dotted #c8c4b0;padding:4px 2px}
