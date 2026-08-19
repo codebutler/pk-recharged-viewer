@@ -624,6 +624,80 @@ def badge_sprite_uri(n):
     return None
 
 
+# In-game clock tint bands: hour range -> per-channel RGB scale applied to the
+# rendered map pixels, or None for untinted day colors. The night entry is an
+# approximation (~45% darkening, slight blue lean) eyeballed against the live
+# 21:16 capture; drop the hack's exact blend coefficients in here when
+# rom-fingerprint derives them.
+MAP_TINT_BANDS = [
+    (0, 6, ("night", (0.53, 0.56, 0.76))),
+    (6, 18, None),
+    (18, 24, ("night", (0.53, 0.56, 0.76))),
+]
+
+
+def map_tint(clock):
+    if not clock:
+        return None
+    hour = clock.get("hour", 12)
+    for lo, hi, band in MAP_TINT_BANDS:
+        if lo <= hour < hi and band:
+            label = "%s, in-game %d:%02d" % (band[0], hour, clock.get("minute", 0))
+            return label, band[1]
+    return None
+
+
+def map_context(state, cache):
+    """Render the terrain around the player: a 15x11-metatile crop centered on
+    the player (marked) plus the full map, tinted per the in-game clock.
+    Graceful error dict on any failure."""
+    loc, err = section_data(state, "location")
+    if loc is None or loc.get("mapGroup") is None:
+        return {"error": err or "location unavailable"}
+    try:
+        import gba_map
+        import gba_gfx
+        rom = load_rom()
+        px, W, H, wm, hm = gba_map.map_render(rom, loc["mapGroup"], loc["mapNum"])
+        clock, _ = section_data(state, "gameClock")
+        # The hack tints OUTDOOR maps only (the live 21:18 bedroom capture is
+        # untinted); indoor/underground map types keep day colors.
+        outdoor = gba_map.map_type(rom, loc["mapGroup"], loc["mapNum"]) in (1, 2, 3, 5, 6)
+        tint = map_tint(clock) if outdoor else None
+        if tint:
+            rs, gs, bs = tint[1]
+            px = [(int(r * rs), int(g * gs), int(b * bs), a) for r, g, b, a in px]
+        tx, ty = loc.get("x", 0), loc.get("y", 0)
+        gba_map.mark_tile(px, W, H, tx, ty)  # marker drawn after tint: stays red
+        cpx, cw, ch, _, _ = gba_map.crop(px, W, H, (tx - 7) * 16, (ty - 5) * 16,
+                                         15 * 16, 11 * 16)
+        crop_png = gba_gfx.rgba_to_png(cpx, cw, ch)
+        # full map: cache the encoded PNG (marker + tint vary per save state,
+        # so key on layout + tile + tint band)
+        key = "map_%d_%d_%d_%s.png" % (loc.get("mapLayoutId", 0), tx, ty,
+                                       tint[0].split(",")[0] if tint else "day")
+        cache_path = cache._path(key)
+        if os.path.exists(cache_path):
+            with open(cache_path, "rb") as f:
+                full_png = f.read()
+        else:
+            full_png = gba_gfx.rgba_to_png(px, W, H)
+            with open(cache_path, "wb") as f:
+                f.write(full_png)
+        return {
+            "name": loc.get("mapName") or "map (%d,%d)" % (loc["mapGroup"], loc["mapNum"]),
+            "coords": "(%d, %d)" % (tx, ty),
+            "tint_label": tint[0] if tint else None,
+            "crop": data_uri(crop_png),
+            "full": data_uri(full_png),
+            "full_w": W,
+            "small": (wm, hm) <= (15, 11),
+        }
+    except Exception as e:
+        sys.stderr.write("map render failed: %s\n" % e)
+        return {"error": "map could not be rendered (%s)" % e}
+
+
 def trainer_context(state):
     p, err = section_data(state, "player")
     if p is None:
@@ -863,6 +937,7 @@ def build_context(state, api, font_css):
     if in_game:
         ctx.update(
             trainer=trainer_context(state),
+            map=map_context(state, api.cache),
             party=party_context(state, api),
             bag=bag_context(state, api),
             dex=dex_context(state, api),

@@ -173,6 +173,17 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
    redundant in-pane title. The MORE pane keeps titles: it holds two
    different sections under one tab. */
 .tabs-on .pane:not(#pane-more) .panel h2{display:none}
+/* header: trainer card (2/3) + map panel (1/3) side by side */
+.tc-top{display:flex;gap:18px;align-items:stretch}
+.tc-top .tcard{flex:2;min-width:0}
+.tc-top .mappanel{flex:1;min-width:0}
+@media(max-width:760px){.tc-top{flex-direction:column}}
+/* map */
+.mapimg{image-rendering:pixelated;width:100%;max-width:480px;border:3px solid var(--line);
+  box-shadow:inset 0 0 0 2px #fff,3px 3px 0 rgba(0,0,0,.35);display:block}
+.mapfull{margin-top:10px}
+.mapfull summary{font-family:'Press Start 2P',monospace;font-size:8px;
+  cursor:pointer;color:#5a564e;margin-bottom:8px}
 /* misc */
 .stats{border-collapse:collapse;width:100%}
 .stats td{border-bottom:1px dotted #c8c4b0;padding:4px 2px}

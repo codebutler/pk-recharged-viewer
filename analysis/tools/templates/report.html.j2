@@ -60,6 +60,7 @@
 <section class="panel"><h2>No save loaded</h2><p class="empty">{{ error }}</p></section>
 {%- else %}
 
+<div class="tc-top">
 <section class="panel tcard">
 {%- if trainer.error %}<h2>Trainer Card</h2><p class="empty">{{ trainer.error }}</p>
 {%- else %}
@@ -82,6 +83,18 @@
   </div>
 {%- endif %}
 </section>
+<section class="panel mappanel"><h2>Map</h2>
+{{- simple_states(map) }}
+{%- if map.crop %}
+  <p class="note">{{ map.name }} &middot; at {{ map.coords }}{% if map.tint_label %} &middot; {{ map.tint_label }}{% endif %}</p>
+  <img class="mapimg" src="{{ map.crop|safe }}" alt="terrain around the player at {{ map.name }} {{ map.coords }}">
+  {%- if not map.small %}
+  <details class="mapfull"><summary>full map</summary>
+    <img class="mapimg" src="{{ map.full|safe }}" alt="full map of {{ map.name }}" style="width:min(100%,{{ map.full_w }}px)"></details>
+  {%- endif %}
+{%- endif %}
+</section>
+</div>
 {%- if not trainer.error %}
 <div class="tc-extras">
   {%- for row in trainer.extra_rows %}<span class="xr"><i>{{ row[0] }}</i>{{ row[1] }}</span>{% endfor %}

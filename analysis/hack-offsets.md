@@ -159,6 +159,25 @@ Found via a live capture: a new harness (`analysis/tools/mgba_card_harness.lua`,
 - **Palette**: uncompressed u16[16] BGR555 at **0x085E6024** (copy at 0x089BD750), byte-exact match to the live card's BG palette 15; color 0 transparent.
 - Unearned badges are simply not drawn — one sheet serves all states.
 
+## Map rendering (spec for the map rasterizer)
+
+The hack is a **hybrid of FRLG and Emerald map conventions** — details and a worked Celadon example in hack-offsets.json `map_rendering`. Highlights:
+
+- MapHeader and MapLayout are vanilla-shaped (gMapGroups @0x08B3F134). **Tileset struct uses the FRLG field order** — callback at +0x10 and metatileAttributes at +0x14 (reading them in Emerald order produces garbage; this was verified by the odd thumb address landing in the callback slot).
+- **Tiles**: 640 in primary (FRLG count; Celadon primary LZ decompresses to exactly 0x5000). tileId ≥ 640 → secondary tileset.
+- **Metatiles**: split at **0x200** (Emerald convention) — settled by rendering the player's surroundings both ways and matching the live screenshot; 0x280 produces wrong art. Metatile = 8×u16 (bottom 4 + top 4 quads; top color-0 transparent).
+- **Palettes**: FRLG convention — BG 0–6 from primary array[0–6], BG 7–12 from secondary array[7–12]. ROM stores day colors; the runtime clock applies night tinting (live capture at 21:16 in-game is uniformly darkened).
+- **Blockdata**: u16, metatile 0–9, collision 10–11 (0 = passable), elevation 12–15. Eric's tile (43,22) = metatile 0x0CF, collision 0 ✓.
+- Validation render vs live screenshot: `analysis/dumps/trainer-card/celadon-render-validation.png` (patch around the player, matches menu-open/screen.png modulo night tint and sprites).
+
+## Day/night tint schedule (for the map render + DAY/NIGHT chip)
+
+Disassembled the DNS driver (0x08141B00): hour (SB2+0xF5E) indexes a 26-entry handler table @ROM 0x0894EFB0; handlers set the tint state (IWRAM 0x3000B36 mode, 0x3000B38 current/target tint words) which the palette-commit path applies (unfaded buffer 0x020377F0 → faded 0x02037BF0 via blend fn 0x08146584, with per-palette exemption masks). Override byte EWRAM 0x020377D3 (cleared each map load; scripts can force modes; 0xD9 = freeze).
+
+**Schedule** (fixes the 6–18 day-chip guess): full night 22:00–03:59 · dawn ramp 04–06 (night→twilight) · morning ramp 07–09 (twilight→clear) · **full day 10:00–17:59** · dusk ramp 18–19 (clear→twilight) · evening ramp 20–21 (twilight→night). Chip suggestion: NIGHT = 20:00–06:59, DAY = 07:00–19:59.
+
+Tint constants: night word 0x159D7474, twilight word 0x09A8B0E0 (@0x0894EFA4/A8; packed coeff/color format partially decoded). **Measured** at in-game 21:16: overworld palettes ≈ ×(0.61 R, 0.53 G, 0.61 B) — use ~(0.55, 0.48, 0.55) for a full-night page filter. Interiors: mapType-gated at map load (code 0x08140E60) — indoor maps appear exempt (medium confidence).
+
 ## Explicitly unresolved (for the live-RAM verification pass)
 
 - SB1 0x34–0x3A and 0x3C–0x43 (gaps around partyCount/party), 0x764–0x8A8, 0xB50–0xEFA, 0x1228–0x1397 (0x1C-byte struct @0x1228, 0xC-stride records @0x1244), 0x1D98/0x20D8 structs, 0x2510–0x2743, tail 0x3B92+.

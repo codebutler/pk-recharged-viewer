@@ -179,6 +179,34 @@
     "unearned_display": "same tiles - the card simply draws nothing (or a placeholder) for unearned badges; for the webpage render earned ones only",
     "confidence": "high (live + ROM cross-verified)"
   },
+  "map_rendering": {
+    "header_walk": "gMapGroups @0x08B3F134 -> group ptr array -> header ptr. MapHeader (vanilla): +0 mapLayout*, +4 events*, +8 mapScripts*, +0xC connections*, +0x10 music u16, +0x12 layoutId u16, +0x14 mapsec u8, then cave/weather/mapType/flags/battleType",
+    "map_layout": "vanilla: s32 width @0, s32 height @4, border* @8, blockdata* @0xC, primaryTileset* @0x10, secondaryTileset* @0x14",
+    "tileset_struct": "FRLG FIELD ORDER (not Emerald): u8 isCompressed @0 (nonzero = tiles are LZ77), u8 isSecondary @1, pad2, tiles* @4, palettes* @8 (raw 13 x 16 x u16 BGR555), metatiles* @0xC (8 x u16 per metatile), CALLBACK @0x10, metatileAttributes* @0x14 (FRLG-style u32 each, unverified size; not needed for rendering)",
+    "constants": {"tiles_in_primary": 640, "metatiles_in_primary": "0x200 (Emerald convention - VERIFIED by rendering: 0x280 produces wrong art)", "palette_split": "FRLG convention: BG palettes 0-6 from primary tileset array indices 0-6; BG 7-12 from SECONDARY tileset array indices 7-12 (secondary array's 0-6 are dummies)"},
+    "blockdata": "u16 per map cell (row-major, width*height): bits 0-9 metatileId, bits 10-11 collision (0 = passable), bits 12-15 elevation",
+    "metatile": "8 x u16 = bottom layer quads TL,TR,BL,BR then top layer TL,TR,BL,BR; entry: bits 0-9 tileId (<640 primary tiles, >=640 secondary at tileId-640), 0x400 hflip, 0x800 vflip, bits 12-15 palette (0-12); top-layer color 0 = transparent",
+    "palettes_note": "ROM palettes are the DAY colors; the game applies day/night tinting at runtime from the accelerated clock (the live capture at in-game 21:16 shows all palettes darkened ~45%). Render with raw ROM palettes for a daytime map, or scale for night flavor",
+    "worked_example_celadon_3_6": {"header": "0x08B3C76C", "layout": "0x08ACDBF0", "layoutId": 138, "dims": "60x40", "border": "0x08ACC928", "blockdata": "0x08ACC930", "primaryTileset": "0x08A509AC (tiles LZ 0x085DD0E4 -> 0x5000 = 640 tiles; palettes 0x085DCEE4; metatiles 0x089FACD8)", "secondaryTileset": "0x08A50A54 (tiles LZ 0x089C80CC -> 0x2000 = 256 tiles; palettes 0x089C8E18; metatiles 0x08A05660)", "player_tile": "(43,22) = block 0x30CF: metatile 0x0CF, collision 0 (walkable), elevation 3"},
+    "verified": "rasterized the 15x10 patch around the player's real position and matched it to the live overworld screenshot (analysis/dumps/trainer-card/menu-open/screen.png); validation render saved as analysis/dumps/trainer-card/celadon-render-validation.png",
+    "confidence": "high (render-validated)"
+  },
+  "day_night_tint": {
+    "driver": "DNS driver fn @0x08141B00: runs the clock update (0x081A02F4), then unless the override byte @EWRAM 0x020377D3 is set (1..0x1A -> forced mode-1), reads hour (SB2+0xF5E) and minute (SB2+0xF5F) and dispatches hour through a 26-entry handler table @ROM 0x0894EFB0 (entries 24/25 = special modes; override 0xD9 = freeze). Handlers write the tint state to IWRAM 0x3000B36 (mode byte: 0=night-ish,1=?,2=day/clear) and 0x3000B38 {u32 currentTint, u32 targetTint, u32 weights} which the palette-commit path (unfaded 0x020377F0 -> faded 0x02037BF0, blend fn 0x08146584, per-palette exemption masks) applies every refresh",
+    "schedule": {
+      "22:00-03:59": "FULL NIGHT (tint word0)",
+      "04:00-06:59": "dawn ramp: word0 (night) -> word1 (twilight), minute-interpolated across the 3h window",
+      "07:00-09:59": "morning ramp: word1 -> no tint",
+      "10:00-17:59": "FULL DAY (no tint)",
+      "18:00-19:59": "dusk ramp: no tint -> word1",
+      "20:00-21:59": "evening ramp: word1 -> word0 (night)"
+    },
+    "tint_words": {"night_word0": "0x159D7474 @ROM 0x0894EFA4", "twilight_word1": "0x09A8B0E0 @ROM 0x0894EFA8", "note": "packed {coeff,color} format only partially decoded - use the measured approximation below for rendering"},
+    "measured_approximation": "live capture at in-game 21:16 (63% through the evening ramp): all overworld palettes multiplied per-channel by approximately R x0.61, G x0.53, B x0.61 (slightly blue-purple night). Full night is modestly stronger; for the page a single 'night' filter of ~(0.55, 0.48, 0.55) with a slight blue push looks right",
+    "chip_rule": "for a DAY/NIGHT chip: NIGHT = hours 20-23 and 0-6 (tinted), DAY = 7-19 (clear or nearly so); the old 6-18 guess was wrong - full day starts at 10:00 and dimming starts at 18:00",
+    "interiors": "the override byte is cleared on every map load and a mapType check (header +0x17) at 0x08140E60 gates the system; indoor map types appear to skip tinting (the exemption also runs through per-palette masks in the commit path). Medium confidence on the exact indoor rule",
+    "confidence": "high (schedule/table/constants disassembled; tint magnitude live-measured), medium (packed-word semantics, interior rule)"
+  },
   "rom_tables": {
     "gItems_english": {"addr": "0x0890F960", "stride": "0x30", "count": "409 (ids 0-408; id validity check compares against 0x198)", "name_at": "+0x0 (16 bytes)", "description_ptr_at": "+0x18 (u32 ROM ptr)", "fieldUseFunc_at": "+0x2C"},
     "item_names_spanish": {"addr": "0x0877A508", "stride": "0x10"},
