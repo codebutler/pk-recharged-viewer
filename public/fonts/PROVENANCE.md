@@ -14,3 +14,11 @@ preserved license.txt/readme.txt (from the F77 archive) carry the attribution.
 Assignments in the page: Emerald = body/dialogue text, Narrow = tight item
 lists, F77 Battle = display/labels. Press Start 2P + VT323 remain in the
 fallback stacks.
+
+## pkmndpb.ttf — "Pokemon DP Bold"
+
+A bold Diamond/Pearl-style fan face, supplied by the user (from a personal
+Pokémon font collection). Used only for the trainer-card title, which the game
+itself draws as baked tile art rather than text — see the note in
+research/hack-offsets.md. Author and licence unknown; it ships here for a
+private research project, not for redistribution.

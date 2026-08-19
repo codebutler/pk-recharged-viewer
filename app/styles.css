@@ -7,6 +7,9 @@
    public/fonts/PROVENANCE.md). */
 @font-face{font-family:'Pokemon Emerald';src:url(../public/fonts/pokemon-emerald.otf) format('opentype');font-display:swap}
 @font-face{font-family:'Pokemon Emerald Narrow';src:url(../public/fonts/pokemon-emerald-narrow.otf) format('opentype');font-display:swap}
+/* Bold Diamond/Pearl-style face, used for the trainer-card title the way the
+   game sets it (gold on the blue band, ruled above and below). */
+@font-face{font-family:'Pokemon DP Bold';src:url(../public/fonts/pkmndpb.ttf) format('truetype');font-display:swap}
 @font-face{font-family:'F77 Pokemon Battle';src:url(../public/fonts/f77-pokemon-battle.otf) format('opentype');font-display:swap}
 
 :root{
@@ -55,12 +58,15 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tcard{background:linear-gradient(#88b0e0,#7aa4d8);border:0;padding:0;
   box-shadow:0 -3px 0 0 #2c3c5c,0 3px 0 0 #2c3c5c,-3px 0 0 0 #2c3c5c,
     3px 0 0 0 #2c3c5c,inset 0 0 0 2px #c8dcf4,7px 7px 0 rgba(0,0,0,.45)}
-.tc-band{background:linear-gradient(#4c84cc,#4074bc);display:flex;
+.tc-band{background:linear-gradient(#74aae2,#6ba5de);display:flex;
   justify-content:space-between;align-items:center;padding:8px 12px;
   border-bottom:2px solid #2c3c5c}
-.tcard h2{margin:0;padding:5px 9px 4px;font-size:15px;background:#d4e2f6;
-  color:#3a62ac;border:2px solid #f4f8fe;
-  box-shadow:1px 1px 0 rgba(0,0,0,.3);display:inline-block}
+.tcard h2{font-family:'Pokemon DP Bold','Pokemon Emerald',monospace;
+  /* colours sampled from the game's own card: gold #f7d68c on band #6ba5de */
+  margin:0;padding:3px 2px 2px;font-size:26px;line-height:1;letter-spacing:2px;
+  background:none;color:#f7d68c;box-shadow:none;display:inline-block;
+  border-top:2px solid #f7d68c;border-bottom:2px solid #f7d68c;
+  text-shadow:1px 1px 0 rgba(32,52,92,.55)}
 .tc-idno{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;font-size:15px;
   background:#f0f5fc;color:#2c3c5c;padding:6px 12px 5px;}
 .tc-white{background:
@@ -249,7 +255,7 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 
 /* Filled pills have no border to omit, so their corners are clipped instead --
    a 2px staircase, all cuts axis-aligned so nothing gets anti-aliased. */
-.type,.ail,.tc-idno,.tc-badgelabel,.badge-slot,.panel h2,.tcard h2,
+.type,.ail,.tc-idno,.tc-badgelabel,.badge-slot,.panel h2,
 .slot-tag,.slot-name,.slot-field,
 .dn{--q:2px;clip-path:polygon(
   var(--q) 0, calc(100% - var(--q)) 0,
