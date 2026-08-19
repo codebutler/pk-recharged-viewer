@@ -13,12 +13,15 @@ h1,h2,h3,.dexcount b,.big,.dexcount i,.ail,
 .qty,.pp{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace}
 h1{color:var(--pika);font-size:52px;text-align:center;line-height:1.2;
   text-shadow:3px 3px 0 #000;margin-bottom:10px}
-.panel{background:var(--panel);border:3px solid var(--line);border-radius:2px;
-  box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 4px #b0b0a0,4px 4px 0 rgba(0,0,0,.45);
+.panel{background:var(--panel);--px:3px;--pxc:var(--line);border:0;
+  /* notched corners: see 'pixel corners' at the end of this file */
+  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),
+    -3px 0 0 0 var(--line),3px 0 0 0 var(--line),
+    inset 0 0 0 2px #fff,inset 0 0 0 4px #b0b0a0,7px 7px 0 rgba(0,0,0,.45);
   padding:16px 14px 14px}
 .panel h2{font-size:15px;background:var(--line);color:var(--pika);
   display:inline-block;padding:6px 10px 4px;margin:-16px 0 12px -14px;
-  border-bottom-right-radius:2px}
+  }
 .panel h3{font-size:15px;margin-bottom:6px;color:#5a564e}
 img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:middle}
 .spr.big{width:64px;height:64px}
@@ -34,44 +37,44 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 /* trainer card */
 /* trainer card: styled after the in-game card (sky-blue bands, white face,
    rounded corners, badge strip along the bottom) */
-.tcard{background:linear-gradient(#88b0e0,#7aa4d8);border:3px solid #2c3c5c;
-  border-radius:14px;padding:0;overflow:hidden;
-  box-shadow:inset 0 0 0 2px #c8dcf4,4px 4px 0 rgba(0,0,0,.45)}
+.tcard{background:linear-gradient(#88b0e0,#7aa4d8);border:0;padding:0;
+  box-shadow:0 -3px 0 0 #2c3c5c,0 3px 0 0 #2c3c5c,-3px 0 0 0 #2c3c5c,
+    3px 0 0 0 #2c3c5c,inset 0 0 0 2px #c8dcf4,7px 7px 0 rgba(0,0,0,.45)}
 .tc-band{background:linear-gradient(#4c84cc,#4074bc);display:flex;
   justify-content:space-between;align-items:center;padding:8px 12px;
   border-bottom:2px solid #2c3c5c}
 .tcard h2{margin:0;padding:5px 9px 4px;font-size:15px;background:#d4e2f6;
-  color:#3a62ac;border-radius:4px;border:2px solid #f4f8fe;
+  color:#3a62ac;border:2px solid #f4f8fe;
   box-shadow:1px 1px 0 rgba(0,0,0,.3);display:inline-block}
 .tc-idno{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;font-size:15px;
-  background:#f0f5fc;color:#2c3c5c;padding:6px 12px 5px;border-radius:9px}
+  background:#f0f5fc;color:#2c3c5c;padding:6px 12px 5px;}
 .tc-white{background:
   radial-gradient(circle at 108% 118%, #cfe0f4 0 96px, transparent 97px),
   radial-gradient(circle at 108% 118%, #b8d0ec 0 130px, transparent 131px),
   #fbfcfe;
-  margin:9px 10px;border-radius:8px;padding:12px 14px;display:flex;
+  margin:9px 10px;padding:12px 14px;display:flex;
   gap:10px;align-items:flex-end;justify-content:space-between;
   box-shadow:inset 1px 1px 0 rgba(44,60,92,.25)}
 .tc-fields{flex:1;display:flex;flex-direction:column;gap:8px;max-width:330px}
 .tc-frow{display:flex;align-items:center;gap:9px;font-size:19px;color:#2c3c5c;
   border-bottom:2px solid #dfe8f4;padding-bottom:3px}
-.tc-frow i{width:9px;height:9px;border-radius:50%;flex:none;
+.tc-frow i{width:9px;height:9px;flex:none;
   background:#e8f2fc;border:2px solid #6c9cd4}
 .tc-frow b{margin-left:auto;font-weight:normal}
 .tc-namev{font-weight:normal;margin-left:4px}
 .tc-pic{width:128px;image-rendering:pixelated;flex:none;margin:0 8px -4px 0}
 .tc-pic-ow{width:64px}
-.tc-badgeband{background:#6a96d0;margin:0 10px 10px;border-radius:7px;
+.tc-badgeband{background:#6a96d0;margin:0 10px 10px;
   padding:7px 10px;display:flex;align-items:center;gap:12px;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -2px 0 rgba(44,60,92,.3)}
 .tc-badgelabel{font-family:'Pokemon Emerald','VT323',monospace;font-size:15px;color:#eaf2fc;
-  background:#48699c;padding:4px 6px 3px;border-radius:3px;flex:none}
+  background:#48699c;padding:4px 6px 3px;flex:none}
 .tc-badges{display:flex;gap:9px;align-items:center}
-.badge-slot{width:32px;height:32px;border-radius:6px;background:#5a86c4;
+.badge-slot{width:32px;height:32px;background:#5a86c4;
   box-shadow:inset 0 0 0 2px #7fa4dc,inset 0 2px 0 rgba(255,255,255,.25);
   position:relative;flex:none}
 .badge-slot::after{content:"";position:absolute;left:9px;top:14px;width:14px;
-  height:4px;border-radius:2px;background:#48699c}
+  height:4px;background:#48699c}
 img.badge{width:32px;height:32px;image-rendering:pixelated;
   filter:drop-shadow(1px 1px 0 rgba(0,0,0,.25))}
 img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
@@ -89,7 +92,7 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .ail{background:var(--accent);color:#fff;font-size:15px;padding:3px 4px 2px}
 .type{font-family:'Pokemon Emerald','VT323',monospace;font-size:15px;color:#fff;
   padding:3px 5px 2px;margin-right:4px;text-shadow:1px 1px 0 rgba(0,0,0,.5);
-  border-radius:2px;display:inline-block}
+  display:inline-block}
 .hp{display:flex;align-items:center;gap:8px;margin:6px 0}
 .bar{flex:0 1 140px;height:8px;background:#585850;border:2px solid var(--line);
   display:inline-block;vertical-align:middle}
@@ -136,7 +139,7 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 #tabbar button{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;font-size:15px;
   color:var(--pika);background:var(--line);border:3px solid var(--line);
   box-shadow:inset 0 0 0 2px #3a3a30,3px 3px 0 rgba(0,0,0,.45);
-  padding:9px 12px 7px;border-radius:2px}
+  padding:9px 12px 7px;}
 #tabbar button:hover{color:#fff}
 #tabbar button[aria-selected="true"]{background:var(--panel);color:var(--ink);
   box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 4px #b0b0a0;
@@ -161,7 +164,8 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
   max-width:none;overflow:hidden;flex:none;
   /* frame drawn OUTSIDE the box (outline + offset shadow) so the content box
      stays exactly 3:2 and the map never letterboxes in either mode */
-  outline:3px solid var(--line);box-shadow:5px 5px 0 rgba(0,0,0,.45)}
+  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),
+    -3px 0 0 0 var(--line),3px 0 0 0 var(--line),8px 8px 0 rgba(0,0,0,.45)}
 .tc-top .mapslot .mapimg{height:100%;width:100%;object-fit:cover;object-position:center;
   border:0;box-shadow:none}
 .tc-top .mapslot .maparea.showfull .mapimg.full{object-fit:contain;background:#0b1a12}
@@ -180,9 +184,10 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .maparea.showfull .mapimg.crop{display:none}
 .maparea.showfull .mapimg.full{display:block}
 .map-popup{position:absolute;top:7px;display:flex;align-items:center;gap:6px;
-  background:#fff;color:#3a4448;border:2px solid #30383c;border-radius:6px;
-  padding:2px 10px;font-size:17px;line-height:1.1;
-  box-shadow:1px 1px 0 rgba(0,0,0,.4);white-space:nowrap}
+  background:#fff;color:#3a4448;border:0;
+  box-shadow:0 -2px 0 0 #30383c,0 2px 0 0 #30383c,-2px 0 0 0 #30383c,
+    2px 0 0 0 #30383c,3px 3px 0 rgba(0,0,0,.4);
+  padding:2px 10px;font-size:17px;line-height:1.1;white-space:nowrap}
 .map-popup.town{left:7px}
 .map-popup.clock{right:7px}
 /* in-game-style text shadow on white-box / menu-like text */
@@ -194,3 +199,16 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .stats td{border-bottom:1px dotted #c8c4b0;padding:4px 2px}
 .stats td:last-child{text-align:right;font-weight:bold}
 .big{font-size:16px}
+
+/* --- pixel corners -------------------------------------------------------
+   Smooth border-radius has no place in 8-bit UI, but hard square corners look
+   stiff. GBA windows notch the corner pixel instead: the border runs along
+   each edge and stops short of the corner. Drawing the frame as four offset
+   box-shadows (rather than a `border`) reproduces that exactly -- the corner
+   squares are simply never painted. --px is the notch/border size. */
+.pxbox{--px:3px;--pxc:var(--line);border:0 !important;
+  box-shadow:0 calc(-1 * var(--px)) 0 0 var(--pxc),0 var(--px) 0 0 var(--pxc),
+    calc(-1 * var(--px)) 0 0 0 var(--pxc),var(--px) 0 0 0 var(--pxc)}
+.pxbox.pxshadow{box-shadow:0 calc(-1 * var(--px)) 0 0 var(--pxc),
+  0 var(--px) 0 0 var(--pxc),calc(-1 * var(--px)) 0 0 0 var(--pxc),
+  var(--px) 0 0 0 var(--pxc),5px 5px 0 rgba(0,0,0,.45)}
