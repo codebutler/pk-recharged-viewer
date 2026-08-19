@@ -582,9 +582,41 @@ def player_sprite_uri(state):
     return avatar_sprite_uri(state.get("playerAvatar"))
 
 
+# Authentic in-game badge pixel art (hack-offsets.json badge_pixel_art,
+# live-verified against the trainer-card VRAM dump): LZ77 sheet of 8 16x16
+# badges; badge i = tiles {2i, 2i+1} on the top row and {16+2i, 16+2i+1} on
+# the bottom (the sheet is 16 tiles wide). Uncompressed BGR555 palette.
+BADGE_SHEET_LZ = 0x08A60760
+BADGE_PALETTE = 0x085E6024
+
+_badge_sheet = []  # lazy: [] = untried, None = failed, (sheet, palette) = ready
+
+
 def badge_sprite_uri(n):
-    """Data URI for Kanto badge n (1=Boulder .. 8=Earth) from the sprites clone
-    (numbering eyeball-verified against the badge designs). None if absent."""
+    """Data URI for Kanto badge n (1=Boulder .. 8=Earth): the hack ROM's own
+    16x16 pixel art first, the PokeAPI badge render as fallback, None if both
+    fail (the template then falls back to the diamond glyph)."""
+    import gba_gfx
+    global _badge_sheet
+    if _badge_sheet == []:
+        try:
+            rom = load_rom()
+            sheet = gba_gfx.lz77_decompress(rom, _rom_off(rom, BADGE_SHEET_LZ))
+            if len(sheet) != 0x400:
+                raise ValueError("badge sheet is %#x bytes, expected 0x400"
+                                 % len(sheet))
+            pal_off = _rom_off(rom, BADGE_PALETTE)
+            palette = gba_gfx.decode_palette(rom[pal_off:pal_off + 32])
+            _badge_sheet = (sheet, palette)
+        except Exception as e:
+            sys.stderr.write("ROM badge art failed: %s\n" % e)
+            _badge_sheet = None
+    if _badge_sheet:
+        sheet, palette = _badge_sheet
+        i = n - 1
+        tiles = b"".join(sheet[t * 32:(t + 1) * 32]
+                         for t in (2 * i, 2 * i + 1, 16 + 2 * i, 17 + 2 * i))
+        return data_uri(gba_gfx.tiles_to_png(tiles, palette, 2, 2))
     p = os.path.join(LOCAL_SPRITES, "sprites", "badges", "%d.png" % n)
     if os.path.exists(p):
         with open(p, "rb") as f:
