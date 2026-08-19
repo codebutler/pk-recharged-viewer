@@ -1,6 +1,0 @@
-[project]
-name = "yelow-recharged-decomp"
-version = "0.1.0"
-description = "Pokemon Recharged Yellow RAM analysis tooling"
-requires-python = ">=3.10"
-dependencies = ["jinja2>=3.1"]

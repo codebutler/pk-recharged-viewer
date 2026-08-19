@@ -1,15 +1,16 @@
-# ROM images are protected — never commit (includes harness work/ copies)
+# local/ holds everything that must stay on this machine: the ROMs and the BPS
+# patch (never commit these), plus the font archives the extracted fonts
+# in public/fonts/ came from.
+local/
+
+# Belt and braces: a ROM or flash save anywhere in the tree stays out, including
+# the copies the mGBA harness makes under research/dumps/<label>/work/.
 *.gba
-
-# The BPS patch is kept locally too; uncomment to track it if desired
-# (hack patches are commonly redistributed, but defaulting to cautious)
-recharged-yellow_1.9.7.bps
-
-# Emulator flash saves inside harness work dirs
 *.sav
+*.bps
 
 # Regenerable PokeAPI fetch caches (any report out-dir)
-analysis/report*/.cache/
+research/report*/.cache/
 
 # macOS noise
 .DS_Store
@@ -19,3 +20,24 @@ __pycache__/
 
 # uv virtualenv
 .venv/
+venv/
+
+# JS dependencies (there are none today — the parser and UI are dependency-free —
+# but keep this so a stray `bun add` can never commit a tree)
+node_modules/
+
+# Tooling scratch
+.playwright-mcp/
+
+# Agent-generated specs, designs and implementation plans. Scratch for a single
+# session's work — never commit them.
+docs/superpowers/
+**/*-design.md
+**/*-plan.md
+
+# NOTE: vendor/ holds four git SUBMODULES (pokeapi-data, pokeapi-sprites,
+# pokeemerald, pokefirered) and must NOT be listed here — ignoring a submodule
+# path breaks the gitlink. They are large checked out but cheap in the repo
+# itself, since git stores only a commit id. Keeping them out of a GitHub Pages
+# deploy is the deploy step's job (exclude vendor/ when publishing), not
+# .gitignore's.

@@ -1,0 +1,2066 @@
+{
+ "meta": {
+  "description": "Gen 3 INTERNAL species id -> national dex number for Pokemon Recharged Yellow. Internal ids equal national only through 251; 252-276 are the unused OLD_UNOWN slots; 277+ are Hoenn species.",
+  "source": "pokeemerald src/pokemon.c sSpeciesToNationalPokedexNum, cross-checked against constants/pokedex.h",
+  "verification": "the full 411-entry u16 table was found BYTE-IDENTICAL in the hack ROM (Pokemon Recharged Yellow.gba) at 0x009651D8 -- the hack did not alter it",
+  "pokeapi_slug_note": "slug present where PokeAPI has been queried (generate_page.py cache); null means not-yet-resolved, not unresolvable",
+  "date": "2026-08-18"
+ },
+ "species": {
+  "1": {
+   "national": 1,
+   "name": "BULBASAUR",
+   "pokeapi_slug": "bulbasaur"
+  },
+  "2": {
+   "national": 2,
+   "name": "IVYSAUR",
+   "pokeapi_slug": null
+  },
+  "3": {
+   "national": 3,
+   "name": "VENUSAUR",
+   "pokeapi_slug": null
+  },
+  "4": {
+   "national": 4,
+   "name": "CHARMANDER",
+   "pokeapi_slug": "charmander"
+  },
+  "5": {
+   "national": 5,
+   "name": "CHARMELEON",
+   "pokeapi_slug": null
+  },
+  "6": {
+   "national": 6,
+   "name": "CHARIZARD",
+   "pokeapi_slug": null
+  },
+  "7": {
+   "national": 7,
+   "name": "SQUIRTLE",
+   "pokeapi_slug": "squirtle"
+  },
+  "8": {
+   "national": 8,
+   "name": "WARTORTLE",
+   "pokeapi_slug": null
+  },
+  "9": {
+   "national": 9,
+   "name": "BLASTOISE",
+   "pokeapi_slug": null
+  },
+  "10": {
+   "national": 10,
+   "name": "CATERPIE",
+   "pokeapi_slug": null
+  },
+  "11": {
+   "national": 11,
+   "name": "METAPOD",
+   "pokeapi_slug": null
+  },
+  "12": {
+   "national": 12,
+   "name": "BUTTERFREE",
+   "pokeapi_slug": null
+  },
+  "13": {
+   "national": 13,
+   "name": "WEEDLE",
+   "pokeapi_slug": null
+  },
+  "14": {
+   "national": 14,
+   "name": "KAKUNA",
+   "pokeapi_slug": null
+  },
+  "15": {
+   "national": 15,
+   "name": "BEEDRILL",
+   "pokeapi_slug": null
+  },
+  "16": {
+   "national": 16,
+   "name": "PIDGEY",
+   "pokeapi_slug": null
+  },
+  "17": {
+   "national": 17,
+   "name": "PIDGEOTTO",
+   "pokeapi_slug": "pidgeotto"
+  },
+  "18": {
+   "national": 18,
+   "name": "PIDGEOT",
+   "pokeapi_slug": null
+  },
+  "19": {
+   "national": 19,
+   "name": "RATTATA",
+   "pokeapi_slug": "rattata"
+  },
+  "20": {
+   "national": 20,
+   "name": "RATICATE",
+   "pokeapi_slug": "raticate"
+  },
+  "21": {
+   "national": 21,
+   "name": "SPEAROW",
+   "pokeapi_slug": null
+  },
+  "22": {
+   "national": 22,
+   "name": "FEAROW",
+   "pokeapi_slug": "fearow"
+  },
+  "23": {
+   "national": 23,
+   "name": "EKANS",
+   "pokeapi_slug": null
+  },
+  "24": {
+   "national": 24,
+   "name": "ARBOK",
+   "pokeapi_slug": null
+  },
+  "25": {
+   "national": 25,
+   "name": "PIKACHU",
+   "pokeapi_slug": null
+  },
+  "26": {
+   "national": 26,
+   "name": "RAICHU",
+   "pokeapi_slug": null
+  },
+  "27": {
+   "national": 27,
+   "name": "SANDSHREW",
+   "pokeapi_slug": "sandshrew"
+  },
+  "28": {
+   "national": 28,
+   "name": "SANDSLASH",
+   "pokeapi_slug": null
+  },
+  "29": {
+   "national": 29,
+   "name": "NIDORAN\u2640",
+   "pokeapi_slug": "nidoran-f"
+  },
+  "30": {
+   "national": 30,
+   "name": "NIDORINA",
+   "pokeapi_slug": "nidorina"
+  },
+  "31": {
+   "national": 31,
+   "name": "NIDOQUEEN",
+   "pokeapi_slug": null
+  },
+  "32": {
+   "national": 32,
+   "name": "NIDORAN\u2642",
+   "pokeapi_slug": "nidoran-m"
+  },
+  "33": {
+   "national": 33,
+   "name": "NIDORINO",
+   "pokeapi_slug": "nidorino"
+  },
+  "34": {
+   "national": 34,
+   "name": "NIDOKING",
+   "pokeapi_slug": null
+  },
+  "35": {
+   "national": 35,
+   "name": "CLEFAIRY",
+   "pokeapi_slug": null
+  },
+  "36": {
+   "national": 36,
+   "name": "CLEFABLE",
+   "pokeapi_slug": null
+  },
+  "37": {
+   "national": 37,
+   "name": "VULPIX",
+   "pokeapi_slug": null
+  },
+  "38": {
+   "national": 38,
+   "name": "NINETALES",
+   "pokeapi_slug": null
+  },
+  "39": {
+   "national": 39,
+   "name": "JIGGLYPUFF",
+   "pokeapi_slug": null
+  },
+  "40": {
+   "national": 40,
+   "name": "WIGGLYTUFF",
+   "pokeapi_slug": null
+  },
+  "41": {
+   "national": 41,
+   "name": "ZUBAT",
+   "pokeapi_slug": "zubat"
+  },
+  "42": {
+   "national": 42,
+   "name": "GOLBAT",
+   "pokeapi_slug": null
+  },
+  "43": {
+   "national": 43,
+   "name": "ODDISH",
+   "pokeapi_slug": null
+  },
+  "44": {
+   "national": 44,
+   "name": "GLOOM",
+   "pokeapi_slug": null
+  },
+  "45": {
+   "national": 45,
+   "name": "VILEPLUME",
+   "pokeapi_slug": null
+  },
+  "46": {
+   "national": 46,
+   "name": "PARAS",
+   "pokeapi_slug": "paras"
+  },
+  "47": {
+   "national": 47,
+   "name": "PARASECT",
+   "pokeapi_slug": null
+  },
+  "48": {
+   "national": 48,
+   "name": "VENONAT",
+   "pokeapi_slug": "venonat"
+  },
+  "49": {
+   "national": 49,
+   "name": "VENOMOTH",
+   "pokeapi_slug": null
+  },
+  "50": {
+   "national": 50,
+   "name": "DIGLETT",
+   "pokeapi_slug": "diglett"
+  },
+  "51": {
+   "national": 51,
+   "name": "DUGTRIO",
+   "pokeapi_slug": null
+  },
+  "52": {
+   "national": 52,
+   "name": "MEOWTH",
+   "pokeapi_slug": null
+  },
+  "53": {
+   "national": 53,
+   "name": "PERSIAN",
+   "pokeapi_slug": null
+  },
+  "54": {
+   "national": 54,
+   "name": "PSYDUCK",
+   "pokeapi_slug": null
+  },
+  "55": {
+   "national": 55,
+   "name": "GOLDUCK",
+   "pokeapi_slug": null
+  },
+  "56": {
+   "national": 56,
+   "name": "MANKEY",
+   "pokeapi_slug": "mankey"
+  },
+  "57": {
+   "national": 57,
+   "name": "PRIMEAPE",
+   "pokeapi_slug": null
+  },
+  "58": {
+   "national": 58,
+   "name": "GROWLITHE",
+   "pokeapi_slug": null
+  },
+  "59": {
+   "national": 59,
+   "name": "ARCANINE",
+   "pokeapi_slug": null
+  },
+  "60": {
+   "national": 60,
+   "name": "POLIWAG",
+   "pokeapi_slug": null
+  },
+  "61": {
+   "national": 61,
+   "name": "POLIWHIRL",
+   "pokeapi_slug": "poliwhirl"
+  },
+  "62": {
+   "national": 62,
+   "name": "POLIWRATH",
+   "pokeapi_slug": null
+  },
+  "63": {
+   "national": 63,
+   "name": "ABRA",
+   "pokeapi_slug": null
+  },
+  "64": {
+   "national": 64,
+   "name": "KADABRA",
+   "pokeapi_slug": null
+  },
+  "65": {
+   "national": 65,
+   "name": "ALAKAZAM",
+   "pokeapi_slug": null
+  },
+  "66": {
+   "national": 66,
+   "name": "MACHOP",
+   "pokeapi_slug": "machop"
+  },
+  "67": {
+   "national": 67,
+   "name": "MACHOKE",
+   "pokeapi_slug": null
+  },
+  "68": {
+   "national": 68,
+   "name": "MACHAMP",
+   "pokeapi_slug": null
+  },
+  "69": {
+   "national": 69,
+   "name": "BELLSPROUT",
+   "pokeapi_slug": null
+  },
+  "70": {
+   "national": 70,
+   "name": "WEEPINBELL",
+   "pokeapi_slug": "weepinbell"
+  },
+  "71": {
+   "national": 71,
+   "name": "VICTREEBEL",
+   "pokeapi_slug": null
+  },
+  "72": {
+   "national": 72,
+   "name": "TENTACOOL",
+   "pokeapi_slug": "tentacool"
+  },
+  "73": {
+   "national": 73,
+   "name": "TENTACRUEL",
+   "pokeapi_slug": null
+  },
+  "74": {
+   "national": 74,
+   "name": "GEODUDE",
+   "pokeapi_slug": null
+  },
+  "75": {
+   "national": 75,
+   "name": "GRAVELER",
+   "pokeapi_slug": null
+  },
+  "76": {
+   "national": 76,
+   "name": "GOLEM",
+   "pokeapi_slug": null
+  },
+  "77": {
+   "national": 77,
+   "name": "PONYTA",
+   "pokeapi_slug": "ponyta"
+  },
+  "78": {
+   "national": 78,
+   "name": "RAPIDASH",
+   "pokeapi_slug": null
+  },
+  "79": {
+   "national": 79,
+   "name": "SLOWPOKE",
+   "pokeapi_slug": "slowpoke"
+  },
+  "80": {
+   "national": 80,
+   "name": "SLOWBRO",
+   "pokeapi_slug": null
+  },
+  "81": {
+   "national": 81,
+   "name": "MAGNEMITE",
+   "pokeapi_slug": "magnemite"
+  },
+  "82": {
+   "national": 82,
+   "name": "MAGNETON",
+   "pokeapi_slug": null
+  },
+  "83": {
+   "national": 83,
+   "name": "FARFETCH\u2019D",
+   "pokeapi_slug": null
+  },
+  "84": {
+   "national": 84,
+   "name": "DODUO",
+   "pokeapi_slug": null
+  },
+  "85": {
+   "national": 85,
+   "name": "DODRIO",
+   "pokeapi_slug": null
+  },
+  "86": {
+   "national": 86,
+   "name": "SEEL",
+   "pokeapi_slug": null
+  },
+  "87": {
+   "national": 87,
+   "name": "DEWGONG",
+   "pokeapi_slug": null
+  },
+  "88": {
+   "national": 88,
+   "name": "GRIMER",
+   "pokeapi_slug": null
+  },
+  "89": {
+   "national": 89,
+   "name": "MUK",
+   "pokeapi_slug": null
+  },
+  "90": {
+   "national": 90,
+   "name": "SHELLDER",
+   "pokeapi_slug": "shellder"
+  },
+  "91": {
+   "national": 91,
+   "name": "CLOYSTER",
+   "pokeapi_slug": null
+  },
+  "92": {
+   "national": 92,
+   "name": "GASTLY",
+   "pokeapi_slug": null
+  },
+  "93": {
+   "national": 93,
+   "name": "HAUNTER",
+   "pokeapi_slug": null
+  },
+  "94": {
+   "national": 94,
+   "name": "GENGAR",
+   "pokeapi_slug": null
+  },
+  "95": {
+   "national": 95,
+   "name": "ONIX",
+   "pokeapi_slug": "onix"
+  },
+  "96": {
+   "national": 96,
+   "name": "DROWZEE",
+   "pokeapi_slug": "drowzee"
+  },
+  "97": {
+   "national": 97,
+   "name": "HYPNO",
+   "pokeapi_slug": null
+  },
+  "98": {
+   "national": 98,
+   "name": "KRABBY",
+   "pokeapi_slug": null
+  },
+  "99": {
+   "national": 99,
+   "name": "KINGLER",
+   "pokeapi_slug": null
+  },
+  "100": {
+   "national": 100,
+   "name": "VOLTORB",
+   "pokeapi_slug": null
+  },
+  "101": {
+   "national": 101,
+   "name": "ELECTRODE",
+   "pokeapi_slug": null
+  },
+  "102": {
+   "national": 102,
+   "name": "EXEGGCUTE",
+   "pokeapi_slug": null
+  },
+  "103": {
+   "national": 103,
+   "name": "EXEGGUTOR",
+   "pokeapi_slug": null
+  },
+  "104": {
+   "national": 104,
+   "name": "CUBONE",
+   "pokeapi_slug": "cubone"
+  },
+  "105": {
+   "national": 105,
+   "name": "MAROWAK",
+   "pokeapi_slug": null
+  },
+  "106": {
+   "national": 106,
+   "name": "HITMONLEE",
+   "pokeapi_slug": null
+  },
+  "107": {
+   "national": 107,
+   "name": "HITMONCHAN",
+   "pokeapi_slug": null
+  },
+  "108": {
+   "national": 108,
+   "name": "LICKITUNG",
+   "pokeapi_slug": null
+  },
+  "109": {
+   "national": 109,
+   "name": "KOFFING",
+   "pokeapi_slug": null
+  },
+  "110": {
+   "national": 110,
+   "name": "WEEZING",
+   "pokeapi_slug": null
+  },
+  "111": {
+   "national": 111,
+   "name": "RHYHORN",
+   "pokeapi_slug": null
+  },
+  "112": {
+   "national": 112,
+   "name": "RHYDON",
+   "pokeapi_slug": null
+  },
+  "113": {
+   "national": 113,
+   "name": "CHANSEY",
+   "pokeapi_slug": null
+  },
+  "114": {
+   "national": 114,
+   "name": "TANGELA",
+   "pokeapi_slug": null
+  },
+  "115": {
+   "national": 115,
+   "name": "KANGASKHAN",
+   "pokeapi_slug": null
+  },
+  "116": {
+   "national": 116,
+   "name": "HORSEA",
+   "pokeapi_slug": null
+  },
+  "117": {
+   "national": 117,
+   "name": "SEADRA",
+   "pokeapi_slug": null
+  },
+  "118": {
+   "national": 118,
+   "name": "GOLDEEN",
+   "pokeapi_slug": null
+  },
+  "119": {
+   "national": 119,
+   "name": "SEAKING",
+   "pokeapi_slug": null
+  },
+  "120": {
+   "national": 120,
+   "name": "STARYU",
+   "pokeapi_slug": "staryu"
+  },
+  "121": {
+   "national": 121,
+   "name": "STARMIE",
+   "pokeapi_slug": "starmie"
+  },
+  "122": {
+   "national": 122,
+   "name": "MR. MIME",
+   "pokeapi_slug": "mr-mime"
+  },
+  "123": {
+   "national": 123,
+   "name": "SCYTHER",
+   "pokeapi_slug": null
+  },
+  "124": {
+   "national": 124,
+   "name": "JYNX",
+   "pokeapi_slug": null
+  },
+  "125": {
+   "national": 125,
+   "name": "ELECTABUZZ",
+   "pokeapi_slug": null
+  },
+  "126": {
+   "national": 126,
+   "name": "MAGMAR",
+   "pokeapi_slug": null
+  },
+  "127": {
+   "national": 127,
+   "name": "PINSIR",
+   "pokeapi_slug": null
+  },
+  "128": {
+   "national": 128,
+   "name": "TAUROS",
+   "pokeapi_slug": null
+  },
+  "129": {
+   "national": 129,
+   "name": "MAGIKARP",
+   "pokeapi_slug": null
+  },
+  "130": {
+   "national": 130,
+   "name": "GYARADOS",
+   "pokeapi_slug": null
+  },
+  "131": {
+   "national": 131,
+   "name": "LAPRAS",
+   "pokeapi_slug": null
+  },
+  "132": {
+   "national": 132,
+   "name": "DITTO",
+   "pokeapi_slug": null
+  },
+  "133": {
+   "national": 133,
+   "name": "EEVEE",
+   "pokeapi_slug": "eevee"
+  },
+  "134": {
+   "national": 134,
+   "name": "VAPOREON",
+   "pokeapi_slug": null
+  },
+  "135": {
+   "national": 135,
+   "name": "JOLTEON",
+   "pokeapi_slug": null
+  },
+  "136": {
+   "national": 136,
+   "name": "FLAREON",
+   "pokeapi_slug": null
+  },
+  "137": {
+   "national": 137,
+   "name": "PORYGON",
+   "pokeapi_slug": null
+  },
+  "138": {
+   "national": 138,
+   "name": "OMANYTE",
+   "pokeapi_slug": null
+  },
+  "139": {
+   "national": 139,
+   "name": "OMASTAR",
+   "pokeapi_slug": null
+  },
+  "140": {
+   "national": 140,
+   "name": "KABUTO",
+   "pokeapi_slug": null
+  },
+  "141": {
+   "national": 141,
+   "name": "KABUTOPS",
+   "pokeapi_slug": null
+  },
+  "142": {
+   "national": 142,
+   "name": "AERODACTYL",
+   "pokeapi_slug": null
+  },
+  "143": {
+   "national": 143,
+   "name": "SNORLAX",
+   "pokeapi_slug": null
+  },
+  "144": {
+   "national": 144,
+   "name": "ARTICUNO",
+   "pokeapi_slug": null
+  },
+  "145": {
+   "national": 145,
+   "name": "ZAPDOS",
+   "pokeapi_slug": null
+  },
+  "146": {
+   "national": 146,
+   "name": "MOLTRES",
+   "pokeapi_slug": null
+  },
+  "147": {
+   "national": 147,
+   "name": "DRATINI",
+   "pokeapi_slug": null
+  },
+  "148": {
+   "national": 148,
+   "name": "DRAGONAIR",
+   "pokeapi_slug": null
+  },
+  "149": {
+   "national": 149,
+   "name": "DRAGONITE",
+   "pokeapi_slug": null
+  },
+  "150": {
+   "national": 150,
+   "name": "MEWTWO",
+   "pokeapi_slug": null
+  },
+  "151": {
+   "national": 151,
+   "name": "MEW",
+   "pokeapi_slug": null
+  },
+  "152": {
+   "national": 152,
+   "name": "CHIKORITA",
+   "pokeapi_slug": null
+  },
+  "153": {
+   "national": 153,
+   "name": "BAYLEEF",
+   "pokeapi_slug": null
+  },
+  "154": {
+   "national": 154,
+   "name": "MEGANIUM",
+   "pokeapi_slug": null
+  },
+  "155": {
+   "national": 155,
+   "name": "CYNDAQUIL",
+   "pokeapi_slug": null
+  },
+  "156": {
+   "national": 156,
+   "name": "QUILAVA",
+   "pokeapi_slug": null
+  },
+  "157": {
+   "national": 157,
+   "name": "TYPHLOSION",
+   "pokeapi_slug": null
+  },
+  "158": {
+   "national": 158,
+   "name": "TOTODILE",
+   "pokeapi_slug": null
+  },
+  "159": {
+   "national": 159,
+   "name": "CROCONAW",
+   "pokeapi_slug": null
+  },
+  "160": {
+   "national": 160,
+   "name": "FERALIGATR",
+   "pokeapi_slug": null
+  },
+  "161": {
+   "national": 161,
+   "name": "SENTRET",
+   "pokeapi_slug": null
+  },
+  "162": {
+   "national": 162,
+   "name": "FURRET",
+   "pokeapi_slug": null
+  },
+  "163": {
+   "national": 163,
+   "name": "HOOTHOOT",
+   "pokeapi_slug": null
+  },
+  "164": {
+   "national": 164,
+   "name": "NOCTOWL",
+   "pokeapi_slug": null
+  },
+  "165": {
+   "national": 165,
+   "name": "LEDYBA",
+   "pokeapi_slug": null
+  },
+  "166": {
+   "national": 166,
+   "name": "LEDIAN",
+   "pokeapi_slug": null
+  },
+  "167": {
+   "national": 167,
+   "name": "SPINARAK",
+   "pokeapi_slug": null
+  },
+  "168": {
+   "national": 168,
+   "name": "ARIADOS",
+   "pokeapi_slug": null
+  },
+  "169": {
+   "national": 169,
+   "name": "CROBAT",
+   "pokeapi_slug": null
+  },
+  "170": {
+   "national": 170,
+   "name": "CHINCHOU",
+   "pokeapi_slug": null
+  },
+  "171": {
+   "national": 171,
+   "name": "LANTURN",
+   "pokeapi_slug": null
+  },
+  "172": {
+   "national": 172,
+   "name": "PICHU",
+   "pokeapi_slug": null
+  },
+  "173": {
+   "national": 173,
+   "name": "CLEFFA",
+   "pokeapi_slug": null
+  },
+  "174": {
+   "national": 174,
+   "name": "IGGLYBUFF",
+   "pokeapi_slug": null
+  },
+  "175": {
+   "national": 175,
+   "name": "TOGEPI",
+   "pokeapi_slug": null
+  },
+  "176": {
+   "national": 176,
+   "name": "TOGETIC",
+   "pokeapi_slug": null
+  },
+  "177": {
+   "national": 177,
+   "name": "NATU",
+   "pokeapi_slug": null
+  },
+  "178": {
+   "national": 178,
+   "name": "XATU",
+   "pokeapi_slug": null
+  },
+  "179": {
+   "national": 179,
+   "name": "MAREEP",
+   "pokeapi_slug": null
+  },
+  "180": {
+   "national": 180,
+   "name": "FLAAFFY",
+   "pokeapi_slug": null
+  },
+  "181": {
+   "national": 181,
+   "name": "AMPHAROS",
+   "pokeapi_slug": null
+  },
+  "182": {
+   "national": 182,
+   "name": "BELLOSSOM",
+   "pokeapi_slug": null
+  },
+  "183": {
+   "national": 183,
+   "name": "MARILL",
+   "pokeapi_slug": null
+  },
+  "184": {
+   "national": 184,
+   "name": "AZUMARILL",
+   "pokeapi_slug": null
+  },
+  "185": {
+   "national": 185,
+   "name": "SUDOWOODO",
+   "pokeapi_slug": null
+  },
+  "186": {
+   "national": 186,
+   "name": "POLITOED",
+   "pokeapi_slug": null
+  },
+  "187": {
+   "national": 187,
+   "name": "HOPPIP",
+   "pokeapi_slug": null
+  },
+  "188": {
+   "national": 188,
+   "name": "SKIPLOOM",
+   "pokeapi_slug": null
+  },
+  "189": {
+   "national": 189,
+   "name": "JUMPLUFF",
+   "pokeapi_slug": null
+  },
+  "190": {
+   "national": 190,
+   "name": "AIPOM",
+   "pokeapi_slug": null
+  },
+  "191": {
+   "national": 191,
+   "name": "SUNKERN",
+   "pokeapi_slug": null
+  },
+  "192": {
+   "national": 192,
+   "name": "SUNFLORA",
+   "pokeapi_slug": null
+  },
+  "193": {
+   "national": 193,
+   "name": "YANMA",
+   "pokeapi_slug": null
+  },
+  "194": {
+   "national": 194,
+   "name": "WOOPER",
+   "pokeapi_slug": null
+  },
+  "195": {
+   "national": 195,
+   "name": "QUAGSIRE",
+   "pokeapi_slug": null
+  },
+  "196": {
+   "national": 196,
+   "name": "ESPEON",
+   "pokeapi_slug": null
+  },
+  "197": {
+   "national": 197,
+   "name": "UMBREON",
+   "pokeapi_slug": null
+  },
+  "198": {
+   "national": 198,
+   "name": "MURKROW",
+   "pokeapi_slug": null
+  },
+  "199": {
+   "national": 199,
+   "name": "SLOWKING",
+   "pokeapi_slug": null
+  },
+  "200": {
+   "national": 200,
+   "name": "MISDREAVUS",
+   "pokeapi_slug": null
+  },
+  "201": {
+   "national": 201,
+   "name": "UNOWN",
+   "pokeapi_slug": null
+  },
+  "202": {
+   "national": 202,
+   "name": "WOBBUFFET",
+   "pokeapi_slug": null
+  },
+  "203": {
+   "national": 203,
+   "name": "GIRAFARIG",
+   "pokeapi_slug": null
+  },
+  "204": {
+   "national": 204,
+   "name": "PINECO",
+   "pokeapi_slug": null
+  },
+  "205": {
+   "national": 205,
+   "name": "FORRETRESS",
+   "pokeapi_slug": null
+  },
+  "206": {
+   "national": 206,
+   "name": "DUNSPARCE",
+   "pokeapi_slug": null
+  },
+  "207": {
+   "national": 207,
+   "name": "GLIGAR",
+   "pokeapi_slug": null
+  },
+  "208": {
+   "national": 208,
+   "name": "STEELIX",
+   "pokeapi_slug": null
+  },
+  "209": {
+   "national": 209,
+   "name": "SNUBBULL",
+   "pokeapi_slug": null
+  },
+  "210": {
+   "national": 210,
+   "name": "GRANBULL",
+   "pokeapi_slug": null
+  },
+  "211": {
+   "national": 211,
+   "name": "QWILFISH",
+   "pokeapi_slug": null
+  },
+  "212": {
+   "national": 212,
+   "name": "SCIZOR",
+   "pokeapi_slug": null
+  },
+  "213": {
+   "national": 213,
+   "name": "SHUCKLE",
+   "pokeapi_slug": null
+  },
+  "214": {
+   "national": 214,
+   "name": "HERACROSS",
+   "pokeapi_slug": null
+  },
+  "215": {
+   "national": 215,
+   "name": "SNEASEL",
+   "pokeapi_slug": null
+  },
+  "216": {
+   "national": 216,
+   "name": "TEDDIURSA",
+   "pokeapi_slug": null
+  },
+  "217": {
+   "national": 217,
+   "name": "URSARING",
+   "pokeapi_slug": null
+  },
+  "218": {
+   "national": 218,
+   "name": "SLUGMA",
+   "pokeapi_slug": null
+  },
+  "219": {
+   "national": 219,
+   "name": "MAGCARGO",
+   "pokeapi_slug": null
+  },
+  "220": {
+   "national": 220,
+   "name": "SWINUB",
+   "pokeapi_slug": null
+  },
+  "221": {
+   "national": 221,
+   "name": "PILOSWINE",
+   "pokeapi_slug": null
+  },
+  "222": {
+   "national": 222,
+   "name": "CORSOLA",
+   "pokeapi_slug": null
+  },
+  "223": {
+   "national": 223,
+   "name": "REMORAID",
+   "pokeapi_slug": null
+  },
+  "224": {
+   "national": 224,
+   "name": "OCTILLERY",
+   "pokeapi_slug": null
+  },
+  "225": {
+   "national": 225,
+   "name": "DELIBIRD",
+   "pokeapi_slug": null
+  },
+  "226": {
+   "national": 226,
+   "name": "MANTINE",
+   "pokeapi_slug": null
+  },
+  "227": {
+   "national": 227,
+   "name": "SKARMORY",
+   "pokeapi_slug": null
+  },
+  "228": {
+   "national": 228,
+   "name": "HOUNDOUR",
+   "pokeapi_slug": null
+  },
+  "229": {
+   "national": 229,
+   "name": "HOUNDOOM",
+   "pokeapi_slug": null
+  },
+  "230": {
+   "national": 230,
+   "name": "KINGDRA",
+   "pokeapi_slug": null
+  },
+  "231": {
+   "national": 231,
+   "name": "PHANPY",
+   "pokeapi_slug": null
+  },
+  "232": {
+   "national": 232,
+   "name": "DONPHAN",
+   "pokeapi_slug": null
+  },
+  "233": {
+   "national": 233,
+   "name": "PORYGON2",
+   "pokeapi_slug": null
+  },
+  "234": {
+   "national": 234,
+   "name": "STANTLER",
+   "pokeapi_slug": null
+  },
+  "235": {
+   "national": 235,
+   "name": "SMEARGLE",
+   "pokeapi_slug": null
+  },
+  "236": {
+   "national": 236,
+   "name": "TYROGUE",
+   "pokeapi_slug": null
+  },
+  "237": {
+   "national": 237,
+   "name": "HITMONTOP",
+   "pokeapi_slug": null
+  },
+  "238": {
+   "national": 238,
+   "name": "SMOOCHUM",
+   "pokeapi_slug": null
+  },
+  "239": {
+   "national": 239,
+   "name": "ELEKID",
+   "pokeapi_slug": null
+  },
+  "240": {
+   "national": 240,
+   "name": "MAGBY",
+   "pokeapi_slug": null
+  },
+  "241": {
+   "national": 241,
+   "name": "MILTANK",
+   "pokeapi_slug": null
+  },
+  "242": {
+   "national": 242,
+   "name": "BLISSEY",
+   "pokeapi_slug": null
+  },
+  "243": {
+   "national": 243,
+   "name": "RAIKOU",
+   "pokeapi_slug": null
+  },
+  "244": {
+   "national": 244,
+   "name": "ENTEI",
+   "pokeapi_slug": null
+  },
+  "245": {
+   "national": 245,
+   "name": "SUICUNE",
+   "pokeapi_slug": null
+  },
+  "246": {
+   "national": 246,
+   "name": "LARVITAR",
+   "pokeapi_slug": null
+  },
+  "247": {
+   "national": 247,
+   "name": "PUPITAR",
+   "pokeapi_slug": null
+  },
+  "248": {
+   "national": 248,
+   "name": "TYRANITAR",
+   "pokeapi_slug": null
+  },
+  "249": {
+   "national": 249,
+   "name": "LUGIA",
+   "pokeapi_slug": null
+  },
+  "250": {
+   "national": 250,
+   "name": "HO-OH",
+   "pokeapi_slug": null
+  },
+  "251": {
+   "national": 251,
+   "name": "CELEBI",
+   "pokeapi_slug": null
+  },
+  "252": {
+   "national": 387,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "253": {
+   "national": 388,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "254": {
+   "national": 389,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "255": {
+   "national": 390,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "256": {
+   "national": 391,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "257": {
+   "national": 392,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "258": {
+   "national": 393,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "259": {
+   "national": 394,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "260": {
+   "national": 395,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "261": {
+   "national": 396,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "262": {
+   "national": 397,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "263": {
+   "national": 398,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "264": {
+   "national": 399,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "265": {
+   "national": 400,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "266": {
+   "national": 401,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "267": {
+   "national": 402,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "268": {
+   "national": 403,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "269": {
+   "national": 404,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "270": {
+   "national": 405,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "271": {
+   "national": 406,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "272": {
+   "national": 407,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "273": {
+   "national": 408,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "274": {
+   "national": 409,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "275": {
+   "national": 410,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "276": {
+   "national": 411,
+   "name": "?",
+   "pokeapi_slug": null
+  },
+  "277": {
+   "national": 252,
+   "name": "TREECKO",
+   "pokeapi_slug": null
+  },
+  "278": {
+   "national": 253,
+   "name": "GROVYLE",
+   "pokeapi_slug": null
+  },
+  "279": {
+   "national": 254,
+   "name": "SCEPTILE",
+   "pokeapi_slug": null
+  },
+  "280": {
+   "national": 255,
+   "name": "TORCHIC",
+   "pokeapi_slug": null
+  },
+  "281": {
+   "national": 256,
+   "name": "COMBUSKEN",
+   "pokeapi_slug": null
+  },
+  "282": {
+   "national": 257,
+   "name": "BLAZIKEN",
+   "pokeapi_slug": null
+  },
+  "283": {
+   "national": 258,
+   "name": "MUDKIP",
+   "pokeapi_slug": null
+  },
+  "284": {
+   "national": 259,
+   "name": "MARSHTOMP",
+   "pokeapi_slug": null
+  },
+  "285": {
+   "national": 260,
+   "name": "SWAMPERT",
+   "pokeapi_slug": null
+  },
+  "286": {
+   "national": 261,
+   "name": "POOCHYENA",
+   "pokeapi_slug": null
+  },
+  "287": {
+   "national": 262,
+   "name": "MIGHTYENA",
+   "pokeapi_slug": null
+  },
+  "288": {
+   "national": 263,
+   "name": "ZIGZAGOON",
+   "pokeapi_slug": null
+  },
+  "289": {
+   "national": 264,
+   "name": "LINOONE",
+   "pokeapi_slug": null
+  },
+  "290": {
+   "national": 265,
+   "name": "WURMPLE",
+   "pokeapi_slug": null
+  },
+  "291": {
+   "national": 266,
+   "name": "SILCOON",
+   "pokeapi_slug": null
+  },
+  "292": {
+   "national": 267,
+   "name": "BEAUTIFLY",
+   "pokeapi_slug": null
+  },
+  "293": {
+   "national": 268,
+   "name": "CASCOON",
+   "pokeapi_slug": null
+  },
+  "294": {
+   "national": 269,
+   "name": "DUSTOX",
+   "pokeapi_slug": null
+  },
+  "295": {
+   "national": 270,
+   "name": "LOTAD",
+   "pokeapi_slug": null
+  },
+  "296": {
+   "national": 271,
+   "name": "LOMBRE",
+   "pokeapi_slug": null
+  },
+  "297": {
+   "national": 272,
+   "name": "LUDICOLO",
+   "pokeapi_slug": null
+  },
+  "298": {
+   "national": 273,
+   "name": "SEEDOT",
+   "pokeapi_slug": null
+  },
+  "299": {
+   "national": 274,
+   "name": "NUZLEAF",
+   "pokeapi_slug": null
+  },
+  "300": {
+   "national": 275,
+   "name": "SHIFTRY",
+   "pokeapi_slug": null
+  },
+  "301": {
+   "national": 290,
+   "name": "NINCADA",
+   "pokeapi_slug": null
+  },
+  "302": {
+   "national": 291,
+   "name": "NINJASK",
+   "pokeapi_slug": null
+  },
+  "303": {
+   "national": 292,
+   "name": "SHEDINJA",
+   "pokeapi_slug": null
+  },
+  "304": {
+   "national": 276,
+   "name": "TAILLOW",
+   "pokeapi_slug": null
+  },
+  "305": {
+   "national": 277,
+   "name": "SWELLOW",
+   "pokeapi_slug": null
+  },
+  "306": {
+   "national": 285,
+   "name": "SHROOMISH",
+   "pokeapi_slug": null
+  },
+  "307": {
+   "national": 286,
+   "name": "BRELOOM",
+   "pokeapi_slug": null
+  },
+  "308": {
+   "national": 327,
+   "name": "SPINDA",
+   "pokeapi_slug": null
+  },
+  "309": {
+   "national": 278,
+   "name": "WINGULL",
+   "pokeapi_slug": null
+  },
+  "310": {
+   "national": 279,
+   "name": "PELIPPER",
+   "pokeapi_slug": null
+  },
+  "311": {
+   "national": 283,
+   "name": "SURSKIT",
+   "pokeapi_slug": null
+  },
+  "312": {
+   "national": 284,
+   "name": "MASQUERAIN",
+   "pokeapi_slug": null
+  },
+  "313": {
+   "national": 320,
+   "name": "WAILMER",
+   "pokeapi_slug": null
+  },
+  "314": {
+   "national": 321,
+   "name": "WAILORD",
+   "pokeapi_slug": null
+  },
+  "315": {
+   "national": 300,
+   "name": "SKITTY",
+   "pokeapi_slug": null
+  },
+  "316": {
+   "national": 301,
+   "name": "DELCATTY",
+   "pokeapi_slug": null
+  },
+  "317": {
+   "national": 352,
+   "name": "KECLEON",
+   "pokeapi_slug": null
+  },
+  "318": {
+   "national": 343,
+   "name": "BALTOY",
+   "pokeapi_slug": null
+  },
+  "319": {
+   "national": 344,
+   "name": "CLAYDOL",
+   "pokeapi_slug": null
+  },
+  "320": {
+   "national": 299,
+   "name": "NOSEPASS",
+   "pokeapi_slug": null
+  },
+  "321": {
+   "national": 324,
+   "name": "TORKOAL",
+   "pokeapi_slug": null
+  },
+  "322": {
+   "national": 302,
+   "name": "SABLEYE",
+   "pokeapi_slug": null
+  },
+  "323": {
+   "national": 339,
+   "name": "BARBOACH",
+   "pokeapi_slug": null
+  },
+  "324": {
+   "national": 340,
+   "name": "WHISCASH",
+   "pokeapi_slug": null
+  },
+  "325": {
+   "national": 370,
+   "name": "LUVDISC",
+   "pokeapi_slug": null
+  },
+  "326": {
+   "national": 341,
+   "name": "CORPHISH",
+   "pokeapi_slug": null
+  },
+  "327": {
+   "national": 342,
+   "name": "CRAWDAUNT",
+   "pokeapi_slug": null
+  },
+  "328": {
+   "national": 349,
+   "name": "FEEBAS",
+   "pokeapi_slug": null
+  },
+  "329": {
+   "national": 350,
+   "name": "MILOTIC",
+   "pokeapi_slug": null
+  },
+  "330": {
+   "national": 318,
+   "name": "CARVANHA",
+   "pokeapi_slug": null
+  },
+  "331": {
+   "national": 319,
+   "name": "SHARPEDO",
+   "pokeapi_slug": null
+  },
+  "332": {
+   "national": 328,
+   "name": "TRAPINCH",
+   "pokeapi_slug": null
+  },
+  "333": {
+   "national": 329,
+   "name": "VIBRAVA",
+   "pokeapi_slug": null
+  },
+  "334": {
+   "national": 330,
+   "name": "FLYGON",
+   "pokeapi_slug": null
+  },
+  "335": {
+   "national": 296,
+   "name": "MAKUHITA",
+   "pokeapi_slug": null
+  },
+  "336": {
+   "national": 297,
+   "name": "HARIYAMA",
+   "pokeapi_slug": null
+  },
+  "337": {
+   "national": 309,
+   "name": "ELECTRIKE",
+   "pokeapi_slug": null
+  },
+  "338": {
+   "national": 310,
+   "name": "MANECTRIC",
+   "pokeapi_slug": null
+  },
+  "339": {
+   "national": 322,
+   "name": "NUMEL",
+   "pokeapi_slug": null
+  },
+  "340": {
+   "national": 323,
+   "name": "CAMERUPT",
+   "pokeapi_slug": null
+  },
+  "341": {
+   "national": 363,
+   "name": "SPHEAL",
+   "pokeapi_slug": null
+  },
+  "342": {
+   "national": 364,
+   "name": "SEALEO",
+   "pokeapi_slug": null
+  },
+  "343": {
+   "national": 365,
+   "name": "WALREIN",
+   "pokeapi_slug": null
+  },
+  "344": {
+   "national": 331,
+   "name": "CACNEA",
+   "pokeapi_slug": null
+  },
+  "345": {
+   "national": 332,
+   "name": "CACTURNE",
+   "pokeapi_slug": null
+  },
+  "346": {
+   "national": 361,
+   "name": "SNORUNT",
+   "pokeapi_slug": null
+  },
+  "347": {
+   "national": 362,
+   "name": "GLALIE",
+   "pokeapi_slug": null
+  },
+  "348": {
+   "national": 337,
+   "name": "LUNATONE",
+   "pokeapi_slug": null
+  },
+  "349": {
+   "national": 338,
+   "name": "SOLROCK",
+   "pokeapi_slug": null
+  },
+  "350": {
+   "national": 298,
+   "name": "AZURILL",
+   "pokeapi_slug": null
+  },
+  "351": {
+   "national": 325,
+   "name": "SPOINK",
+   "pokeapi_slug": null
+  },
+  "352": {
+   "national": 326,
+   "name": "GRUMPIG",
+   "pokeapi_slug": null
+  },
+  "353": {
+   "national": 311,
+   "name": "PLUSLE",
+   "pokeapi_slug": null
+  },
+  "354": {
+   "national": 312,
+   "name": "MINUN",
+   "pokeapi_slug": null
+  },
+  "355": {
+   "national": 303,
+   "name": "MAWILE",
+   "pokeapi_slug": null
+  },
+  "356": {
+   "national": 307,
+   "name": "MEDITITE",
+   "pokeapi_slug": null
+  },
+  "357": {
+   "national": 308,
+   "name": "MEDICHAM",
+   "pokeapi_slug": null
+  },
+  "358": {
+   "national": 333,
+   "name": "SWABLU",
+   "pokeapi_slug": null
+  },
+  "359": {
+   "national": 334,
+   "name": "ALTARIA",
+   "pokeapi_slug": null
+  },
+  "360": {
+   "national": 360,
+   "name": "WYNAUT",
+   "pokeapi_slug": null
+  },
+  "361": {
+   "national": 355,
+   "name": "DUSKULL",
+   "pokeapi_slug": null
+  },
+  "362": {
+   "national": 356,
+   "name": "DUSCLOPS",
+   "pokeapi_slug": null
+  },
+  "363": {
+   "national": 315,
+   "name": "ROSELIA",
+   "pokeapi_slug": null
+  },
+  "364": {
+   "national": 287,
+   "name": "SLAKOTH",
+   "pokeapi_slug": null
+  },
+  "365": {
+   "national": 288,
+   "name": "VIGOROTH",
+   "pokeapi_slug": null
+  },
+  "366": {
+   "national": 289,
+   "name": "SLAKING",
+   "pokeapi_slug": null
+  },
+  "367": {
+   "national": 316,
+   "name": "GULPIN",
+   "pokeapi_slug": null
+  },
+  "368": {
+   "national": 317,
+   "name": "SWALOT",
+   "pokeapi_slug": null
+  },
+  "369": {
+   "national": 357,
+   "name": "TROPIUS",
+   "pokeapi_slug": null
+  },
+  "370": {
+   "national": 293,
+   "name": "WHISMUR",
+   "pokeapi_slug": null
+  },
+  "371": {
+   "national": 294,
+   "name": "LOUDRED",
+   "pokeapi_slug": null
+  },
+  "372": {
+   "national": 295,
+   "name": "EXPLOUD",
+   "pokeapi_slug": null
+  },
+  "373": {
+   "national": 366,
+   "name": "CLAMPERL",
+   "pokeapi_slug": null
+  },
+  "374": {
+   "national": 367,
+   "name": "HUNTAIL",
+   "pokeapi_slug": null
+  },
+  "375": {
+   "national": 368,
+   "name": "GOREBYSS",
+   "pokeapi_slug": null
+  },
+  "376": {
+   "national": 359,
+   "name": "ABSOL",
+   "pokeapi_slug": null
+  },
+  "377": {
+   "national": 353,
+   "name": "SHUPPET",
+   "pokeapi_slug": null
+  },
+  "378": {
+   "national": 354,
+   "name": "BANETTE",
+   "pokeapi_slug": null
+  },
+  "379": {
+   "national": 336,
+   "name": "SEVIPER",
+   "pokeapi_slug": null
+  },
+  "380": {
+   "national": 335,
+   "name": "ZANGOOSE",
+   "pokeapi_slug": null
+  },
+  "381": {
+   "national": 369,
+   "name": "RELICANTH",
+   "pokeapi_slug": null
+  },
+  "382": {
+   "national": 304,
+   "name": "ARON",
+   "pokeapi_slug": null
+  },
+  "383": {
+   "national": 305,
+   "name": "LAIRON",
+   "pokeapi_slug": null
+  },
+  "384": {
+   "national": 306,
+   "name": "AGGRON",
+   "pokeapi_slug": null
+  },
+  "385": {
+   "national": 351,
+   "name": "CASTFORM",
+   "pokeapi_slug": null
+  },
+  "386": {
+   "national": 313,
+   "name": "VOLBEAT",
+   "pokeapi_slug": null
+  },
+  "387": {
+   "national": 314,
+   "name": "ILLUMISE",
+   "pokeapi_slug": null
+  },
+  "388": {
+   "national": 345,
+   "name": "LILEEP",
+   "pokeapi_slug": null
+  },
+  "389": {
+   "national": 346,
+   "name": "CRADILY",
+   "pokeapi_slug": null
+  },
+  "390": {
+   "national": 347,
+   "name": "ANORITH",
+   "pokeapi_slug": null
+  },
+  "391": {
+   "national": 348,
+   "name": "ARMALDO",
+   "pokeapi_slug": null
+  },
+  "392": {
+   "national": 280,
+   "name": "RALTS",
+   "pokeapi_slug": null
+  },
+  "393": {
+   "national": 281,
+   "name": "KIRLIA",
+   "pokeapi_slug": null
+  },
+  "394": {
+   "national": 282,
+   "name": "GARDEVOIR",
+   "pokeapi_slug": null
+  },
+  "395": {
+   "national": 371,
+   "name": "BAGON",
+   "pokeapi_slug": null
+  },
+  "396": {
+   "national": 372,
+   "name": "SHELGON",
+   "pokeapi_slug": null
+  },
+  "397": {
+   "national": 373,
+   "name": "SALAMENCE",
+   "pokeapi_slug": null
+  },
+  "398": {
+   "national": 374,
+   "name": "BELDUM",
+   "pokeapi_slug": null
+  },
+  "399": {
+   "national": 375,
+   "name": "METANG",
+   "pokeapi_slug": null
+  },
+  "400": {
+   "national": 376,
+   "name": "METAGROSS",
+   "pokeapi_slug": null
+  },
+  "401": {
+   "national": 377,
+   "name": "REGIROCK",
+   "pokeapi_slug": null
+  },
+  "402": {
+   "national": 378,
+   "name": "REGICE",
+   "pokeapi_slug": null
+  },
+  "403": {
+   "national": 379,
+   "name": "REGISTEEL",
+   "pokeapi_slug": null
+  },
+  "404": {
+   "national": 382,
+   "name": "KYOGRE",
+   "pokeapi_slug": null
+  },
+  "405": {
+   "national": 383,
+   "name": "GROUDON",
+   "pokeapi_slug": null
+  },
+  "406": {
+   "national": 384,
+   "name": "RAYQUAZA",
+   "pokeapi_slug": null
+  },
+  "407": {
+   "national": 380,
+   "name": "LATIAS",
+   "pokeapi_slug": null
+  },
+  "408": {
+   "national": 381,
+   "name": "LATIOS",
+   "pokeapi_slug": null
+  },
+  "409": {
+   "national": 385,
+   "name": "JIRACHI",
+   "pokeapi_slug": null
+  },
+  "410": {
+   "national": 386,
+   "name": "DEOXYS",
+   "pokeapi_slug": null
+  },
+  "411": {
+   "national": 358,
+   "name": "CHIMECHO",
+   "pokeapi_slug": null
+  }
+ }
+}

@@ -1,8 +1,8 @@
-[submodule "pokeemerald"]
-	path = pokeemerald
+[submodule "vendor/pokeemerald"]
+	path = vendor/pokeemerald
 	url = https://github.com/pret/pokeemerald.git
-[submodule "pokefirered"]
-	path = pokefirered
+[submodule "vendor/pokefirered"]
+	path = vendor/pokefirered
 	url = https://github.com/pret/pokefirered.git
 [submodule "vendor/pokeapi-sprites"]
 	path = vendor/pokeapi-sprites

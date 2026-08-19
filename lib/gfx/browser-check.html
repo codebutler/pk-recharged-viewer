@@ -1,0 +1,123 @@
+<!doctype html>
+<!--
+  browser-check.html -- browser-side verification for the canvas paths in
+  client.js, which cannot run under Bun (no canvas, no ImageData).
+
+  Serve the repo root over HTTP and open /lib/gfx/browser-check.html. It
+  rebuilds the exact scene that lib/gfx/verify.js renders from the ROM
+  (Celadon at in-game 21:16, player and Pikachu composited, cropped to the GBA
+  viewport) but from the EXPORTED assets instead, then reports a hash of the
+  resulting pixels. The reference hash comes from the Python-verified
+  js_celadon_scene_crop.rgba dump; see verify.js.
+-->
+<meta charset="utf-8">
+<title>gfx client.js browser check</title>
+<style>
+  body { background:#111; color:#eee; font:14px/1.5 ui-monospace, monospace; padding:1rem; }
+  canvas { image-rendering: pixelated; border:1px solid #444; transform: scale(2); transform-origin: top left; margin: 0 0 10rem 0; }
+  .ok { color:#7f7; } .bad { color:#f77; }
+</style>
+<pre id="log">running...</pre>
+<div><canvas id="out"></canvas></div>
+
+<script type="module">
+import { renderScene, cropViewport, applyTint, dnsPhase } from "./client.js";
+
+const log = (msg, cls = "") =>
+  (document.getElementById("log").innerHTML += `\n<span class="${cls}">${msg}</span>`);
+
+// FNV-1a over the RGBA bytes; the Bun side hashes the reference dump the same way.
+function hash(bytes) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < bytes.length; i++) {
+    h ^= bytes[i];
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, "0");
+}
+
+const load = (src) => new Promise((res, rej) => {
+  const img = new Image();
+  img.onload = () => res(img);
+  img.onerror = () => rej(new Error("failed to load " + src));
+  img.src = src;
+});
+
+const base = "../../public/";
+const [map, player, pikachu, steelix] = await Promise.all([
+  load(base + "maps/138.png"),          // Celadon City layout
+  load(base + "overworld/player-down.png"),
+  load(base + "overworld/mon/25.png"),
+  load(base + "overworld/mon/208.png"), // Steelix: the y-sort regression case
+]);
+
+const TILE = { x: 24, y: 20 };
+const CLOCK = { hour: 21, minute: 16 };
+
+// renderScene y-sorts, so array order here only breaks ties; the follower sits
+// on the tile west of the player (same row) in the reference scene.
+const { canvas, phase, tint } = renderScene({
+  map,
+  tileX: TILE.x,
+  tileY: TILE.y,
+  clock: CLOCK,
+  mapType: 1, // Celadon City is a town: outdoor, so it tints
+  sprites: [
+    { image: player, tileX: TILE.x, tileY: TILE.y },
+    { image: pikachu, tileX: TILE.x - 1, tileY: TILE.y },
+  ],
+});
+
+const ctx = canvas.getContext("2d", { willReadFrequently: true });
+const px = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+log(`renderScene: ${canvas.width}x${canvas.height} phase=${phase} tint=${tint}`);
+log(`hash: ${hash(px)}`);
+
+// cropViewport on the raw map, for the untinted comparison.
+const plain = cropViewport(map, TILE.x, TILE.y);
+log(`cropViewport: ${plain.width}x${plain.height} hash: ` +
+    hash(plain.getContext("2d", { willReadFrequently: true }).getImageData(0, 0, plain.width, plain.height).data));
+
+// applyTint parity on a known ramp.
+const ramp = new ImageData(new Uint8ClampedArray(256 * 4), 256, 1);
+for (let i = 0; i < 256; i++) {
+  ramp.data[i * 4] = ramp.data[i * 4 + 1] = ramp.data[i * 4 + 2] = i;
+  ramp.data[i * 4 + 3] = 255;
+}
+applyTint(ramp, dnsPhase(CLOCK).tint);
+log(`applyTint ramp hash: ${hash(ramp.data)}`);
+
+// Y-SORT REGRESSION CASE. A 32px-tall follower one row SOUTH of the player
+// overlaps the player's tile (foot-anchored art reaches up), so the souther
+// character must be drawn last. Steelix has 156 order-sensitive pixels here;
+// Pikachu happens to have zero, which is why the reference scene above cannot
+// catch an ordering regression. Sprites are passed player-last on purpose --
+// only the y-sort puts them right.
+const south = renderScene({
+  map, tileX: TILE.x, tileY: TILE.y, clock: CLOCK, mapType: 1,
+  sprites: [
+    { image: steelix, tileX: TILE.x, tileY: TILE.y + 1 },
+    { image: player, tileX: TILE.x, tileY: TILE.y },
+  ],
+});
+const southPx = south.canvas.getContext("2d", { willReadFrequently: true })
+  .getImageData(0, 0, south.canvas.width, south.canvas.height).data;
+const southHash = hash(southPx);
+const SOUTH_EXPECTED = "594af4d2";   // y-sorted; wrong order hashes 7c11df46
+log(`steelix south (y-sorted): ${southHash} ` +
+    (southHash === SOUTH_EXPECTED ? "OK" : "MISMATCH — draw order regressed"),
+    southHash === SOUTH_EXPECTED ? "ok" : "bad");
+
+// show the result
+const out = document.getElementById("out");
+out.width = canvas.width;
+out.height = canvas.height;
+out.getContext("2d", { willReadFrequently: true }).drawImage(canvas, 0, 0);
+window.__result = {
+  scene: hash(px), width: canvas.width, height: canvas.height, phase,
+  crop: hash(plain.getContext("2d", { willReadFrequently: true }).getImageData(0, 0, plain.width, plain.height).data),
+  ramp: hash(ramp.data),
+  southSort: southHash, southSortOk: southHash === SOUTH_EXPECTED,
+};
+log("done", "ok");
+</script>

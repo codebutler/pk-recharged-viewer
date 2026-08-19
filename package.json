@@ -1,0 +1,14 @@
+{
+  "name": "pk-recharged-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "bun test tests",
+    "compare": "bun tests/compare-python.js",
+    "sync-data": "bun lib/parser/sync-data.js",
+    "prepare-assets": "bun tools/prepare-assets.js",
+    "extract-rom-assets": "bun tools/extract-rom-assets.js",
+    "serve": "python3 -m http.server 8000"
+  }
+}

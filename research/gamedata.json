@@ -1,0 +1,5192 @@
+{
+ "meta": {
+  "rom": "Pokemon Recharged Yellow.gba (v1.9.7, pokeemerald rebuild, BPRE header cosmetic)",
+  "extracted": "2026-08-18 by ROM scan; decode via research/structs.json charmap (Western table)",
+  "locations": {
+   "species_names": {
+    "rom_addr": "0x087703BC",
+    "stride": 11,
+    "count": 412,
+    "note": "English; French table follows at index 412, German after; do not read past 412"
+   },
+   "items": {
+    "rom_addr": "0x0890F960",
+    "stride": 48,
+    "count": 409,
+    "layout": "name[<=18] at +0 (0xFF-terminated), u16 price at +18, holdEffect +20, holdEffectParam +21, description ptr at +24, importance +28, unk +29, pocket +30, type +31, fieldUseFunc ptr +32, battleUsage u32 +36, battleUseFunc ptr +40, secondaryId u32 +44; no itemId column (vanilla Emerald's u16 itemId after name[14] is gone)",
+    "pocket_values": {
+     "3": "PokeBalls",
+     "4": "TM/HM",
+     "5": "Berries",
+     "6": "KeyItems",
+     "1": "unlabeled",
+     "2": "unlabeled"
+    },
+    "pocket_note": "pocket byte at +30, SIX pockets (vanilla Emerald has 5): 1=Items, 2=Medicine (split out of Items), 3=Poke Balls, 4=TM/HM, 5=Berries, 6=Key Items (empirical: Potion/heals are 2, flutes/shards 1, all *Ball 3, TM/HM 4, *Berry 5, Bicycle 6). A 6-pocket bag means the SaveBlock1 bag layout differs from vanilla Emerald -- likely part of the +0x8C growth."
+   },
+   "move_names": {
+    "rom_addr": "0x087738D8",
+    "stride": 13,
+    "count": 355,
+    "note": "immediately after the 3-language species tables; another language table follows; a second ALL-CAPS English move table exists at 0x0877D5E8"
+   },
+   "ability_names": {
+    "rom_addr": "0x0861D454",
+    "stride": 13,
+    "count": 78
+   },
+   "mapsec_names": {
+    "rom_addr": "0x0899A338",
+    "stride": 4,
+    "count": 213,
+    "note": "flat array of string pointers indexed by regionMapSectionId; 0x00-0x57 Hoenn (vanilla Emerald), 0x58+ Kanto/Sevii using FRLG mapsec numbering (0x58=Pallet Town exactly as FireRed); indices 66 and 87 have no name -- parser should fall back to 'MAPSEC_0x%02X' for unnamed sections"
+   },
+   "map_groups": {
+    "gMapGroups": "0x08B3F134",
+    "header_ptr_run": "0x08B3E938",
+    "groups": 44,
+    "total_headers": 511,
+    "map_header_layout": "pokeemerald struct MapHeader: +0x12 u16 mapLayoutId, +0x14 u8 regionMapSectionId, +0x17 u8 mapType",
+    "note": "FRLG-style group organization: group 1=dungeons (first Viridian Forest), group 3=Kanto overworld (first Pallet Town), groups 4-14 town interiors, groups 29-40 Sevii, groups 41-43 retained Hoenn/Frontier maps"
+   }
+  },
+  "validation": {
+   "species": {
+    "25==PIKACHU": true,
+    "151==MEW": true,
+    "29==NIDORAN♀": true,
+    "411==CHIMECHO": true,
+    "413(French)==BULBIZARRE (not included)": true
+   },
+   "items": {
+    "count": 409,
+    "4==Poké Ball": true,
+    "13==Potion": true,
+    "139==Oran Berry": true,
+    "289==TM01": true,
+    "360==Bicycle": true,
+    "prices: PokeBall==200, Potion==300": true,
+    "pocket_histogram": {
+     "1": 190,
+     "2": 41,
+     "3": 12,
+     "4": 58,
+     "5": 43,
+     "6": 65
+    },
+    "pocket_semantics": {
+     "Ball": 3,
+     "TM/HM": 4,
+     "Berry": 5,
+     "Bicycle(key)": 6
+    }
+   },
+   "moves": {
+    "count": 355,
+    "1==Pound": true,
+    "33==Tackle": true,
+    "354==Psycho Boost": true,
+    "no_expansion": true
+   },
+   "abilities": {
+    "count": 78,
+    "1==Stench": true,
+    "9==Static": true,
+    "77==Air Lock": true,
+    "no_expansion": true
+   },
+   "natures": {
+    "count": 25,
+    "source": "pokeemerald src/data/text/nature_names.h + constants/pokemon.h NATURE_* order"
+   },
+   "mapsec_names": {
+    "count_indexed": 213,
+    "0==Littleroot Town": true,
+    "0x58==Pallet Town (FRLG numbering)": true,
+    "0x62==Saffron City": true,
+    "unnamed_indices": [
+     66,
+     87
+    ]
+   },
+   "maps": {
+    "groups": 44,
+    "total_headers": 511,
+    "(3,0)==Pallet Town": true,
+    "(1,0)==Viridian Forest": true,
+    "(0,0)==Celadon Dept.": true
+   }
+  }
+ },
+ "species": {
+  "0": "??????????",
+  "1": "BULBASAUR",
+  "2": "IVYSAUR",
+  "3": "VENUSAUR",
+  "4": "CHARMANDER",
+  "5": "CHARMELEON",
+  "6": "CHARIZARD",
+  "7": "SQUIRTLE",
+  "8": "WARTORTLE",
+  "9": "BLASTOISE",
+  "10": "CATERPIE",
+  "11": "METAPOD",
+  "12": "BUTTERFREE",
+  "13": "WEEDLE",
+  "14": "KAKUNA",
+  "15": "BEEDRILL",
+  "16": "PIDGEY",
+  "17": "PIDGEOTTO",
+  "18": "PIDGEOT",
+  "19": "RATTATA",
+  "20": "RATICATE",
+  "21": "SPEAROW",
+  "22": "FEAROW",
+  "23": "EKANS",
+  "24": "ARBOK",
+  "25": "PIKACHU",
+  "26": "RAICHU",
+  "27": "SANDSHREW",
+  "28": "SANDSLASH",
+  "29": "NIDORAN♀",
+  "30": "NIDORINA",
+  "31": "NIDOQUEEN",
+  "32": "NIDORAN♂",
+  "33": "NIDORINO",
+  "34": "NIDOKING",
+  "35": "CLEFAIRY",
+  "36": "CLEFABLE",
+  "37": "VULPIX",
+  "38": "NINETALES",
+  "39": "JIGGLYPUFF",
+  "40": "WIGGLYTUFF",
+  "41": "ZUBAT",
+  "42": "GOLBAT",
+  "43": "ODDISH",
+  "44": "GLOOM",
+  "45": "VILEPLUME",
+  "46": "PARAS",
+  "47": "PARASECT",
+  "48": "VENONAT",
+  "49": "VENOMOTH",
+  "50": "DIGLETT",
+  "51": "DUGTRIO",
+  "52": "MEOWTH",
+  "53": "PERSIAN",
+  "54": "PSYDUCK",
+  "55": "GOLDUCK",
+  "56": "MANKEY",
+  "57": "PRIMEAPE",
+  "58": "GROWLITHE",
+  "59": "ARCANINE",
+  "60": "POLIWAG",
+  "61": "POLIWHIRL",
+  "62": "POLIWRATH",
+  "63": "ABRA",
+  "64": "KADABRA",
+  "65": "ALAKAZAM",
+  "66": "MACHOP",
+  "67": "MACHOKE",
+  "68": "MACHAMP",
+  "69": "BELLSPROUT",
+  "70": "WEEPINBELL",
+  "71": "VICTREEBEL",
+  "72": "TENTACOOL",
+  "73": "TENTACRUEL",
+  "74": "GEODUDE",
+  "75": "GRAVELER",
+  "76": "GOLEM",
+  "77": "PONYTA",
+  "78": "RAPIDASH",
+  "79": "SLOWPOKE",
+  "80": "SLOWBRO",
+  "81": "MAGNEMITE",
+  "82": "MAGNETON",
+  "83": "FARFETCH’D",
+  "84": "DODUO",
+  "85": "DODRIO",
+  "86": "SEEL",
+  "87": "DEWGONG",
+  "88": "GRIMER",
+  "89": "MUK",
+  "90": "SHELLDER",
+  "91": "CLOYSTER",
+  "92": "GASTLY",
+  "93": "HAUNTER",
+  "94": "GENGAR",
+  "95": "ONIX",
+  "96": "DROWZEE",
+  "97": "HYPNO",
+  "98": "KRABBY",
+  "99": "KINGLER",
+  "100": "VOLTORB",
+  "101": "ELECTRODE",
+  "102": "EXEGGCUTE",
+  "103": "EXEGGUTOR",
+  "104": "CUBONE",
+  "105": "MAROWAK",
+  "106": "HITMONLEE",
+  "107": "HITMONCHAN",
+  "108": "LICKITUNG",
+  "109": "KOFFING",
+  "110": "WEEZING",
+  "111": "RHYHORN",
+  "112": "RHYDON",
+  "113": "CHANSEY",
+  "114": "TANGELA",
+  "115": "KANGASKHAN",
+  "116": "HORSEA",
+  "117": "SEADRA",
+  "118": "GOLDEEN",
+  "119": "SEAKING",
+  "120": "STARYU",
+  "121": "STARMIE",
+  "122": "MR. MIME",
+  "123": "SCYTHER",
+  "124": "JYNX",
+  "125": "ELECTABUZZ",
+  "126": "MAGMAR",
+  "127": "PINSIR",
+  "128": "TAUROS",
+  "129": "MAGIKARP",
+  "130": "GYARADOS",
+  "131": "LAPRAS",
+  "132": "DITTO",
+  "133": "EEVEE",
+  "134": "VAPOREON",
+  "135": "JOLTEON",
+  "136": "FLAREON",
+  "137": "PORYGON",
+  "138": "OMANYTE",
+  "139": "OMASTAR",
+  "140": "KABUTO",
+  "141": "KABUTOPS",
+  "142": "AERODACTYL",
+  "143": "SNORLAX",
+  "144": "ARTICUNO",
+  "145": "ZAPDOS",
+  "146": "MOLTRES",
+  "147": "DRATINI",
+  "148": "DRAGONAIR",
+  "149": "DRAGONITE",
+  "150": "MEWTWO",
+  "151": "MEW",
+  "152": "CHIKORITA",
+  "153": "BAYLEEF",
+  "154": "MEGANIUM",
+  "155": "CYNDAQUIL",
+  "156": "QUILAVA",
+  "157": "TYPHLOSION",
+  "158": "TOTODILE",
+  "159": "CROCONAW",
+  "160": "FERALIGATR",
+  "161": "SENTRET",
+  "162": "FURRET",
+  "163": "HOOTHOOT",
+  "164": "NOCTOWL",
+  "165": "LEDYBA",
+  "166": "LEDIAN",
+  "167": "SPINARAK",
+  "168": "ARIADOS",
+  "169": "CROBAT",
+  "170": "CHINCHOU",
+  "171": "LANTURN",
+  "172": "PICHU",
+  "173": "CLEFFA",
+  "174": "IGGLYBUFF",
+  "175": "TOGEPI",
+  "176": "TOGETIC",
+  "177": "NATU",
+  "178": "XATU",
+  "179": "MAREEP",
+  "180": "FLAAFFY",
+  "181": "AMPHAROS",
+  "182": "BELLOSSOM",
+  "183": "MARILL",
+  "184": "AZUMARILL",
+  "185": "SUDOWOODO",
+  "186": "POLITOED",
+  "187": "HOPPIP",
+  "188": "SKIPLOOM",
+  "189": "JUMPLUFF",
+  "190": "AIPOM",
+  "191": "SUNKERN",
+  "192": "SUNFLORA",
+  "193": "YANMA",
+  "194": "WOOPER",
+  "195": "QUAGSIRE",
+  "196": "ESPEON",
+  "197": "UMBREON",
+  "198": "MURKROW",
+  "199": "SLOWKING",
+  "200": "MISDREAVUS",
+  "201": "UNOWN",
+  "202": "WOBBUFFET",
+  "203": "GIRAFARIG",
+  "204": "PINECO",
+  "205": "FORRETRESS",
+  "206": "DUNSPARCE",
+  "207": "GLIGAR",
+  "208": "STEELIX",
+  "209": "SNUBBULL",
+  "210": "GRANBULL",
+  "211": "QWILFISH",
+  "212": "SCIZOR",
+  "213": "SHUCKLE",
+  "214": "HERACROSS",
+  "215": "SNEASEL",
+  "216": "TEDDIURSA",
+  "217": "URSARING",
+  "218": "SLUGMA",
+  "219": "MAGCARGO",
+  "220": "SWINUB",
+  "221": "PILOSWINE",
+  "222": "CORSOLA",
+  "223": "REMORAID",
+  "224": "OCTILLERY",
+  "225": "DELIBIRD",
+  "226": "MANTINE",
+  "227": "SKARMORY",
+  "228": "HOUNDOUR",
+  "229": "HOUNDOOM",
+  "230": "KINGDRA",
+  "231": "PHANPY",
+  "232": "DONPHAN",
+  "233": "PORYGON2",
+  "234": "STANTLER",
+  "235": "SMEARGLE",
+  "236": "TYROGUE",
+  "237": "HITMONTOP",
+  "238": "SMOOCHUM",
+  "239": "ELEKID",
+  "240": "MAGBY",
+  "241": "MILTANK",
+  "242": "BLISSEY",
+  "243": "RAIKOU",
+  "244": "ENTEI",
+  "245": "SUICUNE",
+  "246": "LARVITAR",
+  "247": "PUPITAR",
+  "248": "TYRANITAR",
+  "249": "LUGIA",
+  "250": "HO-OH",
+  "251": "CELEBI",
+  "252": "?",
+  "253": "?",
+  "254": "?",
+  "255": "?",
+  "256": "?",
+  "257": "?",
+  "258": "?",
+  "259": "?",
+  "260": "?",
+  "261": "?",
+  "262": "?",
+  "263": "?",
+  "264": "?",
+  "265": "?",
+  "266": "?",
+  "267": "?",
+  "268": "?",
+  "269": "?",
+  "270": "?",
+  "271": "?",
+  "272": "?",
+  "273": "?",
+  "274": "?",
+  "275": "?",
+  "276": "?",
+  "277": "TREECKO",
+  "278": "GROVYLE",
+  "279": "SCEPTILE",
+  "280": "TORCHIC",
+  "281": "COMBUSKEN",
+  "282": "BLAZIKEN",
+  "283": "MUDKIP",
+  "284": "MARSHTOMP",
+  "285": "SWAMPERT",
+  "286": "POOCHYENA",
+  "287": "MIGHTYENA",
+  "288": "ZIGZAGOON",
+  "289": "LINOONE",
+  "290": "WURMPLE",
+  "291": "SILCOON",
+  "292": "BEAUTIFLY",
+  "293": "CASCOON",
+  "294": "DUSTOX",
+  "295": "LOTAD",
+  "296": "LOMBRE",
+  "297": "LUDICOLO",
+  "298": "SEEDOT",
+  "299": "NUZLEAF",
+  "300": "SHIFTRY",
+  "301": "NINCADA",
+  "302": "NINJASK",
+  "303": "SHEDINJA",
+  "304": "TAILLOW",
+  "305": "SWELLOW",
+  "306": "SHROOMISH",
+  "307": "BRELOOM",
+  "308": "SPINDA",
+  "309": "WINGULL",
+  "310": "PELIPPER",
+  "311": "SURSKIT",
+  "312": "MASQUERAIN",
+  "313": "WAILMER",
+  "314": "WAILORD",
+  "315": "SKITTY",
+  "316": "DELCATTY",
+  "317": "KECLEON",
+  "318": "BALTOY",
+  "319": "CLAYDOL",
+  "320": "NOSEPASS",
+  "321": "TORKOAL",
+  "322": "SABLEYE",
+  "323": "BARBOACH",
+  "324": "WHISCASH",
+  "325": "LUVDISC",
+  "326": "CORPHISH",
+  "327": "CRAWDAUNT",
+  "328": "FEEBAS",
+  "329": "MILOTIC",
+  "330": "CARVANHA",
+  "331": "SHARPEDO",
+  "332": "TRAPINCH",
+  "333": "VIBRAVA",
+  "334": "FLYGON",
+  "335": "MAKUHITA",
+  "336": "HARIYAMA",
+  "337": "ELECTRIKE",
+  "338": "MANECTRIC",
+  "339": "NUMEL",
+  "340": "CAMERUPT",
+  "341": "SPHEAL",
+  "342": "SEALEO",
+  "343": "WALREIN",
+  "344": "CACNEA",
+  "345": "CACTURNE",
+  "346": "SNORUNT",
+  "347": "GLALIE",
+  "348": "LUNATONE",
+  "349": "SOLROCK",
+  "350": "AZURILL",
+  "351": "SPOINK",
+  "352": "GRUMPIG",
+  "353": "PLUSLE",
+  "354": "MINUN",
+  "355": "MAWILE",
+  "356": "MEDITITE",
+  "357": "MEDICHAM",
+  "358": "SWABLU",
+  "359": "ALTARIA",
+  "360": "WYNAUT",
+  "361": "DUSKULL",
+  "362": "DUSCLOPS",
+  "363": "ROSELIA",
+  "364": "SLAKOTH",
+  "365": "VIGOROTH",
+  "366": "SLAKING",
+  "367": "GULPIN",
+  "368": "SWALOT",
+  "369": "TROPIUS",
+  "370": "WHISMUR",
+  "371": "LOUDRED",
+  "372": "EXPLOUD",
+  "373": "CLAMPERL",
+  "374": "HUNTAIL",
+  "375": "GOREBYSS",
+  "376": "ABSOL",
+  "377": "SHUPPET",
+  "378": "BANETTE",
+  "379": "SEVIPER",
+  "380": "ZANGOOSE",
+  "381": "RELICANTH",
+  "382": "ARON",
+  "383": "LAIRON",
+  "384": "AGGRON",
+  "385": "CASTFORM",
+  "386": "VOLBEAT",
+  "387": "ILLUMISE",
+  "388": "LILEEP",
+  "389": "CRADILY",
+  "390": "ANORITH",
+  "391": "ARMALDO",
+  "392": "RALTS",
+  "393": "KIRLIA",
+  "394": "GARDEVOIR",
+  "395": "BAGON",
+  "396": "SHELGON",
+  "397": "SALAMENCE",
+  "398": "BELDUM",
+  "399": "METANG",
+  "400": "METAGROSS",
+  "401": "REGIROCK",
+  "402": "REGICE",
+  "403": "REGISTEEL",
+  "404": "KYOGRE",
+  "405": "GROUDON",
+  "406": "RAYQUAZA",
+  "407": "LATIAS",
+  "408": "LATIOS",
+  "409": "JIRACHI",
+  "410": "DEOXYS",
+  "411": "CHIMECHO"
+ },
+ "items": {
+  "0": "????????",
+  "1": "Master Ball",
+  "2": "Ultra Ball",
+  "3": "Great Ball",
+  "4": "Poké Ball",
+  "5": "Safari Ball",
+  "6": "Net Ball",
+  "7": "Dive Ball",
+  "8": "Nest Ball",
+  "9": "Repeat Ball",
+  "10": "Timer Ball",
+  "11": "Luxury Ball",
+  "12": "Premier Ball",
+  "13": "Potion",
+  "14": "Antidote",
+  "15": "Burn Heal",
+  "16": "Ice Heal",
+  "17": "Awakening",
+  "18": "Parlyz Heal",
+  "19": "Full Restore",
+  "20": "Max Potion",
+  "21": "Hyper Potion",
+  "22": "Super Potion",
+  "23": "Full Heal",
+  "24": "Revive",
+  "25": "Max Revive",
+  "26": "Fresh Water",
+  "27": "Soda Pop",
+  "28": "Lemonade",
+  "29": "Moomoo Milk",
+  "30": "EnergyPowder",
+  "31": "Energy Root",
+  "32": "Heal Powder",
+  "33": "Revival Herb",
+  "34": "Ether",
+  "35": "Max Ether",
+  "36": "Elixir",
+  "37": "Max Elixir",
+  "38": "Lava Cookie",
+  "39": "Blue Flute",
+  "40": "Yellow Flute",
+  "41": "Red Flute",
+  "42": "Black Flute",
+  "43": "White Flute",
+  "44": "Berry Juice",
+  "45": "Sacred Ash",
+  "46": "Shoal Salt",
+  "47": "Shoal Shell",
+  "48": "Red Shard",
+  "49": "Blue Shard",
+  "50": "Yellow Shard",
+  "51": "Green Shard",
+  "52": "Lure",
+  "53": "Super Lure",
+  "54": "Max Lure",
+  "55": "????????",
+  "56": "????????",
+  "57": "????????",
+  "58": "????????",
+  "59": "????????",
+  "60": "????????",
+  "61": "Linking Cord",
+  "62": "Pewter Arare",
+  "63": "HP Up",
+  "64": "Protein",
+  "65": "Iron",
+  "66": "Carbos",
+  "67": "Calcium",
+  "68": "Rare Candy",
+  "69": "PP Up",
+  "70": "Zinc",
+  "71": "PP Max",
+  "72": "????????",
+  "73": "Guard Spec.",
+  "74": "Dire Hit",
+  "75": "X Attack",
+  "76": "X Defend",
+  "77": "X Speed",
+  "78": "X Accuracy",
+  "79": "X Special",
+  "80": "Poké Doll",
+  "81": "Fluffy Tail",
+  "82": "????????",
+  "83": "Super Repel",
+  "84": "Max Repel",
+  "85": "Escape Rope",
+  "86": "Repel",
+  "87": "????????",
+  "88": "????????",
+  "89": "????????",
+  "90": "????????",
+  "91": "????????",
+  "92": "????????",
+  "93": "Sun Stone",
+  "94": "Moon Stone",
+  "95": "Fire Stone",
+  "96": "Thunderstone",
+  "97": "Water Stone",
+  "98": "Leaf Stone",
+  "99": "????????",
+  "100": "????????",
+  "101": "????????",
+  "102": "????????",
+  "103": "TinyMushroom",
+  "104": "Big Mushroom",
+  "105": "????????",
+  "106": "Pearl",
+  "107": "Big Pearl",
+  "108": "Stardust",
+  "109": "Star Piece",
+  "110": "Nugget",
+  "111": "Heart Scale",
+  "112": "????????",
+  "113": "????????",
+  "114": "????????",
+  "115": "????????",
+  "116": "????????",
+  "117": "????????",
+  "118": "????????",
+  "119": "????????",
+  "120": "????????",
+  "121": "Orange Mail",
+  "122": "Harbor Mail",
+  "123": "Glitter Mail",
+  "124": "Mech Mail",
+  "125": "Wood Mail",
+  "126": "Wave Mail",
+  "127": "Bead Mail",
+  "128": "Shadow Mail",
+  "129": "Tropic Mail",
+  "130": "Dream Mail",
+  "131": "Fab Mail",
+  "132": "Retro Mail",
+  "133": "Cheri Berry",
+  "134": "Chesto Berry",
+  "135": "Pecha Berry",
+  "136": "Rawst Berry",
+  "137": "Aspear Berry",
+  "138": "Leppa Berry",
+  "139": "Oran Berry",
+  "140": "Persim Berry",
+  "141": "Lum Berry",
+  "142": "Sitrus Berry",
+  "143": "Figy Berry",
+  "144": "Wiki Berry",
+  "145": "Mago Berry",
+  "146": "Aguav Berry",
+  "147": "Iapapa Berry",
+  "148": "Razz Berry",
+  "149": "Bluk Berry",
+  "150": "Nanab Berry",
+  "151": "Wepear Berry",
+  "152": "Pinap Berry",
+  "153": "Pomeg Berry",
+  "154": "Kelpsy Berry",
+  "155": "Qualot Berry",
+  "156": "Hondew Berry",
+  "157": "Grepa Berry",
+  "158": "Tamato Berry",
+  "159": "Cornn Berry",
+  "160": "Magost Berry",
+  "161": "Rabuta Berry",
+  "162": "Nomel Berry",
+  "163": "Spelon Berry",
+  "164": "Pamtre Berry",
+  "165": "Watmel Berry",
+  "166": "Durin Berry",
+  "167": "Belue Berry",
+  "168": "Liechi Berry",
+  "169": "Ganlon Berry",
+  "170": "Salac Berry",
+  "171": "Petaya Berry",
+  "172": "Apicot Berry",
+  "173": "Lansat Berry",
+  "174": "Starf Berry",
+  "175": "Enigma Berry",
+  "176": "????????",
+  "177": "????????",
+  "178": "????????",
+  "179": "Brightpowder",
+  "180": "White Herb",
+  "181": "Macho Brace",
+  "182": "Exp. Share",
+  "183": "Quick Claw",
+  "184": "Soothe Bell",
+  "185": "Mental Herb",
+  "186": "Choice Band",
+  "187": "King’s Rock",
+  "188": "SilverPowder",
+  "189": "Amulet Coin",
+  "190": "Cleanse Tag",
+  "191": "Soul Dew",
+  "192": "DeepSeaTooth",
+  "193": "DeepSeaScale",
+  "194": "Smoke Ball",
+  "195": "Everstone",
+  "196": "Focus Band",
+  "197": "Lucky Egg",
+  "198": "Scope Lens",
+  "199": "Metal Coat",
+  "200": "Leftovers",
+  "201": "Dragon Scale",
+  "202": "Light Ball",
+  "203": "Soft Sand",
+  "204": "Hard Stone",
+  "205": "Miracle Seed",
+  "206": "BlackGlasses",
+  "207": "Black Belt",
+  "208": "Magnet",
+  "209": "Mystic Water",
+  "210": "Sharp Beak",
+  "211": "Poison Barb",
+  "212": "NeverMeltIce",
+  "213": "Spell Tag",
+  "214": "TwistedSpoon",
+  "215": "Charcoal",
+  "216": "Dragon Fang",
+  "217": "Silk Scarf",
+  "218": "Up-Grade",
+  "219": "Shell Bell",
+  "220": "Sea Incense",
+  "221": "Lax Incense",
+  "222": "Lucky Punch",
+  "223": "Metal Powder",
+  "224": "Thick Club",
+  "225": "Stick",
+  "226": "Shiny Charm",
+  "227": "Autograph",
+  "228": "????????",
+  "229": "????????",
+  "230": "????????",
+  "231": "????????",
+  "232": "????????",
+  "233": "????????",
+  "234": "????????",
+  "235": "????????",
+  "236": "????????",
+  "237": "????????",
+  "238": "????????",
+  "239": "????????",
+  "240": "????????",
+  "241": "????????",
+  "242": "????????",
+  "243": "????????",
+  "244": "????????",
+  "245": "????????",
+  "246": "????????",
+  "247": "????????",
+  "248": "????????",
+  "249": "????????",
+  "250": "????????",
+  "251": "????????",
+  "252": "????????",
+  "253": "????????",
+  "254": "Red Scarf",
+  "255": "Blue Scarf",
+  "256": "Pink Scarf",
+  "257": "Green Scarf",
+  "258": "Yellow Scarf",
+  "259": "Bicycle",
+  "260": "Coin Case",
+  "261": "Itemfinder",
+  "262": "Old Rod",
+  "263": "Good Rod",
+  "264": "Super Rod",
+  "265": "S.S. Ticket",
+  "266": "Contest Pass",
+  "267": "????????",
+  "268": "Watering Can",
+  "269": "Devon Goods",
+  "270": "Soot Sack",
+  "271": "Basement Key",
+  "272": "Acro Bike",
+  "273": "Pokéblock Case",
+  "274": "Letter",
+  "275": "Eon Ticket",
+  "276": "Red Orb",
+  "277": "Blue Orb",
+  "278": "Scanner",
+  "279": "Go-Goggles",
+  "280": "Meteorite",
+  "281": "Rm. 1 Key",
+  "282": "Rm. 2 Key",
+  "283": "Rm. 4 Key",
+  "284": "Rm. 6 Key",
+  "285": "Storage Key",
+  "286": "Root Fossil",
+  "287": "Claw Fossil",
+  "288": "Devon Scope",
+  "289": "TM01",
+  "290": "TM02",
+  "291": "TM03",
+  "292": "TM04",
+  "293": "TM05",
+  "294": "TM06",
+  "295": "TM07",
+  "296": "TM08",
+  "297": "TM09",
+  "298": "TM10",
+  "299": "TM11",
+  "300": "TM12",
+  "301": "TM13",
+  "302": "TM14",
+  "303": "TM15",
+  "304": "TM16",
+  "305": "TM17",
+  "306": "TM18",
+  "307": "TM19",
+  "308": "TM20",
+  "309": "TM21",
+  "310": "TM22",
+  "311": "TM23",
+  "312": "TM24",
+  "313": "TM25",
+  "314": "TM26",
+  "315": "TM27",
+  "316": "TM28",
+  "317": "TM29",
+  "318": "TM30",
+  "319": "TM31",
+  "320": "TM32",
+  "321": "TM33",
+  "322": "TM34",
+  "323": "TM35",
+  "324": "TM36",
+  "325": "TM37",
+  "326": "TM38",
+  "327": "TM39",
+  "328": "TM40",
+  "329": "TM41",
+  "330": "TM42",
+  "331": "TM43",
+  "332": "TM44",
+  "333": "TM45",
+  "334": "TM46",
+  "335": "TM47",
+  "336": "TM48",
+  "337": "TM49",
+  "338": "TM50",
+  "339": "HM01",
+  "340": "HM02",
+  "341": "HM03",
+  "342": "HM04",
+  "343": "HM05",
+  "344": "HM06",
+  "345": "HM07",
+  "346": "HM08",
+  "347": "????????",
+  "348": "Exp. Share",
+  "349": "Oak’s Parcel",
+  "350": "Poké Flute",
+  "351": "Secret Key",
+  "352": "Bike Voucher",
+  "353": "Gold Teeth",
+  "354": "Old Amber",
+  "355": "Card Key",
+  "356": "Lift Key",
+  "357": "Helix Fossil",
+  "358": "Dome Fossil",
+  "359": "Silph Scope",
+  "360": "Bicycle",
+  "361": "Town Map",
+  "362": "VS Seeker",
+  "363": "Fame Checker",
+  "364": "TM Case",
+  "365": "Berry Pouch",
+  "366": "Teachy TV",
+  "367": "Tri-Pass",
+  "368": "Rainbow Pass",
+  "369": "Tea",
+  "370": "MysticTicket",
+  "371": "AuroraTicket",
+  "372": "Powder Jar",
+  "373": "Ruby",
+  "374": "Sapphire",
+  "375": "Magma Emblem",
+  "376": "Old Sea Map",
+  "377": "Lonely Mint",
+  "378": "Adamant Mint",
+  "379": "Naughty Mint",
+  "380": "Brave Mint",
+  "381": "Bold Mint",
+  "382": "Impish Mint",
+  "383": "Lax Mint",
+  "384": "Relaxed Mint",
+  "385": "Modest Mint",
+  "386": "Mild Mint",
+  "387": "Rash Mint",
+  "388": "Quiet Mint",
+  "389": "Calm Mint",
+  "390": "Gentle Mint",
+  "391": "Careful Mint",
+  "392": "Sassy Mint",
+  "393": "Timid Mint",
+  "394": "Hasty Mint",
+  "395": "Jolly Mint",
+  "396": "Naive Mint",
+  "397": "Serious Mint",
+  "398": "Bottle Cap",
+  "399": "Gold B. Cap",
+  "400": "Appeal Sensor",
+  "401": "Helix Fossil",
+  "402": "Dome Fossil",
+  "403": "Old Amber",
+  "404": "Root Fossil",
+  "405": "Claw Fossil",
+  "406": "Power Items",
+  "407": "DexNav",
+  "408": "Blueprints"
+ },
+ "item_pockets": {
+  "0": 1,
+  "1": 3,
+  "2": 3,
+  "3": 3,
+  "4": 3,
+  "5": 3,
+  "6": 3,
+  "7": 3,
+  "8": 3,
+  "9": 3,
+  "10": 3,
+  "11": 3,
+  "12": 3,
+  "13": 2,
+  "14": 2,
+  "15": 2,
+  "16": 2,
+  "17": 2,
+  "18": 2,
+  "19": 2,
+  "20": 2,
+  "21": 2,
+  "22": 2,
+  "23": 2,
+  "24": 2,
+  "25": 2,
+  "26": 2,
+  "27": 2,
+  "28": 2,
+  "29": 2,
+  "30": 2,
+  "31": 2,
+  "32": 2,
+  "33": 2,
+  "34": 2,
+  "35": 2,
+  "36": 2,
+  "37": 2,
+  "38": 2,
+  "39": 2,
+  "40": 2,
+  "41": 2,
+  "42": 1,
+  "43": 1,
+  "44": 2,
+  "45": 2,
+  "46": 1,
+  "47": 1,
+  "48": 1,
+  "49": 1,
+  "50": 1,
+  "51": 1,
+  "52": 1,
+  "53": 1,
+  "54": 1,
+  "55": 1,
+  "56": 1,
+  "57": 1,
+  "58": 1,
+  "59": 1,
+  "60": 1,
+  "61": 6,
+  "62": 2,
+  "63": 2,
+  "64": 2,
+  "65": 2,
+  "66": 2,
+  "67": 2,
+  "68": 2,
+  "69": 2,
+  "70": 2,
+  "71": 2,
+  "72": 1,
+  "73": 1,
+  "74": 1,
+  "75": 1,
+  "76": 1,
+  "77": 1,
+  "78": 1,
+  "79": 1,
+  "80": 1,
+  "81": 1,
+  "82": 1,
+  "83": 1,
+  "84": 1,
+  "85": 1,
+  "86": 1,
+  "87": 1,
+  "88": 1,
+  "89": 1,
+  "90": 1,
+  "91": 1,
+  "92": 1,
+  "93": 1,
+  "94": 1,
+  "95": 1,
+  "96": 1,
+  "97": 1,
+  "98": 1,
+  "99": 1,
+  "100": 1,
+  "101": 1,
+  "102": 1,
+  "103": 1,
+  "104": 1,
+  "105": 1,
+  "106": 1,
+  "107": 1,
+  "108": 1,
+  "109": 1,
+  "110": 1,
+  "111": 1,
+  "112": 1,
+  "113": 1,
+  "114": 1,
+  "115": 1,
+  "116": 1,
+  "117": 1,
+  "118": 1,
+  "119": 1,
+  "120": 1,
+  "121": 1,
+  "122": 1,
+  "123": 1,
+  "124": 1,
+  "125": 1,
+  "126": 1,
+  "127": 1,
+  "128": 1,
+  "129": 1,
+  "130": 1,
+  "131": 1,
+  "132": 1,
+  "133": 5,
+  "134": 5,
+  "135": 5,
+  "136": 5,
+  "137": 5,
+  "138": 5,
+  "139": 5,
+  "140": 5,
+  "141": 5,
+  "142": 5,
+  "143": 5,
+  "144": 5,
+  "145": 5,
+  "146": 5,
+  "147": 5,
+  "148": 5,
+  "149": 5,
+  "150": 5,
+  "151": 5,
+  "152": 5,
+  "153": 5,
+  "154": 5,
+  "155": 5,
+  "156": 5,
+  "157": 5,
+  "158": 5,
+  "159": 5,
+  "160": 5,
+  "161": 5,
+  "162": 5,
+  "163": 5,
+  "164": 5,
+  "165": 5,
+  "166": 5,
+  "167": 5,
+  "168": 5,
+  "169": 5,
+  "170": 5,
+  "171": 5,
+  "172": 5,
+  "173": 5,
+  "174": 5,
+  "175": 5,
+  "176": 1,
+  "177": 1,
+  "178": 1,
+  "179": 1,
+  "180": 1,
+  "181": 1,
+  "182": 1,
+  "183": 1,
+  "184": 1,
+  "185": 1,
+  "186": 1,
+  "187": 1,
+  "188": 1,
+  "189": 1,
+  "190": 1,
+  "191": 1,
+  "192": 1,
+  "193": 1,
+  "194": 1,
+  "195": 1,
+  "196": 1,
+  "197": 1,
+  "198": 1,
+  "199": 1,
+  "200": 1,
+  "201": 1,
+  "202": 1,
+  "203": 1,
+  "204": 1,
+  "205": 1,
+  "206": 1,
+  "207": 1,
+  "208": 1,
+  "209": 1,
+  "210": 1,
+  "211": 1,
+  "212": 1,
+  "213": 1,
+  "214": 1,
+  "215": 1,
+  "216": 1,
+  "217": 1,
+  "218": 1,
+  "219": 1,
+  "220": 1,
+  "221": 1,
+  "222": 1,
+  "223": 1,
+  "224": 1,
+  "225": 1,
+  "226": 6,
+  "227": 6,
+  "228": 1,
+  "229": 1,
+  "230": 1,
+  "231": 1,
+  "232": 1,
+  "233": 1,
+  "234": 1,
+  "235": 1,
+  "236": 1,
+  "237": 1,
+  "238": 1,
+  "239": 1,
+  "240": 1,
+  "241": 1,
+  "242": 1,
+  "243": 1,
+  "244": 1,
+  "245": 1,
+  "246": 1,
+  "247": 1,
+  "248": 1,
+  "249": 1,
+  "250": 1,
+  "251": 1,
+  "252": 1,
+  "253": 1,
+  "254": 1,
+  "255": 1,
+  "256": 1,
+  "257": 1,
+  "258": 1,
+  "259": 6,
+  "260": 6,
+  "261": 6,
+  "262": 6,
+  "263": 6,
+  "264": 6,
+  "265": 6,
+  "266": 6,
+  "267": 1,
+  "268": 6,
+  "269": 6,
+  "270": 6,
+  "271": 6,
+  "272": 6,
+  "273": 6,
+  "274": 6,
+  "275": 6,
+  "276": 6,
+  "277": 6,
+  "278": 6,
+  "279": 6,
+  "280": 6,
+  "281": 6,
+  "282": 6,
+  "283": 6,
+  "284": 6,
+  "285": 6,
+  "286": 6,
+  "287": 6,
+  "288": 6,
+  "289": 4,
+  "290": 4,
+  "291": 4,
+  "292": 4,
+  "293": 4,
+  "294": 4,
+  "295": 4,
+  "296": 4,
+  "297": 4,
+  "298": 4,
+  "299": 4,
+  "300": 4,
+  "301": 4,
+  "302": 4,
+  "303": 4,
+  "304": 4,
+  "305": 4,
+  "306": 4,
+  "307": 4,
+  "308": 4,
+  "309": 4,
+  "310": 4,
+  "311": 4,
+  "312": 4,
+  "313": 4,
+  "314": 4,
+  "315": 4,
+  "316": 4,
+  "317": 4,
+  "318": 4,
+  "319": 4,
+  "320": 4,
+  "321": 4,
+  "322": 4,
+  "323": 4,
+  "324": 4,
+  "325": 4,
+  "326": 4,
+  "327": 4,
+  "328": 4,
+  "329": 4,
+  "330": 4,
+  "331": 4,
+  "332": 4,
+  "333": 4,
+  "334": 4,
+  "335": 4,
+  "336": 4,
+  "337": 4,
+  "338": 4,
+  "339": 4,
+  "340": 4,
+  "341": 4,
+  "342": 4,
+  "343": 4,
+  "344": 4,
+  "345": 4,
+  "346": 4,
+  "347": 1,
+  "348": 6,
+  "349": 6,
+  "350": 6,
+  "351": 6,
+  "352": 6,
+  "353": 6,
+  "354": 6,
+  "355": 6,
+  "356": 6,
+  "357": 6,
+  "358": 6,
+  "359": 6,
+  "360": 6,
+  "361": 6,
+  "362": 6,
+  "363": 6,
+  "364": 6,
+  "365": 6,
+  "366": 6,
+  "367": 6,
+  "368": 6,
+  "369": 6,
+  "370": 6,
+  "371": 6,
+  "372": 6,
+  "373": 6,
+  "374": 6,
+  "375": 6,
+  "376": 6,
+  "377": 1,
+  "378": 1,
+  "379": 1,
+  "380": 1,
+  "381": 1,
+  "382": 1,
+  "383": 1,
+  "384": 1,
+  "385": 1,
+  "386": 1,
+  "387": 1,
+  "388": 1,
+  "389": 1,
+  "390": 1,
+  "391": 1,
+  "392": 1,
+  "393": 1,
+  "394": 1,
+  "395": 1,
+  "396": 1,
+  "397": 1,
+  "398": 1,
+  "399": 1,
+  "400": 6,
+  "401": 1,
+  "402": 1,
+  "403": 1,
+  "404": 1,
+  "405": 1,
+  "406": 6,
+  "407": 6,
+  "408": 6
+ },
+ "moves": {
+  "0": "-",
+  "1": "Pound",
+  "2": "Karate Chop",
+  "3": "DoubleSlap",
+  "4": "Comet Punch",
+  "5": "Mega Punch",
+  "6": "Pay Day",
+  "7": "Fire Punch",
+  "8": "Ice Punch",
+  "9": "ThunderPunch",
+  "10": "Scratch",
+  "11": "ViceGrip",
+  "12": "Guillotine",
+  "13": "Razor Wind",
+  "14": "Swords Dance",
+  "15": "Cut",
+  "16": "Gust",
+  "17": "Wing Attack",
+  "18": "Whirlwind",
+  "19": "Fly",
+  "20": "Bind",
+  "21": "Slam",
+  "22": "Vine Whip",
+  "23": "Stomp",
+  "24": "Double Kick",
+  "25": "Mega Kick",
+  "26": "Jump Kick",
+  "27": "Rolling Kick",
+  "28": "Sand-Attack",
+  "29": "Headbutt",
+  "30": "Horn Attack",
+  "31": "Fury Attack",
+  "32": "Horn Drill",
+  "33": "Tackle",
+  "34": "Body Slam",
+  "35": "Wrap",
+  "36": "Take Down",
+  "37": "Thrash",
+  "38": "Double-Edge",
+  "39": "Tail Whip",
+  "40": "Poison Sting",
+  "41": "Twineedle",
+  "42": "Pin Missile",
+  "43": "Leer",
+  "44": "Bite",
+  "45": "Growl",
+  "46": "Roar",
+  "47": "Sing",
+  "48": "Supersonic",
+  "49": "SonicBoom",
+  "50": "Disable",
+  "51": "Acid",
+  "52": "Ember",
+  "53": "Flamethrower",
+  "54": "Mist",
+  "55": "Water Gun",
+  "56": "Hydro Pump",
+  "57": "Surf",
+  "58": "Ice Beam",
+  "59": "Blizzard",
+  "60": "Psybeam",
+  "61": "BubbleBeam",
+  "62": "Aurora Beam",
+  "63": "Hyper Beam",
+  "64": "Peck",
+  "65": "Drill Peck",
+  "66": "Submission",
+  "67": "Low Kick",
+  "68": "Counter",
+  "69": "Seismic Toss",
+  "70": "Strength",
+  "71": "Absorb",
+  "72": "Mega Drain",
+  "73": "Leech Seed",
+  "74": "Growth",
+  "75": "Razor Leaf",
+  "76": "SolarBeam",
+  "77": "PoisonPowder",
+  "78": "Stun Spore",
+  "79": "Sleep Powder",
+  "80": "Petal Dance",
+  "81": "String Shot",
+  "82": "Dragon Rage",
+  "83": "Fire Spin",
+  "84": "ThunderShock",
+  "85": "Thunderbolt",
+  "86": "Thunder Wave",
+  "87": "Thunder",
+  "88": "Rock Throw",
+  "89": "Earthquake",
+  "90": "Fissure",
+  "91": "Dig",
+  "92": "Toxic",
+  "93": "Confusion",
+  "94": "Psychic",
+  "95": "Hypnosis",
+  "96": "Meditate",
+  "97": "Agility",
+  "98": "Quick Attack",
+  "99": "Rage",
+  "100": "Teleport",
+  "101": "Night Shade",
+  "102": "Mimic",
+  "103": "Screech",
+  "104": "Double Team",
+  "105": "Recover",
+  "106": "Harden",
+  "107": "Minimize",
+  "108": "SmokeScreen",
+  "109": "Confuse Ray",
+  "110": "Withdraw",
+  "111": "Defense Curl",
+  "112": "Barrier",
+  "113": "Light Screen",
+  "114": "Haze",
+  "115": "Reflect",
+  "116": "Focus Energy",
+  "117": "Bide",
+  "118": "Metronome",
+  "119": "Mirror Move",
+  "120": "Selfdestruct",
+  "121": "Egg Bomb",
+  "122": "Lick",
+  "123": "Smog",
+  "124": "Sludge",
+  "125": "Bone Club",
+  "126": "Fire Blast",
+  "127": "Waterfall",
+  "128": "Clamp",
+  "129": "Swift",
+  "130": "Skull Bash",
+  "131": "Spike Cannon",
+  "132": "Constrict",
+  "133": "Amnesia",
+  "134": "Kinesis",
+  "135": "Softboiled",
+  "136": "Hi Jump Kick",
+  "137": "Glare",
+  "138": "Dream Eater",
+  "139": "Poison Gas",
+  "140": "Barrage",
+  "141": "Leech Life",
+  "142": "Lovely Kiss",
+  "143": "Sky Attack",
+  "144": "Transform",
+  "145": "Bubble",
+  "146": "Dizzy Punch",
+  "147": "Spore",
+  "148": "Flash",
+  "149": "Psywave",
+  "150": "Splash",
+  "151": "Acid Armor",
+  "152": "Crabhammer",
+  "153": "Explosion",
+  "154": "Fury Swipes",
+  "155": "Bonemerang",
+  "156": "Rest",
+  "157": "Rock Slide",
+  "158": "Hyper Fang",
+  "159": "Sharpen",
+  "160": "Conversion",
+  "161": "Tri Attack",
+  "162": "Super Fang",
+  "163": "Slash",
+  "164": "Substitute",
+  "165": "Struggle",
+  "166": "Sketch",
+  "167": "Triple Kick",
+  "168": "Thief",
+  "169": "Spider Web",
+  "170": "Mind Reader",
+  "171": "Nightmare",
+  "172": "Flame Wheel",
+  "173": "Snore",
+  "174": "Curse",
+  "175": "Flail",
+  "176": "Conversion 2",
+  "177": "Aeroblast",
+  "178": "Cotton Spore",
+  "179": "Reversal",
+  "180": "Spite",
+  "181": "Powder Snow",
+  "182": "Protect",
+  "183": "Mach Punch",
+  "184": "Scary Face",
+  "185": "Faint Attack",
+  "186": "Sweet Kiss",
+  "187": "Belly Drum",
+  "188": "Sludge Bomb",
+  "189": "Mud-Slap",
+  "190": "Octazooka",
+  "191": "Spikes",
+  "192": "Zap Cannon",
+  "193": "Foresight",
+  "194": "Destiny Bond",
+  "195": "Perish Song",
+  "196": "Icy Wind",
+  "197": "Detect",
+  "198": "Bone Rush",
+  "199": "Lock-On",
+  "200": "Outrage",
+  "201": "Sandstorm",
+  "202": "Giga Drain",
+  "203": "Endure",
+  "204": "Charm",
+  "205": "Rollout",
+  "206": "False Swipe",
+  "207": "Swagger",
+  "208": "Milk Drink",
+  "209": "Spark",
+  "210": "Fury Cutter",
+  "211": "Steel Wing",
+  "212": "Mean Look",
+  "213": "Attract",
+  "214": "Sleep Talk",
+  "215": "Heal Bell",
+  "216": "Return",
+  "217": "Present",
+  "218": "Frustration",
+  "219": "Safeguard",
+  "220": "Pain Split",
+  "221": "Sacred Fire",
+  "222": "Magnitude",
+  "223": "DynamicPunch",
+  "224": "Megahorn",
+  "225": "DragonBreath",
+  "226": "Baton Pass",
+  "227": "Encore",
+  "228": "Pursuit",
+  "229": "Rapid Spin",
+  "230": "Sweet Scent",
+  "231": "Iron Tail",
+  "232": "Metal Claw",
+  "233": "Vital Throw",
+  "234": "Morning Sun",
+  "235": "Synthesis",
+  "236": "Moonlight",
+  "237": "Hidden Power",
+  "238": "Cross Chop",
+  "239": "Twister",
+  "240": "Rain Dance",
+  "241": "Sunny Day",
+  "242": "Crunch",
+  "243": "Mirror Coat",
+  "244": "Psych Up",
+  "245": "ExtremeSpeed",
+  "246": "AncientPower",
+  "247": "Shadow Ball",
+  "248": "Future Sight",
+  "249": "Rock Smash",
+  "250": "Whirlpool",
+  "251": "Beat Up",
+  "252": "Fake Out",
+  "253": "Uproar",
+  "254": "Stockpile",
+  "255": "Spit Up",
+  "256": "Swallow",
+  "257": "Heat Wave",
+  "258": "Hail",
+  "259": "Torment",
+  "260": "Flatter",
+  "261": "Will-O-Wisp",
+  "262": "Memento",
+  "263": "Facade",
+  "264": "Focus Punch",
+  "265": "SmellingSalt",
+  "266": "Follow Me",
+  "267": "Nature Power",
+  "268": "Charge",
+  "269": "Taunt",
+  "270": "Helping Hand",
+  "271": "Trick",
+  "272": "Role Play",
+  "273": "Wish",
+  "274": "Assist",
+  "275": "Ingrain",
+  "276": "Superpower",
+  "277": "Magic Coat",
+  "278": "Recycle",
+  "279": "Revenge",
+  "280": "Brick Break",
+  "281": "Yawn",
+  "282": "Knock Off",
+  "283": "Endeavor",
+  "284": "Eruption",
+  "285": "Skill Swap",
+  "286": "Imprison",
+  "287": "Refresh",
+  "288": "Grudge",
+  "289": "Snatch",
+  "290": "Secret Power",
+  "291": "Dive",
+  "292": "Arm Thrust",
+  "293": "Camouflage",
+  "294": "Tail Glow",
+  "295": "Luster Purge",
+  "296": "Mist Ball",
+  "297": "FeatherDance",
+  "298": "Teeter Dance",
+  "299": "Blaze Kick",
+  "300": "Mud Sport",
+  "301": "Ice Ball",
+  "302": "Needle Arm",
+  "303": "Slack Off",
+  "304": "Hyper Voice",
+  "305": "Poison Fang",
+  "306": "Crush Claw",
+  "307": "Blast Burn",
+  "308": "Hydro Cannon",
+  "309": "Meteor Mash",
+  "310": "Astonish",
+  "311": "Weather Ball",
+  "312": "Aromatherapy",
+  "313": "Fake Tears",
+  "314": "Air Cutter",
+  "315": "Overheat",
+  "316": "Odor Sleuth",
+  "317": "Rock Tomb",
+  "318": "Silver Wind",
+  "319": "Metal Sound",
+  "320": "GrassWhistle",
+  "321": "Tickle",
+  "322": "Cosmic Power",
+  "323": "Water Spout",
+  "324": "Signal Beam",
+  "325": "Shadow Punch",
+  "326": "Extrasensory",
+  "327": "Sky Uppercut",
+  "328": "Sand Tomb",
+  "329": "Sheer Cold",
+  "330": "Muddy Water",
+  "331": "Bullet Seed",
+  "332": "Aerial Ace",
+  "333": "Icicle Spear",
+  "334": "Iron Defense",
+  "335": "Block",
+  "336": "Howl",
+  "337": "Dragon Claw",
+  "338": "Frenzy Plant",
+  "339": "Bulk Up",
+  "340": "Bounce",
+  "341": "Mud Shot",
+  "342": "Poison Tail",
+  "343": "Covet",
+  "344": "Volt Tackle",
+  "345": "Magical Leaf",
+  "346": "Water Sport",
+  "347": "Calm Mind",
+  "348": "Leaf Blade",
+  "349": "Dragon Dance",
+  "350": "Rock Blast",
+  "351": "Shock Wave",
+  "352": "Water Pulse",
+  "353": "Doom Desire",
+  "354": "Psycho Boost"
+ },
+ "abilities": {
+  "0": "-------",
+  "1": "Stench",
+  "2": "Drizzle",
+  "3": "Speed Boost",
+  "4": "Battle Armor",
+  "5": "Sturdy",
+  "6": "Damp",
+  "7": "Limber",
+  "8": "Sand Veil",
+  "9": "Static",
+  "10": "Volt Absorb",
+  "11": "Water Absorb",
+  "12": "Oblivious",
+  "13": "Cloud Nine",
+  "14": "Compoundeyes",
+  "15": "Insomnia",
+  "16": "Color Change",
+  "17": "Immunity",
+  "18": "Flash Fire",
+  "19": "Shield Dust",
+  "20": "Own Tempo",
+  "21": "Suction Cups",
+  "22": "Intimidate",
+  "23": "Shadow Tag",
+  "24": "Rough Skin",
+  "25": "Wonder Guard",
+  "26": "Levitate",
+  "27": "Effect Spore",
+  "28": "Synchronize",
+  "29": "Clear Body",
+  "30": "Natural Cure",
+  "31": "Lightningrod",
+  "32": "Serene Grace",
+  "33": "Swift Swim",
+  "34": "Chlorophyll",
+  "35": "Illuminate",
+  "36": "Trace",
+  "37": "Huge Power",
+  "38": "Poison Point",
+  "39": "Inner Focus",
+  "40": "Magma Armor",
+  "41": "Water Veil",
+  "42": "Magnet Pull",
+  "43": "Soundproof",
+  "44": "Rain Dish",
+  "45": "Sand Stream",
+  "46": "Pressure",
+  "47": "Thick Fat",
+  "48": "Early Bird",
+  "49": "Flame Body",
+  "50": "Run Away",
+  "51": "Keen Eye",
+  "52": "Hyper Cutter",
+  "53": "Pickup",
+  "54": "Truant",
+  "55": "Hustle",
+  "56": "Cute Charm",
+  "57": "Plus",
+  "58": "Minus",
+  "59": "Forecast",
+  "60": "Sticky Hold",
+  "61": "Shed Skin",
+  "62": "Guts",
+  "63": "Marvel Scale",
+  "64": "Liquid Ooze",
+  "65": "Overgrow",
+  "66": "Blaze",
+  "67": "Torrent",
+  "68": "Swarm",
+  "69": "Rock Head",
+  "70": "Drought",
+  "71": "Arena Trap",
+  "72": "Vital Spirit",
+  "73": "White Smoke",
+  "74": "Pure Power",
+  "75": "Shell Armor",
+  "76": "Cacophony",
+  "77": "Air Lock"
+ },
+ "natures": {
+  "0": "Hardy",
+  "1": "Lonely",
+  "2": "Brave",
+  "3": "Adamant",
+  "4": "Naughty",
+  "5": "Bold",
+  "6": "Docile",
+  "7": "Relaxed",
+  "8": "Impish",
+  "9": "Lax",
+  "10": "Timid",
+  "11": "Hasty",
+  "12": "Serious",
+  "13": "Jolly",
+  "14": "Naive",
+  "15": "Modest",
+  "16": "Mild",
+  "17": "Quiet",
+  "18": "Bashful",
+  "19": "Rash",
+  "20": "Calm",
+  "21": "Gentle",
+  "22": "Sassy",
+  "23": "Careful",
+  "24": "Quirky"
+ },
+ "mapsec_names": {
+  "0": "Littleroot Town",
+  "1": "Oldale Town",
+  "2": "Dewford Town",
+  "3": "Lavaridge Town",
+  "4": "Fallarbor Town",
+  "5": "Verdanturf Town",
+  "6": "Pacifidlog Town",
+  "7": "Petalburg City",
+  "8": "Slateport City",
+  "9": "Mauville City",
+  "10": "Rustboro City",
+  "11": "Fortree City",
+  "12": "Lilycove City",
+  "13": "Mossdeep City",
+  "14": "Sootopolis City",
+  "15": "Ever Grande City",
+  "16": "Route 101",
+  "17": "Route 102",
+  "18": "Route 103",
+  "19": "Route 104",
+  "20": "Route 105",
+  "21": "Route 106",
+  "22": "Route 107",
+  "23": "Route 108",
+  "24": "Route 109",
+  "25": "Route 110",
+  "26": "Route 111",
+  "27": "Route 112",
+  "28": "Route 113",
+  "29": "Route 114",
+  "30": "Route 115",
+  "31": "Route 116",
+  "32": "Route 117",
+  "33": "Route 118",
+  "34": "Route 119",
+  "35": "Route 120",
+  "36": "Route 121",
+  "37": "Route 122",
+  "38": "Route 123",
+  "39": "Route 124",
+  "40": "Route 125",
+  "41": "Route 126",
+  "42": "Route 127",
+  "43": "Route 128",
+  "44": "Route 129",
+  "45": "Route 130",
+  "46": "Route 131",
+  "47": "Route 132",
+  "48": "Route 133",
+  "49": "Route 134",
+  "50": "Underwater",
+  "51": "Underwater",
+  "52": "Underwater",
+  "53": "Underwater",
+  "54": "Underwater",
+  "55": "Granite Cave",
+  "56": "Mt. Chimney",
+  "57": "Safari Zone",
+  "58": "Battle Frontier",
+  "59": "Petalburg Woods",
+  "60": "Rusturf Tunnel",
+  "61": "Abandoned Ship",
+  "62": "New Mauville",
+  "63": "Meteor Falls",
+  "64": "Meteor Falls",
+  "65": "Mt. Pyre",
+  "67": "Shoal Cave",
+  "68": "Seafloor Cavern",
+  "69": "Underwater",
+  "70": "Victory Road",
+  "71": "Mirage Island",
+  "72": "Cave of Origin",
+  "73": "Southern Island",
+  "74": "Fiery Path",
+  "75": "Fiery Path",
+  "76": "Jagged Pass",
+  "77": "Jagged Pass",
+  "78": "Sealed Chamber",
+  "79": "Underwater",
+  "80": "Scorched Lab",
+  "81": "Island Cave",
+  "82": "Desert Ruins",
+  "83": "Ancient Tomb",
+  "84": "Inside of Truck",
+  "85": "Sky Pillar",
+  "86": "Secret Base",
+  "88": "Pallet Town",
+  "89": "Viridian City",
+  "90": "Pewter City",
+  "91": "Cerulean City",
+  "92": "Lavender Town",
+  "93": "Vermilion City",
+  "94": "Celadon City",
+  "95": "Fuchsia City",
+  "96": "Cinnabar Island",
+  "97": "Indigo Plateau",
+  "98": "Saffron City",
+  "99": "Route 4",
+  "100": "Route 10",
+  "101": "Route 1",
+  "102": "Route 2",
+  "103": "Route 3",
+  "104": "Route 4",
+  "105": "Route 5",
+  "106": "Route 6",
+  "107": "Route 7",
+  "108": "Route 8",
+  "109": "Route 9",
+  "110": "Route 10",
+  "111": "Route 11",
+  "112": "Route 12",
+  "113": "Route 13",
+  "114": "Route 14",
+  "115": "Route 15",
+  "116": "Route 16",
+  "117": "Route 17",
+  "118": "Route 18",
+  "119": "Route 19",
+  "120": "Route 20",
+  "121": "Route 21",
+  "122": "Route 22",
+  "123": "Route 23",
+  "124": "Route 24",
+  "125": "Route 25",
+  "126": "Viridian Forest",
+  "127": "Mt. Moon",
+  "128": "S.S. Anne",
+  "129": "Undergound Path",
+  "130": "Undergound Path",
+  "131": "Diglett’s Cave",
+  "132": "Victory Road",
+  "133": "Rocket Hideout",
+  "134": "Silph Co.",
+  "135": "Pokémon Mansion",
+  "136": "Safari Zone",
+  "137": "Pokémon League",
+  "138": "Rock Tunnel",
+  "139": "Seafoam Islands",
+  "140": "Pokémon Tower",
+  "141": "Cerulean Cave",
+  "142": "Power Plant",
+  "143": "One Island",
+  "144": "Two Island",
+  "145": "Three Island",
+  "146": "Four Island",
+  "147": "Five Island",
+  "148": "Seven Island",
+  "149": "Six Island",
+  "150": "Kindle Road",
+  "151": "Treasure Beach",
+  "152": "Cape Brink",
+  "153": "Bond Bridge",
+  "154": "Three Isle Port",
+  "155": "Sevii Isle 6",
+  "156": "Sevii Isle 7",
+  "157": "Sevii Isle 8",
+  "158": "Sevii Isle 9",
+  "159": "Resort Gorgeous",
+  "160": "Water Labyrinth",
+  "161": "Five Isle Meadow",
+  "162": "Memorial Pillar",
+  "163": "Outcast Island",
+  "164": "Green Path",
+  "165": "Water Path",
+  "166": "Ruin Valley",
+  "167": "Trainer Tower",
+  "168": "Canyon Entrance",
+  "169": "Sevault Canyon",
+  "170": "Tanoby Ruins",
+  "171": "Sevii Isle 22",
+  "172": "Sevii Isle 23",
+  "173": "Sevii Isle 24",
+  "174": "Navel Rock",
+  "175": "Mt. Ember",
+  "176": "Berry Forest",
+  "177": "Icefall Cave",
+  "178": "Rocket Warehouse",
+  "179": "Trainer Tower",
+  "180": "Dotted Hole",
+  "181": "Lost Cave",
+  "182": "Pattern Bush",
+  "183": "Altering Cave",
+  "184": "Tanoby Chambers",
+  "185": "Three Isle Path",
+  "186": "Tanoby Key",
+  "187": "Birth Island",
+  "188": "Monean Chamber",
+  "189": "Liptoo Chamber",
+  "190": "Weepth Chamber",
+  "191": "Dilford Chamber",
+  "192": "Scufib Chamber",
+  "193": "Rixy Chamber",
+  "194": "Viapois Chamber",
+  "195": "Ember Spa",
+  "196": "Celadon Dept.",
+  "197": "Aqua Hideout",
+  "198": "Magma Hideout",
+  "199": "Mirage Tower",
+  "200": "Birth Island",
+  "201": "Faraway Island",
+  "202": "Artisan Cave",
+  "203": "Marine Cave",
+  "204": "Underwater",
+  "205": "Terra Cave",
+  "206": "Underwater",
+  "207": "Underwater",
+  "208": "Underwater",
+  "209": "Desert Underpass",
+  "210": "Altering Cave",
+  "211": "Navel Rock",
+  "212": "Trainer Hill"
+ },
+ "maps": {
+  "0,0": {
+   "mapsec": 196,
+   "name": "Celadon Dept.",
+   "layout_id": 107,
+   "map_type": 8
+  },
+  "0,1": {
+   "mapsec": 196,
+   "name": "Celadon Dept.",
+   "layout_id": 108,
+   "map_type": 8
+  },
+  "0,2": {
+   "mapsec": 196,
+   "name": "Celadon Dept.",
+   "layout_id": 109,
+   "map_type": 8
+  },
+  "0,3": {
+   "mapsec": 196,
+   "name": "Celadon Dept.",
+   "layout_id": 110,
+   "map_type": 8
+  },
+  "0,4": {
+   "mapsec": 196,
+   "name": "Celadon Dept.",
+   "layout_id": 315,
+   "map_type": 8
+  },
+  "0,5": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 439,
+   "map_type": 8
+  },
+  "0,6": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 438,
+   "map_type": 8
+  },
+  "1,0": {
+   "mapsec": 126,
+   "name": "Viridian Forest",
+   "layout_id": 171,
+   "map_type": 3
+  },
+  "1,1": {
+   "mapsec": 127,
+   "name": "Mt. Moon",
+   "layout_id": 168,
+   "map_type": 4
+  },
+  "1,2": {
+   "mapsec": 127,
+   "name": "Mt. Moon",
+   "layout_id": 169,
+   "map_type": 4
+  },
+  "1,3": {
+   "mapsec": 127,
+   "name": "Mt. Moon",
+   "layout_id": 170,
+   "map_type": 4
+  },
+  "1,4": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 172,
+   "map_type": 3
+  },
+  "1,5": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 173,
+   "map_type": 8
+  },
+  "1,6": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 174,
+   "map_type": 8
+  },
+  "1,7": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 175,
+   "map_type": 8
+  },
+  "1,8": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 176,
+   "map_type": 8
+  },
+  "1,9": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 177,
+   "map_type": 8
+  },
+  "1,10": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 224,
+   "map_type": 8
+  },
+  "1,11": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 225,
+   "map_type": 8
+  },
+  "1,12": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 230,
+   "map_type": 8
+  },
+  "1,13": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 230,
+   "map_type": 8
+  },
+  "1,14": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 230,
+   "map_type": 8
+  },
+  "1,15": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 230,
+   "map_type": 8
+  },
+  "1,16": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 230,
+   "map_type": 8
+  },
+  "1,17": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 230,
+   "map_type": 8
+  },
+  "1,18": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,19": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,20": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,21": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,22": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,23": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,24": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,25": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,26": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,27": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,28": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 231,
+   "map_type": 8
+  },
+  "1,29": {
+   "mapsec": 128,
+   "name": "S.S. Anne",
+   "layout_id": 230,
+   "map_type": 8
+  },
+  "1,30": {
+   "mapsec": 129,
+   "name": "Undergound Path",
+   "layout_id": 226,
+   "map_type": 8
+  },
+  "1,31": {
+   "mapsec": 129,
+   "name": "Undergound Path",
+   "layout_id": 228,
+   "map_type": 8
+  },
+  "1,32": {
+   "mapsec": 129,
+   "name": "Undergound Path",
+   "layout_id": 226,
+   "map_type": 8
+  },
+  "1,33": {
+   "mapsec": 130,
+   "name": "Undergound Path",
+   "layout_id": 226,
+   "map_type": 8
+  },
+  "1,34": {
+   "mapsec": 130,
+   "name": "Undergound Path",
+   "layout_id": 227,
+   "map_type": 8
+  },
+  "1,35": {
+   "mapsec": 130,
+   "name": "Undergound Path",
+   "layout_id": 226,
+   "map_type": 8
+  },
+  "1,36": {
+   "mapsec": 131,
+   "name": "Diglett’s Cave",
+   "layout_id": 263,
+   "map_type": 4
+  },
+  "1,37": {
+   "mapsec": 131,
+   "name": "Diglett’s Cave",
+   "layout_id": 178,
+   "map_type": 4
+  },
+  "1,38": {
+   "mapsec": 131,
+   "name": "Diglett’s Cave",
+   "layout_id": 264,
+   "map_type": 4
+  },
+  "1,39": {
+   "mapsec": 132,
+   "name": "Victory Road",
+   "layout_id": 179,
+   "map_type": 4
+  },
+  "1,40": {
+   "mapsec": 132,
+   "name": "Victory Road",
+   "layout_id": 180,
+   "map_type": 4
+  },
+  "1,41": {
+   "mapsec": 132,
+   "name": "Victory Road",
+   "layout_id": 181,
+   "map_type": 4
+  },
+  "1,42": {
+   "mapsec": 133,
+   "name": "Rocket Hideout",
+   "layout_id": 182,
+   "map_type": 8
+  },
+  "1,43": {
+   "mapsec": 133,
+   "name": "Rocket Hideout",
+   "layout_id": 183,
+   "map_type": 8
+  },
+  "1,44": {
+   "mapsec": 133,
+   "name": "Rocket Hideout",
+   "layout_id": 184,
+   "map_type": 8
+  },
+  "1,45": {
+   "mapsec": 133,
+   "name": "Rocket Hideout",
+   "layout_id": 185,
+   "map_type": 8
+  },
+  "1,46": {
+   "mapsec": 133,
+   "name": "Rocket Hideout",
+   "layout_id": 278,
+   "map_type": 8
+  },
+  "1,47": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 186,
+   "map_type": 8
+  },
+  "1,48": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 187,
+   "map_type": 8
+  },
+  "1,49": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 188,
+   "map_type": 8
+  },
+  "1,50": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 189,
+   "map_type": 8
+  },
+  "1,51": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 190,
+   "map_type": 8
+  },
+  "1,52": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 191,
+   "map_type": 8
+  },
+  "1,53": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 192,
+   "map_type": 8
+  },
+  "1,54": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 193,
+   "map_type": 8
+  },
+  "1,55": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 194,
+   "map_type": 8
+  },
+  "1,56": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 195,
+   "map_type": 8
+  },
+  "1,57": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 196,
+   "map_type": 8
+  },
+  "1,58": {
+   "mapsec": 134,
+   "name": "Silph Co.",
+   "layout_id": 282,
+   "map_type": 8
+  },
+  "1,59": {
+   "mapsec": 135,
+   "name": "Pokémon Mansion",
+   "layout_id": 197,
+   "map_type": 8
+  },
+  "1,60": {
+   "mapsec": 135,
+   "name": "Pokémon Mansion",
+   "layout_id": 198,
+   "map_type": 8
+  },
+  "1,61": {
+   "mapsec": 135,
+   "name": "Pokémon Mansion",
+   "layout_id": 199,
+   "map_type": 8
+  },
+  "1,62": {
+   "mapsec": 135,
+   "name": "Pokémon Mansion",
+   "layout_id": 200,
+   "map_type": 8
+  },
+  "1,63": {
+   "mapsec": 136,
+   "name": "Safari Zone",
+   "layout_id": 201,
+   "map_type": 3
+  },
+  "1,64": {
+   "mapsec": 136,
+   "name": "Safari Zone",
+   "layout_id": 202,
+   "map_type": 3
+  },
+  "1,65": {
+   "mapsec": 136,
+   "name": "Safari Zone",
+   "layout_id": 203,
+   "map_type": 3
+  },
+  "1,66": {
+   "mapsec": 136,
+   "name": "Safari Zone",
+   "layout_id": 204,
+   "map_type": 3
+  },
+  "1,67": {
+   "mapsec": 136,
+   "name": "Safari Zone",
+   "layout_id": 251,
+   "map_type": 8
+  },
+  "1,68": {
+   "mapsec": 136,
+   "name": "Safari Zone",
+   "layout_id": 251,
+   "map_type": 8
+  },
+  "1,69": {
+   "mapsec": 136,
+   "name": "Safari Zone",
+   "layout_id": 251,
+   "map_type": 8
+  },
+  "1,70": {
+   "mapsec": 136,
+   "name": "Safari Zone",
+   "layout_id": 251,
+   "map_type": 8
+  },
+  "1,71": {
+   "mapsec": 136,
+   "name": "Safari Zone",
+   "layout_id": 252,
+   "map_type": 8
+  },
+  "1,72": {
+   "mapsec": 141,
+   "name": "Cerulean Cave",
+   "layout_id": 205,
+   "map_type": 4
+  },
+  "1,73": {
+   "mapsec": 141,
+   "name": "Cerulean Cave",
+   "layout_id": 206,
+   "map_type": 4
+  },
+  "1,74": {
+   "mapsec": 141,
+   "name": "Cerulean Cave",
+   "layout_id": 207,
+   "map_type": 4
+  },
+  "1,75": {
+   "mapsec": 137,
+   "name": "Pokémon League",
+   "layout_id": 266,
+   "map_type": 8
+  },
+  "1,76": {
+   "mapsec": 137,
+   "name": "Pokémon League",
+   "layout_id": 267,
+   "map_type": 8
+  },
+  "1,77": {
+   "mapsec": 137,
+   "name": "Pokémon League",
+   "layout_id": 268,
+   "map_type": 8
+  },
+  "1,78": {
+   "mapsec": 137,
+   "name": "Pokémon League",
+   "layout_id": 269,
+   "map_type": 8
+  },
+  "1,79": {
+   "mapsec": 137,
+   "name": "Pokémon League",
+   "layout_id": 270,
+   "map_type": 8
+  },
+  "1,80": {
+   "mapsec": 137,
+   "name": "Pokémon League",
+   "layout_id": 271,
+   "map_type": 8
+  },
+  "1,81": {
+   "mapsec": 138,
+   "name": "Rock Tunnel",
+   "layout_id": 208,
+   "map_type": 4
+  },
+  "1,82": {
+   "mapsec": 138,
+   "name": "Rock Tunnel",
+   "layout_id": 209,
+   "map_type": 4
+  },
+  "1,83": {
+   "mapsec": 139,
+   "name": "Seafoam Islands",
+   "layout_id": 210,
+   "map_type": 4
+  },
+  "1,84": {
+   "mapsec": 139,
+   "name": "Seafoam Islands",
+   "layout_id": 211,
+   "map_type": 4
+  },
+  "1,85": {
+   "mapsec": 139,
+   "name": "Seafoam Islands",
+   "layout_id": 212,
+   "map_type": 4
+  },
+  "1,86": {
+   "mapsec": 139,
+   "name": "Seafoam Islands",
+   "layout_id": 213,
+   "map_type": 4
+  },
+  "1,87": {
+   "mapsec": 139,
+   "name": "Seafoam Islands",
+   "layout_id": 214,
+   "map_type": 4
+  },
+  "1,88": {
+   "mapsec": 140,
+   "name": "Pokémon Tower",
+   "layout_id": 215,
+   "map_type": 8
+  },
+  "1,89": {
+   "mapsec": 140,
+   "name": "Pokémon Tower",
+   "layout_id": 216,
+   "map_type": 8
+  },
+  "1,90": {
+   "mapsec": 140,
+   "name": "Pokémon Tower",
+   "layout_id": 217,
+   "map_type": 8
+  },
+  "1,91": {
+   "mapsec": 140,
+   "name": "Pokémon Tower",
+   "layout_id": 218,
+   "map_type": 8
+  },
+  "1,92": {
+   "mapsec": 140,
+   "name": "Pokémon Tower",
+   "layout_id": 219,
+   "map_type": 8
+  },
+  "1,93": {
+   "mapsec": 140,
+   "name": "Pokémon Tower",
+   "layout_id": 220,
+   "map_type": 8
+  },
+  "1,94": {
+   "mapsec": 140,
+   "name": "Pokémon Tower",
+   "layout_id": 221,
+   "map_type": 8
+  },
+  "1,95": {
+   "mapsec": 142,
+   "name": "Power Plant",
+   "layout_id": 222,
+   "map_type": 8
+  },
+  "1,96": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 322,
+   "map_type": 4
+  },
+  "1,97": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 333,
+   "map_type": 3
+  },
+  "1,98": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 335,
+   "map_type": 4
+  },
+  "1,99": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 336,
+   "map_type": 4
+  },
+  "1,100": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 337,
+   "map_type": 4
+  },
+  "1,101": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 334,
+   "map_type": 4
+  },
+  "1,102": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 344,
+   "map_type": 4
+  },
+  "1,103": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 338,
+   "map_type": 4
+  },
+  "1,104": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 339,
+   "map_type": 4
+  },
+  "1,105": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 340,
+   "map_type": 4
+  },
+  "1,106": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 341,
+   "map_type": 4
+  },
+  "1,107": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 342,
+   "map_type": 4
+  },
+  "1,108": {
+   "mapsec": 175,
+   "name": "Mt. Ember",
+   "layout_id": 343,
+   "map_type": 4
+  },
+  "1,109": {
+   "mapsec": 176,
+   "name": "Berry Forest",
+   "layout_id": 323,
+   "map_type": 3
+  },
+  "1,110": {
+   "mapsec": 177,
+   "name": "Icefall Cave",
+   "layout_id": 346,
+   "map_type": 4
+  },
+  "1,111": {
+   "mapsec": 177,
+   "name": "Icefall Cave",
+   "layout_id": 347,
+   "map_type": 4
+  },
+  "1,112": {
+   "mapsec": 177,
+   "name": "Icefall Cave",
+   "layout_id": 348,
+   "map_type": 4
+  },
+  "1,113": {
+   "mapsec": 177,
+   "name": "Icefall Cave",
+   "layout_id": 349,
+   "map_type": 4
+  },
+  "1,114": {
+   "mapsec": 178,
+   "name": "Rocket Warehouse",
+   "layout_id": 345,
+   "map_type": 8
+  },
+  "1,115": {
+   "mapsec": 180,
+   "name": "Dotted Hole",
+   "layout_id": 362,
+   "map_type": 4
+  },
+  "1,116": {
+   "mapsec": 180,
+   "name": "Dotted Hole",
+   "layout_id": 363,
+   "map_type": 4
+  },
+  "1,117": {
+   "mapsec": 180,
+   "name": "Dotted Hole",
+   "layout_id": 364,
+   "map_type": 4
+  },
+  "1,118": {
+   "mapsec": 180,
+   "name": "Dotted Hole",
+   "layout_id": 365,
+   "map_type": 4
+  },
+  "1,119": {
+   "mapsec": 180,
+   "name": "Dotted Hole",
+   "layout_id": 366,
+   "map_type": 4
+  },
+  "1,120": {
+   "mapsec": 180,
+   "name": "Dotted Hole",
+   "layout_id": 367,
+   "map_type": 4
+  },
+  "1,121": {
+   "mapsec": 182,
+   "name": "Pattern Bush",
+   "layout_id": 370,
+   "map_type": 3
+  },
+  "1,122": {
+   "mapsec": 210,
+   "name": "Altering Cave",
+   "layout_id": 393,
+   "map_type": 4
+  },
+  "2,0": {
+   "mapsec": 201,
+   "name": "Faraway Island",
+   "layout_id": 68,
+   "map_type": 8
+  },
+  "2,1": {
+   "mapsec": 201,
+   "name": "Faraway Island",
+   "layout_id": 69,
+   "map_type": 8
+  },
+  "2,2": {
+   "mapsec": 202,
+   "name": "Artisan Cave",
+   "layout_id": 66,
+   "map_type": 4
+  },
+  "2,3": {
+   "mapsec": 202,
+   "name": "Artisan Cave",
+   "layout_id": 67,
+   "map_type": 4
+  },
+  "2,4": {
+   "mapsec": 73,
+   "name": "Southern Island",
+   "layout_id": 14,
+   "map_type": 3
+  },
+  "2,5": {
+   "mapsec": 73,
+   "name": "Southern Island",
+   "layout_id": 15,
+   "map_type": 3
+  },
+  "2,6": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 396,
+   "map_type": 3
+  },
+  "2,7": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 351,
+   "map_type": 8
+  },
+  "2,8": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 352,
+   "map_type": 8
+  },
+  "2,9": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 353,
+   "map_type": 8
+  },
+  "2,10": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 354,
+   "map_type": 8
+  },
+  "2,11": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 355,
+   "map_type": 8
+  },
+  "2,12": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 356,
+   "map_type": 8
+  },
+  "2,13": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 357,
+   "map_type": 8
+  },
+  "2,14": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 358,
+   "map_type": 8
+  },
+  "2,15": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 359,
+   "map_type": 8
+  },
+  "2,16": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 350,
+   "map_type": 8
+  },
+  "2,17": {
+   "mapsec": 179,
+   "name": "Trainer Tower",
+   "layout_id": 360,
+   "map_type": 8
+  },
+  "2,18": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 373,
+   "map_type": 4
+  },
+  "2,19": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 374,
+   "map_type": 4
+  },
+  "2,20": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 375,
+   "map_type": 4
+  },
+  "2,21": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 376,
+   "map_type": 4
+  },
+  "2,22": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 377,
+   "map_type": 4
+  },
+  "2,23": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 378,
+   "map_type": 4
+  },
+  "2,24": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 379,
+   "map_type": 4
+  },
+  "2,25": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 380,
+   "map_type": 4
+  },
+  "2,26": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 381,
+   "map_type": 4
+  },
+  "2,27": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 382,
+   "map_type": 4
+  },
+  "2,28": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 383,
+   "map_type": 4
+  },
+  "2,29": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 384,
+   "map_type": 4
+  },
+  "2,30": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 385,
+   "map_type": 4
+  },
+  "2,31": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 386,
+   "map_type": 4
+  },
+  "2,32": {
+   "mapsec": 181,
+   "name": "Lost Cave",
+   "layout_id": 387,
+   "map_type": 4
+  },
+  "2,33": {
+   "mapsec": 188,
+   "name": "Monean Chamber",
+   "layout_id": 388,
+   "map_type": 4
+  },
+  "2,34": {
+   "mapsec": 189,
+   "name": "Liptoo Chamber",
+   "layout_id": 389,
+   "map_type": 4
+  },
+  "2,35": {
+   "mapsec": 190,
+   "name": "Weepth Chamber",
+   "layout_id": 390,
+   "map_type": 4
+  },
+  "2,36": {
+   "mapsec": 191,
+   "name": "Dilford Chamber",
+   "layout_id": 391,
+   "map_type": 4
+  },
+  "2,37": {
+   "mapsec": 192,
+   "name": "Scufib Chamber",
+   "layout_id": 392,
+   "map_type": 4
+  },
+  "2,38": {
+   "mapsec": 193,
+   "name": "Rixy Chamber",
+   "layout_id": 415,
+   "map_type": 4
+  },
+  "2,39": {
+   "mapsec": 194,
+   "name": "Viapois Chamber",
+   "layout_id": 416,
+   "map_type": 4
+  },
+  "2,40": {
+   "mapsec": 185,
+   "name": "Three Isle Path",
+   "layout_id": 371,
+   "map_type": 4
+  },
+  "2,41": {
+   "mapsec": 186,
+   "name": "Tanoby Key",
+   "layout_id": 394,
+   "map_type": 4
+  },
+  "2,42": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 397,
+   "map_type": 4
+  },
+  "2,43": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 398,
+   "map_type": 4
+  },
+  "2,44": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 399,
+   "map_type": 4
+  },
+  "2,45": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 400,
+   "map_type": 4
+  },
+  "2,46": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 401,
+   "map_type": 4
+  },
+  "2,47": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 402,
+   "map_type": 4
+  },
+  "2,48": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 403,
+   "map_type": 4
+  },
+  "2,49": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 404,
+   "map_type": 4
+  },
+  "2,50": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 405,
+   "map_type": 4
+  },
+  "2,51": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 406,
+   "map_type": 4
+  },
+  "2,52": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 407,
+   "map_type": 4
+  },
+  "2,53": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 408,
+   "map_type": 4
+  },
+  "2,54": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 409,
+   "map_type": 4
+  },
+  "2,55": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 410,
+   "map_type": 4
+  },
+  "2,56": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 411,
+   "map_type": 4
+  },
+  "2,57": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 412,
+   "map_type": 4
+  },
+  "2,58": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 413,
+   "map_type": 4
+  },
+  "2,59": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 414,
+   "map_type": 4
+  },
+  "2,60": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 417,
+   "map_type": 4
+  },
+  "2,61": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 418,
+   "map_type": 4
+  },
+  "2,62": {
+   "mapsec": 200,
+   "name": "Birth Island",
+   "layout_id": 395,
+   "map_type": 3
+  },
+  "2,63": {
+   "mapsec": 195,
+   "name": "Ember Spa",
+   "layout_id": 436,
+   "map_type": 4
+  },
+  "2,64": {
+   "mapsec": 200,
+   "name": "Birth Island",
+   "layout_id": 368,
+   "map_type": 8
+  },
+  "2,65": {
+   "mapsec": 211,
+   "name": "Navel Rock",
+   "layout_id": 368,
+   "map_type": 8
+  },
+  "3,0": {
+   "mapsec": 88,
+   "name": "Pallet Town",
+   "layout_id": 132,
+   "map_type": 1
+  },
+  "3,1": {
+   "mapsec": 89,
+   "name": "Viridian City",
+   "layout_id": 133,
+   "map_type": 1
+  },
+  "3,2": {
+   "mapsec": 90,
+   "name": "Pewter City",
+   "layout_id": 134,
+   "map_type": 1
+  },
+  "3,3": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 135,
+   "map_type": 1
+  },
+  "3,4": {
+   "mapsec": 92,
+   "name": "Lavender Town",
+   "layout_id": 136,
+   "map_type": 1
+  },
+  "3,5": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 137,
+   "map_type": 1
+  },
+  "3,6": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 138,
+   "map_type": 1
+  },
+  "3,7": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 139,
+   "map_type": 1
+  },
+  "3,8": {
+   "mapsec": 96,
+   "name": "Cinnabar Island",
+   "layout_id": 140,
+   "map_type": 1
+  },
+  "3,9": {
+   "mapsec": 97,
+   "name": "Indigo Plateau",
+   "layout_id": 141,
+   "map_type": 1
+  },
+  "3,10": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 260,
+   "map_type": 1
+  },
+  "3,11": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 142,
+   "map_type": 1
+  },
+  "3,12": {
+   "mapsec": 143,
+   "name": "One Island",
+   "layout_id": 283,
+   "map_type": 1
+  },
+  "3,13": {
+   "mapsec": 144,
+   "name": "Two Island",
+   "layout_id": 284,
+   "map_type": 1
+  },
+  "3,14": {
+   "mapsec": 145,
+   "name": "Three Island",
+   "layout_id": 285,
+   "map_type": 1
+  },
+  "3,15": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 286,
+   "map_type": 1
+  },
+  "3,16": {
+   "mapsec": 147,
+   "name": "Five Island",
+   "layout_id": 287,
+   "map_type": 1
+  },
+  "3,17": {
+   "mapsec": 148,
+   "name": "Seven Island",
+   "layout_id": 288,
+   "map_type": 1
+  },
+  "3,18": {
+   "mapsec": 149,
+   "name": "Six Island",
+   "layout_id": 289,
+   "map_type": 1
+  },
+  "3,19": {
+   "mapsec": 101,
+   "name": "Route 1",
+   "layout_id": 143,
+   "map_type": 3
+  },
+  "3,20": {
+   "mapsec": 102,
+   "name": "Route 2",
+   "layout_id": 144,
+   "map_type": 3
+  },
+  "3,21": {
+   "mapsec": 103,
+   "name": "Route 3",
+   "layout_id": 145,
+   "map_type": 3
+  },
+  "3,22": {
+   "mapsec": 104,
+   "name": "Route 4",
+   "layout_id": 146,
+   "map_type": 3
+  },
+  "3,23": {
+   "mapsec": 105,
+   "name": "Route 5",
+   "layout_id": 147,
+   "map_type": 3
+  },
+  "3,24": {
+   "mapsec": 106,
+   "name": "Route 6",
+   "layout_id": 148,
+   "map_type": 3
+  },
+  "3,25": {
+   "mapsec": 107,
+   "name": "Route 7",
+   "layout_id": 149,
+   "map_type": 3
+  },
+  "3,26": {
+   "mapsec": 108,
+   "name": "Route 8",
+   "layout_id": 150,
+   "map_type": 3
+  },
+  "3,27": {
+   "mapsec": 109,
+   "name": "Route 9",
+   "layout_id": 151,
+   "map_type": 3
+  },
+  "3,28": {
+   "mapsec": 110,
+   "name": "Route 10",
+   "layout_id": 152,
+   "map_type": 3
+  },
+  "3,29": {
+   "mapsec": 111,
+   "name": "Route 11",
+   "layout_id": 153,
+   "map_type": 3
+  },
+  "3,30": {
+   "mapsec": 112,
+   "name": "Route 12",
+   "layout_id": 154,
+   "map_type": 3
+  },
+  "3,31": {
+   "mapsec": 113,
+   "name": "Route 13",
+   "layout_id": 155,
+   "map_type": 3
+  },
+  "3,32": {
+   "mapsec": 114,
+   "name": "Route 14",
+   "layout_id": 156,
+   "map_type": 3
+  },
+  "3,33": {
+   "mapsec": 115,
+   "name": "Route 15",
+   "layout_id": 157,
+   "map_type": 3
+  },
+  "3,34": {
+   "mapsec": 116,
+   "name": "Route 16",
+   "layout_id": 158,
+   "map_type": 3
+  },
+  "3,35": {
+   "mapsec": 117,
+   "name": "Route 17",
+   "layout_id": 159,
+   "map_type": 3
+  },
+  "3,36": {
+   "mapsec": 118,
+   "name": "Route 18",
+   "layout_id": 160,
+   "map_type": 3
+  },
+  "3,37": {
+   "mapsec": 119,
+   "name": "Route 19",
+   "layout_id": 161,
+   "map_type": 3
+  },
+  "3,38": {
+   "mapsec": 120,
+   "name": "Route 20",
+   "layout_id": 162,
+   "map_type": 3
+  },
+  "3,39": {
+   "mapsec": 121,
+   "name": "Route 21",
+   "layout_id": 163,
+   "map_type": 3
+  },
+  "3,40": {
+   "mapsec": 121,
+   "name": "Route 21",
+   "layout_id": 272,
+   "map_type": 3
+  },
+  "3,41": {
+   "mapsec": 122,
+   "name": "Route 22",
+   "layout_id": 164,
+   "map_type": 3
+  },
+  "3,42": {
+   "mapsec": 123,
+   "name": "Route 23",
+   "layout_id": 165,
+   "map_type": 3
+  },
+  "3,43": {
+   "mapsec": 124,
+   "name": "Route 24",
+   "layout_id": 166,
+   "map_type": 3
+  },
+  "3,44": {
+   "mapsec": 125,
+   "name": "Route 25",
+   "layout_id": 167,
+   "map_type": 3
+  },
+  "3,45": {
+   "mapsec": 150,
+   "name": "Kindle Road",
+   "layout_id": 290,
+   "map_type": 3
+  },
+  "3,46": {
+   "mapsec": 151,
+   "name": "Treasure Beach",
+   "layout_id": 291,
+   "map_type": 3
+  },
+  "3,47": {
+   "mapsec": 152,
+   "name": "Cape Brink",
+   "layout_id": 292,
+   "map_type": 3
+  },
+  "3,48": {
+   "mapsec": 153,
+   "name": "Bond Bridge",
+   "layout_id": 293,
+   "map_type": 3
+  },
+  "3,49": {
+   "mapsec": 154,
+   "name": "Three Isle Port",
+   "layout_id": 294,
+   "map_type": 3
+  },
+  "3,50": {
+   "mapsec": 155,
+   "name": "Sevii Isle 6",
+   "layout_id": 295,
+   "map_type": 3
+  },
+  "3,51": {
+   "mapsec": 156,
+   "name": "Sevii Isle 7",
+   "layout_id": 296,
+   "map_type": 3
+  },
+  "3,52": {
+   "mapsec": 157,
+   "name": "Sevii Isle 8",
+   "layout_id": 297,
+   "map_type": 3
+  },
+  "3,53": {
+   "mapsec": 158,
+   "name": "Sevii Isle 9",
+   "layout_id": 298,
+   "map_type": 3
+  },
+  "3,54": {
+   "mapsec": 159,
+   "name": "Resort Gorgeous",
+   "layout_id": 299,
+   "map_type": 3
+  },
+  "3,55": {
+   "mapsec": 160,
+   "name": "Water Labyrinth",
+   "layout_id": 300,
+   "map_type": 3
+  },
+  "3,56": {
+   "mapsec": 161,
+   "name": "Five Isle Meadow",
+   "layout_id": 301,
+   "map_type": 3
+  },
+  "3,57": {
+   "mapsec": 162,
+   "name": "Memorial Pillar",
+   "layout_id": 302,
+   "map_type": 3
+  },
+  "3,58": {
+   "mapsec": 163,
+   "name": "Outcast Island",
+   "layout_id": 303,
+   "map_type": 3
+  },
+  "3,59": {
+   "mapsec": 164,
+   "name": "Green Path",
+   "layout_id": 304,
+   "map_type": 3
+  },
+  "3,60": {
+   "mapsec": 165,
+   "name": "Water Path",
+   "layout_id": 305,
+   "map_type": 3
+  },
+  "3,61": {
+   "mapsec": 166,
+   "name": "Ruin Valley",
+   "layout_id": 306,
+   "map_type": 3
+  },
+  "3,62": {
+   "mapsec": 167,
+   "name": "Trainer Tower",
+   "layout_id": 307,
+   "map_type": 3
+  },
+  "3,63": {
+   "mapsec": 168,
+   "name": "Canyon Entrance",
+   "layout_id": 308,
+   "map_type": 3
+  },
+  "3,64": {
+   "mapsec": 169,
+   "name": "Sevault Canyon",
+   "layout_id": 309,
+   "map_type": 3
+  },
+  "3,65": {
+   "mapsec": 170,
+   "name": "Tanoby Ruins",
+   "layout_id": 310,
+   "map_type": 3
+  },
+  "4,0": {
+   "mapsec": 88,
+   "name": "Pallet Town",
+   "layout_id": 72,
+   "map_type": 8
+  },
+  "4,1": {
+   "mapsec": 88,
+   "name": "Pallet Town",
+   "layout_id": 73,
+   "map_type": 8
+  },
+  "4,2": {
+   "mapsec": 88,
+   "name": "Pallet Town",
+   "layout_id": 74,
+   "map_type": 8
+  },
+  "4,3": {
+   "mapsec": 88,
+   "name": "Pallet Town",
+   "layout_id": 76,
+   "map_type": 8
+  },
+  "5,0": {
+   "mapsec": 89,
+   "name": "Viridian City",
+   "layout_id": 329,
+   "map_type": 8
+  },
+  "5,1": {
+   "mapsec": 89,
+   "name": "Viridian City",
+   "layout_id": 105,
+   "map_type": 8
+  },
+  "5,2": {
+   "mapsec": 89,
+   "name": "Viridian City",
+   "layout_id": 319,
+   "map_type": 8
+  },
+  "5,3": {
+   "mapsec": 89,
+   "name": "Viridian City",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "5,4": {
+   "mapsec": 89,
+   "name": "Viridian City",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "5,5": {
+   "mapsec": 89,
+   "name": "Viridian City",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "6,0": {
+   "mapsec": 90,
+   "name": "Pewter City",
+   "layout_id": 233,
+   "map_type": 8
+  },
+  "6,1": {
+   "mapsec": 90,
+   "name": "Pewter City",
+   "layout_id": 234,
+   "map_type": 8
+  },
+  "6,2": {
+   "mapsec": 90,
+   "name": "Pewter City",
+   "layout_id": 97,
+   "map_type": 8
+  },
+  "6,3": {
+   "mapsec": 90,
+   "name": "Pewter City",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "6,4": {
+   "mapsec": 90,
+   "name": "Pewter City",
+   "layout_id": 78,
+   "map_type": 8
+  },
+  "6,5": {
+   "mapsec": 90,
+   "name": "Pewter City",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "6,6": {
+   "mapsec": 90,
+   "name": "Pewter City",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "6,7": {
+   "mapsec": 90,
+   "name": "Pewter City",
+   "layout_id": 78,
+   "map_type": 8
+  },
+  "7,0": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 236,
+   "map_type": 8
+  },
+  "7,1": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 235,
+   "map_type": 8
+  },
+  "7,2": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 77,
+   "map_type": 8
+  },
+  "7,3": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "7,4": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "7,5": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 83,
+   "map_type": 8
+  },
+  "7,6": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 95,
+   "map_type": 8
+  },
+  "7,7": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "7,8": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 77,
+   "map_type": 8
+  },
+  "7,9": {
+   "mapsec": 91,
+   "name": "Cerulean City",
+   "layout_id": 361,
+   "map_type": 8
+  },
+  "8,0": {
+   "mapsec": 92,
+   "name": "Lavender Town",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "8,1": {
+   "mapsec": 92,
+   "name": "Lavender Town",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "8,2": {
+   "mapsec": 92,
+   "name": "Lavender Town",
+   "layout_id": 327,
+   "map_type": 8
+  },
+  "8,3": {
+   "mapsec": 92,
+   "name": "Lavender Town",
+   "layout_id": 92,
+   "map_type": 8
+  },
+  "8,4": {
+   "mapsec": 92,
+   "name": "Lavender Town",
+   "layout_id": 92,
+   "map_type": 8
+  },
+  "8,5": {
+   "mapsec": 92,
+   "name": "Lavender Town",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "9,0": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 77,
+   "map_type": 8
+  },
+  "9,1": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "9,2": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "9,3": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 326,
+   "map_type": 8
+  },
+  "9,4": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 77,
+   "map_type": 8
+  },
+  "9,5": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "9,6": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 94,
+   "map_type": 8
+  },
+  "9,7": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 77,
+   "map_type": 8
+  },
+  "9,8": {
+   "mapsec": 93,
+   "name": "Vermilion City",
+   "layout_id": 1,
+   "map_type": 8
+  },
+  "10,0": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 245,
+   "map_type": 8
+  },
+  "10,1": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 246,
+   "map_type": 8
+  },
+  "10,2": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 247,
+   "map_type": 8
+  },
+  "10,3": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 248,
+   "map_type": 8
+  },
+  "10,4": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 249,
+   "map_type": 8
+  },
+  "10,5": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 250,
+   "map_type": 2
+  },
+  "10,6": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 232,
+   "map_type": 8
+  },
+  "10,7": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 237,
+   "map_type": 8
+  },
+  "10,8": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 238,
+   "map_type": 8
+  },
+  "10,9": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 239,
+   "map_type": 8
+  },
+  "10,10": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 240,
+   "map_type": 2
+  },
+  "10,11": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 241,
+   "map_type": 8
+  },
+  "10,12": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "10,13": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "10,14": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 96,
+   "map_type": 8
+  },
+  "10,15": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 242,
+   "map_type": 8
+  },
+  "10,16": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 86,
+   "map_type": 8
+  },
+  "10,17": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 243,
+   "map_type": 8
+  },
+  "10,18": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 92,
+   "map_type": 8
+  },
+  "10,19": {
+   "mapsec": 94,
+   "name": "Celadon City",
+   "layout_id": 244,
+   "map_type": 8
+  },
+  "11,0": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 111,
+   "map_type": 8
+  },
+  "11,1": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "11,2": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 253,
+   "map_type": 8
+  },
+  "11,3": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 91,
+   "map_type": 8
+  },
+  "11,4": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 77,
+   "map_type": 8
+  },
+  "11,5": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "11,6": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "11,7": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 254,
+   "map_type": 8
+  },
+  "11,8": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 255,
+   "map_type": 8
+  },
+  "11,9": {
+   "mapsec": 95,
+   "name": "Fuchsia City",
+   "layout_id": 77,
+   "map_type": 8
+  },
+  "12,0": {
+   "mapsec": 96,
+   "name": "Cinnabar Island",
+   "layout_id": 104,
+   "map_type": 8
+  },
+  "12,1": {
+   "mapsec": 96,
+   "name": "Cinnabar Island",
+   "layout_id": 256,
+   "map_type": 8
+  },
+  "12,2": {
+   "mapsec": 96,
+   "name": "Cinnabar Island",
+   "layout_id": 257,
+   "map_type": 8
+  },
+  "12,3": {
+   "mapsec": 96,
+   "name": "Cinnabar Island",
+   "layout_id": 258,
+   "map_type": 8
+  },
+  "12,4": {
+   "mapsec": 96,
+   "name": "Cinnabar Island",
+   "layout_id": 259,
+   "map_type": 8
+  },
+  "12,5": {
+   "mapsec": 96,
+   "name": "Cinnabar Island",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "12,6": {
+   "mapsec": 96,
+   "name": "Cinnabar Island",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "12,7": {
+   "mapsec": 96,
+   "name": "Cinnabar Island",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "13,0": {
+   "mapsec": 97,
+   "name": "Indigo Plateau",
+   "layout_id": 265,
+   "map_type": 8
+  },
+  "13,1": {
+   "mapsec": 97,
+   "name": "Indigo Plateau",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "14,0": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 279,
+   "map_type": 8
+  },
+  "14,1": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 280,
+   "map_type": 8
+  },
+  "14,2": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 281,
+   "map_type": 8
+  },
+  "14,3": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 102,
+   "map_type": 8
+  },
+  "14,4": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 92,
+   "map_type": 8
+  },
+  "14,5": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "14,6": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "14,7": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "14,8": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 92,
+   "map_type": 8
+  },
+  "14,9": {
+   "mapsec": 98,
+   "name": "Saffron City",
+   "layout_id": 316,
+   "map_type": 8
+  },
+  "15,0": {
+   "mapsec": 102,
+   "name": "Route 2",
+   "layout_id": 274,
+   "map_type": 8
+  },
+  "15,1": {
+   "mapsec": 102,
+   "name": "Route 2",
+   "layout_id": 78,
+   "map_type": 8
+  },
+  "15,2": {
+   "mapsec": 102,
+   "name": "Route 2",
+   "layout_id": 274,
+   "map_type": 8
+  },
+  "15,3": {
+   "mapsec": 102,
+   "name": "Route 2",
+   "layout_id": 274,
+   "map_type": 8
+  },
+  "16,0": {
+   "mapsec": 104,
+   "name": "Route 4",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "16,1": {
+   "mapsec": 104,
+   "name": "Route 4",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "17,0": {
+   "mapsec": 105,
+   "name": "Route 5",
+   "layout_id": 328,
+   "map_type": 8
+  },
+  "17,1": {
+   "mapsec": 105,
+   "name": "Route 5",
+   "layout_id": 261,
+   "map_type": 8
+  },
+  "18,0": {
+   "mapsec": 106,
+   "name": "Route 6",
+   "layout_id": 261,
+   "map_type": 8
+  },
+  "18,1": {
+   "mapsec": 106,
+   "name": "Route 6",
+   "layout_id": 78,
+   "map_type": 8
+  },
+  "19,0": {
+   "mapsec": 107,
+   "name": "Route 7",
+   "layout_id": 262,
+   "map_type": 8
+  },
+  "20,0": {
+   "mapsec": 108,
+   "name": "Route 8",
+   "layout_id": 262,
+   "map_type": 8
+  },
+  "21,0": {
+   "mapsec": 110,
+   "name": "Route 10",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "21,1": {
+   "mapsec": 110,
+   "name": "Route 10",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "22,0": {
+   "mapsec": 111,
+   "name": "Route 11",
+   "layout_id": 277,
+   "map_type": 8
+  },
+  "22,1": {
+   "mapsec": 111,
+   "name": "Route 11",
+   "layout_id": 273,
+   "map_type": 8
+  },
+  "23,0": {
+   "mapsec": 112,
+   "name": "Route 12",
+   "layout_id": 229,
+   "map_type": 8
+  },
+  "23,1": {
+   "mapsec": 112,
+   "name": "Route 12",
+   "layout_id": 273,
+   "map_type": 8
+  },
+  "23,2": {
+   "mapsec": 112,
+   "name": "Route 12",
+   "layout_id": 84,
+   "map_type": 8
+  },
+  "24,0": {
+   "mapsec": 115,
+   "name": "Route 15",
+   "layout_id": 277,
+   "map_type": 8
+  },
+  "24,1": {
+   "mapsec": 115,
+   "name": "Route 15",
+   "layout_id": 273,
+   "map_type": 8
+  },
+  "25,0": {
+   "mapsec": 116,
+   "name": "Route 16",
+   "layout_id": 77,
+   "map_type": 8
+  },
+  "25,1": {
+   "mapsec": 116,
+   "name": "Route 16",
+   "layout_id": 276,
+   "map_type": 8
+  },
+  "25,2": {
+   "mapsec": 116,
+   "name": "Route 16",
+   "layout_id": 273,
+   "map_type": 8
+  },
+  "26,0": {
+   "mapsec": 118,
+   "name": "Route 18",
+   "layout_id": 277,
+   "map_type": 8
+  },
+  "26,1": {
+   "mapsec": 118,
+   "name": "Route 18",
+   "layout_id": 273,
+   "map_type": 8
+  },
+  "27,0": {
+   "mapsec": 122,
+   "name": "Route 22",
+   "layout_id": 275,
+   "map_type": 8
+  },
+  "28,0": {
+   "mapsec": 125,
+   "name": "Route 25",
+   "layout_id": 223,
+   "map_type": 8
+  },
+  "29,0": {
+   "mapsec": 148,
+   "name": "Seven Island",
+   "layout_id": 435,
+   "map_type": 8
+  },
+  "29,1": {
+   "mapsec": 148,
+   "name": "Seven Island",
+   "layout_id": 318,
+   "map_type": 8
+  },
+  "29,2": {
+   "mapsec": 148,
+   "name": "Seven Island",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "29,3": {
+   "mapsec": 148,
+   "name": "Seven Island",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "29,4": {
+   "mapsec": 148,
+   "name": "Seven Island",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "29,5": {
+   "mapsec": 148,
+   "name": "Seven Island",
+   "layout_id": 84,
+   "map_type": 8
+  },
+  "29,6": {
+   "mapsec": 148,
+   "name": "Seven Island",
+   "layout_id": 368,
+   "map_type": 8
+  },
+  "30,0": {
+   "mapsec": 143,
+   "name": "One Island",
+   "layout_id": 324,
+   "map_type": 8
+  },
+  "30,1": {
+   "mapsec": 143,
+   "name": "One Island",
+   "layout_id": 369,
+   "map_type": 8
+  },
+  "30,2": {
+   "mapsec": 143,
+   "name": "One Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "30,3": {
+   "mapsec": 143,
+   "name": "One Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "30,4": {
+   "mapsec": 143,
+   "name": "One Island",
+   "layout_id": 368,
+   "map_type": 8
+  },
+  "30,5": {
+   "mapsec": 0,
+   "name": "Littleroot Town",
+   "layout_id": 437,
+   "map_type": 0
+  },
+  "31,0": {
+   "mapsec": 144,
+   "name": "Two Island",
+   "layout_id": 325,
+   "map_type": 8
+  },
+  "31,1": {
+   "mapsec": 144,
+   "name": "Two Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "31,2": {
+   "mapsec": 144,
+   "name": "Two Island",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "31,3": {
+   "mapsec": 144,
+   "name": "Two Island",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "31,4": {
+   "mapsec": 144,
+   "name": "Two Island",
+   "layout_id": 368,
+   "map_type": 8
+  },
+  "32,0": {
+   "mapsec": 145,
+   "name": "Three Island",
+   "layout_id": 99,
+   "map_type": 8
+  },
+  "32,1": {
+   "mapsec": 145,
+   "name": "Three Island",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "32,2": {
+   "mapsec": 145,
+   "name": "Three Island",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "32,3": {
+   "mapsec": 145,
+   "name": "Three Island",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "32,4": {
+   "mapsec": 145,
+   "name": "Three Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "32,5": {
+   "mapsec": 145,
+   "name": "Three Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "32,6": {
+   "mapsec": 145,
+   "name": "Three Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "32,7": {
+   "mapsec": 145,
+   "name": "Three Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "33,0": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 330,
+   "map_type": 8
+  },
+  "33,1": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "33,2": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "33,3": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "33,4": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 98,
+   "map_type": 8
+  },
+  "33,5": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 368,
+   "map_type": 8
+  },
+  "33,6": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "33,7": {
+   "mapsec": 146,
+   "name": "Four Island",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "34,0": {
+   "mapsec": 147,
+   "name": "Five Island",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "34,1": {
+   "mapsec": 147,
+   "name": "Five Island",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "34,2": {
+   "mapsec": 147,
+   "name": "Five Island",
+   "layout_id": 368,
+   "map_type": 8
+  },
+  "34,3": {
+   "mapsec": 147,
+   "name": "Five Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "34,4": {
+   "mapsec": 147,
+   "name": "Five Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "35,0": {
+   "mapsec": 149,
+   "name": "Six Island",
+   "layout_id": 79,
+   "map_type": 8
+  },
+  "35,1": {
+   "mapsec": 149,
+   "name": "Six Island",
+   "layout_id": 80,
+   "map_type": 8
+  },
+  "35,2": {
+   "mapsec": 149,
+   "name": "Six Island",
+   "layout_id": 368,
+   "map_type": 8
+  },
+  "35,3": {
+   "mapsec": 149,
+   "name": "Six Island",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "35,4": {
+   "mapsec": 149,
+   "name": "Six Island",
+   "layout_id": 81,
+   "map_type": 8
+  },
+  "36,0": {
+   "mapsec": 154,
+   "name": "Three Isle Port",
+   "layout_id": 368,
+   "map_type": 8
+  },
+  "37,0": {
+   "mapsec": 159,
+   "name": "Resort Gorgeous",
+   "layout_id": 88,
+   "map_type": 8
+  },
+  "38,0": {
+   "mapsec": 152,
+   "name": "Cape Brink",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "39,0": {
+   "mapsec": 165,
+   "name": "Water Path",
+   "layout_id": 84,
+   "map_type": 8
+  },
+  "39,1": {
+   "mapsec": 165,
+   "name": "Water Path",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "40,0": {
+   "mapsec": 169,
+   "name": "Sevault Canyon",
+   "layout_id": 82,
+   "map_type": 8
+  },
+  "41,0": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 10,
+   "map_type": 3
+  },
+  "41,1": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 23,
+   "map_type": 3
+  },
+  "41,2": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 9,
+   "map_type": 8
+  },
+  "41,3": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 11,
+   "map_type": 8
+  },
+  "41,4": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 12,
+   "map_type": 8
+  },
+  "41,5": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 13,
+   "map_type": 8
+  },
+  "41,6": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 60,
+   "map_type": 8
+  },
+  "41,7": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 61,
+   "map_type": 8
+  },
+  "41,8": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 13,
+   "map_type": 8
+  },
+  "41,9": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 16,
+   "map_type": 8
+  },
+  "41,10": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 17,
+   "map_type": 8
+  },
+  "41,11": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 18,
+   "map_type": 8
+  },
+  "41,12": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 19,
+   "map_type": 8
+  },
+  "41,13": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 20,
+   "map_type": 8
+  },
+  "41,14": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 21,
+   "map_type": 8
+  },
+  "41,15": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 22,
+   "map_type": 8
+  },
+  "41,16": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 37,
+   "map_type": 8
+  },
+  "41,17": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 38,
+   "map_type": 8
+  },
+  "41,18": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 55,
+   "map_type": 8
+  },
+  "41,19": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 32,
+   "map_type": 8
+  },
+  "41,20": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 33,
+   "map_type": 8
+  },
+  "41,21": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 34,
+   "map_type": 8
+  },
+  "41,22": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 24,
+   "map_type": 8
+  },
+  "41,23": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 25,
+   "map_type": 8
+  },
+  "41,24": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 26,
+   "map_type": 8
+  },
+  "41,25": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 27,
+   "map_type": 8
+  },
+  "41,26": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 28,
+   "map_type": 8
+  },
+  "41,27": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 29,
+   "map_type": 8
+  },
+  "41,28": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 30,
+   "map_type": 8
+  },
+  "41,29": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 31,
+   "map_type": 8
+  },
+  "41,30": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 35,
+   "map_type": 8
+  },
+  "41,31": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 62,
+   "map_type": 8
+  },
+  "41,32": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 70,
+   "map_type": 8
+  },
+  "41,33": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 64,
+   "map_type": 8
+  },
+  "41,34": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 63,
+   "map_type": 8
+  },
+  "41,35": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 70,
+   "map_type": 8
+  },
+  "41,36": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 70,
+   "map_type": 8
+  },
+  "41,37": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 71,
+   "map_type": 8
+  },
+  "41,38": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 63,
+   "map_type": 8
+  },
+  "41,39": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 70,
+   "map_type": 8
+  },
+  "41,40": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 70,
+   "map_type": 8
+  },
+  "41,41": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 65,
+   "map_type": 8
+  },
+  "41,42": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 70,
+   "map_type": 8
+  },
+  "41,43": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 70,
+   "map_type": 8
+  },
+  "41,44": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 10,
+   "map_type": 8
+  },
+  "41,45": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 10,
+   "map_type": 8
+  },
+  "41,46": {
+   "mapsec": 58,
+   "name": "Battle Frontier",
+   "layout_id": 10,
+   "map_type": 8
+  },
+  "41,47": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 39,
+   "map_type": 8
+  },
+  "41,48": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 40,
+   "map_type": 8
+  },
+  "41,49": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 41,
+   "map_type": 8
+  },
+  "41,50": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 42,
+   "map_type": 8
+  },
+  "41,51": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 43,
+   "map_type": 8
+  },
+  "41,52": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 44,
+   "map_type": 8
+  },
+  "41,53": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 45,
+   "map_type": 8
+  },
+  "41,54": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 46,
+   "map_type": 8
+  },
+  "41,55": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 47,
+   "map_type": 8
+  },
+  "41,56": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 48,
+   "map_type": 8
+  },
+  "41,57": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 49,
+   "map_type": 8
+  },
+  "41,58": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 50,
+   "map_type": 8
+  },
+  "41,59": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 51,
+   "map_type": 8
+  },
+  "41,60": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 52,
+   "map_type": 8
+  },
+  "41,61": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 53,
+   "map_type": 8
+  },
+  "41,62": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 54,
+   "map_type": 8
+  },
+  "42,0": {
+   "mapsec": 4,
+   "name": "Fallarbor Town",
+   "layout_id": 56,
+   "map_type": 8
+  },
+  "42,1": {
+   "mapsec": 4,
+   "name": "Fallarbor Town",
+   "layout_id": 57,
+   "map_type": 8
+  },
+  "42,2": {
+   "mapsec": 4,
+   "name": "Fallarbor Town",
+   "layout_id": 58,
+   "map_type": 8
+  },
+  "42,3": {
+   "mapsec": 5,
+   "name": "Verdanturf Town",
+   "layout_id": 56,
+   "map_type": 8
+  },
+  "42,4": {
+   "mapsec": 5,
+   "name": "Verdanturf Town",
+   "layout_id": 57,
+   "map_type": 8
+  },
+  "42,5": {
+   "mapsec": 5,
+   "name": "Verdanturf Town",
+   "layout_id": 59,
+   "map_type": 8
+  },
+  "42,6": {
+   "mapsec": 8,
+   "name": "Slateport City",
+   "layout_id": 56,
+   "map_type": 8
+  },
+  "42,7": {
+   "mapsec": 8,
+   "name": "Slateport City",
+   "layout_id": 57,
+   "map_type": 8
+  },
+  "42,8": {
+   "mapsec": 8,
+   "name": "Slateport City",
+   "layout_id": 58,
+   "map_type": 8
+  },
+  "42,9": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 3,
+   "map_type": 8
+  },
+  "42,10": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 4,
+   "map_type": 8
+  },
+  "42,11": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 5,
+   "map_type": 8
+  },
+  "42,12": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 6,
+   "map_type": 8
+  },
+  "42,13": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 7,
+   "map_type": 8
+  },
+  "42,14": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 8,
+   "map_type": 8
+  },
+  "43,0": {
+   "mapsec": 4,
+   "name": "Fallarbor Town",
+   "layout_id": 56,
+   "map_type": 8
+  },
+  "43,1": {
+   "mapsec": 4,
+   "name": "Fallarbor Town",
+   "layout_id": 57,
+   "map_type": 8
+  },
+  "43,2": {
+   "mapsec": 4,
+   "name": "Fallarbor Town",
+   "layout_id": 58,
+   "map_type": 8
+  },
+  "43,3": {
+   "mapsec": 5,
+   "name": "Verdanturf Town",
+   "layout_id": 56,
+   "map_type": 8
+  },
+  "43,4": {
+   "mapsec": 5,
+   "name": "Verdanturf Town",
+   "layout_id": 57,
+   "map_type": 8
+  },
+  "43,5": {
+   "mapsec": 5,
+   "name": "Verdanturf Town",
+   "layout_id": 59,
+   "map_type": 8
+  },
+  "43,6": {
+   "mapsec": 8,
+   "name": "Slateport City",
+   "layout_id": 56,
+   "map_type": 8
+  },
+  "43,7": {
+   "mapsec": 8,
+   "name": "Slateport City",
+   "layout_id": 57,
+   "map_type": 8
+  },
+  "43,8": {
+   "mapsec": 8,
+   "name": "Slateport City",
+   "layout_id": 58,
+   "map_type": 8
+  },
+  "43,9": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 3,
+   "map_type": 8
+  },
+  "43,10": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 4,
+   "map_type": 8
+  },
+  "43,11": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 5,
+   "map_type": 8
+  },
+  "43,12": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 6,
+   "map_type": 8
+  },
+  "43,13": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 7,
+   "map_type": 8
+  },
+  "43,14": {
+   "mapsec": 87,
+   "name": null,
+   "layout_id": 8,
+   "map_type": 8
+  }
+ }
+}

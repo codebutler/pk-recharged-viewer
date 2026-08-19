@@ -1,0 +1,72 @@
+{
+ "meta": {
+  "task": "Live-RAM verification of research/hack-offsets.json claims + attack on its unresolved list",
+  "data": "research/dumps/newgame-spam: 29 in-game dumps (f003000-f019800; earlier ones are pre-intro blanks). State: new game, no starter, player idle in bedroom, map (4,1) pos (6,6).",
+  "method": "Pointers from iwram+0x5AD0/4/8 (match pointers.txt in all dumps). Per-claim verdict = confirmed / consistent (value-degenerate: right value but zero/default so position not independently proven) / indeterminate / refuted, each with cited bytes from reference dump f019800 unless noted.",
+  "key_limits": "fresh save: party empty, bag/PC empty, dex zero, coins 0, key-dependent checks moot (no encryptionKey exists per static analysis)"
+ },
+ "verdicts": {
+  "SaveBlock2": {
+   "playerName@0x0": {"verdict": "confirmed", "evidence": "bb ff ff ff ff ff ff ff -> 'A' (harness A-spam name)"},
+   "playerGender@0x8": {"verdict": "consistent", "evidence": "0x00 (male) - default value, position not independently provable"},
+   "trainerId@0xA": {"verdict": "confirmed", "evidence": "u32 0x63E3EE80 (visible 61056 / secret 25571), random, invariant across all 29 dumps"},
+   "playTime@0xE-0x12": {"verdict": "confirmed", "evidence": "ticks 0:00:08 -> 0:04:27 across dumps at exact wall-clock rate (600 frames/dump)"},
+   "options@0x13-0x15": {"verdict": "consistent", "evidence": "00 01 21 - plausible defaults, invariant"},
+   "pokedex@0x18 owned@0x28 seen@0x5C": {"verdict": "consistent", "evidence": "entire dex region zero - correct for no-Pokemon save, positions rest on hack-offsets' memset evidence"},
+   "unknown_0x90": {"verdict": "observed", "evidence": "constant 0x22 (34) in every in-game dump (zero pre-intro); set during init, static after; identity unknown"},
+   "language@0x91": {"verdict": "confirmed-consistent", "evidence": "0x00 = English, matches claim's enum"},
+   "inserted_region_0x92-0x173": {"verdict": "mapped (mostly empty)", "evidence": "static over 4.5 min (ZERO volatile bytes). Content: single 0xFF bytes at 0xEC, 0xFC, 0x10C, 0x11C, 0x12C (five 0x10-stride records, 0xFF = empty-marker?), everything else zero"},
+   "rtc_like_0x144-0x16B": {"verdict": "refuted as live RTC", "evidence": "0x144-0x16B all zero and static across 4.5 minutes; the hack's actual running clock is at 0xF5C (see below). These bytes may be a Time snapshot (all zero at game start) but nothing ticks here"},
+   "unknown_0x6E0": {"verdict": "identified: player-name copy structure", "evidence": "u16@0x6E0 = 0, but 0x6E2-0x6E9 = bb ff ff ff ff ff ff ff = the player name 'A' again. A {u16, name[8]} record at 0x6E0"},
+   "tail_struct_0xF5C": {"verdict": "RESOLVED: accelerated in-game day/night clock", "evidence": "u8 minute @0xF5F, u8 second @0xF60 (u16@0xF5C and u8@0xF5E stay 0 = hour/day fields). Advances ~+90 in-game seconds per 600 frames (10 real s), 10-second-quantized (observed deltas 90-100) ~ 9x real time: f003000 1m20s -> f006000 9m00s -> f019800 44m30s. NOT a save counter. The 8-byte clock (0xF5C-0xF63) ends exactly at the claimed block end 0xF64, matching hack-offsets' 'memset(SB2+0xF5C, ?, 8) tail struct'"},
+   "encryptionKey_absent": {"verdict": "consistent", "evidence": "vanilla 0xAC reads 0; money/flags/vars all plaintext at their claimed offsets; nothing key-shaped nonzero in SB2 head"},
+   "size_0xF64": {"verdict": "confirmed", "evidence": "the clock struct ends exactly at 0xF64. Data seen beyond sb2ptr+0xF64 in earlier passes is NOT SaveBlock2: SB2 buffer 0x0200DBEC + 0xFE4 = 0x0200EBD0 = SB1 buffer base exactly, so sb2ptr+0xF64..0xFE3 crosses into inter-block ASLR slack holding STALE COPIES of SB1's head from previous shifts (the 'warp records' decode as SB1[0x00..0x0B]: pos (6,6) + location (4,1,-1,6,6); e.g. f019800 sb2p+0xF80 = 0x0200EBD4 = SB1buf+4 while live SB1ptr is 0x0200EC38). Their 'volatility' is shift churn. This reconciles the fingerprint's 0xFE4 spacing (0xF64 + up-to-0x7C shift fits) and retro-explains v1's 'SB2 extension is live' claim as an artifact of reading past the true end"}
+  },
+  "SaveBlock1": {
+   "pos@0x0": {"verdict": "confirmed", "evidence": "s16 (6,6) = bedroom tile"},
+   "location@0x4": {"verdict": "confirmed", "evidence": "04 01 ff 00 06 00 06 00 = map (4,1) warp -1 xy (6,6); gamedata.json: mapsec 0x58 Pallet Town, layout 73, indoor"},
+   "lastHealLocation@0x1C": {"verdict": "confirmed", "evidence": "03 00 ff 00 06 00 08 00 = map (3,0) Pallet Town overworld"},
+   "mapLayoutId@0x32": {"verdict": "confirmed", "evidence": "u16 73 == ROM map header (4,1) layout_id - independent cross-validation"},
+   "playerPartyCount@0x3B": {"verdict": "consistent", "evidence": "0x3B reads 0 (0-6 range ok) and agrees with gPlayerPartyCount @EWRAM 0x02038559 = 0; value-degenerate until a starter exists AND a save occurs (party copies to SB1 only on save)"},
+   "playerParty@0x44": {"verdict": "consistent", "evidence": "0x44+ all zero; same degeneracy. gPlayerParty @0x0203855C also zero"},
+   "gap_0x34-0x43": {"verdict": "observed", "evidence": "0x34-0x43 all zero on fresh save; no information"},
+   "money@0x29C": {"verdict": "confirmed", "evidence": "u32 3000 plaintext (b8 0b 00 00), the only 3000 in SB1+SB2, invariant in all 29 dumps; vanilla 0x490 reads 0"},
+   "coins@0x2A0_registeredItem@0x2A2": {"verdict": "consistent", "evidence": "both 0 (degenerate); 0x2A4-0x2AB also zero"},
+   "pcItems@0x2AC": {"verdict": "confirmed (via gBagPockets)", "evidence": "EWRAM gBagPockets[6] = {SB1+0x2AC, cap 50} in every dump; slots zero (PC empty - hack gives no starting Potion)"},
+   "bag_pockets": {"verdict": "confirmed (pointers), indeterminate (quantity plaintext)", "evidence": "gBagPockets @EWRAM 0x0200B770 verified in every dump, pointers track each dump's ASLR base exactly: [0]=+0x374 cap 60 Items, [1]=+0x2380 cap 100 Medicine, [2]=+0x52C cap 32 Balls, [3]=+0x5AC cap 64 TM/HM, [4]=+0x6AC cap 46 Berries, [5]=+0x464 cap 50 KeyItems, [6]=+0x2AC cap 50 PC. All slots zero (empty bag) so quantity-plaintext cannot be tested - needs a dump with items"},
+   "flags@0xEFB": {"verdict": "confirmed", "evidence": "133 bits set (matches hack-offsets' own count), identical across all dumps. Set ids: 0x2B-0x3F scattered (intro scripts), dense 0x428-0x456 block, 0x481-0x4C4 scattered, 0x89E. Full list in verdict data"},
+   "vars@0x1028": {"verdict": "confirmed", "evidence": "nonzero only at var indices: VAR_0x4029=4, VAR_0x404C=0xAD46, VAR_0x404F=0x8000, VAR_0x40A5=0xE769, VAR_0x40AF=0x8000, VAR_0x40E0=1 (0xAD46/0xE769 look like per-save random seeds)"},
+   "objectEventTemplates@0x1398": {"verdict": "confirmed", "evidence": "template[0] = localId 1, gfx 60, kind 1, xy (6,5), script 0x082439C0 (valid ROM ptr) = the mom NPC in the player's house; rest zero. Explains the previously-unidentified 0x1398 cluster"},
+   "berryTrees@0x1998": {"verdict": "confirmed", "evidence": "real tree data: entry[1] = berry 0x15, stage byte 0x85, minutesUntilNextStage 3600, yield 2; stride-8 records continue through 0x1A94 (trees pre-planted at new game)"},
+   "gameStats": {"verdict": "consistent with removed (no positive evidence of existence)", "evidence": "monotonic-counter scan across 29 dumps over full SB1+SB2+EWRAM+IWRAM found nothing stat-like incrementing (only frame counters @0x02038AF8/0x03003B84 and ASLR artifacts). Caveat: the idle player accrues no steps and no confirmed save occurred, so a dormant all-zero stats array would be invisible to this method - the removal evidence remains primarily static (no GetGameStat-shaped code)"},
+   "mail@0x910": {"verdict": "indeterminate", "evidence": "0x910-0xB4F is ALL ZERO. Vanilla ClearMail would leave 0xFFFF word patterns, so either the hack zero-fills mail or mail is elsewhere. Static save/load-loop evidence unrefuted but unconfirmed. NOTE: a 16 x 36-byte array with the classic empty-mail pattern (ff x26 + species=1) sits at 0x1D98 - either a second mail-shaped array or the real mail; a dump with an actual mail item would settle it"},
+   "unknown_0x1228": {"verdict": "confirmed shape", "evidence": "u16 @0x1230 (=0x1228+8) reads 0x197 = 407, matching the claimed init value; 0x1244-0x1273 holds four 12-byte records: 29 0a 20 10 0e 02 33 0a 00 00 00 00 / 0f 10 02 0a 25 0e 03 0c ... (byte-pair coordinate-like data, identity unknown)"},
+   "unknown_0x1D98": {"verdict": "observed", "evidence": "16 records x 36 bytes, each ff x26 00 00 00 00 01 00 00 00 00 00 (vanilla empty-Mail pattern); followed at 0x1FDC by Emerald sDefaultTraderMons defaults (PEGASO/PINZAS/KINGKONG, OTs Tere/Olli/Juliet/Terry/Melany/Hana) = OldMan/trader block, then registeredTexts at 0x21B8 (10 x 21: HELLO/POKeMON/TRADE/BATTLE/LET'S/OK!/SORRY/YAY/THANK YOU/BYE-BYE!)"},
+   "registeredTexts@0x21B8": {"verdict": "confirmed (new finding, not in hack-offsets)", "evidence": "exact union-room default strings, stride 21, 10 rows"},
+   "oldMan_trader@0x1FDC": {"verdict": "confirmed (new finding)", "evidence": "sDefaultTraderMons default records, stride 0x20"},
+   "gap_regions_all_zero": {"verdict": "observed", "evidence": "0x764-0x8AC, 0x8AC-0x910, 0xB50-0xEFB, 0x2510-0x2744, 0x3B92-0x3D94 (incl. SB1 extension tail): all zero on fresh save"},
+   "dex_seen_mirrors": {"verdict": "indeterminate, leaning removed", "evidence": "all-zero dex makes mirrors invisible; structurally, vanilla mirror positions (0x988/0x3B24) fall inside repacked regions with other identified uses; nothing contradicts removal"},
+   "frontier_block@0x2744": {"verdict": "consistent", "evidence": "0x2744+ zero on fresh save (degenerate); position rests on static evidence"}
+  },
+  "PokemonStorage": {
+   "currentBox@0x0": {"verdict": "consistent", "evidence": "0; boxes zero (empty). Value-degenerate"}
+  },
+  "ewram_symbols": {
+   "gBagPockets@0x0200B770": {"verdict": "confirmed", "evidence": "7 {ptr,cap} entries; pointers = that dump's SB1 base + claimed offsets in ALL dumps across 17 ASLR shifts"},
+   "gPlayerPartyCount@0x02038559": {"verdict": "consistent", "evidence": "0, agrees with SB1+0x3B"},
+   "gPlayerParty@0x0203855C": {"verdict": "consistent", "evidence": "zero (no starter)"},
+   "gSpecialFlags@0x02005C64": {"verdict": "consistent", "evidence": "all zero (no special flags set while idle)"}
+  },
+  "misc_observations": {
+   "pointer_rerandomization": "block bases took 17 distinct ASLR shifts across dumps while the player stood idle; periodic autosave is one explanation but no save counter exists to confirm (gameStats removed); could also be periodic re-randomization. Either way: always dereference the IWRAM pointers",
+   "frame_counters": "monotonic u32 frame counters at EWRAM 0x02038AF8 and IWRAM 0x03003B84/0x03003B88 (track dump frame numbers)"
+  }
+ },
+ "open_items_for_next_dump_session": [
+  "party@0x44: needs starter obtained AND game saved (party copies to SB1 on save only)",
+  "bag quantity plaintext + per-pocket segmentation: needs >=1 item per pocket",
+  "mail@0x910 vs 0x1D98: needs a mail-attached item",
+  "flags@0xEFB semantic map (badge flag ids in hack numbering): needs first badge",
+  "dex mirrors: needs a caught Pokemon (then check whether any SB1 copy of the SB2 bitfields appears)"
+ ]
+}

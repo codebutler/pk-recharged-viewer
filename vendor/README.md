@@ -1,8 +1,11 @@
-# vendor/ — local PokéAPI mirrors
+# vendor/ — submodules
 
-Shallow clones used by `analysis/tools/generate_page.py` to resolve sprites and
-metadata locally instead of crawling the network (raw.githubusercontent.com
-rate-limits rapid sequential sprite fetches):
+Four git submodules. Two are pret's decompilation projects, `pokeemerald` (the
+engine this hack was built from — the authoritative reference) and `pokefirered`
+(a historical dead end, kept for the record). The other two are shallow PokéAPI
+mirrors, used by `tools/prepare-assets.js` to resolve sprites and metadata
+locally instead of crawling the network (raw.githubusercontent.com rate-limits
+rapid sequential sprite fetches):
 
 ```sh
 git clone --depth 1 https://github.com/PokeAPI/api-data vendor/pokeapi-data
@@ -15,6 +18,5 @@ git clone --depth 1 https://github.com/PokeAPI/sprites  vendor/pokeapi-sprites
   1:1 onto this tree by stripping the
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/` prefix. GB-scale.
 
-Optional but recommended: without these clones, generate_page.py falls back to
-throttled HTTP fetches with a disk cache (`analysis/report/.cache/`) — slow on
-first run — and finally to styled placeholders for anything unresolvable.
+The PokéAPI clones are needed only to re-run `bun run prepare-assets`; the app
+itself ships the prepared subset under `public/` and never touches `vendor/`.

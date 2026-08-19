@@ -1,0 +1,37 @@
+{
+  "_comment": [
+    "Empirically discovered offset facts for Pokemon Recharged Yellow (v1.9.7),",
+    "produced by the ram-parser agent from the research/dumps/newgame-spam/ dump set.",
+    "Loaded by parse_ram.py on top of its built-in vanilla pokeemerald defaults;",
+    "research/hack-offsets.json (ROM-disassembly derived, owned by the hack-offsets",
+    "agent) is loaded after this file and wins on conflict -- it agrees with every",
+    "entry here (money 0x29C, SB2 early fields, storage vanilla).",
+    "History: an earlier revision hypothesized a follower Pokemon at SB1+0x238 and",
+    "vanilla-order bag offsets after money; hack-offsets.json disproved those (party",
+    "is at SB1+0x44, mapView moved to SB1+0x2510; bag pockets start at 0x374 with",
+    "new capacities), so they were removed. SB1+0x8AA/0x8AC is the trainer-rematch",
+    "(Match Call) system, not a mon slot."
+  ],
+  "offsets": {
+    "sb1.money": {
+      "offset": 668,
+      "status": "verified",
+      "evidence": "u32 3000 (new-game money) constant at SB1+0x29C across all in-game newgame-spam dumps; vanilla 0x490 reads 0. Independently confirmed by hack-offsets.json disassembly of AddMoney/IsEnoughMoney."
+    },
+    "sb2.playerName": { "offset": 0, "status": "verified", "evidence": "decodes to entered name 'A' in f004200" },
+    "sb2.playerGender": { "offset": 8, "status": "verified", "evidence": "0 (male) as selected" },
+    "sb2.playerTrainerId": { "offset": 10, "status": "verified", "evidence": "stable TID/SID across dumps of one session" },
+    "sb2.playTime": { "offset": 14, "status": "verified", "evidence": "monotonic 8s..267s across f003000..f019800 matching frame counts" },
+    "sb2.options": { "offset": 20, "status": "verified", "evidence": "plausible options bits; hack may use extra high bits" },
+    "sb1.registeredTexts": {
+      "offset": 8632,
+      "status": "verified",
+      "evidence": "Union Room default phrases (HELLO/POKeMON/TRADE/BATTLE/...) decode at SB1+0x21B8, stride 21, 10 rows. Not used by the parser; recorded as a layout landmark."
+    },
+    "storage": {
+      "offset": 0,
+      "status": "verified",
+      "evidence": "PokemonStorage fully vanilla: currentBox=0, all 14 box names Box1..Box14 decode at +0x8344, wallpapers cycle 0-3 at +0x83C2."
+    }
+  }
+}

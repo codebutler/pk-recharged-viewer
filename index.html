@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recharged Yellow Save Viewer</title>
+<link rel="stylesheet" href="app/styles.css">
+<link rel="icon" href="public/sprites/pokemon/25.png">
+<!-- No build step: Preact/hooks/htm are vendored as ESM and resolved here.
+     hooks.module.js imports the bare specifier "preact", so the map is
+     required, not a convenience. All paths stay relative so the app works
+     from a GitHub Pages project subpath as well as from the domain root. -->
+<script type="importmap">
+{
+  "imports": {
+    "preact": "./vendor/preact/preact.module.js",
+    "preact/hooks": "./vendor/preact/hooks.module.js",
+    "htm": "./vendor/preact/htm.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<div id="root"></div>
+<noscript><p class="empty">This viewer parses your save file in the browser, so it needs JavaScript.</p></noscript>
+<script type="module" src="app/main.js"></script>
+</body>
+</html>

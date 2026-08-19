@@ -1,0 +1,3344 @@
+{
+ "meta": {
+  "source": "vendor/pokeemerald (pret decomp)",
+  "derivations": [
+   "asm/macros/event.inc",
+   "src/scrcmd.c"
+  ],
+  "note": "Opcode number = position in data/script_cmd_table.inc. The hack's own table at ROM 0x081F1630 has 235 entries; 0x00-0xE2 match this table, 0xE3-0xEA are hack customs and are NOT described here.",
+  "vanilla_opcode_count": 227,
+  "disagreements": [
+   {
+    "opcode": "0x94",
+    "name": "hidemoneybox",
+    "macro_widths": [
+     1,
+     1
+    ],
+    "c_widths": []
+   }
+  ],
+  "no_macro_found": [],
+  "ambiguous_stubs": [
+   "0xC7 textcolor",
+   "0xC8 loadhelp",
+   "0xCC comparehiddenvar",
+   "0xD0 setworldmapflag"
+  ]
+ },
+ "opcodes": {
+  "0x00": {
+   "name": "nop",
+   "handler": "ScrCmd_nop",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x01": {
+   "name": "nop1",
+   "handler": "ScrCmd_nop1",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x02": {
+   "name": "end",
+   "handler": "ScrCmd_end",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x03": {
+   "name": "return",
+   "handler": "ScrCmd_return",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x04": {
+   "name": "call",
+   "handler": "ScrCmd_call",
+   "args": [
+    {
+     "width": 4,
+     "name": "destination"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x05": {
+   "name": "goto",
+   "handler": "ScrCmd_goto",
+   "args": [
+    {
+     "width": 4,
+     "name": "destination"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x06": {
+   "name": "goto_if",
+   "handler": "ScrCmd_goto_if",
+   "args": [
+    {
+     "width": 1,
+     "name": "condition"
+    },
+    {
+     "width": 4,
+     "name": "destination"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x07": {
+   "name": "call_if",
+   "handler": "ScrCmd_call_if",
+   "args": [
+    {
+     "width": 1,
+     "name": "condition"
+    },
+    {
+     "width": 4,
+     "name": "destination"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x08": {
+   "name": "gotostd",
+   "handler": "ScrCmd_gotostd",
+   "args": [
+    {
+     "width": 1,
+     "name": "function"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0x09": {
+   "name": "callstd",
+   "handler": "ScrCmd_callstd",
+   "args": [
+    {
+     "width": 1,
+     "name": "function"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0x0A": {
+   "name": "gotostd_if",
+   "handler": "ScrCmd_gotostd_if",
+   "args": [
+    {
+     "width": 1,
+     "name": "condition"
+    },
+    {
+     "width": 1,
+     "name": "function"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x0B": {
+   "name": "callstd_if",
+   "handler": "ScrCmd_callstd_if",
+   "args": [
+    {
+     "width": 1,
+     "name": "condition"
+    },
+    {
+     "width": 1,
+     "name": "function"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x0C": {
+   "name": "returnram",
+   "handler": "ScrCmd_returnram",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x0D": {
+   "name": "endram",
+   "handler": "ScrCmd_endram",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x0E": {
+   "name": "setmysteryeventstatus",
+   "handler": "ScrCmd_setmysteryeventstatus",
+   "args": [
+    {
+     "width": 1,
+     "name": "value"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0x0F": {
+   "name": "loadword",
+   "handler": "ScrCmd_loadword",
+   "args": [
+    {
+     "width": 1,
+     "name": "destIndex"
+    },
+    {
+     "width": 4,
+     "name": "value"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x10": {
+   "name": "loadbyte",
+   "handler": "ScrCmd_loadbyte",
+   "args": [
+    {
+     "width": 1,
+     "name": "destIndex"
+    },
+    {
+     "width": 1,
+     "name": "value"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x11": {
+   "name": "setptr",
+   "handler": "ScrCmd_setptr",
+   "args": [
+    {
+     "width": 1,
+     "name": "value"
+    },
+    {
+     "width": 4,
+     "name": "ptr"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x12": {
+   "name": "loadbytefromptr",
+   "handler": "ScrCmd_loadbytefromptr",
+   "args": [
+    {
+     "width": 1,
+     "name": "destIndex"
+    },
+    {
+     "width": 4,
+     "name": "source"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x13": {
+   "name": "setptrbyte",
+   "handler": "ScrCmd_setptrbyte",
+   "args": [
+    {
+     "width": 1,
+     "name": "srcIndex"
+    },
+    {
+     "width": 4,
+     "name": "destination"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x14": {
+   "name": "copylocal",
+   "handler": "ScrCmd_copylocal",
+   "args": [
+    {
+     "width": 1,
+     "name": "destIndex"
+    },
+    {
+     "width": 1,
+     "name": "srcIndex"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x15": {
+   "name": "copybyte",
+   "handler": "ScrCmd_copybyte",
+   "args": [
+    {
+     "width": 4,
+     "name": "destination"
+    },
+    {
+     "width": 4,
+     "name": "source"
+    }
+   ],
+   "length": 9,
+   "confidence": "high"
+  },
+  "0x16": {
+   "name": "setvar",
+   "handler": "ScrCmd_setvar",
+   "args": [
+    {
+     "width": 2,
+     "name": "destination"
+    },
+    {
+     "width": 2,
+     "name": "value"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x17": {
+   "name": "addvar",
+   "handler": "ScrCmd_addvar",
+   "args": [
+    {
+     "width": 2,
+     "name": "destination"
+    },
+    {
+     "width": 2,
+     "name": "value"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x18": {
+   "name": "subvar",
+   "handler": "ScrCmd_subvar",
+   "args": [
+    {
+     "width": 2,
+     "name": "destination"
+    },
+    {
+     "width": 2,
+     "name": "value"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x19": {
+   "name": "copyvar",
+   "handler": "ScrCmd_copyvar",
+   "args": [
+    {
+     "width": 2,
+     "name": "destination"
+    },
+    {
+     "width": 2,
+     "name": "source"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x1A": {
+   "name": "setorcopyvar",
+   "handler": "ScrCmd_setorcopyvar",
+   "args": [
+    {
+     "width": 2,
+     "name": "destination"
+    },
+    {
+     "width": 2,
+     "name": "source"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x1B": {
+   "name": "compare_local_to_local",
+   "handler": "ScrCmd_compare_local_to_local",
+   "args": [
+    {
+     "width": 1,
+     "name": "local1"
+    },
+    {
+     "width": 1,
+     "name": "local2"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x1C": {
+   "name": "compare_local_to_value",
+   "handler": "ScrCmd_compare_local_to_value",
+   "args": [
+    {
+     "width": 1,
+     "name": "local"
+    },
+    {
+     "width": 1,
+     "name": "value"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x1D": {
+   "name": "compare_local_to_ptr",
+   "handler": "ScrCmd_compare_local_to_ptr",
+   "args": [
+    {
+     "width": 1,
+     "name": "local"
+    },
+    {
+     "width": 4,
+     "name": "ptr"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x1E": {
+   "name": "compare_ptr_to_local",
+   "handler": "ScrCmd_compare_ptr_to_local",
+   "args": [
+    {
+     "width": 4,
+     "name": "ptr"
+    },
+    {
+     "width": 1,
+     "name": "local"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x1F": {
+   "name": "compare_ptr_to_value",
+   "handler": "ScrCmd_compare_ptr_to_value",
+   "args": [
+    {
+     "width": 4,
+     "name": "ptr"
+    },
+    {
+     "width": 1,
+     "name": "value"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x20": {
+   "name": "compare_ptr_to_ptr",
+   "handler": "ScrCmd_compare_ptr_to_ptr",
+   "args": [
+    {
+     "width": 4,
+     "name": "ptr1"
+    },
+    {
+     "width": 4,
+     "name": "ptr2"
+    }
+   ],
+   "length": 9,
+   "confidence": "high"
+  },
+  "0x21": {
+   "name": "compare_var_to_value",
+   "handler": "ScrCmd_compare_var_to_value",
+   "args": [
+    {
+     "width": 2,
+     "name": "var"
+    },
+    {
+     "width": 2,
+     "name": "value"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x22": {
+   "name": "compare_var_to_var",
+   "handler": "ScrCmd_compare_var_to_var",
+   "args": [
+    {
+     "width": 2,
+     "name": "var1"
+    },
+    {
+     "width": 2,
+     "name": "var2"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x23": {
+   "name": "callnative",
+   "handler": "ScrCmd_callnative",
+   "args": [
+    {
+     "width": 4,
+     "name": "func"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x24": {
+   "name": "gotonative",
+   "handler": "ScrCmd_gotonative",
+   "args": [
+    {
+     "width": 4,
+     "name": "func"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x25": {
+   "name": "special",
+   "handler": "ScrCmd_special",
+   "args": [
+    {
+     "width": 2,
+     "name": "SPECIAL_\\function"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x26": {
+   "name": "specialvar",
+   "handler": "ScrCmd_specialvar",
+   "args": [
+    {
+     "width": 2,
+     "name": "output"
+    },
+    {
+     "width": 2,
+     "name": "SPECIAL_\\function"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x27": {
+   "name": "waitstate",
+   "handler": "ScrCmd_waitstate",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x28": {
+   "name": "delay",
+   "handler": "ScrCmd_delay",
+   "args": [
+    {
+     "width": 2,
+     "name": "frames"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x29": {
+   "name": "setflag",
+   "handler": "ScrCmd_setflag",
+   "args": [
+    {
+     "width": 2,
+     "name": "flag"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x2A": {
+   "name": "clearflag",
+   "handler": "ScrCmd_clearflag",
+   "args": [
+    {
+     "width": 2,
+     "name": "flag"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x2B": {
+   "name": "checkflag",
+   "handler": "ScrCmd_checkflag",
+   "args": [
+    {
+     "width": 2,
+     "name": "flag"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x2C": {
+   "name": "initclock",
+   "handler": "ScrCmd_initclock",
+   "args": [
+    {
+     "width": 2,
+     "name": "hour"
+    },
+    {
+     "width": 2,
+     "name": "minute"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x2D": {
+   "name": "dotimebasedevents",
+   "handler": "ScrCmd_dotimebasedevents",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x2E": {
+   "name": "gettime",
+   "handler": "ScrCmd_gettime",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x2F": {
+   "name": "playse",
+   "handler": "ScrCmd_playse",
+   "args": [
+    {
+     "width": 2,
+     "name": "song"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x30": {
+   "name": "waitse",
+   "handler": "ScrCmd_waitse",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x31": {
+   "name": "playfanfare",
+   "handler": "ScrCmd_playfanfare",
+   "args": [
+    {
+     "width": 2,
+     "name": "song"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x32": {
+   "name": "waitfanfare",
+   "handler": "ScrCmd_waitfanfare",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x33": {
+   "name": "playbgm",
+   "handler": "ScrCmd_playbgm",
+   "args": [
+    {
+     "width": 2,
+     "name": "song"
+    },
+    {
+     "width": 1,
+     "name": "save_song"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x34": {
+   "name": "savebgm",
+   "handler": "ScrCmd_savebgm",
+   "args": [
+    {
+     "width": 2,
+     "name": "song"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x35": {
+   "name": "fadedefaultbgm",
+   "handler": "ScrCmd_fadedefaultbgm",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x36": {
+   "name": "fadenewbgm",
+   "handler": "ScrCmd_fadenewbgm",
+   "args": [
+    {
+     "width": 2,
+     "name": "song"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x37": {
+   "name": "fadeoutbgm",
+   "handler": "ScrCmd_fadeoutbgm",
+   "args": [
+    {
+     "width": 1,
+     "name": "speed"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0x38": {
+   "name": "fadeinbgm",
+   "handler": "ScrCmd_fadeinbgm",
+   "args": [
+    {
+     "width": 1,
+     "name": "speed"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0x39": {
+   "name": "warp",
+   "handler": "ScrCmd_warp",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0x3A": {
+   "name": "warpsilent",
+   "handler": "ScrCmd_warpsilent",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0x3B": {
+   "name": "warpdoor",
+   "handler": "ScrCmd_warpdoor",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0x3C": {
+   "name": "warphole",
+   "handler": "ScrCmd_warphole",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x3D": {
+   "name": "warpteleport",
+   "handler": "ScrCmd_warpteleport",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0x3E": {
+   "name": "setwarp",
+   "handler": "ScrCmd_setwarp",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0x3F": {
+   "name": "setdynamicwarp",
+   "handler": "ScrCmd_setdynamicwarp",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0x40": {
+   "name": "setdivewarp",
+   "handler": "ScrCmd_setdivewarp",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0x41": {
+   "name": "setholewarp",
+   "handler": "ScrCmd_setholewarp",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0x42": {
+   "name": "getplayerxy",
+   "handler": "ScrCmd_getplayerxy",
+   "args": [
+    {
+     "width": 2,
+     "name": "x"
+    },
+    {
+     "width": 2,
+     "name": "y"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x43": {
+   "name": "getpartysize",
+   "handler": "ScrCmd_getpartysize",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x44": {
+   "name": "additem",
+   "handler": "ScrCmd_additem",
+   "args": [
+    {
+     "width": 2,
+     "name": "itemId"
+    },
+    {
+     "width": 2,
+     "name": "quantity"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x45": {
+   "name": "removeitem",
+   "handler": "ScrCmd_removeitem",
+   "args": [
+    {
+     "width": 2,
+     "name": "itemId"
+    },
+    {
+     "width": 2,
+     "name": "quantity"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x46": {
+   "name": "checkitemspace",
+   "handler": "ScrCmd_checkitemspace",
+   "args": [
+    {
+     "width": 2,
+     "name": "itemId"
+    },
+    {
+     "width": 2,
+     "name": "quantity"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x47": {
+   "name": "checkitem",
+   "handler": "ScrCmd_checkitem",
+   "args": [
+    {
+     "width": 2,
+     "name": "itemId"
+    },
+    {
+     "width": 2,
+     "name": "quantity"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x48": {
+   "name": "checkitemtype",
+   "handler": "ScrCmd_checkitemtype",
+   "args": [
+    {
+     "width": 2,
+     "name": "itemId"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x49": {
+   "name": "addpcitem",
+   "handler": "ScrCmd_addpcitem",
+   "args": [
+    {
+     "width": 2,
+     "name": "itemId"
+    },
+    {
+     "width": 2,
+     "name": "quantity"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x4A": {
+   "name": "checkpcitem",
+   "handler": "ScrCmd_checkpcitem",
+   "args": [
+    {
+     "width": 2,
+     "name": "itemId"
+    },
+    {
+     "width": 2,
+     "name": "quantity"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x4B": {
+   "name": "adddecoration",
+   "handler": "ScrCmd_adddecoration",
+   "args": [
+    {
+     "width": 2,
+     "name": "decoration"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x4C": {
+   "name": "removedecoration",
+   "handler": "ScrCmd_removedecoration",
+   "args": [
+    {
+     "width": 2,
+     "name": "decoration"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x4D": {
+   "name": "checkdecor",
+   "handler": "ScrCmd_checkdecor",
+   "args": [
+    {
+     "width": 2,
+     "name": "decoration"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x4E": {
+   "name": "checkdecorspace",
+   "handler": "ScrCmd_checkdecorspace",
+   "args": [
+    {
+     "width": 2,
+     "name": "decoration"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x4F": {
+   "name": "applymovement",
+   "handler": "ScrCmd_applymovement",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 4,
+     "name": "movements"
+    }
+   ],
+   "length": 7,
+   "confidence": "high"
+  },
+  "0x50": {
+   "name": "applymovement",
+   "handler": "ScrCmd_applymovementat",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 4,
+     "name": "movements"
+    },
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    }
+   ],
+   "length": 9,
+   "confidence": "high"
+  },
+  "0x51": {
+   "name": "waitmovement",
+   "handler": "ScrCmd_waitmovement",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x52": {
+   "name": "waitmovement",
+   "handler": "ScrCmd_waitmovementat",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x53": {
+   "name": "removeobject",
+   "handler": "ScrCmd_removeobject",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x54": {
+   "name": "removeobject",
+   "handler": "ScrCmd_removeobjectat",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x55": {
+   "name": "addobject",
+   "handler": "ScrCmd_addobject",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x56": {
+   "name": "addobject",
+   "handler": "ScrCmd_addobjectat",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x57": {
+   "name": "setobjectxy",
+   "handler": "ScrCmd_setobjectxy",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 2,
+     "name": "x"
+    },
+    {
+     "width": 2,
+     "name": "y"
+    }
+   ],
+   "length": 7,
+   "confidence": "high"
+  },
+  "0x58": {
+   "name": "showobjectat",
+   "handler": "ScrCmd_showobjectat",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x59": {
+   "name": "hideobjectat",
+   "handler": "ScrCmd_hideobjectat",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x5A": {
+   "name": "faceplayer",
+   "handler": "ScrCmd_faceplayer",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x5B": {
+   "name": "turnobject",
+   "handler": "ScrCmd_turnobject",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 1,
+     "name": "direction"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x5C": {
+   "name": "trainerbattle",
+   "handler": "ScrCmd_trainerbattle",
+   "args": [
+    {
+     "width": 1,
+     "name": "type"
+    },
+    {
+     "width": 2,
+     "name": "trainer"
+    },
+    {
+     "width": 2,
+     "name": "local_id"
+    },
+    {
+     "width": 4,
+     "name": "pointer1"
+    },
+    {
+     "width": 4,
+     "name": "pointer2"
+    }
+   ],
+   "confidence": "high",
+   "variable": {
+    "keyed_on": "type",
+    "fixed_args": [
+     {
+      "width": 1,
+      "name": "type"
+     },
+     {
+      "width": 2,
+      "name": "trainer"
+     },
+     {
+      "width": 2,
+      "name": "localId"
+     }
+    ],
+    "extra_pointers_by_type": {
+     "0": 2,
+     "1": 3,
+     "2": 3,
+     "3": 1,
+     "4": 3,
+     "5": 2,
+     "6": 4,
+     "7": 3,
+     "8": 4,
+     "9": 2,
+     "10": 2,
+     "11": 2,
+     "12": 2
+    }
+   }
+  },
+  "0x5D": {
+   "name": "dotrainerbattle",
+   "handler": "ScrCmd_dotrainerbattle",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x5E": {
+   "name": "gotopostbattlescript",
+   "handler": "ScrCmd_gotopostbattlescript",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x5F": {
+   "name": "gotobeatenscript",
+   "handler": "ScrCmd_gotobeatenscript",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x60": {
+   "name": "checktrainerflag",
+   "handler": "ScrCmd_checktrainerflag",
+   "args": [
+    {
+     "width": 2,
+     "name": "trainer"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x61": {
+   "name": "settrainerflag",
+   "handler": "ScrCmd_settrainerflag",
+   "args": [
+    {
+     "width": 2,
+     "name": "trainer"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x62": {
+   "name": "cleartrainerflag",
+   "handler": "ScrCmd_cleartrainerflag",
+   "args": [
+    {
+     "width": 2,
+     "name": "trainer"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x63": {
+   "name": "setobjectxyperm",
+   "handler": "ScrCmd_setobjectxyperm",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 2,
+     "name": "x"
+    },
+    {
+     "width": 2,
+     "name": "y"
+    }
+   ],
+   "length": 7,
+   "confidence": "high"
+  },
+  "0x64": {
+   "name": "copyobjectxytoperm",
+   "handler": "ScrCmd_copyobjectxytoperm",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x65": {
+   "name": "setobjectmovementtype",
+   "handler": "ScrCmd_setobjectmovementtype",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 1,
+     "name": "movementType"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x66": {
+   "name": "waitmessage",
+   "handler": "ScrCmd_waitmessage",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x67": {
+   "name": "message",
+   "handler": "ScrCmd_message",
+   "args": [
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x68": {
+   "name": "closemessage",
+   "handler": "ScrCmd_closemessage",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x69": {
+   "name": "lockall",
+   "handler": "ScrCmd_lockall",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x6A": {
+   "name": "lock",
+   "handler": "ScrCmd_lock",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x6B": {
+   "name": "releaseall",
+   "handler": "ScrCmd_releaseall",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x6C": {
+   "name": "release",
+   "handler": "ScrCmd_release",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x6D": {
+   "name": "waitbuttonpress",
+   "handler": "ScrCmd_waitbuttonpress",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x6E": {
+   "name": "yesnobox",
+   "handler": "ScrCmd_yesnobox",
+   "args": [
+    {
+     "width": 1,
+     "name": "x"
+    },
+    {
+     "width": 1,
+     "name": "y"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x6F": {
+   "name": "multichoice",
+   "handler": "ScrCmd_multichoice",
+   "args": [
+    {
+     "width": 1,
+     "name": "x"
+    },
+    {
+     "width": 1,
+     "name": "y"
+    },
+    {
+     "width": 1,
+     "name": "multichoiceId"
+    },
+    {
+     "width": 1,
+     "name": "ignoreBPress"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x70": {
+   "name": "multichoicedefault",
+   "handler": "ScrCmd_multichoicedefault",
+   "args": [
+    {
+     "width": 1,
+     "name": "x"
+    },
+    {
+     "width": 1,
+     "name": "y"
+    },
+    {
+     "width": 1,
+     "name": "multichoiceId"
+    },
+    {
+     "width": 1,
+     "name": "default"
+    },
+    {
+     "width": 1,
+     "name": "ignoreBPress"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x71": {
+   "name": "multichoicegrid",
+   "handler": "ScrCmd_multichoicegrid",
+   "args": [
+    {
+     "width": 1,
+     "name": "x"
+    },
+    {
+     "width": 1,
+     "name": "y"
+    },
+    {
+     "width": 1,
+     "name": "multichoiceId"
+    },
+    {
+     "width": 1,
+     "name": "per_row"
+    },
+    {
+     "width": 1,
+     "name": "ignoreBPress"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x72": {
+   "name": "drawbox",
+   "handler": "ScrCmd_drawbox",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x73": {
+   "name": "erasebox",
+   "handler": "ScrCmd_erasebox",
+   "args": [
+    {
+     "width": 1,
+     "name": "left"
+    },
+    {
+     "width": 1,
+     "name": "top"
+    },
+    {
+     "width": 1,
+     "name": "right"
+    },
+    {
+     "width": 1,
+     "name": "bottom"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x74": {
+   "name": "drawboxtext",
+   "handler": "ScrCmd_drawboxtext",
+   "args": [
+    {
+     "width": 1,
+     "name": "left"
+    },
+    {
+     "width": 1,
+     "name": "top"
+    },
+    {
+     "width": 1,
+     "name": "multichoiceId"
+    },
+    {
+     "width": 1,
+     "name": "ignoreBPress"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x75": {
+   "name": "showmonpic",
+   "handler": "ScrCmd_showmonpic",
+   "args": [
+    {
+     "width": 2,
+     "name": "species"
+    },
+    {
+     "width": 1,
+     "name": "x"
+    },
+    {
+     "width": 1,
+     "name": "y"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x76": {
+   "name": "hidemonpic",
+   "handler": "ScrCmd_hidemonpic",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x77": {
+   "name": "showcontestpainting",
+   "handler": "ScrCmd_showcontestpainting",
+   "args": [
+    {
+     "width": 1,
+     "name": "winnerId"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0x78": {
+   "name": "braillemessage",
+   "handler": "ScrCmd_braillemessage",
+   "args": [
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x79": {
+   "name": "givemon",
+   "handler": "ScrCmd_givemon",
+   "args": [
+    {
+     "width": 2,
+     "name": "species"
+    },
+    {
+     "width": 1,
+     "name": "level"
+    },
+    {
+     "width": 2,
+     "name": "item"
+    },
+    {
+     "width": 4,
+     "name": "0"
+    },
+    {
+     "width": 4,
+     "name": "0"
+    },
+    {
+     "width": 1,
+     "name": "0"
+    }
+   ],
+   "length": 15,
+   "confidence": "high"
+  },
+  "0x7A": {
+   "name": "giveegg",
+   "handler": "ScrCmd_giveegg",
+   "args": [
+    {
+     "width": 2,
+     "name": "species"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x7B": {
+   "name": "setmonmove",
+   "handler": "ScrCmd_setmonmove",
+   "args": [
+    {
+     "width": 1,
+     "name": "partyIndex"
+    },
+    {
+     "width": 1,
+     "name": "slot"
+    },
+    {
+     "width": 2,
+     "name": "move"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x7C": {
+   "name": "checkpartymove",
+   "handler": "ScrCmd_checkpartymove",
+   "args": [
+    {
+     "width": 2,
+     "name": "move"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x7D": {
+   "name": "bufferspeciesname",
+   "handler": "ScrCmd_bufferspeciesname",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "species"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x7E": {
+   "name": "bufferleadmonspeciesname",
+   "handler": "ScrCmd_bufferleadmonspeciesname",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0x7F": {
+   "name": "bufferpartymonnick",
+   "handler": "ScrCmd_bufferpartymonnick",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "slot"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x80": {
+   "name": "bufferitemname",
+   "handler": "ScrCmd_bufferitemname",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "item"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x81": {
+   "name": "bufferdecorationname",
+   "handler": "ScrCmd_bufferdecorationname",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "decoration"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x82": {
+   "name": "buffermovename",
+   "handler": "ScrCmd_buffermovename",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "move"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x83": {
+   "name": "buffernumberstring",
+   "handler": "ScrCmd_buffernumberstring",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "input"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x84": {
+   "name": "bufferstdstring",
+   "handler": "ScrCmd_bufferstdstring",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "index"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x85": {
+   "name": "bufferstring",
+   "handler": "ScrCmd_bufferstring",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x86": {
+   "name": "pokemart",
+   "handler": "ScrCmd_pokemart",
+   "args": [
+    {
+     "width": 4,
+     "name": "products"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x87": {
+   "name": "pokemartdecoration",
+   "handler": "ScrCmd_pokemartdecoration",
+   "args": [
+    {
+     "width": 4,
+     "name": "products"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x88": {
+   "name": "pokemartdecoration2",
+   "handler": "ScrCmd_pokemartdecoration2",
+   "args": [
+    {
+     "width": 4,
+     "name": "products"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x89": {
+   "name": "playslotmachine",
+   "handler": "ScrCmd_playslotmachine",
+   "args": [
+    {
+     "width": 2,
+     "name": "id"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x8A": {
+   "name": "setberrytree",
+   "handler": "ScrCmd_setberrytree",
+   "args": [
+    {
+     "width": 1,
+     "name": "treeId"
+    },
+    {
+     "width": 1,
+     "name": "berry"
+    },
+    {
+     "width": 1,
+     "name": "growthStage"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x8B": {
+   "name": "choosecontestmon",
+   "handler": "ScrCmd_choosecontestmon",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x8C": {
+   "name": "startcontest",
+   "handler": "ScrCmd_startcontest",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x8D": {
+   "name": "showcontestresults",
+   "handler": "ScrCmd_showcontestresults",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x8E": {
+   "name": "contestlinktransfer",
+   "handler": "ScrCmd_contestlinktransfer",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0x8F": {
+   "name": "random",
+   "handler": "ScrCmd_random",
+   "args": [
+    {
+     "width": 2,
+     "name": "limit"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x90": {
+   "name": "addmoney",
+   "handler": "ScrCmd_addmoney",
+   "args": [
+    {
+     "width": 4,
+     "name": "value"
+    },
+    {
+     "width": 1,
+     "name": "disable"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x91": {
+   "name": "removemoney",
+   "handler": "ScrCmd_removemoney",
+   "args": [
+    {
+     "width": 4,
+     "name": "value"
+    },
+    {
+     "width": 1,
+     "name": "disable"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x92": {
+   "name": "checkmoney",
+   "handler": "ScrCmd_checkmoney",
+   "args": [
+    {
+     "width": 4,
+     "name": "value"
+    },
+    {
+     "width": 1,
+     "name": "disable"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0x93": {
+   "name": "showmoneybox",
+   "handler": "ScrCmd_showmoneybox",
+   "args": [
+    {
+     "width": 1,
+     "name": "x"
+    },
+    {
+     "width": 1,
+     "name": "y"
+    },
+    {
+     "width": 1,
+     "name": "disable"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x94": {
+   "name": "hidemoneybox",
+   "handler": "ScrCmd_hidemoneybox",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 1,
+     "name": "0"
+    }
+   ],
+   "length": 3,
+   "confidence": "low"
+  },
+  "0x95": {
+   "name": "updatemoneybox",
+   "handler": "ScrCmd_updatemoneybox",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 1,
+     "name": "disable"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x96": {
+   "name": "getpokenewsactive",
+   "handler": "ScrCmd_getpokenewsactive",
+   "args": [
+    {
+     "width": 2,
+     "name": "newsKind"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x97": {
+   "name": "fadescreen",
+   "handler": "ScrCmd_fadescreen",
+   "args": [
+    {
+     "width": 1,
+     "name": "mode"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0x98": {
+   "name": "fadescreenspeed",
+   "handler": "ScrCmd_fadescreenspeed",
+   "args": [
+    {
+     "width": 1,
+     "name": "mode"
+    },
+    {
+     "width": 1,
+     "name": "speed"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x99": {
+   "name": "setflashlevel",
+   "handler": "ScrCmd_setflashlevel",
+   "args": [
+    {
+     "width": 2,
+     "name": "level"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x9A": {
+   "name": "animateflash",
+   "handler": "ScrCmd_animateflash",
+   "args": [
+    {
+     "width": 1,
+     "name": "level"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0x9B": {
+   "name": "messageautoscroll",
+   "handler": "ScrCmd_messageautoscroll",
+   "args": [
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0x9C": {
+   "name": "dofieldeffect",
+   "handler": "ScrCmd_dofieldeffect",
+   "args": [
+    {
+     "width": 2,
+     "name": "animation"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x9D": {
+   "name": "setfieldeffectargument",
+   "handler": "ScrCmd_setfieldeffectargument",
+   "args": [
+    {
+     "width": 1,
+     "name": "argNum"
+    },
+    {
+     "width": 2,
+     "name": "value"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0x9E": {
+   "name": "waitfieldeffect",
+   "handler": "ScrCmd_waitfieldeffect",
+   "args": [
+    {
+     "width": 2,
+     "name": "animation"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0x9F": {
+   "name": "setrespawn",
+   "handler": "ScrCmd_setrespawn",
+   "args": [
+    {
+     "width": 2,
+     "name": "heallocation"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xA0": {
+   "name": "checkplayergender",
+   "handler": "ScrCmd_checkplayergender",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xA1": {
+   "name": "playmoncry",
+   "handler": "ScrCmd_playmoncry",
+   "args": [
+    {
+     "width": 2,
+     "name": "species"
+    },
+    {
+     "width": 2,
+     "name": "mode"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xA2": {
+   "name": "setmetatile",
+   "handler": "ScrCmd_setmetatile",
+   "args": [
+    {
+     "width": 2,
+     "name": "x"
+    },
+    {
+     "width": 2,
+     "name": "y"
+    },
+    {
+     "width": 2,
+     "name": "metatileId"
+    },
+    {
+     "width": 2,
+     "name": "impassable"
+    }
+   ],
+   "length": 9,
+   "confidence": "high"
+  },
+  "0xA3": {
+   "name": "resetweather",
+   "handler": "ScrCmd_resetweather",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xA4": {
+   "name": "setweather",
+   "handler": "ScrCmd_setweather",
+   "args": [
+    {
+     "width": 2,
+     "name": "type"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xA5": {
+   "name": "doweather",
+   "handler": "ScrCmd_doweather",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xA6": {
+   "name": "setstepcallback",
+   "handler": "ScrCmd_setstepcallback",
+   "args": [
+    {
+     "width": 1,
+     "name": "stepCbId"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0xA7": {
+   "name": "setmaplayoutindex",
+   "handler": "ScrCmd_setmaplayoutindex",
+   "args": [
+    {
+     "width": 2,
+     "name": "index"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xA8": {
+   "name": "setobjectsubpriority",
+   "handler": "ScrCmd_setobjectsubpriority",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "subpriority"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0xA9": {
+   "name": "resetobjectsubpriority",
+   "handler": "ScrCmd_resetobjectsubpriority",
+   "args": [
+    {
+     "width": 2,
+     "name": "localId"
+    },
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xAA": {
+   "name": "createvobject",
+   "handler": "ScrCmd_createvobject",
+   "args": [
+    {
+     "width": 1,
+     "name": "graphicsId"
+    },
+    {
+     "width": 1,
+     "name": "id"
+    },
+    {
+     "width": 2,
+     "name": "x"
+    },
+    {
+     "width": 2,
+     "name": "y"
+    },
+    {
+     "width": 1,
+     "name": "elevation"
+    },
+    {
+     "width": 1,
+     "name": "direction"
+    }
+   ],
+   "length": 9,
+   "confidence": "high"
+  },
+  "0xAB": {
+   "name": "turnvobject",
+   "handler": "ScrCmd_turnvobject",
+   "args": [
+    {
+     "width": 1,
+     "name": "id"
+    },
+    {
+     "width": 1,
+     "name": "direction"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xAC": {
+   "name": "opendoor",
+   "handler": "ScrCmd_opendoor",
+   "args": [
+    {
+     "width": 2,
+     "name": "x"
+    },
+    {
+     "width": 2,
+     "name": "y"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xAD": {
+   "name": "closedoor",
+   "handler": "ScrCmd_closedoor",
+   "args": [
+    {
+     "width": 2,
+     "name": "x"
+    },
+    {
+     "width": 2,
+     "name": "y"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xAE": {
+   "name": "waitdooranim",
+   "handler": "ScrCmd_waitdooranim",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xAF": {
+   "name": "setdooropen",
+   "handler": "ScrCmd_setdooropen",
+   "args": [
+    {
+     "width": 2,
+     "name": "x"
+    },
+    {
+     "width": 2,
+     "name": "y"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xB0": {
+   "name": "setdoorclosed",
+   "handler": "ScrCmd_setdoorclosed",
+   "args": [
+    {
+     "width": 2,
+     "name": "x"
+    },
+    {
+     "width": 2,
+     "name": "y"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xB1": {
+   "name": "addelevmenuitem",
+   "handler": "ScrCmd_addelevmenuitem",
+   "args": [
+    {
+     "width": 1,
+     "name": "a"
+    },
+    {
+     "width": 2,
+     "name": "b"
+    },
+    {
+     "width": 2,
+     "name": "c"
+    },
+    {
+     "width": 2,
+     "name": "d"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0xB2": {
+   "name": "showelevmenu",
+   "handler": "ScrCmd_showelevmenu",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xB3": {
+   "name": "checkcoins",
+   "handler": "ScrCmd_checkcoins",
+   "args": [
+    {
+     "width": 2,
+     "name": "out"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xB4": {
+   "name": "addcoins",
+   "handler": "ScrCmd_addcoins",
+   "args": [
+    {
+     "width": 2,
+     "name": "count"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xB5": {
+   "name": "removecoins",
+   "handler": "ScrCmd_removecoins",
+   "args": [
+    {
+     "width": 2,
+     "name": "count"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xB6": {
+   "name": "setwildbattle",
+   "handler": "ScrCmd_setwildbattle",
+   "args": [
+    {
+     "width": 2,
+     "name": "species"
+    },
+    {
+     "width": 1,
+     "name": "level"
+    },
+    {
+     "width": 2,
+     "name": "item"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0xB7": {
+   "name": "dowildbattle",
+   "handler": "ScrCmd_dowildbattle",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xB8": {
+   "name": "setvaddress",
+   "handler": "ScrCmd_setvaddress",
+   "args": [
+    {
+     "width": 4,
+     "name": "pointer"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xB9": {
+   "name": "vgoto",
+   "handler": "ScrCmd_vgoto",
+   "args": [
+    {
+     "width": 4,
+     "name": "destination"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xBA": {
+   "name": "vcall",
+   "handler": "ScrCmd_vcall",
+   "args": [
+    {
+     "width": 4,
+     "name": "destination"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xBB": {
+   "name": "vgoto_if",
+   "handler": "ScrCmd_vgoto_if",
+   "args": [
+    {
+     "width": 1,
+     "name": "condition"
+    },
+    {
+     "width": 4,
+     "name": "destination"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0xBC": {
+   "name": "vcall_if",
+   "handler": "ScrCmd_vcall_if",
+   "args": [
+    {
+     "width": 1,
+     "name": "condition"
+    },
+    {
+     "width": 4,
+     "name": "destination"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0xBD": {
+   "name": "vmessage",
+   "handler": "ScrCmd_vmessage",
+   "args": [
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xBE": {
+   "name": "vbuffermessage",
+   "handler": "ScrCmd_vbuffermessage",
+   "args": [
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xBF": {
+   "name": "vbufferstring",
+   "handler": "ScrCmd_vbufferstring",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  },
+  "0xC0": {
+   "name": "showcoinsbox",
+   "handler": "ScrCmd_showcoinsbox",
+   "args": [
+    {
+     "width": 1,
+     "name": "x"
+    },
+    {
+     "width": 1,
+     "name": "y"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xC1": {
+   "name": "hidecoinsbox",
+   "handler": "ScrCmd_hidecoinsbox",
+   "args": [
+    {
+     "width": 1,
+     "name": "x"
+    },
+    {
+     "width": 1,
+     "name": "y"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xC2": {
+   "name": "updatecoinsbox",
+   "handler": "ScrCmd_updatecoinsbox",
+   "args": [
+    {
+     "width": 1,
+     "name": "x"
+    },
+    {
+     "width": 1,
+     "name": "y"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xC3": {
+   "name": "incrementgamestat",
+   "handler": "ScrCmd_incrementgamestat",
+   "args": [
+    {
+     "width": 1,
+     "name": "stat"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0xC4": {
+   "name": "setescapewarp",
+   "handler": "ScrCmd_setescapewarp",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0xC5": {
+   "name": "waitmoncry",
+   "handler": "ScrCmd_waitmoncry",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xC6": {
+   "name": "bufferboxname",
+   "handler": "ScrCmd_bufferboxname",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "box"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0xC7": {
+   "name": "textcolor",
+   "handler": "ScrCmd_nop1",
+   "args": [
+    {
+     "width": 1,
+     "name": "color"
+    }
+   ],
+   "length": null,
+   "confidence": "ambiguous_stub",
+   "candidate_lengths": [
+    1,
+    2
+   ],
+   "note": "dispatches to ScrCmd_nop1 in Emerald (args ignored, so 1 byte here), but the macro declares 1 argument bytes. Resolve against the target ROM's own handler before decoding."
+  },
+  "0xC8": {
+   "name": "loadhelp",
+   "handler": "ScrCmd_nop1",
+   "args": [
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": null,
+   "confidence": "ambiguous_stub",
+   "candidate_lengths": [
+    1,
+    5
+   ],
+   "note": "dispatches to ScrCmd_nop1 in Emerald (args ignored, so 1 byte here), but the macro declares 4 argument bytes. Resolve against the target ROM's own handler before decoding."
+  },
+  "0xC9": {
+   "name": "unloadhelp",
+   "handler": "ScrCmd_nop1",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xCA": {
+   "name": "signmsg",
+   "handler": "ScrCmd_nop1",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xCB": {
+   "name": "normalmsg",
+   "handler": "ScrCmd_nop1",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xCC": {
+   "name": "comparehiddenvar",
+   "handler": "ScrCmd_nop1",
+   "args": [
+    {
+     "width": 1,
+     "name": "a"
+    },
+    {
+     "width": 4,
+     "name": "value"
+    }
+   ],
+   "length": null,
+   "confidence": "ambiguous_stub",
+   "candidate_lengths": [
+    1,
+    6
+   ],
+   "note": "dispatches to ScrCmd_nop1 in Emerald (args ignored, so 1 byte here), but the macro declares 5 argument bytes. Resolve against the target ROM's own handler before decoding."
+  },
+  "0xCD": {
+   "name": "setmodernfatefulencounter",
+   "handler": "ScrCmd_setmodernfatefulencounter",
+   "args": [
+    {
+     "width": 2,
+     "name": "slot"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xCE": {
+   "name": "checkmodernfatefulencounter",
+   "handler": "ScrCmd_checkmodernfatefulencounter",
+   "args": [
+    {
+     "width": 2,
+     "name": "slot"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xCF": {
+   "name": "trywondercardscript",
+   "handler": "ScrCmd_trywondercardscript",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xD0": {
+   "name": "setworldmapflag",
+   "handler": "ScrCmd_nop1",
+   "args": [
+    {
+     "width": 2,
+     "name": "worldmapflag"
+    }
+   ],
+   "length": null,
+   "confidence": "ambiguous_stub",
+   "candidate_lengths": [
+    1,
+    3
+   ],
+   "note": "dispatches to ScrCmd_nop1 in Emerald (args ignored, so 1 byte here), but the macro declares 2 argument bytes. Resolve against the target ROM's own handler before decoding."
+  },
+  "0xD1": {
+   "name": "warpspinenter",
+   "handler": "ScrCmd_warpspinenter",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0xD2": {
+   "name": "setmonmetlocation",
+   "handler": "ScrCmd_setmonmetlocation",
+   "args": [
+    {
+     "width": 2,
+     "name": "slot"
+    },
+    {
+     "width": 1,
+     "name": "location"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0xD3": {
+   "name": "moverotatingtileobjects",
+   "handler": "ScrCmd_moverotatingtileobjects",
+   "args": [
+    {
+     "width": 2,
+     "name": "puzzleNumber"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xD4": {
+   "name": "turnrotatingtileobjects",
+   "handler": "ScrCmd_turnrotatingtileobjects",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xD5": {
+   "name": "initrotatingtilepuzzle",
+   "handler": "ScrCmd_initrotatingtilepuzzle",
+   "args": [
+    {
+     "width": 2,
+     "name": "isTrickHouse"
+    }
+   ],
+   "length": 3,
+   "confidence": "high"
+  },
+  "0xD6": {
+   "name": "freerotatingtilepuzzle",
+   "handler": "ScrCmd_freerotatingtilepuzzle",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xD7": {
+   "name": "warpmossdeepgym",
+   "handler": "ScrCmd_warpmossdeepgym",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0xD8": {
+   "name": "selectapproachingtrainer",
+   "handler": "ScrCmd_selectapproachingtrainer",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xD9": {
+   "name": "lockfortrainer",
+   "handler": "ScrCmd_lockfortrainer",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xDA": {
+   "name": "closebraillemessage",
+   "handler": "ScrCmd_closebraillemessage",
+   "args": [],
+   "length": 1,
+   "confidence": "high"
+  },
+  "0xDB": {
+   "name": "messageinstant",
+   "handler": "ScrCmd_messageinstant",
+   "args": [
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xDC": {
+   "name": "fadescreenswapbuffers",
+   "handler": "ScrCmd_fadescreenswapbuffers",
+   "args": [
+    {
+     "width": 1,
+     "name": "mode"
+    }
+   ],
+   "length": 2,
+   "confidence": "high"
+  },
+  "0xDD": {
+   "name": "buffertrainerclassname",
+   "handler": "ScrCmd_buffertrainerclassname",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "trainerId"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0xDE": {
+   "name": "buffertrainername",
+   "handler": "ScrCmd_buffertrainername",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "trainerId"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0xDF": {
+   "name": "pokenavcall",
+   "handler": "ScrCmd_pokenavcall",
+   "args": [
+    {
+     "width": 4,
+     "name": "text"
+    }
+   ],
+   "length": 5,
+   "confidence": "high"
+  },
+  "0xE0": {
+   "name": "warpwhitefade",
+   "handler": "ScrCmd_warpwhitefade",
+   "args": [
+    {
+     "width": 1,
+     "name": "mapGroup"
+    },
+    {
+     "width": 1,
+     "name": "mapNum"
+    },
+    {
+     "width": 1,
+     "name": "WARP_ID_NONE"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    },
+    {
+     "width": 2,
+     "name": "-1"
+    }
+   ],
+   "length": 8,
+   "confidence": "high"
+  },
+  "0xE1": {
+   "name": "buffercontestname",
+   "handler": "ScrCmd_buffercontestname",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "category"
+    }
+   ],
+   "length": 4,
+   "confidence": "high"
+  },
+  "0xE2": {
+   "name": "bufferitemnameplural",
+   "handler": "ScrCmd_bufferitemnameplural",
+   "args": [
+    {
+     "width": 1,
+     "name": "0"
+    },
+    {
+     "width": 2,
+     "name": "item"
+    },
+    {
+     "width": 2,
+     "name": "quantity"
+    }
+   ],
+   "length": 6,
+   "confidence": "high"
+  }
+ }
+}

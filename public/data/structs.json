@@ -1,0 +1,1931 @@
+{
+  "meta": {
+    "game": "pokeemerald-based ROM hack (Emerald engine; cosmetic BPRE header). Offsets are VANILLA pokeemerald.",
+    "hack_warning": "The hack ENLARGED both save blocks: SaveBlock2 ~0xFE4 (vanilla 0xF2C, +0xB8) and SaveBlock1 ~0x3E14 (vanilla 0x3D88, +0x8C). Insertion points unknown -- offsets after them may be shifted. KNOWN-STALE: the hack's item table (gamedata.json) proves SIX bag pockets (Items/Medicine split), so the vanilla 5-pocket bag layout at SB1 0x560-0x847 does NOT hold in the hack; bag offsets/capacities must be recovered empirically. Verify everything per structs-notes.md.",
+    "source": "pret/pokeemerald decompilation, clone at ./pokeemerald",
+    "byte_order": "little-endian throughout",
+    "alignment": "GBA agbcc uses old ARM APCS: every struct has minimum 4-byte alignment and its size is rounded up to a multiple of 4 (e.g. struct Time occupies 8 bytes, struct Pokeblock strides 8). Offsets below are the true GBA values from the annotated headers, cross-checked by compilation.",
+    "ram_pointers": {
+      "gSaveBlock1Ptr": "0x03005AD0",
+      "gSaveBlock2Ptr": "0x03005AD4",
+      "gPokemonStoragePtr": "0x03005AD8",
+      "note": "IWRAM pointer addresses for THIS hack (from the rom-fingerprint agent). Blocks are heap-allocated with a random per-load shift; always dereference these."
+    }
+  },
+  "structs": {
+    "SaveBlock2": {
+      "size": 3884,
+      "source": "pokeemerald/include/global.h:508-542",
+      "fields": [
+        {
+          "name": "playerName",
+          "offset": 0,
+          "size": 1,
+          "count": 8,
+          "type": "u8[]",
+          "notes": "Gen-3 encoded, 0xFF-terminated (PLAYER_NAME_LENGTH+1)"
+        },
+        {
+          "name": "playerGender",
+          "offset": 8,
+          "size": 1,
+          "count": 1,
+          "type": "u8",
+          "notes": "0=MALE, 1=FEMALE"
+        },
+        {
+          "name": "specialSaveWarpFlags",
+          "offset": 9,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "playerTrainerId",
+          "offset": 10,
+          "size": 1,
+          "count": 4,
+          "type": "u8[]",
+          "notes": "u32 little-endian; low u16 = visible TID, high u16 = secret ID"
+        },
+        {
+          "name": "playTimeHours",
+          "offset": 14,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "playTimeMinutes",
+          "offset": 16,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "playTimeSeconds",
+          "offset": 17,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "playTimeVBlanks",
+          "offset": 18,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "optionsButtonMode",
+          "offset": 19,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "options",
+          "offset": 20,
+          "size": 2,
+          "count": 1,
+          "type": "u16:bitfield",
+          "notes": "bits 0-2 textSpeed, 3-7 windowFrameType, 8 sound, 9 battleStyle, 10 battleSceneOff, 11 regionMapZoom"
+        },
+        {
+          "name": "pokedex",
+          "offset": 24,
+          "size": 120,
+          "count": 1,
+          "type": "struct Pokedex",
+          "notes": "primary dex state incl. owned/seen bitfields"
+        },
+        {
+          "name": "filler_90",
+          "offset": 144,
+          "size": 1,
+          "count": 8,
+          "type": "u8[]"
+        },
+        {
+          "name": "localTimeOffset",
+          "offset": 152,
+          "size": 8,
+          "count": 1,
+          "type": "struct Time",
+          "notes": "s16 days, s8 hours, s8 minutes, s8 seconds; 6 data bytes, APCS pads to 8"
+        },
+        {
+          "name": "lastBerryTreeUpdate",
+          "offset": 160,
+          "size": 8,
+          "count": 1,
+          "type": "struct Time"
+        },
+        {
+          "name": "gcnLinkFlags",
+          "offset": 168,
+          "size": 4,
+          "count": 1,
+          "type": "u32"
+        },
+        {
+          "name": "encryptionKey",
+          "offset": 172,
+          "size": 4,
+          "count": 1,
+          "type": "u32",
+          "notes": "the security key: XOR key for money/coins/bag quantities/game stats/berry powder"
+        },
+        {
+          "name": "playerApprentice",
+          "offset": 176,
+          "size": 44,
+          "count": 1,
+          "type": "struct PlayersApprentice",
+          "notes": "opaque for parser"
+        },
+        {
+          "name": "apprentices",
+          "offset": 220,
+          "size": 68,
+          "count": 4,
+          "type": "struct Apprentice[]",
+          "notes": "opaque for parser"
+        },
+        {
+          "name": "berryCrush",
+          "offset": 492,
+          "size": 16,
+          "count": 1,
+          "type": "struct BerryCrush",
+          "notes": "u32 berryPowderAmount at +0x8 (abs 0x1F4) is XORed with full 32-bit encryptionKey"
+        },
+        {
+          "name": "pokeJump",
+          "offset": 508,
+          "size": 16,
+          "count": 1,
+          "type": "struct PokemonJumpRecords"
+        },
+        {
+          "name": "berryPick",
+          "offset": 524,
+          "size": 16,
+          "count": 1,
+          "type": "struct BerryPickingResults"
+        },
+        {
+          "name": "hallRecords1P",
+          "offset": 540,
+          "size": 16,
+          "count": 54,
+          "type": "struct RankingHall1P[9][2][3]",
+          "notes": "opaque"
+        },
+        {
+          "name": "hallRecords2P",
+          "offset": 1404,
+          "size": 28,
+          "count": 6,
+          "type": "struct RankingHall2P[2][3]",
+          "notes": "opaque"
+        },
+        {
+          "name": "contestLinkResults",
+          "offset": 1572,
+          "size": 2,
+          "count": 20,
+          "type": "u16[5][4]"
+        },
+        {
+          "name": "frontier",
+          "offset": 1612,
+          "size": 2272,
+          "count": 1,
+          "type": "struct BattleFrontier",
+          "notes": "opaque for parser; runs to end of struct"
+        }
+      ]
+    },
+    "Pokedex": {
+      "size": 120,
+      "source": "pokeemerald/include/global.h:206-217",
+      "fields": [
+        {
+          "name": "order",
+          "offset": 0,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "mode",
+          "offset": 1,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "nationalMagic",
+          "offset": 2,
+          "size": 1,
+          "count": 1,
+          "type": "u8",
+          "notes": "must equal 0xDA for National mode (NOTE: FireRed keeps this at offset 0x03 with value 0xB9)"
+        },
+        {
+          "name": "unknown2",
+          "offset": 3,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "unownPersonality",
+          "offset": 4,
+          "size": 4,
+          "count": 1,
+          "type": "u32"
+        },
+        {
+          "name": "spindaPersonality",
+          "offset": 8,
+          "size": 4,
+          "count": 1,
+          "type": "u32"
+        },
+        {
+          "name": "unknown3",
+          "offset": 12,
+          "size": 4,
+          "count": 1,
+          "type": "u32"
+        },
+        {
+          "name": "owned",
+          "offset": 16,
+          "size": 1,
+          "count": 52,
+          "type": "u8[]",
+          "notes": "caught bitfield, species N -> bit N-1 (national dex order); NUM_DEX_FLAG_BYTES=52 covers NUM_SPECIES=412"
+        },
+        {
+          "name": "seen",
+          "offset": 68,
+          "size": 1,
+          "count": 52,
+          "type": "u8[]",
+          "notes": "seen bitfield (primary; backup copies in SaveBlock1 seen1/seen2)"
+        }
+      ]
+    },
+    "SaveBlock1": {
+      "size": 15752,
+      "source": "pokeemerald/include/global.h:984-1079",
+      "fields": [
+        {
+          "name": "pos",
+          "offset": 0,
+          "size": 4,
+          "count": 1,
+          "type": "struct Coords16",
+          "notes": "s16 x, s16 y (current map coordinates)"
+        },
+        {
+          "name": "location",
+          "offset": 4,
+          "size": 8,
+          "count": 1,
+          "type": "struct WarpData",
+          "notes": "s8 mapGroup, s8 mapNum, s8 warpId, pad, s16 x, s16 y"
+        },
+        {
+          "name": "continueGameWarp",
+          "offset": 12,
+          "size": 8,
+          "count": 1,
+          "type": "struct WarpData"
+        },
+        {
+          "name": "dynamicWarp",
+          "offset": 20,
+          "size": 8,
+          "count": 1,
+          "type": "struct WarpData"
+        },
+        {
+          "name": "lastHealLocation",
+          "offset": 28,
+          "size": 8,
+          "count": 1,
+          "type": "struct WarpData"
+        },
+        {
+          "name": "escapeWarp",
+          "offset": 36,
+          "size": 8,
+          "count": 1,
+          "type": "struct WarpData"
+        },
+        {
+          "name": "savedMusic",
+          "offset": 44,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "weather",
+          "offset": 46,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "weatherCycleStage",
+          "offset": 47,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "flashLevel",
+          "offset": 48,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "mapLayoutId",
+          "offset": 50,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "mapView",
+          "offset": 52,
+          "size": 2,
+          "count": 256,
+          "type": "u16[]",
+          "notes": "NOTE: in FireRed mapView lives in SaveBlock2 instead"
+        },
+        {
+          "name": "playerPartyCount",
+          "offset": 564,
+          "size": 1,
+          "count": 1,
+          "type": "u8",
+          "notes": "3 bytes padding follow"
+        },
+        {
+          "name": "playerParty",
+          "offset": 568,
+          "size": 100,
+          "count": 6,
+          "type": "struct Pokemon[]",
+          "notes": "PARTY_SIZE=6, 600 bytes total"
+        },
+        {
+          "name": "money",
+          "offset": 1168,
+          "size": 4,
+          "count": 1,
+          "type": "u32",
+          "notes": "ENCRYPTED: XOR with full 32-bit encryptionKey"
+        },
+        {
+          "name": "coins",
+          "offset": 1172,
+          "size": 2,
+          "count": 1,
+          "type": "u16",
+          "notes": "ENCRYPTED: XOR with low 16 bits of encryptionKey"
+        },
+        {
+          "name": "registeredItem",
+          "offset": 1174,
+          "size": 2,
+          "count": 1,
+          "type": "u16",
+          "notes": "item ID registered to SELECT; not encrypted"
+        },
+        {
+          "name": "pcItems",
+          "offset": 1176,
+          "size": 4,
+          "count": 50,
+          "type": "struct ItemSlot[]",
+          "notes": "u16 itemId, u16 quantity; PC quantities NOT encrypted"
+        },
+        {
+          "name": "bagPocket_Items",
+          "offset": 1376,
+          "size": 4,
+          "count": 30,
+          "type": "struct ItemSlot[]",
+          "notes": "quantity ENCRYPTED (XOR key & 0xFFFF)"
+        },
+        {
+          "name": "bagPocket_KeyItems",
+          "offset": 1496,
+          "size": 4,
+          "count": 30,
+          "type": "struct ItemSlot[]",
+          "notes": "quantity ENCRYPTED (XOR key & 0xFFFF)"
+        },
+        {
+          "name": "bagPocket_PokeBalls",
+          "offset": 1616,
+          "size": 4,
+          "count": 16,
+          "type": "struct ItemSlot[]",
+          "notes": "quantity ENCRYPTED (XOR key & 0xFFFF)"
+        },
+        {
+          "name": "bagPocket_TMHM",
+          "offset": 1680,
+          "size": 4,
+          "count": 64,
+          "type": "struct ItemSlot[]",
+          "notes": "quantity ENCRYPTED (XOR key & 0xFFFF)"
+        },
+        {
+          "name": "bagPocket_Berries",
+          "offset": 1936,
+          "size": 4,
+          "count": 46,
+          "type": "struct ItemSlot[]",
+          "notes": "quantity ENCRYPTED (XOR key & 0xFFFF)"
+        },
+        {
+          "name": "pokeblocks",
+          "offset": 2120,
+          "size": 8,
+          "count": 40,
+          "type": "struct Pokeblock[]",
+          "notes": "7 data bytes (color+5 flavors+feel) but APCS rounds element stride to 8"
+        },
+        {
+          "name": "seen1",
+          "offset": 2440,
+          "size": 1,
+          "count": 52,
+          "type": "u8[]",
+          "notes": "pokedex seen bitfield backup copy 1"
+        },
+        {
+          "name": "berryBlenderRecords",
+          "offset": 2492,
+          "size": 2,
+          "count": 3,
+          "type": "u16[]"
+        },
+        {
+          "name": "unused_9C2",
+          "offset": 2498,
+          "size": 1,
+          "count": 6,
+          "type": "u8[]"
+        },
+        {
+          "name": "trainerRematchStepCounter",
+          "offset": 2504,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "trainerRematches",
+          "offset": 2506,
+          "size": 1,
+          "count": 100,
+          "type": "u8[]",
+          "notes": "MAX_REMATCH_ENTRIES=100; 2 bytes padding follow"
+        },
+        {
+          "name": "objectEvents",
+          "offset": 2608,
+          "size": 36,
+          "count": 16,
+          "type": "struct ObjectEvent[]",
+          "notes": "opaque for parser"
+        },
+        {
+          "name": "objectEventTemplates",
+          "offset": 3184,
+          "size": 24,
+          "count": 64,
+          "type": "struct ObjectEventTemplate[]",
+          "notes": "opaque for parser"
+        },
+        {
+          "name": "flags",
+          "offset": 4720,
+          "size": 1,
+          "count": 300,
+          "type": "u8[]",
+          "notes": "event flag bitfield; FLAGS_COUNT=0x960 flags; flag N = (flags[N>>3] >> (N&7)) & 1"
+        },
+        {
+          "name": "vars",
+          "offset": 5020,
+          "size": 2,
+          "count": 256,
+          "type": "u16[]",
+          "notes": "game variables; VAR_0x4000+i at index i"
+        },
+        {
+          "name": "gameStats",
+          "offset": 5532,
+          "size": 4,
+          "count": 64,
+          "type": "u32[]",
+          "notes": "ENCRYPTED: each stat XOR full 32-bit encryptionKey"
+        },
+        {
+          "name": "berryTrees",
+          "offset": 5788,
+          "size": 8,
+          "count": 128,
+          "type": "struct BerryTree[]",
+          "notes": "BERRY_TREES_COUNT=128"
+        },
+        {
+          "name": "secretBases",
+          "offset": 6812,
+          "size": 160,
+          "count": 20,
+          "type": "struct SecretBase[]",
+          "notes": "opaque for parser"
+        },
+        {
+          "name": "playerRoomDecorations",
+          "offset": 10012,
+          "size": 1,
+          "count": 12,
+          "type": "u8[]"
+        },
+        {
+          "name": "playerRoomDecorationPositions",
+          "offset": 10024,
+          "size": 1,
+          "count": 12,
+          "type": "u8[]"
+        },
+        {
+          "name": "decorationDesks",
+          "offset": 10036,
+          "size": 1,
+          "count": 10,
+          "type": "u8[]"
+        },
+        {
+          "name": "decorationChairs",
+          "offset": 10046,
+          "size": 1,
+          "count": 10,
+          "type": "u8[]"
+        },
+        {
+          "name": "decorationPlants",
+          "offset": 10056,
+          "size": 1,
+          "count": 10,
+          "type": "u8[]"
+        },
+        {
+          "name": "decorationOrnaments",
+          "offset": 10066,
+          "size": 1,
+          "count": 30,
+          "type": "u8[]"
+        },
+        {
+          "name": "decorationMats",
+          "offset": 10096,
+          "size": 1,
+          "count": 30,
+          "type": "u8[]"
+        },
+        {
+          "name": "decorationPosters",
+          "offset": 10126,
+          "size": 1,
+          "count": 10,
+          "type": "u8[]"
+        },
+        {
+          "name": "decorationDolls",
+          "offset": 10136,
+          "size": 1,
+          "count": 40,
+          "type": "u8[]"
+        },
+        {
+          "name": "decorationCushions",
+          "offset": 10176,
+          "size": 1,
+          "count": 10,
+          "type": "u8[]",
+          "notes": "2 bytes padding follow"
+        },
+        {
+          "name": "tvShows",
+          "offset": 10188,
+          "size": 36,
+          "count": 25,
+          "type": "TVShow[]",
+          "notes": "opaque"
+        },
+        {
+          "name": "pokeNews",
+          "offset": 11088,
+          "size": 4,
+          "count": 16,
+          "type": "PokeNews[]"
+        },
+        {
+          "name": "outbreakPokemonSpecies",
+          "offset": 11152,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "outbreakLocationMapNum",
+          "offset": 11154,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "outbreakLocationMapGroup",
+          "offset": 11155,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "outbreakPokemonLevel",
+          "offset": 11156,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "outbreakUnused1",
+          "offset": 11157,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "outbreakUnused2",
+          "offset": 11158,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "outbreakPokemonMoves",
+          "offset": 11160,
+          "size": 2,
+          "count": 4,
+          "type": "u16[]"
+        },
+        {
+          "name": "outbreakUnused3",
+          "offset": 11168,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "outbreakPokemonProbability",
+          "offset": 11169,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "outbreakDaysLeft",
+          "offset": 11170,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "gabbyAndTyData",
+          "offset": 11172,
+          "size": 12,
+          "count": 1,
+          "type": "struct GabbyAndTyData"
+        },
+        {
+          "name": "easyChatProfile",
+          "offset": 11184,
+          "size": 2,
+          "count": 6,
+          "type": "u16[]"
+        },
+        {
+          "name": "easyChatBattleStart",
+          "offset": 11196,
+          "size": 2,
+          "count": 6,
+          "type": "u16[]"
+        },
+        {
+          "name": "easyChatBattleWon",
+          "offset": 11208,
+          "size": 2,
+          "count": 6,
+          "type": "u16[]"
+        },
+        {
+          "name": "easyChatBattleLost",
+          "offset": 11220,
+          "size": 2,
+          "count": 6,
+          "type": "u16[]"
+        },
+        {
+          "name": "mail",
+          "offset": 11232,
+          "size": 36,
+          "count": 16,
+          "type": "struct Mail[]",
+          "notes": "MAIL_COUNT=16 (6 party + 10 PC)"
+        },
+        {
+          "name": "unlockedTrendySayings",
+          "offset": 11808,
+          "size": 1,
+          "count": 5,
+          "type": "u8[]",
+          "notes": "3 bytes padding follow"
+        },
+        {
+          "name": "oldMan",
+          "offset": 11816,
+          "size": 60,
+          "count": 1,
+          "type": "union OldMan"
+        },
+        {
+          "name": "dewfordTrends",
+          "offset": 11876,
+          "size": 44,
+          "count": 1,
+          "type": "region",
+          "notes": "SAVED_TRENDS_COUNT=5 DewfordTrend entries; element stride uncertain, treat as opaque region"
+        },
+        {
+          "name": "contestWinners",
+          "offset": 11920,
+          "size": 32,
+          "count": 13,
+          "type": "struct ContestWinner[]"
+        },
+        {
+          "name": "daycare",
+          "offset": 12336,
+          "size": 288,
+          "count": 1,
+          "type": "struct DayCare"
+        },
+        {
+          "name": "linkBattleRecords",
+          "offset": 12624,
+          "size": 88,
+          "count": 1,
+          "type": "struct LinkBattleRecords"
+        },
+        {
+          "name": "giftRibbons",
+          "offset": 12712,
+          "size": 1,
+          "count": 11,
+          "type": "u8[]"
+        },
+        {
+          "name": "externalEventData",
+          "offset": 12723,
+          "size": 20,
+          "count": 1,
+          "type": "struct ExternalEventData",
+          "notes": "byte-packed"
+        },
+        {
+          "name": "externalEventFlags",
+          "offset": 12743,
+          "size": 21,
+          "count": 1,
+          "type": "struct ExternalEventFlags",
+          "notes": "byte-packed"
+        },
+        {
+          "name": "roamer",
+          "offset": 12764,
+          "size": 28,
+          "count": 1,
+          "type": "struct Roamer",
+          "notes": "u32 ivs, u32 personality, u16 species, u16 hp, u8 level, u8 status, 5 contest u8s, bool8 active"
+        },
+        {
+          "name": "enigmaBerry",
+          "offset": 12792,
+          "size": 52,
+          "count": 1,
+          "type": "struct EnigmaBerry"
+        },
+        {
+          "name": "mysteryGift",
+          "offset": 12844,
+          "size": 876,
+          "count": 1,
+          "type": "struct MysteryGiftSave",
+          "notes": "opaque"
+        },
+        {
+          "name": "unused_3598",
+          "offset": 13720,
+          "size": 1,
+          "count": 384,
+          "type": "u8[]"
+        },
+        {
+          "name": "trainerHillTimes",
+          "offset": 14104,
+          "size": 4,
+          "count": 4,
+          "type": "u32[]"
+        },
+        {
+          "name": "ramScript",
+          "offset": 14120,
+          "size": 1004,
+          "count": 1,
+          "type": "struct RamScript"
+        },
+        {
+          "name": "recordMixingGift",
+          "offset": 15124,
+          "size": 16,
+          "count": 1,
+          "type": "struct RecordMixingGift"
+        },
+        {
+          "name": "seen2",
+          "offset": 15140,
+          "size": 1,
+          "count": 52,
+          "type": "u8[]",
+          "notes": "pokedex seen bitfield backup copy 2"
+        },
+        {
+          "name": "lilycoveLady",
+          "offset": 15192,
+          "size": 64,
+          "count": 1,
+          "type": "LilycoveLady"
+        },
+        {
+          "name": "trainerNameRecords",
+          "offset": 15256,
+          "size": 12,
+          "count": 20,
+          "type": "struct TrainerNameRecord[]"
+        },
+        {
+          "name": "registeredTexts",
+          "offset": 15496,
+          "size": 21,
+          "count": 10,
+          "type": "u8[10][21]",
+          "notes": "UNION_ROOM_KB_ROW_COUNT=10 rows x 21"
+        },
+        {
+          "name": "unused_3D5A",
+          "offset": 15706,
+          "size": 1,
+          "count": 10,
+          "type": "u8[]"
+        },
+        {
+          "name": "trainerHill",
+          "offset": 15716,
+          "size": 12,
+          "count": 1,
+          "type": "struct TrainerHillSave"
+        },
+        {
+          "name": "waldaPhrase",
+          "offset": 15728,
+          "size": 24,
+          "count": 1,
+          "type": "struct WaldaPhrase"
+        }
+      ]
+    },
+    "BoxPokemon": {
+      "size": 80,
+      "source": "pokeemerald/include/pokemon.h:196-217",
+      "fields": [
+        {
+          "name": "personality",
+          "offset": 0,
+          "size": 4,
+          "count": 1,
+          "type": "u32"
+        },
+        {
+          "name": "otId",
+          "offset": 4,
+          "size": 4,
+          "count": 1,
+          "type": "u32"
+        },
+        {
+          "name": "nickname",
+          "offset": 8,
+          "size": 1,
+          "count": 10,
+          "type": "u8[]",
+          "notes": "Gen-3 encoded, may lack 0xFF terminator if 10 chars"
+        },
+        {
+          "name": "language",
+          "offset": 18,
+          "size": 1,
+          "count": 1,
+          "type": "u8",
+          "notes": "1=JPN 2=ENG 3=FRE 4=ITA 5=GER 7=SPA"
+        },
+        {
+          "name": "flags",
+          "offset": 19,
+          "size": 1,
+          "count": 1,
+          "type": "u8:bitfield",
+          "notes": "bit0 isBadEgg, bit1 hasSpecies, bit2 isEgg, bit3 blockBoxRS"
+        },
+        {
+          "name": "otName",
+          "offset": 20,
+          "size": 1,
+          "count": 7,
+          "type": "u8[]",
+          "notes": "Gen-3 encoded"
+        },
+        {
+          "name": "markings",
+          "offset": 27,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "checksum",
+          "offset": 28,
+          "size": 2,
+          "count": 1,
+          "type": "u16",
+          "notes": "u16 sum of the 24 decrypted u16 words of the substruct block"
+        },
+        {
+          "name": "unknown",
+          "offset": 30,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "secure",
+          "offset": 32,
+          "size": 48,
+          "count": 1,
+          "type": "union",
+          "notes": "ENCRYPTED region: 4x12-byte substructs, XORed with (personality ^ otId), order permuted by personality % 24"
+        }
+      ]
+    },
+    "Pokemon": {
+      "size": 100,
+      "source": "pokeemerald/include/pokemon.h:219-232",
+      "fields": [
+        {
+          "name": "box",
+          "offset": 0,
+          "size": 80,
+          "count": 1,
+          "type": "struct BoxPokemon"
+        },
+        {
+          "name": "status",
+          "offset": 80,
+          "size": 4,
+          "count": 1,
+          "type": "u32",
+          "notes": "bits 0-2 sleep turns, bit 3 poison, bit 4 burn, bit 5 freeze, bit 6 paralysis, bit 7 bad poison"
+        },
+        {
+          "name": "level",
+          "offset": 84,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "mail",
+          "offset": 85,
+          "size": 1,
+          "count": 1,
+          "type": "u8",
+          "notes": "mail ID or 0xFF"
+        },
+        {
+          "name": "hp",
+          "offset": 86,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "maxHP",
+          "offset": 88,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "attack",
+          "offset": 90,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "defense",
+          "offset": 92,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "speed",
+          "offset": 94,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "spAttack",
+          "offset": 96,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "spDefense",
+          "offset": 98,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        }
+      ]
+    },
+    "PokemonSubstruct0_Growth": {
+      "name": "Growth",
+      "size": 12,
+      "source": "pokeemerald/include/pokemon.h (PokemonSubstruct0)",
+      "fields": [
+        {
+          "name": "species",
+          "offset": 0,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "heldItem",
+          "offset": 2,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "experience",
+          "offset": 4,
+          "size": 4,
+          "count": 1,
+          "type": "u32"
+        },
+        {
+          "name": "ppBonuses",
+          "offset": 8,
+          "size": 1,
+          "count": 1,
+          "type": "u8",
+          "notes": "2 bits per move slot"
+        },
+        {
+          "name": "friendship",
+          "offset": 9,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "filler",
+          "offset": 10,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        }
+      ]
+    },
+    "PokemonSubstruct1_Attacks": {
+      "name": "Attacks",
+      "size": 12,
+      "source": "pokeemerald/include/pokemon.h (PokemonSubstruct1)",
+      "fields": [
+        {
+          "name": "moves",
+          "offset": 0,
+          "size": 2,
+          "count": 4,
+          "type": "u16[]"
+        },
+        {
+          "name": "pp",
+          "offset": 8,
+          "size": 1,
+          "count": 4,
+          "type": "u8[]"
+        }
+      ]
+    },
+    "PokemonSubstruct2_EVs": {
+      "name": "EVs_Condition",
+      "size": 12,
+      "source": "pokeemerald/include/pokemon.h (PokemonSubstruct2)",
+      "fields": [
+        {
+          "name": "hpEV",
+          "offset": 0,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "attackEV",
+          "offset": 1,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "defenseEV",
+          "offset": 2,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "speedEV",
+          "offset": 3,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "spAttackEV",
+          "offset": 4,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "spDefenseEV",
+          "offset": 5,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "cool",
+          "offset": 6,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "beauty",
+          "offset": 7,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "cute",
+          "offset": 8,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "smart",
+          "offset": 9,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "tough",
+          "offset": 10,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "sheen",
+          "offset": 11,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        }
+      ]
+    },
+    "PokemonSubstruct3_Misc": {
+      "name": "Misc",
+      "size": 12,
+      "source": "pokeemerald/include/pokemon.h (PokemonSubstruct3)",
+      "fields": [
+        {
+          "name": "pokerus",
+          "offset": 0,
+          "size": 1,
+          "count": 1,
+          "type": "u8",
+          "notes": "low nibble = days remaining, high nibble = strain"
+        },
+        {
+          "name": "metLocation",
+          "offset": 1,
+          "size": 1,
+          "count": 1,
+          "type": "u8"
+        },
+        {
+          "name": "origins",
+          "offset": 2,
+          "size": 2,
+          "count": 1,
+          "type": "u16:bitfield",
+          "notes": "bits 0-6 metLevel, 7-10 metGame (3=Emerald, 4=FireRed, 5=LeafGreen), 11-14 pokeball, 15 otGender"
+        },
+        {
+          "name": "ivs_egg_ability",
+          "offset": 4,
+          "size": 4,
+          "count": 1,
+          "type": "u32:bitfield",
+          "notes": "bits 0-4 hpIV, 5-9 attackIV, 10-14 defenseIV, 15-19 speedIV, 20-24 spAttackIV, 25-29 spDefenseIV, 30 isEgg, 31 abilityNum"
+        },
+        {
+          "name": "ribbons_obedience",
+          "offset": 8,
+          "size": 4,
+          "count": 1,
+          "type": "u32:bitfield",
+          "notes": "bits 0-2 coolRibbon, 3-5 beautyRibbon, 6-8 cuteRibbon, 9-11 smartRibbon, 12-14 toughRibbon, 15 championRibbon, 16 winningRibbon, 17 victoryRibbon, 18 artistRibbon, 19 effortRibbon, 20 marineRibbon, 21 landRibbon, 22 skyRibbon, 23 countryRibbon, 24 nationalRibbon, 25 earthRibbon, 26 worldRibbon, 27-30 unusedRibbons, 31 modernFatefulEncounter (Mew/Deoxys obedience)"
+        }
+      ]
+    },
+    "PokemonStorage": {
+      "size": 33744,
+      "source": "pokeemerald/include/pokemon_storage_system.h:19-25",
+      "fields": [
+        {
+          "name": "currentBox",
+          "offset": 0,
+          "size": 1,
+          "count": 1,
+          "type": "u8",
+          "notes": "3 bytes padding follow"
+        },
+        {
+          "name": "boxes",
+          "offset": 4,
+          "size": 80,
+          "count": 420,
+          "type": "struct BoxPokemon[14][30]",
+          "notes": "14 boxes x 30 mons; box b slot s at 0x4 + (b*30+s)*80"
+        },
+        {
+          "name": "boxNames",
+          "offset": 33604,
+          "size": 9,
+          "count": 14,
+          "type": "u8[14][9]",
+          "notes": "Gen-3 encoded, BOX_NAME_LENGTH+1"
+        },
+        {
+          "name": "boxWallpapers",
+          "offset": 33730,
+          "size": 1,
+          "count": 14,
+          "type": "u8[]"
+        }
+      ]
+    },
+    "ItemSlot": {
+      "size": 4,
+      "source": "pokeemerald/include/global.h:590-594",
+      "fields": [
+        {
+          "name": "itemId",
+          "offset": 0,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        },
+        {
+          "name": "quantity",
+          "offset": 2,
+          "size": 2,
+          "count": 1,
+          "type": "u16"
+        }
+      ]
+    },
+    "WarpData": {
+      "size": 8,
+      "source": "pokeemerald/include/global.h:581-588",
+      "fields": [
+        {
+          "name": "mapGroup",
+          "offset": 0,
+          "size": 1,
+          "count": 1,
+          "type": "s8"
+        },
+        {
+          "name": "mapNum",
+          "offset": 1,
+          "size": 1,
+          "count": 1,
+          "type": "s8"
+        },
+        {
+          "name": "warpId",
+          "offset": 2,
+          "size": 1,
+          "count": 1,
+          "type": "s8"
+        },
+        {
+          "name": "x",
+          "offset": 4,
+          "size": 2,
+          "count": 1,
+          "type": "s16"
+        },
+        {
+          "name": "y",
+          "offset": 6,
+          "size": 2,
+          "count": 1,
+          "type": "s16"
+        }
+      ]
+    }
+  },
+  "substruct_permutation": {
+    "direction_note": "type_to_slot[personality % 24] = [slot of Growth(type0), slot of Attacks(type1), slot of EVs(type2), slot of Misc(type3)]. Slots are 12-byte cells at secure+0x00/0x0C/0x18/0x24. slot_to_type is the inverse: for each physical slot, which substruct type occupies it. Extracted from pokeemerald/src/pokemon.c GetSubstruct (SUBSTRUCT_CASE table, lines 3605-3633). Worked example: personality%24==8 -> type_to_slot [2,0,1,3]: Growth at slot 2, Attacks at slot 0, EVs at slot 1, Misc at slot 3.",
+    "type_to_slot": {
+      "0": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "1": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "2": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "3": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "4": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "5": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "6": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "7": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "8": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "9": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "10": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "11": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "12": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "13": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "14": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "15": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "16": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "17": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "18": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "19": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "20": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "21": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "22": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "23": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    "slot_to_type": {
+      "0": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "1": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "2": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "3": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "4": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "5": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "6": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "7": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "8": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "9": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "10": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "11": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "12": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "13": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "14": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "15": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "16": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "17": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "18": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "19": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "20": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "21": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "22": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "23": [
+        3,
+        2,
+        1,
+        0
+      ]
+    }
+  },
+  "encryption": {
+    "security_key": {
+      "location": "SaveBlock2 + 0xAC (u32 encryptionKey) -- NOTE: FireRed keeps it at 0xF20 instead",
+      "source": "pokeemerald/include/global.h:532"
+    },
+    "xor_full_u32_key": [
+      {
+        "field": "SaveBlock1.money (0x490)",
+        "source": "src/money.c:74, src/load_save.c:291"
+      },
+      {
+        "field": "SaveBlock1.gameStats[0..63] (0x159C, u32 each)",
+        "source": "src/overworld.c:452-467"
+      },
+      {
+        "field": "SaveBlock2.berryCrush.berryPowderAmount (SB2+0x1F4)",
+        "source": "src/berry_powder.c:128-142"
+      }
+    ],
+    "xor_low_u16_key": [
+      {
+        "field": "SaveBlock1.coins (0x494)",
+        "source": "src/coins.c:43-48 (u16 result truncates key)"
+      },
+      {
+        "field": "quantity of every slot in the 5 bag pockets (Items/KeyItems/PokeBalls/TMHM/Berries)",
+        "source": "src/item.c:26-33,46-54; u16 ^= u32 key truncates to key & 0xFFFF"
+      }
+    ],
+    "not_encrypted": [
+      "all item IDs (bag and PC)",
+      "PC item quantities (src/item.c:35-43 GetPCItemQuantity returns raw value)",
+      "registeredItem, playtime, badges/flags, vars, party/box Pokemon outer fields"
+    ],
+    "pokemon_data": {
+      "region": "BoxPokemon.secure (offset 0x20, 48 bytes, 12 u32 words)",
+      "algorithm": [
+        "1. key = personality ^ otId (both plaintext at BoxPokemon+0x00/+0x04)",
+        "2. decrypt: each of the 12 u32 words ^= key (src/pokemon.c:3546-3554 DecryptBoxMon)",
+        "3. locate substructs: order = substruct_permutation.type_to_slot[personality % 24]",
+        "4. verify: u16 sum of all 24 u16 words of the decrypted 48-byte block == BoxPokemon.checksum (+0x1C) (src/pokemon.c:2790-2812)"
+      ],
+      "notes": "empty slots have personality==0 and hasSpecies==0; a failed checksum marks a Bad Egg in-game"
+    }
+  },
+  "flags": {
+    "formula": "flag N set iff (SaveBlock1.flags[N >> 3] >> (N & 7)) & 1",
+    "flags_array": {
+      "offset": 4720,
+      "size": 300,
+      "count_flags": 2400
+    },
+    "vars_array": {
+      "offset": 5020,
+      "size": 512,
+      "note": "VAR_0x4000+i is vars[i]"
+    },
+    "system_flags_base": 2144,
+    "badges": {
+      "FLAG_BADGE01_GET": 2151,
+      "FLAG_BADGE02_GET": 2152,
+      "FLAG_BADGE03_GET": 2153,
+      "FLAG_BADGE04_GET": 2154,
+      "FLAG_BADGE05_GET": 2155,
+      "FLAG_BADGE06_GET": 2156,
+      "FLAG_BADGE07_GET": 2157,
+      "FLAG_BADGE08_GET": 2158
+    },
+    "progress_flags": {
+      "FLAG_SYS_POKEMON_GET": 2144,
+      "FLAG_SYS_POKEDEX_GET": 2145,
+      "FLAG_SYS_POKENAV_GET": 2146,
+      "FLAG_SYS_GAME_CLEAR": 2148,
+      "FLAG_IS_CHAMPION": 2175,
+      "FLAG_SYS_NATIONAL_DEX": 2198,
+      "FLAG_SYS_B_DASH": 2240,
+      "FLAG_SYS_FRONTIER_PASS": 2258
+    },
+    "source": "pokeemerald/include/constants/flags.h:1344-1482 (SYSTEM_FLAGS=0x860)",
+    "hack_warning": "flag IDs are vanilla; the hack may repurpose script/unused flags but engine SYS flags usually survive"
+  },
+  "charmap": {
+    "0x00": " ",
+    "0x01": "À",
+    "0x02": "Á",
+    "0x03": "Â",
+    "0x04": "Ç",
+    "0x05": "È",
+    "0x06": "É",
+    "0x07": "Ê",
+    "0x08": "Ë",
+    "0x09": "Ì",
+    "0x0B": "Î",
+    "0x0C": "Ï",
+    "0x0D": "Ò",
+    "0x0E": "Ó",
+    "0x0F": "Ô",
+    "0x10": "Œ",
+    "0x11": "Ù",
+    "0x12": "Ú",
+    "0x13": "Û",
+    "0x14": "Ñ",
+    "0x15": "ß",
+    "0x16": "à",
+    "0x17": "á",
+    "0x19": "ç",
+    "0x1A": "è",
+    "0x1B": "é",
+    "0x1C": "ê",
+    "0x1D": "ë",
+    "0x1E": "ì",
+    "0x20": "î",
+    "0x21": "ï",
+    "0x22": "ò",
+    "0x23": "ó",
+    "0x24": "ô",
+    "0x25": "œ",
+    "0x26": "ù",
+    "0x27": "ú",
+    "0x28": "û",
+    "0x29": "ñ",
+    "0x2A": "º",
+    "0x2B": "ª",
+    "0x2C": "ᵉʳ",
+    "0x2D": "&",
+    "0x2E": "+",
+    "0x35": "=",
+    "0x36": ";",
+    "0x51": "¿",
+    "0x52": "¡",
+    "0x53": "PK",
+    "0x5A": "Í",
+    "0x5B": "%",
+    "0x5C": "(",
+    "0x5D": ")",
+    "0x68": "â",
+    "0x6F": "í",
+    "0x84": "ᵉ",
+    "0x85": "<",
+    "0x86": ">",
+    "0xA0": "ʳᵉ",
+    "0xA1": "0",
+    "0xA2": "1",
+    "0xA3": "2",
+    "0xA4": "3",
+    "0xA5": "4",
+    "0xA6": "5",
+    "0xA7": "6",
+    "0xA8": "7",
+    "0xA9": "8",
+    "0xAA": "9",
+    "0xAB": "!",
+    "0xAC": "?",
+    "0xAD": ".",
+    "0xAE": "-",
+    "0xAF": "·",
+    "0xB0": "…",
+    "0xB1": "“",
+    "0xB2": "”",
+    "0xB3": "‘",
+    "0xB4": "’",
+    "0xB5": "♂",
+    "0xB6": "♀",
+    "0xB7": "¥",
+    "0xB8": ",",
+    "0xB9": "×",
+    "0xBA": "/",
+    "0xBB": "A",
+    "0xBC": "B",
+    "0xBD": "C",
+    "0xBE": "D",
+    "0xBF": "E",
+    "0xC0": "F",
+    "0xC1": "G",
+    "0xC2": "H",
+    "0xC3": "I",
+    "0xC4": "J",
+    "0xC5": "K",
+    "0xC6": "L",
+    "0xC7": "M",
+    "0xC8": "N",
+    "0xC9": "O",
+    "0xCA": "P",
+    "0xCB": "Q",
+    "0xCC": "R",
+    "0xCD": "S",
+    "0xCE": "T",
+    "0xCF": "U",
+    "0xD0": "V",
+    "0xD1": "W",
+    "0xD2": "X",
+    "0xD3": "Y",
+    "0xD4": "Z",
+    "0xD5": "a",
+    "0xD6": "b",
+    "0xD7": "c",
+    "0xD8": "d",
+    "0xD9": "e",
+    "0xDA": "f",
+    "0xDB": "g",
+    "0xDC": "h",
+    "0xDD": "i",
+    "0xDE": "j",
+    "0xDF": "k",
+    "0xE0": "l",
+    "0xE1": "m",
+    "0xE2": "n",
+    "0xE3": "o",
+    "0xE4": "p",
+    "0xE5": "q",
+    "0xE6": "r",
+    "0xE7": "s",
+    "0xE8": "t",
+    "0xE9": "u",
+    "0xEA": "v",
+    "0xEB": "w",
+    "0xEC": "x",
+    "0xED": "y",
+    "0xEE": "z",
+    "0xEF": "▶",
+    "0xF0": ":",
+    "0xF1": "Ä",
+    "0xF2": "Ö",
+    "0xF3": "Ü",
+    "0xF4": "ä",
+    "0xF5": "ö",
+    "0xF6": "ü",
+    "0xFE": "\n",
+    "0xFF": "<EOS>"
+  }
+}
