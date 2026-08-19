@@ -97,9 +97,9 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   border-top:var(--u) solid #fff7bd;border-bottom:var(--u) solid #fff7bd;
   text-shadow:none;clip-path:none}
 .tc-idno{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;
-  font-size:calc(11 * var(--u));line-height:1;
+  font-size:calc(13 * var(--u));line-height:1;
   background:#d6e7f7;color:#636363;text-shadow:none;clip-path:none;
-  padding:calc(3 * var(--u)) calc(14 * var(--u)) calc(2 * var(--u));
+  padding:calc(3 * var(--u)) calc(17 * var(--u)) calc(2 * var(--u));
   margin-right:calc(11 * var(--u))}
 /* body: the two arcs are concentric circles centred on the body's
    bottom-right corner -- radii 57u and 79u, measured off the capture */
@@ -114,7 +114,7 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   display:block;max-width:none}
 .tc-frow{display:flex;align-items:center;gap:calc(5 * var(--u));
   height:calc(8 * var(--u));margin-bottom:calc(8 * var(--u));
-  font-size:calc(9 * var(--u));line-height:1;color:#636363;border:0;padding:0;
+  font-size:calc(13 * var(--u));line-height:1;color:#636363;border:0;padding:0;
   text-shadow:none}
 /* Name stands alone: a rule two-thirds of the way across, then a clear gap
    before the Money / Pokedex / Time group. */
@@ -128,10 +128,14 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   border-radius:50%}
 .tc-frow b{margin-left:auto;font-weight:normal}
 .tc-namev{font-weight:normal;margin-left:calc(2 * var(--u))}
-/* trainer art: 64u tall, sitting 8u off the body's bottom edge */
-.tc-pic{position:absolute;right:calc(27 * var(--u));bottom:calc(8 * var(--u));
-  height:calc(64 * var(--u));width:auto;image-rendering:pixelated;margin:0}
-.tc-pic-ow{height:calc(48 * var(--u))}
+/* Trainer art. The game's card sprite is a 58x60u figure; the art we have
+   extracted is a slimmer 26x55 figure inside a 64x80 canvas, so this sizes and
+   anchors the FIGURE (not the canvas) to land where the game's does -- it
+   cannot match its bulk without the card sprite itself. */
+.tc-pic{position:absolute;right:calc(11 * var(--u));bottom:0;
+  height:calc(78 * var(--u));width:auto;image-rendering:pixelated;margin:0}
+.tc-pic-ow{height:calc(52 * var(--u));right:calc(24 * var(--u));
+  bottom:calc(8 * var(--u))}
 /* badge band */
 .tc-badgeband{background:#84bde7;height:calc(26 * var(--u));position:relative;
   margin:0;padding:0;display:block;box-shadow:none}
@@ -149,7 +153,8 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .badge-num{position:absolute;right:calc(2 * var(--u));bottom:calc(1 * var(--u));
   font-family:'Pokemon Emerald','VT323',monospace;font-style:normal;
   font-size:calc(7 * var(--u));line-height:1;color:#d6e7f7}
-img.badge{width:calc(16 * var(--u));height:calc(16 * var(--u));
+/* the art sits inside the slot, leaving its outline visible */
+img.badge{width:calc(14 * var(--u));height:calc(14 * var(--u));
   image-rendering:pixelated;filter:none}
 /* party */
 .party{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
@@ -264,6 +269,9 @@ img.badge{width:calc(16 * var(--u));height:calc(16 * var(--u));
 @media(max-width:980px){.tc-top{--map-h:280px}}
 @media(max-width:760px){
   .tc-top{flex-direction:column}
+  /* stacked, the card is the full width of the column: flex-start would make
+     it shrink to nothing on the cross axis */
+  .tc-top .tcard-slot{align-self:stretch;flex:0 0 auto}
   .tc-top .mapslot .maparea{width:100%;height:auto;aspect-ratio:3/2}
   .tc-top .mapslot .mapimg{height:100%}
   .tc-top .mapslot .romhint{width:100%;height:auto;aspect-ratio:3/2}
