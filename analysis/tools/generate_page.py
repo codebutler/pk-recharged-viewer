@@ -935,34 +935,47 @@ def mail_context(state):
 
 
 # Pixel-art cursors (pixelarticons, MIT -- assets/cursors/LICENSE.md).
-# name -> (hotspot x, hotspot y, css fallback keyword); hotspots computed from
-# the art's opaque-pixel geometry.
+# name -> (LOGICAL hotspot x, y, css fallback keyword). The 32x32 art is served
+# via image-set(... 2x) so it displays at 16px logical (crisp on retina);
+# per spec the hotspot is in logical units, so these are the halved values of
+# the opaque-pixel-geometry hotspots. assets/cursors/small/ holds 16x16
+# nearest-neighbor fallbacks for browsers without image-set-in-cursor
+# (Firefox), same logical hotspots.
 CURSORS = {
-    "default": (6, 4, "auto"),
-    "pointer": (12, 4, "pointer"),
-    "zoom-in": (14, 14, "zoom-in"),
-    "zoom-out": (14, 14, "zoom-out"),
+    "default": (3, 2, "auto"),
+    "pointer": (6, 2, "pointer"),
+    "zoom-in": (7, 7, "zoom-in"),
+    "zoom-out": (7, 7, "zoom-out"),
+    "text": (8, 8, "text"),
 }
 
 
 def cursor_css():
-    """CSS wiring the vendored pixel cursors site-wide, cursors embedded as
-    PNG data URIs with per-cursor hotspots. Empty string if assets missing."""
-    uris = {}
+    """CSS wiring the vendored pixel cursors site-wide (data URIs, 16px
+    logical, per-cursor hotspots). Empty string if assets missing."""
+    big, small = {}, {}
     for name in CURSORS:
         p = os.path.join(TOOLS_DIR, "assets", "cursors", name + ".png")
-        if not os.path.exists(p):
+        ps = os.path.join(TOOLS_DIR, "assets", "cursors", "small", name + ".png")
+        if not (os.path.exists(p) and os.path.exists(ps)):
             return ""
         with open(p, "rb") as f:
-            uris[name] = data_uri(f.read())
+            big[name] = data_uri(f.read())
+        with open(ps, "rb") as f:
+            small[name] = data_uri(f.read())
     def c(name):
         x, y, fb = CURSORS[name]
-        return "cursor:url(%s) %d %d,%s" % (uris[name], x, y, fb)
+        return ("cursor:image-set(url(%s) 2x) %d %d,url(%s) %d %d,%s"
+                % (big[name], x, y, small[name], x, y, fb))
+    # Order matters: text before pointer/zoom so interactive elements win.
     return ("html{%s}"
-            "#tabbar button,summary,a,details summary{%s}"
-            ".maparea.toggleable{%s}"
-            ".maparea.toggleable.showfull{%s}"
-            % (c("default"), c("pointer"), c("zoom-in"), c("zoom-out")))
+            "p,li,td,th,h1,h2,h3,footer,.note,.empty,.iname,.hpnum,.expnum,"
+            ".mon-meta,.mon-sub,.held,.tc-frow,.pocket-empty{%s}"
+            "#tabbar button,summary,a{%s}"
+            ".maparea.toggleable,.maparea.toggleable *{%s}"
+            ".maparea.toggleable.showfull,.maparea.toggleable.showfull *{%s}"
+            % (c("default"), c("text"), c("pointer"),
+               c("zoom-in"), c("zoom-out")))
 
 
 def build_context(state, api, font_css):
