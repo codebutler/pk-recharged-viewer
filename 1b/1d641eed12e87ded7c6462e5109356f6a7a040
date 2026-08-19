@@ -1,0 +1,29 @@
+analysis/report/index.html
+  s_30c66b9ed26a01::t_8d4987d95d4e03 86,89,184,191,198,205,212,219
+analysis/hack-offsets.md
+  s_30c66b9ed26a01::t_08334a4e616990 154-161
+analysis/tools/templates/report.css
+  s_30c66b9ed26a01::t_dd4ee6f5baafdb 83,86
+analysis/hack-offsets.json
+  s_30c66b9ed26a01::t_01b9a74c9651db 174-181
+analysis/tools/templates/report.html.j2
+  s_30c66b9ed26a01::t_1008368daa1a90 36
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_4c9b50bc00a509 86,89
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1b1d641eed12e87ded7c6462e5109356f6a7a040",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
