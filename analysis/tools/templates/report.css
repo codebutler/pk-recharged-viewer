@@ -13,6 +13,8 @@ h1,h2,h3,.dexcount b,.big,.dexcount i,.ail,
 .qty,.pp{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace}
 h1{color:var(--pika);font-size:52px;text-align:center;line-height:1.2;
   text-shadow:3px 3px 0 #000;margin-bottom:10px}
+h1 small{display:block;font-size:20px;color:#9fe0bd;letter-spacing:3px;
+  text-shadow:2px 2px 0 #000;margin-top:6px}
 .panel{background:var(--panel);--px:3px;--pxc:var(--line);border:0;
   /* notched corners: see 'pixel corners' at the end of this file */
   box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),
@@ -96,8 +98,12 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
    (box height from the font's em box), so PARALYSIS never matched NORMAL.
    inline-block + line-height:1 + one padding makes them identical. */
 .type,.ail,.mtype{font-family:'Pokemon Emerald','VT323',monospace;font-size:15px;
-  color:#fff;display:inline-block;line-height:1;padding:3px 3px 2px;
-  vertical-align:middle;text-shadow:1px 1px 0 rgba(0,0,0,.5)}
+  color:#f8f8f8;display:inline-block;line-height:1;padding:1px 3px 0;
+  vertical-align:middle;text-shadow:1px 1px 0 #807870;
+  /* the game's icons are a fill with a 1px lighter top edge and a darker
+     bottom edge; the per-type tones come in as inline styles */
+  border:0 solid;border-top-width:2px;border-bottom-width:3px}
+.ail{border-top-color:#e07868;border-bottom-color:#802018}
 .hp{display:flex;align-items:center;gap:8px;margin:6px 0}
 .bar{flex:0 1 140px;height:8px;background:#585850;border:2px solid var(--line);
   display:inline-block;vertical-align:middle}
@@ -147,29 +153,18 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
    khaki #e0d898, teal #68c0c8, navy #004890, cap #0078c0, text #f8f8f8 on
    #606878. The game shows the other pages as bare dots; here each dot keeps
    its label, since the page has the width. */
-#tabbar{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;background:#68c0c8;
+#tabbar{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;background:#0078c0;
   padding:0;overflow:hidden;
   box-shadow:0 -3px 0 0 #004890,0 3px 0 0 #004890,-3px 0 0 0 #004890,
     3px 0 0 0 #004890,5px 5px 0 rgba(0,0,0,.4)}
 #tabbar button{font-family:'Pokemon Emerald','VT323',ui-monospace,monospace;
-  font-size:18px;color:#00407f;background:transparent;border:0;
-  padding:9px 16px 7px;display:flex;align-items:center;gap:9px;line-height:1}
-#tabbar button::before{content:"";width:10px;height:10px;flex:none;
-  background:#004890;--q:2px;clip-path:polygon(
-    var(--q) 0, calc(100% - var(--q)) 0, calc(100% - var(--q)) var(--q),
-    100% var(--q), 100% calc(100% - var(--q)),
-    calc(100% - var(--q)) calc(100% - var(--q)), calc(100% - var(--q)) 100%,
-    var(--q) 100%, var(--q) calc(100% - var(--q)), 0 calc(100% - var(--q)),
-    0 var(--q), var(--q) var(--q))}
-#tabbar button:hover{background:rgba(255,255,255,.28)}
+  font-size:18px;color:#00407f;background:#68c0c8;border:0;border-right:3px solid #004890;height:36px;
+  padding:0 15px;
+  display:flex;align-items:center;line-height:1}
+#tabbar button:hover{filter:brightness(1.08)}
 #tabbar button[aria-selected="true"]{background:#e0d898;color:#f8f8f8;
-  text-shadow:1px 1px 0 #606878;box-shadow:3px 0 0 0 #004890}
-#tabbar button[aria-selected="true"]::before{background:#f8f8f8;
-  box-shadow:1px 1px 0 rgba(96,104,120,.55)}
-#tabbar button[aria-selected="true"]:hover{background:#e6dfa6}
-/* the blue cap that closes the bar in-game */
-#tabbar::after{content:"";flex:0 0 18px;margin-left:auto;background:#0078c0;
-  align-self:stretch}
+  text-shadow:1px 1px 0 #606878}
+
 #tabbar button:focus-visible{outline:3px solid var(--pika);outline-offset:-4px}
 #tabbar button.tab-empty{opacity:.62}
 .pane[hidden]{display:none}
@@ -210,9 +205,8 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 .maparea.showfull .mapimg.crop{display:none}
 .maparea.showfull .mapimg.full{display:block}
 .map-popup{position:absolute;top:7px;display:flex;align-items:center;gap:6px;
-  background:#fff;color:#3a4448;border:0;
-  box-shadow:0 -2px 0 0 #30383c,0 2px 0 0 #30383c,-2px 0 0 0 #30383c,
-    2px 0 0 0 #30383c,3px 3px 0 rgba(0,0,0,.4);
+  background:#fff;color:#3a4448;border:2px solid #30383c;
+  box-shadow:1px 1px 0 rgba(0,0,0,.4);
   padding:2px 10px;font-size:17px;line-height:1.1;white-space:nowrap}
 .map-popup.town{left:7px}
 .map-popup.clock{right:7px}
@@ -241,14 +235,11 @@ img.badge.unlit{filter:grayscale(1) brightness(.55) opacity(.45)}
 
 /* Filled pills have no border to omit, so their corners are clipped instead --
    a 2px staircase, all cuts axis-aligned so nothing gets anti-aliased. */
-.type,.ail,.tc-idno,.tc-badgelabel,.badge-slot,.panel h2,.tcard h2,.map-popup,
-#tabbar,#tabbar button,.dn{--q:2px;clip-path:polygon(
+.type,.ail,.tc-idno,.tc-badgelabel,.badge-slot,.panel h2,.tcard h2,
+.dn{--q:2px;clip-path:polygon(
   var(--q) 0, calc(100% - var(--q)) 0,
   calc(100% - var(--q)) var(--q), 100% var(--q),
   100% calc(100% - var(--q)), calc(100% - var(--q)) calc(100% - var(--q)),
   calc(100% - var(--q)) 100%, var(--q) 100%,
   var(--q) calc(100% - var(--q)), 0 calc(100% - var(--q)),
   0 var(--q), var(--q) var(--q))}
-/* the map popups keep their drawn border, so give them a wider step */
-.map-popup{--q:3px}
-#tabbar{--q:5px}

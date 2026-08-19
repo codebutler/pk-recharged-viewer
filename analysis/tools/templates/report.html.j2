@@ -14,7 +14,7 @@
 {%- endmacro -%}
 
 {%- macro type_chip(t, cls="type") -%}
-<span class="{{ cls }}" style="background:{{ t.color }}">{{ t.name|upper }}</span>
+<span class="{{ cls }}" style="background:{{ t.color }};border-top-color:{{ t.light }};border-bottom-color:{{ t.dark }}">{{ t.name|upper }}</span>
 {%- endmacro -%}
 
 {%- macro panel(title) -%}
@@ -49,7 +49,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{ title }}</title>
 <style>{{ font_css|safe }}{% include "report.css" %}{{ cursor_css|safe }}</style></head><body>
-<h1>POKEMON RECHARGED YELLOW</h1>
+<h1>POKEMON RECHARGED YELLOW<small>SAVE ANALYZER</small></h1>
 <main>
 {%- if not in_game %}
 <section class="panel"><h2>No save loaded</h2><p class="empty">{{ error }}</p></section>

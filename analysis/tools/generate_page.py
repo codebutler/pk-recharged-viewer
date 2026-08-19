@@ -72,13 +72,31 @@ ITEM_ALIASES = {
     "stardust": "stardust",
 }
 
+# Type-chip palette lifted pixel-by-pixel from Emerald's own type icons:
+# (body fill, 1px highlight along the top, shade along the bottom). The icons
+# also print their label in white over a #807870 shadow -- see .type in the
+# stylesheet.
 TYPE_COLORS = {
-    "normal": "#A8A878", "fire": "#F08030", "water": "#6890F0",
-    "electric": "#F8D030", "grass": "#78C850", "ice": "#98D8D8",
-    "fighting": "#C03028", "poison": "#A040A0", "ground": "#E0C068",
-    "flying": "#A890F0", "psychic": "#F85888", "bug": "#A8B820",
-    "rock": "#B8A038", "ghost": "#705898", "dragon": "#7038F8",
-    "dark": "#705848", "steel": "#B8B8D0", "fairy": "#EE99AC",
+    "normal": ("#a8a878", "#d8d8c0", "#705848"),
+    "fighting": ("#c03028", "#f08030", "#484038"),
+    "flying": ("#a890f0", "#c8c0f8", "#705898"),
+    "poison": ("#a040a0", "#d880b8", "#483850"),
+    "ground": ("#e0c068", "#f8f878", "#886830"),
+    "rock": ("#b8a038", "#e0c068", "#886830"),
+    "bug": ("#a8b820", "#d8e030", "#789010"),
+    "ghost": ("#705898", "#a890f0", "#483850"),
+    "steel": ("#b8b8d0", "#d8d8c0", "#807870"),
+    "fire": ("#f08030", "#f8d030", "#c03028"),
+    "water": ("#6890f0", "#98d8d8", "#807870"),
+    "grass": ("#78c850", "#c0f860", "#588040"),
+    "electric": ("#f8d030", "#f8f878", "#b8a038"),
+    "psychic": ("#f85888", "#f8c0b0", "#906060"),
+    "ice": ("#98d8d8", "#d0f8e8", "#9090a0"),
+    "dragon": ("#7038f8", "#b8a0f8", "#483890"),
+    "dark": ("#705848", "#a8a878", "#484038"),
+    # post-Gen-3, so it has no icon in the ROM: shaded to match the set
+    "fairy": ("#ee99ac", "#f8c0d0", "#a06070"),
+    "unknown": ("#68a090", "#70c8b0", "#206860"),
 }
 
 # PokeAPI serves current-gen move types; these moves were retyped to Fairy
@@ -339,7 +357,8 @@ def pct(value, maximum):
 
 
 def type_info(name):
-    return {"name": name, "color": TYPE_COLORS.get(name, "#888")}
+    fill, light, dark = TYPE_COLORS.get(name, ("#888", "#aaa", "#555"))
+    return {"name": name, "color": fill, "light": light, "dark": dark}
 
 
 # Gen 3 experience curves (integer math). PokeAPI growth-rate names map:
