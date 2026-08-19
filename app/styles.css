@@ -91,7 +91,7 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
 .tc-band{background:#6ba5de;height:calc(20 * var(--u));display:flex;
   align-items:center;justify-content:space-between;padding:0;border:0}
 .tcard h2{font-family:'Pokemon DP Bold','Pokemon Emerald',monospace;
-  margin:0 0 0 calc(10 * var(--u));padding:0 calc(2 * var(--u));
+  margin:0 0 0 calc(7 * var(--u));padding:0 calc(2 * var(--u));
   font-size:calc(14 * var(--u));line-height:calc(14 * var(--u));
   letter-spacing:calc(.5 * var(--u));
   background:none;color:#f7d68c;box-shadow:none;display:inline-block;
@@ -102,22 +102,34 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
   font-size:calc(13 * var(--u));line-height:1;
   background:#d6e7f7;color:#636363;text-shadow:none;clip-path:none;
   padding:calc(3 * var(--u)) calc(17 * var(--u)) calc(2 * var(--u));
-  margin-right:calc(11 * var(--u))}
+  margin-right:calc(8 * var(--u))}
 /* Body. The shape behind the trainer is a POKE BALL drawn huge, its centre
    just off the body's bottom-right corner so only the top-left quarter shows:
    the ball's outer ring, a white gap, then the button. All three are
    concentric; the radii are least-squares fits to the capture's own pixels
    (ring outer r=80u, max residual half a pixel; ring inner r=49u; button
-   r=32u) around a centre fitted at 100% 100% of this box. */
+   r=32u) about a centre one unit past this box's bottom-right corner, at
+   (223u, 86u) -- fitted, not assumed. */
 .tc-white{height:calc(86 * var(--u));position:relative;margin:0;padding:0;
-  background:
-    radial-gradient(circle calc(32 * var(--u)) at 100% 100%,#d6e7f7 0 100%,transparent 0),
-    radial-gradient(circle calc(80 * var(--u)) at 100% 100%,
+  background-image:
+    /* the button, on top */
+    radial-gradient(circle calc(32 * var(--u)) at calc(223 * var(--u)) calc(86 * var(--u)),
+      #d6e7f7 0 100%,transparent 0),
+    /* the ball's ring: r 49u..80u about the same centre */
+    radial-gradient(circle calc(80 * var(--u)) at calc(223 * var(--u)) calc(86 * var(--u)),
       transparent 0 calc(49 * var(--u)),#c6d6e7 calc(49 * var(--u)) 100%,transparent 0),
     repeating-linear-gradient(180deg,#fff 0 var(--u),#e7f7f7 var(--u) calc(2 * var(--u)));
+  /* The ring's art stops dead at body row 77 in the capture -- the card's
+     background is tiled, and the ball simply has no art in the last tile row,
+     so the arc ends on a straight edge while the button carries on below it.
+     Painting the ring layer into a 77u-tall box reproduces that exactly; its
+     centre is given in absolute units so shrinking the box cannot move it. */
+  background-size:auto,100% calc(77 * var(--u)),auto;
+  background-repeat:no-repeat,no-repeat,repeat;
+  background-position:0 0,0 0,0 0;
   box-shadow:none;display:block}
 .tc-fields{position:absolute;left:0;top:calc(6 * var(--u));
-  width:calc(143 * var(--u));box-sizing:border-box;padding-left:calc(10 * var(--u));
+  width:calc(140 * var(--u));box-sizing:border-box;padding-left:calc(7 * var(--u));
   display:block;max-width:none}
 .tc-frow{display:flex;align-items:center;gap:calc(5 * var(--u));
   height:calc(8 * var(--u));margin-bottom:calc(8 * var(--u));
@@ -139,18 +151,18 @@ img.spr,span.spr{image-rendering:pixelated;display:inline-block;vertical-align:m
    extracted is a slimmer 26x55 figure inside a 64x80 canvas, so this sizes and
    anchors the FIGURE (not the canvas) to land where the game's does -- it
    cannot match its bulk without the card sprite itself. */
-.tc-pic{position:absolute;right:calc(11 * var(--u));bottom:0;
+.tc-pic{position:absolute;right:calc(8 * var(--u));bottom:0;
   height:calc(78 * var(--u));width:auto;image-rendering:pixelated;margin:0}
-.tc-pic-ow{height:calc(52 * var(--u));right:calc(24 * var(--u));
+.tc-pic-ow{height:calc(52 * var(--u));right:calc(21 * var(--u));
   bottom:calc(8 * var(--u))}
 /* badge band */
 .tc-badgeband{background:#84bde7;height:calc(26 * var(--u));position:relative;
   margin:0;padding:0;display:block;box-shadow:none}
-.tc-badgelabel{position:absolute;left:calc(13 * var(--u));top:calc(2 * var(--u));
+.tc-badgelabel{position:absolute;left:calc(10 * var(--u));top:calc(2 * var(--u));
   font-family:'Pokemon DP Bold','Pokemon Emerald',monospace;
   font-size:calc(7 * var(--u));line-height:calc(5 * var(--u));
   color:#fff;background:none;padding:0;clip-path:none;text-shadow:none}
-.tc-badges{position:absolute;left:calc(26 * var(--u));top:calc(8 * var(--u));
+.tc-badges{position:absolute;left:calc(23 * var(--u));top:calc(8 * var(--u));
   display:flex;gap:calc(8 * var(--u));align-items:center}
 /* Earned or empty, every badge sits in the same 16u outlined square. */
 /* The slot's corner pixels are cut in the capture too, so the page's notch
