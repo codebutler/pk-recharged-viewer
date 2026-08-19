@@ -1,0 +1,23 @@
+analysis/report-newgame/index.html
+  s_30c66b9ed26a01::t_2df208ce4a6367 146-165,236
+analysis/report/index.html
+  s_30c66b9ed26a01::t_2df208ce4a6367 146-165,236
+analysis/tools/templates/report.css
+  s_30c66b9ed26a01::t_2df208ce4a6367 143-162,233
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "640c096760b0e444a3bf6313f59a27bd62dbd6b3",
+  "prompts": {},
+  "sessions": {
+    "s_30c66b9ed26a01": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "69d73dcb-7513-4a36-a3ed-9ff836c6943a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Eric Butler <eric@codebutler.com>"
+    }
+  }
+}
