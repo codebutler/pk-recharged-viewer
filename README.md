@@ -89,9 +89,15 @@ no virtualenv and nothing to install.
 Command-line use, if you want JSON rather than a page:
 
 ```sh
-bun lib/parser/cli.js --state <save> --pretty
+bun lib/parser/cli.js --state <savestate-or-.sav> --pretty
+bun lib/parser/cli.js --dump <dumpdir-or-iwram.bin> --pretty
 python3 research/tools/parse_ram.py --state <savestate> --pretty   # the oracle
 ```
+
+The JS CLI needs an explicit flag for every input and rejects a bare filename —
+the two forms read different things, and a savestate handed to the dump reader
+fails by complaining about a missing `ewram.bin`. The oracle still takes a bare
+positional dump path; that asymmetry is deliberate.
 
 ## Layout
 

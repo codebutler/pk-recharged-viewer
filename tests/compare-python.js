@@ -114,7 +114,8 @@ const filter = args.includes("--filter") ? args[args.indexOf("--filter") + 1] : 
 
 const inputs = [];
 for (const dir of await findDumpDirs(join(REPO, "research", "dumps"))) {
-  inputs.push({ label: relative(REPO, dir), pyArgs: [dir], jsArgs: [dir] });
+  // The oracle takes a bare positional dump path; the JS CLI requires --dump.
+  inputs.push({ label: relative(REPO, dir), pyArgs: [dir], jsArgs: ["--dump", dir] });
 }
 for (const name of REAL_SAVES
        ? ["Pokemon Recharged Yellow.gba.st0", "Pokemon Recharged Yellow.gba.st9"]
