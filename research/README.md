@@ -134,6 +134,10 @@ Depth: `hack-offsets.md` (disassembly evidence chain, per-field),
 | `tools/run_harness.sh` + `mgba_dump_harness.lua` | timed dump harness (A/Start spam) | harness agent |
 | `tools/mgba_inject_harness.lua` / `_walk_` / `_explore_` | RAM-injection and exploration harness variants | harness agent |
 | `tools/mgba_wp_hunt.lua` | watchpoint hunt for whoever reads/writes a given address while the game runs | cheat-code round |
+| `vanilla-code-coverage.md` | how much of the ROM is still pokeemerald: 64% of its code is verbatim, measured against a locally built reference. Controls, per-file divergence, caveats | provenance round |
+| `tools/match_vanilla.py` | ROM → vanilla-vs-custom split; fingerprints a built pokeemerald's functions and finds them in a target ROM (BL pairs masked, literal pools wildcarded). Needs a `MODERN=1` build, see its docstring | provenance round |
+| `map-provenance.md` | where the maps came from: 69% of pokefirered's layouts are in the ROM byte-for-byte, 29% as edited copies. The hard version of the FRLG-map-numbering claim | provenance round |
+| `tools/map_provenance.py` | ROM → per-layout verdict (verbatim / edited / absent) by searching for each decomp `map.bin`, always against a control ROM | provenance round |
 | `tools/disasm.py` | ROM disassembler (Thumb/ARM) that names literals from `hack-offsets.json` and decodes `gTasks[id].data[k]`. The one tool here with a dependency (capstone, via `uv run`) | cheat-code round |
 | `tools/README.md` | mGBA setup, harness usage, dump format, live-vs-saved party notes | harness + ram-parser agents |
 | `dumps/newgame-spam/` | 34 dumps of a fresh game (33 timed, f000600–f019800, + final); f000600–f002400 are pre-game | harness agent |
